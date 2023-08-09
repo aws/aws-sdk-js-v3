@@ -1,4 +1,6 @@
+// smithy-typescript generated code
 export * from "./AddCustomRoutingEndpointsCommand";
+export * from "./AddEndpointsCommand";
 export * from "./AdvertiseByoipCidrCommand";
 export * from "./AllowCustomRoutingTrafficCommand";
 export * from "./CreateAcceleratorCommand";
@@ -35,6 +37,7 @@ export * from "./ListListenersCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ProvisionByoipCidrCommand";
 export * from "./RemoveCustomRoutingEndpointsCommand";
+export * from "./RemoveEndpointsCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAcceleratorAttributesCommand";

@@ -1,25 +1,26 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+} from "@smithy/types";
+import { XMLParser } from "fast-xml-parser";
 
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import {
@@ -122,6 +123,7 @@ import {
   SetLoadBalancerPoliciesOfListenerCommandInput,
   SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "../commands/SetLoadBalancerPoliciesOfListenerCommand";
+import { ElasticLoadBalancingServiceException as __BaseException } from "../models/ElasticLoadBalancingServiceException";
 import {
   AccessLog,
   AccessPointNotFoundException,
@@ -231,2319 +233,1883 @@ import {
   UnsupportedProtocolException,
 } from "../models/models_0";
 
-export const serializeAws_queryAddTagsCommand = async (
+/**
+ * serializeAws_queryAddTagsCommand
+ */
+export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddTagsInput(input, context),
+    ...se_AddTagsInput(input, context),
     Action: "AddTags",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async (
+/**
+ * serializeAws_queryApplySecurityGroupsToLoadBalancerCommand
+ */
+export const se_ApplySecurityGroupsToLoadBalancerCommand = async (
   input: ApplySecurityGroupsToLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryApplySecurityGroupsToLoadBalancerInput(input, context),
+    ...se_ApplySecurityGroupsToLoadBalancerInput(input, context),
     Action: "ApplySecurityGroupsToLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
+/**
+ * serializeAws_queryAttachLoadBalancerToSubnetsCommand
+ */
+export const se_AttachLoadBalancerToSubnetsCommand = async (
   input: AttachLoadBalancerToSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAttachLoadBalancerToSubnetsInput(input, context),
+    ...se_AttachLoadBalancerToSubnetsInput(input, context),
     Action: "AttachLoadBalancerToSubnets",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryConfigureHealthCheckCommand = async (
+/**
+ * serializeAws_queryConfigureHealthCheckCommand
+ */
+export const se_ConfigureHealthCheckCommand = async (
   input: ConfigureHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryConfigureHealthCheckInput(input, context),
+    ...se_ConfigureHealthCheckInput(input, context),
     Action: "ConfigureHealthCheck",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
+/**
+ * serializeAws_queryCreateAppCookieStickinessPolicyCommand
+ */
+export const se_CreateAppCookieStickinessPolicyCommand = async (
   input: CreateAppCookieStickinessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateAppCookieStickinessPolicyInput(input, context),
+    ...se_CreateAppCookieStickinessPolicyInput(input, context),
     Action: "CreateAppCookieStickinessPolicy",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
+/**
+ * serializeAws_queryCreateLBCookieStickinessPolicyCommand
+ */
+export const se_CreateLBCookieStickinessPolicyCommand = async (
   input: CreateLBCookieStickinessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateLBCookieStickinessPolicyInput(input, context),
+    ...se_CreateLBCookieStickinessPolicyInput(input, context),
     Action: "CreateLBCookieStickinessPolicy",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateLoadBalancerCommand = async (
+/**
+ * serializeAws_queryCreateLoadBalancerCommand
+ */
+export const se_CreateLoadBalancerCommand = async (
   input: CreateLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateAccessPointInput(input, context),
+    ...se_CreateAccessPointInput(input, context),
     Action: "CreateLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateLoadBalancerListenersCommand = async (
+/**
+ * serializeAws_queryCreateLoadBalancerListenersCommand
+ */
+export const se_CreateLoadBalancerListenersCommand = async (
   input: CreateLoadBalancerListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateLoadBalancerListenerInput(input, context),
+    ...se_CreateLoadBalancerListenerInput(input, context),
     Action: "CreateLoadBalancerListeners",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateLoadBalancerPolicyCommand = async (
+/**
+ * serializeAws_queryCreateLoadBalancerPolicyCommand
+ */
+export const se_CreateLoadBalancerPolicyCommand = async (
   input: CreateLoadBalancerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateLoadBalancerPolicyInput(input, context),
+    ...se_CreateLoadBalancerPolicyInput(input, context),
     Action: "CreateLoadBalancerPolicy",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteLoadBalancerCommand = async (
+/**
+ * serializeAws_queryDeleteLoadBalancerCommand
+ */
+export const se_DeleteLoadBalancerCommand = async (
   input: DeleteLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteAccessPointInput(input, context),
+    ...se_DeleteAccessPointInput(input, context),
     Action: "DeleteLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteLoadBalancerListenersCommand = async (
+/**
+ * serializeAws_queryDeleteLoadBalancerListenersCommand
+ */
+export const se_DeleteLoadBalancerListenersCommand = async (
   input: DeleteLoadBalancerListenersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteLoadBalancerListenerInput(input, context),
+    ...se_DeleteLoadBalancerListenerInput(input, context),
     Action: "DeleteLoadBalancerListeners",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteLoadBalancerPolicyCommand = async (
+/**
+ * serializeAws_queryDeleteLoadBalancerPolicyCommand
+ */
+export const se_DeleteLoadBalancerPolicyCommand = async (
   input: DeleteLoadBalancerPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteLoadBalancerPolicyInput(input, context),
+    ...se_DeleteLoadBalancerPolicyInput(input, context),
     Action: "DeleteLoadBalancerPolicy",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeregisterInstancesFromLoadBalancerCommand = async (
+/**
+ * serializeAws_queryDeregisterInstancesFromLoadBalancerCommand
+ */
+export const se_DeregisterInstancesFromLoadBalancerCommand = async (
   input: DeregisterInstancesFromLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeregisterEndPointsInput(input, context),
+    ...se_DeregisterEndPointsInput(input, context),
     Action: "DeregisterInstancesFromLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeAccountLimitsCommand = async (
+/**
+ * serializeAws_queryDescribeAccountLimitsCommand
+ */
+export const se_DescribeAccountLimitsCommand = async (
   input: DescribeAccountLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeAccountLimitsInput(input, context),
+    ...se_DescribeAccountLimitsInput(input, context),
     Action: "DescribeAccountLimits",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeInstanceHealthCommand = async (
+/**
+ * serializeAws_queryDescribeInstanceHealthCommand
+ */
+export const se_DescribeInstanceHealthCommand = async (
   input: DescribeInstanceHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeEndPointStateInput(input, context),
+    ...se_DescribeEndPointStateInput(input, context),
     Action: "DescribeInstanceHealth",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeLoadBalancerAttributesCommand = async (
+/**
+ * serializeAws_queryDescribeLoadBalancerAttributesCommand
+ */
+export const se_DescribeLoadBalancerAttributesCommand = async (
   input: DescribeLoadBalancerAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeLoadBalancerAttributesInput(input, context),
+    ...se_DescribeLoadBalancerAttributesInput(input, context),
     Action: "DescribeLoadBalancerAttributes",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
+/**
+ * serializeAws_queryDescribeLoadBalancerPoliciesCommand
+ */
+export const se_DescribeLoadBalancerPoliciesCommand = async (
   input: DescribeLoadBalancerPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeLoadBalancerPoliciesInput(input, context),
+    ...se_DescribeLoadBalancerPoliciesInput(input, context),
     Action: "DescribeLoadBalancerPolicies",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
+/**
+ * serializeAws_queryDescribeLoadBalancerPolicyTypesCommand
+ */
+export const se_DescribeLoadBalancerPolicyTypesCommand = async (
   input: DescribeLoadBalancerPolicyTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeLoadBalancerPolicyTypesInput(input, context),
+    ...se_DescribeLoadBalancerPolicyTypesInput(input, context),
     Action: "DescribeLoadBalancerPolicyTypes",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeLoadBalancersCommand = async (
+/**
+ * serializeAws_queryDescribeLoadBalancersCommand
+ */
+export const se_DescribeLoadBalancersCommand = async (
   input: DescribeLoadBalancersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeAccessPointsInput(input, context),
+    ...se_DescribeAccessPointsInput(input, context),
     Action: "DescribeLoadBalancers",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeTagsCommand = async (
+/**
+ * serializeAws_queryDescribeTagsCommand
+ */
+export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeTagsInput(input, context),
+    ...se_DescribeTagsInput(input, context),
     Action: "DescribeTags",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
+/**
+ * serializeAws_queryDetachLoadBalancerFromSubnetsCommand
+ */
+export const se_DetachLoadBalancerFromSubnetsCommand = async (
   input: DetachLoadBalancerFromSubnetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDetachLoadBalancerFromSubnetsInput(input, context),
+    ...se_DetachLoadBalancerFromSubnetsInput(input, context),
     Action: "DetachLoadBalancerFromSubnets",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = async (
+/**
+ * serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand
+ */
+export const se_DisableAvailabilityZonesForLoadBalancerCommand = async (
   input: DisableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemoveAvailabilityZonesInput(input, context),
+    ...se_RemoveAvailabilityZonesInput(input, context),
     Action: "DisableAvailabilityZonesForLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = async (
+/**
+ * serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
+ */
+export const se_EnableAvailabilityZonesForLoadBalancerCommand = async (
   input: EnableAvailabilityZonesForLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddAvailabilityZonesInput(input, context),
+    ...se_AddAvailabilityZonesInput(input, context),
     Action: "EnableAvailabilityZonesForLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyLoadBalancerAttributesCommand = async (
+/**
+ * serializeAws_queryModifyLoadBalancerAttributesCommand
+ */
+export const se_ModifyLoadBalancerAttributesCommand = async (
   input: ModifyLoadBalancerAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyLoadBalancerAttributesInput(input, context),
+    ...se_ModifyLoadBalancerAttributesInput(input, context),
     Action: "ModifyLoadBalancerAttributes",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRegisterInstancesWithLoadBalancerCommand = async (
+/**
+ * serializeAws_queryRegisterInstancesWithLoadBalancerCommand
+ */
+export const se_RegisterInstancesWithLoadBalancerCommand = async (
   input: RegisterInstancesWithLoadBalancerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRegisterEndPointsInput(input, context),
+    ...se_RegisterEndPointsInput(input, context),
     Action: "RegisterInstancesWithLoadBalancer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRemoveTagsCommand = async (
+/**
+ * serializeAws_queryRemoveTagsCommand
+ */
+export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemoveTagsInput(input, context),
+    ...se_RemoveTagsInput(input, context),
     Action: "RemoveTags",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetLoadBalancerListenerSSLCertificateCommand = async (
+/**
+ * serializeAws_querySetLoadBalancerListenerSSLCertificateCommand
+ */
+export const se_SetLoadBalancerListenerSSLCertificateCommand = async (
   input: SetLoadBalancerListenerSSLCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetLoadBalancerListenerSSLCertificateInput(input, context),
+    ...se_SetLoadBalancerListenerSSLCertificateInput(input, context),
     Action: "SetLoadBalancerListenerSSLCertificate",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = async (
+/**
+ * serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand
+ */
+export const se_SetLoadBalancerPoliciesForBackendServerCommand = async (
   input: SetLoadBalancerPoliciesForBackendServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetLoadBalancerPoliciesForBackendServerInput(input, context),
+    ...se_SetLoadBalancerPoliciesForBackendServerInput(input, context),
     Action: "SetLoadBalancerPoliciesForBackendServer",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async (
+/**
+ * serializeAws_querySetLoadBalancerPoliciesOfListenerCommand
+ */
+export const se_SetLoadBalancerPoliciesOfListenerCommand = async (
   input: SetLoadBalancerPoliciesOfListenerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_querySetLoadBalancerPoliciesOfListenerInput(input, context),
+    ...se_SetLoadBalancerPoliciesOfListenerInput(input, context),
     Action: "SetLoadBalancerPoliciesOfListener",
     Version: "2012-06-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_queryAddTagsCommand = async (
+/**
+ * deserializeAws_queryAddTagsCommand
+ */
+export const de_AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAddTagsCommandError(output, context);
+    return de_AddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAddTagsOutput(data.AddTagsResult, context);
+  contents = de_AddTagsOutput(data.AddTagsResult, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAddTagsCommandError = async (
+/**
+ * deserializeAws_queryAddTagsCommandError
+ */
+const de_AddTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicateTagKeysException":
+    case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyTagsException":
+      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTags":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand
+ */
+export const de_ApplySecurityGroupsToLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError(output, context);
+    return de_ApplySecurityGroupsToLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryApplySecurityGroupsToLoadBalancerOutput(
-    data.ApplySecurityGroupsToLoadBalancerResult,
-    context
-  );
+  contents = de_ApplySecurityGroupsToLoadBalancerOutput(data.ApplySecurityGroupsToLoadBalancerResult, context);
   const response: ApplySecurityGroupsToLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
+ */
+const de_ApplySecurityGroupsToLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSecurityGroupException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "InvalidSecurityGroup":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
-      response = {
-        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidSecurityGroupExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
+/**
+ * deserializeAws_queryAttachLoadBalancerToSubnetsCommand
+ */
+export const de_AttachLoadBalancerToSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAttachLoadBalancerToSubnetsCommandError(output, context);
+    return de_AttachLoadBalancerToSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAttachLoadBalancerToSubnetsOutput(data.AttachLoadBalancerToSubnetsResult, context);
+  contents = de_AttachLoadBalancerToSubnetsOutput(data.AttachLoadBalancerToSubnetsResult, context);
   const response: AttachLoadBalancerToSubnetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
+/**
+ * deserializeAws_queryAttachLoadBalancerToSubnetsCommandError
+ */
+const de_AttachLoadBalancerToSubnetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSubnetException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "InvalidSubnet":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "SubnetNotFoundException":
+      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "SubnetNotFound":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
-      response = {
-        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryConfigureHealthCheckCommand = async (
+/**
+ * deserializeAws_queryConfigureHealthCheckCommand
+ */
+export const de_ConfigureHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfigureHealthCheckCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryConfigureHealthCheckCommandError(output, context);
+    return de_ConfigureHealthCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryConfigureHealthCheckOutput(data.ConfigureHealthCheckResult, context);
+  contents = de_ConfigureHealthCheckOutput(data.ConfigureHealthCheckResult, context);
   const response: ConfigureHealthCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryConfigureHealthCheckCommandError = async (
+/**
+ * deserializeAws_queryConfigureHealthCheckCommandError
+ */
+const de_ConfigureHealthCheckCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfigureHealthCheckCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
+/**
+ * deserializeAws_queryCreateAppCookieStickinessPolicyCommand
+ */
+export const de_CreateAppCookieStickinessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateAppCookieStickinessPolicyCommandError(output, context);
+    return de_CreateAppCookieStickinessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateAppCookieStickinessPolicyOutput(
-    data.CreateAppCookieStickinessPolicyResult,
-    context
-  );
+  contents = de_CreateAppCookieStickinessPolicyOutput(data.CreateAppCookieStickinessPolicyResult, context);
   const response: CreateAppCookieStickinessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
+/**
+ * deserializeAws_queryCreateAppCookieStickinessPolicyCommandError
+ */
+const de_CreateAppCookieStickinessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyPoliciesException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      response = {
-        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
+/**
+ * deserializeAws_queryCreateLBCookieStickinessPolicyCommand
+ */
+export const de_CreateLBCookieStickinessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateLBCookieStickinessPolicyCommandError(output, context);
+    return de_CreateLBCookieStickinessPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateLBCookieStickinessPolicyOutput(
-    data.CreateLBCookieStickinessPolicyResult,
-    context
-  );
+  contents = de_CreateLBCookieStickinessPolicyOutput(data.CreateLBCookieStickinessPolicyResult, context);
   const response: CreateLBCookieStickinessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
+/**
+ * deserializeAws_queryCreateLBCookieStickinessPolicyCommandError
+ */
+const de_CreateLBCookieStickinessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyPoliciesException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      response = {
-        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryCreateLoadBalancerCommand
+ */
+export const de_CreateLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateLoadBalancerCommandError(output, context);
+    return de_CreateLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateAccessPointOutput(data.CreateLoadBalancerResult, context);
+  contents = de_CreateAccessPointOutput(data.CreateLoadBalancerResult, context);
   const response: CreateLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryCreateLoadBalancerCommandError
+ */
+const de_CreateLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicateAccessPointNameException":
+      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateLoadBalancerName":
     case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicateTagKeysException":
+      throw await de_DuplicateAccessPointNameExceptionRes(parsedOutput, context);
+    case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSchemeException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "InvalidScheme":
     case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
-      response = {
-        ...(await deserializeAws_queryInvalidSchemeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSecurityGroupException":
+      throw await de_InvalidSchemeExceptionRes(parsedOutput, context);
+    case "InvalidSecurityGroup":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
-      response = {
-        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSubnetException":
+      throw await de_InvalidSecurityGroupExceptionRes(parsedOutput, context);
+    case "InvalidSubnet":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OperationNotPermittedException":
+      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
+    case "OperationNotPermitted":
     case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "SubnetNotFoundException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "SubnetNotFound":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
-      response = {
-        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyAccessPointsException":
+      throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyLoadBalancers":
     case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
-      response = {
-        ...(await deserializeAws_queryTooManyAccessPointsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyTagsException":
+      throw await de_TooManyAccessPointsExceptionRes(parsedOutput, context);
+    case "TooManyTags":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UnsupportedProtocolException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      response = {
-        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateLoadBalancerListenersCommand = async (
+/**
+ * deserializeAws_queryCreateLoadBalancerListenersCommand
+ */
+export const de_CreateLoadBalancerListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerListenersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateLoadBalancerListenersCommandError(output, context);
+    return de_CreateLoadBalancerListenersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateLoadBalancerListenerOutput(data.CreateLoadBalancerListenersResult, context);
+  contents = de_CreateLoadBalancerListenerOutput(data.CreateLoadBalancerListenersResult, context);
   const response: CreateLoadBalancerListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
+/**
+ * deserializeAws_queryCreateLoadBalancerListenersCommandError
+ */
+const de_CreateLoadBalancerListenersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicateListenerException":
+      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateListener":
     case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
-      response = {
-        ...(await deserializeAws_queryDuplicateListenerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+      throw await de_DuplicateListenerExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UnsupportedProtocolException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      response = {
-        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateLoadBalancerPolicyCommand = async (
+/**
+ * deserializeAws_queryCreateLoadBalancerPolicyCommand
+ */
+export const de_CreateLoadBalancerPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateLoadBalancerPolicyCommandError(output, context);
+    return de_CreateLoadBalancerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateLoadBalancerPolicyOutput(data.CreateLoadBalancerPolicyResult, context);
+  contents = de_CreateLoadBalancerPolicyOutput(data.CreateLoadBalancerPolicyResult, context);
   const response: CreateLoadBalancerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
+/**
+ * deserializeAws_queryCreateLoadBalancerPolicyCommandError
+ */
+const de_CreateLoadBalancerPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicatePolicyNameException":
+    case "DuplicatePolicyName":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "PolicyTypeNotFoundException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "PolicyTypeNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyPoliciesException":
+      throw await de_PolicyTypeNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyPolicies":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      response = {
-        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryDeleteLoadBalancerCommand
+ */
+export const de_DeleteLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteLoadBalancerCommandError(output, context);
+    return de_DeleteLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteAccessPointOutput(data.DeleteLoadBalancerResult, context);
+  contents = de_DeleteAccessPointOutput(data.DeleteLoadBalancerResult, context);
   const response: DeleteLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryDeleteLoadBalancerCommandError
+ */
+const de_DeleteLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
 };
 
-export const deserializeAws_queryDeleteLoadBalancerListenersCommand = async (
+/**
+ * deserializeAws_queryDeleteLoadBalancerListenersCommand
+ */
+export const de_DeleteLoadBalancerListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerListenersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteLoadBalancerListenersCommandError(output, context);
+    return de_DeleteLoadBalancerListenersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteLoadBalancerListenerOutput(data.DeleteLoadBalancerListenersResult, context);
+  contents = de_DeleteLoadBalancerListenerOutput(data.DeleteLoadBalancerListenersResult, context);
   const response: DeleteLoadBalancerListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
+/**
+ * deserializeAws_queryDeleteLoadBalancerListenersCommandError
+ */
+const de_DeleteLoadBalancerListenersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerListenersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteLoadBalancerPolicyCommand = async (
+/**
+ * deserializeAws_queryDeleteLoadBalancerPolicyCommand
+ */
+export const de_DeleteLoadBalancerPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteLoadBalancerPolicyCommandError(output, context);
+    return de_DeleteLoadBalancerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteLoadBalancerPolicyOutput(data.DeleteLoadBalancerPolicyResult, context);
+  contents = de_DeleteLoadBalancerPolicyOutput(data.DeleteLoadBalancerPolicyResult, context);
   const response: DeleteLoadBalancerPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
+/**
+ * deserializeAws_queryDeleteLoadBalancerPolicyCommandError
+ */
+const de_DeleteLoadBalancerPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand
+ */
+export const de_DeregisterInstancesFromLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError(output, context);
+    return de_DeregisterInstancesFromLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeregisterEndPointsOutput(data.DeregisterInstancesFromLoadBalancerResult, context);
+  contents = de_DeregisterEndPointsOutput(data.DeregisterInstancesFromLoadBalancerResult, context);
   const response: DeregisterInstancesFromLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError
+ */
+const de_DeregisterInstancesFromLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      response = {
-        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeAccountLimitsCommand = async (
+/**
+ * deserializeAws_queryDescribeAccountLimitsCommand
+ */
+export const de_DescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
+    return de_DescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
+  contents = de_DescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeAccountLimitsCommandError = async (
+/**
+ * deserializeAws_queryDescribeAccountLimitsCommandError
+ */
+const de_DescribeAccountLimitsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
 };
 
-export const deserializeAws_queryDescribeInstanceHealthCommand = async (
+/**
+ * deserializeAws_queryDescribeInstanceHealthCommand
+ */
+export const de_DescribeInstanceHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceHealthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeInstanceHealthCommandError(output, context);
+    return de_DescribeInstanceHealthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeEndPointStateOutput(data.DescribeInstanceHealthResult, context);
+  contents = de_DescribeEndPointStateOutput(data.DescribeInstanceHealthResult, context);
   const response: DescribeInstanceHealthCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeInstanceHealthCommandError = async (
+/**
+ * deserializeAws_queryDescribeInstanceHealthCommandError
+ */
+const de_DescribeInstanceHealthCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInstanceHealthCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      response = {
-        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeLoadBalancerAttributesCommand = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancerAttributesCommand
+ */
+export const de_DescribeLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeLoadBalancerAttributesCommandError(output, context);
+    return de_DescribeLoadBalancerAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeLoadBalancerAttributesOutput(
-    data.DescribeLoadBalancerAttributesResult,
-    context
-  );
+  contents = de_DescribeLoadBalancerAttributesOutput(data.DescribeLoadBalancerAttributesResult, context);
   const response: DescribeLoadBalancerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancerAttributesCommandError
+ */
+const de_DescribeLoadBalancerAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LoadBalancerAttributeNotFoundException":
+    case "LoadBalancerAttributeNotFound":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LoadBalancerAttributeNotFoundExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancerPoliciesCommand
+ */
+export const de_DescribeLoadBalancerPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeLoadBalancerPoliciesCommandError(output, context);
+    return de_DescribeLoadBalancerPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeLoadBalancerPoliciesOutput(data.DescribeLoadBalancerPoliciesResult, context);
+  contents = de_DescribeLoadBalancerPoliciesOutput(data.DescribeLoadBalancerPoliciesResult, context);
   const response: DescribeLoadBalancerPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancerPoliciesCommandError
+ */
+const de_DescribeLoadBalancerPoliciesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "PolicyNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand
+ */
+export const de_DescribeLoadBalancerPolicyTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError(output, context);
+    return de_DescribeLoadBalancerPolicyTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeLoadBalancerPolicyTypesOutput(
-    data.DescribeLoadBalancerPolicyTypesResult,
-    context
-  );
+  contents = de_DescribeLoadBalancerPolicyTypesOutput(data.DescribeLoadBalancerPolicyTypesResult, context);
   const response: DescribeLoadBalancerPolicyTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError
+ */
+const de_DescribeLoadBalancerPolicyTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "PolicyTypeNotFoundException":
+    case "PolicyTypeNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PolicyTypeNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeLoadBalancersCommand = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancersCommand
+ */
+export const de_DescribeLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeLoadBalancersCommandError(output, context);
+    return de_DescribeLoadBalancersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeAccessPointsOutput(data.DescribeLoadBalancersResult, context);
+  contents = de_DescribeAccessPointsOutput(data.DescribeLoadBalancersResult, context);
   const response: DescribeLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeLoadBalancersCommandError = async (
+/**
+ * deserializeAws_queryDescribeLoadBalancersCommandError
+ */
+const de_DescribeLoadBalancersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DependencyThrottleException":
+    case "DependencyThrottle":
     case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
-      response = {
-        ...(await deserializeAws_queryDependencyThrottleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_DependencyThrottleExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeTagsCommand = async (
+/**
+ * deserializeAws_queryDescribeTagsCommand
+ */
+export const de_DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeTagsCommandError(output, context);
+    return de_DescribeTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeTagsOutput(data.DescribeTagsResult, context);
+  contents = de_DescribeTagsOutput(data.DescribeTagsResult, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeTagsCommandError = async (
+/**
+ * deserializeAws_queryDescribeTagsCommandError
+ */
+const de_DescribeTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
+/**
+ * deserializeAws_queryDetachLoadBalancerFromSubnetsCommand
+ */
+export const de_DetachLoadBalancerFromSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError(output, context);
+    return de_DetachLoadBalancerFromSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDetachLoadBalancerFromSubnetsOutput(data.DetachLoadBalancerFromSubnetsResult, context);
+  contents = de_DetachLoadBalancerFromSubnetsOutput(data.DetachLoadBalancerFromSubnetsResult, context);
   const response: DetachLoadBalancerFromSubnetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
+/**
+ * deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError
+ */
+const de_DetachLoadBalancerFromSubnetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand
+ */
+export const de_DisableAvailabilityZonesForLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError(output, context);
+    return de_DisableAvailabilityZonesForLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRemoveAvailabilityZonesOutput(
-    data.DisableAvailabilityZonesForLoadBalancerResult,
-    context
-  );
+  contents = de_RemoveAvailabilityZonesOutput(data.DisableAvailabilityZonesForLoadBalancerResult, context);
   const response: DisableAvailabilityZonesForLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError
+ */
+const de_DisableAvailabilityZonesForLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
+ */
+export const de_EnableAvailabilityZonesForLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError(output, context);
+    return de_EnableAvailabilityZonesForLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAddAvailabilityZonesOutput(data.EnableAvailabilityZonesForLoadBalancerResult, context);
+  contents = de_AddAvailabilityZonesOutput(data.EnableAvailabilityZonesForLoadBalancerResult, context);
   const response: EnableAvailabilityZonesForLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError
+ */
+const de_EnableAvailabilityZonesForLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyLoadBalancerAttributesCommand = async (
+/**
+ * deserializeAws_queryModifyLoadBalancerAttributesCommand
+ */
+export const de_ModifyLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyLoadBalancerAttributesCommandError(output, context);
+    return de_ModifyLoadBalancerAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryModifyLoadBalancerAttributesOutput(data.ModifyLoadBalancerAttributesResult, context);
+  contents = de_ModifyLoadBalancerAttributesOutput(data.ModifyLoadBalancerAttributesResult, context);
   const response: ModifyLoadBalancerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
+/**
+ * deserializeAws_queryModifyLoadBalancerAttributesCommandError
+ */
+const de_ModifyLoadBalancerAttributesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LoadBalancerAttributeNotFoundException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerAttributeNotFound":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LoadBalancerAttributeNotFoundExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryRegisterInstancesWithLoadBalancerCommand = async (
+/**
+ * deserializeAws_queryRegisterInstancesWithLoadBalancerCommand
+ */
+export const de_RegisterInstancesWithLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError(output, context);
+    return de_RegisterInstancesWithLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRegisterEndPointsOutput(data.RegisterInstancesWithLoadBalancerResult, context);
+  contents = de_RegisterEndPointsOutput(data.RegisterInstancesWithLoadBalancerResult, context);
   const response: RegisterInstancesWithLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async (
+/**
+ * deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
+ */
+const de_RegisterInstancesWithLoadBalancerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidEndPointException":
+    case "InvalidInstance":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      response = {
-        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryRemoveTagsCommand = async (
+/**
+ * deserializeAws_queryRemoveTagsCommand
+ */
+export const de_RemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRemoveTagsCommandError(output, context);
+    return de_RemoveTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRemoveTagsOutput(data.RemoveTagsResult, context);
+  contents = de_RemoveTagsOutput(data.RemoveTagsResult, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRemoveTagsCommandError = async (
+/**
+ * deserializeAws_queryRemoveTagsCommandError
+ */
+const de_RemoveTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
+    case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand = async (
+/**
+ * deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand
+ */
+export const de_SetLoadBalancerListenerSSLCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError(output, context);
+    return de_SetLoadBalancerListenerSSLCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput(
-    data.SetLoadBalancerListenerSSLCertificateResult,
-    context
-  );
+  contents = de_SetLoadBalancerListenerSSLCertificateOutput(data.SetLoadBalancerListenerSSLCertificateResult, context);
   const response: SetLoadBalancerListenerSSLCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = async (
+/**
+ * deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError
+ */
+const de_SetLoadBalancerListenerSSLCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CertificateNotFoundException":
+    case "CertificateNotFound":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ListenerNotFoundException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "ListenerNotFound":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
-      response = {
-        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UnsupportedProtocolException":
+      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      response = {
-        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = async (
+/**
+ * deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand
+ */
+export const de_SetLoadBalancerPoliciesForBackendServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError(output, context);
+    return de_SetLoadBalancerPoliciesForBackendServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySetLoadBalancerPoliciesForBackendServerOutput(
+  contents = de_SetLoadBalancerPoliciesForBackendServerOutput(
     data.SetLoadBalancerPoliciesForBackendServerResult,
     context
   );
@@ -2551,500 +2117,481 @@ export const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand 
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = async (
+/**
+ * deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError
+ */
+const de_SetLoadBalancerPoliciesForBackendServerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "PolicyNotFoundException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async (
+/**
+ * deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand
+ */
+export const de_SetLoadBalancerPoliciesOfListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError(output, context);
+    return de_SetLoadBalancerPoliciesOfListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_querySetLoadBalancerPoliciesOfListenerOutput(
-    data.SetLoadBalancerPoliciesOfListenerResult,
-    context
-  );
+  contents = de_SetLoadBalancerPoliciesOfListenerOutput(data.SetLoadBalancerPoliciesOfListenerResult, context);
   const response: SetLoadBalancerPoliciesOfListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async (
+/**
+ * deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
+ */
+const de_SetLoadBalancerPoliciesOfListenerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessPointNotFoundException":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidConfigurationRequestException":
+    case "InvalidConfigurationRequest":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ListenerNotFoundException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "ListenerNotFound":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
-      response = {
-        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "PolicyNotFoundException":
+      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
+    case "LoadBalancerNotFound":
+    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
+      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_queryAccessPointNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryAccessPointNotFoundExceptionRes
+ */
+const de_AccessPointNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessPointNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAccessPointNotFoundException(body.Error, context);
-  const contents: AccessPointNotFoundException = {
-    name: "AccessPointNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_AccessPointNotFoundException(body.Error, context);
+  const exception = new AccessPointNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCertificateNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryCertificateNotFoundExceptionRes
+ */
+const de_CertificateNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCertificateNotFoundException(body.Error, context);
-  const contents: CertificateNotFoundException = {
-    name: "CertificateNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_CertificateNotFoundException(body.Error, context);
+  const exception = new CertificateNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDependencyThrottleExceptionResponse = async (
+/**
+ * deserializeAws_queryDependencyThrottleExceptionRes
+ */
+const de_DependencyThrottleExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyThrottleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDependencyThrottleException(body.Error, context);
-  const contents: DependencyThrottleException = {
-    name: "DependencyThrottleException",
-    $fault: "client",
+  const deserialized: any = de_DependencyThrottleException(body.Error, context);
+  const exception = new DependencyThrottleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicateAccessPointNameExceptionResponse = async (
+/**
+ * deserializeAws_queryDuplicateAccessPointNameExceptionRes
+ */
+const de_DuplicateAccessPointNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateAccessPointNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicateAccessPointNameException(body.Error, context);
-  const contents: DuplicateAccessPointNameException = {
-    name: "DuplicateAccessPointNameException",
-    $fault: "client",
+  const deserialized: any = de_DuplicateAccessPointNameException(body.Error, context);
+  const exception = new DuplicateAccessPointNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicateListenerExceptionResponse = async (
+/**
+ * deserializeAws_queryDuplicateListenerExceptionRes
+ */
+const de_DuplicateListenerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateListenerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicateListenerException(body.Error, context);
-  const contents: DuplicateListenerException = {
-    name: "DuplicateListenerException",
-    $fault: "client",
+  const deserialized: any = de_DuplicateListenerException(body.Error, context);
+  const exception = new DuplicateListenerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicatePolicyNameExceptionResponse = async (
+/**
+ * deserializeAws_queryDuplicatePolicyNameExceptionRes
+ */
+const de_DuplicatePolicyNameExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicatePolicyNameException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicatePolicyNameException(body.Error, context);
-  const contents: DuplicatePolicyNameException = {
-    name: "DuplicatePolicyNameException",
-    $fault: "client",
+  const deserialized: any = de_DuplicatePolicyNameException(body.Error, context);
+  const exception = new DuplicatePolicyNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicateTagKeysExceptionResponse = async (
+/**
+ * deserializeAws_queryDuplicateTagKeysExceptionRes
+ */
+const de_DuplicateTagKeysExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateTagKeysException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicateTagKeysException(body.Error, context);
-  const contents: DuplicateTagKeysException = {
-    name: "DuplicateTagKeysException",
-    $fault: "client",
+  const deserialized: any = de_DuplicateTagKeysException(body.Error, context);
+  const exception = new DuplicateTagKeysException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidConfigurationRequestExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidConfigurationRequestExceptionRes
+ */
+const de_InvalidConfigurationRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidConfigurationRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidConfigurationRequestException(body.Error, context);
-  const contents: InvalidConfigurationRequestException = {
-    name: "InvalidConfigurationRequestException",
-    $fault: "client",
+  const deserialized: any = de_InvalidConfigurationRequestException(body.Error, context);
+  const exception = new InvalidConfigurationRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidEndPointExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidEndPointExceptionRes
+ */
+const de_InvalidEndPointExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEndPointException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidEndPointException(body.Error, context);
-  const contents: InvalidEndPointException = {
-    name: "InvalidEndPointException",
-    $fault: "client",
+  const deserialized: any = de_InvalidEndPointException(body.Error, context);
+  const exception = new InvalidEndPointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidSchemeExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidSchemeExceptionRes
+ */
+const de_InvalidSchemeExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSchemeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSchemeException(body.Error, context);
-  const contents: InvalidSchemeException = {
-    name: "InvalidSchemeException",
-    $fault: "client",
+  const deserialized: any = de_InvalidSchemeException(body.Error, context);
+  const exception = new InvalidSchemeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidSecurityGroupExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidSecurityGroupExceptionRes
+ */
+const de_InvalidSecurityGroupExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSecurityGroupException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSecurityGroupException(body.Error, context);
-  const contents: InvalidSecurityGroupException = {
-    name: "InvalidSecurityGroupException",
-    $fault: "client",
+  const deserialized: any = de_InvalidSecurityGroupException(body.Error, context);
+  const exception = new InvalidSecurityGroupException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidSubnetExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidSubnetExceptionRes
+ */
+const de_InvalidSubnetExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSubnetException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSubnetException(body.Error, context);
-  const contents: InvalidSubnetException = {
-    name: "InvalidSubnetException",
-    $fault: "client",
+  const deserialized: any = de_InvalidSubnetException(body.Error, context);
+  const exception = new InvalidSubnetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryListenerNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryListenerNotFoundExceptionRes
+ */
+const de_ListenerNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ListenerNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryListenerNotFoundException(body.Error, context);
-  const contents: ListenerNotFoundException = {
-    name: "ListenerNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_ListenerNotFoundException(body.Error, context);
+  const exception = new ListenerNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryLoadBalancerAttributeNotFoundExceptionRes
+ */
+const de_LoadBalancerAttributeNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LoadBalancerAttributeNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryLoadBalancerAttributeNotFoundException(body.Error, context);
-  const contents: LoadBalancerAttributeNotFoundException = {
-    name: "LoadBalancerAttributeNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_LoadBalancerAttributeNotFoundException(body.Error, context);
+  const exception = new LoadBalancerAttributeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryOperationNotPermittedExceptionResponse = async (
+/**
+ * deserializeAws_queryOperationNotPermittedExceptionRes
+ */
+const de_OperationNotPermittedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryOperationNotPermittedException(body.Error, context);
-  const contents: OperationNotPermittedException = {
-    name: "OperationNotPermittedException",
-    $fault: "client",
+  const deserialized: any = de_OperationNotPermittedException(body.Error, context);
+  const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryPolicyNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryPolicyNotFoundExceptionRes
+ */
+const de_PolicyNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPolicyNotFoundException(body.Error, context);
-  const contents: PolicyNotFoundException = {
-    name: "PolicyNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_PolicyNotFoundException(body.Error, context);
+  const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryPolicyTypeNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_queryPolicyTypeNotFoundExceptionRes
+ */
+const de_PolicyTypeNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PolicyTypeNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryPolicyTypeNotFoundException(body.Error, context);
-  const contents: PolicyTypeNotFoundException = {
-    name: "PolicyTypeNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_PolicyTypeNotFoundException(body.Error, context);
+  const exception = new PolicyTypeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySubnetNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_querySubnetNotFoundExceptionRes
+ */
+const de_SubnetNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySubnetNotFoundException(body.Error, context);
-  const contents: SubnetNotFoundException = {
-    name: "SubnetNotFoundException",
-    $fault: "client",
+  const deserialized: any = de_SubnetNotFoundException(body.Error, context);
+  const exception = new SubnetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTooManyAccessPointsExceptionResponse = async (
+/**
+ * deserializeAws_queryTooManyAccessPointsExceptionRes
+ */
+const de_TooManyAccessPointsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyAccessPointsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTooManyAccessPointsException(body.Error, context);
-  const contents: TooManyAccessPointsException = {
-    name: "TooManyAccessPointsException",
-    $fault: "client",
+  const deserialized: any = de_TooManyAccessPointsException(body.Error, context);
+  const exception = new TooManyAccessPointsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTooManyPoliciesExceptionResponse = async (
+/**
+ * deserializeAws_queryTooManyPoliciesExceptionRes
+ */
+const de_TooManyPoliciesExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyPoliciesException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTooManyPoliciesException(body.Error, context);
-  const contents: TooManyPoliciesException = {
-    name: "TooManyPoliciesException",
-    $fault: "client",
+  const deserialized: any = de_TooManyPoliciesException(body.Error, context);
+  const exception = new TooManyPoliciesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTooManyTagsExceptionResponse = async (
+/**
+ * deserializeAws_queryTooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTooManyTagsException(body.Error, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
+  const deserialized: any = de_TooManyTagsException(body.Error, context);
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
+/**
+ * deserializeAws_queryUnsupportedProtocolExceptionRes
+ */
+const de_UnsupportedProtocolExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedProtocolException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUnsupportedProtocolException(body.Error, context);
-  const contents: UnsupportedProtocolException = {
-    name: "UnsupportedProtocolException",
-    $fault: "client",
+  const deserialized: any = de_UnsupportedProtocolException(body.Error, context);
+  const exception = new UnsupportedProtocolException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const serializeAws_queryAccessLog = (input: AccessLog, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAccessLog
+ */
+const se_AccessLog = (input: AccessLog, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.S3BucketName !== undefined && input.S3BucketName !== null) {
+  if (input.S3BucketName != null) {
     entries["S3BucketName"] = input.S3BucketName;
   }
-  if (input.EmitInterval !== undefined && input.EmitInterval !== null) {
+  if (input.EmitInterval != null) {
     entries["EmitInterval"] = input.EmitInterval;
   }
-  if (input.S3BucketPrefix !== undefined && input.S3BucketPrefix !== null) {
+  if (input.S3BucketPrefix != null) {
     entries["S3BucketPrefix"] = input.S3BucketPrefix;
   }
   return entries;
 };
 
-const serializeAws_queryAddAvailabilityZonesInput = (
-  input: AddAvailabilityZonesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryAddAvailabilityZonesInput
+ */
+const se_AddAvailabilityZonesInput = (input: AddAvailabilityZonesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+  if (input.AvailabilityZones != null) {
+    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -3053,25 +2600,31 @@ const serializeAws_queryAddAvailabilityZonesInput = (
   return entries;
 };
 
-const serializeAws_queryAdditionalAttribute = (input: AdditionalAttribute, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAdditionalAttribute
+ */
+const se_AdditionalAttribute = (input: AdditionalAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined && input.Value !== null) {
+  if (input.Value != null) {
     entries["Value"] = input.Value;
   }
   return entries;
 };
 
-const serializeAws_queryAdditionalAttributes = (input: AdditionalAttribute[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAdditionalAttributes
+ */
+const se_AdditionalAttributes = (input: AdditionalAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryAdditionalAttribute(entry, context);
+    const memberEntries = se_AdditionalAttribute(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -3080,17 +2633,26 @@ const serializeAws_queryAdditionalAttributes = (input: AdditionalAttribute[], co
   return entries;
 };
 
-const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAddTagsInput
+ */
+const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+  if (input.LoadBalancerNames != null) {
+    const memberEntries = se_LoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3099,16 +2661,22 @@ const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeCon
   return entries;
 };
 
-const serializeAws_queryApplySecurityGroupsToLoadBalancerInput = (
+/**
+ * serializeAws_queryApplySecurityGroupsToLoadBalancerInput
+ */
+const se_ApplySecurityGroupsToLoadBalancerInput = (
   input: ApplySecurityGroupsToLoadBalancerInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.SecurityGroups !== undefined && input.SecurityGroups !== null) {
-    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+  if (input.SecurityGroups != null) {
+    const memberEntries = se_SecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
@@ -3117,16 +2685,19 @@ const serializeAws_queryApplySecurityGroupsToLoadBalancerInput = (
   return entries;
 };
 
-const serializeAws_queryAttachLoadBalancerToSubnetsInput = (
-  input: AttachLoadBalancerToSubnetsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryAttachLoadBalancerToSubnetsInput
+ */
+const se_AttachLoadBalancerToSubnetsInput = (input: AttachLoadBalancerToSubnetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Subnets !== undefined && input.Subnets !== null) {
-    const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+  if (input.Subnets != null) {
+    const memberEntries = se_Subnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -3135,7 +2706,10 @@ const serializeAws_queryAttachLoadBalancerToSubnetsInput = (
   return entries;
 };
 
-const serializeAws_queryAvailabilityZones = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAvailabilityZones
+ */
+const se_AvailabilityZones = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3148,16 +2722,16 @@ const serializeAws_queryAvailabilityZones = (input: string[], context: __SerdeCo
   return entries;
 };
 
-const serializeAws_queryConfigureHealthCheckInput = (
-  input: ConfigureHealthCheckInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryConfigureHealthCheckInput
+ */
+const se_ConfigureHealthCheckInput = (input: ConfigureHealthCheckInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.HealthCheck !== undefined && input.HealthCheck !== null) {
-    const memberEntries = serializeAws_queryHealthCheck(input.HealthCheck, context);
+  if (input.HealthCheck != null) {
+    const memberEntries = se_HealthCheck(input.HealthCheck, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HealthCheck.${key}`;
       entries[loc] = value;
@@ -3166,63 +2740,87 @@ const serializeAws_queryConfigureHealthCheckInput = (
   return entries;
 };
 
-const serializeAws_queryConnectionDraining = (input: ConnectionDraining, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryConnectionDraining
+ */
+const se_ConnectionDraining = (input: ConnectionDraining, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.Timeout !== undefined && input.Timeout !== null) {
+  if (input.Timeout != null) {
     entries["Timeout"] = input.Timeout;
   }
   return entries;
 };
 
-const serializeAws_queryConnectionSettings = (input: ConnectionSettings, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryConnectionSettings
+ */
+const se_ConnectionSettings = (input: ConnectionSettings, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IdleTimeout !== undefined && input.IdleTimeout !== null) {
+  if (input.IdleTimeout != null) {
     entries["IdleTimeout"] = input.IdleTimeout;
   }
   return entries;
 };
 
-const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateAccessPointInput
+ */
+const se_CreateAccessPointInput = (input: CreateAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Listeners !== undefined && input.Listeners !== null) {
-    const memberEntries = serializeAws_queryListeners(input.Listeners, context);
+  if (input.Listeners != null) {
+    const memberEntries = se_Listeners(input.Listeners, context);
+    if (input.Listeners?.length === 0) {
+      entries.Listeners = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+  if (input.AvailabilityZones != null) {
+    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Subnets !== undefined && input.Subnets !== null) {
-    const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+  if (input.Subnets != null) {
+    const memberEntries = se_Subnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroups !== undefined && input.SecurityGroups !== null) {
-    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+  if (input.SecurityGroups != null) {
+    const memberEntries = se_SecurityGroups(input.SecurityGroups, context);
+    if (input.SecurityGroups?.length === 0) {
+      entries.SecurityGroups = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Scheme !== undefined && input.Scheme !== null) {
+  if (input.Scheme != null) {
     entries["Scheme"] = input.Scheme;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3231,50 +2829,59 @@ const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput,
   return entries;
 };
 
-const serializeAws_queryCreateAppCookieStickinessPolicyInput = (
+/**
+ * serializeAws_queryCreateAppCookieStickinessPolicyInput
+ */
+const se_CreateAppCookieStickinessPolicyInput = (
   input: CreateAppCookieStickinessPolicyInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.CookieName !== undefined && input.CookieName !== null) {
+  if (input.CookieName != null) {
     entries["CookieName"] = input.CookieName;
   }
   return entries;
 };
 
-const serializeAws_queryCreateLBCookieStickinessPolicyInput = (
+/**
+ * serializeAws_queryCreateLBCookieStickinessPolicyInput
+ */
+const se_CreateLBCookieStickinessPolicyInput = (
   input: CreateLBCookieStickinessPolicyInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.CookieExpirationPeriod !== undefined && input.CookieExpirationPeriod !== null) {
+  if (input.CookieExpirationPeriod != null) {
     entries["CookieExpirationPeriod"] = input.CookieExpirationPeriod;
   }
   return entries;
 };
 
-const serializeAws_queryCreateLoadBalancerListenerInput = (
-  input: CreateLoadBalancerListenerInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateLoadBalancerListenerInput
+ */
+const se_CreateLoadBalancerListenerInput = (input: CreateLoadBalancerListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Listeners !== undefined && input.Listeners !== null) {
-    const memberEntries = serializeAws_queryListeners(input.Listeners, context);
+  if (input.Listeners != null) {
+    const memberEntries = se_Listeners(input.Listeners, context);
+    if (input.Listeners?.length === 0) {
+      entries.Listeners = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
@@ -3283,22 +2890,25 @@ const serializeAws_queryCreateLoadBalancerListenerInput = (
   return entries;
 };
 
-const serializeAws_queryCreateLoadBalancerPolicyInput = (
-  input: CreateLoadBalancerPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateLoadBalancerPolicyInput
+ */
+const se_CreateLoadBalancerPolicyInput = (input: CreateLoadBalancerPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyTypeName !== undefined && input.PolicyTypeName !== null) {
+  if (input.PolicyTypeName != null) {
     entries["PolicyTypeName"] = input.PolicyTypeName;
   }
-  if (input.PolicyAttributes !== undefined && input.PolicyAttributes !== null) {
-    const memberEntries = serializeAws_queryPolicyAttributes(input.PolicyAttributes, context);
+  if (input.PolicyAttributes != null) {
+    const memberEntries = se_PolicyAttributes(input.PolicyAttributes, context);
+    if (input.PolicyAttributes?.length === 0) {
+      entries.PolicyAttributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyAttributes.${key}`;
       entries[loc] = value;
@@ -3307,32 +2917,41 @@ const serializeAws_queryCreateLoadBalancerPolicyInput = (
   return entries;
 };
 
-const serializeAws_queryCrossZoneLoadBalancing = (input: CrossZoneLoadBalancing, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCrossZoneLoadBalancing
+ */
+const se_CrossZoneLoadBalancing = (input: CrossZoneLoadBalancing, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteAccessPointInput = (input: DeleteAccessPointInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteAccessPointInput
+ */
+const se_DeleteAccessPointInput = (input: DeleteAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteLoadBalancerListenerInput = (
-  input: DeleteLoadBalancerListenerInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteLoadBalancerListenerInput
+ */
+const se_DeleteLoadBalancerListenerInput = (input: DeleteLoadBalancerListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerPorts !== undefined && input.LoadBalancerPorts !== null) {
-    const memberEntries = serializeAws_queryPorts(input.LoadBalancerPorts, context);
+  if (input.LoadBalancerPorts != null) {
+    const memberEntries = se_Ports(input.LoadBalancerPorts, context);
+    if (input.LoadBalancerPorts?.length === 0) {
+      entries.LoadBalancerPorts = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerPorts.${key}`;
       entries[loc] = value;
@@ -3341,27 +2960,33 @@ const serializeAws_queryDeleteLoadBalancerListenerInput = (
   return entries;
 };
 
-const serializeAws_queryDeleteLoadBalancerPolicyInput = (
-  input: DeleteLoadBalancerPolicyInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteLoadBalancerPolicyInput
+ */
+const se_DeleteLoadBalancerPolicyInput = (input: DeleteLoadBalancerPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
 
-const serializeAws_queryDeregisterEndPointsInput = (input: DeregisterEndPointsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeregisterEndPointsInput
+ */
+const se_DeregisterEndPointsInput = (input: DeregisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined && input.Instances !== null) {
-    const memberEntries = serializeAws_queryInstances(input.Instances, context);
+  if (input.Instances != null) {
+    const memberEntries = se_Instances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -3370,51 +2995,57 @@ const serializeAws_queryDeregisterEndPointsInput = (input: DeregisterEndPointsIn
   return entries;
 };
 
-const serializeAws_queryDescribeAccessPointsInput = (
-  input: DescribeAccessPointsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeAccessPointsInput
+ */
+const se_DescribeAccessPointsInput = (input: DescribeAccessPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+  if (input.LoadBalancerNames != null) {
+    const memberEntries = se_LoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PageSize !== undefined && input.PageSize !== null) {
+  if (input.PageSize != null) {
     entries["PageSize"] = input.PageSize;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeAccountLimitsInput = (
-  input: DescribeAccountLimitsInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeAccountLimitsInput
+ */
+const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.PageSize !== undefined && input.PageSize !== null) {
+  if (input.PageSize != null) {
     entries["PageSize"] = input.PageSize;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeEndPointStateInput = (
-  input: DescribeEndPointStateInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeEndPointStateInput
+ */
+const se_DescribeEndPointStateInput = (input: DescribeEndPointStateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined && input.Instances !== null) {
-    const memberEntries = serializeAws_queryInstances(input.Instances, context);
+  if (input.Instances != null) {
+    const memberEntries = se_Instances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -3423,27 +3054,36 @@ const serializeAws_queryDescribeEndPointStateInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeLoadBalancerAttributesInput = (
+/**
+ * serializeAws_queryDescribeLoadBalancerAttributesInput
+ */
+const se_DescribeLoadBalancerAttributesInput = (
   input: DescribeLoadBalancerAttributesInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeLoadBalancerPoliciesInput = (
+/**
+ * serializeAws_queryDescribeLoadBalancerPoliciesInput
+ */
+const se_DescribeLoadBalancerPoliciesInput = (
   input: DescribeLoadBalancerPoliciesInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
-    const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+  if (input.PolicyNames != null) {
+    const memberEntries = se_PolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -3452,13 +3092,19 @@ const serializeAws_queryDescribeLoadBalancerPoliciesInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
+/**
+ * serializeAws_queryDescribeLoadBalancerPolicyTypesInput
+ */
+const se_DescribeLoadBalancerPolicyTypesInput = (
   input: DescribeLoadBalancerPolicyTypesInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyTypeNames !== undefined && input.PolicyTypeNames !== null) {
-    const memberEntries = serializeAws_queryPolicyTypeNames(input.PolicyTypeNames, context);
+  if (input.PolicyTypeNames != null) {
+    const memberEntries = se_PolicyTypeNames(input.PolicyTypeNames, context);
+    if (input.PolicyTypeNames?.length === 0) {
+      entries.PolicyTypeNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypeNames.${key}`;
       entries[loc] = value;
@@ -3467,10 +3113,16 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
   return entries;
 };
 
-const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDescribeTagsInput
+ */
+const se_DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
-    const memberEntries = serializeAws_queryLoadBalancerNamesMax20(input.LoadBalancerNames, context);
+  if (input.LoadBalancerNames != null) {
+    const memberEntries = se_LoadBalancerNamesMax20(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
@@ -3479,16 +3131,22 @@ const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: 
   return entries;
 };
 
-const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
+/**
+ * serializeAws_queryDetachLoadBalancerFromSubnetsInput
+ */
+const se_DetachLoadBalancerFromSubnetsInput = (
   input: DetachLoadBalancerFromSubnetsInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Subnets !== undefined && input.Subnets !== null) {
-    const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+  if (input.Subnets != null) {
+    const memberEntries = se_Subnets(input.Subnets, context);
+    if (input.Subnets?.length === 0) {
+      entries.Subnets = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
@@ -3497,42 +3155,51 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
   return entries;
 };
 
-const serializeAws_queryHealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryHealthCheck
+ */
+const se_HealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Target !== undefined && input.Target !== null) {
+  if (input.Target != null) {
     entries["Target"] = input.Target;
   }
-  if (input.Interval !== undefined && input.Interval !== null) {
+  if (input.Interval != null) {
     entries["Interval"] = input.Interval;
   }
-  if (input.Timeout !== undefined && input.Timeout !== null) {
+  if (input.Timeout != null) {
     entries["Timeout"] = input.Timeout;
   }
-  if (input.UnhealthyThreshold !== undefined && input.UnhealthyThreshold !== null) {
+  if (input.UnhealthyThreshold != null) {
     entries["UnhealthyThreshold"] = input.UnhealthyThreshold;
   }
-  if (input.HealthyThreshold !== undefined && input.HealthyThreshold !== null) {
+  if (input.HealthyThreshold != null) {
     entries["HealthyThreshold"] = input.HealthyThreshold;
   }
   return entries;
 };
 
-const serializeAws_queryInstance = (input: Instance, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryInstance
+ */
+const se_Instance = (input: Instance, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceId !== undefined && input.InstanceId !== null) {
+  if (input.InstanceId != null) {
     entries["InstanceId"] = input.InstanceId;
   }
   return entries;
 };
 
-const serializeAws_queryInstances = (input: Instance[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryInstances
+ */
+const se_Instances = (input: Instance[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryInstance(entry, context);
+    const memberEntries = se_Instance(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -3541,34 +3208,40 @@ const serializeAws_queryInstances = (input: Instance[], context: __SerdeContext)
   return entries;
 };
 
-const serializeAws_queryListener = (input: Listener, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListener
+ */
+const se_Listener = (input: Listener, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Protocol !== undefined && input.Protocol !== null) {
+  if (input.Protocol != null) {
     entries["Protocol"] = input.Protocol;
   }
-  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+  if (input.LoadBalancerPort != null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.InstanceProtocol !== undefined && input.InstanceProtocol !== null) {
+  if (input.InstanceProtocol != null) {
     entries["InstanceProtocol"] = input.InstanceProtocol;
   }
-  if (input.InstancePort !== undefined && input.InstancePort !== null) {
+  if (input.InstancePort != null) {
     entries["InstancePort"] = input.InstancePort;
   }
-  if (input.SSLCertificateId !== undefined && input.SSLCertificateId !== null) {
+  if (input.SSLCertificateId != null) {
     entries["SSLCertificateId"] = input.SSLCertificateId;
   }
   return entries;
 };
 
-const serializeAws_queryListeners = (input: Listener[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryListeners
+ */
+const se_Listeners = (input: Listener[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryListener(entry, context);
+    const memberEntries = se_Listener(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -3577,38 +3250,44 @@ const serializeAws_queryListeners = (input: Listener[], context: __SerdeContext)
   return entries;
 };
 
-const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttributes, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryLoadBalancerAttributes
+ */
+const se_LoadBalancerAttributes = (input: LoadBalancerAttributes, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CrossZoneLoadBalancing !== undefined && input.CrossZoneLoadBalancing !== null) {
-    const memberEntries = serializeAws_queryCrossZoneLoadBalancing(input.CrossZoneLoadBalancing, context);
+  if (input.CrossZoneLoadBalancing != null) {
+    const memberEntries = se_CrossZoneLoadBalancing(input.CrossZoneLoadBalancing, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CrossZoneLoadBalancing.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AccessLog !== undefined && input.AccessLog !== null) {
-    const memberEntries = serializeAws_queryAccessLog(input.AccessLog, context);
+  if (input.AccessLog != null) {
+    const memberEntries = se_AccessLog(input.AccessLog, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AccessLog.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionDraining !== undefined && input.ConnectionDraining !== null) {
-    const memberEntries = serializeAws_queryConnectionDraining(input.ConnectionDraining, context);
+  if (input.ConnectionDraining != null) {
+    const memberEntries = se_ConnectionDraining(input.ConnectionDraining, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionDraining.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionSettings !== undefined && input.ConnectionSettings !== null) {
-    const memberEntries = serializeAws_queryConnectionSettings(input.ConnectionSettings, context);
+  if (input.ConnectionSettings != null) {
+    const memberEntries = se_ConnectionSettings(input.ConnectionSettings, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionSettings.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AdditionalAttributes !== undefined && input.AdditionalAttributes !== null) {
-    const memberEntries = serializeAws_queryAdditionalAttributes(input.AdditionalAttributes, context);
+  if (input.AdditionalAttributes != null) {
+    const memberEntries = se_AdditionalAttributes(input.AdditionalAttributes, context);
+    if (input.AdditionalAttributes?.length === 0) {
+      entries.AdditionalAttributes = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AdditionalAttributes.${key}`;
       entries[loc] = value;
@@ -3617,7 +3296,10 @@ const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttributes,
   return entries;
 };
 
-const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryLoadBalancerNames
+ */
+const se_LoadBalancerNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3630,7 +3312,10 @@ const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeCo
   return entries;
 };
 
-const serializeAws_queryLoadBalancerNamesMax20 = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryLoadBalancerNamesMax20
+ */
+const se_LoadBalancerNamesMax20 = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3643,16 +3328,19 @@ const serializeAws_queryLoadBalancerNamesMax20 = (input: string[], context: __Se
   return entries;
 };
 
-const serializeAws_queryModifyLoadBalancerAttributesInput = (
+/**
+ * serializeAws_queryModifyLoadBalancerAttributesInput
+ */
+const se_ModifyLoadBalancerAttributesInput = (
   input: ModifyLoadBalancerAttributesInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerAttributes !== undefined && input.LoadBalancerAttributes !== null) {
-    const memberEntries = serializeAws_queryLoadBalancerAttributes(input.LoadBalancerAttributes, context);
+  if (input.LoadBalancerAttributes != null) {
+    const memberEntries = se_LoadBalancerAttributes(input.LoadBalancerAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerAttributes.${key}`;
       entries[loc] = value;
@@ -3661,25 +3349,31 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
   return entries;
 };
 
-const serializeAws_queryPolicyAttribute = (input: PolicyAttribute, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPolicyAttribute
+ */
+const se_PolicyAttribute = (input: PolicyAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AttributeName !== undefined && input.AttributeName !== null) {
+  if (input.AttributeName != null) {
     entries["AttributeName"] = input.AttributeName;
   }
-  if (input.AttributeValue !== undefined && input.AttributeValue !== null) {
+  if (input.AttributeValue != null) {
     entries["AttributeValue"] = input.AttributeValue;
   }
   return entries;
 };
 
-const serializeAws_queryPolicyAttributes = (input: PolicyAttribute[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPolicyAttributes
+ */
+const se_PolicyAttributes = (input: PolicyAttribute[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryPolicyAttribute(entry, context);
+    const memberEntries = se_PolicyAttribute(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -3688,7 +3382,10 @@ const serializeAws_queryPolicyAttributes = (input: PolicyAttribute[], context: _
   return entries;
 };
 
-const serializeAws_queryPolicyNames = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPolicyNames
+ */
+const se_PolicyNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3701,7 +3398,10 @@ const serializeAws_queryPolicyNames = (input: string[], context: __SerdeContext)
   return entries;
 };
 
-const serializeAws_queryPolicyTypeNames = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPolicyTypeNames
+ */
+const se_PolicyTypeNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3714,7 +3414,10 @@ const serializeAws_queryPolicyTypeNames = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const serializeAws_queryPorts = (input: number[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPorts
+ */
+const se_Ports = (input: number[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3727,13 +3430,19 @@ const serializeAws_queryPorts = (input: number[], context: __SerdeContext): any 
   return entries;
 };
 
-const serializeAws_queryRegisterEndPointsInput = (input: RegisterEndPointsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryRegisterEndPointsInput
+ */
+const se_RegisterEndPointsInput = (input: RegisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined && input.Instances !== null) {
-    const memberEntries = serializeAws_queryInstances(input.Instances, context);
+  if (input.Instances != null) {
+    const memberEntries = se_Instances(input.Instances, context);
+    if (input.Instances?.length === 0) {
+      entries.Instances = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
@@ -3742,16 +3451,19 @@ const serializeAws_queryRegisterEndPointsInput = (input: RegisterEndPointsInput,
   return entries;
 };
 
-const serializeAws_queryRemoveAvailabilityZonesInput = (
-  input: RemoveAvailabilityZonesInput,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryRemoveAvailabilityZonesInput
+ */
+const se_RemoveAvailabilityZonesInput = (input: RemoveAvailabilityZonesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+  if (input.AvailabilityZones != null) {
+    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
+    if (input.AvailabilityZones?.length === 0) {
+      entries.AvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
       entries[loc] = value;
@@ -3760,17 +3472,26 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
   return entries;
 };
 
-const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryRemoveTagsInput
+ */
+const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
-    const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
+  if (input.LoadBalancerNames != null) {
+    const memberEntries = se_LoadBalancerNames(input.LoadBalancerNames, context);
+    if (input.LoadBalancerNames?.length === 0) {
+      entries.LoadBalancerNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagKeyList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagKeyList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -3779,7 +3500,10 @@ const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __Se
   return entries;
 };
 
-const serializeAws_querySecurityGroups = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querySecurityGroups
+ */
+const se_SecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3792,36 +3516,45 @@ const serializeAws_querySecurityGroups = (input: string[], context: __SerdeConte
   return entries;
 };
 
-const serializeAws_querySetLoadBalancerListenerSSLCertificateInput = (
+/**
+ * serializeAws_querySetLoadBalancerListenerSSLCertificateInput
+ */
+const se_SetLoadBalancerListenerSSLCertificateInput = (
   input: SetLoadBalancerListenerSSLCertificateInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+  if (input.LoadBalancerPort != null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.SSLCertificateId !== undefined && input.SSLCertificateId !== null) {
+  if (input.SSLCertificateId != null) {
     entries["SSLCertificateId"] = input.SSLCertificateId;
   }
   return entries;
 };
 
-const serializeAws_querySetLoadBalancerPoliciesForBackendServerInput = (
+/**
+ * serializeAws_querySetLoadBalancerPoliciesForBackendServerInput
+ */
+const se_SetLoadBalancerPoliciesForBackendServerInput = (
   input: SetLoadBalancerPoliciesForBackendServerInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.InstancePort !== undefined && input.InstancePort !== null) {
+  if (input.InstancePort != null) {
     entries["InstancePort"] = input.InstancePort;
   }
-  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
-    const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+  if (input.PolicyNames != null) {
+    const memberEntries = se_PolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -3830,19 +3563,25 @@ const serializeAws_querySetLoadBalancerPoliciesForBackendServerInput = (
   return entries;
 };
 
-const serializeAws_querySetLoadBalancerPoliciesOfListenerInput = (
+/**
+ * serializeAws_querySetLoadBalancerPoliciesOfListenerInput
+ */
+const se_SetLoadBalancerPoliciesOfListenerInput = (
   input: SetLoadBalancerPoliciesOfListenerInput,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+  if (input.LoadBalancerName != null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+  if (input.LoadBalancerPort != null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
-    const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
+  if (input.PolicyNames != null) {
+    const memberEntries = se_PolicyNames(input.PolicyNames, context);
+    if (input.PolicyNames?.length === 0) {
+      entries.PolicyNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
@@ -3851,7 +3590,10 @@ const serializeAws_querySetLoadBalancerPoliciesOfListenerInput = (
   return entries;
 };
 
-const serializeAws_querySubnets = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querySubnets
+ */
+const se_Subnets = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -3864,25 +3606,31 @@ const serializeAws_querySubnets = (input: string[], context: __SerdeContext): an
   return entries;
 };
 
-const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined && input.Value !== null) {
+  if (input.Value != null) {
     entries["Value"] = input.Value;
   }
   return entries;
 };
 
-const serializeAws_queryTagKeyList = (input: TagKeyOnly[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagKeyList
+ */
+const se_TagKeyList = (input: TagKeyOnly[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryTagKeyOnly(entry, context);
+    const memberEntries = se_TagKeyOnly(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -3891,22 +3639,28 @@ const serializeAws_queryTagKeyList = (input: TagKeyOnly[], context: __SerdeConte
   return entries;
 };
 
-const serializeAws_queryTagKeyOnly = (input: TagKeyOnly, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagKeyOnly
+ */
+const se_TagKeyOnly = (input: TagKeyOnly, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
   return entries;
 };
 
-const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryTag(entry, context);
+    const memberEntries = se_Tag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -3915,13 +3669,11 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   return entries;
 };
 
-const deserializeAws_queryAccessLog = (output: any, context: __SerdeContext): AccessLog => {
-  const contents: any = {
-    Enabled: undefined,
-    S3BucketName: undefined,
-    EmitInterval: undefined,
-    S3BucketPrefix: undefined,
-  };
+/**
+ * deserializeAws_queryAccessLog
+ */
+const de_AccessLog = (output: any, context: __SerdeContext): AccessLog => {
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -3937,31 +3689,26 @@ const deserializeAws_queryAccessLog = (output: any, context: __SerdeContext): Ac
   return contents;
 };
 
-const deserializeAws_queryAccessPointNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): AccessPointNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryAccessPointNotFoundException
+ */
+const de_AccessPointNotFoundException = (output: any, context: __SerdeContext): AccessPointNotFoundException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryAddAvailabilityZonesOutput = (
-  output: any,
-  context: __SerdeContext
-): AddAvailabilityZonesOutput => {
-  const contents: any = {
-    AvailabilityZones: undefined,
-  };
+/**
+ * deserializeAws_queryAddAvailabilityZonesOutput
+ */
+const de_AddAvailabilityZonesOutput = (output: any, context: __SerdeContext): AddAvailabilityZonesOutput => {
+  const contents: any = {};
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-  }
-  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
+  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
+    contents.AvailabilityZones = de_AvailabilityZones(
       __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
       context
     );
@@ -3969,11 +3716,11 @@ const deserializeAws_queryAddAvailabilityZonesOutput = (
   return contents;
 };
 
-const deserializeAws_queryAdditionalAttribute = (output: any, context: __SerdeContext): AdditionalAttribute => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+/**
+ * deserializeAws_queryAdditionalAttribute
+ */
+const de_AdditionalAttribute = (output: any, context: __SerdeContext): AdditionalAttribute => {
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -3983,44 +3730,41 @@ const deserializeAws_queryAdditionalAttribute = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryAdditionalAttributes = (output: any, context: __SerdeContext): AdditionalAttribute[] => {
+/**
+ * deserializeAws_queryAdditionalAttributes
+ */
+const de_AdditionalAttributes = (output: any, context: __SerdeContext): AdditionalAttribute[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryAdditionalAttribute(entry, context);
+      return de_AdditionalAttribute(entry, context);
     });
 };
 
-const deserializeAws_queryAddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
+/**
+ * deserializeAws_queryAddTagsOutput
+ */
+const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryAppCookieStickinessPolicies = (
-  output: any,
-  context: __SerdeContext
-): AppCookieStickinessPolicy[] => {
+/**
+ * deserializeAws_queryAppCookieStickinessPolicies
+ */
+const de_AppCookieStickinessPolicies = (output: any, context: __SerdeContext): AppCookieStickinessPolicy[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryAppCookieStickinessPolicy(entry, context);
+      return de_AppCookieStickinessPolicy(entry, context);
     });
 };
 
-const deserializeAws_queryAppCookieStickinessPolicy = (
-  output: any,
-  context: __SerdeContext
-): AppCookieStickinessPolicy => {
-  const contents: any = {
-    PolicyName: undefined,
-    CookieName: undefined,
-  };
+/**
+ * deserializeAws_queryAppCookieStickinessPolicy
+ */
+const de_AppCookieStickinessPolicy = (output: any, context: __SerdeContext): AppCookieStickinessPolicy => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -4030,120 +3774,103 @@ const deserializeAws_queryAppCookieStickinessPolicy = (
   return contents;
 };
 
-const deserializeAws_queryApplySecurityGroupsToLoadBalancerOutput = (
+/**
+ * deserializeAws_queryApplySecurityGroupsToLoadBalancerOutput
+ */
+const de_ApplySecurityGroupsToLoadBalancerOutput = (
   output: any,
   context: __SerdeContext
 ): ApplySecurityGroupsToLoadBalancerOutput => {
-  const contents: any = {
-    SecurityGroups: undefined,
-  };
+  const contents: any = {};
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
-  }
-  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = deserializeAws_querySecurityGroups(
-      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
-      context
-    );
+  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
+    contents.SecurityGroups = de_SecurityGroups(__getArrayIfSingleItem(output["SecurityGroups"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryAttachLoadBalancerToSubnetsOutput = (
+/**
+ * deserializeAws_queryAttachLoadBalancerToSubnetsOutput
+ */
+const de_AttachLoadBalancerToSubnetsOutput = (
   output: any,
   context: __SerdeContext
 ): AttachLoadBalancerToSubnetsOutput => {
-  const contents: any = {
-    Subnets: undefined,
-  };
+  const contents: any = {};
   if (output.Subnets === "") {
     contents.Subnets = [];
-  }
-  if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = deserializeAws_querySubnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+  } else if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
+    contents.Subnets = de_Subnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryAvailabilityZones
+ */
+const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryBackendServerDescription = (
-  output: any,
-  context: __SerdeContext
-): BackendServerDescription => {
-  const contents: any = {
-    InstancePort: undefined,
-    PolicyNames: undefined,
-  };
+/**
+ * deserializeAws_queryBackendServerDescription
+ */
+const de_BackendServerDescription = (output: any, context: __SerdeContext): BackendServerDescription => {
+  const contents: any = {};
   if (output["InstancePort"] !== undefined) {
     contents.InstancePort = __strictParseInt32(output["InstancePort"]) as number;
   }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-  }
-  if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = deserializeAws_queryPolicyNames(
-      __getArrayIfSingleItem(output["PolicyNames"]["member"]),
-      context
-    );
+  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
+    contents.PolicyNames = de_PolicyNames(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryBackendServerDescriptions = (
-  output: any,
-  context: __SerdeContext
-): BackendServerDescription[] => {
+/**
+ * deserializeAws_queryBackendServerDescriptions
+ */
+const de_BackendServerDescriptions = (output: any, context: __SerdeContext): BackendServerDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryBackendServerDescription(entry, context);
+      return de_BackendServerDescription(entry, context);
     });
 };
 
-const deserializeAws_queryCertificateNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): CertificateNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryCertificateNotFoundException
+ */
+const de_CertificateNotFoundException = (output: any, context: __SerdeContext): CertificateNotFoundException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryConfigureHealthCheckOutput = (
-  output: any,
-  context: __SerdeContext
-): ConfigureHealthCheckOutput => {
-  const contents: any = {
-    HealthCheck: undefined,
-  };
+/**
+ * deserializeAws_queryConfigureHealthCheckOutput
+ */
+const de_ConfigureHealthCheckOutput = (output: any, context: __SerdeContext): ConfigureHealthCheckOutput => {
+  const contents: any = {};
   if (output["HealthCheck"] !== undefined) {
-    contents.HealthCheck = deserializeAws_queryHealthCheck(output["HealthCheck"], context);
+    contents.HealthCheck = de_HealthCheck(output["HealthCheck"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryConnectionDraining = (output: any, context: __SerdeContext): ConnectionDraining => {
-  const contents: any = {
-    Enabled: undefined,
-    Timeout: undefined,
-  };
+/**
+ * deserializeAws_queryConnectionDraining
+ */
+const de_ConnectionDraining = (output: any, context: __SerdeContext): ConnectionDraining => {
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -4153,27 +3880,32 @@ const deserializeAws_queryConnectionDraining = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryConnectionSettings = (output: any, context: __SerdeContext): ConnectionSettings => {
-  const contents: any = {
-    IdleTimeout: undefined,
-  };
+/**
+ * deserializeAws_queryConnectionSettings
+ */
+const de_ConnectionSettings = (output: any, context: __SerdeContext): ConnectionSettings => {
+  const contents: any = {};
   if (output["IdleTimeout"] !== undefined) {
     contents.IdleTimeout = __strictParseInt32(output["IdleTimeout"]) as number;
   }
   return contents;
 };
 
-const deserializeAws_queryCreateAccessPointOutput = (output: any, context: __SerdeContext): CreateAccessPointOutput => {
-  const contents: any = {
-    DNSName: undefined,
-  };
+/**
+ * deserializeAws_queryCreateAccessPointOutput
+ */
+const de_CreateAccessPointOutput = (output: any, context: __SerdeContext): CreateAccessPointOutput => {
+  const contents: any = {};
   if (output["DNSName"] !== undefined) {
     contents.DNSName = __expectString(output["DNSName"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateAppCookieStickinessPolicyOutput = (
+/**
+ * deserializeAws_queryCreateAppCookieStickinessPolicyOutput
+ */
+const de_CreateAppCookieStickinessPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): CreateAppCookieStickinessPolicyOutput => {
@@ -4181,7 +3913,10 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyOutput = (
   return contents;
 };
 
-const deserializeAws_queryCreateLBCookieStickinessPolicyOutput = (
+/**
+ * deserializeAws_queryCreateLBCookieStickinessPolicyOutput
+ */
+const de_CreateLBCookieStickinessPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): CreateLBCookieStickinessPolicyOutput => {
@@ -4189,7 +3924,10 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyOutput = (
   return contents;
 };
 
-const deserializeAws_queryCreateLoadBalancerListenerOutput = (
+/**
+ * deserializeAws_queryCreateLoadBalancerListenerOutput
+ */
+const de_CreateLoadBalancerListenerOutput = (
   output: any,
   context: __SerdeContext
 ): CreateLoadBalancerListenerOutput => {
@@ -4197,30 +3935,37 @@ const deserializeAws_queryCreateLoadBalancerListenerOutput = (
   return contents;
 };
 
-const deserializeAws_queryCreateLoadBalancerPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateLoadBalancerPolicyOutput => {
+/**
+ * deserializeAws_queryCreateLoadBalancerPolicyOutput
+ */
+const de_CreateLoadBalancerPolicyOutput = (output: any, context: __SerdeContext): CreateLoadBalancerPolicyOutput => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryCrossZoneLoadBalancing = (output: any, context: __SerdeContext): CrossZoneLoadBalancing => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+/**
+ * deserializeAws_queryCrossZoneLoadBalancing
+ */
+const de_CrossZoneLoadBalancing = (output: any, context: __SerdeContext): CrossZoneLoadBalancing => {
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteAccessPointOutput = (output: any, context: __SerdeContext): DeleteAccessPointOutput => {
+/**
+ * deserializeAws_queryDeleteAccessPointOutput
+ */
+const de_DeleteAccessPointOutput = (output: any, context: __SerdeContext): DeleteAccessPointOutput => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryDeleteLoadBalancerListenerOutput = (
+/**
+ * deserializeAws_queryDeleteLoadBalancerListenerOutput
+ */
+const de_DeleteLoadBalancerListenerOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteLoadBalancerListenerOutput => {
@@ -4228,56 +3973,50 @@ const deserializeAws_queryDeleteLoadBalancerListenerOutput = (
   return contents;
 };
 
-const deserializeAws_queryDeleteLoadBalancerPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteLoadBalancerPolicyOutput => {
+/**
+ * deserializeAws_queryDeleteLoadBalancerPolicyOutput
+ */
+const de_DeleteLoadBalancerPolicyOutput = (output: any, context: __SerdeContext): DeleteLoadBalancerPolicyOutput => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_queryDependencyThrottleException = (
-  output: any,
-  context: __SerdeContext
-): DependencyThrottleException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryDependencyThrottleException
+ */
+const de_DependencyThrottleException = (output: any, context: __SerdeContext): DependencyThrottleException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeregisterEndPointsOutput = (
-  output: any,
-  context: __SerdeContext
-): DeregisterEndPointsOutput => {
-  const contents: any = {
-    Instances: undefined,
-  };
+/**
+ * deserializeAws_queryDeregisterEndPointsOutput
+ */
+const de_DeregisterEndPointsOutput = (output: any, context: __SerdeContext): DeregisterEndPointsOutput => {
+  const contents: any = {};
   if (output.Instances === "") {
     contents.Instances = [];
-  }
-  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
+    contents.Instances = de_Instances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeAccessPointsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeAccessPointsOutput => {
-  const contents: any = {
-    LoadBalancerDescriptions: undefined,
-    NextMarker: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeAccessPointsOutput
+ */
+const de_DescribeAccessPointsOutput = (output: any, context: __SerdeContext): DescribeAccessPointsOutput => {
+  const contents: any = {};
   if (output.LoadBalancerDescriptions === "") {
     contents.LoadBalancerDescriptions = [];
-  }
-  if (output["LoadBalancerDescriptions"] !== undefined && output["LoadBalancerDescriptions"]["member"] !== undefined) {
-    contents.LoadBalancerDescriptions = deserializeAws_queryLoadBalancerDescriptions(
+  } else if (
+    output["LoadBalancerDescriptions"] !== undefined &&
+    output["LoadBalancerDescriptions"]["member"] !== undefined
+  ) {
+    contents.LoadBalancerDescriptions = de_LoadBalancerDescriptions(
       __getArrayIfSingleItem(output["LoadBalancerDescriptions"]["member"]),
       context
     );
@@ -4288,19 +4027,15 @@ const deserializeAws_queryDescribeAccessPointsOutput = (
   return contents;
 };
 
-const deserializeAws_queryDescribeAccountLimitsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeAccountLimitsOutput => {
-  const contents: any = {
-    Limits: undefined,
-    NextMarker: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeAccountLimitsOutput
+ */
+const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
+  const contents: any = {};
   if (output.Limits === "") {
     contents.Limits = [];
-  }
-  if (output["Limits"] !== undefined && output["Limits"]["member"] !== undefined) {
-    contents.Limits = deserializeAws_queryLimits(__getArrayIfSingleItem(output["Limits"]["member"]), context);
+  } else if (output["Limits"] !== undefined && output["Limits"]["member"] !== undefined) {
+    contents.Limits = de_Limits(__getArrayIfSingleItem(output["Limits"]["member"]), context);
   }
   if (output["NextMarker"] !== undefined) {
     contents.NextMarker = __expectString(output["NextMarker"]);
@@ -4308,53 +4043,45 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   return contents;
 };
 
-const deserializeAws_queryDescribeEndPointStateOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeEndPointStateOutput => {
-  const contents: any = {
-    InstanceStates: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeEndPointStateOutput
+ */
+const de_DescribeEndPointStateOutput = (output: any, context: __SerdeContext): DescribeEndPointStateOutput => {
+  const contents: any = {};
   if (output.InstanceStates === "") {
     contents.InstanceStates = [];
-  }
-  if (output["InstanceStates"] !== undefined && output["InstanceStates"]["member"] !== undefined) {
-    contents.InstanceStates = deserializeAws_queryInstanceStates(
-      __getArrayIfSingleItem(output["InstanceStates"]["member"]),
-      context
-    );
+  } else if (output["InstanceStates"] !== undefined && output["InstanceStates"]["member"] !== undefined) {
+    contents.InstanceStates = de_InstanceStates(__getArrayIfSingleItem(output["InstanceStates"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeLoadBalancerAttributesOutput = (
+/**
+ * deserializeAws_queryDescribeLoadBalancerAttributesOutput
+ */
+const de_DescribeLoadBalancerAttributesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancerAttributesOutput => {
-  const contents: any = {
-    LoadBalancerAttributes: undefined,
-  };
+  const contents: any = {};
   if (output["LoadBalancerAttributes"] !== undefined) {
-    contents.LoadBalancerAttributes = deserializeAws_queryLoadBalancerAttributes(
-      output["LoadBalancerAttributes"],
-      context
-    );
+    contents.LoadBalancerAttributes = de_LoadBalancerAttributes(output["LoadBalancerAttributes"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeLoadBalancerPoliciesOutput = (
+/**
+ * deserializeAws_queryDescribeLoadBalancerPoliciesOutput
+ */
+const de_DescribeLoadBalancerPoliciesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancerPoliciesOutput => {
-  const contents: any = {
-    PolicyDescriptions: undefined,
-  };
+  const contents: any = {};
   if (output.PolicyDescriptions === "") {
     contents.PolicyDescriptions = [];
-  }
-  if (output["PolicyDescriptions"] !== undefined && output["PolicyDescriptions"]["member"] !== undefined) {
-    contents.PolicyDescriptions = deserializeAws_queryPolicyDescriptions(
+  } else if (output["PolicyDescriptions"] !== undefined && output["PolicyDescriptions"]["member"] !== undefined) {
+    contents.PolicyDescriptions = de_PolicyDescriptions(
       __getArrayIfSingleItem(output["PolicyDescriptions"]["member"]),
       context
     );
@@ -4362,18 +4089,21 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesOutput = (
   return contents;
 };
 
-const deserializeAws_queryDescribeLoadBalancerPolicyTypesOutput = (
+/**
+ * deserializeAws_queryDescribeLoadBalancerPolicyTypesOutput
+ */
+const de_DescribeLoadBalancerPolicyTypesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancerPolicyTypesOutput => {
-  const contents: any = {
-    PolicyTypeDescriptions: undefined,
-  };
+  const contents: any = {};
   if (output.PolicyTypeDescriptions === "") {
     contents.PolicyTypeDescriptions = [];
-  }
-  if (output["PolicyTypeDescriptions"] !== undefined && output["PolicyTypeDescriptions"]["member"] !== undefined) {
-    contents.PolicyTypeDescriptions = deserializeAws_queryPolicyTypeDescriptions(
+  } else if (
+    output["PolicyTypeDescriptions"] !== undefined &&
+    output["PolicyTypeDescriptions"]["member"] !== undefined
+  ) {
+    contents.PolicyTypeDescriptions = de_PolicyTypeDescriptions(
       __getArrayIfSingleItem(output["PolicyTypeDescriptions"]["member"]),
       context
     );
@@ -4381,98 +4111,87 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesOutput = (
   return contents;
 };
 
-const deserializeAws_queryDescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
-  const contents: any = {
-    TagDescriptions: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeTagsOutput
+ */
+const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
+  const contents: any = {};
   if (output.TagDescriptions === "") {
     contents.TagDescriptions = [];
-  }
-  if (output["TagDescriptions"] !== undefined && output["TagDescriptions"]["member"] !== undefined) {
-    contents.TagDescriptions = deserializeAws_queryTagDescriptions(
-      __getArrayIfSingleItem(output["TagDescriptions"]["member"]),
-      context
-    );
+  } else if (output["TagDescriptions"] !== undefined && output["TagDescriptions"]["member"] !== undefined) {
+    contents.TagDescriptions = de_TagDescriptions(__getArrayIfSingleItem(output["TagDescriptions"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDetachLoadBalancerFromSubnetsOutput = (
+/**
+ * deserializeAws_queryDetachLoadBalancerFromSubnetsOutput
+ */
+const de_DetachLoadBalancerFromSubnetsOutput = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancerFromSubnetsOutput => {
-  const contents: any = {
-    Subnets: undefined,
-  };
+  const contents: any = {};
   if (output.Subnets === "") {
     contents.Subnets = [];
-  }
-  if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = deserializeAws_querySubnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+  } else if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
+    contents.Subnets = de_Subnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicateAccessPointNameException = (
+/**
+ * deserializeAws_queryDuplicateAccessPointNameException
+ */
+const de_DuplicateAccessPointNameException = (
   output: any,
   context: __SerdeContext
 ): DuplicateAccessPointNameException => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicateListenerException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateListenerException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryDuplicateListenerException
+ */
+const de_DuplicateListenerException = (output: any, context: __SerdeContext): DuplicateListenerException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicatePolicyNameException = (
-  output: any,
-  context: __SerdeContext
-): DuplicatePolicyNameException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryDuplicatePolicyNameException
+ */
+const de_DuplicatePolicyNameException = (output: any, context: __SerdeContext): DuplicatePolicyNameException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicateTagKeysException = (
-  output: any,
-  context: __SerdeContext
-): DuplicateTagKeysException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryDuplicateTagKeysException
+ */
+const de_DuplicateTagKeysException = (output: any, context: __SerdeContext): DuplicateTagKeysException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryHealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
-  const contents: any = {
-    Target: undefined,
-    Interval: undefined,
-    Timeout: undefined,
-    UnhealthyThreshold: undefined,
-    HealthyThreshold: undefined,
-  };
+/**
+ * deserializeAws_queryHealthCheck
+ */
+const de_HealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
+  const contents: any = {};
   if (output["Target"] !== undefined) {
     contents.Target = __expectString(output["Target"]);
   }
@@ -4491,34 +4210,33 @@ const deserializeAws_queryHealthCheck = (output: any, context: __SerdeContext): 
   return contents;
 };
 
-const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
-  const contents: any = {
-    InstanceId: undefined,
-  };
+/**
+ * deserializeAws_queryInstance
+ */
+const de_Instance = (output: any, context: __SerdeContext): Instance => {
+  const contents: any = {};
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["InstanceId"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInstances = (output: any, context: __SerdeContext): Instance[] => {
+/**
+ * deserializeAws_queryInstances
+ */
+const de_Instances = (output: any, context: __SerdeContext): Instance[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryInstance(entry, context);
+      return de_Instance(entry, context);
     });
 };
 
-const deserializeAws_queryInstanceState = (output: any, context: __SerdeContext): InstanceState => {
-  const contents: any = {
-    InstanceId: undefined,
-    State: undefined,
-    ReasonCode: undefined,
-    Description: undefined,
-  };
+/**
+ * deserializeAws_queryInstanceState
+ */
+const de_InstanceState = (output: any, context: __SerdeContext): InstanceState => {
+  const contents: any = {};
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["InstanceId"]);
   }
@@ -4534,98 +4252,91 @@ const deserializeAws_queryInstanceState = (output: any, context: __SerdeContext)
   return contents;
 };
 
-const deserializeAws_queryInstanceStates = (output: any, context: __SerdeContext): InstanceState[] => {
+/**
+ * deserializeAws_queryInstanceStates
+ */
+const de_InstanceStates = (output: any, context: __SerdeContext): InstanceState[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryInstanceState(entry, context);
+      return de_InstanceState(entry, context);
     });
 };
 
-const deserializeAws_queryInvalidConfigurationRequestException = (
+/**
+ * deserializeAws_queryInvalidConfigurationRequestException
+ */
+const de_InvalidConfigurationRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidConfigurationRequestException => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidEndPointException = (
-  output: any,
-  context: __SerdeContext
-): InvalidEndPointException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidEndPointException
+ */
+const de_InvalidEndPointException = (output: any, context: __SerdeContext): InvalidEndPointException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidSchemeException = (output: any, context: __SerdeContext): InvalidSchemeException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidSchemeException
+ */
+const de_InvalidSchemeException = (output: any, context: __SerdeContext): InvalidSchemeException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidSecurityGroupException = (
-  output: any,
-  context: __SerdeContext
-): InvalidSecurityGroupException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidSecurityGroupException
+ */
+const de_InvalidSecurityGroupException = (output: any, context: __SerdeContext): InvalidSecurityGroupException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidSubnetException = (output: any, context: __SerdeContext): InvalidSubnetException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidSubnetException
+ */
+const de_InvalidSubnetException = (output: any, context: __SerdeContext): InvalidSubnetException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryLBCookieStickinessPolicies = (
-  output: any,
-  context: __SerdeContext
-): LBCookieStickinessPolicy[] => {
+/**
+ * deserializeAws_queryLBCookieStickinessPolicies
+ */
+const de_LBCookieStickinessPolicies = (output: any, context: __SerdeContext): LBCookieStickinessPolicy[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryLBCookieStickinessPolicy(entry, context);
+      return de_LBCookieStickinessPolicy(entry, context);
     });
 };
 
-const deserializeAws_queryLBCookieStickinessPolicy = (
-  output: any,
-  context: __SerdeContext
-): LBCookieStickinessPolicy => {
-  const contents: any = {
-    PolicyName: undefined,
-    CookieExpirationPeriod: undefined,
-  };
+/**
+ * deserializeAws_queryLBCookieStickinessPolicy
+ */
+const de_LBCookieStickinessPolicy = (output: any, context: __SerdeContext): LBCookieStickinessPolicy => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -4635,11 +4346,11 @@ const deserializeAws_queryLBCookieStickinessPolicy = (
   return contents;
 };
 
-const deserializeAws_queryLimit = (output: any, context: __SerdeContext): Limit => {
-  const contents: any = {
-    Name: undefined,
-    Max: undefined,
-  };
+/**
+ * deserializeAws_queryLimit
+ */
+const de_Limit = (output: any, context: __SerdeContext): Limit => {
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -4649,25 +4360,22 @@ const deserializeAws_queryLimit = (output: any, context: __SerdeContext): Limit 
   return contents;
 };
 
-const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit[] => {
+/**
+ * deserializeAws_queryLimits
+ */
+const de_Limits = (output: any, context: __SerdeContext): Limit[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryLimit(entry, context);
+      return de_Limit(entry, context);
     });
 };
 
-const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
-  const contents: any = {
-    Protocol: undefined,
-    LoadBalancerPort: undefined,
-    InstanceProtocol: undefined,
-    InstancePort: undefined,
-    SSLCertificateId: undefined,
-  };
+/**
+ * deserializeAws_queryListener
+ */
+const de_Listener = (output: any, context: __SerdeContext): Listener => {
+  const contents: any = {};
   if (output["Protocol"] !== undefined) {
     contents.Protocol = __expectString(output["Protocol"]);
   }
@@ -4686,91 +4394,79 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
   return contents;
 };
 
-const deserializeAws_queryListenerDescription = (output: any, context: __SerdeContext): ListenerDescription => {
-  const contents: any = {
-    Listener: undefined,
-    PolicyNames: undefined,
-  };
+/**
+ * deserializeAws_queryListenerDescription
+ */
+const de_ListenerDescription = (output: any, context: __SerdeContext): ListenerDescription => {
+  const contents: any = {};
   if (output["Listener"] !== undefined) {
-    contents.Listener = deserializeAws_queryListener(output["Listener"], context);
+    contents.Listener = de_Listener(output["Listener"], context);
   }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-  }
-  if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = deserializeAws_queryPolicyNames(
-      __getArrayIfSingleItem(output["PolicyNames"]["member"]),
-      context
-    );
+  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
+    contents.PolicyNames = de_PolicyNames(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryListenerDescriptions = (output: any, context: __SerdeContext): ListenerDescription[] => {
+/**
+ * deserializeAws_queryListenerDescriptions
+ */
+const de_ListenerDescriptions = (output: any, context: __SerdeContext): ListenerDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryListenerDescription(entry, context);
+      return de_ListenerDescription(entry, context);
     });
 };
 
-const deserializeAws_queryListenerNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ListenerNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryListenerNotFoundException
+ */
+const de_ListenerNotFoundException = (output: any, context: __SerdeContext): ListenerNotFoundException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryLoadBalancerAttributeNotFoundException = (
+/**
+ * deserializeAws_queryLoadBalancerAttributeNotFoundException
+ */
+const de_LoadBalancerAttributeNotFoundException = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerAttributeNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryLoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBalancerAttributes => {
-  const contents: any = {
-    CrossZoneLoadBalancing: undefined,
-    AccessLog: undefined,
-    ConnectionDraining: undefined,
-    ConnectionSettings: undefined,
-    AdditionalAttributes: undefined,
-  };
+/**
+ * deserializeAws_queryLoadBalancerAttributes
+ */
+const de_LoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBalancerAttributes => {
+  const contents: any = {};
   if (output["CrossZoneLoadBalancing"] !== undefined) {
-    contents.CrossZoneLoadBalancing = deserializeAws_queryCrossZoneLoadBalancing(
-      output["CrossZoneLoadBalancing"],
-      context
-    );
+    contents.CrossZoneLoadBalancing = de_CrossZoneLoadBalancing(output["CrossZoneLoadBalancing"], context);
   }
   if (output["AccessLog"] !== undefined) {
-    contents.AccessLog = deserializeAws_queryAccessLog(output["AccessLog"], context);
+    contents.AccessLog = de_AccessLog(output["AccessLog"], context);
   }
   if (output["ConnectionDraining"] !== undefined) {
-    contents.ConnectionDraining = deserializeAws_queryConnectionDraining(output["ConnectionDraining"], context);
+    contents.ConnectionDraining = de_ConnectionDraining(output["ConnectionDraining"], context);
   }
   if (output["ConnectionSettings"] !== undefined) {
-    contents.ConnectionSettings = deserializeAws_queryConnectionSettings(output["ConnectionSettings"], context);
+    contents.ConnectionSettings = de_ConnectionSettings(output["ConnectionSettings"], context);
   }
   if (output.AdditionalAttributes === "") {
     contents.AdditionalAttributes = [];
-  }
-  if (output["AdditionalAttributes"] !== undefined && output["AdditionalAttributes"]["member"] !== undefined) {
-    contents.AdditionalAttributes = deserializeAws_queryAdditionalAttributes(
+  } else if (output["AdditionalAttributes"] !== undefined && output["AdditionalAttributes"]["member"] !== undefined) {
+    contents.AdditionalAttributes = de_AdditionalAttributes(
       __getArrayIfSingleItem(output["AdditionalAttributes"]["member"]),
       context
     );
@@ -4778,25 +4474,11 @@ const deserializeAws_queryLoadBalancerAttributes = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryLoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
-  const contents: any = {
-    LoadBalancerName: undefined,
-    DNSName: undefined,
-    CanonicalHostedZoneName: undefined,
-    CanonicalHostedZoneNameID: undefined,
-    ListenerDescriptions: undefined,
-    Policies: undefined,
-    BackendServerDescriptions: undefined,
-    AvailabilityZones: undefined,
-    Subnets: undefined,
-    VPCId: undefined,
-    Instances: undefined,
-    HealthCheck: undefined,
-    SourceSecurityGroup: undefined,
-    SecurityGroups: undefined,
-    CreatedTime: undefined,
-    Scheme: undefined,
-  };
+/**
+ * deserializeAws_queryLoadBalancerDescription
+ */
+const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
+  const contents: any = {};
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
   }
@@ -4811,69 +4493,60 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
   }
   if (output.ListenerDescriptions === "") {
     contents.ListenerDescriptions = [];
-  }
-  if (output["ListenerDescriptions"] !== undefined && output["ListenerDescriptions"]["member"] !== undefined) {
-    contents.ListenerDescriptions = deserializeAws_queryListenerDescriptions(
+  } else if (output["ListenerDescriptions"] !== undefined && output["ListenerDescriptions"]["member"] !== undefined) {
+    contents.ListenerDescriptions = de_ListenerDescriptions(
       __getArrayIfSingleItem(output["ListenerDescriptions"]["member"]),
       context
     );
   }
   if (output["Policies"] !== undefined) {
-    contents.Policies = deserializeAws_queryPolicies(output["Policies"], context);
+    contents.Policies = de_Policies(output["Policies"], context);
   }
   if (output.BackendServerDescriptions === "") {
     contents.BackendServerDescriptions = [];
-  }
-  if (
+  } else if (
     output["BackendServerDescriptions"] !== undefined &&
     output["BackendServerDescriptions"]["member"] !== undefined
   ) {
-    contents.BackendServerDescriptions = deserializeAws_queryBackendServerDescriptions(
+    contents.BackendServerDescriptions = de_BackendServerDescriptions(
       __getArrayIfSingleItem(output["BackendServerDescriptions"]["member"]),
       context
     );
   }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-  }
-  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
+  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
+    contents.AvailabilityZones = de_AvailabilityZones(
       __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
       context
     );
   }
   if (output.Subnets === "") {
     contents.Subnets = [];
-  }
-  if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = deserializeAws_querySubnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+  } else if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
+    contents.Subnets = de_Subnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
   }
   if (output["VPCId"] !== undefined) {
     contents.VPCId = __expectString(output["VPCId"]);
   }
   if (output.Instances === "") {
     contents.Instances = [];
-  }
-  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
+    contents.Instances = de_Instances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
   }
   if (output["HealthCheck"] !== undefined) {
-    contents.HealthCheck = deserializeAws_queryHealthCheck(output["HealthCheck"], context);
+    contents.HealthCheck = de_HealthCheck(output["HealthCheck"], context);
   }
   if (output["SourceSecurityGroup"] !== undefined) {
-    contents.SourceSecurityGroup = deserializeAws_querySourceSecurityGroup(output["SourceSecurityGroup"], context);
+    contents.SourceSecurityGroup = de_SourceSecurityGroup(output["SourceSecurityGroup"], context);
   }
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
-  }
-  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = deserializeAws_querySecurityGroups(
-      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
-      context
-    );
+  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
+    contents.SecurityGroups = de_SecurityGroups(__getArrayIfSingleItem(output["SecurityGroups"]["member"]), context);
   }
   if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTime(output["CreatedTime"]));
+    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
   }
   if (output["Scheme"] !== undefined) {
     contents.Scheme = __expectString(output["Scheme"]);
@@ -4881,103 +4554,85 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryLoadBalancerDescriptions = (
-  output: any,
-  context: __SerdeContext
-): LoadBalancerDescription[] => {
+/**
+ * deserializeAws_queryLoadBalancerDescriptions
+ */
+const de_LoadBalancerDescriptions = (output: any, context: __SerdeContext): LoadBalancerDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryLoadBalancerDescription(entry, context);
+      return de_LoadBalancerDescription(entry, context);
     });
 };
 
-const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
+/**
+ * deserializeAws_queryModifyLoadBalancerAttributesOutput
+ */
+const de_ModifyLoadBalancerAttributesOutput = (
   output: any,
   context: __SerdeContext
 ): ModifyLoadBalancerAttributesOutput => {
-  const contents: any = {
-    LoadBalancerName: undefined,
-    LoadBalancerAttributes: undefined,
-  };
+  const contents: any = {};
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
   }
   if (output["LoadBalancerAttributes"] !== undefined) {
-    contents.LoadBalancerAttributes = deserializeAws_queryLoadBalancerAttributes(
-      output["LoadBalancerAttributes"],
-      context
-    );
+    contents.LoadBalancerAttributes = de_LoadBalancerAttributes(output["LoadBalancerAttributes"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryOperationNotPermittedException = (
-  output: any,
-  context: __SerdeContext
-): OperationNotPermittedException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryOperationNotPermittedException
+ */
+const de_OperationNotPermittedException = (output: any, context: __SerdeContext): OperationNotPermittedException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicies = (output: any, context: __SerdeContext): Policies => {
-  const contents: any = {
-    AppCookieStickinessPolicies: undefined,
-    LBCookieStickinessPolicies: undefined,
-    OtherPolicies: undefined,
-  };
+/**
+ * deserializeAws_queryPolicies
+ */
+const de_Policies = (output: any, context: __SerdeContext): Policies => {
+  const contents: any = {};
   if (output.AppCookieStickinessPolicies === "") {
     contents.AppCookieStickinessPolicies = [];
-  }
-  if (
+  } else if (
     output["AppCookieStickinessPolicies"] !== undefined &&
     output["AppCookieStickinessPolicies"]["member"] !== undefined
   ) {
-    contents.AppCookieStickinessPolicies = deserializeAws_queryAppCookieStickinessPolicies(
+    contents.AppCookieStickinessPolicies = de_AppCookieStickinessPolicies(
       __getArrayIfSingleItem(output["AppCookieStickinessPolicies"]["member"]),
       context
     );
   }
   if (output.LBCookieStickinessPolicies === "") {
     contents.LBCookieStickinessPolicies = [];
-  }
-  if (
+  } else if (
     output["LBCookieStickinessPolicies"] !== undefined &&
     output["LBCookieStickinessPolicies"]["member"] !== undefined
   ) {
-    contents.LBCookieStickinessPolicies = deserializeAws_queryLBCookieStickinessPolicies(
+    contents.LBCookieStickinessPolicies = de_LBCookieStickinessPolicies(
       __getArrayIfSingleItem(output["LBCookieStickinessPolicies"]["member"]),
       context
     );
   }
   if (output.OtherPolicies === "") {
     contents.OtherPolicies = [];
-  }
-  if (output["OtherPolicies"] !== undefined && output["OtherPolicies"]["member"] !== undefined) {
-    contents.OtherPolicies = deserializeAws_queryPolicyNames(
-      __getArrayIfSingleItem(output["OtherPolicies"]["member"]),
-      context
-    );
+  } else if (output["OtherPolicies"] !== undefined && output["OtherPolicies"]["member"] !== undefined) {
+    contents.OtherPolicies = de_PolicyNames(__getArrayIfSingleItem(output["OtherPolicies"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicyAttributeDescription = (
-  output: any,
-  context: __SerdeContext
-): PolicyAttributeDescription => {
-  const contents: any = {
-    AttributeName: undefined,
-    AttributeValue: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyAttributeDescription
+ */
+const de_PolicyAttributeDescription = (output: any, context: __SerdeContext): PolicyAttributeDescription => {
+  const contents: any = {};
   if (output["AttributeName"] !== undefined) {
     contents.AttributeName = __expectString(output["AttributeName"]);
   }
@@ -4987,31 +4642,22 @@ const deserializeAws_queryPolicyAttributeDescription = (
   return contents;
 };
 
-const deserializeAws_queryPolicyAttributeDescriptions = (
-  output: any,
-  context: __SerdeContext
-): PolicyAttributeDescription[] => {
+/**
+ * deserializeAws_queryPolicyAttributeDescriptions
+ */
+const de_PolicyAttributeDescriptions = (output: any, context: __SerdeContext): PolicyAttributeDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryPolicyAttributeDescription(entry, context);
+      return de_PolicyAttributeDescription(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyAttributeTypeDescription = (
-  output: any,
-  context: __SerdeContext
-): PolicyAttributeTypeDescription => {
-  const contents: any = {
-    AttributeName: undefined,
-    AttributeType: undefined,
-    Description: undefined,
-    DefaultValue: undefined,
-    Cardinality: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyAttributeTypeDescription
+ */
+const de_PolicyAttributeTypeDescription = (output: any, context: __SerdeContext): PolicyAttributeTypeDescription => {
+  const contents: any = {};
   if (output["AttributeName"] !== undefined) {
     contents.AttributeName = __expectString(output["AttributeName"]);
   }
@@ -5030,26 +4676,22 @@ const deserializeAws_queryPolicyAttributeTypeDescription = (
   return contents;
 };
 
-const deserializeAws_queryPolicyAttributeTypeDescriptions = (
-  output: any,
-  context: __SerdeContext
-): PolicyAttributeTypeDescription[] => {
+/**
+ * deserializeAws_queryPolicyAttributeTypeDescriptions
+ */
+const de_PolicyAttributeTypeDescriptions = (output: any, context: __SerdeContext): PolicyAttributeTypeDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryPolicyAttributeTypeDescription(entry, context);
+      return de_PolicyAttributeTypeDescription(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyDescription = (output: any, context: __SerdeContext): PolicyDescription => {
-  const contents: any = {
-    PolicyName: undefined,
-    PolicyTypeName: undefined,
-    PolicyAttributeDescriptions: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyDescription
+ */
+const de_PolicyDescription = (output: any, context: __SerdeContext): PolicyDescription => {
+  const contents: any = {};
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = __expectString(output["PolicyName"]);
   }
@@ -5058,12 +4700,11 @@ const deserializeAws_queryPolicyDescription = (output: any, context: __SerdeCont
   }
   if (output.PolicyAttributeDescriptions === "") {
     contents.PolicyAttributeDescriptions = [];
-  }
-  if (
+  } else if (
     output["PolicyAttributeDescriptions"] !== undefined &&
     output["PolicyAttributeDescriptions"]["member"] !== undefined
   ) {
-    contents.PolicyAttributeDescriptions = deserializeAws_queryPolicyAttributeDescriptions(
+    contents.PolicyAttributeDescriptions = de_PolicyAttributeDescriptions(
       __getArrayIfSingleItem(output["PolicyAttributeDescriptions"]["member"]),
       context
     );
@@ -5071,44 +4712,44 @@ const deserializeAws_queryPolicyDescription = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryPolicyDescriptions = (output: any, context: __SerdeContext): PolicyDescription[] => {
+/**
+ * deserializeAws_queryPolicyDescriptions
+ */
+const de_PolicyDescriptions = (output: any, context: __SerdeContext): PolicyDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryPolicyDescription(entry, context);
+      return de_PolicyDescription(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyNames = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryPolicyNames
+ */
+const de_PolicyNames = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryPolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyNotFoundException
+ */
+const de_PolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryPolicyTypeDescription = (output: any, context: __SerdeContext): PolicyTypeDescription => {
-  const contents: any = {
-    PolicyTypeName: undefined,
-    Description: undefined,
-    PolicyAttributeTypeDescriptions: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyTypeDescription
+ */
+const de_PolicyTypeDescription = (output: any, context: __SerdeContext): PolicyTypeDescription => {
+  const contents: any = {};
   if (output["PolicyTypeName"] !== undefined) {
     contents.PolicyTypeName = __expectString(output["PolicyTypeName"]);
   }
@@ -5117,12 +4758,11 @@ const deserializeAws_queryPolicyTypeDescription = (output: any, context: __Serde
   }
   if (output.PolicyAttributeTypeDescriptions === "") {
     contents.PolicyAttributeTypeDescriptions = [];
-  }
-  if (
+  } else if (
     output["PolicyAttributeTypeDescriptions"] !== undefined &&
     output["PolicyAttributeTypeDescriptions"]["member"] !== undefined
   ) {
-    contents.PolicyAttributeTypeDescriptions = deserializeAws_queryPolicyAttributeTypeDescriptions(
+    contents.PolicyAttributeTypeDescriptions = de_PolicyAttributeTypeDescriptions(
       __getArrayIfSingleItem(output["PolicyAttributeTypeDescriptions"]["member"]),
       context
     );
@@ -5130,55 +4770,50 @@ const deserializeAws_queryPolicyTypeDescription = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryPolicyTypeDescriptions = (output: any, context: __SerdeContext): PolicyTypeDescription[] => {
+/**
+ * deserializeAws_queryPolicyTypeDescriptions
+ */
+const de_PolicyTypeDescriptions = (output: any, context: __SerdeContext): PolicyTypeDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryPolicyTypeDescription(entry, context);
+      return de_PolicyTypeDescription(entry, context);
     });
 };
 
-const deserializeAws_queryPolicyTypeNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): PolicyTypeNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryPolicyTypeNotFoundException
+ */
+const de_PolicyTypeNotFoundException = (output: any, context: __SerdeContext): PolicyTypeNotFoundException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryRegisterEndPointsOutput = (output: any, context: __SerdeContext): RegisterEndPointsOutput => {
-  const contents: any = {
-    Instances: undefined,
-  };
+/**
+ * deserializeAws_queryRegisterEndPointsOutput
+ */
+const de_RegisterEndPointsOutput = (output: any, context: __SerdeContext): RegisterEndPointsOutput => {
+  const contents: any = {};
   if (output.Instances === "") {
     contents.Instances = [];
-  }
-  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
+    contents.Instances = de_Instances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryRemoveAvailabilityZonesOutput = (
-  output: any,
-  context: __SerdeContext
-): RemoveAvailabilityZonesOutput => {
-  const contents: any = {
-    AvailabilityZones: undefined,
-  };
+/**
+ * deserializeAws_queryRemoveAvailabilityZonesOutput
+ */
+const de_RemoveAvailabilityZonesOutput = (output: any, context: __SerdeContext): RemoveAvailabilityZonesOutput => {
+  const contents: any = {};
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-  }
-  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
+  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
+    contents.AvailabilityZones = de_AvailabilityZones(
       __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
       context
     );
@@ -5186,23 +4821,29 @@ const deserializeAws_queryRemoveAvailabilityZonesOutput = (
   return contents;
 };
 
-const deserializeAws_queryRemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
+/**
+ * deserializeAws_queryRemoveTagsOutput
+ */
+const de_RemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
   const contents: any = {};
   return contents;
 };
 
-const deserializeAws_querySecurityGroups = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_querySecurityGroups
+ */
+const de_SecurityGroups = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput = (
+/**
+ * deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput
+ */
+const de_SetLoadBalancerListenerSSLCertificateOutput = (
   output: any,
   context: __SerdeContext
 ): SetLoadBalancerListenerSSLCertificateOutput => {
@@ -5210,7 +4851,10 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput = (
   return contents;
 };
 
-const deserializeAws_querySetLoadBalancerPoliciesForBackendServerOutput = (
+/**
+ * deserializeAws_querySetLoadBalancerPoliciesForBackendServerOutput
+ */
+const de_SetLoadBalancerPoliciesForBackendServerOutput = (
   output: any,
   context: __SerdeContext
 ): SetLoadBalancerPoliciesForBackendServerOutput => {
@@ -5218,7 +4862,10 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerOutput = (
   return contents;
 };
 
-const deserializeAws_querySetLoadBalancerPoliciesOfListenerOutput = (
+/**
+ * deserializeAws_querySetLoadBalancerPoliciesOfListenerOutput
+ */
+const de_SetLoadBalancerPoliciesOfListenerOutput = (
   output: any,
   context: __SerdeContext
 ): SetLoadBalancerPoliciesOfListenerOutput => {
@@ -5226,11 +4873,11 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerOutput = (
   return contents;
 };
 
-const deserializeAws_querySourceSecurityGroup = (output: any, context: __SerdeContext): SourceSecurityGroup => {
-  const contents: any = {
-    OwnerAlias: undefined,
-    GroupName: undefined,
-  };
+/**
+ * deserializeAws_querySourceSecurityGroup
+ */
+const de_SourceSecurityGroup = (output: any, context: __SerdeContext): SourceSecurityGroup => {
+  const contents: any = {};
   if (output["OwnerAlias"] !== undefined) {
     contents.OwnerAlias = __expectString(output["OwnerAlias"]);
   }
@@ -5240,32 +4887,33 @@ const deserializeAws_querySourceSecurityGroup = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_querySubnetNotFoundException = (output: any, context: __SerdeContext): SubnetNotFoundException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_querySubnetNotFoundException
+ */
+const de_SubnetNotFoundException = (output: any, context: __SerdeContext): SubnetNotFoundException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySubnets = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_querySubnets
+ */
+const de_Subnets = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+/**
+ * deserializeAws_queryTag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -5275,88 +4923,82 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   return contents;
 };
 
-const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
-  const contents: any = {
-    LoadBalancerName: undefined,
-    Tags: undefined,
-  };
+/**
+ * deserializeAws_queryTagDescription
+ */
+const de_TagDescription = (output: any, context: __SerdeContext): TagDescription => {
+  const contents: any = {};
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryTagDescriptions = (output: any, context: __SerdeContext): TagDescription[] => {
+/**
+ * deserializeAws_queryTagDescriptions
+ */
+const de_TagDescriptions = (output: any, context: __SerdeContext): TagDescription[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryTagDescription(entry, context);
+      return de_TagDescription(entry, context);
     });
 };
 
-const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_queryTagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryTag(entry, context);
+      return de_Tag(entry, context);
     });
 };
 
-const deserializeAws_queryTooManyAccessPointsException = (
-  output: any,
-  context: __SerdeContext
-): TooManyAccessPointsException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryTooManyAccessPointsException
+ */
+const de_TooManyAccessPointsException = (output: any, context: __SerdeContext): TooManyAccessPointsException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTooManyPoliciesException = (
-  output: any,
-  context: __SerdeContext
-): TooManyPoliciesException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryTooManyPoliciesException
+ */
+const de_TooManyPoliciesException = (output: any, context: __SerdeContext): TooManyPoliciesException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryTooManyTagsException
+ */
+const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUnsupportedProtocolException = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedProtocolException => {
-  const contents: any = {
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryUnsupportedProtocolException
+ */
+const de_UnsupportedProtocolException = (output: any, context: __SerdeContext): UnsupportedProtocolException => {
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -5365,23 +5007,17 @@ const deserializeAws_queryUnsupportedProtocolException = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -5406,17 +5042,25 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
+};
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -5429,17 +5073,24 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
+const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
-const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
-  if (data.Error.Code !== undefined) {
+const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "";
 };

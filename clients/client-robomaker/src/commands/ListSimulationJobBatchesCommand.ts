@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListSimulationJobBatchesRequest, ListSimulationJobBatchesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSimulationJobBatchesCommand,
-  serializeAws_restJson1ListSimulationJobBatchesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSimulationJobBatchesCommand, se_ListSimulationJobBatchesCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListSimulationJobBatchesCommand}.
+ */
 export interface ListSimulationJobBatchesCommandInput extends ListSimulationJobBatchesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSimulationJobBatchesCommand}.
+ */
 export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJobBatchesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
  *          specific simulation batch jobs. </p>
  * @example
@@ -30,13 +44,52 @@ export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJob
  * import { RoboMakerClient, ListSimulationJobBatchesCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationJobBatchesCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListSimulationJobBatchesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListSimulationJobBatchesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSimulationJobBatchesResponse
+ * //   simulationJobBatchSummaries: [ // SimulationJobBatchSummaries
+ * //     { // SimulationJobBatchSummary
+ * //       arn: "STRING_VALUE",
+ * //       lastUpdatedAt: new Date("TIMESTAMP"),
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       status: "STRING_VALUE",
+ * //       failedRequestCount: Number("int"),
+ * //       pendingRequestCount: Number("int"),
+ * //       createdRequestCount: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListSimulationJobBatchesCommandInput - {@link ListSimulationJobBatchesCommandInput}
+ * @returns {@link ListSimulationJobBatchesCommandOutput}
  * @see {@link ListSimulationJobBatchesCommandInput} for command's `input` shape.
  * @see {@link ListSimulationJobBatchesCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListSimulationJobBatchesCommand extends $Command<
@@ -47,6 +100,18 @@ export class ListSimulationJobBatchesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListSimulationJobBatchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +127,9 @@ export class ListSimulationJobBatchesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListSimulationJobBatchesCommandInput, ListSimulationJobBatchesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListSimulationJobBatchesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +140,8 @@ export class ListSimulationJobBatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSimulationJobBatchesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSimulationJobBatchesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +151,18 @@ export class ListSimulationJobBatchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSimulationJobBatchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSimulationJobBatchesCommand(input, context);
+    return se_ListSimulationJobBatchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSimulationJobBatchesCommandOutput> {
-    return deserializeAws_restJson1ListSimulationJobBatchesCommand(output, context);
+    return de_ListSimulationJobBatchesCommand(output, context);
   }
 
   // Start section: command_body_extra

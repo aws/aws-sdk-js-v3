@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListRecipesRequest, ListRecipesResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1ListRecipesCommand,
-  serializeAws_json1_1ListRecipesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRecipesCommand, se_ListRecipesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListRecipesCommand}.
+ */
 export interface ListRecipesCommandInput extends ListRecipesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRecipesCommand}.
+ */
 export interface ListRecipesCommandOutput extends ListRecipesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of available recipes. The response provides the properties
  *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
  * @example
@@ -30,13 +44,44 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * import { PersonalizeClient, ListRecipesCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecipesCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // ListRecipesRequest
+ *   recipeProvider: "SERVICE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * };
  * const command = new ListRecipesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRecipesResponse
+ * //   recipes: [ // Recipes
+ * //     { // RecipeSummary
+ * //       name: "STRING_VALUE",
+ * //       recipeArn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       creationDateTime: new Date("TIMESTAMP"),
+ * //       lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //       domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListRecipesCommandInput - {@link ListRecipesCommandInput}
+ * @returns {@link ListRecipesCommandOutput}
  * @see {@link ListRecipesCommandInput} for command's `input` shape.
  * @see {@link ListRecipesCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class ListRecipesCommand extends $Command<
@@ -47,6 +92,18 @@ export class ListRecipesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListRecipesCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +119,7 @@ export class ListRecipesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRecipesCommandInput, ListRecipesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListRecipesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +130,8 @@ export class ListRecipesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRecipesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRecipesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +141,18 @@ export class ListRecipesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRecipesCommand(input, context);
+    return se_ListRecipesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRecipesCommandOutput> {
-    return deserializeAws_json1_1ListRecipesCommand(output, context);
+    return de_ListRecipesCommand(output, context);
   }
 
   // Start section: command_body_extra

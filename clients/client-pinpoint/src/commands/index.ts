@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAppCommand";
 export * from "./CreateCampaignCommand";
 export * from "./CreateEmailTemplateCommand";
@@ -65,6 +66,9 @@ export * from "./GetJourneyCommand";
 export * from "./GetJourneyDateRangeKpiCommand";
 export * from "./GetJourneyExecutionActivityMetricsCommand";
 export * from "./GetJourneyExecutionMetricsCommand";
+export * from "./GetJourneyRunExecutionActivityMetricsCommand";
+export * from "./GetJourneyRunExecutionMetricsCommand";
+export * from "./GetJourneyRunsCommand";
 export * from "./GetPushTemplateCommand";
 export * from "./GetRecommenderConfigurationCommand";
 export * from "./GetRecommenderConfigurationsCommand";
@@ -88,6 +92,7 @@ export * from "./PutEventStreamCommand";
 export * from "./PutEventsCommand";
 export * from "./RemoveAttributesCommand";
 export * from "./SendMessagesCommand";
+export * from "./SendOTPMessageCommand";
 export * from "./SendUsersMessagesCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
@@ -115,3 +120,4 @@ export * from "./UpdateSmsTemplateCommand";
 export * from "./UpdateTemplateActiveVersionCommand";
 export * from "./UpdateVoiceChannelCommand";
 export * from "./UpdateVoiceTemplateCommand";
+export * from "./VerifyOTPMessageCommand";

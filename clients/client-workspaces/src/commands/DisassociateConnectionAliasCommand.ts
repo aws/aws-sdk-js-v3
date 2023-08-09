@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,27 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DisassociateConnectionAliasRequest, DisassociateConnectionAliasResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateConnectionAliasCommand,
-  serializeAws_json1_1DisassociateConnectionAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateConnectionAliasCommand, se_DisassociateConnectionAliasCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateConnectionAliasCommand}.
+ */
 export interface DisassociateConnectionAliasCommandInput extends DisassociateConnectionAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateConnectionAliasCommand}.
+ */
 export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region
- *          redirection between two directories in different Regions. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
- *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
- *
+ * @public
+ * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
+ *          disables cross-Region redirection between two directories in different Regions. For more
+ *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+ *             Redirection for Amazon WorkSpaces</a>.</p>
  *          <note>
  *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
- *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+ *                DescribeConnectionAliases</a> to make sure that the current state of the
+ *             connection alias is <code>CREATED</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,13 +51,38 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * import { WorkSpacesClient, DisassociateConnectionAliasCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DisassociateConnectionAliasCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DisassociateConnectionAliasRequest
+ *   AliasId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateConnectionAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisassociateConnectionAliasCommandInput - {@link DisassociateConnectionAliasCommandInput}
+ * @returns {@link DisassociateConnectionAliasCommandOutput}
  * @see {@link DisassociateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionAliasCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DisassociateConnectionAliasCommand extends $Command<
@@ -54,6 +93,18 @@ export class DisassociateConnectionAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateConnectionAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +120,9 @@ export class DisassociateConnectionAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateConnectionAliasCommandInput, DisassociateConnectionAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateConnectionAliasCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +133,8 @@ export class DisassociateConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectionAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConnectionAliasResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +144,21 @@ export class DisassociateConnectionAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateConnectionAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConnectionAliasCommand(input, context);
+    return se_DisassociateConnectionAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateConnectionAliasCommandOutput> {
-    return deserializeAws_json1_1DisassociateConnectionAliasCommand(output, context);
+    return de_DisassociateConnectionAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
@@ -17,17 +19,32 @@ import {
   AddApplicationInputProcessingConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
-  serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
+  de_AddApplicationInputProcessingConfigurationCommand,
+  se_AddApplicationInputProcessingConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddApplicationInputProcessingConfigurationCommand}.
+ */
 export interface AddApplicationInputProcessingConfigurationCommandInput
   extends AddApplicationInputProcessingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AddApplicationInputProcessingConfigurationCommand}.
+ */
 export interface AddApplicationInputProcessingConfigurationCommandOutput
   extends AddApplicationInputProcessingConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
  *          </note>
@@ -40,13 +57,46 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * import { KinesisAnalyticsClient, AddApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, AddApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = { // AddApplicationInputProcessingConfigurationRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   InputId: "STRING_VALUE", // required
+ *   InputProcessingConfiguration: { // InputProcessingConfiguration
+ *     InputLambdaProcessor: { // InputLambdaProcessor
+ *       ResourceARN: "STRING_VALUE", // required
+ *       RoleARN: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AddApplicationInputProcessingConfigurationCommandInput - {@link AddApplicationInputProcessingConfigurationCommandInput}
+ * @returns {@link AddApplicationInputProcessingConfigurationCommandOutput}
  * @see {@link AddApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
  * @see {@link AddApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>Specified input parameter value is invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>Application is not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ * @throws {@link KinesisAnalyticsServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
 export class AddApplicationInputProcessingConfigurationCommand extends $Command<
@@ -57,6 +107,18 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddApplicationInputProcessingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +137,12 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     AddApplicationInputProcessingConfigurationCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        AddApplicationInputProcessingConfigurationCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +153,8 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationInputProcessingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationInputProcessingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,18 +164,24 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: AddApplicationInputProcessingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(input, context);
+    return se_AddApplicationInputProcessingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> {
-    return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(output, context);
+    return de_AddApplicationInputProcessingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

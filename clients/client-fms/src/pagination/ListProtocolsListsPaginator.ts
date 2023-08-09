@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListProtocolsListsCommand,
   ListProtocolsListsCommandInput,
   ListProtocolsListsCommandOutput,
 } from "../commands/ListProtocolsListsCommand";
-import { FMS } from "../FMS";
 import { FMSClient } from "../FMSClient";
 import { FMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: FMSClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListProtocolsListsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: FMS,
-  input: ListProtocolsListsCommandInput,
-  ...args: any
-): Promise<ListProtocolsListsCommandOutput> => {
-  // @ts-ignore
-  return await client.listProtocolsLists(input, ...args);
-};
 export async function* paginateListProtocolsLists(
   config: FMSPaginationConfiguration,
   input: ListProtocolsListsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListProtocolsLists(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof FMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof FMSClient) {
+    if (config.client instanceof FMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected FMS | FMSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

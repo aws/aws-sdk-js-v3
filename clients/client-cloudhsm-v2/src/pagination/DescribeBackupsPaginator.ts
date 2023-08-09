@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CloudHSMV2 } from "../CloudHSMV2";
 import { CloudHSMV2Client } from "../CloudHSMV2Client";
 import {
   DescribeBackupsCommand,
@@ -10,7 +10,7 @@ import {
 import { CloudHSMV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudHSMV2Client,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeBackupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudHSMV2,
-  input: DescribeBackupsCommandInput,
-  ...args: any
-): Promise<DescribeBackupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeBackups(input, ...args);
-};
 export async function* paginateDescribeBackups(
   config: CloudHSMV2PaginationConfiguration,
   input: DescribeBackupsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeBackups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudHSMV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudHSMV2Client) {
+    if (config.client instanceof CloudHSMV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudHSMV2 | CloudHSMV2Client");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

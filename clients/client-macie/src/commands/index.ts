@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateMemberAccountCommand";
 export * from "./AssociateS3ResourcesCommand";
 export * from "./DisassociateMemberAccountCommand";

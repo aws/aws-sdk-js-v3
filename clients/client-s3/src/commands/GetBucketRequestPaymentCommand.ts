@@ -1,7 +1,8 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,22 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetBucketRequestPaymentOutput, GetBucketRequestPaymentRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketRequestPaymentCommand,
-  serializeAws_restXmlGetBucketRequestPaymentCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketRequestPaymentCommand, se_GetBucketRequestPaymentCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetBucketRequestPaymentCommand}.
+ */
 export interface GetBucketRequestPaymentCommandInput extends GetBucketRequestPaymentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketRequestPaymentCommand}.
+ */
 export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPaymentOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the request payment configuration of a bucket. To use this version of the
- *          operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>.</p>
- *
+ *          operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays
+ *             Buckets</a>.</p>
  *          <p>The following operations are related to <code>GetBucketRequestPayment</code>:</p>
  *          <ul>
  *             <li>
@@ -40,13 +53,42 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * import { S3Client, GetBucketRequestPaymentCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketRequestPaymentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketRequestPaymentRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketRequestPaymentOutput
+ * //   Payer: "Requester" || "BucketOwner",
+ * // };
+ *
  * ```
  *
+ * @param GetBucketRequestPaymentCommandInput - {@link GetBucketRequestPaymentCommandInput}
+ * @returns {@link GetBucketRequestPaymentCommandOutput}
  * @see {@link GetBucketRequestPaymentCommandInput} for command's `input` shape.
  * @see {@link GetBucketRequestPaymentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
+ * @example To get bucket versioning configuration
+ * ```javascript
+ * // The following example retrieves bucket versioning configuration.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketRequestPaymentCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Payer": "BucketOwner"
+ * }
+ * *\/
+ * // example id: to-get-bucket-versioning-configuration-1483037183929
+ * ```
  *
  */
 export class GetBucketRequestPaymentCommand extends $Command<
@@ -57,6 +99,24 @@ export class GetBucketRequestPaymentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketRequestPaymentCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,7 +132,9 @@ export class GetBucketRequestPaymentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketRequestPaymentCommandInput, GetBucketRequestPaymentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBucketRequestPaymentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +145,8 @@ export class GetBucketRequestPaymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketRequestPaymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketRequestPaymentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +156,18 @@ export class GetBucketRequestPaymentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketRequestPaymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketRequestPaymentCommand(input, context);
+    return se_GetBucketRequestPaymentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketRequestPaymentCommandOutput> {
-    return deserializeAws_restXmlGetBucketRequestPaymentCommand(output, context);
+    return de_GetBucketRequestPaymentCommand(output, context);
   }
 
   // Start section: command_body_extra

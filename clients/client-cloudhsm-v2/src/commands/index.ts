@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CopyBackupToRegionCommand";
 export * from "./CreateClusterCommand";
 export * from "./CreateHsmCommand";

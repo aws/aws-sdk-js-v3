@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   MigrationHubStrategyClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { StartAssessmentRequest, StartAssessmentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StartAssessmentCommand,
-  serializeAws_restJson1StartAssessmentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StartAssessmentCommand, se_StartAssessmentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartAssessmentCommand}.
+ */
 export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartAssessmentCommand}.
+ */
 export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Starts the assessment of an on-premises environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,49 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * import { MigrationHubStrategyClient, StartAssessmentCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartAssessmentCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // StartAssessmentRequest
+ *   s3bucketForAnalysisData: "STRING_VALUE",
+ *   s3bucketForReportData: "STRING_VALUE",
+ *   assessmentTargets: [ // AssessmentTargets
+ *     { // AssessmentTarget
+ *       condition: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       values: [ // AssessmentTargetValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new StartAssessmentCommand(input);
  * const response = await client.send(command);
+ * // { // StartAssessmentResponse
+ * //   assessmentId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param StartAssessmentCommandInput - {@link StartAssessmentCommandInput}
+ * @returns {@link StartAssessmentCommandOutput}
  * @see {@link StartAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
+ *       quota for this account. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class StartAssessmentCommand extends $Command<
@@ -50,6 +100,18 @@ export class StartAssessmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartAssessmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +127,9 @@ export class StartAssessmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartAssessmentCommandInput, StartAssessmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartAssessmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +140,8 @@ export class StartAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAssessmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartAssessmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +151,18 @@ export class StartAssessmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartAssessmentCommand(input, context);
+    return se_StartAssessmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartAssessmentCommandOutput> {
-    return deserializeAws_restJson1StartAssessmentCommand(output, context);
+    return de_StartAssessmentCommand(output, context);
   }
 
   // Start section: command_body_extra

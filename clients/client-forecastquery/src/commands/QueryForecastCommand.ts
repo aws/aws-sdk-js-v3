@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
 import { QueryForecastRequest, QueryForecastResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1QueryForecastCommand,
-  serializeAws_json1_1QueryForecastCommand,
-} from "../protocols/Aws_json1_1";
+import { de_QueryForecastCommand, se_QueryForecastCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link QueryForecastCommand}.
+ */
 export interface QueryForecastCommandInput extends QueryForecastRequest {}
+/**
+ * @public
+ *
+ * The output of {@link QueryForecastCommand}.
+ */
 export interface QueryForecastCommandOutput extends QueryForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>
  *          <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the
  *       equivalent non-timestamp, non-target field) from the <code>TARGET_TIME_SERIES</code> dataset,
@@ -40,13 +54,56 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * import { ForecastqueryClient, QueryForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
  * // const { ForecastqueryClient, QueryForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import
  * const client = new ForecastqueryClient(config);
+ * const input = { // QueryForecastRequest
+ *   ForecastArn: "STRING_VALUE", // required
+ *   StartDate: "STRING_VALUE",
+ *   EndDate: "STRING_VALUE",
+ *   Filters: { // Filters // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new QueryForecastCommand(input);
  * const response = await client.send(command);
+ * // { // QueryForecastResponse
+ * //   Forecast: { // Forecast
+ * //     Predictions: { // Predictions
+ * //       "<keys>": [ // TimeSeries
+ * //         { // DataPoint
+ * //           Timestamp: "STRING_VALUE",
+ * //           Value: Number("double"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param QueryForecastCommandInput - {@link QueryForecastCommandInput}
+ * @returns {@link QueryForecastCommandOutput}
  * @see {@link QueryForecastCommandInput} for command's `input` shape.
  * @see {@link QueryForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The value is invalid or is too long.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find that resource. Check the information that you've provided and try
+ *       again.</p>
+ *
+ * @throws {@link ForecastqueryServiceException}
+ * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
  */
 export class QueryForecastCommand extends $Command<
@@ -57,6 +114,18 @@ export class QueryForecastCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: QueryForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +141,7 @@ export class QueryForecastCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<QueryForecastCommandInput, QueryForecastCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, QueryForecastCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +152,8 @@ export class QueryForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryForecastRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: QueryForecastResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +163,18 @@ export class QueryForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1QueryForecastCommand(input, context);
+    return se_QueryForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryForecastCommandOutput> {
-    return deserializeAws_json1_1QueryForecastCommand(output, context);
+    return de_QueryForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

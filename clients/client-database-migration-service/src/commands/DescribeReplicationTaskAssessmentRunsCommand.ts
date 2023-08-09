@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
@@ -21,17 +23,32 @@ import {
   DescribeReplicationTaskAssessmentRunsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,
-  serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,
+  de_DescribeReplicationTaskAssessmentRunsCommand,
+  se_DescribeReplicationTaskAssessmentRunsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeReplicationTaskAssessmentRunsCommand}.
+ */
 export interface DescribeReplicationTaskAssessmentRunsCommandInput
   extends DescribeReplicationTaskAssessmentRunsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReplicationTaskAssessmentRunsCommand}.
+ */
 export interface DescribeReplicationTaskAssessmentRunsCommandOutput
   extends DescribeReplicationTaskAssessmentRunsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of premigration assessment runs based on filter
  *          settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
@@ -47,13 +64,56 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskAssessmentRunsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeReplicationTaskAssessmentRunsMessage
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReplicationTaskAssessmentRunsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReplicationTaskAssessmentRunsResponse
+ * //   Marker: "STRING_VALUE",
+ * //   ReplicationTaskAssessmentRuns: [ // ReplicationTaskAssessmentRunList
+ * //     { // ReplicationTaskAssessmentRun
+ * //       ReplicationTaskAssessmentRunArn: "STRING_VALUE",
+ * //       ReplicationTaskArn: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       ReplicationTaskAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //       AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //         IndividualAssessmentCount: Number("int"),
+ * //         IndividualAssessmentCompletedCount: Number("int"),
+ * //       },
+ * //       LastFailureMessage: "STRING_VALUE",
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       ResultLocationBucket: "STRING_VALUE",
+ * //       ResultLocationFolder: "STRING_VALUE",
+ * //       ResultEncryptionMode: "STRING_VALUE",
+ * //       ResultKmsKeyArn: "STRING_VALUE",
+ * //       AssessmentRunName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeReplicationTaskAssessmentRunsCommandInput - {@link DescribeReplicationTaskAssessmentRunsCommandInput}
+ * @returns {@link DescribeReplicationTaskAssessmentRunsCommandOutput}
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
@@ -64,6 +124,18 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReplicationTaskAssessmentRunsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +151,9 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeReplicationTaskAssessmentRunsCommandInput, DescribeReplicationTaskAssessmentRunsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeReplicationTaskAssessmentRunsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +164,8 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationTaskAssessmentRunsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationTaskAssessmentRunsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,18 +175,24 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeReplicationTaskAssessmentRunsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand(input, context);
+    return se_DescribeReplicationTaskAssessmentRunsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand(output, context);
+    return de_DescribeReplicationTaskAssessmentRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

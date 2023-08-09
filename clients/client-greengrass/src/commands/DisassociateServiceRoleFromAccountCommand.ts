@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
@@ -17,16 +19,31 @@ import {
   DisassociateServiceRoleFromAccountResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
-  serializeAws_restJson1DisassociateServiceRoleFromAccountCommand,
+  de_DisassociateServiceRoleFromAccountCommand,
+  se_DisassociateServiceRoleFromAccountCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateServiceRoleFromAccountCommand}.
+ */
 export interface DisassociateServiceRoleFromAccountCommandInput extends DisassociateServiceRoleFromAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateServiceRoleFromAccountCommand}.
+ */
 export interface DisassociateServiceRoleFromAccountCommandOutput
   extends DisassociateServiceRoleFromAccountResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Disassociates the service role from your account. Without a service role, deployments will not work.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +51,26 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * import { GreengrassClient, DisassociateServiceRoleFromAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DisassociateServiceRoleFromAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {};
  * const command = new DisassociateServiceRoleFromAccountCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateServiceRoleFromAccountResponse
+ * //   DisassociatedAt: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DisassociateServiceRoleFromAccountCommandInput - {@link DisassociateServiceRoleFromAccountCommandInput}
+ * @returns {@link DisassociateServiceRoleFromAccountCommandOutput}
  * @see {@link DisassociateServiceRoleFromAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<
@@ -51,6 +81,18 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateServiceRoleFromAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +108,9 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateServiceRoleFromAccountCommandInput, DisassociateServiceRoleFromAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateServiceRoleFromAccountCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +121,8 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateServiceRoleFromAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateServiceRoleFromAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +132,24 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisassociateServiceRoleFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateServiceRoleFromAccountCommand(input, context);
+    return se_DisassociateServiceRoleFromAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
-    return deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand(output, context);
+    return de_DisassociateServiceRoleFromAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

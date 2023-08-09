@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptGrantCommand";
 export * from "./CheckInLicenseCommand";
 export * from "./CheckoutBorrowLicenseCommand";
@@ -34,7 +35,9 @@ export * from "./ListLicenseSpecificationsForResourceCommand";
 export * from "./ListLicenseVersionsCommand";
 export * from "./ListLicensesCommand";
 export * from "./ListReceivedGrantsCommand";
+export * from "./ListReceivedGrantsForOrganizationCommand";
 export * from "./ListReceivedLicensesCommand";
+export * from "./ListReceivedLicensesForOrganizationCommand";
 export * from "./ListResourceInventoryCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTokensCommand";

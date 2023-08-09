@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
-import { KMS } from "../KMS";
 import { KMSClient } from "../KMSClient";
 import { KMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: KMSClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAliasesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: KMS,
-  input: ListAliasesCommandInput,
-  ...args: any
-): Promise<ListAliasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAliases(input, ...args);
-};
 export async function* paginateListAliases(
   config: KMSPaginationConfiguration,
   input: ListAliasesCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListAliases(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof KMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof KMSClient) {
+    if (config.client instanceof KMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected KMS | KMSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

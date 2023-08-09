@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { DocDB } from "../DocDB";
 import { DocDBClient } from "../DocDBClient";
 
+/**
+ * @public
+ */
 export interface DocDBPaginationConfiguration extends PaginationConfiguration {
-  client: DocDB | DocDBClient;
+  client: DocDBClient;
 }

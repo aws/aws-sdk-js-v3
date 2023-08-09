@@ -1,13 +1,70 @@
-# @aws-sdk/client-appconfigdata
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-appconfigdata/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-appconfigdata)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-appconfigdata.svg)](https://www.npmjs.com/package/@aws-sdk/client-appconfigdata)
+# @aws-sdk/client-appconfigdata
 
 ## Description
 
 AWS SDK for JavaScript AppConfigData Client for Node.js, Browser and React Native.
 
-<p>Use the AppConfigData API, a capability of AWS AppConfig, to retrieve deployed configuration.</p>
+<p>AppConfig Data provides the data plane APIs your application uses to retrieve
+configuration data. Here's how it works:</p>
+<p>Your application retrieves configuration data by first establishing a configuration
+session using the AppConfig Data <a>StartConfigurationSession</a> API action.
+Your session's client then makes periodic calls to <a>GetLatestConfiguration</a>
+to check for and retrieve the latest data available.</p>
+<p>When calling <code>StartConfigurationSession</code>, your code sends the following
+information:</p>
+<ul>
+<li>
+<p>Identifiers (ID or name) of an AppConfig application, environment, and
+configuration profile that the session tracks.</p>
+</li>
+<li>
+<p>(Optional) The minimum amount of time the session's client must wait between calls
+to <code>GetLatestConfiguration</code>.</p>
+</li>
+</ul>
+<p>In response, AppConfig provides an <code>InitialConfigurationToken</code> to be given to
+the session's client and used the first time it calls <code>GetLatestConfiguration</code>
+for that session.</p>
+<important>
+<p>This token should only be used once in your first call to
+<code>GetLatestConfiguration</code>. You <i>must</i> use the new token
+in the <code>GetLatestConfiguration</code> response
+(<code>NextPollConfigurationToken</code>) in each subsequent call to
+<code>GetLatestConfiguration</code>.</p>
+</important>
+<p>When calling <code>GetLatestConfiguration</code>, your client code sends the most recent
+<code>ConfigurationToken</code> value it has and receives in response:</p>
+<ul>
+<li>
+<p>
+<code>NextPollConfigurationToken</code>: the <code>ConfigurationToken</code> value
+to use on the next call to <code>GetLatestConfiguration</code>.</p>
+</li>
+<li>
+<p>
+<code>NextPollIntervalInSeconds</code>: the duration the client should wait before
+making its next call to <code>GetLatestConfiguration</code>. This duration may vary
+over the course of the session, so it should be used instead of the value sent on the
+<code>StartConfigurationSession</code> call.</p>
+</li>
+<li>
+<p>The configuration: the latest data intended for the session. This may be empty if
+the client already has the latest version of the configuration.</p>
+</li>
+</ul>
+<important>
+<p>The <code>InitialConfigurationToken</code> and
+<code>NextPollConfigurationToken</code> should only be used once. To support long poll
+use cases, the tokens are valid for up to 24 hours. If a
+<code>GetLatestConfiguration</code> call uses an expired token, the system returns
+<code>BadRequestException</code>.</p>
+</important>
+<p>For more information and to view example CLI commands that show how to retrieve a
+configuration using the AppConfig Data <code>StartConfigurationSession</code> and
+<code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
+configuration</a> in the <i>AppConfig User Guide</i>.</p>
 
 ## Installing
 
@@ -115,7 +172,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -149,7 +206,7 @@ client
 
 // callbacks.
 client.getLatestConfiguration(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -163,7 +220,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -201,3 +258,22 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetLatestConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/classes/getlatestconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/getlatestconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/getlatestconfigurationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartConfigurationSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/classes/startconfigurationsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/startconfigurationsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-appconfigdata/interfaces/startconfigurationsessioncommandoutput.html)
+
+</details>

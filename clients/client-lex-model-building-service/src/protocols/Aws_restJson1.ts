@@ -1,5 +1,9 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -8,16 +12,18 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "../commands/CreateBotVersionCommand";
 import {
@@ -91,19 +97,16 @@ import { StartImportCommandInput, StartImportCommandOutput } from "../commands/S
 import { StartMigrationCommandInput, StartMigrationCommandOutput } from "../commands/StartMigrationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { LexModelBuildingServiceServiceException as __BaseException } from "../models/LexModelBuildingServiceServiceException";
 import {
   AccessDeniedException,
   BadRequestException,
   BotAliasMetadata,
   BotChannelAssociation,
   BotMetadata,
-  BuiltinIntentMetadata,
-  BuiltinIntentSlot,
-  BuiltinSlotTypeMetadata,
   CodeHook,
   ConflictException,
   ConversationLogsRequest,
-  ConversationLogsResponse,
   EnumerationValue,
   FollowUpPrompt,
   FulfillmentActivity,
@@ -113,18 +116,14 @@ import {
   InternalFailureException,
   KendraConfiguration,
   LimitExceededException,
-  Locale,
   LogSettingsRequest,
-  LogSettingsResponse,
   Message,
-  MigrationAlert,
   MigrationSummary,
   NotFoundException,
   OutputContext,
   PreconditionFailedException,
   Prompt,
   ResourceInUseException,
-  ResourceReference,
   Slot,
   SlotDefaultValue,
   SlotDefaultValueSpec,
@@ -137,7 +136,10 @@ import {
   UtteranceList,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateBotVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateBotVersionCommand
+ */
+export const se_CreateBotVersionCommand = async (
   input: CreateBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -146,19 +148,13 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -170,7 +166,10 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateIntentVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateIntentVersionCommand
+ */
+export const se_CreateIntentVersionCommand = async (
   input: CreateIntentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,19 +178,13 @@ export const serializeAws_restJson1CreateIntentVersionCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -203,7 +196,10 @@ export const serializeAws_restJson1CreateIntentVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSlotTypeVersionCommand = async (
+/**
+ * serializeAws_restJson1CreateSlotTypeVersionCommand
+ */
+export const se_CreateSlotTypeVersionCommand = async (
   input: CreateSlotTypeVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -213,19 +209,13 @@ export const serializeAws_restJson1CreateSlotTypeVersionCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -237,22 +227,17 @@ export const serializeAws_restJson1CreateSlotTypeVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotCommand
+ */
+export const se_DeleteBotCommand = async (
   input: DeleteBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -265,7 +250,10 @@ export const serializeAws_restJson1DeleteBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotAliasCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotAliasCommand
+ */
+export const se_DeleteBotAliasCommand = async (
   input: DeleteBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -273,24 +261,8 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -303,7 +275,10 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotChannelAssociationCommand
+ */
+export const se_DeleteBotChannelAssociationCommand = async (
   input: DeleteBotChannelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -312,33 +287,9 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botName}/aliases/{botAlias}/channels/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -351,7 +302,10 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBotVersionCommand = async (
+/**
+ * serializeAws_restJson1DeleteBotVersionCommand
+ */
+export const se_DeleteBotVersionCommand = async (
   input: DeleteBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -359,24 +313,8 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "version", () => input.version!, "{version}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -389,22 +327,17 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteIntentCommand = async (
+/**
+ * serializeAws_restJson1DeleteIntentCommand
+ */
+export const se_DeleteIntentCommand = async (
   input: DeleteIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -417,7 +350,10 @@ export const serializeAws_restJson1DeleteIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteIntentVersionCommand = async (
+/**
+ * serializeAws_restJson1DeleteIntentVersionCommand
+ */
+export const se_DeleteIntentVersionCommand = async (
   input: DeleteIntentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -425,24 +361,8 @@ export const serializeAws_restJson1DeleteIntentVersionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "version", () => input.version!, "{version}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -455,22 +375,17 @@ export const serializeAws_restJson1DeleteIntentVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1DeleteSlotTypeCommand
+ */
+export const se_DeleteSlotTypeCommand = async (
   input: DeleteSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -483,7 +398,10 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
+/**
+ * serializeAws_restJson1DeleteSlotTypeVersionCommand
+ */
+export const se_DeleteSlotTypeVersionCommand = async (
   input: DeleteSlotTypeVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -491,24 +409,8 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/version/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "version", () => input.version!, "{version}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -521,7 +423,10 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteUtterancesCommand = async (
+/**
+ * serializeAws_restJson1DeleteUtterancesCommand
+ */
+export const se_DeleteUtterancesCommand = async (
   input: DeleteUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -529,24 +434,8 @@ export const serializeAws_restJson1DeleteUtterancesCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/utterances/{userId}";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
-  if (input.userId !== undefined) {
-    const labelValue: string = input.userId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: userId.");
-    }
-    resolvedPath = resolvedPath.replace("{userId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: userId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -559,32 +448,23 @@ export const serializeAws_restJson1DeleteUtterancesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotCommand = async (
-  input: GetBotCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1GetBotCommand
+ */
+export const se_GetBotCommand = async (input: GetBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/{versionOrAlias}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.versionOrAlias !== undefined) {
-    const labelValue: string = input.versionOrAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: versionOrAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{versionOrAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: versionOrAlias.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "versionOrAlias",
+    () => input.versionOrAlias!,
+    "{versionOrAlias}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -597,7 +477,10 @@ export const serializeAws_restJson1GetBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotAliasCommand = async (
+/**
+ * serializeAws_restJson1GetBotAliasCommand
+ */
+export const se_GetBotAliasCommand = async (
   input: GetBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -605,24 +488,8 @@ export const serializeAws_restJson1GetBotAliasCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -635,27 +502,22 @@ export const serializeAws_restJson1GetBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotAliasesCommand = async (
+/**
+ * serializeAws_restJson1GetBotAliasesCommand
+ */
+export const se_GetBotAliasesCommand = async (
   input: GetBotAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nameContains: [, input.nameContains!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -669,7 +531,10 @@ export const serializeAws_restJson1GetBotAliasesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
+/**
+ * serializeAws_restJson1GetBotChannelAssociationCommand
+ */
+export const se_GetBotChannelAssociationCommand = async (
   input: GetBotChannelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -678,33 +543,9 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botName}/aliases/{botAlias}/channels/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -717,7 +558,10 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
+/**
+ * serializeAws_restJson1GetBotChannelAssociationsCommand
+ */
+export const se_GetBotChannelAssociationsCommand = async (
   input: GetBotChannelAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -726,29 +570,13 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botName}/aliases/{botAlias}/channels";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nameContains: [, input.nameContains!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -762,18 +590,21 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotsCommand = async (
+/**
+ * serializeAws_restJson1GetBotsCommand
+ */
+export const se_GetBotsCommand = async (
   input: GetBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-  };
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nameContains: [, input.nameContains!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -787,26 +618,21 @@ export const serializeAws_restJson1GetBotsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBotVersionsCommand = async (
+/**
+ * serializeAws_restJson1GetBotVersionsCommand
+ */
+export const se_GetBotVersionsCommand = async (
   input: GetBotVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -820,7 +646,10 @@ export const serializeAws_restJson1GetBotVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBuiltinIntentCommand = async (
+/**
+ * serializeAws_restJson1GetBuiltinIntentCommand
+ */
+export const se_GetBuiltinIntentCommand = async (
   input: GetBuiltinIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -828,15 +657,7 @@ export const serializeAws_restJson1GetBuiltinIntentCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/intents/{signature}";
-  if (input.signature !== undefined) {
-    const labelValue: string = input.signature;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: signature.");
-    }
-    resolvedPath = resolvedPath.replace("{signature}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: signature.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "signature", () => input.signature!, "{signature}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -849,19 +670,22 @@ export const serializeAws_restJson1GetBuiltinIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
+/**
+ * serializeAws_restJson1GetBuiltinIntentsCommand
+ */
+export const se_GetBuiltinIntentsCommand = async (
   input: GetBuiltinIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/intents";
-  const query: any = {
-    ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  const query: any = map({
+    locale: [, input.locale!],
+    signatureContains: [, input.signatureContains!],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -875,19 +699,22 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
+/**
+ * serializeAws_restJson1GetBuiltinSlotTypesCommand
+ */
+export const se_GetBuiltinSlotTypesCommand = async (
   input: GetBuiltinSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/slottypes";
-  const query: any = {
-    ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  const query: any = map({
+    locale: [, input.locale!],
+    signatureContains: [, input.signatureContains!],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -901,19 +728,22 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetExportCommand = async (
+/**
+ * serializeAws_restJson1GetExportCommand
+ */
+export const se_GetExportCommand = async (
   input: GetExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
-  const query: any = {
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.version !== undefined && { version: input.version }),
-    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
-    ...(input.exportType !== undefined && { exportType: input.exportType }),
-  };
+  const query: any = map({
+    name: [, __expectNonNull(input.name!, `name`)],
+    version: [, __expectNonNull(input.version!, `version`)],
+    resourceType: [, __expectNonNull(input.resourceType!, `resourceType`)],
+    exportType: [, __expectNonNull(input.exportType!, `exportType`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -927,22 +757,17 @@ export const serializeAws_restJson1GetExportCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetImportCommand = async (
+/**
+ * serializeAws_restJson1GetImportCommand
+ */
+export const se_GetImportCommand = async (
   input: GetImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports/{importId}";
-  if (input.importId !== undefined) {
-    const labelValue: string = input.importId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: importId.");
-    }
-    resolvedPath = resolvedPath.replace("{importId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: importId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "importId", () => input.importId!, "{importId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -955,7 +780,10 @@ export const serializeAws_restJson1GetImportCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntentCommand = async (
+/**
+ * serializeAws_restJson1GetIntentCommand
+ */
+export const se_GetIntentCommand = async (
   input: GetIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -963,24 +791,8 @@ export const serializeAws_restJson1GetIntentCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "version", () => input.version!, "{version}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -993,18 +805,21 @@ export const serializeAws_restJson1GetIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntentsCommand = async (
+/**
+ * serializeAws_restJson1GetIntentsCommand
+ */
+export const se_GetIntentsCommand = async (
   input: GetIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents";
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-  };
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nameContains: [, input.nameContains!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1018,26 +833,21 @@ export const serializeAws_restJson1GetIntentsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetIntentVersionsCommand = async (
+/**
+ * serializeAws_restJson1GetIntentVersionsCommand
+ */
+export const se_GetIntentVersionsCommand = async (
   input: GetIntentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1051,7 +861,10 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMigrationCommand = async (
+/**
+ * serializeAws_restJson1GetMigrationCommand
+ */
+export const se_GetMigrationCommand = async (
   input: GetMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1059,15 +872,7 @@ export const serializeAws_restJson1GetMigrationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations/{migrationId}";
-  if (input.migrationId !== undefined) {
-    const labelValue: string = input.migrationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: migrationId.");
-    }
-    resolvedPath = resolvedPath.replace("{migrationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: migrationId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "migrationId", () => input.migrationId!, "{migrationId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1080,21 +885,24 @@ export const serializeAws_restJson1GetMigrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetMigrationsCommand = async (
+/**
+ * serializeAws_restJson1GetMigrationsCommand
+ */
+export const se_GetMigrationsCommand = async (
   input: GetMigrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations";
-  const query: any = {
-    ...(input.sortByAttribute !== undefined && { sortByAttribute: input.sortByAttribute }),
-    ...(input.sortByOrder !== undefined && { sortByOrder: input.sortByOrder }),
-    ...(input.v1BotNameContains !== undefined && { v1BotNameContains: input.v1BotNameContains }),
-    ...(input.migrationStatusEquals !== undefined && { migrationStatusEquals: input.migrationStatusEquals }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  const query: any = map({
+    sortByAttribute: [, input.sortByAttribute!],
+    sortByOrder: [, input.sortByOrder!],
+    v1BotNameContains: [, input.v1BotNameContains!],
+    migrationStatusEquals: [, input.migrationStatusEquals!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1108,7 +916,10 @@ export const serializeAws_restJson1GetMigrationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1GetSlotTypeCommand
+ */
+export const se_GetSlotTypeCommand = async (
   input: GetSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1116,24 +927,8 @@ export const serializeAws_restJson1GetSlotTypeCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions/{version}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "version", () => input.version!, "{version}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1146,18 +941,21 @@ export const serializeAws_restJson1GetSlotTypeCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSlotTypesCommand = async (
+/**
+ * serializeAws_restJson1GetSlotTypesCommand
+ */
+export const se_GetSlotTypesCommand = async (
   input: GetSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes";
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-  };
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nameContains: [, input.nameContains!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1171,7 +969,10 @@ export const serializeAws_restJson1GetSlotTypesCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
+/**
+ * serializeAws_restJson1GetSlotTypeVersionsCommand
+ */
+export const se_GetSlotTypeVersionsCommand = async (
   input: GetSlotTypeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1179,19 +980,11 @@ export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1205,7 +998,10 @@ export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetUtterancesViewCommand = async (
+/**
+ * serializeAws_restJson1GetUtterancesViewCommand
+ */
+export const se_GetUtterancesViewCommand = async (
   input: GetUtterancesViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1213,20 +1009,15 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/utterances";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
-  const query: any = {
-    view: "aggregation",
-    ...(input.botVersions !== undefined && { bot_versions: (input.botVersions || []).map((_entry) => _entry as any) }),
-    ...(input.statusType !== undefined && { status_type: input.statusType }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
+  const query: any = map({
+    view: [, "aggregation"],
+    bot_versions: [
+      __expectNonNull(input.botVersions, `botVersions`) != null,
+      () => (input.botVersions! || []).map((_entry) => _entry as any),
+    ],
+    status_type: [, __expectNonNull(input.statusType!, `statusType`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1240,22 +1031,17 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1268,58 +1054,37 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutBotCommand = async (
-  input: PutBotCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
+/**
+ * serializeAws_restJson1PutBotCommand
+ */
+export const se_PutBotCommand = async (input: PutBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/$LATEST";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.abortStatement !== undefined &&
-      input.abortStatement !== null && {
-        abortStatement: serializeAws_restJson1Statement(input.abortStatement, context),
-      }),
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-    ...(input.childDirected !== undefined && input.childDirected !== null && { childDirected: input.childDirected }),
-    ...(input.clarificationPrompt !== undefined &&
-      input.clarificationPrompt !== null && {
-        clarificationPrompt: serializeAws_restJson1Prompt(input.clarificationPrompt, context),
-      }),
-    ...(input.createVersion !== undefined && input.createVersion !== null && { createVersion: input.createVersion }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.detectSentiment !== undefined &&
-      input.detectSentiment !== null && { detectSentiment: input.detectSentiment }),
-    ...(input.enableModelImprovements !== undefined &&
-      input.enableModelImprovements !== null && { enableModelImprovements: input.enableModelImprovements }),
-    ...(input.idleSessionTTLInSeconds !== undefined &&
-      input.idleSessionTTLInSeconds !== null && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
-    ...(input.intents !== undefined &&
-      input.intents !== null && { intents: serializeAws_restJson1IntentList(input.intents, context) }),
-    ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
-    ...(input.nluIntentConfidenceThreshold !== undefined &&
-      input.nluIntentConfidenceThreshold !== null && {
-        nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
-      }),
-    ...(input.processBehavior !== undefined &&
-      input.processBehavior !== null && { processBehavior: input.processBehavior }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-    ...(input.voiceId !== undefined && input.voiceId !== null && { voiceId: input.voiceId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      abortStatement: (_) => _json(_),
+      checksum: [],
+      childDirected: [],
+      clarificationPrompt: (_) => _json(_),
+      createVersion: [],
+      description: [],
+      detectSentiment: [],
+      enableModelImprovements: [],
+      idleSessionTTLInSeconds: [],
+      intents: (_) => _json(_),
+      locale: [],
+      nluIntentConfidenceThreshold: (_) => __serializeFloat(_),
+      processBehavior: [],
+      tags: (_) => _json(_),
+      voiceId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1331,7 +1096,10 @@ export const serializeAws_restJson1PutBotCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutBotAliasCommand = async (
+/**
+ * serializeAws_restJson1PutBotAliasCommand
+ */
+export const se_PutBotAliasCommand = async (
   input: PutBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1341,36 +1109,18 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases/{name}";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.botVersion !== undefined && input.botVersion !== null && { botVersion: input.botVersion }),
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-    ...(input.conversationLogs !== undefined &&
-      input.conversationLogs !== null && {
-        conversationLogs: serializeAws_restJson1ConversationLogsRequest(input.conversationLogs, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      botVersion: [],
+      checksum: [],
+      conversationLogs: (_) => _json(_),
+      description: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1382,7 +1132,10 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutIntentCommand = async (
+/**
+ * serializeAws_restJson1PutIntentCommand
+ */
+export const se_PutIntentCommand = async (
   input: PutIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1392,65 +1145,27 @@ export const serializeAws_restJson1PutIntentCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/$LATEST";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-    ...(input.conclusionStatement !== undefined &&
-      input.conclusionStatement !== null && {
-        conclusionStatement: serializeAws_restJson1Statement(input.conclusionStatement, context),
-      }),
-    ...(input.confirmationPrompt !== undefined &&
-      input.confirmationPrompt !== null && {
-        confirmationPrompt: serializeAws_restJson1Prompt(input.confirmationPrompt, context),
-      }),
-    ...(input.createVersion !== undefined && input.createVersion !== null && { createVersion: input.createVersion }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.dialogCodeHook !== undefined &&
-      input.dialogCodeHook !== null && {
-        dialogCodeHook: serializeAws_restJson1CodeHook(input.dialogCodeHook, context),
-      }),
-    ...(input.followUpPrompt !== undefined &&
-      input.followUpPrompt !== null && {
-        followUpPrompt: serializeAws_restJson1FollowUpPrompt(input.followUpPrompt, context),
-      }),
-    ...(input.fulfillmentActivity !== undefined &&
-      input.fulfillmentActivity !== null && {
-        fulfillmentActivity: serializeAws_restJson1FulfillmentActivity(input.fulfillmentActivity, context),
-      }),
-    ...(input.inputContexts !== undefined &&
-      input.inputContexts !== null && {
-        inputContexts: serializeAws_restJson1InputContextList(input.inputContexts, context),
-      }),
-    ...(input.kendraConfiguration !== undefined &&
-      input.kendraConfiguration !== null && {
-        kendraConfiguration: serializeAws_restJson1KendraConfiguration(input.kendraConfiguration, context),
-      }),
-    ...(input.outputContexts !== undefined &&
-      input.outputContexts !== null && {
-        outputContexts: serializeAws_restJson1OutputContextList(input.outputContexts, context),
-      }),
-    ...(input.parentIntentSignature !== undefined &&
-      input.parentIntentSignature !== null && { parentIntentSignature: input.parentIntentSignature }),
-    ...(input.rejectionStatement !== undefined &&
-      input.rejectionStatement !== null && {
-        rejectionStatement: serializeAws_restJson1Statement(input.rejectionStatement, context),
-      }),
-    ...(input.sampleUtterances !== undefined &&
-      input.sampleUtterances !== null && {
-        sampleUtterances: serializeAws_restJson1IntentUtteranceList(input.sampleUtterances, context),
-      }),
-    ...(input.slots !== undefined &&
-      input.slots !== null && { slots: serializeAws_restJson1SlotList(input.slots, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+      conclusionStatement: (_) => _json(_),
+      confirmationPrompt: (_) => _json(_),
+      createVersion: [],
+      description: [],
+      dialogCodeHook: (_) => _json(_),
+      followUpPrompt: (_) => _json(_),
+      fulfillmentActivity: (_) => _json(_),
+      inputContexts: (_) => _json(_),
+      kendraConfiguration: (_) => _json(_),
+      outputContexts: (_) => _json(_),
+      parentIntentSignature: [],
+      rejectionStatement: (_) => _json(_),
+      sampleUtterances: (_) => _json(_),
+      slots: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1462,7 +1177,10 @@ export const serializeAws_restJson1PutIntentCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutSlotTypeCommand = async (
+/**
+ * serializeAws_restJson1PutSlotTypeCommand
+ */
+export const se_PutSlotTypeCommand = async (
   input: PutSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1472,33 +1190,19 @@ export const serializeAws_restJson1PutSlotTypeCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions/$LATEST";
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
-    ...(input.createVersion !== undefined && input.createVersion !== null && { createVersion: input.createVersion }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.enumerationValues !== undefined &&
-      input.enumerationValues !== null && {
-        enumerationValues: serializeAws_restJson1EnumerationValues(input.enumerationValues, context),
-      }),
-    ...(input.parentSlotTypeSignature !== undefined &&
-      input.parentSlotTypeSignature !== null && { parentSlotTypeSignature: input.parentSlotTypeSignature }),
-    ...(input.slotTypeConfigurations !== undefined &&
-      input.slotTypeConfigurations !== null && {
-        slotTypeConfigurations: serializeAws_restJson1SlotTypeConfigurations(input.slotTypeConfigurations, context),
-      }),
-    ...(input.valueSelectionStrategy !== undefined &&
-      input.valueSelectionStrategy !== null && { valueSelectionStrategy: input.valueSelectionStrategy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      checksum: [],
+      createVersion: [],
+      description: [],
+      enumerationValues: (_) => _json(_),
+      parentSlotTypeSignature: [],
+      slotTypeConfigurations: (_) => _json(_),
+      valueSelectionStrategy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1510,7 +1214,10 @@ export const serializeAws_restJson1PutSlotTypeCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartImportCommand = async (
+/**
+ * serializeAws_restJson1StartImportCommand
+ */
+export const se_StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1520,13 +1227,14 @@ export const serializeAws_restJson1StartImportCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
-  body = JSON.stringify({
-    ...(input.mergeStrategy !== undefined && input.mergeStrategy !== null && { mergeStrategy: input.mergeStrategy }),
-    ...(input.payload !== undefined && input.payload !== null && { payload: context.base64Encoder(input.payload) }),
-    ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      mergeStrategy: [],
+      payload: (_) => context.base64Encoder(_),
+      resourceType: [],
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1538,7 +1246,10 @@ export const serializeAws_restJson1StartImportCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartMigrationCommand = async (
+/**
+ * serializeAws_restJson1StartMigrationCommand
+ */
+export const se_StartMigrationCommand = async (
   input: StartMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1548,14 +1259,15 @@ export const serializeAws_restJson1StartMigrationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/migrations";
   let body: any;
-  body = JSON.stringify({
-    ...(input.migrationStrategy !== undefined &&
-      input.migrationStrategy !== null && { migrationStrategy: input.migrationStrategy }),
-    ...(input.v1BotName !== undefined && input.v1BotName !== null && { v1BotName: input.v1BotName }),
-    ...(input.v1BotVersion !== undefined && input.v1BotVersion !== null && { v1BotVersion: input.v1BotVersion }),
-    ...(input.v2BotName !== undefined && input.v2BotName !== null && { v2BotName: input.v2BotName }),
-    ...(input.v2BotRole !== undefined && input.v2BotRole !== null && { v2BotRole: input.v2BotRole }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      migrationStrategy: [],
+      v1BotName: [],
+      v1BotVersion: [],
+      v2BotName: [],
+      v2BotRole: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1567,7 +1279,10 @@ export const serializeAws_restJson1StartMigrationCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1576,20 +1291,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags !== undefined &&
-      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1601,25 +1309,23 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
-  const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1633,5474 +1339,3101 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateBotVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateBotVersionCommand
+ */
+export const de_CreateBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBotVersionCommandError(output, context);
+    return de_CreateBotVersionCommandError(output, context);
   }
-  const contents: CreateBotVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    abortStatement: undefined,
-    checksum: undefined,
-    childDirected: undefined,
-    clarificationPrompt: undefined,
-    createdDate: undefined,
-    description: undefined,
-    detectSentiment: undefined,
-    enableModelImprovements: undefined,
-    failureReason: undefined,
-    idleSessionTTLInSeconds: undefined,
-    intents: undefined,
-    lastUpdatedDate: undefined,
-    locale: undefined,
-    name: undefined,
-    status: undefined,
-    version: undefined,
-    voiceId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.abortStatement !== undefined && data.abortStatement !== null) {
-    contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
-  }
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.childDirected !== undefined && data.childDirected !== null) {
-    contents.childDirected = __expectBoolean(data.childDirected);
-  }
-  if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
-    contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
-    contents.detectSentiment = __expectBoolean(data.detectSentiment);
-  }
-  if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
-    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
-  }
-  if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.locale !== undefined && data.locale !== null) {
-    contents.locale = __expectString(data.locale);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.voiceId !== undefined && data.voiceId !== null) {
-    contents.voiceId = __expectString(data.voiceId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    abortStatement: _json,
+    checksum: __expectString,
+    childDirected: __expectBoolean,
+    clarificationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    detectSentiment: __expectBoolean,
+    enableModelImprovements: __expectBoolean,
+    failureReason: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    intents: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    locale: __expectString,
+    name: __expectString,
+    status: __expectString,
+    version: __expectString,
+    voiceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateBotVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBotVersionCommandError
+ */
+const de_CreateBotVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreateIntentVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateIntentVersionCommand
+ */
+export const de_CreateIntentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateIntentVersionCommandError(output, context);
+    return de_CreateIntentVersionCommandError(output, context);
   }
-  const contents: CreateIntentVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: undefined,
-    conclusionStatement: undefined,
-    confirmationPrompt: undefined,
-    createdDate: undefined,
-    description: undefined,
-    dialogCodeHook: undefined,
-    followUpPrompt: undefined,
-    fulfillmentActivity: undefined,
-    inputContexts: undefined,
-    kendraConfiguration: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    outputContexts: undefined,
-    parentIntentSignature: undefined,
-    rejectionStatement: undefined,
-    sampleUtterances: undefined,
-    slots: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
-    contents.conclusionStatement = deserializeAws_restJson1Statement(data.conclusionStatement, context);
-  }
-  if (data.confirmationPrompt !== undefined && data.confirmationPrompt !== null) {
-    contents.confirmationPrompt = deserializeAws_restJson1Prompt(data.confirmationPrompt, context);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
-    contents.dialogCodeHook = deserializeAws_restJson1CodeHook(data.dialogCodeHook, context);
-  }
-  if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
-    contents.followUpPrompt = deserializeAws_restJson1FollowUpPrompt(data.followUpPrompt, context);
-  }
-  if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
-    contents.fulfillmentActivity = deserializeAws_restJson1FulfillmentActivity(data.fulfillmentActivity, context);
-  }
-  if (data.inputContexts !== undefined && data.inputContexts !== null) {
-    contents.inputContexts = deserializeAws_restJson1InputContextList(data.inputContexts, context);
-  }
-  if (data.kendraConfiguration !== undefined && data.kendraConfiguration !== null) {
-    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputContexts !== undefined && data.outputContexts !== null) {
-    contents.outputContexts = deserializeAws_restJson1OutputContextList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
-    contents.rejectionStatement = deserializeAws_restJson1Statement(data.rejectionStatement, context);
-  }
-  if (data.sampleUtterances !== undefined && data.sampleUtterances !== null) {
-    contents.sampleUtterances = deserializeAws_restJson1IntentUtteranceList(data.sampleUtterances, context);
-  }
-  if (data.slots !== undefined && data.slots !== null) {
-    contents.slots = deserializeAws_restJson1SlotList(data.slots, context);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+    conclusionStatement: _json,
+    confirmationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    followUpPrompt: _json,
+    fulfillmentActivity: _json,
+    inputContexts: _json,
+    kendraConfiguration: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    rejectionStatement: _json,
+    sampleUtterances: _json,
+    slots: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateIntentVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateIntentVersionCommandError
+ */
+const de_CreateIntentVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
+/**
+ * deserializeAws_restJson1CreateSlotTypeVersionCommand
+ */
+export const de_CreateSlotTypeVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSlotTypeVersionCommandError(output, context);
+    return de_CreateSlotTypeVersionCommandError(output, context);
   }
-  const contents: CreateSlotTypeVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: undefined,
-    createdDate: undefined,
-    description: undefined,
-    enumerationValues: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    parentSlotTypeSignature: undefined,
-    slotTypeConfigurations: undefined,
-    valueSelectionStrategy: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
-    contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
-    contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
-      data.slotTypeConfigurations,
-      context
-    );
-  }
-  if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
-    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    enumerationValues: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeConfigurations: _json,
+    valueSelectionStrategy: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateSlotTypeVersionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateSlotTypeVersionCommandError
+ */
+const de_CreateSlotTypeVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBotCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotCommand
+ */
+export const de_DeleteBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotCommandError(output, context);
+    return de_DeleteBotCommandError(output, context);
   }
-  const contents: DeleteBotCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBotCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotCommandError
+ */
+const de_DeleteBotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotAliasCommand
+ */
+export const de_DeleteBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotAliasCommandError(output, context);
+    return de_DeleteBotAliasCommandError(output, context);
   }
-  const contents: DeleteBotAliasCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotAliasCommandError
+ */
+const de_DeleteBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBotChannelAssociationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotChannelAssociationCommand
+ */
+export const de_DeleteBotChannelAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotChannelAssociationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotChannelAssociationCommandError(output, context);
+    return de_DeleteBotChannelAssociationCommandError(output, context);
   }
-  const contents: DeleteBotChannelAssociationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBotChannelAssociationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotChannelAssociationCommandError
+ */
+const de_DeleteBotChannelAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotChannelAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBotVersionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBotVersionCommand
+ */
+export const de_DeleteBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBotVersionCommandError(output, context);
+    return de_DeleteBotVersionCommandError(output, context);
   }
-  const contents: DeleteBotVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBotVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBotVersionCommandError
+ */
+const de_DeleteBotVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteIntentCommand = async (
+/**
+ * deserializeAws_restJson1DeleteIntentCommand
+ */
+export const de_DeleteIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteIntentCommandError(output, context);
+    return de_DeleteIntentCommandError(output, context);
   }
-  const contents: DeleteIntentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteIntentCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteIntentCommandError
+ */
+const de_DeleteIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteIntentVersionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteIntentVersionCommand
+ */
+export const de_DeleteIntentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteIntentVersionCommandError(output, context);
+    return de_DeleteIntentVersionCommandError(output, context);
   }
-  const contents: DeleteIntentVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteIntentVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteIntentVersionCommandError
+ */
+const de_DeleteIntentVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSlotTypeCommand
+ */
+export const de_DeleteSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSlotTypeCommandError(output, context);
+    return de_DeleteSlotTypeCommandError(output, context);
   }
-  const contents: DeleteSlotTypeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSlotTypeCommandError
+ */
+const de_DeleteSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteSlotTypeVersionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteSlotTypeVersionCommand
+ */
+export const de_DeleteSlotTypeVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSlotTypeVersionCommandError(output, context);
+    return de_DeleteSlotTypeVersionCommandError(output, context);
   }
-  const contents: DeleteSlotTypeVersionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteSlotTypeVersionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteSlotTypeVersionCommandError
+ */
+const de_DeleteSlotTypeVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.lexmodelbuildingservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteUtterancesCommand = async (
+/**
+ * deserializeAws_restJson1DeleteUtterancesCommand
+ */
+export const de_DeleteUtterancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteUtterancesCommandError(output, context);
+    return de_DeleteUtterancesCommandError(output, context);
   }
-  const contents: DeleteUtterancesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteUtterancesCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteUtterancesCommandError
+ */
+const de_DeleteUtterancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotCommand = async (
+/**
+ * deserializeAws_restJson1GetBotCommand
+ */
+export const de_GetBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotCommandError(output, context);
+    return de_GetBotCommandError(output, context);
   }
-  const contents: GetBotCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    abortStatement: undefined,
-    checksum: undefined,
-    childDirected: undefined,
-    clarificationPrompt: undefined,
-    createdDate: undefined,
-    description: undefined,
-    detectSentiment: undefined,
-    enableModelImprovements: undefined,
-    failureReason: undefined,
-    idleSessionTTLInSeconds: undefined,
-    intents: undefined,
-    lastUpdatedDate: undefined,
-    locale: undefined,
-    name: undefined,
-    nluIntentConfidenceThreshold: undefined,
-    status: undefined,
-    version: undefined,
-    voiceId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.abortStatement !== undefined && data.abortStatement !== null) {
-    contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
-  }
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.childDirected !== undefined && data.childDirected !== null) {
-    contents.childDirected = __expectBoolean(data.childDirected);
-  }
-  if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
-    contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
-    contents.detectSentiment = __expectBoolean(data.detectSentiment);
-  }
-  if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
-    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
-  }
-  if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.locale !== undefined && data.locale !== null) {
-    contents.locale = __expectString(data.locale);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.voiceId !== undefined && data.voiceId !== null) {
-    contents.voiceId = __expectString(data.voiceId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    abortStatement: _json,
+    checksum: __expectString,
+    childDirected: __expectBoolean,
+    clarificationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    detectSentiment: __expectBoolean,
+    enableModelImprovements: __expectBoolean,
+    failureReason: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    intents: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    locale: __expectString,
+    name: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    status: __expectString,
+    version: __expectString,
+    voiceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBotCommandOutput> => {
+/**
+ * deserializeAws_restJson1GetBotCommandError
+ */
+const de_GetBotCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1GetBotAliasCommand
+ */
+export const de_GetBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotAliasCommandError(output, context);
+    return de_GetBotAliasCommandError(output, context);
   }
-  const contents: GetBotAliasCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    botName: undefined,
-    botVersion: undefined,
-    checksum: undefined,
-    conversationLogs: undefined,
-    createdDate: undefined,
-    description: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botVersion !== undefined && data.botVersion !== null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conversationLogs !== undefined && data.conversationLogs !== null) {
-    contents.conversationLogs = deserializeAws_restJson1ConversationLogsResponse(data.conversationLogs, context);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botName: __expectString,
+    botVersion: __expectString,
+    checksum: __expectString,
+    conversationLogs: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1GetBotAliasCommandError
+ */
+const de_GetBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotAliasesCommand = async (
+/**
+ * deserializeAws_restJson1GetBotAliasesCommand
+ */
+export const de_GetBotAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotAliasesCommandError(output, context);
+    return de_GetBotAliasesCommandError(output, context);
   }
-  const contents: GetBotAliasesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BotAliases: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BotAliases !== undefined && data.BotAliases !== null) {
-    contents.BotAliases = deserializeAws_restJson1BotAliasMetadataList(data.BotAliases, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BotAliases: (_) => de_BotAliasMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotAliasesCommandError = async (
+/**
+ * deserializeAws_restJson1GetBotAliasesCommandError
+ */
+const de_GetBotAliasesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotChannelAssociationCommand = async (
+/**
+ * deserializeAws_restJson1GetBotChannelAssociationCommand
+ */
+export const de_GetBotChannelAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotChannelAssociationCommandError(output, context);
+    return de_GetBotChannelAssociationCommandError(output, context);
   }
-  const contents: GetBotChannelAssociationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    botAlias: undefined,
-    botConfiguration: undefined,
-    botName: undefined,
-    createdDate: undefined,
-    description: undefined,
-    failureReason: undefined,
-    name: undefined,
-    status: undefined,
-    type: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botAlias !== undefined && data.botAlias !== null) {
-    contents.botAlias = __expectString(data.botAlias);
-  }
-  if (data.botConfiguration !== undefined && data.botConfiguration !== null) {
-    contents.botConfiguration = deserializeAws_restJson1ChannelConfigurationMap(data.botConfiguration, context);
-  }
-  if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.type !== undefined && data.type !== null) {
-    contents.type = __expectString(data.type);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botAlias: __expectString,
+    botConfiguration: _json,
+    botName: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReason: __expectString,
+    name: __expectString,
+    status: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotChannelAssociationCommandError = async (
+/**
+ * deserializeAws_restJson1GetBotChannelAssociationCommandError
+ */
+const de_GetBotChannelAssociationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotChannelAssociationsCommand = async (
+/**
+ * deserializeAws_restJson1GetBotChannelAssociationsCommand
+ */
+export const de_GetBotChannelAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotChannelAssociationsCommandError(output, context);
+    return de_GetBotChannelAssociationsCommandError(output, context);
   }
-  const contents: GetBotChannelAssociationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    botChannelAssociations: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botChannelAssociations !== undefined && data.botChannelAssociations !== null) {
-    contents.botChannelAssociations = deserializeAws_restJson1BotChannelAssociationList(
-      data.botChannelAssociations,
-      context
-    );
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botChannelAssociations: (_) => de_BotChannelAssociationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotChannelAssociationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBotChannelAssociationsCommandError
+ */
+const de_GetBotChannelAssociationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotsCommand = async (
+/**
+ * deserializeAws_restJson1GetBotsCommand
+ */
+export const de_GetBotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotsCommandError(output, context);
+    return de_GetBotsCommandError(output, context);
   }
-  const contents: GetBotsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    bots: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bots !== undefined && data.bots !== null) {
-    contents.bots = deserializeAws_restJson1BotMetadataList(data.bots, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    bots: (_) => de_BotMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBotsCommandError
+ */
+const de_GetBotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBotVersionsCommand = async (
+/**
+ * deserializeAws_restJson1GetBotVersionsCommand
+ */
+export const de_GetBotVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBotVersionsCommandError(output, context);
+    return de_GetBotVersionsCommandError(output, context);
   }
-  const contents: GetBotVersionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    bots: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.bots !== undefined && data.bots !== null) {
-    contents.bots = deserializeAws_restJson1BotMetadataList(data.bots, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    bots: (_) => de_BotMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBotVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBotVersionsCommandError
+ */
+const de_GetBotVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBuiltinIntentCommand = async (
+/**
+ * deserializeAws_restJson1GetBuiltinIntentCommand
+ */
+export const de_GetBuiltinIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBuiltinIntentCommandError(output, context);
+    return de_GetBuiltinIntentCommandError(output, context);
   }
-  const contents: GetBuiltinIntentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    signature: undefined,
-    slots: undefined,
-    supportedLocales: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.signature !== undefined && data.signature !== null) {
-    contents.signature = __expectString(data.signature);
-  }
-  if (data.slots !== undefined && data.slots !== null) {
-    contents.slots = deserializeAws_restJson1BuiltinIntentSlotList(data.slots, context);
-  }
-  if (data.supportedLocales !== undefined && data.supportedLocales !== null) {
-    contents.supportedLocales = deserializeAws_restJson1LocaleList(data.supportedLocales, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    signature: __expectString,
+    slots: _json,
+    supportedLocales: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBuiltinIntentCommandError = async (
+/**
+ * deserializeAws_restJson1GetBuiltinIntentCommandError
+ */
+const de_GetBuiltinIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBuiltinIntentsCommand = async (
+/**
+ * deserializeAws_restJson1GetBuiltinIntentsCommand
+ */
+export const de_GetBuiltinIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBuiltinIntentsCommandError(output, context);
+    return de_GetBuiltinIntentsCommandError(output, context);
   }
-  const contents: GetBuiltinIntentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    intents: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1BuiltinIntentMetadataList(data.intents, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    intents: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBuiltinIntentsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBuiltinIntentsCommandError
+ */
+const de_GetBuiltinIntentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBuiltinSlotTypesCommand = async (
+/**
+ * deserializeAws_restJson1GetBuiltinSlotTypesCommand
+ */
+export const de_GetBuiltinSlotTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBuiltinSlotTypesCommandError(output, context);
+    return de_GetBuiltinSlotTypesCommandError(output, context);
   }
-  const contents: GetBuiltinSlotTypesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    slotTypes: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypes !== undefined && data.slotTypes !== null) {
-    contents.slotTypes = deserializeAws_restJson1BuiltinSlotTypeMetadataList(data.slotTypes, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    slotTypes: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBuiltinSlotTypesCommandError = async (
+/**
+ * deserializeAws_restJson1GetBuiltinSlotTypesCommandError
+ */
+const de_GetBuiltinSlotTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinSlotTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetExportCommand = async (
+/**
+ * deserializeAws_restJson1GetExportCommand
+ */
+export const de_GetExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetExportCommandError(output, context);
+    return de_GetExportCommandError(output, context);
   }
-  const contents: GetExportCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    exportStatus: undefined,
-    exportType: undefined,
-    failureReason: undefined,
-    name: undefined,
-    resourceType: undefined,
-    url: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.exportStatus !== undefined && data.exportStatus !== null) {
-    contents.exportStatus = __expectString(data.exportStatus);
-  }
-  if (data.exportType !== undefined && data.exportType !== null) {
-    contents.exportType = __expectString(data.exportType);
-  }
-  if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.url !== undefined && data.url !== null) {
-    contents.url = __expectString(data.url);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    exportStatus: __expectString,
+    exportType: __expectString,
+    failureReason: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+    url: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetExportCommandError = async (
+/**
+ * deserializeAws_restJson1GetExportCommandError
+ */
+const de_GetExportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetImportCommand = async (
+/**
+ * deserializeAws_restJson1GetImportCommand
+ */
+export const de_GetImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetImportCommandError(output, context);
+    return de_GetImportCommandError(output, context);
   }
-  const contents: GetImportCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    createdDate: undefined,
-    failureReason: undefined,
-    importId: undefined,
-    importStatus: undefined,
-    mergeStrategy: undefined,
-    name: undefined,
-    resourceType: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = deserializeAws_restJson1StringList(data.failureReason, context);
-  }
-  if (data.importId !== undefined && data.importId !== null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus !== undefined && data.importStatus !== null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
-  if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
-    contents.mergeStrategy = __expectString(data.mergeStrategy);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: _json,
+    importId: __expectString,
+    importStatus: __expectString,
+    mergeStrategy: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetImportCommandError = async (
+/**
+ * deserializeAws_restJson1GetImportCommandError
+ */
+const de_GetImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetIntentCommand = async (
+/**
+ * deserializeAws_restJson1GetIntentCommand
+ */
+export const de_GetIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntentCommandError(output, context);
+    return de_GetIntentCommandError(output, context);
   }
-  const contents: GetIntentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: undefined,
-    conclusionStatement: undefined,
-    confirmationPrompt: undefined,
-    createdDate: undefined,
-    description: undefined,
-    dialogCodeHook: undefined,
-    followUpPrompt: undefined,
-    fulfillmentActivity: undefined,
-    inputContexts: undefined,
-    kendraConfiguration: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    outputContexts: undefined,
-    parentIntentSignature: undefined,
-    rejectionStatement: undefined,
-    sampleUtterances: undefined,
-    slots: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
-    contents.conclusionStatement = deserializeAws_restJson1Statement(data.conclusionStatement, context);
-  }
-  if (data.confirmationPrompt !== undefined && data.confirmationPrompt !== null) {
-    contents.confirmationPrompt = deserializeAws_restJson1Prompt(data.confirmationPrompt, context);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
-    contents.dialogCodeHook = deserializeAws_restJson1CodeHook(data.dialogCodeHook, context);
-  }
-  if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
-    contents.followUpPrompt = deserializeAws_restJson1FollowUpPrompt(data.followUpPrompt, context);
-  }
-  if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
-    contents.fulfillmentActivity = deserializeAws_restJson1FulfillmentActivity(data.fulfillmentActivity, context);
-  }
-  if (data.inputContexts !== undefined && data.inputContexts !== null) {
-    contents.inputContexts = deserializeAws_restJson1InputContextList(data.inputContexts, context);
-  }
-  if (data.kendraConfiguration !== undefined && data.kendraConfiguration !== null) {
-    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputContexts !== undefined && data.outputContexts !== null) {
-    contents.outputContexts = deserializeAws_restJson1OutputContextList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
-    contents.rejectionStatement = deserializeAws_restJson1Statement(data.rejectionStatement, context);
-  }
-  if (data.sampleUtterances !== undefined && data.sampleUtterances !== null) {
-    contents.sampleUtterances = deserializeAws_restJson1IntentUtteranceList(data.sampleUtterances, context);
-  }
-  if (data.slots !== undefined && data.slots !== null) {
-    contents.slots = deserializeAws_restJson1SlotList(data.slots, context);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+    conclusionStatement: _json,
+    confirmationPrompt: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    followUpPrompt: _json,
+    fulfillmentActivity: _json,
+    inputContexts: _json,
+    kendraConfiguration: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    rejectionStatement: _json,
+    sampleUtterances: _json,
+    slots: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetIntentCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntentCommandError
+ */
+const de_GetIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetIntentsCommand = async (
+/**
+ * deserializeAws_restJson1GetIntentsCommand
+ */
+export const de_GetIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntentsCommandError(output, context);
+    return de_GetIntentsCommandError(output, context);
   }
-  const contents: GetIntentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    intents: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1IntentMetadataList(data.intents, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    intents: (_) => de_IntentMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetIntentsCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntentsCommandError
+ */
+const de_GetIntentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetIntentVersionsCommand = async (
+/**
+ * deserializeAws_restJson1GetIntentVersionsCommand
+ */
+export const de_GetIntentVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetIntentVersionsCommandError(output, context);
+    return de_GetIntentVersionsCommandError(output, context);
   }
-  const contents: GetIntentVersionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    intents: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1IntentMetadataList(data.intents, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    intents: (_) => de_IntentMetadataList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetIntentVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetIntentVersionsCommandError
+ */
+const de_GetIntentVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetMigrationCommand = async (
+/**
+ * deserializeAws_restJson1GetMigrationCommand
+ */
+export const de_GetMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMigrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMigrationCommandError(output, context);
+    return de_GetMigrationCommandError(output, context);
   }
-  const contents: GetMigrationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    alerts: undefined,
-    migrationId: undefined,
-    migrationStatus: undefined,
-    migrationStrategy: undefined,
-    migrationTimestamp: undefined,
-    v1BotLocale: undefined,
-    v1BotName: undefined,
-    v1BotVersion: undefined,
-    v2BotId: undefined,
-    v2BotRole: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.alerts !== undefined && data.alerts !== null) {
-    contents.alerts = deserializeAws_restJson1MigrationAlerts(data.alerts, context);
-  }
-  if (data.migrationId !== undefined && data.migrationId !== null) {
-    contents.migrationId = __expectString(data.migrationId);
-  }
-  if (data.migrationStatus !== undefined && data.migrationStatus !== null) {
-    contents.migrationStatus = __expectString(data.migrationStatus);
-  }
-  if (data.migrationStrategy !== undefined && data.migrationStrategy !== null) {
-    contents.migrationStrategy = __expectString(data.migrationStrategy);
-  }
-  if (data.migrationTimestamp !== undefined && data.migrationTimestamp !== null) {
-    contents.migrationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.migrationTimestamp)));
-  }
-  if (data.v1BotLocale !== undefined && data.v1BotLocale !== null) {
-    contents.v1BotLocale = __expectString(data.v1BotLocale);
-  }
-  if (data.v1BotName !== undefined && data.v1BotName !== null) {
-    contents.v1BotName = __expectString(data.v1BotName);
-  }
-  if (data.v1BotVersion !== undefined && data.v1BotVersion !== null) {
-    contents.v1BotVersion = __expectString(data.v1BotVersion);
-  }
-  if (data.v2BotId !== undefined && data.v2BotId !== null) {
-    contents.v2BotId = __expectString(data.v2BotId);
-  }
-  if (data.v2BotRole !== undefined && data.v2BotRole !== null) {
-    contents.v2BotRole = __expectString(data.v2BotRole);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    alerts: _json,
+    migrationId: __expectString,
+    migrationStatus: __expectString,
+    migrationStrategy: __expectString,
+    migrationTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    v1BotLocale: __expectString,
+    v1BotName: __expectString,
+    v1BotVersion: __expectString,
+    v2BotId: __expectString,
+    v2BotRole: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetMigrationCommandError = async (
+/**
+ * deserializeAws_restJson1GetMigrationCommandError
+ */
+const de_GetMigrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMigrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetMigrationsCommand = async (
+/**
+ * deserializeAws_restJson1GetMigrationsCommand
+ */
+export const de_GetMigrationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMigrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetMigrationsCommandError(output, context);
+    return de_GetMigrationsCommandError(output, context);
   }
-  const contents: GetMigrationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    migrationSummaries: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.migrationSummaries !== undefined && data.migrationSummaries !== null) {
-    contents.migrationSummaries = deserializeAws_restJson1MigrationSummaryList(data.migrationSummaries, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    migrationSummaries: (_) => de_MigrationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetMigrationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetMigrationsCommandError
+ */
+const de_GetMigrationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMigrationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1GetSlotTypeCommand
+ */
+export const de_GetSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSlotTypeCommandError(output, context);
+    return de_GetSlotTypeCommandError(output, context);
   }
-  const contents: GetSlotTypeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: undefined,
-    createdDate: undefined,
-    description: undefined,
-    enumerationValues: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    parentSlotTypeSignature: undefined,
-    slotTypeConfigurations: undefined,
-    valueSelectionStrategy: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
-    contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
-    contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
-      data.slotTypeConfigurations,
-      context
-    );
-  }
-  if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
-    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    enumerationValues: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeConfigurations: _json,
+    valueSelectionStrategy: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1GetSlotTypeCommandError
+ */
+const de_GetSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetSlotTypesCommand = async (
+/**
+ * deserializeAws_restJson1GetSlotTypesCommand
+ */
+export const de_GetSlotTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSlotTypesCommandError(output, context);
+    return de_GetSlotTypesCommandError(output, context);
   }
-  const contents: GetSlotTypesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    slotTypes: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypes !== undefined && data.slotTypes !== null) {
-    contents.slotTypes = deserializeAws_restJson1SlotTypeMetadataList(data.slotTypes, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    slotTypes: (_) => de_SlotTypeMetadataList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSlotTypesCommandError = async (
+/**
+ * deserializeAws_restJson1GetSlotTypesCommandError
+ */
+const de_GetSlotTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetSlotTypeVersionsCommand = async (
+/**
+ * deserializeAws_restJson1GetSlotTypeVersionsCommand
+ */
+export const de_GetSlotTypeVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSlotTypeVersionsCommandError(output, context);
+    return de_GetSlotTypeVersionsCommandError(output, context);
   }
-  const contents: GetSlotTypeVersionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    slotTypes: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.slotTypes !== undefined && data.slotTypes !== null) {
-    contents.slotTypes = deserializeAws_restJson1SlotTypeMetadataList(data.slotTypes, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    slotTypes: (_) => de_SlotTypeMetadataList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSlotTypeVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetSlotTypeVersionsCommandError
+ */
+const de_GetSlotTypeVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetUtterancesViewCommand = async (
+/**
+ * deserializeAws_restJson1GetUtterancesViewCommand
+ */
+export const de_GetUtterancesViewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUtterancesViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetUtterancesViewCommandError(output, context);
+    return de_GetUtterancesViewCommandError(output, context);
   }
-  const contents: GetUtterancesViewCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    botName: undefined,
-    utterances: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.utterances !== undefined && data.utterances !== null) {
-    contents.utterances = deserializeAws_restJson1ListsOfUtterances(data.utterances, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botName: __expectString,
+    utterances: (_) => de_ListsOfUtterances(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetUtterancesViewCommandError = async (
+/**
+ * deserializeAws_restJson1GetUtterancesViewCommandError
+ */
+const de_GetUtterancesViewCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUtterancesViewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutBotCommand = async (
+/**
+ * deserializeAws_restJson1PutBotCommand
+ */
+export const de_PutBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutBotCommandError(output, context);
+    return de_PutBotCommandError(output, context);
   }
-  const contents: PutBotCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    abortStatement: undefined,
-    checksum: undefined,
-    childDirected: undefined,
-    clarificationPrompt: undefined,
-    createVersion: undefined,
-    createdDate: undefined,
-    description: undefined,
-    detectSentiment: undefined,
-    enableModelImprovements: undefined,
-    failureReason: undefined,
-    idleSessionTTLInSeconds: undefined,
-    intents: undefined,
-    lastUpdatedDate: undefined,
-    locale: undefined,
-    name: undefined,
-    nluIntentConfidenceThreshold: undefined,
-    status: undefined,
-    tags: undefined,
-    version: undefined,
-    voiceId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.abortStatement !== undefined && data.abortStatement !== null) {
-    contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
-  }
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.childDirected !== undefined && data.childDirected !== null) {
-    contents.childDirected = __expectBoolean(data.childDirected);
-  }
-  if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
-    contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
-  }
-  if (data.createVersion !== undefined && data.createVersion !== null) {
-    contents.createVersion = __expectBoolean(data.createVersion);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
-    contents.detectSentiment = __expectBoolean(data.detectSentiment);
-  }
-  if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
-    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
-  }
-  if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = __expectString(data.failureReason);
-  }
-  if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = __expectInt32(data.idleSessionTTLInSeconds);
-  }
-  if (data.intents !== undefined && data.intents !== null) {
-    contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.locale !== undefined && data.locale !== null) {
-    contents.locale = __expectString(data.locale);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = __limitedParseDouble(data.nluIntentConfidenceThreshold);
-  }
-  if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  if (data.voiceId !== undefined && data.voiceId !== null) {
-    contents.voiceId = __expectString(data.voiceId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    abortStatement: _json,
+    checksum: __expectString,
+    childDirected: __expectBoolean,
+    clarificationPrompt: _json,
+    createVersion: __expectBoolean,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    detectSentiment: __expectBoolean,
+    enableModelImprovements: __expectBoolean,
+    failureReason: __expectString,
+    idleSessionTTLInSeconds: __expectInt32,
+    intents: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    locale: __expectString,
+    name: __expectString,
+    nluIntentConfidenceThreshold: __limitedParseDouble,
+    status: __expectString,
+    tags: _json,
+    version: __expectString,
+    voiceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutBotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutBotCommandOutput> => {
+/**
+ * deserializeAws_restJson1PutBotCommandError
+ */
+const de_PutBotCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<PutBotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutBotAliasCommand = async (
+/**
+ * deserializeAws_restJson1PutBotAliasCommand
+ */
+export const de_PutBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutBotAliasCommandError(output, context);
+    return de_PutBotAliasCommandError(output, context);
   }
-  const contents: PutBotAliasCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    botName: undefined,
-    botVersion: undefined,
-    checksum: undefined,
-    conversationLogs: undefined,
-    createdDate: undefined,
-    description: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = __expectString(data.botName);
-  }
-  if (data.botVersion !== undefined && data.botVersion !== null) {
-    contents.botVersion = __expectString(data.botVersion);
-  }
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conversationLogs !== undefined && data.conversationLogs !== null) {
-    contents.conversationLogs = deserializeAws_restJson1ConversationLogsResponse(data.conversationLogs, context);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botName: __expectString,
+    botVersion: __expectString,
+    checksum: __expectString,
+    conversationLogs: _json,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutBotAliasCommandError = async (
+/**
+ * deserializeAws_restJson1PutBotAliasCommandError
+ */
+const de_PutBotAliasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotAliasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutIntentCommand = async (
+/**
+ * deserializeAws_restJson1PutIntentCommand
+ */
+export const de_PutIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutIntentCommandError(output, context);
+    return de_PutIntentCommandError(output, context);
   }
-  const contents: PutIntentCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: undefined,
-    conclusionStatement: undefined,
-    confirmationPrompt: undefined,
-    createVersion: undefined,
-    createdDate: undefined,
-    description: undefined,
-    dialogCodeHook: undefined,
-    followUpPrompt: undefined,
-    fulfillmentActivity: undefined,
-    inputContexts: undefined,
-    kendraConfiguration: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    outputContexts: undefined,
-    parentIntentSignature: undefined,
-    rejectionStatement: undefined,
-    sampleUtterances: undefined,
-    slots: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
-    contents.conclusionStatement = deserializeAws_restJson1Statement(data.conclusionStatement, context);
-  }
-  if (data.confirmationPrompt !== undefined && data.confirmationPrompt !== null) {
-    contents.confirmationPrompt = deserializeAws_restJson1Prompt(data.confirmationPrompt, context);
-  }
-  if (data.createVersion !== undefined && data.createVersion !== null) {
-    contents.createVersion = __expectBoolean(data.createVersion);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
-    contents.dialogCodeHook = deserializeAws_restJson1CodeHook(data.dialogCodeHook, context);
-  }
-  if (data.followUpPrompt !== undefined && data.followUpPrompt !== null) {
-    contents.followUpPrompt = deserializeAws_restJson1FollowUpPrompt(data.followUpPrompt, context);
-  }
-  if (data.fulfillmentActivity !== undefined && data.fulfillmentActivity !== null) {
-    contents.fulfillmentActivity = deserializeAws_restJson1FulfillmentActivity(data.fulfillmentActivity, context);
-  }
-  if (data.inputContexts !== undefined && data.inputContexts !== null) {
-    contents.inputContexts = deserializeAws_restJson1InputContextList(data.inputContexts, context);
-  }
-  if (data.kendraConfiguration !== undefined && data.kendraConfiguration !== null) {
-    contents.kendraConfiguration = deserializeAws_restJson1KendraConfiguration(data.kendraConfiguration, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.outputContexts !== undefined && data.outputContexts !== null) {
-    contents.outputContexts = deserializeAws_restJson1OutputContextList(data.outputContexts, context);
-  }
-  if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
-    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
-  }
-  if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
-    contents.rejectionStatement = deserializeAws_restJson1Statement(data.rejectionStatement, context);
-  }
-  if (data.sampleUtterances !== undefined && data.sampleUtterances !== null) {
-    contents.sampleUtterances = deserializeAws_restJson1IntentUtteranceList(data.sampleUtterances, context);
-  }
-  if (data.slots !== undefined && data.slots !== null) {
-    contents.slots = deserializeAws_restJson1SlotList(data.slots, context);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+    conclusionStatement: _json,
+    confirmationPrompt: _json,
+    createVersion: __expectBoolean,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    dialogCodeHook: _json,
+    followUpPrompt: _json,
+    fulfillmentActivity: _json,
+    inputContexts: _json,
+    kendraConfiguration: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    outputContexts: _json,
+    parentIntentSignature: __expectString,
+    rejectionStatement: _json,
+    sampleUtterances: _json,
+    slots: _json,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutIntentCommandError = async (
+/**
+ * deserializeAws_restJson1PutIntentCommandError
+ */
+const de_PutIntentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutSlotTypeCommand = async (
+/**
+ * deserializeAws_restJson1PutSlotTypeCommand
+ */
+export const de_PutSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSlotTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutSlotTypeCommandError(output, context);
+    return de_PutSlotTypeCommandError(output, context);
   }
-  const contents: PutSlotTypeCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: undefined,
-    createVersion: undefined,
-    createdDate: undefined,
-    description: undefined,
-    enumerationValues: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    parentSlotTypeSignature: undefined,
-    slotTypeConfigurations: undefined,
-    valueSelectionStrategy: undefined,
-    version: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = __expectString(data.checksum);
-  }
-  if (data.createVersion !== undefined && data.createVersion !== null) {
-    contents.createVersion = __expectBoolean(data.createVersion);
-  }
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.description !== undefined && data.description !== null) {
-    contents.description = __expectString(data.description);
-  }
-  if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
-    contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
-  }
-  if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDate)));
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
-    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
-  }
-  if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
-    contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
-      data.slotTypeConfigurations,
-      context
-    );
-  }
-  if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
-    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
-  }
-  if (data.version !== undefined && data.version !== null) {
-    contents.version = __expectString(data.version);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    checksum: __expectString,
+    createVersion: __expectBoolean,
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    enumerationValues: _json,
+    lastUpdatedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    parentSlotTypeSignature: __expectString,
+    slotTypeConfigurations: _json,
+    valueSelectionStrategy: __expectString,
+    version: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutSlotTypeCommandError = async (
+/**
+ * deserializeAws_restJson1PutSlotTypeCommandError
+ */
+const de_PutSlotTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSlotTypeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PreconditionFailedException":
     case "com.amazonaws.lexmodelbuildingservice#PreconditionFailedException":
-      response = {
-        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartImportCommand = async (
+/**
+ * deserializeAws_restJson1StartImportCommand
+ */
+export const de_StartImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartImportCommandError(output, context);
+    return de_StartImportCommandError(output, context);
   }
-  const contents: StartImportCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    createdDate: undefined,
-    importId: undefined,
-    importStatus: undefined,
-    mergeStrategy: undefined,
-    name: undefined,
-    resourceType: undefined,
-    tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdDate !== undefined && data.createdDate !== null) {
-    contents.createdDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdDate)));
-  }
-  if (data.importId !== undefined && data.importId !== null) {
-    contents.importId = __expectString(data.importId);
-  }
-  if (data.importStatus !== undefined && data.importStatus !== null) {
-    contents.importStatus = __expectString(data.importStatus);
-  }
-  if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
-    contents.mergeStrategy = __expectString(data.mergeStrategy);
-  }
-  if (data.name !== undefined && data.name !== null) {
-    contents.name = __expectString(data.name);
-  }
-  if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = __expectString(data.resourceType);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    importId: __expectString,
+    importStatus: __expectString,
+    mergeStrategy: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartImportCommandError = async (
+/**
+ * deserializeAws_restJson1StartImportCommandError
+ */
+const de_StartImportCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartMigrationCommand = async (
+/**
+ * deserializeAws_restJson1StartMigrationCommand
+ */
+export const de_StartMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMigrationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartMigrationCommandError(output, context);
+    return de_StartMigrationCommandError(output, context);
   }
-  const contents: StartMigrationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    migrationId: undefined,
-    migrationStrategy: undefined,
-    migrationTimestamp: undefined,
-    v1BotLocale: undefined,
-    v1BotName: undefined,
-    v1BotVersion: undefined,
-    v2BotId: undefined,
-    v2BotRole: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.migrationId !== undefined && data.migrationId !== null) {
-    contents.migrationId = __expectString(data.migrationId);
-  }
-  if (data.migrationStrategy !== undefined && data.migrationStrategy !== null) {
-    contents.migrationStrategy = __expectString(data.migrationStrategy);
-  }
-  if (data.migrationTimestamp !== undefined && data.migrationTimestamp !== null) {
-    contents.migrationTimestamp = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.migrationTimestamp)));
-  }
-  if (data.v1BotLocale !== undefined && data.v1BotLocale !== null) {
-    contents.v1BotLocale = __expectString(data.v1BotLocale);
-  }
-  if (data.v1BotName !== undefined && data.v1BotName !== null) {
-    contents.v1BotName = __expectString(data.v1BotName);
-  }
-  if (data.v1BotVersion !== undefined && data.v1BotVersion !== null) {
-    contents.v1BotVersion = __expectString(data.v1BotVersion);
-  }
-  if (data.v2BotId !== undefined && data.v2BotId !== null) {
-    contents.v2BotId = __expectString(data.v2BotId);
-  }
-  if (data.v2BotRole !== undefined && data.v2BotRole !== null) {
-    contents.v2BotRole = __expectString(data.v2BotRole);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    migrationId: __expectString,
+    migrationStrategy: __expectString,
+    migrationTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    v1BotLocale: __expectString,
+    v1BotName: __expectString,
+    v1BotVersion: __expectString,
+    v2BotId: __expectString,
+    v2BotRole: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartMigrationCommandError = async (
+/**
+ * deserializeAws_restJson1StartMigrationCommandError
+ */
+const de_StartMigrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMigrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lexmodelbuildingservice#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.lexmodelbuildingservice#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexmodelbuildingservice#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexmodelbuildingservice#InternalFailureException":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexmodelbuildingservice#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexmodelbuildingservice#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: AccessDeniedException = {
-    name: "AccessDeniedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
-  const contents: BadRequestException = {
-    name: "BadRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const contents: ConflictException = {
-    name: "ConflictException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalFailureExceptionRes
+ */
+const de_InternalFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
-  const contents: InternalFailureException = {
-    name: "InternalFailureException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-    retryAfterSeconds: undefined,
-  };
-  if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parsedOutput.headers["retry-after"];
-  }
+  const contents: any = map({
+    retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+  });
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
-  const contents: NotFoundException = {
-    name: "NotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new NotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1PreconditionFailedExceptionRes
+ */
+const de_PreconditionFailedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PreconditionFailedException> => {
-  const contents: PreconditionFailedException = {
-    name: "PreconditionFailedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new PreconditionFailedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    exampleReference: undefined,
-    referenceType: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.exampleReference !== undefined && data.exampleReference !== null) {
-    contents.exampleReference = deserializeAws_restJson1ResourceReference(data.exampleReference, context);
-  }
-  if (data.referenceType !== undefined && data.referenceType !== null) {
-    contents.referenceType = __expectString(data.referenceType);
-  }
-  return contents;
+  const doc = take(data, {
+    exampleReference: _json,
+    referenceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CodeHook = (input: CodeHook, context: __SerdeContext): any => {
-  return {
-    ...(input.messageVersion !== undefined &&
-      input.messageVersion !== null && { messageVersion: input.messageVersion }),
-    ...(input.uri !== undefined && input.uri !== null && { uri: input.uri }),
-  };
+// se_CodeHook omitted.
+
+// se_ConversationLogsRequest omitted.
+
+// se_EnumerationValue omitted.
+
+// se_EnumerationValues omitted.
+
+// se_FollowUpPrompt omitted.
+
+// se_FulfillmentActivity omitted.
+
+// se_InputContext omitted.
+
+// se_InputContextList omitted.
+
+// se_Intent omitted.
+
+// se_IntentList omitted.
+
+// se_IntentUtteranceList omitted.
+
+// se_KendraConfiguration omitted.
+
+// se_LogSettingsRequest omitted.
+
+// se_LogSettingsRequestList omitted.
+
+// se_Message omitted.
+
+// se_MessageList omitted.
+
+// se_OutputContext omitted.
+
+// se_OutputContextList omitted.
+
+// se_Prompt omitted.
+
+// se_Slot omitted.
+
+// se_SlotDefaultValue omitted.
+
+// se_SlotDefaultValueList omitted.
+
+// se_SlotDefaultValueSpec omitted.
+
+// se_SlotList omitted.
+
+// se_SlotTypeConfiguration omitted.
+
+// se_SlotTypeConfigurations omitted.
+
+// se_SlotTypeRegexConfiguration omitted.
+
+// se_SlotUtteranceList omitted.
+
+// se_Statement omitted.
+
+// se_SynonymList omitted.
+
+// se_Tag omitted.
+
+// se_TagList omitted.
+
+/**
+ * deserializeAws_restJson1BotAliasMetadata
+ */
+const de_BotAliasMetadata = (output: any, context: __SerdeContext): BotAliasMetadata => {
+  return take(output, {
+    botName: __expectString,
+    botVersion: __expectString,
+    checksum: __expectString,
+    conversationLogs: _json,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1ConversationLogsRequest = (
-  input: ConversationLogsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.iamRoleArn !== undefined && input.iamRoleArn !== null && { iamRoleArn: input.iamRoleArn }),
-    ...(input.logSettings !== undefined &&
-      input.logSettings !== null && {
-        logSettings: serializeAws_restJson1LogSettingsRequestList(input.logSettings, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1EnumerationValue = (input: EnumerationValue, context: __SerdeContext): any => {
-  return {
-    ...(input.synonyms !== undefined &&
-      input.synonyms !== null && { synonyms: serializeAws_restJson1SynonymList(input.synonyms, context) }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
-  };
-};
-
-const serializeAws_restJson1EnumerationValues = (input: EnumerationValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1EnumerationValue(entry, context);
-    });
-};
-
-const serializeAws_restJson1FollowUpPrompt = (input: FollowUpPrompt, context: __SerdeContext): any => {
-  return {
-    ...(input.prompt !== undefined &&
-      input.prompt !== null && { prompt: serializeAws_restJson1Prompt(input.prompt, context) }),
-    ...(input.rejectionStatement !== undefined &&
-      input.rejectionStatement !== null && {
-        rejectionStatement: serializeAws_restJson1Statement(input.rejectionStatement, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1FulfillmentActivity = (input: FulfillmentActivity, context: __SerdeContext): any => {
-  return {
-    ...(input.codeHook !== undefined &&
-      input.codeHook !== null && { codeHook: serializeAws_restJson1CodeHook(input.codeHook, context) }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-  };
-};
-
-const serializeAws_restJson1InputContext = (input: InputContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
-
-const serializeAws_restJson1InputContextList = (input: InputContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1InputContext(entry, context);
-    });
-};
-
-const serializeAws_restJson1Intent = (input: Intent, context: __SerdeContext): any => {
-  return {
-    ...(input.intentName !== undefined && input.intentName !== null && { intentName: input.intentName }),
-    ...(input.intentVersion !== undefined && input.intentVersion !== null && { intentVersion: input.intentVersion }),
-  };
-};
-
-const serializeAws_restJson1IntentList = (input: Intent[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Intent(entry, context);
-    });
-};
-
-const serializeAws_restJson1IntentUtteranceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1KendraConfiguration = (input: KendraConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.kendraIndex !== undefined && input.kendraIndex !== null && { kendraIndex: input.kendraIndex }),
-    ...(input.queryFilterString !== undefined &&
-      input.queryFilterString !== null && { queryFilterString: input.queryFilterString }),
-    ...(input.role !== undefined && input.role !== null && { role: input.role }),
-  };
-};
-
-const serializeAws_restJson1LogSettingsRequest = (input: LogSettingsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.destination !== undefined && input.destination !== null && { destination: input.destination }),
-    ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.logType !== undefined && input.logType !== null && { logType: input.logType }),
-    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
-  };
-};
-
-const serializeAws_restJson1LogSettingsRequestList = (input: LogSettingsRequest[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1LogSettingsRequest(entry, context);
-    });
-};
-
-const serializeAws_restJson1Message = (input: Message, context: __SerdeContext): any => {
-  return {
-    ...(input.content !== undefined && input.content !== null && { content: input.content }),
-    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
-    ...(input.groupNumber !== undefined && input.groupNumber !== null && { groupNumber: input.groupNumber }),
-  };
-};
-
-const serializeAws_restJson1MessageList = (input: Message[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Message(entry, context);
-    });
-};
-
-const serializeAws_restJson1OutputContext = (input: OutputContext, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.timeToLiveInSeconds !== undefined &&
-      input.timeToLiveInSeconds !== null && { timeToLiveInSeconds: input.timeToLiveInSeconds }),
-    ...(input.turnsToLive !== undefined && input.turnsToLive !== null && { turnsToLive: input.turnsToLive }),
-  };
-};
-
-const serializeAws_restJson1OutputContextList = (input: OutputContext[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1OutputContext(entry, context);
-    });
-};
-
-const serializeAws_restJson1Prompt = (input: Prompt, context: __SerdeContext): any => {
-  return {
-    ...(input.maxAttempts !== undefined && input.maxAttempts !== null && { maxAttempts: input.maxAttempts }),
-    ...(input.messages !== undefined &&
-      input.messages !== null && { messages: serializeAws_restJson1MessageList(input.messages, context) }),
-    ...(input.responseCard !== undefined && input.responseCard !== null && { responseCard: input.responseCard }),
-  };
-};
-
-const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValueSpec !== undefined &&
-      input.defaultValueSpec !== null && {
-        defaultValueSpec: serializeAws_restJson1SlotDefaultValueSpec(input.defaultValueSpec, context),
-      }),
-    ...(input.description !== undefined && input.description !== null && { description: input.description }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.obfuscationSetting !== undefined &&
-      input.obfuscationSetting !== null && { obfuscationSetting: input.obfuscationSetting }),
-    ...(input.priority !== undefined && input.priority !== null && { priority: input.priority }),
-    ...(input.responseCard !== undefined && input.responseCard !== null && { responseCard: input.responseCard }),
-    ...(input.sampleUtterances !== undefined &&
-      input.sampleUtterances !== null && {
-        sampleUtterances: serializeAws_restJson1SlotUtteranceList(input.sampleUtterances, context),
-      }),
-    ...(input.slotConstraint !== undefined &&
-      input.slotConstraint !== null && { slotConstraint: input.slotConstraint }),
-    ...(input.slotType !== undefined && input.slotType !== null && { slotType: input.slotType }),
-    ...(input.slotTypeVersion !== undefined &&
-      input.slotTypeVersion !== null && { slotTypeVersion: input.slotTypeVersion }),
-    ...(input.valueElicitationPrompt !== undefined &&
-      input.valueElicitationPrompt !== null && {
-        valueElicitationPrompt: serializeAws_restJson1Prompt(input.valueElicitationPrompt, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1SlotDefaultValue = (input: SlotDefaultValue, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
-  };
-};
-
-const serializeAws_restJson1SlotDefaultValueList = (input: SlotDefaultValue[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1SlotDefaultValue(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotDefaultValueSpec = (input: SlotDefaultValueSpec, context: __SerdeContext): any => {
-  return {
-    ...(input.defaultValueList !== undefined &&
-      input.defaultValueList !== null && {
-        defaultValueList: serializeAws_restJson1SlotDefaultValueList(input.defaultValueList, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1SlotList = (input: Slot[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Slot(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotTypeConfiguration = (input: SlotTypeConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.regexConfiguration !== undefined &&
-      input.regexConfiguration !== null && {
-        regexConfiguration: serializeAws_restJson1SlotTypeRegexConfiguration(input.regexConfiguration, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1SlotTypeConfigurations = (input: SlotTypeConfiguration[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1SlotTypeConfiguration(entry, context);
-    });
-};
-
-const serializeAws_restJson1SlotTypeRegexConfiguration = (
-  input: SlotTypeRegexConfiguration,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.pattern !== undefined && input.pattern !== null && { pattern: input.pattern }),
-  };
-};
-
-const serializeAws_restJson1SlotUtteranceList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Statement = (input: Statement, context: __SerdeContext): any => {
-  return {
-    ...(input.messages !== undefined &&
-      input.messages !== null && { messages: serializeAws_restJson1MessageList(input.messages, context) }),
-    ...(input.responseCard !== undefined && input.responseCard !== null && { responseCard: input.responseCard }),
-  };
-};
-
-const serializeAws_restJson1SynonymList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
-  };
-};
-
-const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const deserializeAws_restJson1BotAliasMetadata = (output: any, context: __SerdeContext): BotAliasMetadata => {
-  return {
-    botName: __expectString(output.botName),
-    botVersion: __expectString(output.botVersion),
-    checksum: __expectString(output.checksum),
-    conversationLogs:
-      output.conversationLogs !== undefined && output.conversationLogs !== null
-        ? deserializeAws_restJson1ConversationLogsResponse(output.conversationLogs, context)
-        : undefined,
-    createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1BotAliasMetadataList = (output: any, context: __SerdeContext): BotAliasMetadata[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1BotAliasMetadataList
+ */
+const de_BotAliasMetadataList = (output: any, context: __SerdeContext): BotAliasMetadata[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotAliasMetadata(entry, context);
+      return de_BotAliasMetadata(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BotChannelAssociation = (output: any, context: __SerdeContext): BotChannelAssociation => {
-  return {
-    botAlias: __expectString(output.botAlias),
-    botConfiguration:
-      output.botConfiguration !== undefined && output.botConfiguration !== null
-        ? deserializeAws_restJson1ChannelConfigurationMap(output.botConfiguration, context)
-        : undefined,
-    botName: __expectString(output.botName),
-    createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    failureReason: __expectString(output.failureReason),
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    type: __expectString(output.type),
-  } as any;
+/**
+ * deserializeAws_restJson1BotChannelAssociation
+ */
+const de_BotChannelAssociation = (output: any, context: __SerdeContext): BotChannelAssociation => {
+  return take(output, {
+    botAlias: __expectString,
+    botConfiguration: _json,
+    botName: __expectString,
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    failureReason: __expectString,
+    name: __expectString,
+    status: __expectString,
+    type: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotChannelAssociationList = (
-  output: any,
-  context: __SerdeContext
-): BotChannelAssociation[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1BotChannelAssociationList
+ */
+const de_BotChannelAssociationList = (output: any, context: __SerdeContext): BotChannelAssociation[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotChannelAssociation(entry, context);
+      return de_BotChannelAssociation(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BotMetadata = (output: any, context: __SerdeContext): BotMetadata => {
-  return {
-    createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    version: __expectString(output.version),
-  } as any;
+/**
+ * deserializeAws_restJson1BotMetadata
+ */
+const de_BotMetadata = (output: any, context: __SerdeContext): BotMetadata => {
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BotMetadataList = (output: any, context: __SerdeContext): BotMetadata[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1BotMetadataList
+ */
+const de_BotMetadataList = (output: any, context: __SerdeContext): BotMetadata[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BotMetadata(entry, context);
+      return de_BotMetadata(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BuiltinIntentMetadata = (output: any, context: __SerdeContext): BuiltinIntentMetadata => {
-  return {
-    signature: __expectString(output.signature),
-    supportedLocales:
-      output.supportedLocales !== undefined && output.supportedLocales !== null
-        ? deserializeAws_restJson1LocaleList(output.supportedLocales, context)
-        : undefined,
-  } as any;
+// de_BuiltinIntentMetadata omitted.
+
+// de_BuiltinIntentMetadataList omitted.
+
+// de_BuiltinIntentSlot omitted.
+
+// de_BuiltinIntentSlotList omitted.
+
+// de_BuiltinSlotTypeMetadata omitted.
+
+// de_BuiltinSlotTypeMetadataList omitted.
+
+// de_ChannelConfigurationMap omitted.
+
+// de_CodeHook omitted.
+
+// de_ConversationLogsResponse omitted.
+
+// de_EnumerationValue omitted.
+
+// de_EnumerationValues omitted.
+
+// de_FollowUpPrompt omitted.
+
+// de_FulfillmentActivity omitted.
+
+// de_InputContext omitted.
+
+// de_InputContextList omitted.
+
+// de_Intent omitted.
+
+// de_IntentList omitted.
+
+/**
+ * deserializeAws_restJson1IntentMetadata
+ */
+const de_IntentMetadata = (output: any, context: __SerdeContext): IntentMetadata => {
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BuiltinIntentMetadataList = (
-  output: any,
-  context: __SerdeContext
-): BuiltinIntentMetadata[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1IntentMetadataList
+ */
+const de_IntentMetadataList = (output: any, context: __SerdeContext): IntentMetadata[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BuiltinIntentMetadata(entry, context);
+      return de_IntentMetadata(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BuiltinIntentSlot = (output: any, context: __SerdeContext): BuiltinIntentSlot => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
+// de_IntentUtteranceList omitted.
 
-const deserializeAws_restJson1BuiltinIntentSlotList = (output: any, context: __SerdeContext): BuiltinIntentSlot[] => {
-  return (output || [])
+// de_KendraConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1ListOfUtterance
+ */
+const de_ListOfUtterance = (output: any, context: __SerdeContext): UtteranceData[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BuiltinIntentSlot(entry, context);
+      return de_UtteranceData(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BuiltinSlotTypeMetadata = (
-  output: any,
-  context: __SerdeContext
-): BuiltinSlotTypeMetadata => {
-  return {
-    signature: __expectString(output.signature),
-    supportedLocales:
-      output.supportedLocales !== undefined && output.supportedLocales !== null
-        ? deserializeAws_restJson1LocaleList(output.supportedLocales, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1BuiltinSlotTypeMetadataList = (
-  output: any,
-  context: __SerdeContext
-): BuiltinSlotTypeMetadata[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1ListsOfUtterances
+ */
+const de_ListsOfUtterances = (output: any, context: __SerdeContext): UtteranceList[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BuiltinSlotTypeMetadata(entry, context);
+      return de_UtteranceList(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1ChannelConfigurationMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
+// de_LocaleList omitted.
+
+// de_LogSettingsResponse omitted.
+
+// de_LogSettingsResponseList omitted.
+
+// de_Message omitted.
+
+// de_MessageList omitted.
+
+// de_MigrationAlert omitted.
+
+// de_MigrationAlertDetails omitted.
+
+// de_MigrationAlertReferenceURLs omitted.
+
+// de_MigrationAlerts omitted.
+
+/**
+ * deserializeAws_restJson1MigrationSummary
+ */
+const de_MigrationSummary = (output: any, context: __SerdeContext): MigrationSummary => {
+  return take(output, {
+    migrationId: __expectString,
+    migrationStatus: __expectString,
+    migrationStrategy: __expectString,
+    migrationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    v1BotLocale: __expectString,
+    v1BotName: __expectString,
+    v1BotVersion: __expectString,
+    v2BotId: __expectString,
+    v2BotRole: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1CodeHook = (output: any, context: __SerdeContext): CodeHook => {
-  return {
-    messageVersion: __expectString(output.messageVersion),
-    uri: __expectString(output.uri),
-  } as any;
-};
-
-const deserializeAws_restJson1ConversationLogsResponse = (
-  output: any,
-  context: __SerdeContext
-): ConversationLogsResponse => {
-  return {
-    iamRoleArn: __expectString(output.iamRoleArn),
-    logSettings:
-      output.logSettings !== undefined && output.logSettings !== null
-        ? deserializeAws_restJson1LogSettingsResponseList(output.logSettings, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1EnumerationValue = (output: any, context: __SerdeContext): EnumerationValue => {
-  return {
-    synonyms:
-      output.synonyms !== undefined && output.synonyms !== null
-        ? deserializeAws_restJson1SynonymList(output.synonyms, context)
-        : undefined,
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1EnumerationValues = (output: any, context: __SerdeContext): EnumerationValue[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1MigrationSummaryList
+ */
+const de_MigrationSummaryList = (output: any, context: __SerdeContext): MigrationSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1EnumerationValue(entry, context);
+      return de_MigrationSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1FollowUpPrompt = (output: any, context: __SerdeContext): FollowUpPrompt => {
-  return {
-    prompt:
-      output.prompt !== undefined && output.prompt !== null
-        ? deserializeAws_restJson1Prompt(output.prompt, context)
-        : undefined,
-    rejectionStatement:
-      output.rejectionStatement !== undefined && output.rejectionStatement !== null
-        ? deserializeAws_restJson1Statement(output.rejectionStatement, context)
-        : undefined,
-  } as any;
+// de_OutputContext omitted.
+
+// de_OutputContextList omitted.
+
+// de_Prompt omitted.
+
+// de_ResourceReference omitted.
+
+// de_Slot omitted.
+
+// de_SlotDefaultValue omitted.
+
+// de_SlotDefaultValueList omitted.
+
+// de_SlotDefaultValueSpec omitted.
+
+// de_SlotList omitted.
+
+// de_SlotTypeConfiguration omitted.
+
+// de_SlotTypeConfigurations omitted.
+
+/**
+ * deserializeAws_restJson1SlotTypeMetadata
+ */
+const de_SlotTypeMetadata = (output: any, context: __SerdeContext): SlotTypeMetadata => {
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    version: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1FulfillmentActivity = (output: any, context: __SerdeContext): FulfillmentActivity => {
-  return {
-    codeHook:
-      output.codeHook !== undefined && output.codeHook !== null
-        ? deserializeAws_restJson1CodeHook(output.codeHook, context)
-        : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_restJson1InputContext = (output: any, context: __SerdeContext): InputContext => {
-  return {
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1InputContextList = (output: any, context: __SerdeContext): InputContext[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1SlotTypeMetadataList
+ */
+const de_SlotTypeMetadataList = (output: any, context: __SerdeContext): SlotTypeMetadata[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1InputContext(entry, context);
+      return de_SlotTypeMetadata(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1Intent = (output: any, context: __SerdeContext): Intent => {
-  return {
-    intentName: __expectString(output.intentName),
-    intentVersion: __expectString(output.intentVersion),
-  } as any;
+// de_SlotTypeRegexConfiguration omitted.
+
+// de_SlotUtteranceList omitted.
+
+// de_Statement omitted.
+
+// de_StringList omitted.
+
+// de_SynonymList omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+/**
+ * deserializeAws_restJson1UtteranceData
+ */
+const de_UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {
+  return take(output, {
+    count: __expectInt32,
+    distinctUsers: __expectInt32,
+    firstUtteredDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUtteredDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    utteranceString: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1IntentList = (output: any, context: __SerdeContext): Intent[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Intent(entry, context);
-    });
-};
-
-const deserializeAws_restJson1IntentMetadata = (output: any, context: __SerdeContext): IntentMetadata => {
-  return {
-    createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
-
-const deserializeAws_restJson1IntentMetadataList = (output: any, context: __SerdeContext): IntentMetadata[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1IntentMetadata(entry, context);
-    });
-};
-
-const deserializeAws_restJson1IntentUtteranceList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1KendraConfiguration = (output: any, context: __SerdeContext): KendraConfiguration => {
-  return {
-    kendraIndex: __expectString(output.kendraIndex),
-    queryFilterString: __expectString(output.queryFilterString),
-    role: __expectString(output.role),
-  } as any;
-};
-
-const deserializeAws_restJson1ListOfUtterance = (output: any, context: __SerdeContext): UtteranceData[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1UtteranceData(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ListsOfUtterances = (output: any, context: __SerdeContext): UtteranceList[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1UtteranceList(entry, context);
-    });
-};
-
-const deserializeAws_restJson1LocaleList = (output: any, context: __SerdeContext): (Locale | string)[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1LogSettingsResponse = (output: any, context: __SerdeContext): LogSettingsResponse => {
-  return {
-    destination: __expectString(output.destination),
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    logType: __expectString(output.logType),
-    resourceArn: __expectString(output.resourceArn),
-    resourcePrefix: __expectString(output.resourcePrefix),
-  } as any;
-};
-
-const deserializeAws_restJson1LogSettingsResponseList = (
-  output: any,
-  context: __SerdeContext
-): LogSettingsResponse[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1LogSettingsResponse(entry, context);
-    });
-};
-
-const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
-  return {
-    content: __expectString(output.content),
-    contentType: __expectString(output.contentType),
-    groupNumber: __expectInt32(output.groupNumber),
-  } as any;
-};
-
-const deserializeAws_restJson1MessageList = (output: any, context: __SerdeContext): Message[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Message(entry, context);
-    });
-};
-
-const deserializeAws_restJson1MigrationAlert = (output: any, context: __SerdeContext): MigrationAlert => {
-  return {
-    details:
-      output.details !== undefined && output.details !== null
-        ? deserializeAws_restJson1MigrationAlertDetails(output.details, context)
-        : undefined,
-    message: __expectString(output.message),
-    referenceURLs:
-      output.referenceURLs !== undefined && output.referenceURLs !== null
-        ? deserializeAws_restJson1MigrationAlertReferenceURLs(output.referenceURLs, context)
-        : undefined,
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_restJson1MigrationAlertDetails = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1MigrationAlertReferenceURLs = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1MigrationAlerts = (output: any, context: __SerdeContext): MigrationAlert[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MigrationAlert(entry, context);
-    });
-};
-
-const deserializeAws_restJson1MigrationSummary = (output: any, context: __SerdeContext): MigrationSummary => {
-  return {
-    migrationId: __expectString(output.migrationId),
-    migrationStatus: __expectString(output.migrationStatus),
-    migrationStrategy: __expectString(output.migrationStrategy),
-    migrationTimestamp:
-      output.migrationTimestamp !== undefined && output.migrationTimestamp !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.migrationTimestamp)))
-        : undefined,
-    v1BotLocale: __expectString(output.v1BotLocale),
-    v1BotName: __expectString(output.v1BotName),
-    v1BotVersion: __expectString(output.v1BotVersion),
-    v2BotId: __expectString(output.v2BotId),
-    v2BotRole: __expectString(output.v2BotRole),
-  } as any;
-};
-
-const deserializeAws_restJson1MigrationSummaryList = (output: any, context: __SerdeContext): MigrationSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1MigrationSummary(entry, context);
-    });
-};
-
-const deserializeAws_restJson1OutputContext = (output: any, context: __SerdeContext): OutputContext => {
-  return {
-    name: __expectString(output.name),
-    timeToLiveInSeconds: __expectInt32(output.timeToLiveInSeconds),
-    turnsToLive: __expectInt32(output.turnsToLive),
-  } as any;
-};
-
-const deserializeAws_restJson1OutputContextList = (output: any, context: __SerdeContext): OutputContext[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1OutputContext(entry, context);
-    });
-};
-
-const deserializeAws_restJson1Prompt = (output: any, context: __SerdeContext): Prompt => {
-  return {
-    maxAttempts: __expectInt32(output.maxAttempts),
-    messages:
-      output.messages !== undefined && output.messages !== null
-        ? deserializeAws_restJson1MessageList(output.messages, context)
-        : undefined,
-    responseCard: __expectString(output.responseCard),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceReference = (output: any, context: __SerdeContext): ResourceReference => {
-  return {
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
-
-const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
-  return {
-    defaultValueSpec:
-      output.defaultValueSpec !== undefined && output.defaultValueSpec !== null
-        ? deserializeAws_restJson1SlotDefaultValueSpec(output.defaultValueSpec, context)
-        : undefined,
-    description: __expectString(output.description),
-    name: __expectString(output.name),
-    obfuscationSetting: __expectString(output.obfuscationSetting),
-    priority: __expectInt32(output.priority),
-    responseCard: __expectString(output.responseCard),
-    sampleUtterances:
-      output.sampleUtterances !== undefined && output.sampleUtterances !== null
-        ? deserializeAws_restJson1SlotUtteranceList(output.sampleUtterances, context)
-        : undefined,
-    slotConstraint: __expectString(output.slotConstraint),
-    slotType: __expectString(output.slotType),
-    slotTypeVersion: __expectString(output.slotTypeVersion),
-    valueElicitationPrompt:
-      output.valueElicitationPrompt !== undefined && output.valueElicitationPrompt !== null
-        ? deserializeAws_restJson1Prompt(output.valueElicitationPrompt, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotDefaultValue = (output: any, context: __SerdeContext): SlotDefaultValue => {
-  return {
-    defaultValue: __expectString(output.defaultValue),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotDefaultValueList = (output: any, context: __SerdeContext): SlotDefaultValue[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotDefaultValue(entry, context);
-    });
-};
-
-const deserializeAws_restJson1SlotDefaultValueSpec = (output: any, context: __SerdeContext): SlotDefaultValueSpec => {
-  return {
-    defaultValueList:
-      output.defaultValueList !== undefined && output.defaultValueList !== null
-        ? deserializeAws_restJson1SlotDefaultValueList(output.defaultValueList, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotList = (output: any, context: __SerdeContext): Slot[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Slot(entry, context);
-    });
-};
-
-const deserializeAws_restJson1SlotTypeConfiguration = (output: any, context: __SerdeContext): SlotTypeConfiguration => {
-  return {
-    regexConfiguration:
-      output.regexConfiguration !== undefined && output.regexConfiguration !== null
-        ? deserializeAws_restJson1SlotTypeRegexConfiguration(output.regexConfiguration, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SlotTypeConfigurations = (
-  output: any,
-  context: __SerdeContext
-): SlotTypeConfiguration[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotTypeConfiguration(entry, context);
-    });
-};
-
-const deserializeAws_restJson1SlotTypeMetadata = (output: any, context: __SerdeContext): SlotTypeMetadata => {
-  return {
-    createdDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdDate)))
-        : undefined,
-    description: __expectString(output.description),
-    lastUpdatedDate:
-      output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDate)))
-        : undefined,
-    name: __expectString(output.name),
-    version: __expectString(output.version),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotTypeMetadataList = (output: any, context: __SerdeContext): SlotTypeMetadata[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SlotTypeMetadata(entry, context);
-    });
-};
-
-const deserializeAws_restJson1SlotTypeRegexConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SlotTypeRegexConfiguration => {
-  return {
-    pattern: __expectString(output.pattern),
-  } as any;
-};
-
-const deserializeAws_restJson1SlotUtteranceList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1Statement = (output: any, context: __SerdeContext): Statement => {
-  return {
-    messages:
-      output.messages !== undefined && output.messages !== null
-        ? deserializeAws_restJson1MessageList(output.messages, context)
-        : undefined,
-    responseCard: __expectString(output.responseCard),
-  } as any;
-};
-
-const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    key: __expectString(output.key),
-    value: __expectString(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Tag(entry, context);
-    });
-};
-
-const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {
-  return {
-    count: __expectInt32(output.count),
-    distinctUsers: __expectInt32(output.distinctUsers),
-    firstUtteredDate:
-      output.firstUtteredDate !== undefined && output.firstUtteredDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.firstUtteredDate)))
-        : undefined,
-    lastUtteredDate:
-      output.lastUtteredDate !== undefined && output.lastUtteredDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUtteredDate)))
-        : undefined,
-    utteranceString: __expectString(output.utteranceString),
-  } as any;
-};
-
-const deserializeAws_restJson1UtteranceList = (output: any, context: __SerdeContext): UtteranceList => {
-  return {
-    botVersion: __expectString(output.botVersion),
-    utterances:
-      output.utterances !== undefined && output.utterances !== null
-        ? deserializeAws_restJson1ListOfUtterance(output.utterances, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1UtteranceList
+ */
+const de_UtteranceList = (output: any, context: __SerdeContext): UtteranceList => {
+  return take(output, {
+    botVersion: __expectString,
+    utterances: (_: any) => de_ListOfUtterance(_, context),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -7121,14 +4454,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -7150,6 +4495,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

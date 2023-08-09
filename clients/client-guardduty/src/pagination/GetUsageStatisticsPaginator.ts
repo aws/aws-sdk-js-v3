@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetUsageStatisticsCommand,
   GetUsageStatisticsCommandInput,
   GetUsageStatisticsCommandOutput,
 } from "../commands/GetUsageStatisticsCommand";
-import { GuardDuty } from "../GuardDuty";
 import { GuardDutyClient } from "../GuardDutyClient";
 import { GuardDutyPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GuardDutyClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetUsageStatisticsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GuardDuty,
-  input: GetUsageStatisticsCommandInput,
-  ...args: any
-): Promise<GetUsageStatisticsCommandOutput> => {
-  // @ts-ignore
-  return await client.getUsageStatistics(input, ...args);
-};
 export async function* paginateGetUsageStatistics(
   config: GuardDutyPaginationConfiguration,
   input: GetUsageStatisticsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetUsageStatistics(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof GuardDuty) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GuardDutyClient) {
+    if (config.client instanceof GuardDutyClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

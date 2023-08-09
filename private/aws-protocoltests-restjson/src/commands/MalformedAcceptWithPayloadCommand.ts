@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,17 +10,38 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
+import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
-import { MalformedAcceptWithPayloadInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedAcceptWithPayloadCommand,
-  serializeAws_restJson1MalformedAcceptWithPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { MalformedAcceptWithPayloadOutput } from "../models/models_0";
+import { de_MalformedAcceptWithPayloadCommand, se_MalformedAcceptWithPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link MalformedAcceptWithPayloadCommand}.
+ */
 export interface MalformedAcceptWithPayloadCommandInput {}
-export interface MalformedAcceptWithPayloadCommandOutput extends MalformedAcceptWithPayloadInput, __MetadataBearer {}
+/**
+ * @public
+ */
+export type MalformedAcceptWithPayloadCommandOutputType = Omit<MalformedAcceptWithPayloadOutput, "payload"> & {
+  payload?: Uint8ArrayBlobAdapter;
+};
+
+/**
+ * @public
+ *
+ * The output of {@link MalformedAcceptWithPayloadCommand}.
+ */
+export interface MalformedAcceptWithPayloadCommandOutput
+  extends MalformedAcceptWithPayloadCommandOutputType,
+    __MetadataBearer {}
 
 export class MalformedAcceptWithPayloadCommand extends $Command<
   MalformedAcceptWithPayloadCommandInput,
@@ -29,6 +51,9 @@ export class MalformedAcceptWithPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedAcceptWithPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +79,8 @@ export class MalformedAcceptWithPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: MalformedAcceptWithPayloadInput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,15 +90,21 @@ export class MalformedAcceptWithPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedAcceptWithPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedAcceptWithPayloadCommand(input, context);
+    return se_MalformedAcceptWithPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedAcceptWithPayloadCommandOutput> {
-    return deserializeAws_restJson1MalformedAcceptWithPayloadCommand(output, context);
+    return de_MalformedAcceptWithPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

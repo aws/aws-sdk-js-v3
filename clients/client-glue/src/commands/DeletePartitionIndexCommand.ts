@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeletePartitionIndexRequest, DeletePartitionIndexResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeletePartitionIndexCommand,
-  serializeAws_json1_1DeletePartitionIndexCommand,
-} from "../protocols/Aws_json1_1";
+import { DeletePartitionIndexRequest, DeletePartitionIndexResponse } from "../models/models_1";
+import { de_DeletePartitionIndexCommand, se_DeletePartitionIndexCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeletePartitionIndexCommand}.
+ */
 export interface DeletePartitionIndexCommandInput extends DeletePartitionIndexRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePartitionIndexCommand}.
+ */
 export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a specified partition index from an existing table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,44 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * import { GlueClient, DeletePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeletePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // DeletePartitionIndexRequest
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   IndexName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePartitionIndexCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeletePartitionIndexCommandInput - {@link DeletePartitionIndexCommandInput}
+ * @returns {@link DeletePartitionIndexCommandOutput}
  * @see {@link DeletePartitionIndexCommandInput} for command's `input` shape.
  * @see {@link DeletePartitionIndexCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link GlueEncryptionException} (client fault)
+ *  <p>An encryption operation failed.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class DeletePartitionIndexCommand extends $Command<
@@ -46,6 +91,18 @@ export class DeletePartitionIndexCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartitionIndexCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +118,9 @@ export class DeletePartitionIndexCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePartitionIndexCommandInput, DeletePartitionIndexCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeletePartitionIndexCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +131,8 @@ export class DeletePartitionIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePartitionIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePartitionIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +142,18 @@ export class DeletePartitionIndexCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartitionIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePartitionIndexCommand(input, context);
+    return se_DeletePartitionIndexCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartitionIndexCommandOutput> {
-    return deserializeAws_json1_1DeletePartitionIndexCommand(output, context);
+    return de_DeletePartitionIndexCommand(output, context);
   }
 
   // Start section: command_body_extra

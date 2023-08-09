@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableVolumeIORequest } from "../models/models_4";
-import { deserializeAws_ec2EnableVolumeIOCommand, serializeAws_ec2EnableVolumeIOCommand } from "../protocols/Aws_ec2";
+import { EnableVolumeIORequest } from "../models/models_5";
+import { de_EnableVolumeIOCommand, se_EnableVolumeIOCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link EnableVolumeIOCommand}.
+ */
 export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
+/**
+ * @public
+ *
+ * The output of {@link EnableVolumeIOCommand}.
+ */
 export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
  *       the volume was potentially inconsistent.</p>
  * @example
@@ -27,13 +44,35 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * import { EC2Client, EnableVolumeIOCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVolumeIOCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // EnableVolumeIORequest
+ *   DryRun: true || false,
+ *   VolumeId: "STRING_VALUE", // required
+ * };
  * const command = new EnableVolumeIOCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param EnableVolumeIOCommandInput - {@link EnableVolumeIOCommandInput}
+ * @returns {@link EnableVolumeIOCommandOutput}
  * @see {@link EnableVolumeIOCommandInput} for command's `input` shape.
  * @see {@link EnableVolumeIOCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To enable I/O for a volume
+ * ```javascript
+ * // This example enables I/O on volume ``vol-1234567890abcdef0``.
+ * const input = {
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new EnableVolumeIOCommand(input);
+ * await client.send(command);
+ * // example id: to-enable-io-for-a-volume-1472508114867
+ * ```
  *
  */
 export class EnableVolumeIOCommand extends $Command<
@@ -44,6 +83,18 @@ export class EnableVolumeIOCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: EnableVolumeIOCommandInput) {
     // Start section: command_constructor
     super();
@@ -59,6 +110,9 @@ export class EnableVolumeIOCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableVolumeIOCommandInput, EnableVolumeIOCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableVolumeIOCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -69,8 +123,8 @@ export class EnableVolumeIOCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableVolumeIORequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -80,12 +134,18 @@ export class EnableVolumeIOCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableVolumeIOCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2EnableVolumeIOCommand(input, context);
+    return se_EnableVolumeIOCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableVolumeIOCommandOutput> {
-    return deserializeAws_ec2EnableVolumeIOCommand(output, context);
+    return de_EnableVolumeIOCommand(output, context);
   }
 
   // Start section: command_body_extra

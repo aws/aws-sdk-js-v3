@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,38 +12,69 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetQueryLoggingConfigRequest, GetQueryLoggingConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetQueryLoggingConfigCommand,
-  serializeAws_restXmlGetQueryLoggingConfigCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetQueryLoggingConfigCommand, se_GetQueryLoggingConfigCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetQueryLoggingConfigCommand}.
+ */
 export interface GetQueryLoggingConfigCommandInput extends GetQueryLoggingConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetQueryLoggingConfigCommand}.
+ */
 export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a specified configuration for DNS query logging.</p>
- *
- * 		       <p>For more information about DNS query logs, see
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>
- * 			and
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>.</p>
+ *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a> and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS
+ * 			Queries</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, GetQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // GetQueryLoggingConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetQueryLoggingConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetQueryLoggingConfigResponse
+ * //   QueryLoggingConfig: { // QueryLoggingConfig
+ * //     Id: "STRING_VALUE", // required
+ * //     HostedZoneId: "STRING_VALUE", // required
+ * //     CloudWatchLogsLogGroupArn: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetQueryLoggingConfigCommandInput - {@link GetQueryLoggingConfigCommandInput}
+ * @returns {@link GetQueryLoggingConfigCommandOutput}
  * @see {@link GetQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link GetQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchQueryLoggingConfig} (client fault)
+ *  <p>There is no DNS query logging configuration with the specified ID.</p>
+ *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class GetQueryLoggingConfigCommand extends $Command<
@@ -52,6 +85,18 @@ export class GetQueryLoggingConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetQueryLoggingConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +112,9 @@ export class GetQueryLoggingConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetQueryLoggingConfigCommandInput, GetQueryLoggingConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetQueryLoggingConfigCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -78,8 +126,8 @@ export class GetQueryLoggingConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryLoggingConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryLoggingConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +137,18 @@ export class GetQueryLoggingConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetQueryLoggingConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetQueryLoggingConfigCommand(input, context);
+    return se_GetQueryLoggingConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueryLoggingConfigCommandOutput> {
-    return deserializeAws_restXmlGetQueryLoggingConfigCommand(output, context);
+    return de_GetQueryLoggingConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

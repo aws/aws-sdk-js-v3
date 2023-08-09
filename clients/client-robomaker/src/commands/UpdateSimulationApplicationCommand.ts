@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateSimulationApplicationRequest, UpdateSimulationApplicationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSimulationApplicationCommand,
-  serializeAws_restJson1UpdateSimulationApplicationCommand,
+  de_UpdateSimulationApplicationCommand,
+  se_UpdateSimulationApplicationCommand,
 } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateSimulationApplicationCommand}.
+ */
 export interface UpdateSimulationApplicationCommandInput extends UpdateSimulationApplicationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateSimulationApplicationCommand}.
+ */
 export interface UpdateSimulationApplicationCommandOutput
   extends UpdateSimulationApplicationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,92 @@ export interface UpdateSimulationApplicationCommandOutput
  * import { RoboMakerClient, UpdateSimulationApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UpdateSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // UpdateSimulationApplicationRequest
+ *   application: "STRING_VALUE", // required
+ *   sources: [ // SourceConfigs
+ *     { // SourceConfig
+ *       s3Bucket: "STRING_VALUE",
+ *       s3Key: "STRING_VALUE",
+ *       architecture: "STRING_VALUE",
+ *     },
+ *   ],
+ *   simulationSoftwareSuite: { // SimulationSoftwareSuite
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   robotSoftwareSuite: { // RobotSoftwareSuite
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   renderingEngine: { // RenderingEngine
+ *     name: "STRING_VALUE",
+ *     version: "STRING_VALUE",
+ *   },
+ *   currentRevisionId: "STRING_VALUE",
+ *   environment: { // Environment
+ *     uri: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSimulationApplicationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateSimulationApplicationResponse
+ * //   arn: "STRING_VALUE",
+ * //   name: "STRING_VALUE",
+ * //   version: "STRING_VALUE",
+ * //   sources: [ // Sources
+ * //     { // Source
+ * //       s3Bucket: "STRING_VALUE",
+ * //       s3Key: "STRING_VALUE",
+ * //       etag: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   simulationSoftwareSuite: { // SimulationSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   robotSoftwareSuite: { // RobotSoftwareSuite
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   renderingEngine: { // RenderingEngine
+ * //     name: "STRING_VALUE",
+ * //     version: "STRING_VALUE",
+ * //   },
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * //   revisionId: "STRING_VALUE",
+ * //   environment: { // Environment
+ * //     uri: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateSimulationApplicationCommandInput - {@link UpdateSimulationApplicationCommandInput}
+ * @returns {@link UpdateSimulationApplicationCommandOutput}
  * @see {@link UpdateSimulationApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateSimulationApplicationCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
+ *          stream requests exceeds the maximum number allowed. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class UpdateSimulationApplicationCommand extends $Command<
@@ -48,6 +144,18 @@ export class UpdateSimulationApplicationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateSimulationApplicationCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +171,9 @@ export class UpdateSimulationApplicationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateSimulationApplicationCommandInput, UpdateSimulationApplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateSimulationApplicationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +184,8 @@ export class UpdateSimulationApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSimulationApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSimulationApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +195,21 @@ export class UpdateSimulationApplicationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSimulationApplicationCommand(input, context);
+    return se_UpdateSimulationApplicationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1UpdateSimulationApplicationCommand(output, context);
+    return de_UpdateSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

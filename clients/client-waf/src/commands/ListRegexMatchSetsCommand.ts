@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRegexMatchSetsCommand,
-  serializeAws_json1_1ListRegexMatchSetsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRegexMatchSetsCommand, se_ListRegexMatchSetsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListRegexMatchSetsCommand}.
+ */
 export interface ListRegexMatchSetsCommandInput extends ListRegexMatchSetsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRegexMatchSetsCommand}.
+ */
 export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -37,13 +51,38 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * import { WAFClient, ListRegexMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRegexMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = { // ListRegexMatchSetsRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRegexMatchSetsCommand(input);
  * const response = await client.send(command);
+ * // { // ListRegexMatchSetsResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   RegexMatchSets: [ // RegexMatchSetSummaries
+ * //     { // RegexMatchSetSummary
+ * //       RegexMatchSetId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListRegexMatchSetsCommandInput - {@link ListRegexMatchSetsCommandInput}
+ * @returns {@link ListRegexMatchSetsCommandOutput}
  * @see {@link ListRegexMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListRegexMatchSetsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
  *
  */
 export class ListRegexMatchSetsCommand extends $Command<
@@ -54,6 +93,18 @@ export class ListRegexMatchSetsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListRegexMatchSetsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +120,9 @@ export class ListRegexMatchSetsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRegexMatchSetsCommandInput, ListRegexMatchSetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRegexMatchSetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +133,8 @@ export class ListRegexMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRegexMatchSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRegexMatchSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +144,18 @@ export class ListRegexMatchSetsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRegexMatchSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRegexMatchSetsCommand(input, context);
+    return se_ListRegexMatchSetsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRegexMatchSetsCommandOutput> {
-    return deserializeAws_json1_1ListRegexMatchSetsCommand(output, context);
+    return de_ListRegexMatchSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

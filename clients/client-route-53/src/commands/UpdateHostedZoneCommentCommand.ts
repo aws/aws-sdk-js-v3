@@ -1,7 +1,9 @@
+// smithy-typescript generated code
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,19 +12,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlUpdateHostedZoneCommentCommand,
-  serializeAws_restXmlUpdateHostedZoneCommentCommand,
-} from "../protocols/Aws_restXml";
+import { de_UpdateHostedZoneCommentCommand, se_UpdateHostedZoneCommentCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateHostedZoneCommentCommand}.
+ */
 export interface UpdateHostedZoneCommentCommandInput extends UpdateHostedZoneCommentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateHostedZoneCommentCommand}.
+ */
 export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCommentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the comment for a specified hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +44,52 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * import { Route53Client, UpdateHostedZoneCommentCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateHostedZoneCommentCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // UpdateHostedZoneCommentRequest
+ *   Id: "STRING_VALUE", // required
+ *   Comment: "STRING_VALUE",
+ * };
  * const command = new UpdateHostedZoneCommentCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateHostedZoneCommentResponse
+ * //   HostedZone: { // HostedZone
+ * //     Id: "STRING_VALUE", // required
+ * //     Name: "STRING_VALUE", // required
+ * //     CallerReference: "STRING_VALUE", // required
+ * //     Config: { // HostedZoneConfig
+ * //       Comment: "STRING_VALUE",
+ * //       PrivateZone: true || false,
+ * //     },
+ * //     ResourceRecordSetCount: Number("long"),
+ * //     LinkedService: { // LinkedService
+ * //       ServicePrincipal: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateHostedZoneCommentCommandInput - {@link UpdateHostedZoneCommentCommandInput}
+ * @returns {@link UpdateHostedZoneCommentCommandOutput}
  * @see {@link UpdateHostedZoneCommentCommandInput} for command's `input` shape.
  * @see {@link UpdateHostedZoneCommentCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link PriorRequestNotComplete} (client fault)
+ *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
+ * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
+ * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
+ * 			for the same request, we recommend that you wait, in intervals of increasing duration,
+ * 			before you try the request again.</p>
+ *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class UpdateHostedZoneCommentCommand extends $Command<
@@ -47,6 +100,18 @@ export class UpdateHostedZoneCommentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateHostedZoneCommentCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +127,9 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateHostedZoneCommentCommandInput, UpdateHostedZoneCommentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateHostedZoneCommentCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -73,8 +141,8 @@ export class UpdateHostedZoneCommentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHostedZoneCommentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHostedZoneCommentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +152,18 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateHostedZoneCommentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateHostedZoneCommentCommand(input, context);
+    return se_UpdateHostedZoneCommentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateHostedZoneCommentCommandOutput> {
-    return deserializeAws_restXmlUpdateHostedZoneCommentCommand(output, context);
+    return de_UpdateHostedZoneCommentCommand(output, context);
   }
 
   // Start section: command_body_extra

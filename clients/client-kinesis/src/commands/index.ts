@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddTagsToStreamCommand";
 export * from "./CreateStreamCommand";
 export * from "./DecreaseStreamRetentionPeriodCommand";
@@ -26,3 +27,4 @@ export * from "./StartStreamEncryptionCommand";
 export * from "./StopStreamEncryptionCommand";
 export * from "./SubscribeToShardCommand";
 export * from "./UpdateShardCountCommand";
+export * from "./UpdateStreamModeCommand";

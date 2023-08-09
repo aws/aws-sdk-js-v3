@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetPackageVersionHistoryCommand,
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "../commands/GetPackageVersionHistoryCommand";
-import { ElasticsearchService } from "../ElasticsearchService";
 import { ElasticsearchServiceClient } from "../ElasticsearchServiceClient";
 import { ElasticsearchServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ElasticsearchServiceClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetPackageVersionHistoryCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ElasticsearchService,
-  input: GetPackageVersionHistoryCommandInput,
-  ...args: any
-): Promise<GetPackageVersionHistoryCommandOutput> => {
-  // @ts-ignore
-  return await client.getPackageVersionHistory(input, ...args);
-};
 export async function* paginateGetPackageVersionHistory(
   config: ElasticsearchServicePaginationConfiguration,
   input: GetPackageVersionHistoryCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetPackageVersionHistory(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ElasticsearchService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ElasticsearchServiceClient) {
+    if (config.client instanceof ElasticsearchServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

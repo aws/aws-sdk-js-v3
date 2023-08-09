@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetSchemaVersionsDiffInput, GetSchemaVersionsDiffResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetSchemaVersionsDiffCommand,
-  serializeAws_json1_1GetSchemaVersionsDiffCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetSchemaVersionsDiffCommand, se_GetSchemaVersionsDiffCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetSchemaVersionsDiffCommand}.
+ */
 export interface GetSchemaVersionsDiffCommandInput extends GetSchemaVersionsDiffInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetSchemaVersionsDiffCommand}.
+ */
 export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDiffResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
  *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
  * @example
@@ -30,13 +44,50 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * import { GlueClient, GetSchemaVersionsDiffCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSchemaVersionsDiffCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // GetSchemaVersionsDiffInput
+ *   SchemaId: { // SchemaId
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   FirstSchemaVersionNumber: { // SchemaVersionNumber
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SecondSchemaVersionNumber: {
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SchemaDiffType: "SYNTAX_DIFF", // required
+ * };
  * const command = new GetSchemaVersionsDiffCommand(input);
  * const response = await client.send(command);
+ * // { // GetSchemaVersionsDiffResponse
+ * //   Diff: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetSchemaVersionsDiffCommandInput - {@link GetSchemaVersionsDiffCommandInput}
+ * @returns {@link GetSchemaVersionsDiffCommandOutput}
  * @see {@link GetSchemaVersionsDiffCommandInput} for command's `input` shape.
  * @see {@link GetSchemaVersionsDiffCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class GetSchemaVersionsDiffCommand extends $Command<
@@ -47,6 +98,18 @@ export class GetSchemaVersionsDiffCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetSchemaVersionsDiffCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +125,9 @@ export class GetSchemaVersionsDiffCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetSchemaVersionsDiffCommandInput, GetSchemaVersionsDiffCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetSchemaVersionsDiffCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +138,8 @@ export class GetSchemaVersionsDiffCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaVersionsDiffInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaVersionsDiffResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +149,18 @@ export class GetSchemaVersionsDiffCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetSchemaVersionsDiffCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSchemaVersionsDiffCommand(input, context);
+    return se_GetSchemaVersionsDiffCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSchemaVersionsDiffCommandOutput> {
-    return deserializeAws_json1_1GetSchemaVersionsDiffCommand(output, context);
+    return de_GetSchemaVersionsDiffCommand(output, context);
   }
 
   // Start section: command_body_extra

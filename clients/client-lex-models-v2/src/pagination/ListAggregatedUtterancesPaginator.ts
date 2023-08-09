@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListAggregatedUtterancesCommand,
   ListAggregatedUtterancesCommandInput,
   ListAggregatedUtterancesCommandOutput,
 } from "../commands/ListAggregatedUtterancesCommand";
-import { LexModelsV2 } from "../LexModelsV2";
 import { LexModelsV2Client } from "../LexModelsV2Client";
 import { LexModelsV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LexModelsV2Client,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAggregatedUtterancesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LexModelsV2,
-  input: ListAggregatedUtterancesCommandInput,
-  ...args: any
-): Promise<ListAggregatedUtterancesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAggregatedUtterances(input, ...args);
-};
 export async function* paginateListAggregatedUtterances(
   config: LexModelsV2PaginationConfiguration,
   input: ListAggregatedUtterancesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListAggregatedUtterances(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof LexModelsV2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LexModelsV2Client) {
+    if (config.client instanceof LexModelsV2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LexModelsV2 | LexModelsV2Client");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,25 +1,31 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { SESServiceException as __BaseException } from "./SESServiceException";
 
 /**
+ * @public
  * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
  *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
  */
-export interface AccountSendingPausedException extends __SmithyException, $MetadataBearer {
-  name: "AccountSendingPausedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AccountSendingPausedException {
+export class AccountSendingPausedException extends __BaseException {
+  readonly name: "AccountSendingPausedException" = "AccountSendingPausedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AccountSendingPausedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AccountSendingPausedException, __BaseException>) {
+    super({
+      name: "AccountSendingPausedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountSendingPausedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action adds a header to the received
  *             email.</p>
  *         <p>For information about adding a header using a receipt rule, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html">Amazon SES
@@ -27,57 +33,64 @@ export namespace AccountSendingPausedException {
  */
 export interface AddHeaderAction {
   /**
+   * @public
    * <p>The name of the header to add. Must be between 1 and 50 characters, inclusive, and
    *             consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.</p>
    */
   HeaderName: string | undefined;
 
   /**
+   * @public
    * <p>Must be less than 2048 characters, and must not contain newline characters ("\r" or
    *             "\n").</p>
    */
   HeaderValue: string | undefined;
 }
 
-export namespace AddHeaderAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddHeaderAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that a resource could not be created because of a naming conflict.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that a resource could not be created because the resource name already
    *             exists.</p>
    */
   Name?: string;
 
-  message?: string;
-}
-
-export namespace AlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
-export enum BehaviorOnMXFailure {
-  RejectMessage = "RejectMessage",
-  UseDefaultValue = "UseDefaultValue",
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const BehaviorOnMXFailure = {
+  RejectMessage: "RejectMessage",
+  UseDefaultValue: "UseDefaultValue",
+} as const;
+
+/**
+ * @public
+ */
+export type BehaviorOnMXFailure = (typeof BehaviorOnMXFailure)[keyof typeof BehaviorOnMXFailure];
+
+/**
+ * @public
  * <p>Represents textual data, plus an optional character set specification.</p>
  *         <p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol.
  *             If the text must contain any other characters, then you must also specify a character
@@ -85,38 +98,34 @@ export enum BehaviorOnMXFailure {
  */
 export interface Content {
   /**
+   * @public
    * <p>The textual data of the content.</p>
    */
   Data: string | undefined;
 
   /**
+   * @public
    * <p>The character set of the content.</p>
    */
   Charset?: string;
 }
 
-export namespace Content {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the body of the message. You can specify text, HTML, or both. If you use
  *             both, then the message should display correctly in the widest variety of email
  *             clients.</p>
  */
 export interface Body {
   /**
+   * @public
    * <p>The content of the message, in text format. Use this for text-based email clients, or
    *             clients on high-latency networks (such as mobile devices).</p>
    */
   Text?: Content;
 
   /**
+   * @public
    * <p>The content of the message, in HTML format. Use this for email clients that can
    *             process HTML. You can include clickable links, formatted text, and much more in an HTML
    *             message.</p>
@@ -124,16 +133,8 @@ export interface Body {
   Html?: Content;
 }
 
-export namespace Body {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>When included in a receipt rule, this action rejects the received email by returning a
  *             bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service
  *             (Amazon SNS).</p>
@@ -143,6 +144,7 @@ export namespace Body {
  */
 export interface BounceAction {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is
    *             taken. An example of an Amazon SNS topic ARN is
    *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
@@ -151,54 +153,68 @@ export interface BounceAction {
   TopicArn?: string;
 
   /**
+   * @public
    * <p>The SMTP reply code, as defined by <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
    */
   SmtpReplyCode: string | undefined;
 
   /**
+   * @public
    * <p>The SMTP enhanced status code, as defined by <a href="https://tools.ietf.org/html/rfc3463">RFC 3463</a>.</p>
    */
   StatusCode?: string;
 
   /**
+   * @public
    * <p>Human-readable text to include in the bounce message.</p>
    */
   Message: string | undefined;
 
   /**
+   * @public
    * <p>The email address of the sender of the bounced email. This is the address from which
    *             the bounce message will be sent.</p>
    */
   Sender: string | undefined;
 }
 
-export namespace BounceAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BounceAction): any => ({
-    ...obj,
-  });
-}
-
-export enum BounceType {
-  ContentRejected = "ContentRejected",
-  DoesNotExist = "DoesNotExist",
-  ExceededQuota = "ExceededQuota",
-  MessageTooLarge = "MessageTooLarge",
-  TemporaryFailure = "TemporaryFailure",
-  Undefined = "Undefined",
-}
-
-export enum DsnAction {
-  DELAYED = "delayed",
-  DELIVERED = "delivered",
-  EXPANDED = "expanded",
-  FAILED = "failed",
-  RELAYED = "relayed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BounceType = {
+  ContentRejected: "ContentRejected",
+  DoesNotExist: "DoesNotExist",
+  ExceededQuota: "ExceededQuota",
+  MessageTooLarge: "MessageTooLarge",
+  TemporaryFailure: "TemporaryFailure",
+  Undefined: "Undefined",
+} as const;
 
 /**
+ * @public
+ */
+export type BounceType = (typeof BounceType)[keyof typeof BounceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DsnAction = {
+  DELAYED: "delayed",
+  DELIVERED: "delivered",
+  EXPANDED: "expanded",
+  FAILED: "failed",
+  RELAYED: "relayed",
+} as const;
+
+/**
+ * @public
+ */
+export type DsnAction = (typeof DsnAction)[keyof typeof DsnAction];
+
+/**
+ * @public
  * <p>Additional X-headers to include in the Delivery Status Notification (DSN) when an
  *             email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -206,28 +222,22 @@ export enum DsnAction {
  */
 export interface ExtensionField {
   /**
+   * @public
    * <p>The name of the header to add. Must be between 1 and 50 characters, inclusive, and
    *             consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value of the header to add. Must be less than 2048 characters, and must not
    *             contain newline characters ("\r" or "\n").</p>
    */
   Value: string | undefined;
 }
 
-export namespace ExtensionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionField): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Recipient-related information to include in the Delivery Status Notification (DSN)
  *             when an email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -235,6 +245,7 @@ export namespace ExtensionField {
  */
 export interface RecipientDsnFields {
   /**
+   * @public
    * <p>The email address that the message was ultimately delivered to. This corresponds to
    *             the <code>Final-Recipient</code> in the DSN. If not specified,
    *                 <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in
@@ -249,12 +260,14 @@ export interface RecipientDsnFields {
   FinalRecipient?: string;
 
   /**
+   * @public
    * <p>The action performed by the reporting mail transfer agent (MTA) as a result of its
    *             attempt to deliver the message to the recipient address. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
    */
   Action: DsnAction | string | undefined;
 
   /**
+   * @public
    * <p>The MTA to which the remote MTA attempted to deliver the message, formatted as
    *             specified in <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>
    *                 (<code>mta-name-type; mta-name</code>). This parameter typically applies only to
@@ -263,11 +276,13 @@ export interface RecipientDsnFields {
   RemoteMta?: string;
 
   /**
+   * @public
    * <p>The status code that indicates what went wrong. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
    */
   Status: string | undefined;
 
   /**
+   * @public
    * <p>An extended explanation of what went wrong; this is usually an SMTP response. See
    *                 <a href="https://tools.ietf.org/html/rfc3463">RFC 3463</a> for the correct
    *             formatting of this parameter.</p>
@@ -275,26 +290,20 @@ export interface RecipientDsnFields {
   DiagnosticCode?: string;
 
   /**
+   * @public
    * <p>The time the final delivery attempt was made, in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
    */
   LastAttemptDate?: Date;
 
   /**
+   * @public
    * <p>Additional X-headers to include in the DSN.</p>
    */
   ExtensionFields?: ExtensionField[];
 }
 
-export namespace RecipientDsnFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipientDsnFields): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Recipient-related information to include in the Delivery Status Notification (DSN)
  *             when an email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -302,11 +311,13 @@ export namespace RecipientDsnFields {
  */
 export interface BouncedRecipientInfo {
   /**
+   * @public
    * <p>The email address of the recipient of the bounced email.</p>
    */
   Recipient: string | undefined;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to receive
    *             email for the recipient of the bounced email. For more information about sending
@@ -316,12 +327,14 @@ export interface BouncedRecipientInfo {
   RecipientArn?: string;
 
   /**
+   * @public
    * <p>The reason for the bounce. You must provide either this parameter or
    *                 <code>RecipientDsnFields</code>.</p>
    */
   BounceType?: BounceType | string;
 
   /**
+   * @public
    * <p>Recipient-related DSN fields, most of which would normally be filled in automatically
    *             when provided with a <code>BounceType</code>. You must provide either this parameter or
    *                 <code>BounceType</code>.</p>
@@ -329,16 +342,8 @@ export interface BouncedRecipientInfo {
   RecipientDsnFields?: RecipientDsnFields;
 }
 
-export namespace BouncedRecipientInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BouncedRecipientInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
  *             fields.</p>
  *         <note>
@@ -352,31 +357,26 @@ export namespace BouncedRecipientInfo {
  */
 export interface Destination {
   /**
+   * @public
    * <p>The recipients to place on the To: line of the message.</p>
    */
   ToAddresses?: string[];
 
   /**
+   * @public
    * <p>The recipients to place on the CC: line of the message.</p>
    */
   CcAddresses?: string[];
 
   /**
+   * @public
    * <p>The recipients to place on the BCC: line of the message.</p>
    */
   BccAddresses?: string[];
 }
 
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or
  *                 <code>SendRawEmail</code> to apply to an email.</p>
  *         <p>Message tags, which you use with configuration sets, enable you to publish email
@@ -384,6 +384,7 @@ export namespace Destination {
  */
 export interface MessageTag {
   /**
+   * @public
    * <p>The name of the tag. The name must:</p>
    *         <ul>
    *             <li>
@@ -398,6 +399,7 @@ export interface MessageTag {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag. The value must:</p>
    *         <ul>
    *             <li>
@@ -412,21 +414,14 @@ export interface MessageTag {
   Value: string | undefined;
 }
 
-export namespace MessageTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageTag): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An array that contains one or more Destinations, as well as the tags and replacement
  *             data associated with each of those Destinations.</p>
  */
 export interface BulkEmailDestination {
   /**
+   * @public
    * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
    *             fields.</p>
    *         <note>
@@ -441,6 +436,7 @@ export interface BulkEmailDestination {
   Destination: Destination | undefined;
 
   /**
+   * @public
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendBulkTemplatedEmail</code>. Tags correspond to characteristics of the
    *             email that you define, so that you can publish email sending events.</p>
@@ -448,6 +444,7 @@ export interface BulkEmailDestination {
   ReplacementTags?: MessageTag[];
 
   /**
+   * @public
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
    *             replacement tags in the email template.</p>
@@ -455,38 +452,40 @@ export interface BulkEmailDestination {
   ReplacementTemplateData?: string;
 }
 
-export namespace BulkEmailDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkEmailDestination): any => ({
-    ...obj,
-  });
-}
-
-export enum BulkEmailStatus {
-  AccountDailyQuotaExceeded = "AccountDailyQuotaExceeded",
-  AccountSendingPaused = "AccountSendingPaused",
-  AccountSuspended = "AccountSuspended",
-  AccountThrottled = "AccountThrottled",
-  ConfigurationSetDoesNotExist = "ConfigurationSetDoesNotExist",
-  ConfigurationSetSendingPaused = "ConfigurationSetSendingPaused",
-  Failed = "Failed",
-  InvalidParameterValue = "InvalidParameterValue",
-  InvalidSendingPoolName = "InvalidSendingPoolName",
-  MailFromDomainNotVerified = "MailFromDomainNotVerified",
-  MessageRejected = "MessageRejected",
-  Success = "Success",
-  TemplateDoesNotExist = "TemplateDoesNotExist",
-  TransientFailure = "TransientFailure",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BulkEmailStatus = {
+  AccountDailyQuotaExceeded: "AccountDailyQuotaExceeded",
+  AccountSendingPaused: "AccountSendingPaused",
+  AccountSuspended: "AccountSuspended",
+  AccountThrottled: "AccountThrottled",
+  ConfigurationSetDoesNotExist: "ConfigurationSetDoesNotExist",
+  ConfigurationSetSendingPaused: "ConfigurationSetSendingPaused",
+  Failed: "Failed",
+  InvalidParameterValue: "InvalidParameterValue",
+  InvalidSendingPoolName: "InvalidSendingPoolName",
+  MailFromDomainNotVerified: "MailFromDomainNotVerified",
+  MessageRejected: "MessageRejected",
+  Success: "Success",
+  TemplateDoesNotExist: "TemplateDoesNotExist",
+  TransientFailure: "TransientFailure",
+} as const;
 
 /**
+ * @public
+ */
+export type BulkEmailStatus = (typeof BulkEmailStatus)[keyof typeof BulkEmailStatus];
+
+/**
+ * @public
  * <p>An object that contains the response from the <code>SendBulkTemplatedEmail</code>
  *             operation.</p>
  */
 export interface BulkEmailDestinationStatus {
   /**
+   * @public
    * <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
    *         <p>Possible values for this parameter include:</p>
@@ -569,57 +568,56 @@ export interface BulkEmailDestinationStatus {
   Status?: BulkEmailStatus | string;
 
   /**
+   * @public
    * <p>A description of an error that prevented a message being sent using the
    *                 <code>SendBulkTemplatedEmail</code> operation.</p>
    */
   Error?: string;
 
   /**
+   * @public
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
    */
   MessageId?: string;
 }
 
-export namespace BulkEmailDestinationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkEmailDestinationStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the delete operation could not be completed.</p>
  */
-export interface CannotDeleteException extends __SmithyException, $MetadataBearer {
-  name: "CannotDeleteException";
-  $fault: "client";
+export class CannotDeleteException extends __BaseException {
+  readonly name: "CannotDeleteException" = "CannotDeleteException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that a resource could not be deleted because no resource with the specified
    *             name exists.</p>
    */
   Name?: string;
 
-  message?: string;
-}
-
-export namespace CannotDeleteException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CannotDeleteException, __BaseException>) {
+    super({
+      name: "CannotDeleteException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotDeleteException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to create a receipt rule set by cloning an existing one. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CloneReceiptRuleSetRequest {
   /**
+   * @public
    * <p>The name of the rule set to create. The name must:</p>
    *         <ul>
    *             <li>
@@ -637,90 +635,91 @@ export interface CloneReceiptRuleSetRequest {
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the rule set to clone.</p>
    */
   OriginalRuleSetName: string | undefined;
 }
 
-export namespace CloneReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloneReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CloneReceiptRuleSetResponse {}
 
-export namespace CloneReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloneReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that a resource could not be created because of service limits. For a list
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the provided receipt rule set does not exist.</p>
  */
-export interface RuleSetDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "RuleSetDoesNotExistException";
-  $fault: "client";
+export class RuleSetDoesNotExistException extends __BaseException {
+  readonly name: "RuleSetDoesNotExistException" = "RuleSetDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the named receipt rule set does not exist.</p>
    */
   Name?: string;
 
-  message?: string;
-}
-
-export namespace RuleSetDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RuleSetDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
-export enum DimensionValueSource {
-  EMAIL_HEADER = "emailHeader",
-  LINK_TAG = "linkTag",
-  MESSAGE_TAG = "messageTag",
+  constructor(opts: __ExceptionOptionType<RuleSetDoesNotExistException, __BaseException>) {
+    super({
+      name: "RuleSetDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleSetDoesNotExistException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DimensionValueSource = {
+  EMAIL_HEADER: "emailHeader",
+  LINK_TAG: "linkTag",
+  MESSAGE_TAG: "messageTag",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
+
+/**
+ * @public
  * <p>Contains the dimension configuration to use when you publish email sending events to
  *             Amazon CloudWatch.</p>
  *         <p>For information about publishing email sending events to Amazon CloudWatch, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CloudWatchDimensionConfiguration {
   /**
+   * @public
    * <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name
    *             must:</p>
    *         <ul>
@@ -736,6 +735,7 @@ export interface CloudWatchDimensionConfiguration {
   DimensionName: string | undefined;
 
   /**
+   * @public
    * <p>The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you
    *             want Amazon SES to use the message tags that you specify using an
    *                 <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the
@@ -746,6 +746,7 @@ export interface CloudWatchDimensionConfiguration {
   DimensionValueSource: DimensionValueSource | string | undefined;
 
   /**
+   * @public
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide
    *             the value of the dimension when you send an email. The default value must:</p>
    *         <ul>
@@ -761,16 +762,8 @@ export interface CloudWatchDimensionConfiguration {
   DefaultDimensionValue: string | undefined;
 }
 
-export namespace CloudWatchDimensionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information associated with an Amazon CloudWatch event destination to which email
  *             sending events are published.</p>
  *         <p>Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which
@@ -780,28 +773,22 @@ export namespace CloudWatchDimensionConfiguration {
  */
 export interface CloudWatchDestination {
   /**
+   * @public
    * <p>A list of dimensions upon which to categorize your emails when you publish email
    *             sending events to Amazon CloudWatch.</p>
    */
   DimensionConfigurations: CloudWatchDimensionConfiguration[] | undefined;
 }
 
-export namespace CloudWatchDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The name of the configuration set.</p>
  *         <p>Configuration sets let you create groups of rules that you can apply to the emails you
  *             send using Amazon SES. For more information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html">Using Amazon SES Configuration Sets</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon SES Developer Guide</a>.</p>
  */
 export interface ConfigurationSet {
   /**
+   * @public
    * <p>The name of the configuration set. The name must meet the following
    *             requirements:</p>
    *         <ul>
@@ -817,94 +804,107 @@ export interface ConfigurationSet {
   Name: string | undefined;
 }
 
-export namespace ConfigurationSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSet): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the configuration set could not be created because of a naming
  *             conflict.</p>
  */
-export interface ConfigurationSetAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ConfigurationSetAlreadyExistsException";
-  $fault: "client";
+export class ConfigurationSetAlreadyExistsException extends __BaseException {
+  readonly name: "ConfigurationSetAlreadyExistsException" = "ConfigurationSetAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
-}
-
-export namespace ConfigurationSetAlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConfigurationSetAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
-export enum ConfigurationSetAttribute {
-  DELIVERY_OPTIONS = "deliveryOptions",
-  EVENT_DESTINATIONS = "eventDestinations",
-  REPUTATION_OPTIONS = "reputationOptions",
-  TRACKING_OPTIONS = "trackingOptions",
+  constructor(opts: __ExceptionOptionType<ConfigurationSetAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ConfigurationSetAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConfigurationSetAlreadyExistsException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ConfigurationSetAttribute = {
+  DELIVERY_OPTIONS: "deliveryOptions",
+  EVENT_DESTINATIONS: "eventDestinations",
+  REPUTATION_OPTIONS: "reputationOptions",
+  TRACKING_OPTIONS: "trackingOptions",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationSetAttribute = (typeof ConfigurationSetAttribute)[keyof typeof ConfigurationSetAttribute];
+
+/**
+ * @public
  * <p>Indicates that the configuration set does not exist.</p>
  */
-export interface ConfigurationSetDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ConfigurationSetDoesNotExistException";
-  $fault: "client";
+export class ConfigurationSetDoesNotExistException extends __BaseException {
+  readonly name: "ConfigurationSetDoesNotExistException" = "ConfigurationSetDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
-}
-
-export namespace ConfigurationSetDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConfigurationSetDoesNotExistException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConfigurationSetDoesNotExistException, __BaseException>) {
+    super({
+      name: "ConfigurationSetDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConfigurationSetDoesNotExistException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that email sending is disabled for the configuration set.</p>
  *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
  */
-export interface ConfigurationSetSendingPausedException extends __SmithyException, $MetadataBearer {
-  name: "ConfigurationSetSendingPausedException";
-  $fault: "client";
+export class ConfigurationSetSendingPausedException extends __BaseException {
+  readonly name: "ConfigurationSetSendingPausedException" = "ConfigurationSetSendingPausedException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The name of the configuration set for which email sending is disabled.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
-}
-
-export namespace ConfigurationSetSendingPausedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConfigurationSetSendingPausedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConfigurationSetSendingPausedException, __BaseException>) {
+    super({
+      name: "ConfigurationSetSendingPausedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConfigurationSetSendingPausedException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to create a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -912,54 +912,41 @@ export namespace ConfigurationSetSendingPausedException {
  */
 export interface CreateConfigurationSetRequest {
   /**
+   * @public
    * <p>A data structure that contains the name of the configuration set.</p>
    */
   ConfigurationSet: ConfigurationSet | undefined;
 }
 
-export namespace CreateConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetResponse {}
 
-export namespace CreateConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the configuration set is invalid. See the error message for
  *             details.</p>
  */
-export interface InvalidConfigurationSetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationSetException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidConfigurationSetException {
+export class InvalidConfigurationSetException extends __BaseException {
+  readonly name: "InvalidConfigurationSetException" = "InvalidConfigurationSetException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidConfigurationSetException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationSetException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationSetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationSetException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event
  *             destination.</p>
  *         <p>Event destinations, such as Amazon Kinesis Firehose, are associated with configuration sets, which enable
@@ -969,38 +956,41 @@ export namespace InvalidConfigurationSetException {
  */
 export interface KinesisFirehoseDestination {
   /**
+   * @public
    * <p>The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose
    *             stream.</p>
    */
   IAMRoleARN: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>
    */
   DeliveryStreamARN: string | undefined;
 }
 
-export namespace KinesisFirehoseDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj,
-  });
-}
-
-export enum EventType {
-  BOUNCE = "bounce",
-  CLICK = "click",
-  COMPLAINT = "complaint",
-  DELIVERY = "delivery",
-  OPEN = "open",
-  REJECT = "reject",
-  RENDERING_FAILURE = "renderingFailure",
-  SEND = "send",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  BOUNCE: "bounce",
+  CLICK: "click",
+  COMPLAINT: "complaint",
+  DELIVERY: "delivery",
+  OPEN: "open",
+  REJECT: "reject",
+  RENDERING_FAILURE: "renderingFailure",
+  SEND: "send",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p>
  *         <p>Event destinations, such as Amazon SNS, are associated with configuration sets, which
  *             enable you to publish email sending events. For information about using configuration
@@ -1009,6 +999,7 @@ export enum EventType {
  */
 export interface SNSDestination {
   /**
+   * @public
    * <p>The ARN of the Amazon SNS topic that email sending events will be published to. An example
    *             of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For
    *             more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
@@ -1016,16 +1007,8 @@ export interface SNSDestination {
   TopicARN: string | undefined;
 }
 
-export namespace SNSDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about the event destination that the specified email sending
  *             events will be published to.</p>
  *         <note>
@@ -1039,6 +1022,7 @@ export namespace SNSDestination {
  */
 export interface EventDestination {
   /**
+   * @public
    * <p>The name of the event destination. The name must:</p>
    *         <ul>
    *             <li>
@@ -1053,6 +1037,7 @@ export interface EventDestination {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Sets whether Amazon SES publishes events to this destination when you send an email with
    *             the associated configuration set. Set to <code>true</code> to enable publishing to this
    *             destination; set to <code>false</code> to prevent publishing to this destination. The
@@ -1061,39 +1046,35 @@ export interface EventDestination {
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The type of email sending events to publish to the event destination.</p>
    */
   MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
+   * @public
    * <p>An object that contains the delivery stream ARN and the IAM role ARN associated with
    *             an Amazon Kinesis Firehose event destination.</p>
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
+   * @public
    * <p>An object that contains the names, default values, and sources of the dimensions
    *             associated with an Amazon CloudWatch event destination.</p>
    */
   CloudWatchDestination?: CloudWatchDestination;
 
   /**
+   * @public
    * <p>An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event
    *             destination.</p>
    */
   SNSDestination?: SNSDestination;
 }
 
-export namespace EventDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to create a configuration set event destination. A configuration
  *             set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service
  *             in which Amazon SES publishes the email sending events associated with a configuration set.
@@ -1102,158 +1083,168 @@ export namespace EventDestination {
  */
 export interface CreateConfigurationSetEventDestinationRequest {
   /**
+   * @public
    * <p>The name of the configuration set that the event destination should be associated
    *             with.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>An object that describes the AWS service that email sending event information will
    *             be published to.</p>
    */
   EventDestination: EventDestination | undefined;
 }
 
-export namespace CreateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
-export namespace CreateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the event destination could not be created because of a naming
  *             conflict.</p>
  */
-export interface EventDestinationAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EventDestinationAlreadyExistsException";
-  $fault: "client";
+export class EventDestinationAlreadyExistsException extends __BaseException {
+  readonly name: "EventDestinationAlreadyExistsException" = "EventDestinationAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>Indicates that the event destination does not exist.</p>
    */
   EventDestinationName?: string;
 
-  message?: string;
-}
-
-export namespace EventDestinationAlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: EventDestinationAlreadyExistsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<EventDestinationAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EventDestinationAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDestinationAlreadyExistsException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
  *             details.</p>
  */
-export interface InvalidCloudWatchDestinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCloudWatchDestinationException";
-  $fault: "client";
+export class InvalidCloudWatchDestinationException extends __BaseException {
+  readonly name: "InvalidCloudWatchDestinationException" = "InvalidCloudWatchDestinationException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>Indicates that the event destination does not exist.</p>
    */
   EventDestinationName?: string;
 
-  message?: string;
-}
-
-export namespace InvalidCloudWatchDestinationException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidCloudWatchDestinationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidCloudWatchDestinationException, __BaseException>) {
+    super({
+      name: "InvalidCloudWatchDestinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCloudWatchDestinationException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
  *             message for details.</p>
  */
-export interface InvalidFirehoseDestinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFirehoseDestinationException";
-  $fault: "client";
+export class InvalidFirehoseDestinationException extends __BaseException {
+  readonly name: "InvalidFirehoseDestinationException" = "InvalidFirehoseDestinationException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>Indicates that the event destination does not exist.</p>
    */
   EventDestinationName?: string;
 
-  message?: string;
-}
-
-export namespace InvalidFirehoseDestinationException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidFirehoseDestinationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidFirehoseDestinationException, __BaseException>) {
+    super({
+      name: "InvalidFirehoseDestinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFirehoseDestinationException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
  */
-export interface InvalidSNSDestinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSNSDestinationException";
-  $fault: "client";
+export class InvalidSNSDestinationException extends __BaseException {
+  readonly name: "InvalidSNSDestinationException" = "InvalidSNSDestinationException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>Indicates that the event destination does not exist.</p>
    */
   EventDestinationName?: string;
 
-  message?: string;
-}
-
-export namespace InvalidSNSDestinationException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidSNSDestinationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidSNSDestinationException, __BaseException>) {
+    super({
+      name: "InvalidSNSDestinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSNSDestinationException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
+ * @public
  * <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This
  *             domain captures open and click events generated by Amazon SES emails.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
@@ -1262,33 +1253,28 @@ export namespace InvalidSNSDestinationException {
  */
 export interface TrackingOptions {
   /**
+   * @public
    * <p>The custom subdomain that will be used to redirect email recipients to the Amazon SES
    *             event tracking domain.</p>
    */
   CustomRedirectDomain?: string;
 }
 
-export namespace TrackingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackingOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to create an open and click tracking option object in a
  *             configuration set. </p>
  */
 export interface CreateConfigurationSetTrackingOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that the tracking options should be associated
    *             with.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This
    *             domain captures open and click events generated by Amazon SES emails.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
@@ -1298,30 +1284,14 @@ export interface CreateConfigurationSetTrackingOptionsRequest {
   TrackingOptions: TrackingOptions | undefined;
 }
 
-export namespace CreateConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetTrackingOptionsResponse {}
 
-export namespace CreateConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the custom domain to be used for open and click tracking redirects is
  *             invalid. This error appears most often in the following situations:</p>
  *         <ul>
@@ -1334,66 +1304,76 @@ export namespace CreateConfigurationSetTrackingOptionsResponse {
  *             </li>
  *          </ul>
  */
-export interface InvalidTrackingOptionsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTrackingOptionsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidTrackingOptionsException {
+export class InvalidTrackingOptionsException extends __BaseException {
+  readonly name: "InvalidTrackingOptionsException" = "InvalidTrackingOptionsException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidTrackingOptionsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidTrackingOptionsException, __BaseException>) {
+    super({
+      name: "InvalidTrackingOptionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTrackingOptionsException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
  */
-export interface TrackingOptionsAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TrackingOptionsAlreadyExistsException";
-  $fault: "client";
+export class TrackingOptionsAlreadyExistsException extends __BaseException {
+  readonly name: "TrackingOptionsAlreadyExistsException" = "TrackingOptionsAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that a TrackingOptions object already exists in the specified configuration
    *             set.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
-}
-
-export namespace TrackingOptionsAlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TrackingOptionsAlreadyExistsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TrackingOptionsAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TrackingOptionsAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrackingOptionsAlreadyExistsException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to create a custom verification email template.</p>
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
   /**
+   * @public
    * <p>The name of the custom verification email template.</p>
    */
   TemplateName: string | undefined;
 
   /**
+   * @public
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress: string | undefined;
 
   /**
+   * @public
    * <p>The subject line of the custom verification email.</p>
    */
   TemplateSubject: string | undefined;
 
   /**
+   * @public
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
    *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
@@ -1402,113 +1382,129 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   TemplateContent: string | undefined;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    */
   SuccessRedirectionURL: string | undefined;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is not successfully verified.</p>
    */
   FailureRedirectionURL: string | undefined;
 }
 
-export namespace CreateCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that custom verification email template provided content is invalid.</p>
  */
-export interface CustomVerificationEmailInvalidContentException extends __SmithyException, $MetadataBearer {
-  name: "CustomVerificationEmailInvalidContentException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CustomVerificationEmailInvalidContentException {
+export class CustomVerificationEmailInvalidContentException extends __BaseException {
+  readonly name: "CustomVerificationEmailInvalidContentException" = "CustomVerificationEmailInvalidContentException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailInvalidContentException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CustomVerificationEmailInvalidContentException, __BaseException>) {
+    super({
+      name: "CustomVerificationEmailInvalidContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomVerificationEmailInvalidContentException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that a custom verification email template with the name you specified
  *             already exists.</p>
  */
-export interface CustomVerificationEmailTemplateAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "CustomVerificationEmailTemplateAlreadyExistsException";
-  $fault: "client";
+export class CustomVerificationEmailTemplateAlreadyExistsException extends __BaseException {
+  readonly name: "CustomVerificationEmailTemplateAlreadyExistsException" =
+    "CustomVerificationEmailTemplateAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the provided custom verification email template with the specified
    *             template name already exists.</p>
    */
   CustomVerificationEmailTemplateName?: string;
 
-  message?: string;
-}
-
-export namespace CustomVerificationEmailTemplateAlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateAlreadyExistsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CustomVerificationEmailTemplateAlreadyExistsException, __BaseException>) {
+    super({
+      name: "CustomVerificationEmailTemplateAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomVerificationEmailTemplateAlreadyExistsException.prototype);
+    this.CustomVerificationEmailTemplateName = opts.CustomVerificationEmailTemplateName;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
  */
-export interface FromEmailAddressNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "FromEmailAddressNotVerifiedException";
-  $fault: "client";
+export class FromEmailAddressNotVerifiedException extends __BaseException {
+  readonly name: "FromEmailAddressNotVerifiedException" = "FromEmailAddressNotVerifiedException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the from email address associated with the custom verification email
    *             template is not verified.</p>
    */
   FromEmailAddress?: string;
 
-  message?: string;
-}
-
-export namespace FromEmailAddressNotVerifiedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FromEmailAddressNotVerifiedException): any => ({
-    ...obj,
-  });
-}
-
-export enum ReceiptFilterPolicy {
-  Allow = "Allow",
-  Block = "Block",
+  constructor(opts: __ExceptionOptionType<FromEmailAddressNotVerifiedException, __BaseException>) {
+    super({
+      name: "FromEmailAddressNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FromEmailAddressNotVerifiedException.prototype);
+    this.FromEmailAddress = opts.FromEmailAddress;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ReceiptFilterPolicy = {
+  Allow: "Allow",
+  Block: "Block",
+} as const;
+
+/**
+ * @public
+ */
+export type ReceiptFilterPolicy = (typeof ReceiptFilterPolicy)[keyof typeof ReceiptFilterPolicy];
+
+/**
+ * @public
  * <p>A receipt IP address filter enables you to specify whether to accept or reject mail
  *             originating from an IP address or range of IP addresses.</p>
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReceiptIpFilter {
   /**
+   * @public
    * <p>Indicates whether to block or allow incoming mail from the specified IP
    *             addresses.</p>
    */
   Policy: ReceiptFilterPolicy | string | undefined;
 
   /**
+   * @public
    * <p>A single IP address or a range of IP addresses that you want to block or allow,
    *             specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single
    *             email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For
@@ -1517,22 +1513,15 @@ export interface ReceiptIpFilter {
   Cidr: string | undefined;
 }
 
-export namespace ReceiptIpFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptIpFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A receipt IP address filter enables you to specify whether to accept or reject mail
  *             originating from an IP address or range of IP addresses.</p>
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReceiptFilter {
   /**
+   * @public
    * <p>The name of the IP address filter. The name must:</p>
    *         <ul>
    *             <li>
@@ -1550,59 +1539,40 @@ export interface ReceiptFilter {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>A structure that provides the IP addresses to block or allow, and whether to block or
    *             allow incoming mail from them.</p>
    */
   IpFilter: ReceiptIpFilter | undefined;
 }
 
-export namespace ReceiptFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to create a new IP address filter. You use IP address filters
  *             when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CreateReceiptFilterRequest {
   /**
+   * @public
    * <p>A data structure that describes the IP address filter to create, which consists of a
    *             name, an IP address range, and whether to allow or block mail from it.</p>
    */
   Filter: ReceiptFilter | undefined;
 }
 
-export namespace CreateReceiptFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptFilterResponse {}
 
-export namespace CreateReceiptFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptFilterResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export type InvocationType = "Event" | "RequestResponse";
 
 /**
+ * @public
  * <p>When included in a receipt rule, this action calls an AWS Lambda function and,
  *             optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
  *         <p>To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of
@@ -1614,6 +1584,7 @@ export type InvocationType = "Event" | "RequestResponse";
  */
 export interface LambdaAction {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is
    *             taken. An example of an Amazon SNS topic ARN is
    *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
@@ -1622,6 +1593,7 @@ export interface LambdaAction {
   TopicArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda
    *             function ARN is <code>arn:aws:lambda:us-west-2:account-id:function:MyFunction</code>.
    *             For more information about AWS Lambda, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda Developer Guide</a>.</p>
@@ -1629,6 +1601,7 @@ export interface LambdaAction {
   FunctionArn: string | undefined;
 
   /**
+   * @public
    * <p>The invocation type of the AWS Lambda function. An invocation type of
    *                 <code>RequestResponse</code> means that the execution of the function will
    *             immediately result in a response, and a value of <code>Event</code> means that the
@@ -1644,16 +1617,8 @@ export interface LambdaAction {
   InvocationType?: InvocationType | string;
 }
 
-export namespace LambdaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service
  *             (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
  *         <p>To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt
@@ -1668,6 +1633,7 @@ export namespace LambdaAction {
  */
 export interface S3Action {
   /**
+   * @public
    * <p>The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An
    *             example of an Amazon SNS topic ARN is
    *             <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
@@ -1676,17 +1642,20 @@ export interface S3Action {
   TopicArn?: string;
 
   /**
+   * @public
    * <p>The name of the Amazon S3 bucket that incoming email will be saved to.</p>
    */
   BucketName: string | undefined;
 
   /**
+   * @public
    * <p>The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that
    *             enables you to store similar data under the same directory in a bucket.</p>
    */
   ObjectKeyPrefix?: string;
 
   /**
+   * @public
    * <p>The customer master key that Amazon SES should use to encrypt your emails before saving
    *             them to the Amazon S3 bucket. You can use the default master key or a custom master key you
    *             created in AWS KMS as follows:</p>
@@ -1723,21 +1692,22 @@ export interface S3Action {
   KmsKeyArn?: string;
 }
 
-export namespace S3Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Action): any => ({
-    ...obj,
-  });
-}
-
-export enum SNSActionEncoding {
-  Base64 = "Base64",
-  UTF8 = "UTF-8",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SNSActionEncoding = {
+  Base64: "Base64",
+  UTF8: "UTF-8",
+} as const;
 
 /**
+ * @public
+ */
+export type SNSActionEncoding = (typeof SNSActionEncoding)[keyof typeof SNSActionEncoding];
+
+/**
+ * @public
  * <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service
  *             (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS
  *             notifications. Amazon SNS notifications for all other actions simply provide information
@@ -1758,6 +1728,7 @@ export enum SNSActionEncoding {
  */
 export interface SNSAction {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS
    *             topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more
    *             information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
@@ -1765,6 +1736,7 @@ export interface SNSAction {
   TopicArn: string | undefined;
 
   /**
+   * @public
    * <p>The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to
    *             use, but may not preserve all special characters when a message was encoded with a
    *             different encoding format. Base64 preserves all special characters. The default value is
@@ -1773,20 +1745,21 @@ export interface SNSAction {
   Encoding?: SNSActionEncoding | string;
 }
 
-export namespace SNSAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSAction): any => ({
-    ...obj,
-  });
-}
-
-export enum StopScope {
-  RULE_SET = "RuleSet",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StopScope = {
+  RULE_SET: "RuleSet",
+} as const;
 
 /**
+ * @public
+ */
+export type StopScope = (typeof StopScope)[keyof typeof StopScope];
+
+/**
+ * @public
  * <p>When included in a receipt rule, this action terminates the evaluation of the receipt
  *             rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
  *         <p>For information about setting a stop action in a receipt rule, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html">Amazon SES Developer
@@ -1794,11 +1767,13 @@ export enum StopScope {
  */
 export interface StopAction {
   /**
+   * @public
    * <p>The scope of the StopAction. The only acceptable value is <code>RuleSet</code>.</p>
    */
   Scope: StopScope | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is
    *             taken. An example of an Amazon SNS topic ARN is
    *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
@@ -1807,16 +1782,8 @@ export interface StopAction {
   TopicArn?: string;
 }
 
-export namespace StopAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>When included in a receipt rule, this action calls Amazon WorkMail and, optionally,
  *             publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action
  *             directly because Amazon WorkMail adds the rule automatically during its setup
@@ -1826,6 +1793,7 @@ export namespace StopAction {
  */
 export interface WorkmailAction {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action
    *             is called. An example of an Amazon SNS topic ARN is
    *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
@@ -1834,6 +1802,7 @@ export interface WorkmailAction {
   TopicArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail
    *             organization ARN is
    *                 <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
@@ -1843,16 +1812,8 @@ export interface WorkmailAction {
   OrganizationArn: string | undefined;
 }
 
-export namespace WorkmailAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkmailAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An action that Amazon SES can take when it receives an email on behalf of one or more email
  *             addresses or domains that you own. An instance of this data type can represent only one
  *             action.</p>
@@ -1861,60 +1822,68 @@ export namespace WorkmailAction {
  */
 export interface ReceiptAction {
   /**
+   * @public
    * <p>Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a
    *             notification to Amazon SNS.</p>
    */
   S3Action?: S3Action;
 
   /**
+   * @public
    * <p>Rejects the received email by returning a bounce response to the sender and,
    *             optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
    */
   BounceAction?: BounceAction;
 
   /**
+   * @public
    * <p>Calls Amazon WorkMail and, optionally, publishes a notification to Amazon
    *             Amazon SNS.</p>
    */
   WorkmailAction?: WorkmailAction;
 
   /**
+   * @public
    * <p>Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.</p>
    */
   LambdaAction?: LambdaAction;
 
   /**
+   * @public
    * <p>Terminates the evaluation of the receipt rule set and optionally publishes a
    *             notification to Amazon SNS.</p>
    */
   StopAction?: StopAction;
 
   /**
+   * @public
    * <p>Adds a header to the received email.</p>
    */
   AddHeaderAction?: AddHeaderAction;
 
   /**
+   * @public
    * <p>Publishes the email content within a notification to Amazon SNS.</p>
    */
   SNSAction?: SNSAction;
 }
 
-export namespace ReceiptAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptAction): any => ({
-    ...obj,
-  });
-}
-
-export enum TlsPolicy {
-  Optional = "Optional",
-  Require = "Require",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TlsPolicy = {
+  Optional: "Optional",
+  Require: "Require",
+} as const;
 
 /**
+ * @public
+ */
+export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
+
+/**
+ * @public
  * <p>Receipt rules enable you to specify which actions Amazon SES should take when it receives
  *             mail on behalf of one or more email addresses or domains that you own.</p>
  *         <p>Each receipt rule defines a set of email addresses or domains that it applies to. If
@@ -1925,6 +1894,7 @@ export enum TlsPolicy {
  */
 export interface ReceiptRule {
   /**
+   * @public
    * <p>The name of the receipt rule. The name must:</p>
    *         <ul>
    *             <li>
@@ -1942,12 +1912,14 @@ export interface ReceiptRule {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>If <code>true</code>, the receipt rule is active. The default value is
    *                 <code>false</code>.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>Specifies whether Amazon SES should require that incoming email is delivered over a
    *             connection encrypted with Transport Layer Security (TLS). If this parameter is set to
    *                 <code>Require</code>, Amazon SES will bounce emails that are not received over TLS. The
@@ -1956,6 +1928,7 @@ export interface ReceiptRule {
   TlsPolicy?: TlsPolicy | string;
 
   /**
+   * @public
    * <p>The recipient domains and email addresses that the receipt rule applies to. If this
    *             field is not specified, this rule will match all recipients under all verified
    *             domains.</p>
@@ -1963,39 +1936,35 @@ export interface ReceiptRule {
   Recipients?: string[];
 
   /**
+   * @public
    * <p>An ordered list of actions to perform on messages that match at least one of the
    *             recipient email addresses or domains specified in the receipt rule.</p>
    */
   Actions?: ReceiptAction[];
 
   /**
+   * @public
    * <p>If <code>true</code>, then messages that this receipt rule applies to are scanned for
    *             spam and viruses. The default value is <code>false</code>.</p>
    */
   ScanEnabled?: boolean;
 }
 
-export namespace ReceiptRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptRule): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to create a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface CreateReceiptRuleRequest {
   /**
+   * @public
    * <p>The name of the rule set that the receipt rule will be added to.</p>
    */
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of an existing rule after which the new rule will be placed. If this
    *             parameter is null, the new rule will be inserted at the beginning of the rule
    *             list.</p>
@@ -2003,143 +1972,145 @@ export interface CreateReceiptRuleRequest {
   After?: string;
 
   /**
+   * @public
    * <p>A data structure that contains the specified rule's name, actions, recipients,
    *             domains, enabled status, scan status, and TLS policy.</p>
    */
   Rule: ReceiptRule | undefined;
 }
 
-export namespace CreateReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptRuleResponse {}
 
-export namespace CreateReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could
  *             not execute the provided function, possibly due to permissions issues. For information
  *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidLambdaFunctionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLambdaFunctionException";
-  $fault: "client";
+export class InvalidLambdaFunctionException extends __BaseException {
+  readonly name: "InvalidLambdaFunctionException" = "InvalidLambdaFunctionException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the ARN of the function was not found.</p>
    */
   FunctionArn?: string;
 
-  message?: string;
-}
-
-export namespace InvalidLambdaFunctionException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidLambdaFunctionException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidLambdaFunctionException, __BaseException>) {
+    super({
+      name: "InvalidLambdaFunctionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLambdaFunctionException.prototype);
+    this.FunctionArn = opts.FunctionArn;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or
  *             that Amazon SES could not publish to the bucket, possibly due to permissions issues. For
  *             information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidS3ConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3ConfigurationException";
-  $fault: "client";
+export class InvalidS3ConfigurationException extends __BaseException {
+  readonly name: "InvalidS3ConfigurationException" = "InvalidS3ConfigurationException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicated that the S3 Bucket was not found.</p>
    */
   Bucket?: string;
 
-  message?: string;
-}
-
-export namespace InvalidS3ConfigurationException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidS3ConfigurationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidS3ConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidS3ConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3ConfigurationException.prototype);
+    this.Bucket = opts.Bucket;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not
  *             publish to the topic, possibly due to permissions issues. For information about giving
  *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidSnsTopicException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnsTopicException";
-  $fault: "client";
+export class InvalidSnsTopicException extends __BaseException {
+  readonly name: "InvalidSnsTopicException" = "InvalidSnsTopicException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the topic does not exist.</p>
    */
   Topic?: string;
 
-  message?: string;
-}
-
-export namespace InvalidSnsTopicException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidSnsTopicException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidSnsTopicException, __BaseException>) {
+    super({
+      name: "InvalidSnsTopicException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnsTopicException.prototype);
+    this.Topic = opts.Topic;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the provided receipt rule does not exist.</p>
  */
-export interface RuleDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "RuleDoesNotExistException";
-  $fault: "client";
+export class RuleDoesNotExistException extends __BaseException {
+  readonly name: "RuleDoesNotExistException" = "RuleDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the named receipt rule does not exist.</p>
    */
   Name?: string;
 
-  message?: string;
-}
-
-export namespace RuleDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RuleDoesNotExistException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RuleDoesNotExistException, __BaseException>) {
+    super({
+      name: "RuleDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleDoesNotExistException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to create an empty receipt rule set. You use receipt rule sets to
  *             receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface CreateReceiptRuleSetRequest {
   /**
+   * @public
    * <p>The name of the rule set to create. The name must:</p>
    *         <ul>
    *             <li>
@@ -2157,35 +2128,20 @@ export interface CreateReceiptRuleSetRequest {
   RuleSetName: string | undefined;
 }
 
-export namespace CreateReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptRuleSetResponse {}
 
-export namespace CreateReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
  *             part.</p>
  */
 export interface Template {
   /**
+   * @public
    * <p>The name of the template. You will refer to this name when you send email using the
    *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code>
    *             operations.</p>
@@ -2193,156 +2149,152 @@ export interface Template {
   TemplateName: string | undefined;
 
   /**
+   * @public
    * <p>The subject line of the email.</p>
    */
   SubjectPart?: string;
 
   /**
+   * @public
    * <p>The email body that will be visible to recipients whose email clients do not display
    *             HTML.</p>
    */
   TextPart?: string;
 
   /**
+   * @public
    * <p>The HTML body of the email.</p>
    */
   HtmlPart?: string;
 }
 
-export namespace Template {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface CreateTemplateRequest {
   /**
+   * @public
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
    *             part.</p>
    */
   Template: Template | undefined;
 }
 
-export namespace CreateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTemplateResponse {}
 
-export namespace CreateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the template that you specified could not be rendered. This issue may
  *             occur when a template refers to a partial that does not exist.</p>
  */
-export interface InvalidTemplateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTemplateException";
-  $fault: "client";
+export class InvalidTemplateException extends __BaseException {
+  readonly name: "InvalidTemplateException" = "InvalidTemplateException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
-}
-
-export namespace InvalidTemplateException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidTemplateException): any => ({
-    ...obj,
-  });
-}
-
-export enum CustomMailFromStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-  TemporaryFailure = "TemporaryFailure",
+  constructor(opts: __ExceptionOptionType<InvalidTemplateException, __BaseException>) {
+    super({
+      name: "InvalidTemplateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTemplateException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CustomMailFromStatus = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+  TemporaryFailure: "TemporaryFailure",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomMailFromStatus = (typeof CustomMailFromStatus)[keyof typeof CustomMailFromStatus];
+
+/**
+ * @public
  * <p>Contains information about a custom verification email template.</p>
  */
 export interface CustomVerificationEmailTemplate {
   /**
+   * @public
    * <p>The name of the custom verification email template.</p>
    */
   TemplateName?: string;
 
   /**
+   * @public
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
 
   /**
+   * @public
    * <p>The subject line of the custom verification email.</p>
    */
   TemplateSubject?: string;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    */
   SuccessRedirectionURL?: string;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is not successfully verified.</p>
    */
   FailureRedirectionURL?: string;
 }
 
-export namespace CustomVerificationEmailTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that a custom verification email template with the name you specified does
  *             not exist.</p>
  */
-export interface CustomVerificationEmailTemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "CustomVerificationEmailTemplateDoesNotExistException";
-  $fault: "client";
+export class CustomVerificationEmailTemplateDoesNotExistException extends __BaseException {
+  readonly name: "CustomVerificationEmailTemplateDoesNotExistException" =
+    "CustomVerificationEmailTemplateDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the provided custom verification email template does not exist.</p>
    */
   CustomVerificationEmailTemplateName?: string;
 
-  message?: string;
-}
-
-export namespace CustomVerificationEmailTemplateDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateDoesNotExistException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CustomVerificationEmailTemplateDoesNotExistException, __BaseException>) {
+    super({
+      name: "CustomVerificationEmailTemplateDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomVerificationEmailTemplateDoesNotExistException.prototype);
+    this.CustomVerificationEmailTemplateName = opts.CustomVerificationEmailTemplateName;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to delete a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2350,35 +2302,20 @@ export namespace CustomVerificationEmailTemplateDoesNotExistException {
  */
 export interface DeleteConfigurationSetRequest {
   /**
+   * @public
    * <p>The name of the configuration set to delete.</p>
    */
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetResponse {}
 
-export namespace DeleteConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete a configuration set event destination. Configuration
  *             set event destinations are associated with configuration sets, which enable you to
  *             publish email sending events. For information about using configuration sets, see the
@@ -2387,180 +2324,139 @@ export namespace DeleteConfigurationSetResponse {
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
+   * @public
    * <p>The name of the configuration set from which to delete the event destination.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the event destination to delete.</p>
    */
   EventDestinationName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
-export namespace DeleteConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the event destination does not exist.</p>
  */
-export interface EventDestinationDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "EventDestinationDoesNotExistException";
-  $fault: "client";
+export class EventDestinationDoesNotExistException extends __BaseException {
+  readonly name: "EventDestinationDoesNotExistException" = "EventDestinationDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>Indicates that the event destination does not exist.</p>
    */
   EventDestinationName?: string;
 
-  message?: string;
-}
-
-export namespace EventDestinationDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: EventDestinationDoesNotExistException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<EventDestinationDoesNotExistException, __BaseException>) {
+    super({
+      name: "EventDestinationDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDestinationDoesNotExistException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to delete open and click tracking options in a configuration set.
  *         </p>
  */
 export interface DeleteConfigurationSetTrackingOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set from which you want to delete the tracking
    *             options.</p>
    */
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetTrackingOptionsResponse {}
 
-export namespace DeleteConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  */
-export interface TrackingOptionsDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "TrackingOptionsDoesNotExistException";
-  $fault: "client";
+export class TrackingOptionsDoesNotExistException extends __BaseException {
+  readonly name: "TrackingOptionsDoesNotExistException" = "TrackingOptionsDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>Indicates that a TrackingOptions object does not exist in the specified configuration
    *             set.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
-}
-
-export namespace TrackingOptionsDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TrackingOptionsDoesNotExistException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TrackingOptionsDoesNotExistException, __BaseException>) {
+    super({
+      name: "TrackingOptionsDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrackingOptionsDoesNotExistException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to delete an existing custom verification email template.</p>
  */
 export interface DeleteCustomVerificationEmailTemplateRequest {
   /**
+   * @public
    * <p>The name of the custom verification email template that you want to delete.</p>
    */
   TemplateName: string | undefined;
 }
 
-export namespace DeleteCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete one of your Amazon SES identities (an email address or
  *             domain).</p>
  */
 export interface DeleteIdentityRequest {
   /**
+   * @public
    * <p>The identity to be removed from the list of identities for the AWS Account.</p>
    */
   Identity: string | undefined;
 }
 
-export namespace DeleteIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteIdentityResponse {}
 
-export namespace DeleteIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete a sending authorization policy for an identity. Sending
  *             authorization is an Amazon SES feature that enables you to authorize other senders to use
  *             your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
@@ -2568,6 +2464,7 @@ export namespace DeleteIdentityResponse {
  */
 export interface DeleteIdentityPolicyRequest {
   /**
+   * @public
    * <p>The identity that is associated with the policy that you want to delete. You can
    *             specify the identity by using its name or by using its Amazon Resource Name (ARN).
    *             Examples: <code>user@example.com</code>, <code>example.com</code>,
@@ -2577,110 +2474,66 @@ export interface DeleteIdentityPolicyRequest {
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>The name of the policy to be deleted.</p>
    */
   PolicyName: string | undefined;
 }
 
-export namespace DeleteIdentityPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteIdentityPolicyResponse {}
 
-export namespace DeleteIdentityPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete an IP address filter. You use IP address filters when
  *             you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface DeleteReceiptFilterRequest {
   /**
+   * @public
    * <p>The name of the IP address filter to delete.</p>
    */
   FilterName: string | undefined;
 }
 
-export namespace DeleteReceiptFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptFilterResponse {}
 
-export namespace DeleteReceiptFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptFilterResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface DeleteReceiptRuleRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set that contains the receipt rule to delete.</p>
    */
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the receipt rule to delete.</p>
    */
   RuleName: string | undefined;
 }
 
-export namespace DeleteReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptRuleResponse {}
 
-export namespace DeleteReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete a receipt rule set and all of the receipt rules it
  *             contains. You use receipt rule sets to receive email with Amazon SES. For more information,
  *             see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -2688,91 +2541,57 @@ export namespace DeleteReceiptRuleResponse {
  */
 export interface DeleteReceiptRuleSetRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set to delete.</p>
    */
   RuleSetName: string | undefined;
 }
 
-export namespace DeleteReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptRuleSetResponse {}
 
-export namespace DeleteReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface DeleteTemplateRequest {
   /**
+   * @public
    * <p>The name of the template to be deleted.</p>
    */
   TemplateName: string | undefined;
 }
 
-export namespace DeleteTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTemplateResponse {}
 
-export namespace DeleteTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to delete an email address from the list of email addresses you
  *             have attempted to verify under your AWS account.</p>
  */
 export interface DeleteVerifiedEmailAddressRequest {
   /**
+   * @public
    * <p>An email address to be removed from the list of verified addresses.</p>
    */
   EmailAddress: string | undefined;
 }
 
-export namespace DeleteVerifiedEmailAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVerifiedEmailAddressRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies whether messages that use the configuration set are required to use
  *             Transport Layer Security (TLS).</p>
  */
 export interface DeliveryOptions {
   /**
+   * @public
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
@@ -2781,16 +2600,8 @@ export interface DeliveryOptions {
   TlsPolicy?: TlsPolicy | string;
 }
 
-export namespace DeliveryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return the metadata and receipt rules for the receipt rule set
  *             that is currently active. You use receipt rule sets to receive email with Amazon SES. For
  *             more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -2798,16 +2609,8 @@ export namespace DeliveryOptions {
  */
 export interface DescribeActiveReceiptRuleSetRequest {}
 
-export namespace DescribeActiveReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a receipt rule set.</p>
  *         <p>A receipt rule set is a collection of rules that specify what Amazon SES should do with
  *             mail it receives on behalf of your account's verified domains.</p>
@@ -2816,6 +2619,7 @@ export namespace DescribeActiveReceiptRuleSetRequest {
  */
 export interface ReceiptRuleSetMetadata {
   /**
+   * @public
    * <p>The name of the receipt rule set. The name must:</p>
    *         <ul>
    *             <li>
@@ -2833,47 +2637,34 @@ export interface ReceiptRuleSetMetadata {
   Name?: string;
 
   /**
+   * @public
    * <p>The date and time the receipt rule set was created.</p>
    */
   CreatedTimestamp?: Date;
 }
 
-export namespace ReceiptRuleSetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptRuleSetMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
  */
 export interface DescribeActiveReceiptRuleSetResponse {
   /**
+   * @public
    * <p>The metadata for the currently active receipt rule set. The metadata consists of the
    *             rule set name and a timestamp of when the rule set was created.</p>
    */
   Metadata?: ReceiptRuleSetMetadata;
 
   /**
+   * @public
    * <p>The receipt rules that belong to the active rule set.</p>
    */
   Rules?: ReceiptRule[];
 }
 
-export namespace DescribeActiveReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return the details of a configuration set. Configuration sets
  *             enable you to publish email sending events. For information about using configuration
  *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2881,30 +2672,25 @@ export namespace DescribeActiveReceiptRuleSetResponse {
  */
 export interface DescribeConfigurationSetRequest {
   /**
+   * @public
    * <p>The name of the configuration set to describe.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>A list of configuration set attributes to return.</p>
    */
   ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
 }
 
-export namespace DescribeConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about the reputation settings for a configuration set.</p>
  */
 export interface ReputationOptions {
   /**
+   * @public
    * <p>Describes whether email sending is enabled or disabled for the configuration set. If
    *             the value is <code>true</code>, then Amazon SES will send emails that use the configuration
    *             set. If the value is <code>false</code>, Amazon SES will not send emails that use the
@@ -2914,6 +2700,7 @@ export interface ReputationOptions {
   SendingEnabled?: boolean;
 
   /**
+   * @public
    * <p>Describes whether or not Amazon SES publishes reputation metrics for the configuration set,
    *             such as bounce and complaint rates, to Amazon CloudWatch.</p>
    *         <p>If the value is <code>true</code>, reputation metrics are published. If the value is
@@ -2923,6 +2710,7 @@ export interface ReputationOptions {
   ReputationMetricsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The date and time at which the reputation metrics for the configuration set were last
    *             reset. Resetting these metrics is known as a <i>fresh start</i>.</p>
    *         <p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the
@@ -2934,16 +2722,8 @@ export interface ReputationOptions {
   LastFreshStart?: Date;
 }
 
-export namespace ReputationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReputationOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the details of a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -2951,146 +2731,122 @@ export namespace ReputationOptions {
  */
 export interface DescribeConfigurationSetResponse {
   /**
+   * @public
    * <p>The configuration set object associated with the specified configuration set.</p>
    */
   ConfigurationSet?: ConfigurationSet;
 
   /**
+   * @public
    * <p>A list of event destinations associated with the configuration set. </p>
    */
   EventDestinations?: EventDestination[];
 
   /**
+   * @public
    * <p>The name of the custom open and click tracking domain associated with the
    *             configuration set.</p>
    */
   TrackingOptions?: TrackingOptions;
 
   /**
+   * @public
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS).</p>
    */
   DeliveryOptions?: DeliveryOptions;
 
   /**
+   * @public
    * <p>An object that represents the reputation settings for the configuration set. </p>
    */
   ReputationOptions?: ReputationOptions;
 }
 
-export namespace DescribeConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return the details of a receipt rule. You use receipt rules to
  *             receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface DescribeReceiptRuleRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
    */
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the receipt rule.</p>
    */
   RuleName: string | undefined;
 }
 
-export namespace DescribeReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the details of a receipt rule.</p>
  */
 export interface DescribeReceiptRuleResponse {
   /**
+   * @public
    * <p>A data structure that contains the specified receipt rule's name, actions, recipients,
    *             domains, enabled status, scan status, and Transport Layer Security (TLS) policy.</p>
    */
   Rule?: ReceiptRule;
 }
 
-export namespace DescribeReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return the details of a receipt rule set. You use receipt rule
  *             sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface DescribeReceiptRuleSetRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set to describe.</p>
    */
   RuleSetName: string | undefined;
 }
 
-export namespace DescribeReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the details of the specified receipt rule set.</p>
  */
 export interface DescribeReceiptRuleSetResponse {
   /**
+   * @public
    * <p>The metadata for the receipt rule set, which consists of the rule set name and the
    *             timestamp of when the rule set was created.</p>
    */
   Metadata?: ReceiptRuleSetMetadata;
 
   /**
+   * @public
    * <p>A list of the receipt rules that belong to the specified receipt rule set.</p>
    */
   Rules?: ReceiptRule[];
 }
 
-export namespace DescribeReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export type VerificationStatus = "Failed" | "NotStarted" | "Pending" | "Success" | "TemporaryFailure";
 
 /**
+ * @public
  * <p>Represents the DKIM attributes of a verified email address or a domain.</p>
  */
 export interface IdentityDkimAttributes {
   /**
+   * @public
    * <p>Is true if DKIM signing is enabled for email sent from the identity. It's false
    *             otherwise. The default value is true.</p>
    */
   DkimEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens)
    *             published in the domain name's DNS. (This only applies to domain identities, not email
    *             address identities.)</p>
@@ -3098,6 +2854,7 @@ export interface IdentityDkimAttributes {
   DkimVerificationStatus: VerificationStatus | string | undefined;
 
   /**
+   * @public
    * <p>A set of character strings that represent the domain's identity. Using these tokens,
    *             you need to create DNS CNAME records that point to DKIM public keys that are hosted by
    *             Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection
@@ -3110,103 +2867,79 @@ export interface IdentityDkimAttributes {
   DkimTokens?: string[];
 }
 
-export namespace IdentityDkimAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityDkimAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return the email sending status for your Amazon SES account in the
  *             current AWS Region.</p>
  */
 export interface GetAccountSendingEnabledResponse {
   /**
+   * @public
    * <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the
    *             current AWS Region.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace GetAccountSendingEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountSendingEnabledResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to retrieve an existing custom verification email
  *             template.</p>
  */
 export interface GetCustomVerificationEmailTemplateRequest {
   /**
+   * @public
    * <p>The name of the custom verification email template that you want to retrieve.</p>
    */
   TemplateName: string | undefined;
 }
 
-export namespace GetCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The content of the custom verification email template.</p>
  */
 export interface GetCustomVerificationEmailTemplateResponse {
   /**
+   * @public
    * <p>The name of the custom verification email template.</p>
    */
   TemplateName?: string;
 
   /**
+   * @public
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
 
   /**
+   * @public
    * <p>The subject line of the custom verification email.</p>
    */
   TemplateSubject?: string;
 
   /**
+   * @public
    * <p>The content of the custom verification email.</p>
    */
   TemplateContent?: string;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    */
   SuccessRedirectionURL?: string;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is not successfully verified.</p>
    */
   FailureRedirectionURL?: string;
 }
 
-export namespace GetCustomVerificationEmailTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For
  *             domain identities, this request also returns the DKIM tokens that are required for Easy
  *             DKIM signing, and whether Amazon SES successfully verified that these tokens were published.
@@ -3214,21 +2947,14 @@ export namespace GetCustomVerificationEmailTemplateResponse {
  */
 export interface GetIdentityDkimAttributesRequest {
   /**
+   * @public
    * <p>A list of one or more verified identities - email addresses, domains, or both.</p>
    */
   Identities: string[] | undefined;
 }
 
-export namespace GetIdentityDkimAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityDkimAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the status of Amazon SES Easy DKIM signing for an identity. For domain
  *             identities, this response also contains the DKIM tokens that are required for Easy DKIM
  *             signing, and whether Amazon SES successfully verified that these tokens were
@@ -3236,52 +2962,40 @@ export namespace GetIdentityDkimAttributesRequest {
  */
 export interface GetIdentityDkimAttributesResponse {
   /**
+   * @public
    * <p>The DKIM attributes for an email address or a domain.</p>
    */
-  DkimAttributes: { [key: string]: IdentityDkimAttributes } | undefined;
-}
-
-export namespace GetIdentityDkimAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityDkimAttributesResponse): any => ({
-    ...obj,
-  });
+  DkimAttributes: Record<string, IdentityDkimAttributes> | undefined;
 }
 
 /**
+ * @public
  * <p>Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of
  *             identities. For information about using a custom MAIL FROM domain, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface GetIdentityMailFromDomainAttributesRequest {
   /**
+   * @public
    * <p>A list of one or more identities.</p>
    */
   Identities: string[] | undefined;
 }
 
-export namespace GetIdentityMailFromDomainAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the custom MAIL FROM domain attributes of a verified identity (email
  *             address or domain).</p>
  */
 export interface IdentityMailFromDomainAttributes {
   /**
+   * @public
    * <p>The custom MAIL FROM domain that the identity is configured to use.</p>
    */
   MailFromDomain: string | undefined;
 
   /**
+   * @public
    * <p>The state that indicates whether Amazon SES has successfully read the MX record required
    *             for custom MAIL FROM domain setup. If the state is <code>Success</code>, Amazon SES uses the
    *             specified custom MAIL FROM domain when the verified identity sends an email. All other
@@ -3291,6 +3005,7 @@ export interface IdentityMailFromDomainAttributes {
   MailFromDomainStatus: CustomMailFromStatus | string | undefined;
 
   /**
+   * @public
    * <p>The action that Amazon SES takes if it cannot successfully read the required MX record when
    *             you send an email. A value of <code>UseDefaultValue</code> indicates that if Amazon SES
    *             cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as
@@ -3303,41 +3018,27 @@ export interface IdentityMailFromDomainAttributes {
   BehaviorOnMXFailure: BehaviorOnMXFailure | string | undefined;
 }
 
-export namespace IdentityMailFromDomainAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityMailFromDomainAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
  */
 export interface GetIdentityMailFromDomainAttributesResponse {
   /**
+   * @public
    * <p>A map of identities to custom MAIL FROM attributes.</p>
    */
-  MailFromDomainAttributes: { [key: string]: IdentityMailFromDomainAttributes } | undefined;
-}
-
-export namespace GetIdentityMailFromDomainAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesResponse): any => ({
-    ...obj,
-  });
+  MailFromDomainAttributes: Record<string, IdentityMailFromDomainAttributes> | undefined;
 }
 
 /**
+ * @public
  * <p>Represents a request to return the notification attributes for a list of identities
  *             you verified with Amazon SES. For information about Amazon SES notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
 export interface GetIdentityNotificationAttributesRequest {
   /**
+   * @public
    * <p>A list of one or more identities. You can specify an identity by using its name or by
    *             using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
    *                 <code>example.com</code>,
@@ -3346,16 +3047,8 @@ export interface GetIdentityNotificationAttributesRequest {
   Identities: string[] | undefined;
 }
 
-export namespace GetIdentityNotificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the notification attributes of an identity, including whether an identity
  *             has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications,
  *             and whether feedback forwarding is enabled for bounce and complaint
@@ -3363,24 +3056,28 @@ export namespace GetIdentityNotificationAttributesRequest {
  */
 export interface IdentityNotificationAttributes {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce
    *             notifications.</p>
    */
   BounceTopic: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint
    *             notifications.</p>
    */
   ComplaintTopic: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery
    *             notifications.</p>
    */
   DeliveryTopic: string | undefined;
 
   /**
+   * @public
    * <p>Describes whether Amazon SES will forward bounce and complaint notifications as email.
    *                 <code>true</code> indicates that Amazon SES will forward bounce and complaint
    *             notifications as email, while <code>false</code> indicates that bounce and complaint
@@ -3390,6 +3087,7 @@ export interface IdentityNotificationAttributes {
   ForwardingEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of
    *             type <code>Bounce</code>. A value of <code>true</code> specifies that Amazon SES will include
    *             headers in bounce notifications, and a value of <code>false</code> specifies that Amazon SES
@@ -3398,6 +3096,7 @@ export interface IdentityNotificationAttributes {
   HeadersInBounceNotificationsEnabled?: boolean;
 
   /**
+   * @public
    * <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of
    *             type <code>Complaint</code>. A value of <code>true</code> specifies that Amazon SES will
    *             include headers in complaint notifications, and a value of <code>false</code> specifies
@@ -3406,6 +3105,7 @@ export interface IdentityNotificationAttributes {
   HeadersInComplaintNotificationsEnabled?: boolean;
 
   /**
+   * @public
    * <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of
    *             type <code>Delivery</code>. A value of <code>true</code> specifies that Amazon SES will
    *             include headers in delivery notifications, and a value of <code>false</code> specifies
@@ -3414,35 +3114,20 @@ export interface IdentityNotificationAttributes {
   HeadersInDeliveryNotificationsEnabled?: boolean;
 }
 
-export namespace IdentityNotificationAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityNotificationAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the notification attributes for a list of identities.</p>
  */
 export interface GetIdentityNotificationAttributesResponse {
   /**
+   * @public
    * <p>A map of Identity to IdentityNotificationAttributes.</p>
    */
-  NotificationAttributes: { [key: string]: IdentityNotificationAttributes } | undefined;
-}
-
-export namespace GetIdentityNotificationAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesResponse): any => ({
-    ...obj,
-  });
+  NotificationAttributes: Record<string, IdentityNotificationAttributes> | undefined;
 }
 
 /**
+ * @public
  * <p>Represents a request to return the requested sending authorization policies for an
  *             identity. Sending authorization is an Amazon SES feature that enables you to authorize other
  *             senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
@@ -3450,6 +3135,7 @@ export namespace GetIdentityNotificationAttributesResponse {
  */
 export interface GetIdentityPoliciesRequest {
   /**
+   * @public
    * <p>The identity for which the policies will be retrieved. You can specify an identity by
    *             using its name or by using its Amazon Resource Name (ARN). Examples:
    *                 <code>user@example.com</code>, <code>example.com</code>,
@@ -3459,6 +3145,7 @@ export interface GetIdentityPoliciesRequest {
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>A list of the names of policies to be retrieved. You can retrieve a maximum of 20
    *             policies at a time. If you do not know the names of the policies that are attached to
    *             the identity, you can use <code>ListIdentityPolicies</code>.</p>
@@ -3466,35 +3153,20 @@ export interface GetIdentityPoliciesRequest {
   PolicyNames: string[] | undefined;
 }
 
-export namespace GetIdentityPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the requested sending authorization policies.</p>
  */
 export interface GetIdentityPoliciesResponse {
   /**
+   * @public
    * <p>A map of policy names to policies.</p>
    */
-  Policies: { [key: string]: string } | undefined;
-}
-
-export namespace GetIdentityPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoliciesResponse): any => ({
-    ...obj,
-  });
+  Policies: Record<string, string> | undefined;
 }
 
 /**
+ * @public
  * <p>Represents a request to return the Amazon SES verification status of a list of identities.
  *             For domain identities, this request also returns the verification token. For information
  *             about verifying identities with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
@@ -3502,78 +3174,60 @@ export namespace GetIdentityPoliciesResponse {
  */
 export interface GetIdentityVerificationAttributesRequest {
   /**
+   * @public
    * <p>A list of identities.</p>
    */
   Identities: string[] | undefined;
 }
 
-export namespace GetIdentityVerificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the verification attributes of a single identity.</p>
  */
 export interface IdentityVerificationAttributes {
   /**
+   * @public
    * <p>The verification status of the identity: "Pending", "Success", "Failed", or
    *             "TemporaryFailure".</p>
    */
   VerificationStatus: VerificationStatus | string | undefined;
 
   /**
+   * @public
    * <p>The verification token for a domain identity. Null for email address
    *             identities.</p>
    */
   VerificationToken?: string;
 }
 
-export namespace IdentityVerificationAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityVerificationAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The Amazon SES verification status of a list of identities. For domain identities, this
  *             response also contains the verification token.</p>
  */
 export interface GetIdentityVerificationAttributesResponse {
   /**
+   * @public
    * <p>A map of Identities to IdentityVerificationAttributes objects.</p>
    */
-  VerificationAttributes: { [key: string]: IdentityVerificationAttributes } | undefined;
-}
-
-export namespace GetIdentityVerificationAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesResponse): any => ({
-    ...obj,
-  });
+  VerificationAttributes: Record<string, IdentityVerificationAttributes> | undefined;
 }
 
 /**
+ * @public
  * <p>Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails
  *             you have sent in the last 24 hours.</p>
  */
 export interface GetSendQuotaResponse {
   /**
+   * @public
    * <p>The maximum number of emails the user is allowed to send in a 24-hour interval. A
    *             value of -1 signifies an unlimited quota.</p>
    */
   Max24HourSend?: number;
 
   /**
+   * @public
    * <p>The maximum number of emails that Amazon SES can accept from the user's account per
    *             second.</p>
    *         <note>
@@ -3584,193 +3238,179 @@ export interface GetSendQuotaResponse {
   MaxSendRate?: number;
 
   /**
+   * @public
    * <p>The number of emails sent during the previous 24 hours.</p>
    */
   SentLast24Hours?: number;
 }
 
-export namespace GetSendQuotaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSendQuotaResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents sending statistics data. Each <code>SendDataPoint</code> contains
  *             statistics for a 15-minute period of sending activity. </p>
  */
 export interface SendDataPoint {
   /**
+   * @public
    * <p>Time of the data point.</p>
    */
   Timestamp?: Date;
 
   /**
+   * @public
    * <p>Number of emails that have been sent.</p>
    */
   DeliveryAttempts?: number;
 
   /**
+   * @public
    * <p>Number of emails that have bounced.</p>
    */
   Bounces?: number;
 
   /**
+   * @public
    * <p>Number of unwanted emails that were rejected by recipients.</p>
    */
   Complaints?: number;
 
   /**
+   * @public
    * <p>Number of emails rejected by Amazon SES.</p>
    */
   Rejects?: number;
 }
 
-export namespace SendDataPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDataPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a list of data points. This list contains aggregated data from the previous
  *             two weeks of your sending activity with Amazon SES.</p>
  */
 export interface GetSendStatisticsResponse {
   /**
+   * @public
    * <p>A list of data points, each of which represents 15 minutes of activity.</p>
    */
   SendDataPoints?: SendDataPoint[];
 }
 
-export namespace GetSendStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTemplateRequest {
   /**
+   * @public
    * <p>The name of the template you want to retrieve.</p>
    */
   TemplateName: string | undefined;
 }
 
-export namespace GetTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetTemplateResponse {
   /**
+   * @public
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
    *             part.</p>
    */
   Template?: Template;
 }
 
-export namespace GetTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  */
-export interface TemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "TemplateDoesNotExistException";
-  $fault: "client";
+export class TemplateDoesNotExistException extends __BaseException {
+  readonly name: "TemplateDoesNotExistException" = "TemplateDoesNotExistException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
-}
-
-export namespace TemplateDoesNotExistException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TemplateDoesNotExistException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TemplateDoesNotExistException, __BaseException>) {
+    super({
+      name: "TemplateDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TemplateDoesNotExistException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
+/**
+ * @public
+ */
 export type IdentityType = "Domain" | "EmailAddress";
 
 /**
+ * @public
  * <p>Indicates that provided delivery option is invalid.</p>
  */
-export interface InvalidDeliveryOptionsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDeliveryOptionsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidDeliveryOptionsException {
+export class InvalidDeliveryOptionsException extends __BaseException {
+  readonly name: "InvalidDeliveryOptionsException" = "InvalidDeliveryOptionsException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidDeliveryOptionsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidDeliveryOptionsException, __BaseException>) {
+    super({
+      name: "InvalidDeliveryOptionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDeliveryOptionsException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the provided policy is invalid. Check the error stack for more
  *             information about what caused the error.</p>
  */
-export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidPolicyException {
+export class InvalidPolicyException extends __BaseException {
+  readonly name: "InvalidPolicyException" = "InvalidPolicyException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidPolicyException, __BaseException>) {
+    super({
+      name: "InvalidPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that one or more of the replacement values you provided is invalid. This
  *             error may occur when the TemplateData object contains invalid JSON.</p>
  */
-export interface InvalidRenderingParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRenderingParameterException";
-  $fault: "client";
+export class InvalidRenderingParameterException extends __BaseException {
+  readonly name: "InvalidRenderingParameterException" = "InvalidRenderingParameterException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
-}
-
-export namespace InvalidRenderingParameterException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRenderingParameterException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRenderingParameterException, __BaseException>) {
+    super({
+      name: "InvalidRenderingParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRenderingParameterException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a request to list the configuration sets associated with your AWS account.
  *             Configuration sets enable you to publish email sending events. For information about
  *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -3778,27 +3418,21 @@ export namespace InvalidRenderingParameterException {
  */
 export interface ListConfigurationSetsRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
    *             indicate the position of the configuration set in the configuration set list.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of configuration sets to return.</p>
    */
   MaxItems?: number;
 }
 
-export namespace ListConfigurationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of configuration sets associated with your AWS account. Configuration sets
  *             enable you to publish email sending events. For information about using configuration
  *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -3806,11 +3440,13 @@ export namespace ListConfigurationSetsRequest {
  */
 export interface ListConfigurationSetsResponse {
   /**
+   * @public
    * <p>A list of configuration sets.</p>
    */
   ConfigurationSets?: ConfigurationSet[];
 
   /**
+   * @public
    * <p>A token indicating that there are additional configuration sets available to be
    *             listed. Pass this token to successive calls of <code>ListConfigurationSets</code>.
    *         </p>
@@ -3818,16 +3454,8 @@ export interface ListConfigurationSetsResponse {
   NextToken?: string;
 }
 
-export namespace ListConfigurationSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to list the existing custom verification email templates for your
  *             account.</p>
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom
@@ -3836,12 +3464,14 @@ export namespace ListConfigurationSetsResponse {
  */
 export interface ListCustomVerificationEmailTemplatesRequest {
   /**
+   * @public
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
    *             account.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of custom verification email templates to return. This value must
    *             be at least 1 and less than or equal to 50. If you do not specify a value, or if you
    *             specify a value less than 1 or greater than 50, the operation will return up to 50
@@ -3850,25 +3480,19 @@ export interface ListCustomVerificationEmailTemplatesRequest {
   MaxResults?: number;
 }
 
-export namespace ListCustomVerificationEmailTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A paginated list of custom verification email templates.</p>
  */
 export interface ListCustomVerificationEmailTemplatesResponse {
   /**
+   * @public
    * <p>A list of the custom verification email templates that exist in your account.</p>
    */
   CustomVerificationEmailTemplates?: CustomVerificationEmailTemplate[];
 
   /**
+   * @public
    * <p>A token indicating that there are additional custom verification email templates
    *             available to be listed. Pass this token to a subsequent call to
    *                 <code>ListTemplates</code> to retrieve the next 50 custom verification email
@@ -3877,80 +3501,62 @@ export interface ListCustomVerificationEmailTemplatesResponse {
   NextToken?: string;
 }
 
-export namespace ListCustomVerificationEmailTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return a list of all identities (email addresses and domains)
  *             that you have attempted to verify under your AWS account, regardless of verification
  *             status.</p>
  */
 export interface ListIdentitiesRequest {
   /**
+   * @public
    * <p>The type of the identities to list. Possible values are "EmailAddress" and "Domain".
    *             If this parameter is omitted, then all identities will be listed.</p>
    */
   IdentityType?: IdentityType | string;
 
   /**
+   * @public
    * <p>The token to use for pagination.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of identities per page. Possible values are 1-1000
    *             inclusive.</p>
    */
   MaxItems?: number;
 }
 
-export namespace ListIdentitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of all identities that you have attempted to verify under your AWS account,
  *             regardless of verification status.</p>
  */
 export interface ListIdentitiesResponse {
   /**
+   * @public
    * <p>A list of identities.</p>
    */
   Identities: string[] | undefined;
 
   /**
+   * @public
    * <p>The token used for pagination.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to return a list of sending authorization policies that are
  *             attached to an identity. Sending authorization is an Amazon SES feature that enables you to
  *             authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ListIdentityPoliciesRequest {
   /**
+   * @public
    * <p>The identity that is associated with the policy for which the policies will be listed.
    *             You can specify an identity by using its name or by using its Amazon Resource Name
    *             (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>,
@@ -3960,35 +3566,20 @@ export interface ListIdentityPoliciesRequest {
   Identity: string | undefined;
 }
 
-export namespace ListIdentityPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of names of sending authorization policies that apply to an identity.</p>
  */
 export interface ListIdentityPoliciesResponse {
   /**
+   * @public
    * <p>A list of names of policies that apply to the specified identity.</p>
    */
   PolicyNames: string[] | undefined;
 }
 
-export namespace ListIdentityPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to list the IP address filters that exist under your AWS account.
  *             You use IP address filters when you receive email with Amazon SES. For more information, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -3996,36 +3587,21 @@ export namespace ListIdentityPoliciesResponse {
  */
 export interface ListReceiptFiltersRequest {}
 
-export namespace ListReceiptFiltersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptFiltersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of IP address filters that exist under your AWS account.</p>
  */
 export interface ListReceiptFiltersResponse {
   /**
+   * @public
    * <p>A list of IP address filter data structures, which each consist of a name, an IP
    *             address range, and whether to allow or block mail from it.</p>
    */
   Filters?: ReceiptFilter[];
 }
 
-export namespace ListReceiptFiltersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to list the receipt rule sets that exist under your AWS account.
  *             You use receipt rule sets to receive email with Amazon SES. For more information, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -4033,32 +3609,27 @@ export namespace ListReceiptFiltersResponse {
  */
 export interface ListReceiptRuleSetsRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate
    *             the position in the receipt rule set list.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListReceiptRuleSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptRuleSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of receipt rule sets that exist under your AWS account.</p>
  */
 export interface ListReceiptRuleSetsResponse {
   /**
+   * @public
    * <p>The metadata for the currently active receipt rule set. The metadata consists of the
    *             rule set name and the timestamp of when the rule set was created.</p>
    */
   RuleSets?: ReceiptRuleSetMetadata[];
 
   /**
+   * @public
    * <p>A token indicating that there are additional receipt rule sets available to be listed.
    *             Pass this token to successive calls of <code>ListReceiptRuleSets</code> to retrieve up
    *             to 100 receipt rule sets at a time.</p>
@@ -4066,23 +3637,19 @@ export interface ListReceiptRuleSetsResponse {
   NextToken?: string;
 }
 
-export namespace ListReceiptRuleSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptRuleSetsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTemplatesRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the
    *             position in the list of email templates.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of templates to return. This value must be at least 1 and less than
    *             or equal to 10. If you do not specify a value, or if you specify a value less than 1 or
    *             greater than 10, the operation will return up to 10 results.</p>
@@ -4090,47 +3657,37 @@ export interface ListTemplatesRequest {
   MaxItems?: number;
 }
 
-export namespace ListTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about an email template.</p>
  */
 export interface TemplateMetadata {
   /**
+   * @public
    * <p>The name of the template.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The time and date the template was created.</p>
    */
   CreatedTimestamp?: Date;
 }
 
-export namespace TemplateMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateMetadata): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTemplatesResponse {
   /**
+   * @public
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
    *             account.</p>
    */
   TemplatesMetadata?: TemplateMetadata[];
 
   /**
+   * @public
    * <p>A token indicating that there are additional email templates available to be listed.
    *             Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next
    *             50 email templates.</p>
@@ -4138,82 +3695,63 @@ export interface ListTemplatesResponse {
   NextToken?: string;
 }
 
-export namespace ListTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of email addresses that you have verified with Amazon SES under your AWS
  *             account.</p>
  */
 export interface ListVerifiedEmailAddressesResponse {
   /**
+   * @public
    * <p>A list of email addresses that have been verified.</p>
    */
   VerifiedEmailAddresses?: string[];
 }
 
-export namespace ListVerifiedEmailAddressesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVerifiedEmailAddressesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> Indicates that the message could not be sent because Amazon SES could not read the MX
  *             record required to use the specified MAIL FROM domain. For information about editing the
  *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "MailFromDomainNotVerifiedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace MailFromDomainNotVerifiedException {
+export class MailFromDomainNotVerifiedException extends __BaseException {
+  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
+    super({
+      name: "MailFromDomainNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Represents the message to be sent, composed of a subject and a body.</p>
  */
 export interface Message {
   /**
+   * @public
    * <p>The subject of the message: A short summary of the content, which will appear in the
    *             recipient's inbox.</p>
    */
   Subject: Content | undefined;
 
   /**
+   * @public
    * <p>The message body.</p>
    */
   Body: Body | undefined;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Message-related information to include in the Delivery Status Notification (DSN) when
  *             an email that Amazon SES receives on your behalf bounces.</p>
  *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
@@ -4221,6 +3759,7 @@ export namespace Message {
  */
 export interface MessageDsn {
   /**
+   * @public
    * <p>The reporting MTA that attempted to deliver the message, formatted as specified in
    *                 <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>
    *                 (<code>mta-name-type; mta-name</code>). The default value is <code>dns;
@@ -4229,127 +3768,117 @@ export interface MessageDsn {
   ReportingMta: string | undefined;
 
   /**
+   * @public
    * <p>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
    */
   ArrivalDate?: Date;
 
   /**
+   * @public
    * <p>Additional X-headers to include in the DSN.</p>
    */
   ExtensionFields?: ExtensionField[];
 }
 
-export namespace MessageDsn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageDsn): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  */
-export interface MessageRejected extends __SmithyException, $MetadataBearer {
-  name: "MessageRejected";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace MessageRejected {
+export class MessageRejected extends __BaseException {
+  readonly name: "MessageRejected" = "MessageRejected";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
+    super({
+      name: "MessageRejected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageRejected.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that one or more of the replacement values for the specified template was
  *             not specified. Ensure that the TemplateData object contains references to all of the
  *             replacement tags in the specified template.</p>
  */
-export interface MissingRenderingAttributeException extends __SmithyException, $MetadataBearer {
-  name: "MissingRenderingAttributeException";
-  $fault: "client";
+export class MissingRenderingAttributeException extends __BaseException {
+  readonly name: "MissingRenderingAttributeException" = "MissingRenderingAttributeException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
-}
-
-export namespace MissingRenderingAttributeException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MissingRenderingAttributeException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MissingRenderingAttributeException, __BaseException>) {
+    super({
+      name: "MissingRenderingAttributeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingRenderingAttributeException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
+/**
+ * @public
+ */
 export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 
 /**
+ * @public
  * <p>Indicates that the account has not been granted production access.</p>
  */
-export interface ProductionAccessNotGrantedException extends __SmithyException, $MetadataBearer {
-  name: "ProductionAccessNotGrantedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ProductionAccessNotGrantedException {
+export class ProductionAccessNotGrantedException extends __BaseException {
+  readonly name: "ProductionAccessNotGrantedException" = "ProductionAccessNotGrantedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ProductionAccessNotGrantedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ProductionAccessNotGrantedException, __BaseException>) {
+    super({
+      name: "ProductionAccessNotGrantedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProductionAccessNotGrantedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A request to modify the delivery options for a configuration set.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to specify the delivery options
    *             for.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS).</p>
    */
   DeliveryOptions?: DeliveryOptions;
 }
 
-export namespace PutConfigurationSetDeliveryOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsResponse {}
 
-export namespace PutConfigurationSetDeliveryOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to add or update a sending authorization policy for an identity.
  *             Sending authorization is an Amazon SES feature that enables you to authorize other senders to
  *             use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
@@ -4357,6 +3886,7 @@ export namespace PutConfigurationSetDeliveryOptionsResponse {
  */
 export interface PutIdentityPolicyRequest {
   /**
+   * @public
    * <p>The identity that the policy will apply to. You can specify an identity by using its
    *             name or by using its Amazon Resource Name (ARN). Examples:
    *             <code>user@example.com</code>, <code>example.com</code>,
@@ -4366,6 +3896,7 @@ export interface PutIdentityPolicyRequest {
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>The name of the policy.</p>
    *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
    *             characters, dashes, and underscores.</p>
@@ -4373,6 +3904,7 @@ export interface PutIdentityPolicyRequest {
   PolicyName: string | undefined;
 
   /**
+   * @public
    * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
    *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
    *                 Guide</a>. </p>
@@ -4380,34 +3912,19 @@ export interface PutIdentityPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutIdentityPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIdentityPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface PutIdentityPolicyResponse {}
 
-export namespace PutIdentityPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIdentityPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the raw data of the message.</p>
  */
 export interface RawMessage {
   /**
+   * @public
    * <p>The raw data of the message. This data needs to base64-encoded if you are accessing
    *             Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS
    *             SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must
@@ -4427,83 +3944,66 @@ export interface RawMessage {
   Data: Uint8Array | undefined;
 }
 
-export namespace RawMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to reorder the receipt rules within a receipt rule set. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReorderReceiptRuleSetRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set to reorder.</p>
    */
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>A list of the specified receipt rule set's receipt rules in the order that you want to
    *             put them.</p>
    */
   RuleNames: string[] | undefined;
 }
 
-export namespace ReorderReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReorderReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface ReorderReceiptRuleSetResponse {}
 
-export namespace ReorderReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReorderReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to send a bounce message to the sender of an email you received
  *             through Amazon SES.</p>
  */
 export interface SendBounceRequest {
   /**
+   * @public
    * <p>The message ID of the message to be bounced.</p>
    */
   OriginalMessageId: string | undefined;
 
   /**
+   * @public
    * <p>The address to use in the "From" header of the bounce message. This must be an
    *             identity that you have verified with Amazon SES.</p>
    */
   BounceSender: string | undefined;
 
   /**
+   * @public
    * <p>Human-readable text for the bounce message to explain the failure. If not specified,
    *             the text will be auto-generated based on the bounced recipient information.</p>
    */
   Explanation?: string;
 
   /**
+   * @public
    * <p>Message-related DSN fields. If not specified, Amazon SES will choose the values.</p>
    */
   MessageDsn?: MessageDsn;
 
   /**
+   * @public
    * <p>A list of recipients of the bounced message, including the information required to
    *             create the Delivery Status Notifications (DSNs) for the recipients. You must specify at
    *             least one <code>BouncedRecipientInfo</code> in the list.</p>
@@ -4511,6 +4011,7 @@ export interface SendBounceRequest {
   BouncedRecipientInfoList: BouncedRecipientInfo[] | undefined;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             address in the "From" header of the bounce. For more information about sending
@@ -4520,41 +4021,27 @@ export interface SendBounceRequest {
   BounceSenderArn?: string;
 }
 
-export namespace SendBounceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBounceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a unique message ID.</p>
  */
 export interface SendBounceResponse {
   /**
+   * @public
    * <p>The message ID of the bounce message.</p>
    */
   MessageId?: string;
 }
 
-export namespace SendBounceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBounceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to send a templated email to multiple destinations using Amazon SES.
  *             For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface SendBulkTemplatedEmailRequest {
   /**
+   * @public
    * <p>The email address that is sending the email. This email address must be either
    *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
    *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
@@ -4578,6 +4065,7 @@ export interface SendBulkTemplatedEmailRequest {
   Source: string | undefined;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to send for
    *             the email address specified in the <code>Source</code> parameter.</p>
@@ -4593,12 +4081,14 @@ export interface SendBulkTemplatedEmailRequest {
   SourceArn?: string;
 
   /**
+   * @public
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
    */
   ReplyToAddresses?: string[];
 
   /**
+   * @public
    * <p>The email address that bounces and complaints will be forwarded to when feedback
    *             forwarding is enabled. If the message cannot be delivered to the recipient, then an
    *             error message will be returned from the recipient's ISP; this message will then be
@@ -4610,6 +4100,7 @@ export interface SendBulkTemplatedEmailRequest {
   ReturnPath?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>ReturnPath</code> parameter.</p>
@@ -4625,28 +4116,33 @@ export interface SendBulkTemplatedEmailRequest {
   ReturnPathArn?: string;
 
   /**
+   * @public
    * <p>The name of the configuration set to use when you send an email using
    *                 <code>SendBulkTemplatedEmail</code>.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send to
    *             a destination using <code>SendBulkTemplatedEmail</code>.</p>
    */
   DefaultTags?: MessageTag[];
 
   /**
+   * @public
    * <p>The template to use when sending this email.</p>
    */
   Template: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the template to use when sending this email.</p>
    */
   TemplateArn?: string;
 
   /**
+   * @public
    * <p>A list of replacement values to apply to the template when replacement data is not
    *             specified in a Destination object. These values act as a default or fallback option when
    *             no other data is available.</p>
@@ -4656,6 +4152,7 @@ export interface SendBulkTemplatedEmailRequest {
   DefaultTemplateData?: string;
 
   /**
+   * @public
    * <p>One or more <code>Destination</code> objects. All of the recipients in a
    *                 <code>Destination</code> will receive the same version of the email. You can specify
    *             up to 50 <code>Destination</code> objects within a <code>Destinations</code>
@@ -4664,90 +4161,66 @@ export interface SendBulkTemplatedEmailRequest {
   Destinations: BulkEmailDestination[] | undefined;
 }
 
-export namespace SendBulkTemplatedEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBulkTemplatedEmailRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SendBulkTemplatedEmailResponse {
   /**
+   * @public
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             action.</p>
    */
   Status: BulkEmailDestinationStatus[] | undefined;
 }
 
-export namespace SendBulkTemplatedEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBulkTemplatedEmailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to send a custom verification email to a specified
  *             recipient.</p>
  */
 export interface SendCustomVerificationEmailRequest {
   /**
+   * @public
    * <p>The email address to verify.</p>
    */
   EmailAddress: string | undefined;
 
   /**
+   * @public
    * <p>The name of the custom verification email template to use when sending the
    *             verification email.</p>
    */
   TemplateName: string | undefined;
 
   /**
+   * @public
    * <p>Name of a configuration set to use when sending the verification email.</p>
    */
   ConfigurationSetName?: string;
 }
 
-export namespace SendCustomVerificationEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The response received when attempting to send the custom verification email.</p>
  */
 export interface SendCustomVerificationEmailResponse {
   /**
+   * @public
    * <p>The unique message identifier returned from the
    *                 <code>SendCustomVerificationEmail</code> operation.</p>
    */
   MessageId?: string;
 }
 
-export namespace SendCustomVerificationEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCustomVerificationEmailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to send a single formatted email using Amazon SES. For more
  *             information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface SendEmailRequest {
   /**
+   * @public
    * <p>The email address that is sending the email. This email address must be either
    *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
    *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
@@ -4771,22 +4244,26 @@ export interface SendEmailRequest {
   Source: string | undefined;
 
   /**
+   * @public
    * <p>The destination for this email, composed of To:, CC:, and BCC: fields.</p>
    */
   Destination: Destination | undefined;
 
   /**
+   * @public
    * <p>The message to be sent.</p>
    */
   Message: Message | undefined;
 
   /**
+   * @public
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
    */
   ReplyToAddresses?: string[];
 
   /**
+   * @public
    * <p>The email address that bounces and complaints will be forwarded to when feedback
    *             forwarding is enabled. If the message cannot be delivered to the recipient, then an
    *             error message will be returned from the recipient's ISP; this message will then be
@@ -4798,6 +4275,7 @@ export interface SendEmailRequest {
   ReturnPath?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to send for
    *             the email address specified in the <code>Source</code> parameter.</p>
@@ -4813,6 +4291,7 @@ export interface SendEmailRequest {
   SourceArn?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>ReturnPath</code> parameter.</p>
@@ -4828,6 +4307,7 @@ export interface SendEmailRequest {
   ReturnPathArn?: string;
 
   /**
+   * @public
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendEmail</code>. Tags correspond to characteristics of the email that you
    *             define, so that you can publish email sending events.</p>
@@ -4835,46 +4315,33 @@ export interface SendEmailRequest {
   Tags?: MessageTag[];
 
   /**
+   * @public
    * <p>The name of the configuration set to use when you send an email using
    *                 <code>SendEmail</code>.</p>
    */
   ConfigurationSetName?: string;
 }
 
-export namespace SendEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a unique message ID.</p>
  */
 export interface SendEmailResponse {
   /**
+   * @public
    * <p>The unique message identifier returned from the <code>SendEmail</code> action. </p>
    */
   MessageId: string | undefined;
 }
 
-export namespace SendEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to send a single raw email using Amazon SES. For more information, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SendRawEmailRequest {
   /**
+   * @public
    * <p>The identity's email address. If you do not provide a value for this parameter, you
    *             must specify a "From" address in the raw text of the message. (You can also specify
    *             both.)</p>
@@ -4899,12 +4366,14 @@ export interface SendRawEmailRequest {
   Source?: string;
 
   /**
+   * @public
    * <p>A list of destinations for the message, consisting of To:, CC:, and BCC:
    *             addresses.</p>
    */
   Destinations?: string[];
 
   /**
+   * @public
    * <p>The raw email message itself. The message has to meet the following criteria:</p>
    *         <ul>
    *             <li>
@@ -4941,6 +4410,7 @@ export interface SendRawEmailRequest {
   RawMessage: RawMessage | undefined;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to specify a
    *             particular "From" address in the header of the raw email.</p>
@@ -4956,6 +4426,7 @@ export interface SendRawEmailRequest {
   FromArn?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to send for
    *             the email address specified in the <code>Source</code> parameter.</p>
@@ -4977,6 +4448,7 @@ export interface SendRawEmailRequest {
   SourceArn?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>ReturnPath</code> parameter.</p>
@@ -4998,6 +4470,7 @@ export interface SendRawEmailRequest {
   ReturnPathArn?: string;
 
   /**
+   * @public
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that
    *             you define, so that you can publish email sending events.</p>
@@ -5005,48 +4478,35 @@ export interface SendRawEmailRequest {
   Tags?: MessageTag[];
 
   /**
+   * @public
    * <p>The name of the configuration set to use when you send an email using
    *                 <code>SendRawEmail</code>.</p>
    */
   ConfigurationSetName?: string;
 }
 
-export namespace SendRawEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendRawEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a unique message ID.</p>
  */
 export interface SendRawEmailResponse {
   /**
+   * @public
    * <p>The unique message identifier returned from the <code>SendRawEmail</code> action.
    *         </p>
    */
   MessageId: string | undefined;
 }
 
-export namespace SendRawEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendRawEmailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to send a templated email using Amazon SES. For more information, see
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface SendTemplatedEmailRequest {
   /**
+   * @public
    * <p>The email address that is sending the email. This email address must be either
    *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
    *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
@@ -5070,18 +4530,21 @@ export interface SendTemplatedEmailRequest {
   Source: string | undefined;
 
   /**
+   * @public
    * <p>The destination for this email, composed of To:, CC:, and BCC: fields. A Destination
    *             can include up to 50 recipients across these three fields.</p>
    */
   Destination: Destination | undefined;
 
   /**
+   * @public
    * <p>The reply-to email address(es) for the message. If the recipient replies to the
    *             message, each reply-to address will receive the reply.</p>
    */
   ReplyToAddresses?: string[];
 
   /**
+   * @public
    * <p>The email address that bounces and complaints will be forwarded to when feedback
    *             forwarding is enabled. If the message cannot be delivered to the recipient, then an
    *             error message will be returned from the recipient's ISP; this message will then be
@@ -5093,6 +4556,7 @@ export interface SendTemplatedEmailRequest {
   ReturnPath?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to send for
    *             the email address specified in the <code>Source</code> parameter.</p>
@@ -5108,6 +4572,7 @@ export interface SendTemplatedEmailRequest {
   SourceArn?: string;
 
   /**
+   * @public
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>ReturnPath</code> parameter.</p>
@@ -5123,6 +4588,7 @@ export interface SendTemplatedEmailRequest {
   ReturnPathArn?: string;
 
   /**
+   * @public
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email
    *             that you define, so that you can publish email sending events.</p>
@@ -5130,22 +4596,26 @@ export interface SendTemplatedEmailRequest {
   Tags?: MessageTag[];
 
   /**
+   * @public
    * <p>The name of the configuration set to use when you send an email using
    *                 <code>SendTemplatedEmail</code>.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>The template to use when sending this email.</p>
    */
   Template: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the template to use when sending this email.</p>
    */
   TemplateArn?: string;
 
   /**
+   * @public
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
    *             replacement tags in the email template.</p>
@@ -5153,108 +4623,66 @@ export interface SendTemplatedEmailRequest {
   TemplateData: string | undefined;
 }
 
-export namespace SendTemplatedEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTemplatedEmailRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SendTemplatedEmailResponse {
   /**
+   * @public
    * <p>The unique message identifier returned from the <code>SendTemplatedEmail</code>
    *             action. </p>
    */
   MessageId: string | undefined;
 }
 
-export namespace SendTemplatedEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTemplatedEmailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to set a receipt rule set as the active receipt rule set. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SetActiveReceiptRuleSetRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set to make active. Setting this value to null disables
    *             all email receiving.</p>
    */
   RuleSetName?: string;
 }
 
-export namespace SetActiveReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetActiveReceiptRuleSetResponse {}
 
-export namespace SetActiveReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For
  *             more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SetIdentityDkimEnabledRequest {
   /**
+   * @public
    * <p>The identity for which DKIM signing should be enabled or disabled.</p>
    */
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to
    *             enable DKIM signing for this identity; <code>false</code> to disable it. </p>
    */
   DkimEnabled: boolean | undefined;
 }
 
-export namespace SetIdentityDkimEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityDkimEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityDkimEnabledResponse {}
 
-export namespace SetIdentityDkimEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityDkimEnabledResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to enable or disable whether Amazon SES forwards you bounce and
  *             complaint notifications through email. For information about email feedback forwarding,
  *             see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html">Amazon SES Developer
@@ -5262,12 +4690,14 @@ export namespace SetIdentityDkimEnabledResponse {
  */
 export interface SetIdentityFeedbackForwardingEnabledRequest {
   /**
+   * @public
    * <p>The identity for which to set bounce and complaint notification forwarding. Examples:
    *                 <code>user@example.com</code>, <code>example.com</code>.</p>
    */
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>Sets whether Amazon SES will forward bounce and complaint notifications as email.
    *                 <code>true</code> specifies that Amazon SES will forward bounce and complaint
    *             notifications as email, in addition to any Amazon SNS topic publishing otherwise specified.
@@ -5279,30 +4709,14 @@ export interface SetIdentityFeedbackForwardingEnabledRequest {
   ForwardingEnabled: boolean | undefined;
 }
 
-export namespace SetIdentityFeedbackForwardingEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityFeedbackForwardingEnabledResponse {}
 
-export namespace SetIdentityFeedbackForwardingEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to set whether Amazon SES includes the original email headers in the
  *             Amazon SNS notifications of a specified type. For information about notifications, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer
@@ -5310,17 +4724,20 @@ export namespace SetIdentityFeedbackForwardingEnabledResponse {
  */
 export interface SetIdentityHeadersInNotificationsEnabledRequest {
   /**
+   * @public
    * <p>The identity for which to enable or disable headers in notifications. Examples:
    *                 <code>user@example.com</code>, <code>example.com</code>.</p>
    */
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>The notification type for which to enable or disable headers in notifications. </p>
    */
   NotificationType: NotificationType | string | undefined;
 
   /**
+   * @public
    * <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the
    *             specified notification type. A value of <code>true</code> specifies that Amazon SES will
    *             include headers in notifications, and a value of <code>false</code> specifies that Amazon SES
@@ -5331,30 +4748,14 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
   Enabled: boolean | undefined;
 }
 
-export namespace SetIdentityHeadersInNotificationsEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityHeadersInNotificationsEnabledResponse {}
 
-export namespace SetIdentityHeadersInNotificationsEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for
  *             a verified identity. For information about using a custom MAIL FROM domain, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES
@@ -5362,12 +4763,14 @@ export namespace SetIdentityHeadersInNotificationsEnabledResponse {
  */
 export interface SetIdentityMailFromDomainRequest {
   /**
+   * @public
    * <p>The verified identity for which you want to enable or disable the specified custom
    *             MAIL FROM domain.</p>
    */
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
    *             domain must 1) be a subdomain of the verified identity, 2) not be used in a "From"
    *             address if the MAIL FROM domain is the destination of email feedback forwarding (for
@@ -5378,6 +4781,7 @@ export interface SetIdentityMailFromDomainRequest {
   MailFromDomain?: string;
 
   /**
+   * @public
    * <p>The action that you want Amazon SES to take if it cannot successfully read the required MX
    *             record when you send an email. If you choose <code>UseDefaultValue</code>, Amazon SES will
    *             use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose
@@ -5390,30 +4794,14 @@ export interface SetIdentityMailFromDomainRequest {
   BehaviorOnMXFailure?: BehaviorOnMXFailure | string;
 }
 
-export namespace SetIdentityMailFromDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityMailFromDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityMailFromDomainResponse {}
 
-export namespace SetIdentityMailFromDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityMailFromDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce,
  *             complaint, or delivery notifications for emails sent with that identity as the Source.
  *             For information about Amazon SES notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer
@@ -5421,6 +4809,7 @@ export namespace SetIdentityMailFromDomainResponse {
  */
 export interface SetIdentityNotificationTopicRequest {
   /**
+   * @public
    * <p>The identity (email address or domain) that you want to set the Amazon SNS topic
    *             for.</p>
    *         <important>
@@ -5434,11 +4823,13 @@ export interface SetIdentityNotificationTopicRequest {
   Identity: string | undefined;
 
   /**
+   * @public
    * <p>The type of notifications that will be published to the specified Amazon SNS topic.</p>
    */
   NotificationType: NotificationType | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from
    *             the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing
    *             is disabled.</p>
@@ -5446,80 +4837,55 @@ export interface SetIdentityNotificationTopicRequest {
   SnsTopic?: string;
 }
 
-export namespace SetIdentityNotificationTopicRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityNotificationTopicRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityNotificationTopicResponse {}
 
-export namespace SetIdentityNotificationTopicResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityNotificationTopicResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to set the position of a receipt rule in a receipt rule set. You
  *             use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface SetReceiptRulePositionRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set that contains the receipt rule to reposition.</p>
    */
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the receipt rule to reposition.</p>
    */
   RuleName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the receipt rule after which to place the specified receipt rule.</p>
    */
   After?: string;
 }
 
-export namespace SetReceiptRulePositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetReceiptRulePositionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetReceiptRulePositionResponse {}
 
-export namespace SetReceiptRulePositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetReceiptRulePositionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TestRenderTemplateRequest {
   /**
+   * @public
    * <p>The name of the template that you want to render.</p>
    */
   TemplateName: string | undefined;
 
   /**
+   * @public
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
    *             replacement tags in the email template.</p>
@@ -5527,54 +4893,34 @@ export interface TestRenderTemplateRequest {
   TemplateData: string | undefined;
 }
 
-export namespace TestRenderTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRenderTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TestRenderTemplateResponse {
   /**
+   * @public
    * <p>The complete MIME message rendered by applying the data in the TemplateData parameter
    *             to the template specified in the TemplateName parameter.</p>
    */
   RenderedTemplate?: string;
 }
 
-export namespace TestRenderTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRenderTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to enable or disable the email sending capabilities for your
  *             entire Amazon SES account.</p>
  */
 export interface UpdateAccountSendingEnabledRequest {
   /**
+   * @public
    * <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the
    *             current AWS Region.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace UpdateAccountSendingEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountSendingEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to update the event destination of a configuration set.
  *             Configuration sets enable you to publish email sending events. For information about
  *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
@@ -5582,104 +4928,80 @@ export namespace UpdateAccountSendingEnabledRequest {
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
   /**
+   * @public
    * <p>The name of the configuration set that contains the event destination that you want to
    *             update.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>The event destination object that you want to apply to the specified configuration
    *             set.</p>
    */
   EventDestination: EventDestination | undefined;
 }
 
-export namespace UpdateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
-export namespace UpdateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to modify the reputation metric publishing settings for a
  *             configuration set.</p>
  */
 export interface UpdateConfigurationSetReputationMetricsEnabledRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to update.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>Describes whether or not Amazon SES will publish reputation metrics for the configuration
    *             set, such as bounce and complaint rates, to Amazon CloudWatch.</p>
    */
   Enabled: boolean | undefined;
 }
 
-export namespace UpdateConfigurationSetReputationMetricsEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetReputationMetricsEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to enable or disable the email sending capabilities for a
  *             specific configuration set.</p>
  */
 export interface UpdateConfigurationSetSendingEnabledRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to update.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>Describes whether email sending is enabled or disabled for the configuration set.
    *         </p>
    */
   Enabled: boolean | undefined;
 }
 
-export namespace UpdateConfigurationSetSendingEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetSendingEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to update the tracking options for a configuration set. </p>
  */
 export interface UpdateConfigurationSetTrackingOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set for which you want to update the custom tracking
    *             domain.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This
    *             domain captures open and click events generated by Amazon SES emails.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
@@ -5689,49 +5011,37 @@ export interface UpdateConfigurationSetTrackingOptionsRequest {
   TrackingOptions: TrackingOptions | undefined;
 }
 
-export namespace UpdateConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateConfigurationSetTrackingOptionsResponse {}
 
-export namespace UpdateConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to update an existing custom verification email template.</p>
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
   /**
+   * @public
    * <p>The name of the custom verification email template that you want to update.</p>
    */
   TemplateName: string | undefined;
 
   /**
+   * @public
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
 
   /**
+   * @public
    * <p>The subject line of the custom verification email.</p>
    */
   TemplateSubject?: string;
 
   /**
+   * @public
    * <p>The content of the custom verification email. The total size of the email must be less
    *             than 10 MB. The message body may contain HTML, with some limitations. For more
    *             information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES
@@ -5740,122 +5050,85 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   TemplateContent?: string;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is successfully verified.</p>
    */
   SuccessRedirectionURL?: string;
 
   /**
+   * @public
    * <p>The URL that the recipient of the verification email is sent to if his or her address
    *             is not successfully verified.</p>
    */
   FailureRedirectionURL?: string;
 }
 
-export namespace UpdateCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to update a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface UpdateReceiptRuleRequest {
   /**
+   * @public
    * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
    */
   RuleSetName: string | undefined;
 
   /**
+   * @public
    * <p>A data structure that contains the updated receipt rule information.</p>
    */
   Rule: ReceiptRule | undefined;
 }
 
-export namespace UpdateReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateReceiptRuleResponse {}
 
-export namespace UpdateReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTemplateRequest {
   /**
+   * @public
    * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
    *             part.</p>
    */
   Template: Template | undefined;
 }
 
-export namespace UpdateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTemplateResponse {}
 
-export namespace UpdateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to generate the CNAME records needed to set up Easy DKIM with
  *             Amazon SES. For more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface VerifyDomainDkimRequest {
   /**
+   * @public
    * <p>The name of the domain to be verified for Easy DKIM signing.</p>
    */
   Domain: string | undefined;
 }
 
-export namespace VerifyDomainDkimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainDkimRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Returns CNAME records that you must publish to the DNS server of your domain to set up
  *             Easy DKIM with Amazon SES.</p>
  */
 export interface VerifyDomainDkimResponse {
   /**
+   * @public
    * <p>A set of character strings that represent the domain's identity. If the identity is an
    *             email address, the tokens represent the domain of that address.</p>
    *         <p>Using these tokens, you need to create DNS CNAME records that point to DKIM public
@@ -5869,16 +5142,8 @@ export interface VerifyDomainDkimResponse {
   DkimTokens: string[] | undefined;
 }
 
-export namespace VerifyDomainDkimResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainDkimResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to begin Amazon SES domain verification and to generate the TXT
  *             records that you must publish to the DNS server of your domain to complete the
  *             verification. For information about domain verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">Amazon SES
@@ -5886,26 +5151,20 @@ export namespace VerifyDomainDkimResponse {
  */
 export interface VerifyDomainIdentityRequest {
   /**
+   * @public
    * <p>The domain to be verified.</p>
    */
   Domain: string | undefined;
 }
 
-export namespace VerifyDomainIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Returns a TXT record that you must publish to the DNS server of your domain to
  *             complete domain verification with Amazon SES.</p>
  */
 export interface VerifyDomainIdentityResponse {
   /**
+   * @public
    * <p>A TXT record that you must place in the DNS settings of the domain to complete domain
    *             verification with Amazon SES.</p>
    *         <p>As Amazon SES searches for the TXT record, the domain's verification status is "Pending".
@@ -5917,67 +5176,36 @@ export interface VerifyDomainIdentityResponse {
   VerificationToken: string | undefined;
 }
 
-export namespace VerifyDomainIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to begin email address verification with Amazon SES. For information
  *             about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface VerifyEmailAddressRequest {
   /**
+   * @public
    * <p>The email address to be verified.</p>
    */
   EmailAddress: string | undefined;
 }
 
-export namespace VerifyEmailAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyEmailAddressRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents a request to begin email address verification with Amazon SES. For information
  *             about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface VerifyEmailIdentityRequest {
   /**
+   * @public
    * <p>The email address to be verified.</p>
    */
   EmailAddress: string | undefined;
 }
 
-export namespace VerifyEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An empty element returned on a successful request.</p>
  */
 export interface VerifyEmailIdentityResponse {}
-
-export namespace VerifyEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}

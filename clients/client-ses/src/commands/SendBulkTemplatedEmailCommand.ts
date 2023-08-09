@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/models_0";
-import {
-  deserializeAws_querySendBulkTemplatedEmailCommand,
-  serializeAws_querySendBulkTemplatedEmailCommand,
-} from "../protocols/Aws_query";
+import { de_SendBulkTemplatedEmailCommand, se_SendBulkTemplatedEmailCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SendBulkTemplatedEmailCommand}.
+ */
 export interface SendBulkTemplatedEmailCommandInput extends SendBulkTemplatedEmailRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendBulkTemplatedEmailCommand}.
+ */
 export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEmailResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Composes an email message to multiple destinations. The message body is created using
  *             an email template.</p>
  *         <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
@@ -71,13 +85,94 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * import { SESClient, SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBulkTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SendBulkTemplatedEmailRequest
+ *   Source: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE",
+ *   ReplyToAddresses: [ // AddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   DefaultTags: [ // MessageTagList
+ *     { // MessageTag
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Template: "STRING_VALUE", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   DefaultTemplateData: "STRING_VALUE",
+ *   Destinations: [ // BulkEmailDestinationList // required
+ *     { // BulkEmailDestination
+ *       Destination: { // Destination
+ *         ToAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         CcAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         BccAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ReplacementTags: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       ReplacementTemplateData: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SendBulkTemplatedEmailCommand(input);
  * const response = await client.send(command);
+ * // { // SendBulkTemplatedEmailResponse
+ * //   Status: [ // BulkEmailDestinationStatusList // required
+ * //     { // BulkEmailDestinationStatus
+ * //       Status: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //       MessageId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param SendBulkTemplatedEmailCommandInput - {@link SendBulkTemplatedEmailCommandInput}
+ * @returns {@link SendBulkTemplatedEmailCommandOutput}
  * @see {@link SendBulkTemplatedEmailCommandInput} for command's `input` shape.
  * @see {@link SendBulkTemplatedEmailCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link AccountSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
+ *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link ConfigurationSetSendingPausedException} (client fault)
+ *  <p>Indicates that email sending is disabled for the configuration set.</p>
+ *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
+ *             record required to use the specified MAIL FROM domain. For information about editing the
+ *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>Indicates that the action failed, and the message could not be sent. Check the error
+ *             stack for more information about what caused the error.</p>
+ *
+ * @throws {@link TemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
+ *             account.</p>
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class SendBulkTemplatedEmailCommand extends $Command<
@@ -88,6 +183,18 @@ export class SendBulkTemplatedEmailCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SendBulkTemplatedEmailCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,6 +210,9 @@ export class SendBulkTemplatedEmailCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendBulkTemplatedEmailCommandInput, SendBulkTemplatedEmailCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SendBulkTemplatedEmailCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -113,8 +223,8 @@ export class SendBulkTemplatedEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBulkTemplatedEmailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendBulkTemplatedEmailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +234,18 @@ export class SendBulkTemplatedEmailCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendBulkTemplatedEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySendBulkTemplatedEmailCommand(input, context);
+    return se_SendBulkTemplatedEmailCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendBulkTemplatedEmailCommandOutput> {
-    return deserializeAws_querySendBulkTemplatedEmailCommand(output, context);
+    return de_SendBulkTemplatedEmailCommand(output, context);
   }
 
   // Start section: command_body_extra

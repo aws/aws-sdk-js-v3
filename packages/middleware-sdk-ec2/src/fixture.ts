@@ -1,4 +1,4 @@
-import { SourceData } from "@aws-sdk/types";
+import { SourceData } from "@smithy/types";
 
 export class MockSha256 {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -11,13 +11,6 @@ export class MockSha256 {
 }
 
 export const region = () => Promise.resolve("mock-region");
-
-export const endpoint = () =>
-  Promise.resolve({
-    protocol: "https:",
-    path: "/",
-    hostname: "ec2.mock-region.amazonaws.com",
-  });
 
 export const credentials = () =>
   Promise.resolve({

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { GetAssetPropertyAggregatesRequest, GetAssetPropertyAggregatesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssetPropertyAggregatesCommand,
-  serializeAws_restJson1GetAssetPropertyAggregatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssetPropertyAggregatesCommand, se_GetAssetPropertyAggregatesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAssetPropertyAggregatesCommand}.
+ */
 export interface GetAssetPropertyAggregatesCommandInput extends GetAssetPropertyAggregatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssetPropertyAggregatesCommand}.
+ */
 export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropertyAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
  *         aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -40,13 +54,72 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  * import { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, GetAssetPropertyAggregatesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = { // GetAssetPropertyAggregatesRequest
+ *   assetId: "STRING_VALUE",
+ *   propertyId: "STRING_VALUE",
+ *   propertyAlias: "STRING_VALUE",
+ *   aggregateTypes: [ // AggregateTypes // required
+ *     "AVERAGE" || "COUNT" || "MAXIMUM" || "MINIMUM" || "SUM" || "STANDARD_DEVIATION",
+ *   ],
+ *   resolution: "STRING_VALUE", // required
+ *   qualities: [ // Qualities
+ *     "GOOD" || "BAD" || "UNCERTAIN",
+ *   ],
+ *   startDate: new Date("TIMESTAMP"), // required
+ *   endDate: new Date("TIMESTAMP"), // required
+ *   timeOrdering: "ASCENDING" || "DESCENDING",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetAssetPropertyAggregatesCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssetPropertyAggregatesResponse
+ * //   aggregatedValues: [ // AggregatedValues // required
+ * //     { // AggregatedValue
+ * //       timestamp: new Date("TIMESTAMP"), // required
+ * //       quality: "GOOD" || "BAD" || "UNCERTAIN",
+ * //       value: { // Aggregates
+ * //         average: Number("double"),
+ * //         count: Number("double"),
+ * //         maximum: Number("double"),
+ * //         minimum: Number("double"),
+ * //         sum: Number("double"),
+ * //         standardDeviation: Number("double"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetAssetPropertyAggregatesCommandInput - {@link GetAssetPropertyAggregatesCommandInput}
+ * @returns {@link GetAssetPropertyAggregatesCommandOutput}
  * @see {@link GetAssetPropertyAggregatesCommandInput} for command's `input` shape.
  * @see {@link GetAssetPropertyAggregatesCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The requested service is unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
+ *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
+ *       on.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link IoTSiteWiseServiceException}
+ * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
 export class GetAssetPropertyAggregatesCommand extends $Command<
@@ -57,6 +130,18 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssetPropertyAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +157,9 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAssetPropertyAggregatesCommandInput, GetAssetPropertyAggregatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAssetPropertyAggregatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +170,8 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssetPropertyAggregatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssetPropertyAggregatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,15 +181,21 @@ export class GetAssetPropertyAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssetPropertyAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssetPropertyAggregatesCommand(input, context);
+    return se_GetAssetPropertyAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAssetPropertyAggregatesCommandOutput> {
-    return deserializeAws_restJson1GetAssetPropertyAggregatesCommand(output, context);
+    return de_GetAssetPropertyAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

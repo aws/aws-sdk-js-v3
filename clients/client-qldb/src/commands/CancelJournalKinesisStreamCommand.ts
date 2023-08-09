@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CancelJournalKinesisStreamRequest, CancelJournalKinesisStreamResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CancelJournalKinesisStreamCommand,
-  serializeAws_restJson1CancelJournalKinesisStreamCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CancelJournalKinesisStreamCommand, se_CancelJournalKinesisStreamCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CancelJournalKinesisStreamCommand}.
+ */
 export interface CancelJournalKinesisStreamCommandInput extends CancelJournalKinesisStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelJournalKinesisStreamCommand}.
+ */
 export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKinesisStreamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
  *          status must be <code>ACTIVE</code>.</p>
  *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
@@ -33,13 +47,35 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * import { QLDBClient, CancelJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, CancelJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // CancelJournalKinesisStreamRequest
+ *   LedgerName: "STRING_VALUE", // required
+ *   StreamId: "STRING_VALUE", // required
+ * };
  * const command = new CancelJournalKinesisStreamCommand(input);
  * const response = await client.send(command);
+ * // { // CancelJournalKinesisStreamResponse
+ * //   StreamId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CancelJournalKinesisStreamCommandInput - {@link CancelJournalKinesisStreamCommandInput}
+ * @returns {@link CancelJournalKinesisStreamCommandOutput}
  * @see {@link CancelJournalKinesisStreamCommandInput} for command's `input` shape.
  * @see {@link CancelJournalKinesisStreamCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class CancelJournalKinesisStreamCommand extends $Command<
@@ -50,6 +86,18 @@ export class CancelJournalKinesisStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CancelJournalKinesisStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +113,9 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelJournalKinesisStreamCommandInput, CancelJournalKinesisStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CancelJournalKinesisStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +126,8 @@ export class CancelJournalKinesisStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJournalKinesisStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelJournalKinesisStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +137,21 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelJournalKinesisStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CancelJournalKinesisStreamCommand(input, context);
+    return se_CancelJournalKinesisStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelJournalKinesisStreamCommandOutput> {
-    return deserializeAws_restJson1CancelJournalKinesisStreamCommand(output, context);
+    return de_CancelJournalKinesisStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

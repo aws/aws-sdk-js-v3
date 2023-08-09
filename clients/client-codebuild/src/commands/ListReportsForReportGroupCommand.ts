@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
 import { ListReportsForReportGroupInput, ListReportsForReportGroupOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListReportsForReportGroupCommand,
-  serializeAws_json1_1ListReportsForReportGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListReportsForReportGroupCommand, se_ListReportsForReportGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListReportsForReportGroupCommand}.
+ */
 export interface ListReportsForReportGroupCommandInput extends ListReportsForReportGroupInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListReportsForReportGroupCommand}.
+ */
 export interface ListReportsForReportGroupCommandOutput extends ListReportsForReportGroupOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
  *     </p>
@@ -31,13 +45,40 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * import { CodeBuildClient, ListReportsForReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportsForReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = { // ListReportsForReportGroupInput
+ *   reportGroupArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   sortOrder: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: { // ReportFilter
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListReportsForReportGroupCommand(input);
  * const response = await client.send(command);
+ * // { // ListReportsForReportGroupOutput
+ * //   nextToken: "STRING_VALUE",
+ * //   reports: [ // ReportArns
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListReportsForReportGroupCommandInput - {@link ListReportsForReportGroupCommandInput}
+ * @returns {@link ListReportsForReportGroupCommandOutput}
  * @see {@link ListReportsForReportGroupCommandInput} for command's `input` shape.
  * @see {@link ListReportsForReportGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * @throws {@link CodeBuildServiceException}
+ * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
 export class ListReportsForReportGroupCommand extends $Command<
@@ -48,6 +89,18 @@ export class ListReportsForReportGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListReportsForReportGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +116,9 @@ export class ListReportsForReportGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListReportsForReportGroupCommandInput, ListReportsForReportGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListReportsForReportGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +129,8 @@ export class ListReportsForReportGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportsForReportGroupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListReportsForReportGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +140,21 @@ export class ListReportsForReportGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListReportsForReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListReportsForReportGroupCommand(input, context);
+    return se_ListReportsForReportGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListReportsForReportGroupCommandOutput> {
-    return deserializeAws_json1_1ListReportsForReportGroupCommand(output, context);
+    return de_ListReportsForReportGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

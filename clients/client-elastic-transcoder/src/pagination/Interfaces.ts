@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ElasticTranscoder } from "../ElasticTranscoder";
 import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
 
+/**
+ * @public
+ */
 export interface ElasticTranscoderPaginationConfiguration extends PaginationConfiguration {
-  client: ElasticTranscoder | ElasticTranscoderClient;
+  client: ElasticTranscoderClient;
 }

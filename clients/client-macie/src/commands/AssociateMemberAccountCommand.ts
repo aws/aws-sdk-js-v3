@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,20 +11,32 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
 import { AssociateMemberAccountRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateMemberAccountCommand,
-  serializeAws_json1_1AssociateMemberAccountCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateMemberAccountCommand, se_AssociateMemberAccountCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateMemberAccountCommand}.
+ */
 export interface AssociateMemberAccountCommandInput extends AssociateMemberAccountRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateMemberAccountCommand}.
+ */
 export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a specified AWS account with Amazon Macie Classic as a member
+ * @public
+ * <p>(Discontinued) Associates a specified Amazon Web Services account with Amazon Macie Classic as a member
  *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +44,34 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * import { MacieClient, AssociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, AssociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = { // AssociateMemberAccountRequest
+ *   memberAccountId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateMemberAccountCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AssociateMemberAccountCommandInput - {@link AssociateMemberAccountCommandInput}
+ * @returns {@link AssociateMemberAccountCommandOutput}
  * @see {@link AssociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
+ *
+ * @throws {@link MacieServiceException}
+ * <p>Base exception class for all service exceptions from Macie service.</p>
  *
  */
 export class AssociateMemberAccountCommand extends $Command<
@@ -47,6 +82,18 @@ export class AssociateMemberAccountCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateMemberAccountCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +109,9 @@ export class AssociateMemberAccountCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateMemberAccountCommandInput, AssociateMemberAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateMemberAccountCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +122,8 @@ export class AssociateMemberAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMemberAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +133,18 @@ export class AssociateMemberAccountCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateMemberAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateMemberAccountCommand(input, context);
+    return se_AssociateMemberAccountCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateMemberAccountCommandOutput> {
-    return deserializeAws_json1_1AssociateMemberAccountCommand(output, context);
+    return de_AssociateMemberAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 
-import { DEFAULT_TEST_SCOPE } from "./constants";
-import { loadWorkspacePackages } from "./workspace";
+import { DEFAULT_TEST_SCOPE } from "./constants.js";
+import { loadWorkspacePackages } from "./workspace.js";
 
 export type PackageContext = {
   package: string;
@@ -41,6 +41,6 @@ export const loadPackageContext = async (scopeConfigPath: string = DEFAULT_TEST_
     packageNames.add(scope.package);
     deduplicatedScope.unshift(scope);
   });
-  console.log(`loaded ${deduplicatedScope.length} local packages within test scope`);
+  console.info(`loaded ${deduplicatedScope.length} local packages within test scope`);
   return deduplicatedScope;
 };

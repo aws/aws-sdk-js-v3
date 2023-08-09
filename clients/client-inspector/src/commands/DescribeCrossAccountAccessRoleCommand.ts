@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeCrossAccountAccessRoleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
-  serializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
+  de_DescribeCrossAccountAccessRoleCommand,
+  se_DescribeCrossAccountAccessRoleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeCrossAccountAccessRoleCommand}.
+ */
 export interface DescribeCrossAccountAccessRoleCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCrossAccountAccessRoleCommand}.
+ */
 export interface DescribeCrossAccountAccessRoleCommandOutput
   extends DescribeCrossAccountAccessRoleResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
  *          account.</p>
  * @example
@@ -32,13 +49,44 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * import { InspectorClient, DescribeCrossAccountAccessRoleCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeCrossAccountAccessRoleCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {};
  * const command = new DescribeCrossAccountAccessRoleCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCrossAccountAccessRoleResponse
+ * //   roleArn: "STRING_VALUE", // required
+ * //   valid: true || false, // required
+ * //   registeredAt: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
+ * @param DescribeCrossAccountAccessRoleCommandInput - {@link DescribeCrossAccountAccessRoleCommandInput}
+ * @returns {@link DescribeCrossAccountAccessRoleCommandOutput}
  * @see {@link DescribeCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link DescribeCrossAccountAccessRoleCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
+ *
+ * @example Describte cross account access role
+ * ```javascript
+ * // Describes the IAM role that enables Amazon Inspector to access your AWS account.
+ * const input = undefined;
+ * const command = new DescribeCrossAccountAccessRoleCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "registeredAt": "1458069182.826",
+ *   "roleArn": "arn:aws:iam::123456789012:role/inspector",
+ *   "valid": true
+ * }
+ * *\/
+ * // example id: describte-cross-account-access-role-1481064682267
+ * ```
  *
  */
 export class DescribeCrossAccountAccessRoleCommand extends $Command<
@@ -49,6 +97,18 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCrossAccountAccessRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +124,9 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCrossAccountAccessRoleCommandInput, DescribeCrossAccountAccessRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCrossAccountAccessRoleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +137,8 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeCrossAccountAccessRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +148,24 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeCrossAccountAccessRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(input, context);
+    return se_DescribeCrossAccountAccessRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
-    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(output, context);
+    return de_DescribeCrossAccountAccessRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

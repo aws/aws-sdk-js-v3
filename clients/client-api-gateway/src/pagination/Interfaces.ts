@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { APIGateway } from "../APIGateway";
 import { APIGatewayClient } from "../APIGatewayClient";
 
+/**
+ * @public
+ */
 export interface APIGatewayPaginationConfiguration extends PaginationConfiguration {
-  client: APIGateway | APIGatewayClient;
+  client: APIGatewayClient;
 }

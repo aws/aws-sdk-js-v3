@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import { DescribeEventAggregatesRequest, DescribeEventAggregatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeEventAggregatesCommand,
-  serializeAws_json1_1DescribeEventAggregatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeEventAggregatesCommand, se_DescribeEventAggregatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeEventAggregatesCommand}.
+ */
 export interface DescribeEventAggregatesCommandInput extends DescribeEventAggregatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeEventAggregatesCommand}.
+ */
 export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggregatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of events of each event type (issue, scheduled change, and account
  *          notification). If no filter is specified, the counts of all events in each category are
  *          returned.</p>
@@ -34,13 +48,88 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  * import { HealthClient, DescribeEventAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = { // DescribeEventAggregatesRequest
+ *   filter: { // EventFilter
+ *     eventArns: [ // eventArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCodes: [ // eventTypeList2
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [ // serviceList
+ *       "STRING_VALUE",
+ *     ],
+ *     regions: [ // regionList
+ *       "STRING_VALUE",
+ *     ],
+ *     availabilityZones: [ // availabilityZones
+ *       "STRING_VALUE",
+ *     ],
+ *     startTimes: [ // dateTimeRangeList
+ *       { // DateTimeRange
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     endTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     lastUpdatedTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     entityArns: [ // entityArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [ // entityValueList
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [ // eventTypeCategoryList2
+ *       "issue" || "accountNotification" || "scheduledChange" || "investigation",
+ *     ],
+ *     tags: [ // tagFilter
+ *       { // tagSet
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     ],
+ *     eventStatusCodes: [ // eventStatusCodeList
+ *       "open" || "closed" || "upcoming",
+ *     ],
+ *   },
+ *   aggregateField: "eventTypeCategory", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEventAggregatesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeEventAggregatesResponse
+ * //   eventAggregates: [ // EventAggregateList
+ * //     { // EventAggregate
+ * //       aggregateValue: "STRING_VALUE",
+ * //       count: Number("int"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeEventAggregatesCommandInput - {@link DescribeEventAggregatesCommandInput}
+ * @returns {@link DescribeEventAggregatesCommandOutput}
  * @see {@link DescribeEventAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventAggregatesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * @throws {@link HealthServiceException}
+ * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
 export class DescribeEventAggregatesCommand extends $Command<
@@ -51,6 +140,18 @@ export class DescribeEventAggregatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeEventAggregatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +167,9 @@ export class DescribeEventAggregatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventAggregatesCommandInput, DescribeEventAggregatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEventAggregatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +180,8 @@ export class DescribeEventAggregatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventAggregatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventAggregatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +191,18 @@ export class DescribeEventAggregatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeEventAggregatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEventAggregatesCommand(input, context);
+    return se_DescribeEventAggregatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventAggregatesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventAggregatesCommand(output, context);
+    return de_DescribeEventAggregatesCommand(output, context);
   }
 
   // Start section: command_body_extra

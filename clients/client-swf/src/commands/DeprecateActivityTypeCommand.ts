@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeprecateActivityTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DeprecateActivityTypeCommand,
-  serializeAws_json1_0DeprecateActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DeprecateActivityTypeCommand, se_DeprecateActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeprecateActivityTypeCommand}.
+ */
 export interface DeprecateActivityTypeCommandInput extends DeprecateActivityTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeprecateActivityTypeCommand}.
+ */
 export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecates the specified <i>activity type</i>. After an activity type has
  *       been deprecated, you cannot create new tasks of that activity type. Tasks of this type that
  *       were scheduled before the type was deprecated continue to run.</p>
@@ -71,13 +85,36 @@ export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
  * import { SWFClient, DeprecateActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DeprecateActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DeprecateActivityTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   activityType: { // ActivityType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeprecateActivityTypeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeprecateActivityTypeCommandInput - {@link DeprecateActivityTypeCommandInput}
+ * @returns {@link DeprecateActivityTypeCommandOutput}
  * @see {@link DeprecateActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DeprecateActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TypeDeprecatedFault} (client fault)
+ *  <p>Returned when the specified activity or workflow type was already deprecated.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DeprecateActivityTypeCommand extends $Command<
@@ -88,6 +125,18 @@ export class DeprecateActivityTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeprecateActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -103,6 +152,9 @@ export class DeprecateActivityTypeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeprecateActivityTypeCommandInput, DeprecateActivityTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeprecateActivityTypeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -113,8 +165,8 @@ export class DeprecateActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateActivityTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -124,12 +176,18 @@ export class DeprecateActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeprecateActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeprecateActivityTypeCommand(input, context);
+    return se_DeprecateActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeprecateActivityTypeCommandOutput> {
-    return deserializeAws_json1_0DeprecateActivityTypeCommand(output, context);
+    return de_DeprecateActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

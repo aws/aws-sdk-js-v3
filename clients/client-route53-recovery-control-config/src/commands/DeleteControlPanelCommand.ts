@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteControlPanelRequest, DeleteControlPanelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteControlPanelCommand,
-  serializeAws_restJson1DeleteControlPanelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteControlPanelCommand, se_DeleteControlPanelCommand } from "../protocols/Aws_restJson1";
 import {
   Route53RecoveryControlConfigClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../Route53RecoveryControlConfigClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteControlPanelCommand}.
+ */
 export interface DeleteControlPanelCommandInput extends DeleteControlPanelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteControlPanelCommand}.
+ */
 export interface DeleteControlPanelCommandOutput extends DeleteControlPanelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,41 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  * import { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = { // DeleteControlPanelRequest
+ *   ControlPanelArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteControlPanelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteControlPanelCommandInput - {@link DeleteControlPanelCommandInput}
+ * @returns {@link DeleteControlPanelCommandOutput}
  * @see {@link DeleteControlPanelCommandInput} for command's `input` shape.
  * @see {@link DeleteControlPanelCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>403 response - You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>409 response - ConflictException. You might be using a predefined variable.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>429 response - LimitExceededException or TooManyRequestsException.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ * @throws {@link Route53RecoveryControlConfigServiceException}
+ * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
  */
 export class DeleteControlPanelCommand extends $Command<
@@ -50,6 +92,18 @@ export class DeleteControlPanelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteControlPanelCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +119,9 @@ export class DeleteControlPanelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteControlPanelCommandInput, DeleteControlPanelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteControlPanelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +132,8 @@ export class DeleteControlPanelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteControlPanelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteControlPanelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +143,18 @@ export class DeleteControlPanelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteControlPanelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteControlPanelCommand(input, context);
+    return se_DeleteControlPanelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteControlPanelCommandOutput> {
-    return deserializeAws_restJson1DeleteControlPanelCommand(output, context);
+    return de_DeleteControlPanelCommand(output, context);
   }
 
   // Start section: command_body_extra

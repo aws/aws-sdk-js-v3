@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CodeStarConnections } from "../CodeStarConnections";
 import { CodeStarConnectionsClient } from "../CodeStarConnectionsClient";
 import { ListHostsCommand, ListHostsCommandInput, ListHostsCommandOutput } from "../commands/ListHostsCommand";
 import { CodeStarConnectionsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeStarConnectionsClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListHostsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeStarConnections,
-  input: ListHostsCommandInput,
-  ...args: any
-): Promise<ListHostsCommandOutput> => {
-  // @ts-ignore
-  return await client.listHosts(input, ...args);
-};
 export async function* paginateListHosts(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListHostsCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListHosts(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CodeStarConnections) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeStarConnectionsClient) {
+    if (config.client instanceof CodeStarConnectionsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeStarConnections | CodeStarConnectionsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeReportDefinitionsCommand,
   DescribeReportDefinitionsCommandInput,
   DescribeReportDefinitionsCommandOutput,
 } from "../commands/DescribeReportDefinitionsCommand";
-import { CostAndUsageReportService } from "../CostAndUsageReportService";
 import { CostAndUsageReportServiceClient } from "../CostAndUsageReportServiceClient";
 import { CostAndUsageReportServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CostAndUsageReportServiceClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeReportDefinitionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CostAndUsageReportService,
-  input: DescribeReportDefinitionsCommandInput,
-  ...args: any
-): Promise<DescribeReportDefinitionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeReportDefinitions(input, ...args);
-};
 export async function* paginateDescribeReportDefinitions(
   config: CostAndUsageReportServicePaginationConfiguration,
   input: DescribeReportDefinitionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeReportDefinitions(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CostAndUsageReportService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CostAndUsageReportServiceClient) {
+    if (config.client instanceof CostAndUsageReportServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CostAndUsageReportService | CostAndUsageReportServiceClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogSubscriptionCommand,
-  serializeAws_json1_1CreateLogSubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLogSubscriptionCommand, se_CreateLogSubscriptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLogSubscriptionCommand}.
+ */
 export interface CreateLogSubscriptionCommandInput extends CreateLogSubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLogSubscriptionCommand}.
+ */
 export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a subscription to forward real-time Directory Service domain controller security
  *       logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.</p>
  * @example
@@ -30,13 +44,42 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * import { DirectoryServiceClient, CreateLogSubscriptionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateLogSubscriptionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // CreateLogSubscriptionRequest
+ *   DirectoryId: "STRING_VALUE", // required
+ *   LogGroupName: "STRING_VALUE", // required
+ * };
  * const command = new CreateLogSubscriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateLogSubscriptionCommandInput - {@link CreateLogSubscriptionCommandInput}
+ * @returns {@link CreateLogSubscriptionCommandOutput}
  * @see {@link CreateLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateLogSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The specified entity already exists.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InsufficientPermissionsException} (client fault)
+ *  <p>The account does not have sufficient permission to perform the operation.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class CreateLogSubscriptionCommand extends $Command<
@@ -47,6 +90,18 @@ export class CreateLogSubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +117,9 @@ export class CreateLogSubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLogSubscriptionCommandInput, CreateLogSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLogSubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +130,8 @@ export class CreateLogSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogSubscriptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLogSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +141,18 @@ export class CreateLogSubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogSubscriptionCommand(input, context);
+    return se_CreateLogSubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogSubscriptionCommandOutput> {
-    return deserializeAws_json1_1CreateLogSubscriptionCommand(output, context);
+    return de_CreateLogSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

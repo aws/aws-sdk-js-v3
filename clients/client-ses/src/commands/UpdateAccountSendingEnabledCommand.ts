@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateAccountSendingEnabledRequest } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateAccountSendingEnabledCommand,
-  serializeAws_queryUpdateAccountSendingEnabledCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateAccountSendingEnabledCommand, se_UpdateAccountSendingEnabledCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateAccountSendingEnabledCommand}.
+ */
 export interface UpdateAccountSendingEnabledCommandInput extends UpdateAccountSendingEnabledRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateAccountSendingEnabledCommand}.
+ */
 export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables email sending across your entire Amazon SES account in the current
  *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
  *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
@@ -34,13 +48,34 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * import { SESClient, UpdateAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateAccountSendingEnabledRequest
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateAccountSendingEnabledCommandInput - {@link UpdateAccountSendingEnabledCommandInput}
+ * @returns {@link UpdateAccountSendingEnabledCommandOutput}
  * @see {@link UpdateAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example UpdateAccountSendingEnabled
+ * ```javascript
+ * // The following example updated the sending status for this account.
+ * const input = {
+ *   "Enabled": true
+ * };
+ * const command = new UpdateAccountSendingEnabledCommand(input);
+ * await client.send(command);
+ * // example id: updateaccountsendingenabled-1469047741333
+ * ```
  *
  */
 export class UpdateAccountSendingEnabledCommand extends $Command<
@@ -51,6 +86,18 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateAccountSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +113,9 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateAccountSendingEnabledCommandInput, UpdateAccountSendingEnabledCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAccountSendingEnabledCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +126,8 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountSendingEnabledRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +137,21 @@ export class UpdateAccountSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateAccountSendingEnabledCommand(input, context);
+    return se_UpdateAccountSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateAccountSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateAccountSendingEnabledCommand(output, context);
+    return de_UpdateAccountSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

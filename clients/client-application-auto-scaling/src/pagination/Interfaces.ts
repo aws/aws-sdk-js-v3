@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ApplicationAutoScaling } from "../ApplicationAutoScaling";
 import { ApplicationAutoScalingClient } from "../ApplicationAutoScalingClient";
 
+/**
+ * @public
+ */
 export interface ApplicationAutoScalingPaginationConfiguration extends PaginationConfiguration {
-  client: ApplicationAutoScaling | ApplicationAutoScalingClient;
+  client: ApplicationAutoScalingClient;
 }

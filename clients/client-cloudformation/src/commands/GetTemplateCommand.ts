@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { GetTemplateInput, GetTemplateOutput } from "../models/models_0";
-import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
+import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandInput extends GetTemplateInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetTemplateCommand}.
+ */
 export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the template body for a specified stack. You can get the template for running
- *          or deleted stacks.</p>
- *          <p>For deleted stacks, GetTemplate returns the template for up to 90 days after the
- *          stack has been deleted.</p>
+ * @public
+ * <p>Returns the template body for a specified stack. You can get the template for running or deleted stacks.</p>
+ *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days after the stack has been
+ *    deleted.</p>
  *          <note>
- *             <p>If the template does not exist, a <code>ValidationError</code> is returned.</p>
+ *             <p>If the template doesn't exist, a <code>ValidationError</code> is returned.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +48,34 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * import { CloudFormationClient, GetTemplateCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetTemplateCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // GetTemplateInput
+ *   StackName: "STRING_VALUE",
+ *   ChangeSetName: "STRING_VALUE",
+ *   TemplateStage: "Original" || "Processed",
+ * };
  * const command = new GetTemplateCommand(input);
  * const response = await client.send(command);
+ * // { // GetTemplateOutput
+ * //   TemplateBody: "STRING_VALUE",
+ * //   StagesAvailable: [ // StageList
+ * //     "Original" || "Processed",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
+ * @returns {@link GetTemplateCommandOutput}
  * @see {@link GetTemplateCommandInput} for command's `input` shape.
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link ChangeSetNotFoundException} (client fault)
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
+ *     <code>ListChangeSets</code> operation.</p>
+ *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class GetTemplateCommand extends $Command<
@@ -49,6 +86,18 @@ export class GetTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetTemplateCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +113,7 @@ export class GetTemplateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetTemplateCommandInput, GetTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetTemplateCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +124,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +135,18 @@ export class GetTemplateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryGetTemplateCommand(input, context);
+    return se_GetTemplateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTemplateCommandOutput> {
-    return deserializeAws_queryGetTemplateCommand(output, context);
+    return de_GetTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

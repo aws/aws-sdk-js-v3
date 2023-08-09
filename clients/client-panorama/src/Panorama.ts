@@ -1,4 +1,6 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   CreateApplicationInstanceCommand,
@@ -142,6 +144,11 @@ import {
   RemoveApplicationInstanceCommandInput,
   RemoveApplicationInstanceCommandOutput,
 } from "./commands/RemoveApplicationInstanceCommand";
+import {
+  SignalApplicationInstanceNodeInstancesCommand,
+  SignalApplicationInstanceNodeInstancesCommandInput,
+  SignalApplicationInstanceNodeInstancesCommandOutput,
+} from "./commands/SignalApplicationInstanceNodeInstancesCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -153,1046 +160,567 @@ import {
   UpdateDeviceMetadataCommandInput,
   UpdateDeviceMetadataCommandOutput,
 } from "./commands/UpdateDeviceMetadataCommand";
-import { PanoramaClient } from "./PanoramaClient";
+import { PanoramaClient, PanoramaClientConfig } from "./PanoramaClient";
 
-/**
- * <fullname>AWS Panorama</fullname>
- *          <p>
- *             <b>Overview</b>
- *          </p>
- *          <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see
- *            <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a>
- *            in the <i>AWS Panorama Developer Guide</i>.</p>
- */
-export class Panorama extends PanoramaClient {
+const commands = {
+  CreateApplicationInstanceCommand,
+  CreateJobForDevicesCommand,
+  CreateNodeFromTemplateJobCommand,
+  CreatePackageCommand,
+  CreatePackageImportJobCommand,
+  DeleteDeviceCommand,
+  DeletePackageCommand,
+  DeregisterPackageVersionCommand,
+  DescribeApplicationInstanceCommand,
+  DescribeApplicationInstanceDetailsCommand,
+  DescribeDeviceCommand,
+  DescribeDeviceJobCommand,
+  DescribeNodeCommand,
+  DescribeNodeFromTemplateJobCommand,
+  DescribePackageCommand,
+  DescribePackageImportJobCommand,
+  DescribePackageVersionCommand,
+  ListApplicationInstanceDependenciesCommand,
+  ListApplicationInstanceNodeInstancesCommand,
+  ListApplicationInstancesCommand,
+  ListDevicesCommand,
+  ListDevicesJobsCommand,
+  ListNodeFromTemplateJobsCommand,
+  ListNodesCommand,
+  ListPackageImportJobsCommand,
+  ListPackagesCommand,
+  ListTagsForResourceCommand,
+  ProvisionDeviceCommand,
+  RegisterPackageVersionCommand,
+  RemoveApplicationInstanceCommand,
+  SignalApplicationInstanceNodeInstancesCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateDeviceMetadataCommand,
+};
+
+export interface Panorama {
   /**
-   * <p>Creates an application instance and deploys it to a device.</p>
+   * @see {@link CreateApplicationInstanceCommand}
    */
-  public createApplicationInstance(
+  createApplicationInstance(
     args: CreateApplicationInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateApplicationInstanceCommandOutput>;
-  public createApplicationInstance(
+  createApplicationInstance(
     args: CreateApplicationInstanceCommandInput,
     cb: (err: any, data?: CreateApplicationInstanceCommandOutput) => void
   ): void;
-  public createApplicationInstance(
+  createApplicationInstance(
     args: CreateApplicationInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApplicationInstanceCommandOutput) => void
   ): void;
-  public createApplicationInstance(
-    args: CreateApplicationInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationInstanceCommandOutput) => void),
-    cb?: (err: any, data?: CreateApplicationInstanceCommandOutput) => void
-  ): Promise<CreateApplicationInstanceCommandOutput> | void {
-    const command = new CreateApplicationInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a job to run on one or more devices.</p>
+   * @see {@link CreateJobForDevicesCommand}
    */
-  public createJobForDevices(
+  createJobForDevices(
     args: CreateJobForDevicesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateJobForDevicesCommandOutput>;
-  public createJobForDevices(
+  createJobForDevices(
     args: CreateJobForDevicesCommandInput,
     cb: (err: any, data?: CreateJobForDevicesCommandOutput) => void
   ): void;
-  public createJobForDevices(
+  createJobForDevices(
     args: CreateJobForDevicesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateJobForDevicesCommandOutput) => void
   ): void;
-  public createJobForDevices(
-    args: CreateJobForDevicesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobForDevicesCommandOutput) => void),
-    cb?: (err: any, data?: CreateJobForDevicesCommandOutput) => void
-  ): Promise<CreateJobForDevicesCommandOutput> | void {
-    const command = new CreateJobForDevicesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a camera stream node.</p>
+   * @see {@link CreateNodeFromTemplateJobCommand}
    */
-  public createNodeFromTemplateJob(
+  createNodeFromTemplateJob(
     args: CreateNodeFromTemplateJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateNodeFromTemplateJobCommandOutput>;
-  public createNodeFromTemplateJob(
+  createNodeFromTemplateJob(
     args: CreateNodeFromTemplateJobCommandInput,
     cb: (err: any, data?: CreateNodeFromTemplateJobCommandOutput) => void
   ): void;
-  public createNodeFromTemplateJob(
+  createNodeFromTemplateJob(
     args: CreateNodeFromTemplateJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateNodeFromTemplateJobCommandOutput) => void
   ): void;
-  public createNodeFromTemplateJob(
-    args: CreateNodeFromTemplateJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNodeFromTemplateJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateNodeFromTemplateJobCommandOutput) => void
-  ): Promise<CreateNodeFromTemplateJobCommandOutput> | void {
-    const command = new CreateNodeFromTemplateJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a package and storage location in an Amazon S3 access point.</p>
+   * @see {@link CreatePackageCommand}
    */
-  public createPackage(
-    args: CreatePackageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePackageCommandOutput>;
-  public createPackage(
-    args: CreatePackageCommandInput,
-    cb: (err: any, data?: CreatePackageCommandOutput) => void
-  ): void;
-  public createPackage(
+  createPackage(args: CreatePackageCommandInput, options?: __HttpHandlerOptions): Promise<CreatePackageCommandOutput>;
+  createPackage(args: CreatePackageCommandInput, cb: (err: any, data?: CreatePackageCommandOutput) => void): void;
+  createPackage(
     args: CreatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePackageCommandOutput) => void
   ): void;
-  public createPackage(
-    args: CreatePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePackageCommandOutput) => void),
-    cb?: (err: any, data?: CreatePackageCommandOutput) => void
-  ): Promise<CreatePackageCommandOutput> | void {
-    const command = new CreatePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Imports a node package.</p>
+   * @see {@link CreatePackageImportJobCommand}
    */
-  public createPackageImportJob(
+  createPackageImportJob(
     args: CreatePackageImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreatePackageImportJobCommandOutput>;
-  public createPackageImportJob(
+  createPackageImportJob(
     args: CreatePackageImportJobCommandInput,
     cb: (err: any, data?: CreatePackageImportJobCommandOutput) => void
   ): void;
-  public createPackageImportJob(
+  createPackageImportJob(
     args: CreatePackageImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePackageImportJobCommandOutput) => void
   ): void;
-  public createPackageImportJob(
-    args: CreatePackageImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePackageImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CreatePackageImportJobCommandOutput) => void
-  ): Promise<CreatePackageImportJobCommandOutput> | void {
-    const command = new CreatePackageImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a device.</p>
+   * @see {@link DeleteDeviceCommand}
    */
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDeviceCommandOutput>;
-  public deleteDevice(args: DeleteDeviceCommandInput, cb: (err: any, data?: DeleteDeviceCommandOutput) => void): void;
-  public deleteDevice(
+  deleteDevice(args: DeleteDeviceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDeviceCommandOutput>;
+  deleteDevice(args: DeleteDeviceCommandInput, cb: (err: any, data?: DeleteDeviceCommandOutput) => void): void;
+  deleteDevice(
     args: DeleteDeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): void;
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeviceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
-  ): Promise<DeleteDeviceCommandOutput> | void {
-    const command = new DeleteDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a package.</p>
+   * @see {@link DeletePackageCommand}
    */
-  public deletePackage(
-    args: DeletePackageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePackageCommandOutput>;
-  public deletePackage(
-    args: DeletePackageCommandInput,
-    cb: (err: any, data?: DeletePackageCommandOutput) => void
-  ): void;
-  public deletePackage(
+  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
+  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
     args: DeletePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePackageCommandOutput) => void
   ): void;
-  public deletePackage(
-    args: DeletePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackageCommandOutput) => void),
-    cb?: (err: any, data?: DeletePackageCommandOutput) => void
-  ): Promise<DeletePackageCommandOutput> | void {
-    const command = new DeletePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deregisters a package version.</p>
+   * @see {@link DeregisterPackageVersionCommand}
    */
-  public deregisterPackageVersion(
+  deregisterPackageVersion(
     args: DeregisterPackageVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeregisterPackageVersionCommandOutput>;
-  public deregisterPackageVersion(
+  deregisterPackageVersion(
     args: DeregisterPackageVersionCommandInput,
     cb: (err: any, data?: DeregisterPackageVersionCommandOutput) => void
   ): void;
-  public deregisterPackageVersion(
+  deregisterPackageVersion(
     args: DeregisterPackageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeregisterPackageVersionCommandOutput) => void
   ): void;
-  public deregisterPackageVersion(
-    args: DeregisterPackageVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterPackageVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterPackageVersionCommandOutput) => void
-  ): Promise<DeregisterPackageVersionCommandOutput> | void {
-    const command = new DeregisterPackageVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about an application instance on a device.</p>
+   * @see {@link DescribeApplicationInstanceCommand}
    */
-  public describeApplicationInstance(
+  describeApplicationInstance(
     args: DescribeApplicationInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeApplicationInstanceCommandOutput>;
-  public describeApplicationInstance(
+  describeApplicationInstance(
     args: DescribeApplicationInstanceCommandInput,
     cb: (err: any, data?: DescribeApplicationInstanceCommandOutput) => void
   ): void;
-  public describeApplicationInstance(
+  describeApplicationInstance(
     args: DescribeApplicationInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeApplicationInstanceCommandOutput) => void
   ): void;
-  public describeApplicationInstance(
-    args: DescribeApplicationInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DescribeApplicationInstanceCommandOutput) => void
-  ): Promise<DescribeApplicationInstanceCommandOutput> | void {
-    const command = new DescribeApplicationInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about an application instance's configuration manifest.</p>
+   * @see {@link DescribeApplicationInstanceDetailsCommand}
    */
-  public describeApplicationInstanceDetails(
+  describeApplicationInstanceDetails(
     args: DescribeApplicationInstanceDetailsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeApplicationInstanceDetailsCommandOutput>;
-  public describeApplicationInstanceDetails(
+  describeApplicationInstanceDetails(
     args: DescribeApplicationInstanceDetailsCommandInput,
     cb: (err: any, data?: DescribeApplicationInstanceDetailsCommandOutput) => void
   ): void;
-  public describeApplicationInstanceDetails(
+  describeApplicationInstanceDetails(
     args: DescribeApplicationInstanceDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeApplicationInstanceDetailsCommandOutput) => void
   ): void;
-  public describeApplicationInstanceDetails(
-    args: DescribeApplicationInstanceDetailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationInstanceDetailsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeApplicationInstanceDetailsCommandOutput) => void
-  ): Promise<DescribeApplicationInstanceDetailsCommandOutput> | void {
-    const command = new DescribeApplicationInstanceDetailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a device.</p>
+   * @see {@link DescribeDeviceCommand}
    */
-  public describeDevice(
+  describeDevice(
     args: DescribeDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDeviceCommandOutput>;
-  public describeDevice(
-    args: DescribeDeviceCommandInput,
-    cb: (err: any, data?: DescribeDeviceCommandOutput) => void
-  ): void;
-  public describeDevice(
+  describeDevice(args: DescribeDeviceCommandInput, cb: (err: any, data?: DescribeDeviceCommandOutput) => void): void;
+  describeDevice(
     args: DescribeDeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDeviceCommandOutput) => void
   ): void;
-  public describeDevice(
-    args: DescribeDeviceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDeviceCommandOutput) => void
-  ): Promise<DescribeDeviceCommandOutput> | void {
-    const command = new DescribeDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a device job.</p>
+   * @see {@link DescribeDeviceJobCommand}
    */
-  public describeDeviceJob(
+  describeDeviceJob(
     args: DescribeDeviceJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDeviceJobCommandOutput>;
-  public describeDeviceJob(
+  describeDeviceJob(
     args: DescribeDeviceJobCommandInput,
     cb: (err: any, data?: DescribeDeviceJobCommandOutput) => void
   ): void;
-  public describeDeviceJob(
+  describeDeviceJob(
     args: DescribeDeviceJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDeviceJobCommandOutput) => void
   ): void;
-  public describeDeviceJob(
-    args: DescribeDeviceJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDeviceJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDeviceJobCommandOutput) => void
-  ): Promise<DescribeDeviceJobCommandOutput> | void {
-    const command = new DescribeDeviceJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a node.</p>
+   * @see {@link DescribeNodeCommand}
    */
-  public describeNode(
-    args: DescribeNodeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeNodeCommandOutput>;
-  public describeNode(args: DescribeNodeCommandInput, cb: (err: any, data?: DescribeNodeCommandOutput) => void): void;
-  public describeNode(
+  describeNode(args: DescribeNodeCommandInput, options?: __HttpHandlerOptions): Promise<DescribeNodeCommandOutput>;
+  describeNode(args: DescribeNodeCommandInput, cb: (err: any, data?: DescribeNodeCommandOutput) => void): void;
+  describeNode(
     args: DescribeNodeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeNodeCommandOutput) => void
   ): void;
-  public describeNode(
-    args: DescribeNodeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNodeCommandOutput) => void),
-    cb?: (err: any, data?: DescribeNodeCommandOutput) => void
-  ): Promise<DescribeNodeCommandOutput> | void {
-    const command = new DescribeNodeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a job to create a camera stream node.</p>
+   * @see {@link DescribeNodeFromTemplateJobCommand}
    */
-  public describeNodeFromTemplateJob(
+  describeNodeFromTemplateJob(
     args: DescribeNodeFromTemplateJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeNodeFromTemplateJobCommandOutput>;
-  public describeNodeFromTemplateJob(
+  describeNodeFromTemplateJob(
     args: DescribeNodeFromTemplateJobCommandInput,
     cb: (err: any, data?: DescribeNodeFromTemplateJobCommandOutput) => void
   ): void;
-  public describeNodeFromTemplateJob(
+  describeNodeFromTemplateJob(
     args: DescribeNodeFromTemplateJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeNodeFromTemplateJobCommandOutput) => void
   ): void;
-  public describeNodeFromTemplateJob(
-    args: DescribeNodeFromTemplateJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNodeFromTemplateJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeNodeFromTemplateJobCommandOutput) => void
-  ): Promise<DescribeNodeFromTemplateJobCommandOutput> | void {
-    const command = new DescribeNodeFromTemplateJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a package.</p>
+   * @see {@link DescribePackageCommand}
    */
-  public describePackage(
+  describePackage(
     args: DescribePackageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePackageCommandOutput>;
-  public describePackage(
-    args: DescribePackageCommandInput,
-    cb: (err: any, data?: DescribePackageCommandOutput) => void
-  ): void;
-  public describePackage(
+  describePackage(args: DescribePackageCommandInput, cb: (err: any, data?: DescribePackageCommandOutput) => void): void;
+  describePackage(
     args: DescribePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePackageCommandOutput) => void
   ): void;
-  public describePackage(
-    args: DescribePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackageCommandOutput) => void),
-    cb?: (err: any, data?: DescribePackageCommandOutput) => void
-  ): Promise<DescribePackageCommandOutput> | void {
-    const command = new DescribePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a package import job.</p>
+   * @see {@link DescribePackageImportJobCommand}
    */
-  public describePackageImportJob(
+  describePackageImportJob(
     args: DescribePackageImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePackageImportJobCommandOutput>;
-  public describePackageImportJob(
+  describePackageImportJob(
     args: DescribePackageImportJobCommandInput,
     cb: (err: any, data?: DescribePackageImportJobCommandOutput) => void
   ): void;
-  public describePackageImportJob(
+  describePackageImportJob(
     args: DescribePackageImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePackageImportJobCommandOutput) => void
   ): void;
-  public describePackageImportJob(
-    args: DescribePackageImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackageImportJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribePackageImportJobCommandOutput) => void
-  ): Promise<DescribePackageImportJobCommandOutput> | void {
-    const command = new DescribePackageImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about a package version.</p>
+   * @see {@link DescribePackageVersionCommand}
    */
-  public describePackageVersion(
+  describePackageVersion(
     args: DescribePackageVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePackageVersionCommandOutput>;
-  public describePackageVersion(
+  describePackageVersion(
     args: DescribePackageVersionCommandInput,
     cb: (err: any, data?: DescribePackageVersionCommandOutput) => void
   ): void;
-  public describePackageVersion(
+  describePackageVersion(
     args: DescribePackageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePackageVersionCommandOutput) => void
   ): void;
-  public describePackageVersion(
-    args: DescribePackageVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackageVersionCommandOutput) => void),
-    cb?: (err: any, data?: DescribePackageVersionCommandOutput) => void
-  ): Promise<DescribePackageVersionCommandOutput> | void {
-    const command = new DescribePackageVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of application instance dependencies.</p>
+   * @see {@link ListApplicationInstanceDependenciesCommand}
    */
-  public listApplicationInstanceDependencies(
+  listApplicationInstanceDependencies(
     args: ListApplicationInstanceDependenciesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListApplicationInstanceDependenciesCommandOutput>;
-  public listApplicationInstanceDependencies(
+  listApplicationInstanceDependencies(
     args: ListApplicationInstanceDependenciesCommandInput,
     cb: (err: any, data?: ListApplicationInstanceDependenciesCommandOutput) => void
   ): void;
-  public listApplicationInstanceDependencies(
+  listApplicationInstanceDependencies(
     args: ListApplicationInstanceDependenciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationInstanceDependenciesCommandOutput) => void
   ): void;
-  public listApplicationInstanceDependencies(
-    args: ListApplicationInstanceDependenciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationInstanceDependenciesCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationInstanceDependenciesCommandOutput) => void
-  ): Promise<ListApplicationInstanceDependenciesCommandOutput> | void {
-    const command = new ListApplicationInstanceDependenciesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of application node instances.</p>
+   * @see {@link ListApplicationInstanceNodeInstancesCommand}
    */
-  public listApplicationInstanceNodeInstances(
+  listApplicationInstanceNodeInstances(
     args: ListApplicationInstanceNodeInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListApplicationInstanceNodeInstancesCommandOutput>;
-  public listApplicationInstanceNodeInstances(
+  listApplicationInstanceNodeInstances(
     args: ListApplicationInstanceNodeInstancesCommandInput,
     cb: (err: any, data?: ListApplicationInstanceNodeInstancesCommandOutput) => void
   ): void;
-  public listApplicationInstanceNodeInstances(
+  listApplicationInstanceNodeInstances(
     args: ListApplicationInstanceNodeInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationInstanceNodeInstancesCommandOutput) => void
   ): void;
-  public listApplicationInstanceNodeInstances(
-    args: ListApplicationInstanceNodeInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationInstanceNodeInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationInstanceNodeInstancesCommandOutput) => void
-  ): Promise<ListApplicationInstanceNodeInstancesCommandOutput> | void {
-    const command = new ListApplicationInstanceNodeInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of application instances.</p>
+   * @see {@link ListApplicationInstancesCommand}
    */
-  public listApplicationInstances(
+  listApplicationInstances(
     args: ListApplicationInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListApplicationInstancesCommandOutput>;
-  public listApplicationInstances(
+  listApplicationInstances(
     args: ListApplicationInstancesCommandInput,
     cb: (err: any, data?: ListApplicationInstancesCommandOutput) => void
   ): void;
-  public listApplicationInstances(
+  listApplicationInstances(
     args: ListApplicationInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationInstancesCommandOutput) => void
   ): void;
-  public listApplicationInstances(
-    args: ListApplicationInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListApplicationInstancesCommandOutput) => void
-  ): Promise<ListApplicationInstancesCommandOutput> | void {
-    const command = new ListApplicationInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of devices.</p>
+   * @see {@link ListDevicesCommand}
    */
-  public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
-  public listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
-  public listDevices(
+  listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
+  listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
+  listDevices(
     args: ListDevicesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDevicesCommandOutput) => void
   ): void;
-  public listDevices(
-    args: ListDevicesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesCommandOutput) => void),
-    cb?: (err: any, data?: ListDevicesCommandOutput) => void
-  ): Promise<ListDevicesCommandOutput> | void {
-    const command = new ListDevicesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of jobs.</p>
+   * @see {@link ListDevicesJobsCommand}
    */
-  public listDevicesJobs(
+  listDevicesJobs(
     args: ListDevicesJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDevicesJobsCommandOutput>;
-  public listDevicesJobs(
-    args: ListDevicesJobsCommandInput,
-    cb: (err: any, data?: ListDevicesJobsCommandOutput) => void
-  ): void;
-  public listDevicesJobs(
+  listDevicesJobs(args: ListDevicesJobsCommandInput, cb: (err: any, data?: ListDevicesJobsCommandOutput) => void): void;
+  listDevicesJobs(
     args: ListDevicesJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDevicesJobsCommandOutput) => void
   ): void;
-  public listDevicesJobs(
-    args: ListDevicesJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicesJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListDevicesJobsCommandOutput) => void
-  ): Promise<ListDevicesJobsCommandOutput> | void {
-    const command = new ListDevicesJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of camera stream node jobs.</p>
+   * @see {@link ListNodeFromTemplateJobsCommand}
    */
-  public listNodeFromTemplateJobs(
+  listNodeFromTemplateJobs(
     args: ListNodeFromTemplateJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListNodeFromTemplateJobsCommandOutput>;
-  public listNodeFromTemplateJobs(
+  listNodeFromTemplateJobs(
     args: ListNodeFromTemplateJobsCommandInput,
     cb: (err: any, data?: ListNodeFromTemplateJobsCommandOutput) => void
   ): void;
-  public listNodeFromTemplateJobs(
+  listNodeFromTemplateJobs(
     args: ListNodeFromTemplateJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNodeFromTemplateJobsCommandOutput) => void
   ): void;
-  public listNodeFromTemplateJobs(
-    args: ListNodeFromTemplateJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNodeFromTemplateJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListNodeFromTemplateJobsCommandOutput) => void
-  ): Promise<ListNodeFromTemplateJobsCommandOutput> | void {
-    const command = new ListNodeFromTemplateJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of nodes.</p>
+   * @see {@link ListNodesCommand}
    */
-  public listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
-  public listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
-  public listNodes(
+  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
+  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
     args: ListNodesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListNodesCommandOutput) => void
   ): void;
-  public listNodes(
-    args: ListNodesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNodesCommandOutput) => void),
-    cb?: (err: any, data?: ListNodesCommandOutput) => void
-  ): Promise<ListNodesCommandOutput> | void {
-    const command = new ListNodesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of package import jobs.</p>
+   * @see {@link ListPackageImportJobsCommand}
    */
-  public listPackageImportJobs(
+  listPackageImportJobs(
     args: ListPackageImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPackageImportJobsCommandOutput>;
-  public listPackageImportJobs(
+  listPackageImportJobs(
     args: ListPackageImportJobsCommandInput,
     cb: (err: any, data?: ListPackageImportJobsCommandOutput) => void
   ): void;
-  public listPackageImportJobs(
+  listPackageImportJobs(
     args: ListPackageImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPackageImportJobsCommandOutput) => void
   ): void;
-  public listPackageImportJobs(
-    args: ListPackageImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPackageImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListPackageImportJobsCommandOutput) => void
-  ): Promise<ListPackageImportJobsCommandOutput> | void {
-    const command = new ListPackageImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of packages.</p>
+   * @see {@link ListPackagesCommand}
    */
-  public listPackages(
-    args: ListPackagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPackagesCommandOutput>;
-  public listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
-  public listPackages(
+  listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
+  listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
+  listPackages(
     args: ListPackagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPackagesCommandOutput) => void
   ): void;
-  public listPackages(
-    args: ListPackagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPackagesCommandOutput) => void),
-    cb?: (err: any, data?: ListPackagesCommandOutput) => void
-  ): Promise<ListPackagesCommandOutput> | void {
-    const command = new ListPackagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of tags for a resource.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a device and returns a configuration archive. The configuration
-   *         archive is a ZIP file that contains a provisioning certificate that is valid for 5 minutes.
-   *         Transfer the configuration archive to the device with the included USB storage device within 5 minutes.</p>
+   * @see {@link ProvisionDeviceCommand}
    */
-  public provisionDevice(
+  provisionDevice(
     args: ProvisionDeviceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ProvisionDeviceCommandOutput>;
-  public provisionDevice(
-    args: ProvisionDeviceCommandInput,
-    cb: (err: any, data?: ProvisionDeviceCommandOutput) => void
-  ): void;
-  public provisionDevice(
+  provisionDevice(args: ProvisionDeviceCommandInput, cb: (err: any, data?: ProvisionDeviceCommandOutput) => void): void;
+  provisionDevice(
     args: ProvisionDeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvisionDeviceCommandOutput) => void
   ): void;
-  public provisionDevice(
-    args: ProvisionDeviceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvisionDeviceCommandOutput) => void),
-    cb?: (err: any, data?: ProvisionDeviceCommandOutput) => void
-  ): Promise<ProvisionDeviceCommandOutput> | void {
-    const command = new ProvisionDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Registers a package version.</p>
+   * @see {@link RegisterPackageVersionCommand}
    */
-  public registerPackageVersion(
+  registerPackageVersion(
     args: RegisterPackageVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterPackageVersionCommandOutput>;
-  public registerPackageVersion(
+  registerPackageVersion(
     args: RegisterPackageVersionCommandInput,
     cb: (err: any, data?: RegisterPackageVersionCommandOutput) => void
   ): void;
-  public registerPackageVersion(
+  registerPackageVersion(
     args: RegisterPackageVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterPackageVersionCommandOutput) => void
   ): void;
-  public registerPackageVersion(
-    args: RegisterPackageVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterPackageVersionCommandOutput) => void),
-    cb?: (err: any, data?: RegisterPackageVersionCommandOutput) => void
-  ): Promise<RegisterPackageVersionCommandOutput> | void {
-    const command = new RegisterPackageVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes an application instance.</p>
+   * @see {@link RemoveApplicationInstanceCommand}
    */
-  public removeApplicationInstance(
+  removeApplicationInstance(
     args: RemoveApplicationInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RemoveApplicationInstanceCommandOutput>;
-  public removeApplicationInstance(
+  removeApplicationInstance(
     args: RemoveApplicationInstanceCommandInput,
     cb: (err: any, data?: RemoveApplicationInstanceCommandOutput) => void
   ): void;
-  public removeApplicationInstance(
+  removeApplicationInstance(
     args: RemoveApplicationInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemoveApplicationInstanceCommandOutput) => void
   ): void;
-  public removeApplicationInstance(
-    args: RemoveApplicationInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveApplicationInstanceCommandOutput) => void),
-    cb?: (err: any, data?: RemoveApplicationInstanceCommandOutput) => void
-  ): Promise<RemoveApplicationInstanceCommandOutput> | void {
-    const command = new RemoveApplicationInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Tags a resource.</p>
+   * @see {@link SignalApplicationInstanceNodeInstancesCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SignalApplicationInstanceNodeInstancesCommandOutput>;
+  signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    cb: (err: any, data?: SignalApplicationInstanceNodeInstancesCommandOutput) => void
+  ): void;
+  signalApplicationInstanceNodeInstances(
+    args: SignalApplicationInstanceNodeInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SignalApplicationInstanceNodeInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes tags from a resource.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a device's metadata.</p>
+   * @see {@link UpdateDeviceMetadataCommand}
    */
-  public updateDeviceMetadata(
+  updateDeviceMetadata(
     args: UpdateDeviceMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDeviceMetadataCommandOutput>;
-  public updateDeviceMetadata(
+  updateDeviceMetadata(
     args: UpdateDeviceMetadataCommandInput,
     cb: (err: any, data?: UpdateDeviceMetadataCommandOutput) => void
   ): void;
-  public updateDeviceMetadata(
+  updateDeviceMetadata(
     args: UpdateDeviceMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDeviceMetadataCommandOutput) => void
   ): void;
-  public updateDeviceMetadata(
-    args: UpdateDeviceMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeviceMetadataCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDeviceMetadataCommandOutput) => void
-  ): Promise<UpdateDeviceMetadataCommandOutput> | void {
-    const command = new UpdateDeviceMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <fullname>AWS Panorama</fullname>
+ *          <p>
+ *             <b>Overview</b>
+ *          </p>
+ *          <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the
+ *         <i>AWS Panorama Developer Guide</i>.</p>
+ */
+export class Panorama extends PanoramaClient implements Panorama {}
+createAggregatedClient(commands, Panorama);

@@ -41,8 +41,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see QueryMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
- * @see <a href="https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait">Smithy EC2 Query Name trait.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/aws/protocols/aws-ec2-query-protocol.html#aws-protocols-ec2queryname-trait">Smithy EC2 Query Name trait.</a>
  */
 @SmithyInternalApi
 final class AwsEc2 extends HttpRpcProtocolGenerator {
@@ -85,6 +85,7 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
+        AwsProtocolUtils.generateXmlParseErrorBody(context);
         AwsProtocolUtils.generateBuildFormUrlencodedString(context);
         AwsProtocolUtils.addItempotencyAutofillImport(context);
 
@@ -96,18 +97,16 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
         writer.openBlock("const loadEc2ErrorCode = (\n"
                        + "  output: $T,\n"
                        + "  data: any\n"
-                       + "): string => {", "};", responseType, () -> {
+                       + "): string | undefined => {", "};", responseType, () -> {
             // Attempt to fetch the error code from the specific location.
-            String errorCodeLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeLocation, () -> {
-                writer.write("return $L;", errorCodeLocation);
+            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
+            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
+            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
+                writer.write("return $L;", errorCodeAccessLocation);
             });
 
             // Default a 404 status code to the NotFound code.
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-
-            // Default to an empty error code so an unmodeled exception is built.
-            writer.write("return '';");
         });
         writer.write("");
     }
@@ -118,9 +117,16 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
-        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+    protected void writeRequestHeaders(GenerationContext context, OperationShape operation) {
+        TypeScriptWriter writer = context.getWriter();
+        if (AwsProtocolUtils.includeUnsignedPayloadSigV4Header(operation)) {
+            writer.openBlock("const headers: __HeaderBag = { ", " }", () -> {
+                AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+                writer.write("...SHARED_HEADERS");
+            });
+        } else {
+            writer.write("const headers: __HeaderBag = SHARED_HEADERS;");
+        }
     }
 
     @Override
@@ -153,7 +159,7 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         // Outsource error code parsing since it's complex for this protocol.
-        writer.write("errorCode = loadEc2ErrorCode(output, parsedOutput.body);");
+        writer.write("const errorCode = loadEc2ErrorCode(output, parsedOutput.body);");
     }
 
     @Override

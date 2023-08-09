@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Transcribe } from "../Transcribe";
 import { TranscribeClient } from "../TranscribeClient";
 
+/**
+ * @public
+ */
 export interface TranscribePaginationConfiguration extends PaginationConfiguration {
-  client: Transcribe | TranscribeClient;
+  client: TranscribeClient;
 }

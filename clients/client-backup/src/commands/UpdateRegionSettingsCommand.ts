@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { UpdateRegionSettingsInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateRegionSettingsCommand,
-  serializeAws_restJson1UpdateRegionSettingsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateRegionSettingsCommand, se_UpdateRegionSettingsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateRegionSettingsCommand}.
+ */
 export interface UpdateRegionSettingsCommandInput extends UpdateRegionSettingsInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateRegionSettingsCommand}.
+ */
 export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
  *          for a service, Backup tries to protect that service's resources in this Region,
  *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
@@ -34,13 +48,38 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * import { BackupClient, UpdateRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // UpdateRegionSettingsInput
+ *   ResourceTypeOptInPreference: { // ResourceTypeOptInPreference
+ *     "<keys>": true || false,
+ *   },
+ *   ResourceTypeManagementPreference: { // ResourceTypeManagementPreference
+ *     "<keys>": true || false,
+ *   },
+ * };
  * const command = new UpdateRegionSettingsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateRegionSettingsCommandInput - {@link UpdateRegionSettingsCommandInput}
+ * @returns {@link UpdateRegionSettingsCommandOutput}
  * @see {@link UpdateRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateRegionSettingsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class UpdateRegionSettingsCommand extends $Command<
@@ -51,6 +90,18 @@ export class UpdateRegionSettingsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateRegionSettingsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +117,9 @@ export class UpdateRegionSettingsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateRegionSettingsCommandInput, UpdateRegionSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateRegionSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +130,8 @@ export class UpdateRegionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegionSettingsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +141,18 @@ export class UpdateRegionSettingsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateRegionSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateRegionSettingsCommand(input, context);
+    return se_UpdateRegionSettingsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegionSettingsCommandOutput> {
-    return deserializeAws_restJson1UpdateRegionSettingsCommand(output, context);
+    return de_UpdateRegionSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

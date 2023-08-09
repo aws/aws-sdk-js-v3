@@ -6,8 +6,9 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
-import { toHex } from "@aws-sdk/util-hex-encoding";
+} from "@smithy/types";
+import { toHex } from "@smithy/util-hex-encoding";
+import { toUint8Array } from "@smithy/util-utf8";
 
 import { PreviouslyResolved } from "./configurations";
 
@@ -31,7 +32,7 @@ export function receiveMessageMiddleware(options: PreviouslyResolved): Initializ
         for (const message of output.Messages) {
           const md5 = message.MD5OfBody;
           const hash = new options.md5();
-          hash.update(message.Body || "");
+          hash.update(toUint8Array(message.Body || ""));
           if (md5 !== toHex(await hash.digest())) {
             messageIds.push(message.MessageId);
           }

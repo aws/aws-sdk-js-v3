@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateMyUserProfileRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateMyUserProfileCommand,
-  serializeAws_json1_1UpdateMyUserProfileCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMyUserProfileCommand, se_UpdateMyUserProfileCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateMyUserProfileCommand}.
+ */
 export interface UpdateMyUserProfileCommandInput extends UpdateMyUserProfileRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMyUserProfileCommand}.
+ */
 export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a user's SSH public key.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
@@ -34,13 +48,26 @@ export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateMyUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateMyUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateMyUserProfileRequest
+ *   SshPublicKey: "STRING_VALUE",
+ * };
  * const command = new UpdateMyUserProfileCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateMyUserProfileCommandInput - {@link UpdateMyUserProfileCommandInput}
+ * @returns {@link UpdateMyUserProfileCommandOutput}
  * @see {@link UpdateMyUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateMyUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateMyUserProfileCommand extends $Command<
@@ -51,6 +78,18 @@ export class UpdateMyUserProfileCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMyUserProfileCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +105,9 @@ export class UpdateMyUserProfileCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateMyUserProfileCommandInput, UpdateMyUserProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateMyUserProfileCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +118,8 @@ export class UpdateMyUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMyUserProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +129,18 @@ export class UpdateMyUserProfileCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMyUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMyUserProfileCommand(input, context);
+    return se_UpdateMyUserProfileCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMyUserProfileCommandOutput> {
-    return deserializeAws_json1_1UpdateMyUserProfileCommand(output, context);
+    return de_UpdateMyUserProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

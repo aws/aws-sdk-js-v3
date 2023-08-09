@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse } from "../models/models_0";
-import {
-  deserializeAws_querySetActiveReceiptRuleSetCommand,
-  serializeAws_querySetActiveReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { de_SetActiveReceiptRuleSetCommand, se_SetActiveReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SetActiveReceiptRuleSetCommand}.
+ */
 export interface SetActiveReceiptRuleSetCommandInput extends SetActiveReceiptRuleSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetActiveReceiptRuleSetCommand}.
+ */
 export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
  *         <note>
  *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
@@ -35,13 +49,37 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * import { SESClient, SetActiveReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetActiveReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetActiveReceiptRuleSetRequest
+ *   RuleSetName: "STRING_VALUE",
+ * };
  * const command = new SetActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SetActiveReceiptRuleSetCommandInput - {@link SetActiveReceiptRuleSetCommandInput}
+ * @returns {@link SetActiveReceiptRuleSetCommandOutput}
  * @see {@link SetActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example SetActiveReceiptRuleSet
+ * ```javascript
+ * // The following example sets the active receipt rule set:
+ * const input = {
+ *   "RuleSetName": "RuleSetToActivate"
+ * };
+ * const command = new SetActiveReceiptRuleSetCommand(input);
+ * await client.send(command);
+ * // example id: setactivereceiptruleset-1469058391329
+ * ```
  *
  */
 export class SetActiveReceiptRuleSetCommand extends $Command<
@@ -52,6 +90,18 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SetActiveReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +117,9 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SetActiveReceiptRuleSetCommandInput, SetActiveReceiptRuleSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SetActiveReceiptRuleSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +130,8 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetActiveReceiptRuleSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetActiveReceiptRuleSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +141,18 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetActiveReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_querySetActiveReceiptRuleSetCommand(input, context);
+    return se_SetActiveReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetActiveReceiptRuleSetCommandOutput> {
-    return deserializeAws_querySetActiveReceiptRuleSetCommand(output, context);
+    return de_SetActiveReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

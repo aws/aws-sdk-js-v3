@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,43 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { TagResourceRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1TagResourceCommand,
-  serializeAws_json1_1TagResourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandInput extends TagResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TagResourceCommand}.
+ */
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Attaches one or more tags, each consisting of a key name and a value, to the specified
- *       secret. Tags are part of the secret's overall metadata, and are not associated with any
- *       specific version of the secret. This operation only appends tags to the existing list of tags.
- *       To remove tags, you must use <a>UntagResource</a>.</p>
- *          <p>The following basic restrictions apply to tags:</p>
- *         <ul>
+ * @public
+ * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
+ *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
+ *          <p>The following restrictions apply to tags:</p>
+ *          <ul>
  *             <li>
- *                <p>Maximum number of tags per secret—50</p>
+ *                <p>Maximum number of tags per secret: 50</p>
  *             </li>
  *             <li>
- *                <p>Maximum key length—127 Unicode characters in UTF-8</p>
+ *                <p>Maximum key length: 127 Unicode characters in UTF-8</p>
  *             </li>
  *             <li>
- *                <p>Maximum value length—255 Unicode characters in UTF-8</p>
+ *                <p>Maximum value length: 255 Unicode characters in UTF-8</p>
  *             </li>
  *             <li>
  *                <p>Tag keys and values are case sensitive.</p>
@@ -47,7 +59,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>If you use your tagging schema across multiple services and resources,
- *               remember other services might have restrictions on allowed characters. Generally
+ *               other services might have restrictions on allowed characters. Generally
  *               allowed characters: letters, spaces, and numbers representable in UTF-8, plus the
  *               following special characters: + - = . _ : / @.</p>
  *             </li>
@@ -58,39 +70,90 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *         your permissions for this secret, then the operation is blocked and returns an Access Denied
  *         error.</p>
  *          </important>
+ *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
  *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>secretsmanager:TagResource</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To remove one or more tags from the collection attached to a secret, use <a>UntagResource</a>.</p>
- *             </li>
- *             <li>
- *                <p>To view the list of tags attached to a secret, use <a>DescribeSecret</a>.</p>
- *             </li>
- *          </ul>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:TagResource</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecretsManagerClient, TagResourceCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, TagResourceCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = { // TagResourceRequest
+ *   SecretId: "STRING_VALUE", // required
+ *   Tags: [ // TagListType // required
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ * @throws {@link SecretsManagerServiceException}
+ * <p>Base exception class for all service exceptions from SecretsManager service.</p>
+ *
+ * @example To add tags to a secret
+ * ```javascript
+ * // The following example shows how to attach two tags each with a Key and Value to a secret. There is no output from this API. To see the result, use the DescribeSecret operation.
+ * const input = {
+ *   "SecretId": "MyExampleSecret",
+ *   "Tags": [
+ *     {
+ *       "Key": "FirstTag",
+ *       "Value": "SomeValue"
+ *     },
+ *     {
+ *       "Key": "SecondTag",
+ *       "Value": "AnotherValue"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-add-tags-to-a-secret-1524002106718
+ * ```
  *
  */
 export class TagResourceCommand extends $Command<
@@ -101,6 +164,18 @@ export class TagResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -116,6 +191,7 @@ export class TagResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -126,8 +202,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -137,12 +213,18 @@ export class TagResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1TagResourceCommand(input, context);
+    return se_TagResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return deserializeAws_json1_1TagResourceCommand(output, context);
+    return de_TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

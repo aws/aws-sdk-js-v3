@@ -1,7 +1,6 @@
-# @aws-sdk/client-marketplace-entitlement-service
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-marketplace-entitlement-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-entitlement-service)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-marketplace-entitlement-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-entitlement-service)
+# @aws-sdk/client-marketplace-entitlement-service
 
 ## Description
 
@@ -138,7 +137,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -172,7 +171,7 @@ client
 
 // callbacks.
 client.getEntitlements(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -186,7 +185,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -224,3 +223,14 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+GetEntitlements
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-entitlement-service/classes/getentitlementscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-entitlement-service/interfaces/getentitlementscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-entitlement-service/interfaces/getentitlementscommandoutput.html)
+
+</details>

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -8,20 +10,36 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+  StreamingBlobPayloadOutputTypes,
+} from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { GetJobOutputInput, GetJobOutputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetJobOutputCommand,
-  serializeAws_restJson1GetJobOutputCommand,
-} from "../protocols/Aws_restJson1";
-
-export interface GetJobOutputCommandInput extends GetJobOutputInput {}
-export interface GetJobOutputCommandOutput extends GetJobOutputOutput, __MetadataBearer {}
+import { GetJobOutputInput, GetJobOutputOutput, GetJobOutputOutputFilterSensitiveLog } from "../models/models_0";
+import { de_GetJobOutputCommand, se_GetJobOutputCommand } from "../protocols/Aws_restJson1";
 
 /**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetJobOutputCommand}.
+ */
+export interface GetJobOutputCommandInput extends GetJobOutputInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetJobOutputCommand}.
+ */
+export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "body">, __MetadataBearer {
+  body?: StreamingBlobPayloadOutputTypes;
+}
+
+/**
+ * @public
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
  *          job, the output will be either the content of an archive or a vault inventory.</p>
  *
@@ -65,13 +83,69 @@ export interface GetJobOutputCommandOutput extends GetJobOutputOutput, __Metadat
  * import { GlacierClient, GetJobOutputCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetJobOutputCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // GetJobOutputInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ *   range: "STRING_VALUE",
+ * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
+ * // { // GetJobOutputOutput
+ * //   body: "STREAMING_BLOB_VALUE",
+ * //   checksum: "STRING_VALUE",
+ * //   status: Number("int"),
+ * //   contentRange: "STRING_VALUE",
+ * //   acceptRanges: "STRING_VALUE",
+ * //   contentType: "STRING_VALUE",
+ * //   archiveDescription: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetJobOutputCommandInput - {@link GetJobOutputCommandInput}
+ * @returns {@link GetJobOutputCommandOutput}
  * @see {@link GetJobOutputCommandInput} for command's `input` shape.
  * @see {@link GetJobOutputCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
+ *
+ * @example To get the output of a previously initiated job
+ * ```javascript
+ * // The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.
+ * const input = {
+ *   "accountId": "-",
+ *   "jobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
+ *   "range": "",
+ *   "vaultName": "my-vaul"
+ * };
+ * const command = new GetJobOutputCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "acceptRanges": "bytes",
+ *   "body": "inventory-data",
+ *   "contentType": "application/json",
+ *   "status": 200
+ * }
+ * *\/
+ * // example id: to-get-the-output-of-a-previously-initiated-job-1481848550859
+ * ```
  *
  */
 export class GetJobOutputCommand extends $Command<
@@ -82,6 +156,18 @@ export class GetJobOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetJobOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -97,6 +183,7 @@ export class GetJobOutputCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetJobOutputCommandInput, GetJobOutputCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetJobOutputCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -107,8 +194,8 @@ export class GetJobOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJobOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetJobOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -118,12 +205,21 @@ export class GetJobOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetJobOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetJobOutputCommand(input, context);
+    return se_GetJobOutputCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobOutputCommandOutput> {
-    return deserializeAws_restJson1GetJobOutputCommand(output, context);
+  /**
+   * @internal
+   */
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<GetJobOutputCommandOutput> {
+    return de_GetJobOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

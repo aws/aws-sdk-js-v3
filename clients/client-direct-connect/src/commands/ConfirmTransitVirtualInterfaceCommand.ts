@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { ConfirmTransitVirtualInterfaceRequest, ConfirmTransitVirtualInterfaceResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
-  serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
+  de_ConfirmTransitVirtualInterfaceCommand,
+  se_ConfirmTransitVirtualInterfaceCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ConfirmTransitVirtualInterfaceCommand}.
+ */
 export interface ConfirmTransitVirtualInterfaceCommandInput extends ConfirmTransitVirtualInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConfirmTransitVirtualInterfaceCommand}.
+ */
 export interface ConfirmTransitVirtualInterfaceCommandOutput
   extends ConfirmTransitVirtualInterfaceResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Accepts ownership of a transit virtual interface created by another Amazon Web Services account.</p>
- *
  *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +49,32 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * import { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // ConfirmTransitVirtualInterfaceRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new ConfirmTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // ConfirmTransitVirtualInterfaceResponse
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * // };
+ *
  * ```
  *
+ * @param ConfirmTransitVirtualInterfaceCommandInput - {@link ConfirmTransitVirtualInterfaceCommandInput}
+ * @returns {@link ConfirmTransitVirtualInterfaceCommandOutput}
  * @see {@link ConfirmTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmTransitVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<
@@ -50,6 +85,18 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ConfirmTransitVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +112,9 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ConfirmTransitVirtualInterfaceCommandInput, ConfirmTransitVirtualInterfaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ConfirmTransitVirtualInterfaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +125,8 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmTransitVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmTransitVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,18 +136,24 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ConfirmTransitVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(input, context);
+    return se_ConfirmTransitVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(output, context);
+    return de_ConfirmTransitVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

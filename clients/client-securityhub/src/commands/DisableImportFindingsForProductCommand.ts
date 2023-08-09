@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_1";
+import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_2";
 import {
-  deserializeAws_restJson1DisableImportFindingsForProductCommand,
-  serializeAws_restJson1DisableImportFindingsForProductCommand,
+  de_DisableImportFindingsForProductCommand,
+  se_DisableImportFindingsForProductCommand,
 } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableImportFindingsForProductCommand}.
+ */
 export interface DisableImportFindingsForProductCommandInput extends DisableImportFindingsForProductRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableImportFindingsForProductCommand}.
+ */
 export interface DisableImportFindingsForProductCommandOutput
   extends DisableImportFindingsForProductResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the integration of the specified product with Security Hub. After the integration is
  *          disabled, findings from that product are no longer sent to Security Hub.</p>
  * @example
@@ -32,13 +49,51 @@ export interface DisableImportFindingsForProductCommandOutput
  * import { SecurityHubClient, DisableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = { // DisableImportFindingsForProductRequest
+ *   ProductSubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisableImportFindingsForProductCommandInput - {@link DisableImportFindingsForProductCommandInput}
+ * @returns {@link DisableImportFindingsForProductCommandOutput}
  * @see {@link DisableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link DisableImportFindingsForProductCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
+ *          input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * @throws {@link SecurityHubServiceException}
+ * <p>Base exception class for all service exceptions from SecurityHub service.</p>
+ *
+ * @example To end a Security Hub integration
+ * ```javascript
+ * // The following example ends an integration between Security Hub and the specified product that sends findings to Security Hub. After the integration ends, the product no longer sends findings to Security  Hub.
+ * const input = {
+ *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ * };
+ * const command = new DisableImportFindingsForProductCommand(input);
+ * await client.send(command);
+ * // example id: to-end-a-security-hub-integration-1676480035650
+ * ```
  *
  */
 export class DisableImportFindingsForProductCommand extends $Command<
@@ -49,6 +104,18 @@ export class DisableImportFindingsForProductCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableImportFindingsForProductCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +131,9 @@ export class DisableImportFindingsForProductCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableImportFindingsForProductCommandInput, DisableImportFindingsForProductCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableImportFindingsForProductCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +144,8 @@ export class DisableImportFindingsForProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableImportFindingsForProductRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableImportFindingsForProductResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +155,24 @@ export class DisableImportFindingsForProductCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableImportFindingsForProductCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisableImportFindingsForProductCommand(input, context);
+    return se_DisableImportFindingsForProductCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableImportFindingsForProductCommandOutput> {
-    return deserializeAws_restJson1DisableImportFindingsForProductCommand(output, context);
+    return de_DisableImportFindingsForProductCommand(output, context);
   }
 
   // Start section: command_body_extra

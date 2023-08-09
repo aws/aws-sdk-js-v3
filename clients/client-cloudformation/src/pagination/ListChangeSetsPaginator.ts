@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CloudFormation } from "../CloudFormation";
 import { CloudFormationClient } from "../CloudFormationClient";
 import {
   ListChangeSetsCommand,
@@ -10,7 +10,7 @@ import {
 import { CloudFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CloudFormationClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListChangeSetsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CloudFormation,
-  input: ListChangeSetsCommandInput,
-  ...args: any
-): Promise<ListChangeSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listChangeSets(input, ...args);
-};
 export async function* paginateListChangeSets(
   config: CloudFormationPaginationConfiguration,
   input: ListChangeSetsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListChangeSets(
   let page: ListChangeSetsCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof CloudFormation) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CloudFormationClient) {
+    if (config.client instanceof CloudFormationClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

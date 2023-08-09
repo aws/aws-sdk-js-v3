@@ -1,10 +1,15 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { IoTEventsServiceException as __BaseException } from "./IoTEventsServiceException";
 
 /**
+ * @public
  * <p>Specifies whether to get notified for alarm state changes.</p>
  */
 export interface AcknowledgeFlow {
   /**
+   * @public
    * <p>The value must be <code>TRUE</code> or <code>FALSE</code>. If <code>TRUE</code>, you
    *       receive a notification when the alarm state changes. You must choose to acknowledge the
    *       notification before the alarm state can return to <code>NORMAL</code>. If <code>FALSE</code>,
@@ -14,40 +19,34 @@ export interface AcknowledgeFlow {
   enabled: boolean | undefined;
 }
 
-export namespace AcknowledgeFlow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeFlow): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to clear the timer.</p>
  */
 export interface ClearTimerAction {
   /**
+   * @public
    * <p>The name of the timer to clear.</p>
    */
   timerName: string | undefined;
 }
 
-export namespace ClearTimerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClearTimerAction): any => ({
-    ...obj,
-  });
-}
-
-export enum PayloadType {
-  JSON = "JSON",
-  STRING = "STRING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const PayloadType = {
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
 
 /**
+ * @public
+ */
+export type PayloadType = (typeof PayloadType)[keyof typeof PayloadType];
+
+/**
+ * @public
  * <p>Information needed to configure the payload.</p>
  *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
  *       contains all attribute-value pairs that have the information about the detector model instance
@@ -56,31 +55,25 @@ export enum PayloadType {
  */
 export interface Payload {
   /**
+   * @public
    * <p>The content of the payload. You can use a string expression that includes quoted strings
    *         (<code>'<string>'</code>), variables (<code>$variable.<variable-name></code>),
    *       input values (<code>$input.<input-name>.<path-to-datum></code>), string
-   *       concatenations, and quoted strings that contain <code>${}</code> as the content. The
+   *       concatenations, and quoted strings that contain <code>$\{\}</code> as the content. The
    *       recommended maximum size of a content expression is 1 KB.</p>
    */
   contentExpression: string | undefined;
 
   /**
+   * @public
    * <p>The value of the payload type can be either <code>STRING</code> or
    *       <code>JSON</code>.</p>
    */
   type: PayloadType | string | undefined;
 }
 
-export namespace Payload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Payload): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action
  *       payload contains all the information about the detector model instance and the event that
  *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. One column of the
@@ -101,13 +94,13 @@ export namespace Payload {
  *             <code>$input.GreenhouseInput.name</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>hashKeyValue</code> parameter uses a
  *           substitution template. </p>
  *                <p>
- *                   <code>'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'</code>
+ *                   <code>'$\{$input.GreenhouseInput.temperature * 6 / 5 + 32\} in Fahrenheit'</code>
  *                </p>
  *             </li>
  *             <li>
@@ -131,6 +124,7 @@ export namespace Payload {
  */
 export interface DynamoDBAction {
   /**
+   * @public
    * <p>The data type for the hash key (also called the partition key). You can specify the
    *       following values:</p>
    *          <ul>
@@ -149,17 +143,20 @@ export interface DynamoDBAction {
   hashKeyType?: string;
 
   /**
+   * @public
    * <p>The name of the hash key (also called the partition key). The <code>hashKeyField</code>
    *       value must match the partition key of the target DynamoDB table.</p>
    */
   hashKeyField: string | undefined;
 
   /**
+   * @public
    * <p>The value of the hash key (also called the partition key).</p>
    */
   hashKeyValue: string | undefined;
 
   /**
+   * @public
    * <p>The data type for the range key (also called the sort key), You can specify the following
    *       values:</p>
    *          <ul>
@@ -178,17 +175,20 @@ export interface DynamoDBAction {
   rangeKeyType?: string;
 
   /**
+   * @public
    * <p>The name of the range key (also called the sort key). The <code>rangeKeyField</code> value
    *       must match the sort key of the target DynamoDB table. </p>
    */
   rangeKeyField?: string;
 
   /**
+   * @public
    * <p>The value of the range key (also called the sort key).</p>
    */
   rangeKeyValue?: string;
 
   /**
+   * @public
    * <p>The type of operation to perform. You can specify the following values: </p>
    *          <ul>
    *             <li>
@@ -216,6 +216,7 @@ export interface DynamoDBAction {
   operation?: string;
 
   /**
+   * @public
    * <p>The name of the DynamoDB column that receives the action payload.</p>
    *          <p>If you don't specify this parameter, the name of the DynamoDB column is
    *       <code>payload</code>.</p>
@@ -223,12 +224,14 @@ export interface DynamoDBAction {
   payloadField?: string;
 
   /**
+   * @public
    * <p>The name of the DynamoDB table. The <code>tableName</code> value must match the table name of
    *       the target DynamoDB table. </p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>Information needed to configure the payload.</p>
    *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
    *       contains all attribute-value pairs that have the information about the detector model instance
@@ -238,16 +241,8 @@ export interface DynamoDBAction {
   payload?: Payload;
 }
 
-export namespace DynamoDBAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
  *       payload contains all the information about the detector model instance and the event that
  *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
@@ -269,14 +264,14 @@ export namespace DynamoDBAction {
  *           <code>$variable.ddbtableName</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>contentExpression</code> parameter
  *           in <code>Payload</code> uses a substitution template. </p>
  *                <p>
- *                   <code>'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\":
- *             \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'</code>
+ *                   <code>'\{\"sensorID\": \"$\{$input.GreenhouseInput.sensor_id\}\", \"temperature\":
+ *             \"$\{$input.GreenhouseInput.temperature * 9 / 5 + 32\}\"\}'</code>
  *                </p>
  *             </li>
  *             <li>
@@ -298,11 +293,13 @@ export namespace DynamoDBAction {
  */
 export interface DynamoDBv2Action {
   /**
+   * @public
    * <p>The name of the DynamoDB table.</p>
    */
   tableName: string | undefined;
 
   /**
+   * @public
    * <p>Information needed to configure the payload.</p>
    *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
    *       contains all attribute-value pairs that have the information about the detector model instance
@@ -312,26 +309,20 @@ export interface DynamoDBv2Action {
   payload?: Payload;
 }
 
-export namespace DynamoDBv2Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
  */
 export interface FirehoseAction {
   /**
+   * @public
    * <p>The name of the Kinesis Data Firehose delivery stream where the data is written.</p>
    */
   deliveryStreamName: string | undefined;
 
   /**
+   * @public
    * <p>A character separator that is used to separate records written to the Kinesis Data
    *       Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows
    *       newline), ',' (comma).</p>
@@ -339,47 +330,34 @@ export interface FirehoseAction {
   separator?: string;
 
   /**
+   * @public
    * <p>You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery
    *       stream.</p>
    */
   payload?: Payload;
 }
 
-export namespace FirehoseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirehoseAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
  *       event that triggered the action.</p>
  */
 export interface IotEventsAction {
   /**
+   * @public
    * <p>The name of the AWS IoT Events input where the data is sent.</p>
    */
   inputName: string | undefined;
 
   /**
+   * @public
    * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
    */
   payload?: Payload;
 }
 
-export namespace IotEventsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotEventsAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure that contains timestamp information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html">TimeInNanos</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyTimestamp</code>. The
  *       expressions accept literals, operators, functions, references, and substitution
@@ -398,13 +376,13 @@ export namespace IotEventsAction {
  *           <code>$variable.time</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>timeInSeconds</code> parameter uses
  *           a substitution template.</p>
  *                <p>
- *                   <code>'${$input.TemperatureInput.sensorData.timestamp / 1000}'</code>
+ *                   <code>'$\{$input.TemperatureInput.sensorData.timestamp / 1000\}'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -414,28 +392,22 @@ export namespace IotEventsAction {
  */
 export interface AssetPropertyTimestamp {
   /**
+   * @public
    * <p>The timestamp, in seconds, in the Unix epoch format. The valid range is between
    *       1-31556889864403199.</p>
    */
   timeInSeconds: string | undefined;
 
   /**
+   * @public
    * <p>The nanosecond offset converted from <code>timeInSeconds</code>. The valid range is
    *       between 0-999999999.</p>
    */
   offsetInNanos?: string;
 }
 
-export namespace AssetPropertyTimestamp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure that contains an asset property value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html">Variant</a>
  *       in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyVariant</code>. The
@@ -455,13 +427,13 @@ export namespace AssetPropertyTimestamp {
  *           <code>$variable.offline</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates. </p>
  *                <p>In the following example, the value for the <code>doubleValue</code> parameter uses a
  *           substitution template. </p>
  *                <p>
- *                   <code>'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'</code>
+ *                   <code>'$\{$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32\}'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -474,24 +446,28 @@ export namespace AssetPropertyTimestamp {
  */
 export interface AssetPropertyVariant {
   /**
+   * @public
    * <p>The asset property value is a string. You must use an expression, and the evaluated result
    *       should be a string.</p>
    */
   stringValue?: string;
 
   /**
+   * @public
    * <p>The asset property value is an integer. You must use an expression, and the evaluated
    *       result should be an integer.</p>
    */
   integerValue?: string;
 
   /**
+   * @public
    * <p>The asset property value is a double. You must use an expression, and the evaluated result
    *       should be a double.</p>
    */
   doubleValue?: string;
 
   /**
+   * @public
    * <p>The asset property value is a Boolean value that must be <code>'TRUE'</code> or
    *         <code>'FALSE'</code>. You must use an expression, and the evaluated result should be a
    *       Boolean value.</p>
@@ -499,16 +475,8 @@ export interface AssetPropertyVariant {
   booleanValue?: string;
 }
 
-export namespace AssetPropertyVariant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyVariant): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure that contains value information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html">AssetPropertyValue</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyValue</code>. The
  *       expressions accept literals, operators, functions, references, and substitution
@@ -533,33 +501,28 @@ export namespace AssetPropertyVariant {
  */
 export interface AssetPropertyValue {
   /**
+   * @public
    * <p>The value to send to an asset property.</p>
    */
   value?: AssetPropertyVariant;
 
   /**
+   * @public
    * <p>The timestamp associated with the asset property value. The default is the current event
    *       time.</p>
    */
   timestamp?: AssetPropertyTimestamp;
 
   /**
+   * @public
    * <p>The quality of the asset property value. The value must be <code>'GOOD'</code>,
    *         <code>'BAD'</code>, or <code>'UNCERTAIN'</code>.</p>
    */
   quality?: string;
 }
 
-export namespace AssetPropertyValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to a specified asset property in AWS IoT SiteWise.</p>
  *          <p>You must use expressions for all parameters in <code>IotSiteWiseAction</code>. The
@@ -580,14 +543,14 @@ export namespace AssetPropertyValue {
  *             <code>$input.TurbineInput.assetId1</code>.</p>
  *             </li>
  *             <li>
- *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+ *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
  *           in single quotes. A substitution template can also contain a combination of literals,
  *           operators, functions, references, and substitution templates.</p>
  *                <p>In the following example, the value for the <code>propertyAlias</code> parameter uses
  *           a substitution template. </p>
  *                <p>
- *                   <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/
- *             ${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>
+ *                   <code>'company/windfarm/$\{$input.TemperatureInput.sensorData.windfarmID\}/turbine/
+ *             $\{$input.TemperatureInput.sensorData.turbineID\}/temperature'</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -599,47 +562,45 @@ export namespace AssetPropertyValue {
  */
 export interface IotSiteWiseAction {
   /**
+   * @public
    * <p>A unique identifier for this entry. You can use the entry ID to track which data entry
    *       causes an error in case of failure. The default is a new unique identifier.</p>
    */
   entryId?: string;
 
   /**
+   * @public
    * <p>The ID of the asset that has the specified property.</p>
    */
   assetId?: string;
 
   /**
+   * @public
    * <p>The ID of the asset property.</p>
    */
   propertyId?: string;
 
   /**
+   * @public
    * <p>The alias of the asset property.</p>
    */
   propertyAlias?: string;
 
   /**
+   * @public
    * <p>The value to send to the asset property. This value contains timestamp, quality, and value
    *       (TQV) information. </p>
    */
   propertyValue?: AssetPropertyValue;
 }
 
-export namespace IotSiteWiseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
  */
 export interface IotTopicPublishAction {
   /**
+   * @public
    * <p>The MQTT topic of the message. You can use a string expression that includes variables
    *         (<code>$variable.<variable-name></code>) and input values
    *         (<code>$input.<input-name>.<path-to-datum></code>) as the topic string.</p>
@@ -647,77 +608,59 @@ export interface IotTopicPublishAction {
   mqttTopic: string | undefined;
 
   /**
+   * @public
    * <p>You can configure the action payload when you publish a message to an AWS IoT Core
    *       topic.</p>
    */
   payload?: Payload;
 }
 
-export namespace IotTopicPublishAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotTopicPublishAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Calls a Lambda function, passing in information about the detector model instance and the
  *       event that triggered the action.</p>
  */
 export interface LambdaAction {
   /**
+   * @public
    * <p>The ARN of the Lambda function that is executed.</p>
    */
   functionArn: string | undefined;
 
   /**
+   * @public
    * <p>You can configure the action payload when you send a message to a Lambda function.</p>
    */
   payload?: Payload;
 }
 
-export namespace LambdaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information required to reset the timer. The timer is reset to the previously evaluated
  *       result of the duration. The duration expression isn't reevaluated when you reset the
  *       timer.</p>
  */
 export interface ResetTimerAction {
   /**
+   * @public
    * <p>The name of the timer to reset.</p>
    */
   timerName: string | undefined;
 }
 
-export namespace ResetTimerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetTimerAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to set the timer.</p>
  */
 export interface SetTimerAction {
   /**
+   * @public
    * <p>The name of the timer.</p>
    */
   timerName: string | undefined;
 
   /**
+   * @public
    * @deprecated
    *
    * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure
@@ -726,6 +669,7 @@ export interface SetTimerAction {
   seconds?: number;
 
   /**
+   * @public
    * <p>The duration of the timer, in seconds. You can use a string expression that includes
    *       numbers, variables (<code>$variable.<variable-name></code>), and input values
    *         (<code>$input.<input-name>.<path-to-datum></code>) as the duration. The range of
@@ -735,155 +679,141 @@ export interface SetTimerAction {
   durationExpression?: string;
 }
 
-export namespace SetTimerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTimerAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the variable and its new value.</p>
  */
 export interface SetVariableAction {
   /**
+   * @public
    * <p>The name of the variable.</p>
    */
   variableName: string | undefined;
 
   /**
+   * @public
    * <p>The new value of the variable.</p>
    */
   value: string | undefined;
 }
 
-export namespace SetVariableAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetVariableAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information required to publish the Amazon SNS message.</p>
  */
 export interface SNSTopicPublishAction {
   /**
+   * @public
    * <p>The ARN of the Amazon SNS target where the message is sent.</p>
    */
   targetArn: string | undefined;
 
   /**
+   * @public
    * <p>You can configure the action payload when you send a message as an Amazon SNS push
    *       notification.</p>
    */
   payload?: Payload;
 }
 
-export namespace SNSTopicPublishAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSTopicPublishAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to an Amazon SQS queue.</p>
  */
 export interface SqsAction {
   /**
+   * @public
    * <p>The URL of the SQS queue where the data is written.</p>
    */
   queueUrl: string | undefined;
 
   /**
+   * @public
    * <p>Set this to TRUE if you want the data to be base-64 encoded before it is written to the
    *       queue. Otherwise, set this to FALSE.</p>
    */
   useBase64?: boolean;
 
   /**
+   * @public
    * <p>You can configure the action payload when you send a message to an Amazon SQS
    *       queue.</p>
    */
   payload?: Payload;
 }
 
-export namespace SqsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqsAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An action to be performed when the <code>condition</code> is TRUE.</p>
  */
 export interface Action {
   /**
+   * @public
    * <p>Sets a variable to a specified value.</p>
    */
   setVariable?: SetVariableAction;
 
   /**
+   * @public
    * <p>Sends an Amazon SNS message.</p>
    */
   sns?: SNSTopicPublishAction;
 
   /**
+   * @public
    * <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>
    */
   iotTopicPublish?: IotTopicPublishAction;
 
   /**
+   * @public
    * <p>Information needed to set the timer.</p>
    */
   setTimer?: SetTimerAction;
 
   /**
+   * @public
    * <p>Information needed to clear the timer.</p>
    */
   clearTimer?: ClearTimerAction;
 
   /**
+   * @public
    * <p>Information needed to reset the timer.</p>
    */
   resetTimer?: ResetTimerAction;
 
   /**
+   * @public
    * <p>Calls a Lambda function, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    */
   lambda?: LambdaAction;
 
   /**
+   * @public
    * <p>Sends AWS IoT Events input, which passes information about the detector model instance and the
    *       event that triggered the action.</p>
    */
   iotEvents?: IotEventsAction;
 
   /**
+   * @public
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon SQS queue.</p>
    */
   sqs?: SqsAction;
 
   /**
+   * @public
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
    */
   firehose?: FirehoseAction;
 
   /**
+   * @public
    * <p>Writes to the DynamoDB table that you created. The default action payload contains all
    *       attribute-value pairs that have the information about the detector model instance and the
    *       event that triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. One column of the
@@ -894,6 +824,7 @@ export interface Action {
   dynamoDB?: DynamoDBAction;
 
   /**
+   * @public
    * <p>Writes to the DynamoDB table that you created. The default action payload contains all
    *       attribute-value pairs that have the information about the detector model instance and the
    *       event that triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
@@ -904,61 +835,61 @@ export interface Action {
   dynamoDBv2?: DynamoDBv2Action;
 
   /**
+   * @public
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an asset property in AWS IoT SiteWise .</p>
    */
   iotSiteWise?: IotSiteWiseAction;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies one of the following actions to receive notifications when the alarm state
  *       changes.</p>
  */
 export interface AlarmAction {
   /**
+   * @public
    * <p>Information required to publish the Amazon SNS message.</p>
    */
   sns?: SNSTopicPublishAction;
 
   /**
+   * @public
    * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
    */
   iotTopicPublish?: IotTopicPublishAction;
 
   /**
+   * @public
    * <p>Calls a Lambda function, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    */
   lambda?: LambdaAction;
 
   /**
+   * @public
    * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    */
   iotEvents?: IotEventsAction;
 
   /**
+   * @public
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon SQS queue.</p>
    */
   sqs?: SqsAction;
 
   /**
+   * @public
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
    */
   firehose?: FirehoseAction;
 
   /**
+   * @public
    * <p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action
    *       payload contains all the information about the detector model instance and the event that
    *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. One column of the
@@ -979,13 +910,13 @@ export interface AlarmAction {
    *             <code>$input.GreenhouseInput.name</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
    *           in single quotes. A substitution template can also contain a combination of literals,
    *           operators, functions, references, and substitution templates.</p>
    *                <p>In the following example, the value for the <code>hashKeyValue</code> parameter uses a
    *           substitution template. </p>
    *                <p>
-   *                   <code>'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'</code>
+   *                   <code>'$\{$input.GreenhouseInput.temperature * 6 / 5 + 32\} in Fahrenheit'</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1010,6 +941,7 @@ export interface AlarmAction {
   dynamoDB?: DynamoDBAction;
 
   /**
+   * @public
    * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
    *       payload contains all the information about the detector model instance and the event that
    *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
@@ -1031,14 +963,14 @@ export interface AlarmAction {
    *           <code>$variable.ddbtableName</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
    *           in single quotes. A substitution template can also contain a combination of literals,
    *           operators, functions, references, and substitution templates.</p>
    *                <p>In the following example, the value for the <code>contentExpression</code> parameter
    *           in <code>Payload</code> uses a substitution template. </p>
    *                <p>
-   *                   <code>'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\":
-   *             \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'</code>
+   *                   <code>'\{\"sensorID\": \"$\{$input.GreenhouseInput.sensor_id\}\", \"temperature\":
+   *             \"$\{$input.GreenhouseInput.temperature * 9 / 5 + 32\}\"\}'</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1061,6 +993,7 @@ export interface AlarmAction {
   dynamoDBv2?: DynamoDBv2Action;
 
   /**
+   * @public
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to a specified asset property in AWS IoT SiteWise.</p>
    *          <p>You must use expressions for all parameters in <code>IotSiteWiseAction</code>. The
@@ -1081,14 +1014,14 @@ export interface AlarmAction {
    *             <code>$input.TurbineInput.assetId1</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *                <p>For a substitution template, you must use <code>$\{\}</code>, and the template must be
    *           in single quotes. A substitution template can also contain a combination of literals,
    *           operators, functions, references, and substitution templates.</p>
    *                <p>In the following example, the value for the <code>propertyAlias</code> parameter uses
    *           a substitution template. </p>
    *                <p>
-   *                   <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/
-   *             ${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>
+   *                   <code>'company/windfarm/$\{$input.TemperatureInput.sensorData.windfarmID\}/turbine/
+   *             $\{$input.TemperatureInput.sensorData.turbineID\}/temperature'</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1101,21 +1034,14 @@ export interface AlarmAction {
   iotSiteWise?: IotSiteWiseAction;
 }
 
-export namespace AlarmAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the default alarm state.
  * The configuration applies to all alarms that were created based on this alarm model.</p>
  */
 export interface InitializationConfiguration {
   /**
+   * @public
    * <p>The value must be <code>TRUE</code> or <code>FALSE</code>. If <code>FALSE</code>, all
    *       alarm instances created based on the alarm model are activated. The default value is
    *         <code>TRUE</code>.</p>
@@ -1123,131 +1049,121 @@ export interface InitializationConfiguration {
   disabledOnInitialization: boolean | undefined;
 }
 
-export namespace InitializationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitializationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the configuration information of alarm state changes.</p>
  */
 export interface AlarmCapabilities {
   /**
+   * @public
    * <p>Specifies the default alarm state.
    * The configuration applies to all alarms that were created based on this alarm model.</p>
    */
   initializationConfiguration?: InitializationConfiguration;
 
   /**
+   * @public
    * <p>Specifies whether to get notified for alarm state changes.</p>
    */
   acknowledgeFlow?: AcknowledgeFlow;
 }
 
-export namespace AlarmCapabilities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmCapabilities): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about one or more alarm actions.</p>
  */
 export interface AlarmEventActions {
   /**
+   * @public
    * <p>Specifies one or more supported actions to receive notifications when the alarm state
    *       changes.</p>
    */
   alarmActions?: AlarmAction[];
 }
 
-export namespace AlarmEventActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmEventActions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains a summary of an alarm model.</p>
  */
 export interface AlarmModelSummary {
   /**
+   * @public
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The description of the alarm model.</p>
    */
   alarmModelDescription?: string;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName?: string;
 }
 
-export namespace AlarmModelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmModelSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum AlarmModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlarmModelVersionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+} as const;
 
 /**
+ * @public
+ */
+export type AlarmModelVersionStatus = (typeof AlarmModelVersionStatus)[keyof typeof AlarmModelVersionStatus];
+
+/**
+ * @public
  * <p>Contains a summary of an alarm model version.</p>
  */
 export interface AlarmModelVersionSummary {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName?: string;
 
   /**
+   * @public
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   alarmModelArn?: string;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the alarm model. The status can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -1274,6 +1190,7 @@ export interface AlarmModelVersionSummary {
   status?: AlarmModelVersionStatus | string;
 
   /**
+   * @public
    * <p>
    *       Contains information about the status of the alarm model version.
    *     </p>
@@ -1281,106 +1198,72 @@ export interface AlarmModelVersionSummary {
   statusMessage?: string;
 }
 
-export namespace AlarmModelVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmModelVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies an AWS Lambda function to manage alarm notifications.
  * You can create one or use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">AWS Lambda function provided by AWS IoT Events</a>.</p>
  */
 export interface NotificationTargetActions {
   /**
+   * @public
    * <p>Calls a Lambda function, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    */
   lambdaAction?: LambdaAction;
 }
 
-export namespace NotificationTargetActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationTargetActions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the subject and message of an email.</p>
  */
 export interface EmailContent {
   /**
+   * @public
    * <p>The subject of the email.</p>
    */
   subject?: string;
 
   /**
+   * @public
    * <p>The message that you want to send. The message can be up to 200 characters.</p>
    */
   additionalMessage?: string;
 }
 
-export namespace EmailContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailContent): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about your identity source in AWS Single Sign-On. For more information, see
  *       the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On
  *         User Guide</a>.</p>
  */
 export interface SSOIdentity {
   /**
+   * @public
    * <p>The ID of the AWS SSO identity store.</p>
    */
   identityStoreId: string | undefined;
 
   /**
+   * @public
    * <p>The user ID.</p>
    */
   userId?: string;
 }
 
-export namespace SSOIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSOIdentity): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The information that identifies the recipient.</p>
  */
 export interface RecipientDetail {
   /**
+   * @public
    * <p>The AWS Single Sign-On (AWS SSO) authentication information.</p>
    */
   ssoIdentity?: SSOIdentity;
 }
 
-export namespace RecipientDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipientDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the information of one or more recipients who receive the emails.</p>
  *          <important>
  *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive emails to your AWS SSO store</a>.</p>
@@ -1388,25 +1271,19 @@ export namespace RecipientDetail {
  */
 export interface EmailRecipients {
   /**
+   * @public
    * <p>Specifies one or more recipients who receive the email.</p>
    */
   to?: RecipientDetail[];
 }
 
-export namespace EmailRecipients {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailRecipients): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the configuration information of email notifications.</p>
  */
 export interface EmailConfiguration {
   /**
+   * @public
    * <p>The email address that sends emails.</p>
    *          <important>
    *             <p>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify
@@ -1416,11 +1293,13 @@ export interface EmailConfiguration {
   from: string | undefined;
 
   /**
+   * @public
    * <p>Contains the subject and message of an email.</p>
    */
   content?: EmailContent;
 
   /**
+   * @public
    * <p>Contains the information of one or more recipients who receive the emails.</p>
    *          <important>
    *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive emails to your AWS SSO store</a>.</p>
@@ -1429,30 +1308,25 @@ export interface EmailConfiguration {
   recipients: EmailRecipients | undefined;
 }
 
-export namespace EmailConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the configuration information of SMS notifications.</p>
  */
 export interface SMSConfiguration {
   /**
+   * @public
    * <p>The sender ID.</p>
    */
   senderId?: string;
 
   /**
+   * @public
    * <p>The message that you want to send. The message can be up to 200 characters.</p>
    */
   additionalMessage?: string;
 
   /**
+   * @public
    * <p>Specifies one or more recipients who receive the message.</p>
    *          <important>
    *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive SMS messages to your AWS SSO store</a>.</p>
@@ -1461,157 +1335,137 @@ export interface SMSConfiguration {
   recipients: RecipientDetail[] | undefined;
 }
 
-export namespace SMSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMSConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the notification settings of an alarm model.
  * The settings apply to all alarms that were created based on this alarm model.</p>
  */
 export interface NotificationAction {
   /**
+   * @public
    * <p>Specifies an AWS Lambda function to manage alarm notifications.
    * You can create one or use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">AWS Lambda function provided by AWS IoT Events</a>.</p>
    */
   action: NotificationTargetActions | undefined;
 
   /**
+   * @public
    * <p>Contains the configuration information of SMS notifications.</p>
    */
   smsConfigurations?: SMSConfiguration[];
 
   /**
+   * @public
    * <p>Contains the configuration information of email notifications.</p>
    */
   emailConfigurations?: EmailConfiguration[];
 }
 
-export namespace NotificationAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationAction): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about one or more notification actions.</p>
  */
 export interface AlarmNotification {
   /**
+   * @public
    * <p>Contains the notification settings of an alarm model.
    * The settings apply to all alarms that were created based on this alarm model.</p>
    */
   notificationActions?: NotificationAction[];
 }
 
-export namespace AlarmNotification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmNotification): any => ({
-    ...obj,
-  });
-}
-
-export enum ComparisonOperator {
-  EQUAL = "EQUAL",
-  GREATER = "GREATER",
-  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
-  LESS = "LESS",
-  LESS_OR_EQUAL = "LESS_OR_EQUAL",
-  NOT_EQUAL = "NOT_EQUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESS: "LESS",
+  LESS_OR_EQUAL: "LESS_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
  * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
  */
 export interface SimpleRule {
   /**
+   * @public
    * <p>The value on the left side of the comparison operator. You can specify an AWS IoT Events input
    *       attribute as an input property.</p>
    */
   inputProperty: string | undefined;
 
   /**
+   * @public
    * <p>The comparison operator.</p>
    */
   comparisonOperator: ComparisonOperator | string | undefined;
 
   /**
+   * @public
    * <p>The value on the right side of the comparison operator. You can enter a number or specify
    *       an AWS IoT Events input attribute.</p>
    */
   threshold: string | undefined;
 }
 
-export namespace SimpleRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleRule): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Defines when your alarm is invoked.</p>
  */
 export interface AlarmRule {
   /**
+   * @public
    * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
    */
   simpleRule?: SimpleRule;
 }
 
-export namespace AlarmRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmRule): any => ({
-    ...obj,
-  });
-}
-
-export enum AnalysisResultLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARNING = "WARNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisResultLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+} as const;
 
 /**
+ * @public
+ */
+export type AnalysisResultLevel = (typeof AnalysisResultLevel)[keyof typeof AnalysisResultLevel];
+
+/**
+ * @public
  * <p>Contains information that you can use to locate the field in your detector model that the
  *       analysis result references.</p>
  */
 export interface AnalysisResultLocation {
   /**
+   * @public
    * <p>A <a href="https://github.com/json-path/JsonPath">JsonPath</a> expression that
    *       identifies the error field in your detector model.</p>
    */
   path?: string;
 }
 
-export namespace AnalysisResultLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisResultLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the result of the analysis.</p>
  */
 export interface AnalysisResult {
   /**
+   * @public
    * <p>The type of the analysis result. Analyses fall into the following types based on the
    *       validators used to generate the analysis result:</p>
    *          <ul>
@@ -1658,6 +1512,7 @@ export interface AnalysisResult {
   type?: string;
 
   /**
+   * @public
    * <p>The severity level of the analysis result. Based on the severity level, analysis results
    *       fall into three general categories:</p>
    *          <ul>
@@ -1683,33 +1538,36 @@ export interface AnalysisResult {
   level?: AnalysisResultLevel | string;
 
   /**
+   * @public
    * <p>Contains additional information about the analysis result.</p>
    */
   message?: string;
 
   /**
+   * @public
    * <p>Contains one or more locations that you can use to locate the fields in your detector
    *       model that the analysis result references.</p>
    */
   locations?: AnalysisResultLocation[];
 }
 
-export namespace AnalysisResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisResult): any => ({
-    ...obj,
-  });
-}
-
-export enum AnalysisStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+} as const;
 
 /**
+ * @public
+ */
+export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
+
+/**
+ * @public
  * <p>The attributes from the JSON payload that are made available by the input. Inputs are
  *       derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such
  *       message contains a JSON payload. Those attributes (and their paired values) specified here are
@@ -1717,6 +1575,7 @@ export enum AnalysisStatus {
  */
 export interface Attribute {
   /**
+   * @public
    * <p>An expression that specifies an attribute-value pair in a JSON structure. Use this to
    *       specify an attribute from the JSON payload that is made available by the input. Inputs are
    *       derived from messages sent to AWS IoT Events (<code>BatchPutMessage</code>). Each such message contains
@@ -1728,57 +1587,49 @@ export interface Attribute {
   jsonPath: string | undefined;
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Metadata that can be used to manage the resource.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>The tag's key.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>The tag's value.</p>
    */
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAlarmModelRequest {
   /**
+   * @public
    * <p>A unique name that helps you identify the alarm model. You can't change this name after
    *       you create the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>A description that tells you what the alarm model detects.</p>
    */
   alarmModelDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of key-value pairs that contain metadata for the alarm model. The tags help you
    *       manage the alarm model. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html">Tagging your AWS IoT Events
    *         resources</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -1787,6 +1638,7 @@ export interface CreateAlarmModelRequest {
   tags?: Tag[];
 
   /**
+   * @public
    * <p>An input attribute used as a key to create an alarm.
    * AWS IoT Events routes <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html">inputs</a>
    * associated with this key to the alarm.</p>
@@ -1794,62 +1646,66 @@ export interface CreateAlarmModelRequest {
   key?: string;
 
   /**
+   * @public
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    */
   severity?: number;
 
   /**
+   * @public
    * <p>Defines when your alarm is invoked.</p>
    */
   alarmRule: AlarmRule | undefined;
 
   /**
+   * @public
    * <p>Contains information about one or more notification actions.</p>
    */
   alarmNotification?: AlarmNotification;
 
   /**
+   * @public
    * <p>Contains information about one or more alarm actions.</p>
    */
   alarmEventActions?: AlarmEventActions;
 
   /**
+   * @public
    * <p>Contains the configuration information of alarm state changes.</p>
    */
   alarmCapabilities?: AlarmCapabilities;
 }
 
-export namespace CreateAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlarmModelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAlarmModelResponse {
   /**
+   * @public
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   alarmModelArn?: string;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 
   /**
+   * @public
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the alarm model. The status can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -1876,183 +1732,174 @@ export interface CreateAlarmModelResponse {
   status?: AlarmModelVersionStatus | string;
 }
 
-export namespace CreateAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlarmModelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An internal failure occurred.</p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request was invalid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A limit was exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-
-  /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   resourceId?: string;
 
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn?: string;
-}
 
-export namespace ResourceAlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceArn = opts.resourceArn;
+  }
 }
 
 /**
+ * @public
  * <p>The resource is in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceInUseException {
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to throttling.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ThrottlingException {
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Specifies the <code>actions</code> to be performed when the <code>condition</code>
  *       evaluates to TRUE.</p>
  */
 export interface Event {
   /**
+   * @public
    * <p>The name of the event.</p>
    */
   eventName: string | undefined;
 
   /**
+   * @public
    * <p>Optional. The Boolean expression that, when TRUE, causes the <code>actions</code> to be
    *       performed. If not present, the actions are performed (=TRUE). If the expression result is not
    *       a Boolean value, the actions are not performed (=FALSE).</p>
@@ -2060,206 +1907,180 @@ export interface Event {
   condition?: string;
 
   /**
+   * @public
    * <p>The actions to be performed.</p>
    */
   actions?: Action[];
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
  *       is TRUE.</p>
  */
 export interface OnEnterLifecycle {
   /**
+   * @public
    * <p>Specifies the actions that are performed when the state is entered and the
    *         <code>condition</code> is <code>TRUE</code>.</p>
    */
   events?: Event[];
 }
 
-export namespace OnEnterLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnEnterLifecycle): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>When exiting this state, perform these <code>actions</code> if the specified
  *         <code>condition</code> is <code>TRUE</code>.</p>
  */
 export interface OnExitLifecycle {
   /**
+   * @public
    * <p>Specifies the <code>actions</code> that are performed when the state is exited and the
    *         <code>condition</code> is <code>TRUE</code>.</p>
    */
   events?: Event[];
 }
 
-export namespace OnExitLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnExitLifecycle): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the actions performed and the next state entered when a <code>condition</code>
  *       evaluates to TRUE.</p>
  */
 export interface TransitionEvent {
   /**
+   * @public
    * <p>The name of the transition event.</p>
    */
   eventName: string | undefined;
 
   /**
+   * @public
    * <p>Required. A Boolean expression that when TRUE causes the actions to be performed and the
    *         <code>nextState</code> to be entered.</p>
    */
   condition: string | undefined;
 
   /**
+   * @public
    * <p>The actions to be performed.</p>
    */
   actions?: Action[];
 
   /**
+   * @public
    * <p>The next state to enter.</p>
    */
   nextState: string | undefined;
 }
 
-export namespace TransitionEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitionEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
  */
 export interface OnInputLifecycle {
   /**
+   * @public
    * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
    */
   events?: Event[];
 
   /**
+   * @public
    * <p>Specifies the actions performed, and the next state entered, when a <code>condition</code>
    *       evaluates to TRUE.</p>
    */
   transitionEvents?: TransitionEvent[];
 }
 
-export namespace OnInputLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnInputLifecycle): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information that defines a state of a detector.</p>
  */
 export interface State {
   /**
+   * @public
    * <p>The name of the state.</p>
    */
   stateName: string | undefined;
 
   /**
+   * @public
    * <p>When an input is received and the <code>condition</code> is TRUE, perform the specified
    *         <code>actions</code>.</p>
    */
   onInput?: OnInputLifecycle;
 
   /**
+   * @public
    * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
    *       is TRUE.</p>
    */
   onEnter?: OnEnterLifecycle;
 
   /**
+   * @public
    * <p>When exiting this state, perform these <code>actions</code> if the specified
    *         <code>condition</code> is <code>TRUE</code>.</p>
    */
   onExit?: OnExitLifecycle;
 }
 
-export namespace State {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: State): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information that defines how a detector operates.</p>
  */
 export interface DetectorModelDefinition {
   /**
+   * @public
    * <p>Information about the states of the detector.</p>
    */
   states: State[] | undefined;
 
   /**
+   * @public
    * <p>The state that is entered at the creation of each detector (instance).</p>
    */
   initialStateName: string | undefined;
 }
 
-export namespace DetectorModelDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelDefinition): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationMethod = {
+  BATCH: "BATCH",
+  SERIAL: "SERIAL",
+} as const;
 
-export enum EvaluationMethod {
-  BATCH = "BATCH",
-  SERIAL = "SERIAL",
-}
+/**
+ * @public
+ */
+export type EvaluationMethod = (typeof EvaluationMethod)[keyof typeof EvaluationMethod];
 
+/**
+ * @public
+ */
 export interface CreateDetectorModelRequest {
   /**
+   * @public
    * <p>The name of the detector model.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>Information that defines how the detectors operate.</p>
    */
   detectorModelDefinition: DetectorModelDefinition | undefined;
 
   /**
+   * @public
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
 
   /**
+   * @public
    * <p>The input attribute key used to identify a device or system to create a detector (an
    *       instance of the detector model) and then to route each input received to the appropriate
    *       detector (instance). This parameter uses a JSON-path expression in the message payload of each
@@ -2269,86 +2090,99 @@ export interface CreateDetectorModelRequest {
   key?: string;
 
   /**
+   * @public
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the detector model.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace CreateDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDetectorModelRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DetectorModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-  DRAFT = "DRAFT",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  PAUSED = "PAUSED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DetectorModelVersionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+  DRAFT: "DRAFT",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PAUSED: "PAUSED",
+} as const;
 
 /**
+ * @public
+ */
+export type DetectorModelVersionStatus = (typeof DetectorModelVersionStatus)[keyof typeof DetectorModelVersionStatus];
+
+/**
+ * @public
  * <p>Information about how the detector model is configured.</p>
  */
 export interface DetectorModelConfiguration {
   /**
+   * @public
    * <p>The name of the detector model.</p>
    */
   detectorModelName?: string;
 
   /**
+   * @public
    * <p>The version of the detector model.</p>
    */
   detectorModelVersion?: string;
 
   /**
+   * @public
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the detector model.</p>
    */
   detectorModelArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The time the detector model was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the detector model was last updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the detector model.</p>
    */
   status?: DetectorModelVersionStatus | string;
 
   /**
+   * @public
    * <p>The value used to identify a detector instance. When a device or system sends input, a new
    *       detector instance with a unique key value is created. AWS IoT Events can continue to route input to its
    *       corresponding detector instance based on this identifying information. </p>
@@ -2360,42 +2194,31 @@ export interface DetectorModelConfiguration {
   key?: string;
 
   /**
+   * @public
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace DetectorModelConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateDetectorModelResponse {
   /**
+   * @public
    * <p>Information about how the detector model is configured.</p>
    */
   detectorModelConfiguration?: DetectorModelConfiguration;
 }
 
-export namespace CreateDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDetectorModelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The definition of the input.</p>
  */
 export interface InputDefinition {
   /**
+   * @public
    * <p>The attributes from the JSON payload that are made available by the input. Inputs are
    *       derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such
    *       message contains a JSON payload, and those attributes (and their paired values) specified here
@@ -2405,258 +2228,219 @@ export interface InputDefinition {
   attributes: Attribute[] | undefined;
 }
 
-export namespace InputDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDefinition): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateInputRequest {
   /**
+   * @public
    * <p>The name you want to give to the input.</p>
    */
   inputName: string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the input.</p>
    */
   inputDescription?: string;
 
   /**
+   * @public
    * <p>The definition of the input.</p>
    */
   inputDefinition: InputDefinition | undefined;
 
   /**
+   * @public
    * <p>Metadata that can be used to manage the input.</p>
    */
   tags?: Tag[];
 }
 
-export namespace CreateInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum InputStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InputStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type InputStatus = (typeof InputStatus)[keyof typeof InputStatus];
+
+/**
+ * @public
  * <p>Information about the configuration of an input.</p>
  */
 export interface InputConfiguration {
   /**
+   * @public
    * <p>The name of the input.</p>
    */
   inputName: string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the input.</p>
    */
   inputDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the input.</p>
    */
   inputArn: string | undefined;
 
   /**
+   * @public
    * <p>The time the input was created.</p>
    */
   creationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The last time the input was updated.</p>
    */
   lastUpdateTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the input.</p>
    */
   status: InputStatus | string | undefined;
 }
 
-export namespace InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputConfiguration): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateInputResponse {
   /**
+   * @public
    * <p>Information about the configuration of the input.</p>
    */
   inputConfiguration?: InputConfiguration;
 }
 
-export namespace CreateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteAlarmModelRequest {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 }
 
-export namespace DeleteAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlarmModelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteAlarmModelResponse {}
 
-export namespace DeleteAlarmModelResponse {
+/**
+ * @public
+ * <p>The resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteAlarmModelResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
- * <p>The resource was not found.</p>
+ * @public
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDetectorModelRequest {
   /**
+   * @public
    * <p>The name of the detector model to be deleted.</p>
    */
   detectorModelName: string | undefined;
 }
 
-export namespace DeleteDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDetectorModelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteDetectorModelResponse {}
 
-export namespace DeleteDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDetectorModelResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteInputRequest {
   /**
+   * @public
    * <p>The name of the input to delete.</p>
    */
   inputName: string | undefined;
 }
 
-export namespace DeleteInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteInputResponse {}
 
-export namespace DeleteInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAlarmModelRequest {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 }
 
-export namespace DescribeAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmModelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAlarmModelResponse {
   /**
+   * @public
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   alarmModelArn?: string;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 
   /**
+   * @public
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the alarm model. The status can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -2683,6 +2467,7 @@ export interface DescribeAlarmModelResponse {
   status?: AlarmModelVersionStatus | string;
 
   /**
+   * @public
    * <p>
    *       Contains information about the status of the alarm model.
    *     </p>
@@ -2690,21 +2475,25 @@ export interface DescribeAlarmModelResponse {
   statusMessage?: string;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName?: string;
 
   /**
+   * @public
    * <p>The description of the alarm model.</p>
    */
   alarmModelDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>An input attribute used as a key to create an alarm.
    * AWS IoT Events routes <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html">inputs</a>
    * associated with this key to the alarm.</p>
@@ -2712,119 +2501,99 @@ export interface DescribeAlarmModelResponse {
   key?: string;
 
   /**
+   * @public
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    */
   severity?: number;
 
   /**
+   * @public
    * <p>Defines when your alarm is invoked.</p>
    */
   alarmRule?: AlarmRule;
 
   /**
+   * @public
    * <p>Contains information about one or more notification actions.</p>
    */
   alarmNotification?: AlarmNotification;
 
   /**
+   * @public
    * <p>Contains information about one or more alarm actions.</p>
    */
   alarmEventActions?: AlarmEventActions;
 
   /**
+   * @public
    * <p>Contains the configuration information of alarm state changes.</p>
    */
   alarmCapabilities?: AlarmCapabilities;
 }
 
-export namespace DescribeAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmModelResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDetectorModelRequest {
   /**
+   * @public
    * <p>The name of the detector model.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>The version of the detector model.</p>
    */
   detectorModelVersion?: string;
 }
 
-export namespace DescribeDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the detector model.</p>
  */
 export interface DetectorModel {
   /**
+   * @public
    * <p>Information that defines how a detector operates.</p>
    */
   detectorModelDefinition?: DetectorModelDefinition;
 
   /**
+   * @public
    * <p>Information about how the detector is configured.</p>
    */
   detectorModelConfiguration?: DetectorModelConfiguration;
 }
 
-export namespace DetectorModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModel): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDetectorModelResponse {
   /**
+   * @public
    * <p>Information about the detector model.</p>
    */
   detectorModel?: DetectorModel;
 }
 
-export namespace DescribeDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDetectorModelAnalysisRequest {
   /**
+   * @public
    * <p>The ID of the analysis result that you want to retrieve.</p>
    */
   analysisId: string | undefined;
 }
 
-export namespace DescribeDetectorModelAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDetectorModelAnalysisResponse {
   /**
+   * @public
    * <p>The status of the analysis activity. The status can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -2846,325 +2615,277 @@ export interface DescribeDetectorModelAnalysisResponse {
   status?: AnalysisStatus | string;
 }
 
-export namespace DescribeDetectorModelAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelAnalysisResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeInputRequest {
   /**
+   * @public
    * <p>The name of the input.</p>
    */
   inputName: string | undefined;
 }
 
-export namespace DescribeInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the input.</p>
  */
 export interface Input {
   /**
+   * @public
    * <p>Information about the configuration of an input.</p>
    */
   inputConfiguration?: InputConfiguration;
 
   /**
+   * @public
    * <p>The definition of the input.</p>
    */
   inputDefinition?: InputDefinition;
 }
 
-export namespace Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeInputResponse {
   /**
+   * @public
    * <p>Information about the input.</p>
    */
   input?: Input;
 }
 
-export namespace DescribeInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeLoggingOptionsRequest {}
 
-export namespace DescribeLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The detector model and the specific detectors (instances) for which the logging level is
  *       given.</p>
  */
 export interface DetectorDebugOption {
   /**
+   * @public
    * <p>The name of the detector model.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the input attribute key used to create the detector (the instance of the
    *       detector model).</p>
    */
   keyValue?: string;
 }
 
-export namespace DetectorDebugOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorDebugOption): any => ({
-    ...obj,
-  });
-}
-
-export enum LoggingLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoggingLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  INFO: "INFO",
+} as const;
 
 /**
+ * @public
+ */
+export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
+
+/**
+ * @public
  * <p>The values of the AWS IoT Events logging options.</p>
  */
 export interface LoggingOptions {
   /**
+   * @public
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform logging.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The logging level.</p>
    */
   level: LoggingLevel | string | undefined;
 
   /**
+   * @public
    * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
    */
   enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Information that identifies those detector models and their detectors (instances) for
    *       which the logging level is given.</p>
    */
   detectorDebugOptions?: DetectorDebugOption[];
 }
 
-export namespace LoggingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingOptions): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeLoggingOptionsResponse {
   /**
+   * @public
    * <p>The current settings of the AWS IoT Events logging options.</p>
    */
   loggingOptions?: LoggingOptions;
 }
 
-export namespace DescribeLoggingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The requested operation is not supported.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace UnsupportedOperationException {
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Information about the detector model.</p>
  */
 export interface DetectorModelSummary {
   /**
+   * @public
    * <p>The name of the detector model.</p>
    */
   detectorModelName?: string;
 
   /**
+   * @public
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
 
   /**
+   * @public
    * <p>The time the detector model was created.</p>
    */
   creationTime?: Date;
 }
 
-export namespace DetectorModelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the detector model version.</p>
  */
 export interface DetectorModelVersionSummary {
   /**
+   * @public
    * <p>The name of the detector model.</p>
    */
   detectorModelName?: string;
 
   /**
+   * @public
    * <p>The ID of the detector model version.</p>
    */
   detectorModelVersion?: string;
 
   /**
+   * @public
    * <p>The ARN of the detector model version.</p>
    */
   detectorModelArn?: string;
 
   /**
+   * @public
    * <p>The ARN of the role that grants the detector model permission to perform its tasks.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The time the detector model version was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The last time the detector model version was updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the detector model version.</p>
    */
   status?: DetectorModelVersionStatus | string;
 
   /**
+   * @public
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace DetectorModelVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelVersionSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDetectorModelAnalysisResultsRequest {
   /**
+   * @public
    * <p>The ID of the analysis result that you want to retrieve.</p>
    */
   analysisId: string | undefined;
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace GetDetectorModelAnalysisResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDetectorModelAnalysisResultsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDetectorModelAnalysisResultsResponse {
   /**
+   * @public
    * <p>Contains information about one or more analysis results.</p>
    */
   analysisResults?: AnalysisResult[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace GetDetectorModelAnalysisResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDetectorModelAnalysisResultsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *       The identifier of the input routed to AWS IoT Events.
  *     </p>
  */
 export interface IotEventsInputIdentifier {
   /**
+   * @public
    * <p>
    *       The name of the input routed to AWS IoT Events.
    *     </p>
@@ -3172,22 +2893,15 @@ export interface IotEventsInputIdentifier {
   inputName: string | undefined;
 }
 
-export namespace IotEventsInputIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotEventsInputIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *       The asset model property identifer of the input routed from AWS IoT SiteWise.
  *     </p>
  */
 export interface IotSiteWiseAssetModelPropertyIdentifier {
   /**
+   * @public
    * <p>
    *       The ID of the AWS IoT SiteWise asset model.
    *     </p>
@@ -3195,6 +2909,7 @@ export interface IotSiteWiseAssetModelPropertyIdentifier {
   assetModelId: string | undefined;
 
   /**
+   * @public
    * <p>
    *       The ID of the AWS IoT SiteWise asset property.
    *     </p>
@@ -3202,22 +2917,15 @@ export interface IotSiteWiseAssetModelPropertyIdentifier {
   propertyId: string | undefined;
 }
 
-export namespace IotSiteWiseAssetModelPropertyIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseAssetModelPropertyIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *       The identifer of the input routed from AWS IoT SiteWise.
  *     </p>
  */
 export interface IotSiteWiseInputIdentifier {
   /**
+   * @public
    * <p>
    *       The identifier of the AWS IoT SiteWise asset model property.
    *     </p>
@@ -3225,22 +2933,15 @@ export interface IotSiteWiseInputIdentifier {
   iotSiteWiseAssetModelPropertyIdentifier?: IotSiteWiseAssetModelPropertyIdentifier;
 }
 
-export namespace IotSiteWiseInputIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseInputIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *       The identifer of the input.
  *     </p>
  */
 export interface InputIdentifier {
   /**
+   * @public
    * <p>
    *       The identifier of the input routed to AWS IoT Events.
    *     </p>
@@ -3248,6 +2949,7 @@ export interface InputIdentifier {
   iotEventsInputIdentifier?: IotEventsInputIdentifier;
 
   /**
+   * @public
    * <p>
    *       The identifer of the input routed from AWS IoT SiteWise.
    *     </p>
@@ -3255,243 +2957,206 @@ export interface InputIdentifier {
   iotSiteWiseInputIdentifier?: IotSiteWiseInputIdentifier;
 }
 
-export namespace InputIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the input.</p>
  */
 export interface InputSummary {
   /**
+   * @public
    * <p>The name of the input.</p>
    */
   inputName?: string;
 
   /**
+   * @public
    * <p>A brief description of the input.</p>
    */
   inputDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the input.</p>
    */
   inputArn?: string;
 
   /**
+   * @public
    * <p>The time the input was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The last time the input was updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the input.</p>
    */
   status?: InputStatus | string;
 }
 
-export namespace InputSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAlarmModelsRequest {
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListAlarmModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAlarmModelsResponse {
   /**
+   * @public
    * <p>A list that summarizes each alarm model.</p>
    */
   alarmModelSummaries?: AlarmModelSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListAlarmModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAlarmModelVersionsRequest {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListAlarmModelVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAlarmModelVersionsResponse {
   /**
+   * @public
    * <p>A list that summarizes each alarm model version.</p>
    */
   alarmModelVersionSummaries?: AlarmModelVersionSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListAlarmModelVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDetectorModelsRequest {
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListDetectorModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDetectorModelsResponse {
   /**
+   * @public
    * <p>Summary information about the detector models.</p>
    */
   detectorModelSummaries?: DetectorModelSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDetectorModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDetectorModelVersionsRequest {
   /**
+   * @public
    * <p>The name of the detector model whose versions are returned.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListDetectorModelVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDetectorModelVersionsResponse {
   /**
+   * @public
    * <p>Summary information about the detector model versions.</p>
    */
   detectorModelVersionSummaries?: DetectorModelVersionSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDetectorModelVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListInputRoutingsRequest {
   /**
+   * @public
    * <p>
    *       The identifer of the routed input.
    *     </p>
@@ -3499,6 +3164,7 @@ export interface ListInputRoutingsRequest {
   inputIdentifier: InputIdentifier | undefined;
 
   /**
+   * @public
    * <p>
    *       The maximum number of results to be returned per request.
    *     </p>
@@ -3506,6 +3172,7 @@ export interface ListInputRoutingsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>
    *       The token that you can use to return the next set of results.
    *     </p>
@@ -3513,22 +3180,15 @@ export interface ListInputRoutingsRequest {
   nextToken?: string;
 }
 
-export namespace ListInputRoutingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputRoutingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *       Contains information about the routed resource.
  *     </p>
  */
 export interface RoutedResource {
   /**
+   * @public
    * <p>
    *       The name of the routed resource.
    *     </p>
@@ -3536,6 +3196,7 @@ export interface RoutedResource {
   name?: string;
 
   /**
+   * @public
    * <p>
    *       The ARN of the routed resource. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.
    *     </p>
@@ -3543,17 +3204,12 @@ export interface RoutedResource {
   arn?: string;
 }
 
-export namespace RoutedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutedResource): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListInputRoutingsResponse {
   /**
+   * @public
    * <p>
    *       Summary information about the routed resources.
    *     </p>
@@ -3561,6 +3217,7 @@ export interface ListInputRoutingsResponse {
   routedResources?: RoutedResource[];
 
   /**
+   * @public
    * <p>
    *       The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.
@@ -3569,275 +3226,223 @@ export interface ListInputRoutingsResponse {
   nextToken?: string;
 }
 
-export namespace ListInputRoutingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputRoutingsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListInputsRequest {
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListInputsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListInputsResponse {
   /**
+   * @public
    * <p>Summary information about the inputs.</p>
    */
   inputSummaries?: InputSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListInputsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags assigned to the resource.</p>
    */
   tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutLoggingOptionsRequest {
   /**
+   * @public
    * <p>The new values of the AWS IoT Events logging options.</p>
    */
   loggingOptions: LoggingOptions | undefined;
 }
 
-export namespace PutLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartDetectorModelAnalysisRequest {
   /**
+   * @public
    * <p>Information that defines how a detector operates.</p>
    */
   detectorModelDefinition: DetectorModelDefinition | undefined;
 }
 
-export namespace StartDetectorModelAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDetectorModelAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartDetectorModelAnalysisResponse {
   /**
+   * @public
    * <p>The ID that you can use to retrieve the analysis result.</p>
    */
   analysisId?: string;
 }
 
-export namespace StartDetectorModelAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDetectorModelAnalysisResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAlarmModelRequest {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the alarm model.</p>
    */
   alarmModelDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    */
   severity?: number;
 
   /**
+   * @public
    * <p>Defines when your alarm is invoked.</p>
    */
   alarmRule: AlarmRule | undefined;
 
   /**
+   * @public
    * <p>Contains information about one or more notification actions.</p>
    */
   alarmNotification?: AlarmNotification;
 
   /**
+   * @public
    * <p>Contains information about one or more alarm actions.</p>
    */
   alarmEventActions?: AlarmEventActions;
 
   /**
+   * @public
    * <p>Contains the configuration information of alarm state changes.</p>
    */
   alarmCapabilities?: AlarmCapabilities;
 }
 
-export namespace UpdateAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAlarmModelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAlarmModelResponse {
   /**
+   * @public
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   alarmModelArn?: string;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 
   /**
+   * @public
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The status of the alarm model. The status can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -3864,106 +3469,83 @@ export interface UpdateAlarmModelResponse {
   status?: AlarmModelVersionStatus | string;
 }
 
-export namespace UpdateAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAlarmModelResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDetectorModelRequest {
   /**
+   * @public
    * <p>The name of the detector model that is updated.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>Information that defines how a detector operates.</p>
    */
   detectorModelDefinition: DetectorModelDefinition | undefined;
 
   /**
+   * @public
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
 
   /**
+   * @public
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace UpdateDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDetectorModelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDetectorModelResponse {
   /**
+   * @public
    * <p>Information about how the detector model is configured.</p>
    */
   detectorModelConfiguration?: DetectorModelConfiguration;
 }
 
-export namespace UpdateDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDetectorModelResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateInputRequest {
   /**
+   * @public
    * <p>The name of the input you want to update.</p>
    */
   inputName: string | undefined;
 
   /**
+   * @public
    * <p>A brief description of the input.</p>
    */
   inputDescription?: string;
 
   /**
+   * @public
    * <p>The definition of the input.</p>
    */
   inputDefinition: InputDefinition | undefined;
 }
 
-export namespace UpdateInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateInputResponse {
   /**
+   * @public
    * <p>Information about the configuration of the input.</p>
    */
   inputConfiguration?: InputConfiguration;
-}
-
-export namespace UpdateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
-    ...obj,
-  });
 }

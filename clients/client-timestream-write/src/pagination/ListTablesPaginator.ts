@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
-import { TimestreamWrite } from "../TimestreamWrite";
 import { TimestreamWriteClient } from "../TimestreamWriteClient";
 import { TimestreamWritePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TimestreamWriteClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTablesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: TimestreamWrite,
-  input: ListTablesCommandInput,
-  ...args: any
-): Promise<ListTablesCommandOutput> => {
-  // @ts-ignore
-  return await client.listTables(input, ...args);
-};
 export async function* paginateListTables(
   config: TimestreamWritePaginationConfiguration,
   input: ListTablesCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListTables(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof TimestreamWrite) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TimestreamWriteClient) {
+    if (config.client instanceof TimestreamWriteClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected TimestreamWrite | TimestreamWriteClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

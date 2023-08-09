@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListLicenseConversionTasksRequest, ListLicenseConversionTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLicenseConversionTasksCommand,
-  serializeAws_json1_1ListLicenseConversionTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLicenseConversionTasksCommand, se_ListLicenseConversionTasksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListLicenseConversionTasksCommand}.
+ */
 export interface ListLicenseConversionTasksCommandInput extends ListLicenseConversionTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLicenseConversionTasksCommand}.
+ */
 export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConversionTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the license type conversion tasks for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,67 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * import { LicenseManagerClient, ListLicenseConversionTasksCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicenseConversionTasksCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListLicenseConversionTasksRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [ // Filters
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListLicenseConversionTasksCommand(input);
  * const response = await client.send(command);
+ * // { // ListLicenseConversionTasksResponse
+ * //   LicenseConversionTasks: [ // LicenseConversionTasks
+ * //     { // LicenseConversionTask
+ * //       LicenseConversionTaskId: "STRING_VALUE",
+ * //       ResourceArn: "STRING_VALUE",
+ * //       SourceLicenseContext: { // LicenseConversionContext
+ * //         UsageOperation: "STRING_VALUE",
+ * //       },
+ * //       DestinationLicenseContext: {
+ * //         UsageOperation: "STRING_VALUE",
+ * //       },
+ * //       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       LicenseConversionTime: new Date("TIMESTAMP"),
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListLicenseConversionTasksCommandInput - {@link ListLicenseConversionTasksCommandInput}
+ * @returns {@link ListLicenseConversionTasksCommandOutput}
  * @see {@link ListLicenseConversionTasksCommandInput} for command's `input` shape.
  * @see {@link ListLicenseConversionTasksCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicenseConversionTasksCommand extends $Command<
@@ -46,6 +114,18 @@ export class ListLicenseConversionTasksCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicenseConversionTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +141,9 @@ export class ListLicenseConversionTasksCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListLicenseConversionTasksCommandInput, ListLicenseConversionTasksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListLicenseConversionTasksCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +154,8 @@ export class ListLicenseConversionTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicenseConversionTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLicenseConversionTasksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +165,21 @@ export class ListLicenseConversionTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLicenseConversionTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseConversionTasksCommand(input, context);
+    return se_ListLicenseConversionTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListLicenseConversionTasksCommandOutput> {
-    return deserializeAws_json1_1ListLicenseConversionTasksCommand(output, context);
+    return de_ListLicenseConversionTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

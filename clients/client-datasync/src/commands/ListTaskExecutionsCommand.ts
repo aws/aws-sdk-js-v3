@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { ListTaskExecutionsRequest, ListTaskExecutionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListTaskExecutionsCommand,
-  serializeAws_json1_1ListTaskExecutionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListTaskExecutionsCommand, se_ListTaskExecutionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTaskExecutionsCommand}.
+ */
 export interface ListTaskExecutionsCommandInput extends ListTaskExecutionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTaskExecutionsCommand}.
+ */
 export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of executed tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,40 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * import { DataSyncClient, ListTaskExecutionsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListTaskExecutionsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // ListTaskExecutionsRequest
+ *   TaskArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTaskExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTaskExecutionsResponse
+ * //   TaskExecutions: [ // TaskExecutionList
+ * //     { // TaskExecutionListEntry
+ * //       TaskExecutionArn: "STRING_VALUE",
+ * //       Status: "QUEUED" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTaskExecutionsCommandInput - {@link ListTaskExecutionsCommandInput}
+ * @returns {@link ListTaskExecutionsCommandOutput}
  * @see {@link ListTaskExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListTaskExecutionsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class ListTaskExecutionsCommand extends $Command<
@@ -46,6 +87,18 @@ export class ListTaskExecutionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTaskExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +114,9 @@ export class ListTaskExecutionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTaskExecutionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +127,8 @@ export class ListTaskExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTaskExecutionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTaskExecutionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +138,18 @@ export class ListTaskExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTaskExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTaskExecutionsCommand(input, context);
+    return se_ListTaskExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTaskExecutionsCommandOutput> {
-    return deserializeAws_json1_1ListTaskExecutionsCommand(output, context);
+    return de_ListTaskExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

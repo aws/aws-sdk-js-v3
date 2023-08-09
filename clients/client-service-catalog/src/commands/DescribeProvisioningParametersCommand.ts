@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeProvisioningParametersInput, DescribeProvisioningParametersOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeProvisioningParametersCommand,
-  serializeAws_json1_1DescribeProvisioningParametersCommand,
+  de_DescribeProvisioningParametersCommand,
+  se_DescribeProvisioningParametersCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeProvisioningParametersCommand}.
+ */
 export interface DescribeProvisioningParametersCommandInput extends DescribeProvisioningParametersInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProvisioningParametersCommand}.
+ */
 export interface DescribeProvisioningParametersCommandOutput
   extends DescribeProvisioningParametersOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about the configuration required to provision the specified product using
  *          the specified provisioning artifact.</p>
  *          <p>If the output contains a TagOption key with an empty list of values, there is a
@@ -38,13 +55,96 @@ export interface DescribeProvisioningParametersCommandOutput
  * import { ServiceCatalogClient, DescribeProvisioningParametersCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisioningParametersCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeProvisioningParametersInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE",
+ *   ProductName: "STRING_VALUE",
+ *   ProvisioningArtifactId: "STRING_VALUE",
+ *   ProvisioningArtifactName: "STRING_VALUE",
+ *   PathId: "STRING_VALUE",
+ *   PathName: "STRING_VALUE",
+ * };
  * const command = new DescribeProvisioningParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProvisioningParametersOutput
+ * //   ProvisioningArtifactParameters: [ // ProvisioningArtifactParameters
+ * //     { // ProvisioningArtifactParameter
+ * //       ParameterKey: "STRING_VALUE",
+ * //       DefaultValue: "STRING_VALUE",
+ * //       ParameterType: "STRING_VALUE",
+ * //       IsNoEcho: true || false,
+ * //       Description: "STRING_VALUE",
+ * //       ParameterConstraints: { // ParameterConstraints
+ * //         AllowedValues: [ // AllowedValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AllowedPattern: "STRING_VALUE",
+ * //         ConstraintDescription: "STRING_VALUE",
+ * //         MaxLength: "STRING_VALUE",
+ * //         MinLength: "STRING_VALUE",
+ * //         MaxValue: "STRING_VALUE",
+ * //         MinValue: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   ConstraintSummaries: [ // ConstraintSummaries
+ * //     { // ConstraintSummary
+ * //       Type: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   UsageInstructions: [ // UsageInstructions
+ * //     { // UsageInstruction
+ * //       Type: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   TagOptions: [ // TagOptionSummaries
+ * //     { // TagOptionSummary
+ * //       Key: "STRING_VALUE",
+ * //       Values: [ // TagOptionValues
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   ProvisioningArtifactPreferences: { // ProvisioningArtifactPreferences
+ * //     StackSetAccounts: [ // StackSetAccounts
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     StackSetRegions: [ // StackSetRegions
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   ProvisioningArtifactOutputs: [ // ProvisioningArtifactOutputs
+ * //     { // ProvisioningArtifactOutput
+ * //       Key: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ProvisioningArtifactOutputKeys: [
+ * //     {
+ * //       Key: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeProvisioningParametersCommandInput - {@link DescribeProvisioningParametersCommandInput}
+ * @returns {@link DescribeProvisioningParametersCommandOutput}
  * @see {@link DescribeProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeProvisioningParametersCommand extends $Command<
@@ -55,6 +155,18 @@ export class DescribeProvisioningParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProvisioningParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +182,9 @@ export class DescribeProvisioningParametersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeProvisioningParametersCommandInput, DescribeProvisioningParametersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeProvisioningParametersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +195,8 @@ export class DescribeProvisioningParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisioningParametersInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisioningParametersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +206,24 @@ export class DescribeProvisioningParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProvisioningParametersCommand(input, context);
+    return se_DescribeProvisioningParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeProvisioningParametersCommand(output, context);
+    return de_DescribeProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

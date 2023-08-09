@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import { UpdateApprovalRuleTemplateNameInput, UpdateApprovalRuleTemplateNameOutput } from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand,
-  serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand,
+  de_UpdateApprovalRuleTemplateNameCommand,
+  se_UpdateApprovalRuleTemplateNameCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateApprovalRuleTemplateNameCommand}.
+ */
 export interface UpdateApprovalRuleTemplateNameCommandInput extends UpdateApprovalRuleTemplateNameInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateApprovalRuleTemplateNameCommand}.
+ */
 export interface UpdateApprovalRuleTemplateNameCommandOutput
   extends UpdateApprovalRuleTemplateNameOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the name of a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,53 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
  * import { CodeCommitClient, UpdateApprovalRuleTemplateNameCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateApprovalRuleTemplateNameCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = { // UpdateApprovalRuleTemplateNameInput
+ *   oldApprovalRuleTemplateName: "STRING_VALUE", // required
+ *   newApprovalRuleTemplateName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApprovalRuleTemplateNameCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateApprovalRuleTemplateNameOutput
+ * //   approvalRuleTemplate: { // ApprovalRuleTemplate
+ * //     approvalRuleTemplateId: "STRING_VALUE",
+ * //     approvalRuleTemplateName: "STRING_VALUE",
+ * //     approvalRuleTemplateDescription: "STRING_VALUE",
+ * //     approvalRuleTemplateContent: "STRING_VALUE",
+ * //     ruleContentSha256: "STRING_VALUE",
+ * //     lastModifiedDate: new Date("TIMESTAMP"),
+ * //     creationDate: new Date("TIMESTAMP"),
+ * //     lastModifiedUser: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateApprovalRuleTemplateNameCommandInput - {@link UpdateApprovalRuleTemplateNameCommandInput}
+ * @returns {@link UpdateApprovalRuleTemplateNameCommandOutput}
  * @see {@link UpdateApprovalRuleTemplateNameCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateNameCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
+ *
+ * @throws {@link ApprovalRuleTemplateDoesNotExistException} (client fault)
+ *  <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
+ *         was created, and then try again.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameAlreadyExistsException} (client fault)
+ *  <p>You cannot create an approval rule template with that name because a template with
+ *             that name already exists in this AWS Region for your AWS account. Approval rule template
+ *             names must be unique.</p>
+ *
+ * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
+ *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
+ *  <p>The name of the approval rule template is not valid. Template names must be between 1
+ *             and 100 valid characters in length. For more information about limits in AWS CodeCommit,
+ *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
+ *                 CodeCommit User Guide</a>.</p>
+ *
+ * @throws {@link CodeCommitServiceException}
+ * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
 export class UpdateApprovalRuleTemplateNameCommand extends $Command<
@@ -48,6 +105,18 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateApprovalRuleTemplateNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +132,9 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateApprovalRuleTemplateNameCommandInput, UpdateApprovalRuleTemplateNameCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateApprovalRuleTemplateNameCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +145,8 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApprovalRuleTemplateNameInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApprovalRuleTemplateNameOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,18 +156,24 @@ export class UpdateApprovalRuleTemplateNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateApprovalRuleTemplateNameCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(input, context);
+    return se_UpdateApprovalRuleTemplateNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> {
-    return deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(output, context);
+    return de_UpdateApprovalRuleTemplateNameCommand(output, context);
   }
 
   // Start section: command_body_extra

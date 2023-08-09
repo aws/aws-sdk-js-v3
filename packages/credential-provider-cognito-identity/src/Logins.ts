@@ -1,9 +1,11 @@
-import { Provider } from "@aws-sdk/types";
+import { Provider } from "@smithy/types";
 
-export interface Logins {
-  [providerName: string]: string | Provider<string>;
-}
+/**
+ * @internal
+ */
+export type Logins = Record<string, string | Provider<string>>;
 
-export interface ResolvedLogins {
-  [providerName: string]: string;
-}
+/**
+ * @internal
+ */
+export type ResolvedLogins = Record<string, string>;

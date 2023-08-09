@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListTemplatesCommand,
-  serializeAws_queryListTemplatesCommand,
-} from "../protocols/Aws_query";
+import { de_ListTemplatesCommand, se_ListTemplatesCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTemplatesCommand}.
+ */
 export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTemplatesCommand}.
+ */
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the email templates present in your Amazon SES account in the current AWS
  *             Region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -31,13 +45,32 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * import { SESClient, ListTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // ListTemplatesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTemplatesResponse
+ * //   TemplatesMetadata: [ // TemplateMetadataList
+ * //     { // TemplateMetadata
+ * //       Name: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTemplatesCommandInput - {@link ListTemplatesCommandInput}
+ * @returns {@link ListTemplatesCommandOutput}
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
  *
  */
 export class ListTemplatesCommand extends $Command<
@@ -48,6 +81,18 @@ export class ListTemplatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTemplatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +108,7 @@ export class ListTemplatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTemplatesCommandInput, ListTemplatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListTemplatesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +119,8 @@ export class ListTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +130,18 @@ export class ListTemplatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListTemplatesCommand(input, context);
+    return se_ListTemplatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
-    return deserializeAws_queryListTemplatesCommand(output, context);
+    return de_ListTemplatesCommand(output, context);
   }
 
   // Start section: command_body_extra

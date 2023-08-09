@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteParametersRequest, DeleteParametersResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteParametersCommand,
-  serializeAws_json1_1DeleteParametersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteParametersCommand, se_DeleteParametersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteParametersCommand}.
+ */
 export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteParametersCommand}.
+ */
 export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
  *    create a parameter with the same name.</p>
  * @example
@@ -30,13 +44,35 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * import { SSMClient, DeleteParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeleteParametersRequest
+ *   Names: [ // ParameterNameList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteParametersResult
+ * //   DeletedParameters: [ // ParameterNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidParameters: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DeleteParametersCommandInput - {@link DeleteParametersCommandInput}
+ * @returns {@link DeleteParametersCommandOutput}
  * @see {@link DeleteParametersCommandInput} for command's `input` shape.
  * @see {@link DeleteParametersCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeleteParametersCommand extends $Command<
@@ -47,6 +83,18 @@ export class DeleteParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +110,9 @@ export class DeleteParametersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteParametersCommandInput, DeleteParametersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteParametersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +123,8 @@ export class DeleteParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteParametersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +134,18 @@ export class DeleteParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteParametersCommand(input, context);
+    return se_DeleteParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParametersCommandOutput> {
-    return deserializeAws_json1_1DeleteParametersCommand(output, context);
+    return de_DeleteParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

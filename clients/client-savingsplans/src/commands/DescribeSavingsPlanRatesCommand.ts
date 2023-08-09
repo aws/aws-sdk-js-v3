@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeSavingsPlanRatesCommand,
-  serializeAws_restJson1DescribeSavingsPlanRatesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeSavingsPlanRatesCommand, se_DescribeSavingsPlanRatesCommand } from "../protocols/Aws_restJson1";
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSavingsPlanRatesCommand}.
+ */
 export interface DescribeSavingsPlanRatesCommandInput extends DescribeSavingsPlanRatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSavingsPlanRatesCommand}.
+ */
 export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPlanRatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified Savings Plans rates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,59 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * import { SavingsplansClient, DescribeSavingsPlanRatesCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, DescribeSavingsPlanRatesCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
+ * const input = { // DescribeSavingsPlanRatesRequest
+ *   savingsPlanId: "STRING_VALUE", // required
+ *   filters: [ // SavingsPlanRateFilterList
+ *     { // SavingsPlanRateFilter
+ *       name: "region" || "instanceType" || "productDescription" || "tenancy" || "productType" || "serviceCode" || "usageType" || "operation",
+ *       values: [ // ListOfStrings
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeSavingsPlanRatesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSavingsPlanRatesResponse
+ * //   savingsPlanId: "STRING_VALUE",
+ * //   searchResults: [ // SavingsPlanRateList
+ * //     { // SavingsPlanRate
+ * //       rate: "STRING_VALUE",
+ * //       currency: "CNY" || "USD",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker",
+ * //       usageType: "STRING_VALUE",
+ * //       operation: "STRING_VALUE",
+ * //       properties: [ // SavingsPlanRatePropertyList
+ * //         { // SavingsPlanRateProperty
+ * //           name: "region" || "instanceType" || "instanceFamily" || "productDescription" || "tenancy",
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeSavingsPlanRatesCommandInput - {@link DescribeSavingsPlanRatesCommandInput}
+ * @returns {@link DescribeSavingsPlanRatesCommandOutput}
  * @see {@link DescribeSavingsPlanRatesCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlanRatesCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters is not valid.</p>
+ *
+ * @throws {@link SavingsplansServiceException}
+ * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
  */
 export class DescribeSavingsPlanRatesCommand extends $Command<
@@ -46,6 +106,18 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSavingsPlanRatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +133,9 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSavingsPlanRatesCommandInput, DescribeSavingsPlanRatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSavingsPlanRatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +146,8 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSavingsPlanRatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSavingsPlanRatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +157,18 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSavingsPlanRatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeSavingsPlanRatesCommand(input, context);
+    return se_DescribeSavingsPlanRatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSavingsPlanRatesCommandOutput> {
-    return deserializeAws_restJson1DescribeSavingsPlanRatesCommand(output, context);
+    return de_DescribeSavingsPlanRatesCommand(output, context);
   }
 
   // Start section: command_body_extra

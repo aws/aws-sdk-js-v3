@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Synthetics } from "../Synthetics";
 import { SyntheticsClient } from "../SyntheticsClient";
 
+/**
+ * @public
+ */
 export interface SyntheticsPaginationConfiguration extends PaginationConfiguration {
-  client: Synthetics | SyntheticsClient;
+  client: SyntheticsClient;
 }

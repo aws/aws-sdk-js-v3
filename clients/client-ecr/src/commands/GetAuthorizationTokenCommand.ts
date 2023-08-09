@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import { GetAuthorizationTokenRequest, GetAuthorizationTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAuthorizationTokenCommand,
-  serializeAws_json1_1GetAuthorizationTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAuthorizationTokenCommand}.
+ */
 export interface GetAuthorizationTokenCommandInput extends GetAuthorizationTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAuthorizationTokenCommand}.
+ */
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves an authorization token. An authorization token represents your IAM
  *             authentication credentials and can be used to access any Amazon ECR registry that your IAM
  *             principal has access to. The authorization token is valid for 12 hours.</p>
@@ -36,13 +50,60 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * import { ECRClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = { // GetAuthorizationTokenRequest
+ *   registryIds: [ // GetAuthorizationTokenRegistryIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetAuthorizationTokenResponse
+ * //   authorizationData: [ // AuthorizationDataList
+ * //     { // AuthorizationData
+ * //       authorizationToken: "STRING_VALUE",
+ * //       expiresAt: new Date("TIMESTAMP"),
+ * //       proxyEndpoint: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetAuthorizationTokenCommandInput - {@link GetAuthorizationTokenCommandInput}
+ * @returns {@link GetAuthorizationTokenCommandOutput}
  * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ECRServiceException}
+ * <p>Base exception class for all service exceptions from ECR service.</p>
+ *
+ * @example To obtain an authorization token
+ * ```javascript
+ * // This example gets an authorization token for your default registry.
+ * const input = {};
+ * const command = new GetAuthorizationTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "authorizationData": [
+ *     {
+ *       "authorizationToken": "QVdTOkN...",
+ *       "expiresAt": "1470951892432",
+ *       "proxyEndpoint": "https://012345678901.dkr.ecr.us-west-2.amazonaws.com"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: getauthorizationtoken-example-1470867047084
+ * ```
  *
  */
 export class GetAuthorizationTokenCommand extends $Command<
@@ -53,6 +114,18 @@ export class GetAuthorizationTokenCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAuthorizationTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +141,9 @@ export class GetAuthorizationTokenCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAuthorizationTokenCommandInput, GetAuthorizationTokenCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAuthorizationTokenCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +154,8 @@ export class GetAuthorizationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAuthorizationTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAuthorizationTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +165,18 @@ export class GetAuthorizationTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAuthorizationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAuthorizationTokenCommand(input, context);
+    return se_GetAuthorizationTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAuthorizationTokenCommandOutput> {
-    return deserializeAws_json1_1GetAuthorizationTokenCommand(output, context);
+    return de_GetAuthorizationTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

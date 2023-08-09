@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { DescribeAnomalyDetectorRequest, DescribeAnomalyDetectorResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeAnomalyDetectorCommand,
-  serializeAws_restJson1DescribeAnomalyDetectorCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeAnomalyDetectorCommand, se_DescribeAnomalyDetectorCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeAnomalyDetectorCommand}.
+ */
 export interface DescribeAnomalyDetectorCommandInput extends DescribeAnomalyDetectorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeAnomalyDetectorCommand}.
+ */
 export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes a detector.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -31,13 +45,52 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  * import { LookoutMetricsClient, DescribeAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DescribeAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = { // DescribeAnomalyDetectorRequest
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAnomalyDetectorCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeAnomalyDetectorResponse
+ * //   AnomalyDetectorArn: "STRING_VALUE",
+ * //   AnomalyDetectorName: "STRING_VALUE",
+ * //   AnomalyDetectorDescription: "STRING_VALUE",
+ * //   AnomalyDetectorConfig: { // AnomalyDetectorConfigSummary
+ * //     AnomalyDetectorFrequency: "STRING_VALUE",
+ * //   },
+ * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModificationTime: new Date("TIMESTAMP"),
+ * //   Status: "STRING_VALUE",
+ * //   FailureReason: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * //   FailureType: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeAnomalyDetectorCommandInput - {@link DescribeAnomalyDetectorCommandInput}
+ * @returns {@link DescribeAnomalyDetectorCommandOutput}
  * @see {@link DescribeAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyDetectorCommandOutput} for command's `response` shape.
  * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found. Check the ARN of the resource and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request was denied due to too many requests being submitted at the same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by the AWS service. Check your input values and try
+ *       again.</p>
+ *
+ * @throws {@link LookoutMetricsServiceException}
+ * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
 export class DescribeAnomalyDetectorCommand extends $Command<
@@ -48,6 +101,18 @@ export class DescribeAnomalyDetectorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeAnomalyDetectorCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +128,9 @@ export class DescribeAnomalyDetectorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeAnomalyDetectorCommandInput, DescribeAnomalyDetectorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeAnomalyDetectorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +141,8 @@ export class DescribeAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnomalyDetectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnomalyDetectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +152,18 @@ export class DescribeAnomalyDetectorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeAnomalyDetectorCommand(input, context);
+    return se_DescribeAnomalyDetectorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnomalyDetectorCommandOutput> {
-    return deserializeAws_restJson1DescribeAnomalyDetectorCommand(output, context);
+    return de_DescribeAnomalyDetectorCommand(output, context);
   }
 
   // Start section: command_body_extra

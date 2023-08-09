@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetAssignmentRequest, GetAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetAssignmentCommand,
-  serializeAws_json1_1GetAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAssignmentCommand, se_GetAssignmentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAssignmentCommand}.
+ */
 export interface GetAssignmentCommandInput extends GetAssignmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssignmentCommand}.
+ */
 export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
  *         </p>
@@ -31,13 +45,83 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * import { MTurkClient, GetAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // GetAssignmentRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssignmentCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssignmentResponse
+ * //   Assignment: { // Assignment
+ * //     AssignmentId: "STRING_VALUE",
+ * //     WorkerId: "STRING_VALUE",
+ * //     HITId: "STRING_VALUE",
+ * //     AssignmentStatus: "STRING_VALUE",
+ * //     AutoApprovalTime: new Date("TIMESTAMP"),
+ * //     AcceptTime: new Date("TIMESTAMP"),
+ * //     SubmitTime: new Date("TIMESTAMP"),
+ * //     ApprovalTime: new Date("TIMESTAMP"),
+ * //     RejectionTime: new Date("TIMESTAMP"),
+ * //     Deadline: new Date("TIMESTAMP"),
+ * //     Answer: "STRING_VALUE",
+ * //     RequesterFeedback: "STRING_VALUE",
+ * //   },
+ * //   HIT: { // HIT
+ * //     HITId: "STRING_VALUE",
+ * //     HITTypeId: "STRING_VALUE",
+ * //     HITGroupId: "STRING_VALUE",
+ * //     HITLayoutId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Title: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Question: "STRING_VALUE",
+ * //     Keywords: "STRING_VALUE",
+ * //     HITStatus: "STRING_VALUE",
+ * //     MaxAssignments: Number("int"),
+ * //     Reward: "STRING_VALUE",
+ * //     AutoApprovalDelayInSeconds: Number("long"),
+ * //     Expiration: new Date("TIMESTAMP"),
+ * //     AssignmentDurationInSeconds: Number("long"),
+ * //     RequesterAnnotation: "STRING_VALUE",
+ * //     QualificationRequirements: [ // QualificationRequirementList
+ * //       { // QualificationRequirement
+ * //         QualificationTypeId: "STRING_VALUE", // required
+ * //         Comparator: "STRING_VALUE", // required
+ * //         IntegerValues: [ // IntegerList
+ * //           Number("int"),
+ * //         ],
+ * //         LocaleValues: [ // LocaleList
+ * //           { // Locale
+ * //             Country: "STRING_VALUE", // required
+ * //             Subdivision: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         RequiredToPreview: true || false,
+ * //         ActionsGuarded: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     HITReviewStatus: "STRING_VALUE",
+ * //     NumberOfAssignmentsPending: Number("int"),
+ * //     NumberOfAssignmentsAvailable: Number("int"),
+ * //     NumberOfAssignmentsCompleted: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetAssignmentCommandInput - {@link GetAssignmentCommandInput}
+ * @returns {@link GetAssignmentCommandOutput}
  * @see {@link GetAssignmentCommandInput} for command's `input` shape.
  * @see {@link GetAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class GetAssignmentCommand extends $Command<
@@ -48,6 +132,18 @@ export class GetAssignmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +159,7 @@ export class GetAssignmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAssignmentCommandInput, GetAssignmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetAssignmentCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +170,8 @@ export class GetAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssignmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssignmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +181,18 @@ export class GetAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAssignmentCommand(input, context);
+    return se_GetAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssignmentCommandOutput> {
-    return deserializeAws_json1_1GetAssignmentCommand(output, context);
+    return de_GetAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

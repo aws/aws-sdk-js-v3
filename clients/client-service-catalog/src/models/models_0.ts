@@ -1,19 +1,31 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-export enum PortfolioShareType {
-  AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
-  AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
-  IMPORTED = "IMPORTED",
-}
+import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
 
+/**
+ * @public
+ * @enum
+ */
+export const PortfolioShareType = {
+  AWS_ORGANIZATIONS: "AWS_ORGANIZATIONS",
+  AWS_SERVICECATALOG: "AWS_SERVICECATALOG",
+  IMPORTED: "IMPORTED",
+} as const;
+
+/**
+ * @public
+ */
+export type PortfolioShareType = (typeof PortfolioShareType)[keyof typeof PortfolioShareType];
+
+/**
+ * @public
+ */
 export interface AcceptPortfolioShareInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -27,11 +39,13 @@ export interface AcceptPortfolioShareInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The type of shared portfolios to accept. The default is to accept imported portfolios.</p>
    *          <ul>
    *             <li>
@@ -54,92 +68,100 @@ export interface AcceptPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
-export namespace AcceptPortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptPortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AcceptPortfolioShareOutput {}
 
-export namespace AcceptPortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptPortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>One or more parameters provided to the operation are not valid.</p>
  */
-export interface InvalidParametersException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParametersException";
-  $fault: "client";
+export class InvalidParametersException extends __BaseException {
+  readonly name: "InvalidParametersException" = "InvalidParametersException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidParametersException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidParametersException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidParametersException, __BaseException>) {
+    super({
+      name: "InvalidParametersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParametersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-export enum AccessLevelFilterKey {
-  ACCOUNT = "Account",
-  ROLE = "Role",
-  USER = "User",
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AccessLevelFilterKey = {
+  ACCOUNT: "Account",
+  ROLE: "Role",
+  USER: "User",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessLevelFilterKey = (typeof AccessLevelFilterKey)[keyof typeof AccessLevelFilterKey];
+
+/**
+ * @public
  * <p>The access level to use to filter results.</p>
  */
 export interface AccessLevelFilter {
   /**
+   * @public
    * <p>The access level.</p>
    *          <ul>
    *             <li>
@@ -159,113 +181,112 @@ export interface AccessLevelFilter {
   Key?: AccessLevelFilterKey | string;
 
   /**
-   * <p>The user to which the access level applies. The only supported value is <code>Self</code>.</p>
+   * @public
+   * <p>The user to which the access level applies. The only supported value is <code>self</code>.</p>
    */
   Value?: string;
 }
 
-export namespace AccessLevelFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessLevelFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum AccessStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AccessStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
 
 /**
+ * @public
+ */
+export type AccessStatus = (typeof AccessStatus)[keyof typeof AccessStatus];
+
+/**
+ * @public
  * <p>Information about a tag. A tag is a key-value pair. Tags are propagated
  *          to the resources created when provisioning a product.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>The tag key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value for this key.</p>
    */
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateBudgetWithResourceInput {
   /**
+   * @public
    * <p>The name of the budget you want to associate.</p>
    */
   BudgetName: string | undefined;
 
   /**
+   * @public
    * <p> The resource identifier. Either a portfolio-id or a product-id.</p>
    */
   ResourceId: string | undefined;
 }
 
-export namespace AssociateBudgetWithResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateBudgetWithResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateBudgetWithResourceOutput {}
 
-export namespace AssociateBudgetWithResourceOutput {
+/**
+ * @public
+ * <p>The specified resource is a duplicate.</p>
+ */
+export class DuplicateResourceException extends __BaseException {
+  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
+  readonly $fault: "client" = "client";
+  Message?: string;
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AssociateBudgetWithResourceOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
+    super({
+      name: "DuplicateResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
- * <p>The specified resource is a duplicate.</p>
+ * @public
+ * @enum
  */
-export interface DuplicateResourceException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateResourceException";
-  $fault: "client";
-  Message?: string;
-}
+export const PrincipalType = {
+  IAM: "IAM",
+  IAM_PATTERN: "IAM_PATTERN",
+} as const;
 
-export namespace DuplicateResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
-export enum PrincipalType {
-  IAM = "IAM",
-}
-
+/**
+ * @public
+ */
 export interface AssociatePrincipalWithPortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -279,49 +300,92 @@ export interface AssociatePrincipalWithPortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * @public
+   * <p>The ARN of the principal (user, role, or group). If the <code>PrincipalType</code> is <code>IAM</code>, the supported value is a
+   *          fully defined
+   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM Amazon Resource Name (ARN)</a>.
+   *          If the <code>PrincipalType</code> is <code>IAM_PATTERN</code>,
+   *          the supported value is an <code>IAM</code> ARN <i>without an AccountID</i> in the following format:</p>
+   *          <p>
+   *             <i>arn:partition:iam:::resource-type/resource-id</i>
+   *          </p>
+   *          <p>The ARN resource-id can be either:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A fully formed resource-id. For example, <i>arn:aws:iam:::role/resource-name</i> or
+   *             <i>arn:aws:iam:::role/resource-path/resource-name</i>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>A wildcard ARN. The wildcard ARN accepts <code>IAM_PATTERN</code> values with a
+   *                "*" or "?" in the resource-id segment of the ARN. For example <i>arn:partition:service:::resource-type/resource-path/resource-name</i>.
+   *                The new symbols are exclusive to the <b>resource-path</b> and <b>resource-name</b>
+   *                and cannot replace the <b>resource-type</b> or other
+   *             ARN values. </p>
+   *                <p>The ARN path and principal name allow unlimited wildcard characters.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Examples of an <b>acceptable</b> wildcard ARN:</p>
+   *          <ul>
+   *             <li>
+   *                <p>arn:aws:iam:::role/ResourceName_*</p>
+   *             </li>
+   *             <li>
+   *                <p>arn:aws:iam:::role/*\/ResourceName_?</p>
+   *             </li>
+   *          </ul>
+   *          <p>Examples of an <b>unacceptable</b> wildcard ARN:</p>
+   *          <ul>
+   *             <li>
+   *                <p>arn:aws:iam:::*\/ResourceName</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can associate multiple <code>IAM_PATTERN</code>s even if the account has no principal
+   *          with that name. </p>
+   *          <p>The "?" wildcard character matches zero or one of any character. This is similar to ".?" in regular
+   *                   regex context. The "*" wildcard character matches any number of any characters.
+   *                   This is similar to ".*" in regular regex context.</p>
+   *          <p>In the IAM Principal ARN format (<i>arn:partition:iam:::resource-type/resource-path/resource-name</i>),
+   *          valid resource-type values include <b>user/</b>, <b>group/</b>,
+   *             or <b>role/</b>.  The "?" and "*" characters
+   *                   are allowed only after the resource-type in the resource-id segment.
+   *                   You can use special characters anywhere within the resource-id. </p>
+   *          <p>The "*" character also matches the "/" character, allowing paths to be formed <i>within</i> the
+   *                   resource-id. For example, <i>arn:aws:iam:::role/<b>*</b>/ResourceName_?</i>
+   *                   matches both <i>arn:aws:iam:::role/pathA/pathB/ResourceName_1</i>
+   *                   and
+   *                   <i>arn:aws:iam:::role/pathA/ResourceName_1</i>. </p>
    */
   PrincipalARN: string | undefined;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code>.</p>
+   * @public
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined Amazon Resource Name
+   *          (ARN), or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>,
+   *          with or without wildcard characters. </p>
    */
   PrincipalType: PrincipalType | string | undefined;
 }
 
-export namespace AssociatePrincipalWithPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePrincipalWithPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociatePrincipalWithPortfolioOutput {}
 
-export namespace AssociatePrincipalWithPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePrincipalWithPortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateProductWithPortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -335,64 +399,55 @@ export interface AssociateProductWithPortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the source portfolio.</p>
    */
   SourcePortfolioId?: string;
 }
 
-export namespace AssociateProductWithPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateProductWithPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateProductWithPortfolioOutput {}
 
-export namespace AssociateProductWithPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateProductWithPortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateServiceActionWithProvisioningArtifactInput {
   /**
+   * @public
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   ServiceActionId: string | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -406,139 +461,118 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace AssociateServiceActionWithProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceActionWithProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateServiceActionWithProvisioningArtifactOutput {}
 
-export namespace AssociateServiceActionWithProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceActionWithProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateTagOptionWithResourceInput {
   /**
+   * @public
    * <p>The resource identifier.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   TagOptionId: string | undefined;
 }
 
-export namespace AssociateTagOptionWithResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTagOptionWithResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateTagOptionWithResourceOutput {}
 
-export namespace AssociateTagOptionWithResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTagOptionWithResourceOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An attempt was made to modify a resource that is in a state that is not valid.
  *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
  */
-export interface InvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidStateException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Please use the AWS console to perform the migration
+ *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
  *          process before retrying the operation.</p>
  */
-export interface TagOptionNotMigratedException extends __SmithyException, $MetadataBearer {
-  name: "TagOptionNotMigratedException";
-  $fault: "client";
+export class TagOptionNotMigratedException extends __BaseException {
+  readonly name: "TagOptionNotMigratedException" = "TagOptionNotMigratedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TagOptionNotMigratedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TagOptionNotMigratedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TagOptionNotMigratedException, __BaseException>) {
+    super({
+      name: "TagOptionNotMigratedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagOptionNotMigratedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
  */
 export interface ServiceActionAssociation {
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   ServiceActionId: string | undefined;
 
   /**
+   * @public
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    */
   ProvisioningArtifactId: string | undefined;
 }
 
-export namespace ServiceActionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceActionAssociation): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
+   * @public
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
    */
   ServiceActionAssociations: ServiceActionAssociation[] | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -552,91 +586,86 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateServiceActionWithProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
-export enum ServiceActionAssociationErrorCode {
-  DuplicateResourceException = "DUPLICATE_RESOURCE",
-  InternalFailure = "INTERNAL_FAILURE",
-  LimitExceededException = "LIMIT_EXCEEDED",
-  ResourceNotFoundException = "RESOURCE_NOT_FOUND",
-  ThrottlingException = "THROTTLING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionAssociationErrorCode = {
+  DuplicateResourceException: "DUPLICATE_RESOURCE",
+  InternalFailure: "INTERNAL_FAILURE",
+  InvalidParameterException: "INVALID_PARAMETER",
+  LimitExceededException: "LIMIT_EXCEEDED",
+  ResourceNotFoundException: "RESOURCE_NOT_FOUND",
+  ThrottlingException: "THROTTLING",
+} as const;
 
 /**
+ * @public
+ */
+export type ServiceActionAssociationErrorCode =
+  (typeof ServiceActionAssociationErrorCode)[keyof typeof ServiceActionAssociationErrorCode];
+
+/**
+ * @public
  * <p>An object containing information about the error, along with identifying information about the self-service action and its associations.</p>
  */
 export interface FailedServiceActionAssociation {
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   ServiceActionId?: string;
 
   /**
+   * @public
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The error code. Valid values are listed below.</p>
    */
   ErrorCode?: ServiceActionAssociationErrorCode | string;
 
   /**
+   * @public
    * <p>A text description of the error.</p>
    */
   ErrorMessage?: string;
 }
 
-export namespace FailedServiceActionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedServiceActionAssociation): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   /**
+   * @public
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
-export namespace BatchAssociateServiceActionWithProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateServiceActionWithProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   /**
+   * @public
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
    */
   ServiceActionAssociations: ServiceActionAssociation[] | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -650,47 +679,52 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateServiceActionFromProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   /**
+   * @public
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
 }
 
-export namespace BatchDisassociateServiceActionFromProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateServiceActionFromProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const CopyOption = {
+  CopyTags: "CopyTags",
+} as const;
 
-export enum CopyOption {
-  CopyTags = "CopyTags",
-}
+/**
+ * @public
+ */
+export type CopyOption = (typeof CopyOption)[keyof typeof CopyOption];
 
-export enum ProvisioningArtifactPropertyName {
-  Id = "Id",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactPropertyName = {
+  Id: "Id",
+} as const;
 
+/**
+ * @public
+ */
+export type ProvisioningArtifactPropertyName =
+  (typeof ProvisioningArtifactPropertyName)[keyof typeof ProvisioningArtifactPropertyName];
+
+/**
+ * @public
+ */
 export interface CopyProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -704,72 +738,64 @@ export interface CopyProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the source product.</p>
    */
   SourceProductArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the target product. By default, a new product is created.</p>
    */
   TargetProductId?: string;
 
   /**
+   * @public
    * <p>A name for the target product. The default is the name of the source product.</p>
    */
   TargetProductName?: string;
 
   /**
+   * @public
    * <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy.
    *          By default, all provisioning artifacts are copied.</p>
    */
-  SourceProvisioningArtifactIdentifiers?: { [key: string]: string }[];
+  SourceProvisioningArtifactIdentifiers?: Record<string, string>[];
 
   /**
+   * @public
    * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
    *          product are copied to the target product.</p>
    */
   CopyOptions?: (CopyOption | string)[];
 
   /**
+   * @public
    * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request. </p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CopyProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CopyProductOutput {
   /**
+   * @public
    * <p>The token to use to track the progress of the operation.</p>
    */
   CopyProductToken?: string;
 }
 
-export namespace CopyProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateConstraintInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -783,16 +809,19 @@ export interface CreateConstraintInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
    *          <dl>
    *             <dt>LAUNCH</dt>
@@ -800,11 +829,11 @@ export interface CreateConstraintInput {
    *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
    *                <p>Specify the <code>RoleArn</code> property as follows:</p>
    *                <p>
-   *                   <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code>
+   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
    *                </p>
    *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
    *                <p>
-   *                   <code>{"LocalRoleName": "SCBasicLaunchRole"}</code>
+   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
    *                </p>
    *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
    *                account-agnostic so the administrator can create fewer resources per shared account.</p>
@@ -818,14 +847,14 @@ export interface CreateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
    *                <p>
-   *                   <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code>
+   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
    *                </p>
    *             </dd>
    *             <dt>RESOURCE_UPDATE</dt>
    *             <dd>
    *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code>
+   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
    *                </p>
    *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
    *             </dd>
@@ -833,11 +862,11 @@ export interface CreateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>Parameters</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code>
+   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-   *                <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p>
+   *                <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
    *             </dd>
    *             <dt>TEMPLATE</dt>
    *             <dd>
@@ -849,6 +878,7 @@ export interface CreateConstraintInput {
   Parameters: string | undefined;
 
   /**
+   * @public
    * <p>The type of constraint.</p>
    *          <ul>
    *             <li>
@@ -881,36 +911,32 @@ export interface CreateConstraintInput {
   Type: string | undefined;
 
   /**
+   * @public
    * <p>The description of the constraint.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreateConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConstraintInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a constraint.</p>
  */
 export interface ConstraintDetail {
   /**
+   * @public
    * <p>The identifier of the constraint.</p>
    */
   ConstraintId?: string;
 
   /**
+   * @public
    * <p>The type of constraint.</p>
    *          <ul>
    *             <li>
@@ -936,75 +962,76 @@ export interface ConstraintDetail {
   Type?: string;
 
   /**
+   * @public
    * <p>The description of the constraint.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The owner of the constraint.</p>
    */
   Owner?: string;
 
   /**
+   * @public
    * <p>The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.</p>
    */
   PortfolioId?: string;
 }
 
-export namespace ConstraintDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstraintDetail): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+} as const;
 
-export enum Status {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
 
+/**
+ * @public
+ */
 export interface CreateConstraintOutput {
   /**
+   * @public
    * <p>Information about the constraint.</p>
    */
   ConstraintDetail?: ConstraintDetail;
 
   /**
+   * @public
    * <p>The constraint parameters.</p>
    */
   ConstraintParameters?: string;
 
   /**
+   * @public
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
 }
 
-export namespace CreateConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConstraintOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreatePortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1018,144 +1045,137 @@ export interface CreatePortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The name to use for display purposes.</p>
    */
   DisplayName: string | undefined;
 
   /**
+   * @public
    * <p>The description of the portfolio.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The name of the portfolio provider.</p>
    */
   ProviderName: string | undefined;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreatePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a portfolio.</p>
  */
 export interface PortfolioDetail {
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The ARN assigned to the portfolio.</p>
    */
   ARN?: string;
 
   /**
+   * @public
    * <p>The name to use for display purposes.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The description of the portfolio.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The name of the portfolio provider.</p>
    */
   ProviderName?: string;
 }
 
-export namespace PortfolioDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortfolioDetail): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreatePortfolioOutput {
   /**
+   * @public
    * <p>Information about the portfolio.</p>
    */
   PortfolioDetail?: PortfolioDetail;
 
   /**
+   * @public
    * <p>Information about the tags associated with the portfolio.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreatePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum OrganizationNodeType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationNodeType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+} as const;
 
 /**
+ * @public
+ */
+export type OrganizationNodeType = (typeof OrganizationNodeType)[keyof typeof OrganizationNodeType];
+
+/**
+ * @public
  * <p>Information about the organization node.</p>
  */
 export interface OrganizationNode {
   /**
+   * @public
    * <p>The organization node type.</p>
    */
   Type?: OrganizationNodeType | string;
 
   /**
+   * @public
    * <p>The identifier of the organization node.</p>
    */
   Value?: string;
 }
 
-export namespace OrganizationNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNode): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreatePortfolioShareInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1169,103 +1189,134 @@ export interface CreatePortfolioShareInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The AWS account ID. For example, <code>123456789012</code>.</p>
+   * @public
+   * <p>The Amazon Web Services account ID. For example, <code>123456789012</code>.</p>
    */
   AccountId?: string;
 
   /**
-   * <p>The organization node to whom you are going to share. If <code>OrganizationNode</code>
-   *          is passed in, <code>PortfolioShare</code> will be created for the node an
-   *          ListOrganizationPortfolioAccessd its children (when applies), and a
-   *             <code>PortfolioShareToken</code> will be returned in the output in order for the
-   *          administrator to monitor the status of the <code>PortfolioShare</code> creation
-   *          process.</p>
+   * @public
+   * <p>The organization node to whom you are going to share. When you pass <code>OrganizationNode</code>, it creates <code>PortfolioShare</code> for all of the Amazon Web Services accounts that are associated to the <code>OrganizationNode</code>.
+   *       The output returns a <code>PortfolioShareToken</code>, which enables the administrator to monitor the status of the <code>PortfolioShare</code> creation process.</p>
    */
   OrganizationNode?: OrganizationNode;
 
   /**
-   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>
+   * @public
+   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not
+   *          provided, TagOptions sharing is disabled.</p>
    */
   ShareTagOptions?: boolean;
-}
 
-export namespace CreatePortfolioShareInput {
   /**
-   * @internal
+   * @public
+   * <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If this flag is not provided,
+   *          principal sharing is disabled. </p>
+   *          <p>When you enable Principal Name Sharing for a portfolio share, the share recipient
+   *          account end users with a principal that matches any of the associated IAM
+   *          patterns can provision products from the portfolio. Once
+   *          shared, the share recipient can view associations of <code>PrincipalType</code>:
+   *          <code>IAM_PATTERN</code> on their portfolio. You can create the principals in the recipient account before or
+   *          after creating the share. </p>
    */
-  export const filterSensitiveLog = (obj: CreatePortfolioShareInput): any => ({
-    ...obj,
-  });
+  SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface CreatePortfolioShareOutput {
   /**
+   * @public
    * <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
    */
   PortfolioShareToken?: string;
 }
 
-export namespace CreatePortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The operation is not supported.</p>
  */
-export interface OperationNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotSupportedException";
-  $fault: "client";
+export class OperationNotSupportedException extends __BaseException {
+  readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace OperationNotSupportedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: OperationNotSupportedException): any => ({
-    ...obj,
-  });
-}
-
-export enum ProductType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE = "MARKETPLACE",
-}
-
-export enum ProvisioningArtifactType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE_AMI = "MARKETPLACE_AMI",
-  MARKETPLACE_CAR = "MARKETPLACE_CAR",
+  constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
+    super({
+      name: "OperationNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ProductType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE: "MARKETPLACE",
+  TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
+  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductType = (typeof ProductType)[keyof typeof ProductType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE_AMI: "MARKETPLACE_AMI",
+  MARKETPLACE_CAR: "MARKETPLACE_CAR",
+  TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
+  TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactType = (typeof ProvisioningArtifactType)[keyof typeof ProvisioningArtifactType];
+
+/**
+ * @public
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactProperties {
   /**
+   * @public
    * <p>The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the provisioning artifact, including how it differs from the previous provisioning artifact.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Specify the template source with one of the following options, but not both.
    *          Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:</p>
+   *          <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
+   *        Specify the URL in JSON format as follows:</p>
    *          <p>
    *             <code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code>
    *          </p>
@@ -1275,50 +1326,119 @@ export interface ProvisioningArtifactProperties {
    *          format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>
    *          </p>
    */
-  Info: { [key: string]: string } | undefined;
+  Info?: Record<string, string>;
 
   /**
+   * @public
    * <p>The type of provisioning artifact.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</p>
+   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</p>
    *             </li>
    *          </ul>
    */
   Type?: ProvisioningArtifactType | string;
 
   /**
-   * <p>If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
+   * @public
+   * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid. </p>
+   *          <p>Service Catalog does not support template validation for the <code>TERRAFORM_OS</code> product type. </p>
    */
   DisableTemplateValidation?: boolean;
 }
 
-export namespace ProvisioningArtifactProperties {
+/**
+ * @public
+ * <p>The subtype containing details about the Codestar connection <code>Type</code>. </p>
+ */
+export interface CodeStarParameters {
   /**
-   * @internal
+   * @public
+   * <p>The CodeStar ARN, which is the connection between Service Catalog and the external repository.</p>
    */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactProperties): any => ({
-    ...obj,
-  });
+  ConnectionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The specific repository where the product’s artifact-to-be-synced resides, formatted as
+   *          "Account/Repo." </p>
+   */
+  Repository: string | undefined;
+
+  /**
+   * @public
+   * <p>The specific branch where the artifact resides. </p>
+   */
+  Branch: string | undefined;
+
+  /**
+   * @public
+   * <p>The absolute path wehre the artifact resides within the repo and branch, formatted as
+   *          "folder/file.json." </p>
+   */
+  ArtifactPath: string | undefined;
 }
 
+/**
+ * @public
+ * <p>Provides connection details.</p>
+ */
+export interface SourceConnectionParameters {
+  /**
+   * @public
+   * <p>Provides <code>ConnectionType</code> details.</p>
+   */
+  CodeStar?: CodeStarParameters;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceType = {
+  CODESTAR: "CODESTAR",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/**
+ * @public
+ * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
+ *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
+ *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
+ *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
+ *          addition of the <code>LastSync</code> response.</p>
+ */
+export interface SourceConnection {
+  /**
+   * @public
+   * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
+   */
+  Type?: SourceType | string;
+
+  /**
+   * @public
+   * <p>The connection details based on the connection <code>Type</code>. </p>
+   */
+  ConnectionParameters: SourceConnectionParameters | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1332,36 +1452,43 @@ export interface CreateProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The name of the product.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The owner of the product.</p>
    */
   Owner: string | undefined;
 
   /**
+   * @public
    * <p>The description of the product.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The distributor of the product.</p>
    */
   Distributor?: string;
 
   /**
+   * @public
    * <p>The support information about the product.</p>
    */
   SupportDescription?: string;
 
   /**
+   * @public
    * <p>The contact email for product support.</p>
    */
   SupportEmail?: string;
 
   /**
+   * @public
    * <p>The contact URL for product support.</p>
    *          <p>
    *             <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>
@@ -1369,80 +1496,103 @@ export interface CreateProductInput {
   SupportUrl?: string;
 
   /**
+   * @public
    * <p>The type of product.</p>
    */
   ProductType: ProductType | string | undefined;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The configuration of the provisioning artifact. </p>
    */
-  ProvisioningArtifactParameters: ProvisioningArtifactProperties | undefined;
+  ProvisioningArtifactParameters?: ProvisioningArtifactProperties;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
-}
 
-export namespace CreateProductInput {
   /**
-   * @internal
+   * @public
+   * <p>Specifies connection details for the created product and syncs the product to the connection source
+   *          artifact. This automatically manages the product's artifacts based on changes to the source.
+   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConnectionParamters</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  export const filterSensitiveLog = (obj: CreateProductInput): any => ({
-    ...obj,
-  });
+  SourceConnection?: SourceConnection;
 }
 
 /**
+ * @public
  * <p>Summary information about a product view.</p>
  */
 export interface ProductViewSummary {
   /**
+   * @public
    * <p>The product view identifier.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The name of the product.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The owner of the product. Contact the product administrator for the significance of
    *          this value.</p>
    */
   Owner?: string;
 
   /**
+   * @public
    * <p>Short description of the product.</p>
    */
   ShortDescription?: string;
 
   /**
+   * @public
    * <p>The product type. Contact the product administrator for the significance of this
-   *          value. If this value is <code>MARKETPLACE</code>, the product was created by AWS
-   *          Marketplace.</p>
+   *          value. If this value is <code>MARKETPLACE</code>, the product was created by Amazon Web Services Marketplace.</p>
    */
   Type?: ProductType | string;
 
   /**
+   * @public
    * <p>The distributor of the product. Contact the product administrator for the
    *          significance of this value.</p>
    */
   Distributor?: string;
 
   /**
+   * @public
    * <p>Indicates whether the product has a default path.
    *          If the product does not have a default path, call <a>ListLaunchPaths</a>
    *          to disambiguate between paths. Otherwise, <a>ListLaunchPaths</a> is not
@@ -1452,40 +1602,165 @@ export interface ProductViewSummary {
   HasDefaultPath?: boolean;
 
   /**
+   * @public
    * <p>The email contact information to obtain support for this Product.</p>
    */
   SupportEmail?: string;
 
   /**
+   * @public
    * <p>The description of the support for this Product.</p>
    */
   SupportDescription?: string;
 
   /**
+   * @public
    * <p>The URL information to obtain support for this Product.</p>
    */
   SupportUrl?: string;
 }
 
-export namespace ProductViewSummary {
+/**
+ * @public
+ * @enum
+ */
+export const LastSyncStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LastSyncStatus = (typeof LastSyncStatus)[keyof typeof LastSyncStatus];
+
+/**
+ * @public
+ * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncStatus</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncStatusMessage</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSuccessfulSyncTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface LastSync {
   /**
-   * @internal
+   * @public
+   * <p>The time of the last attempted sync from the repository to the Service Catalog product. </p>
    */
-  export const filterSensitiveLog = (obj: ProductViewSummary): any => ({
-    ...obj,
-  });
+  LastSyncTime?: Date;
+
+  /**
+   * @public
+   * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
+   */
+  LastSyncStatus?: LastSyncStatus | string;
+
+  /**
+   * @public
+   * <p>The sync's status message. </p>
+   */
+  LastSyncStatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The time of the latest successful sync from the source repo artifact to the Service Catalog product.</p>
+   */
+  LastSuccessfulSyncTime?: Date;
+
+  /**
+   * @public
+   * <p>The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync. </p>
+   */
+  LastSuccessfulSyncProvisioningArtifactId?: string;
 }
 
 /**
+ * @public
+ * <p>Provides details about the configured <code>SourceConnection</code>. </p>
+ */
+export interface SourceConnectionDetail {
+  /**
+   * @public
+   * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
+   */
+  Type?: SourceType | string;
+
+  /**
+   * @public
+   * <p>The connection details based on the connection <code>Type</code>.</p>
+   */
+  ConnectionParameters?: SourceConnectionParameters;
+
+  /**
+   * @public
+   * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncStatus</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncStatusMessage</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSuccessfulSyncTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  LastSync?: LastSync;
+}
+
+/**
+ * @public
  * <p>Information about a product view.</p>
  */
 export interface ProductViewDetail {
   /**
+   * @public
    * <p>Summary information about the product view.</p>
    */
   ProductViewSummary?: ProductViewSummary;
 
   /**
+   * @public
    * <p>The status of the product.</p>
    *          <ul>
    *             <li>
@@ -1505,160 +1780,173 @@ export interface ProductViewDetail {
   Status?: Status | string;
 
   /**
+   * @public
    * <p>The ARN of the product.</p>
    */
   ProductARN?: string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
-}
 
-export namespace ProductViewDetail {
   /**
-   * @internal
+   * @public
+   * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
+   *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
+   *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
+   *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
+   *          addition of the <code>LastSync</code> response.</p>
    */
-  export const filterSensitiveLog = (obj: ProductViewDetail): any => ({
-    ...obj,
-  });
-}
-
-export enum ProvisioningArtifactGuidance {
-  DEFAULT = "DEFAULT",
-  DEPRECATED = "DEPRECATED",
+  SourceConnection?: SourceConnectionDetail;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ProvisioningArtifactGuidance = {
+  DEFAULT: "DEFAULT",
+  DEPRECATED: "DEPRECATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProvisioningArtifactGuidance =
+  (typeof ProvisioningArtifactGuidance)[keyof typeof ProvisioningArtifactGuidance];
+
+/**
+ * @public
  * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactDetail {
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the provisioning artifact.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The type of provisioning artifact.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</p>
-   *             </li>
-   *          </ul>
+   *          <p>
+   *             <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
    */
   Type?: ProvisioningArtifactType | string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>Indicates whether the product version is active.</p>
    */
   Active?: boolean;
 
   /**
+   * @public
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
   Guidance?: ProvisioningArtifactGuidance | string;
-}
 
-export namespace ProvisioningArtifactDetail {
   /**
-   * @internal
+   * @public
+   * <p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product
+   *          and create the provisioning artifact. Service Catalog includes this response parameter as a high level
+   *          field to the existing <code>ProvisioningArtifactDetail</code> type, which is returned as part of the
+   *          response for <code>CreateProduct</code>, <code>UpdateProduct</code>, <code>DescribeProductAsAdmin</code>,
+   *          <code>DescribeProvisioningArtifact</code>, <code>ListProvisioningArtifact</code>,
+   *          and <code>UpdateProvisioningArticat</code> APIs. </p>
+   *          <p>This field only exists for Repo-Synced products. </p>
    */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactDetail): any => ({
-    ...obj,
-  });
+  SourceRevision?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateProductOutput {
   /**
+   * @public
    * <p>Information about the product view.</p>
    */
   ProductViewDetail?: ProductViewDetail;
 
   /**
+   * @public
    * <p>Information about the provisioning artifact. </p>
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
+   * @public
    * <p>Information about the tags associated with the product.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProductOutput): any => ({
-    ...obj,
-  });
-}
-
-export enum ProvisionedProductPlanType {
-  CLOUDFORMATION = "CLOUDFORMATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductPlanType = {
+  CLOUDFORMATION: "CLOUDFORMATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisionedProductPlanType = (typeof ProvisionedProductPlanType)[keyof typeof ProvisionedProductPlanType];
+
+/**
+ * @public
  * <p>The parameter key-value pair used to update a provisioned product.</p>
  */
 export interface UpdateProvisioningParameter {
   /**
+   * @public
    * <p>The parameter key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The parameter value.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>If set to true, <code>Value</code> is ignored and the previous parameter value is kept.</p>
    */
   UsePreviousValue?: boolean;
 }
 
-export namespace UpdateProvisioningParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningParameter): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateProvisionedProductPlanInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1672,22 +1960,26 @@ export interface CreateProvisionedProductPlanInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The name of the plan.</p>
    */
   PlanName: string | undefined;
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   PlanType: ProvisionedProductPlanType | string | undefined;
 
   /**
+   * @public
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    */
   NotificationArns?: string[];
 
   /**
+   * @public
    * <p>The path identifier of the product. This value is optional if the product
    *          has a default path, and required if the product has more than one path.
    *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
@@ -1695,93 +1987,89 @@ export interface CreateProvisionedProductPlanInput {
   PathId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the AWS account and cannot be updated after the product is provisioned.</p>
+   *          unique for the Amazon Web Services account and cannot be updated after the product is provisioned.</p>
    */
   ProvisionedProductName: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
+   * @public
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    */
   ProvisioningParameters?: UpdateProvisioningParameter[];
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    *          <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateProvisionedProductPlanOutput {
   /**
+   * @public
    * <p>The name of the plan.</p>
    */
   PlanName?: string;
 
   /**
+   * @public
    * <p>The plan identifier.</p>
    */
   PlanId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProvisionProductId?: string;
 
   /**
+   * @public
    * <p>The user-friendly name of the provisioned product.</p>
    */
   ProvisionedProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 }
 
-export namespace CreateProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateProvisioningArtifactInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1795,101 +2083,116 @@ export interface CreateProvisioningArtifactInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The configuration for the provisioning artifact.</p>
    */
   Parameters: ProvisioningArtifactProperties | undefined;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreateProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateProvisioningArtifactOutput {
   /**
+   * @public
    * <p>Information about the provisioning artifact.</p>
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
+   * @public
    * <p>Specify the template source with one of the following options, but not both. Keys
    *          accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3, in JSON format. </p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. </p>
    *          <p>
    *             <code>LoadTemplateFromURL</code>
    *          </p>
-   *          <p>Use the URL of the CloudFormation template in Amazon S3 in JSON format.</p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    *          <p>
    *             <code>ImportFromPhysicalId</code>
    *          </p>
-   *          <p>Use the physical id of the resource that contains the template; currently supports
-   *          CloudFormation stack ARN.</p>
+   *          <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>
    */
-  Info?: { [key: string]: string };
+  Info?: Record<string, string>;
 
   /**
+   * @public
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
 }
 
-export namespace CreateProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionDefinitionKey = {
+  AssumeRole: "AssumeRole",
+  Name: "Name",
+  Parameters: "Parameters",
+  Version: "Version",
+} as const;
 
-export enum ServiceActionDefinitionKey {
-  AssumeRole = "AssumeRole",
-  Name = "Name",
-  Parameters = "Parameters",
-  Version = "Version",
-}
+/**
+ * @public
+ */
+export type ServiceActionDefinitionKey = (typeof ServiceActionDefinitionKey)[keyof typeof ServiceActionDefinitionKey];
 
-export enum ServiceActionDefinitionType {
-  SsmAutomation = "SSM_AUTOMATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ServiceActionDefinitionType = {
+  SsmAutomation: "SSM_AUTOMATION",
+} as const;
 
+/**
+ * @public
+ */
+export type ServiceActionDefinitionType =
+  (typeof ServiceActionDefinitionType)[keyof typeof ServiceActionDefinitionType];
+
+/**
+ * @public
+ */
 export interface CreateServiceActionInput {
   /**
+   * @public
    * <p>The self-service action name.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    */
   DefinitionType: ServiceActionDefinitionType | string | undefined;
 
   /**
+   * @public
    * <p>The self-service action definition. Can be one of the following:</p>
    *          <dl>
    *             <dt>Name</dt>
    *             <dd>
-   *                <p>The name of the AWS Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
+   *                <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
    *                <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
    *             </dd>
    *             <dt>Version</dt>
    *             <dd>
-   *                <p>The AWS Systems Manager automation document version. For example, <code>"Version": "1"</code>
+   *                <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code>
    *                </p>
    *             </dd>
    *             <dt>AssumeRole</dt>
@@ -1900,24 +2203,22 @@ export interface CreateServiceActionInput {
    *             <dt>Parameters</dt>
    *             <dd>
    *                <p>The list of parameters in JSON format.</p>
-   *                <p>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</p>
+   *                <p>For example: <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"\}]</code> or <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"\}]</code>.</p>
    *             </dd>
    *          </dl>
    */
-  Definition: { [key: string]: string } | undefined;
+  Definition: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>The self-service action description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -1931,179 +2232,144 @@ export interface CreateServiceActionInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace CreateServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Detailed information about the self-service action.</p>
  */
 export interface ServiceActionSummary {
   /**
+   * @public
    * <p>The self-service action identifier.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The self-service action name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The self-service action description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The self-service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    */
   DefinitionType?: ServiceActionDefinitionType | string;
 }
 
-export namespace ServiceActionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceActionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object containing detailed information about the self-service action.</p>
  */
 export interface ServiceActionDetail {
   /**
+   * @public
    * <p>Summary information about the self-service action.</p>
    */
   ServiceActionSummary?: ServiceActionSummary;
 
   /**
+   * @public
    * <p>A map that defines the self-service action.</p>
    */
-  Definition?: { [key: string]: string };
+  Definition?: Record<string, string>;
 }
 
-export namespace ServiceActionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceActionDetail): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateServiceActionOutput {
   /**
+   * @public
    * <p>An object containing information about the self-service action.</p>
    */
   ServiceActionDetail?: ServiceActionDetail;
 }
 
-export namespace CreateServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTagOptionInput {
   /**
+   * @public
    * <p>The TagOption key.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The TagOption value.</p>
    */
   Value: string | undefined;
 }
 
-export namespace CreateTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a TagOption.</p>
  */
 export interface TagOptionDetail {
   /**
+   * @public
    * <p>The TagOption key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The TagOption value.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>The TagOption active state.</p>
    */
   Active?: boolean;
 
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   Id?: string;
 
   /**
-   * <p>The AWS account Id of the owner account that created the TagOption.</p>
+   * @public
+   * <p>The Amazon Web Services account Id of the owner account that created the TagOption.</p>
    */
   Owner?: string;
 }
 
-export namespace TagOptionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOptionDetail): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTagOptionOutput {
   /**
+   * @public
    * <p>Information about the TagOption.</p>
    */
   TagOptionDetail?: TagOptionDetail;
 }
 
-export namespace CreateTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteConstraintInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2117,39 +2383,25 @@ export interface DeleteConstraintInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the constraint.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DeleteConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConstraintInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteConstraintOutput {}
 
-export namespace DeleteConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConstraintOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeletePortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2163,57 +2415,47 @@ export interface DeletePortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DeletePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeletePortfolioOutput {}
 
-export namespace DeletePortfolioOutput {
+/**
+ * @public
+ * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeletePortfolioOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
- * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ * @public
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePortfolioShareInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2227,54 +2469,43 @@ export interface DeletePortfolioShareInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The AWS account ID.</p>
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>The organization node to whom you are going to stop sharing.</p>
    */
   OrganizationNode?: OrganizationNode;
 }
 
-export namespace DeletePortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeletePortfolioShareOutput {
   /**
+   * @public
    * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
    */
   PortfolioShareToken?: string;
 }
 
-export namespace DeletePortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2288,39 +2519,25 @@ export interface DeleteProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DeleteProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProductOutput {}
 
-export namespace DeleteProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProvisionedProductPlanInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2334,45 +2551,32 @@ export interface DeleteProvisionedProductPlanInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The plan identifier.</p>
    */
   PlanId: string | undefined;
 
   /**
-   * <p>If set to true, AWS Service Catalog stops managing the specified provisioned product even
+   * @public
+   * <p>If set to true, Service Catalog stops managing the specified provisioned product even
    *          if it cannot delete the underlying resources.</p>
    */
   IgnoreErrors?: boolean;
 }
 
-export namespace DeleteProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProvisionedProductPlanOutput {}
 
-export namespace DeleteProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProvisioningArtifactInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2386,49 +2590,37 @@ export interface DeleteProvisioningArtifactInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId: string | undefined;
 }
 
-export namespace DeleteProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteProvisioningArtifactOutput {}
 
-export namespace DeleteProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteServiceActionInput {
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2442,61 +2634,35 @@ export interface DeleteServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace DeleteServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteServiceActionOutput {}
 
-export namespace DeleteServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTagOptionInput {
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DeleteTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTagOptionOutput {}
 
-export namespace DeleteTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeConstraintInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2510,54 +2676,43 @@ export interface DescribeConstraintInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the constraint.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DescribeConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConstraintInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeConstraintOutput {
   /**
+   * @public
    * <p>Information about the constraint.</p>
    */
   ConstraintDetail?: ConstraintDetail;
 
   /**
+   * @public
    * <p>The constraint parameters.</p>
    */
   ConstraintParameters?: string;
 
   /**
+   * @public
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
 }
 
-export namespace DescribeConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConstraintOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCopyProductStatusInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2571,60 +2726,58 @@ export interface DescribeCopyProductStatusInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The token for the copy product operation. This token is returned by <a>CopyProduct</a>.</p>
    */
   CopyProductToken: string | undefined;
 }
 
-export namespace DescribeCopyProductStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCopyProductStatusInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const CopyProductStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
-export enum CopyProductStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ */
+export type CopyProductStatus = (typeof CopyProductStatus)[keyof typeof CopyProductStatus];
 
+/**
+ * @public
+ */
 export interface DescribeCopyProductStatusOutput {
   /**
+   * @public
    * <p>The status of the copy product operation.</p>
    */
   CopyProductStatus?: CopyProductStatus | string;
 
   /**
+   * @public
    * <p>The identifier of the copied product.</p>
    */
   TargetProductId?: string;
 
   /**
+   * @public
    * <p>The status message.</p>
    */
   StatusDetail?: string;
 }
 
-export namespace DescribeCopyProductStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCopyProductStatusOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2638,84 +2791,81 @@ export interface DescribePortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DescribePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a budget.</p>
  */
 export interface BudgetDetail {
   /**
+   * @public
    * <p>Name of the associated budget.</p>
    */
   BudgetName?: string;
 }
 
-export namespace BudgetDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BudgetDetail): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePortfolioOutput {
   /**
+   * @public
    * <p>Information about the portfolio.</p>
    */
   PortfolioDetail?: PortfolioDetail;
 
   /**
+   * @public
    * <p>Information about the tags associated with the portfolio.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Information about the TagOptions associated with the portfolio.</p>
    */
   TagOptions?: TagOptionDetail[];
 
   /**
+   * @public
    * <p>Information about the associated budgets.</p>
    */
   Budgets?: BudgetDetail[];
 }
 
-export namespace DescribePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const DescribePortfolioShareType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ORGANIZATION_MEMBER_ACCOUNT: "ORGANIZATION_MEMBER_ACCOUNT",
+} as const;
 
-export enum DescribePortfolioShareType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT",
-}
+/**
+ * @public
+ */
+export type DescribePortfolioShareType = (typeof DescribePortfolioShareType)[keyof typeof DescribePortfolioShareType];
 
+/**
+ * @public
+ */
 export interface DescribePortfolioSharesInput {
   /**
+   * @public
    * <p>The unique identifier of the portfolio for which shares will be retrieved.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The type of portfolio share to summarize. This field acts as a filter on the type of portfolio share, which can be one of the following:</p>
    *          <p>1. <code>ACCOUNT</code> - Represents an external account to account share.</p>
    *          <p>2. <code>ORGANIZATION</code> - Represents a share to an organization. This share is available to every account in the organization.</p>
@@ -2725,33 +2875,27 @@ export interface DescribePortfolioSharesInput {
   Type: DescribePortfolioShareType | string | undefined;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribePortfolioSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioSharesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the portfolio share.</p>
  */
 export interface PortfolioShareDetail {
   /**
+   * @public
    * <p>The identifier of the recipient entity that received the portfolio share.
-   *          The recipient entities can be one of the following:
-   *       </p>
+   *          The recipient entity can be one of the following:</p>
    *          <p>1. An external account.</p>
    *          <p>2. An organziation member account.</p>
    *          <p>3. An organzational unit (OU).</p>
@@ -2760,172 +2904,160 @@ export interface PortfolioShareDetail {
   PrincipalId?: string;
 
   /**
+   * @public
    * <p>The type of the portfolio share.</p>
    */
   Type?: DescribePortfolioShareType | string;
 
   /**
+   * @public
    * <p>Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.</p>
    */
   Accepted?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
    */
   ShareTagOptions?: boolean;
-}
 
-export namespace PortfolioShareDetail {
   /**
-   * @internal
+   * @public
+   * <p>Indicates if <code>Principal</code> sharing is enabled or disabled for the portfolio share. </p>
    */
-  export const filterSensitiveLog = (obj: PortfolioShareDetail): any => ({
-    ...obj,
-  });
+  SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface DescribePortfolioSharesOutput {
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 
   /**
+   * @public
    * <p>Summaries about each of the portfolio shares.</p>
    */
   PortfolioShareDetails?: PortfolioShareDetail[];
 }
 
-export namespace DescribePortfolioSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioSharesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribePortfolioShareStatusInput {
   /**
+   * @public
    * <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
    */
   PortfolioShareToken: string | undefined;
 }
 
-export namespace DescribePortfolioShareStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioShareStatusInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Errors that occurred during the portfolio share operation.</p>
  */
 export interface ShareError {
   /**
+   * @public
    * <p>List of accounts impacted by the error.</p>
    */
   Accounts?: string[];
 
   /**
+   * @public
    * <p>Information about the error.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>Error type that happened when processing the operation.</p>
    */
   Error?: string;
 }
 
-export namespace ShareError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareError): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the portfolio share operation.</p>
  */
 export interface ShareDetails {
   /**
+   * @public
    * <p>List of accounts for whom the operation succeeded.</p>
    */
   SuccessfulShares?: string[];
 
   /**
+   * @public
    * <p>List of errors.</p>
    */
   ShareErrors?: ShareError[];
 }
 
-export namespace ShareDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareDetails): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+} as const;
 
-export enum ShareStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+/**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
+/**
+ * @public
+ */
 export interface DescribePortfolioShareStatusOutput {
   /**
+   * @public
    * <p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>
    */
   PortfolioShareToken?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId?: string;
 
   /**
+   * @public
    * <p>Organization node identifier. It can be either account id, organizational unit id or organization id.</p>
    */
   OrganizationNodeValue?: string;
 
   /**
+   * @public
    * <p>Status of the portfolio share operation.</p>
    */
   Status?: ShareStatus | string;
 
   /**
+   * @public
    * <p>Information about the portfolio share operation.</p>
    */
   ShareDetails?: ShareDetails;
 }
 
-export namespace DescribePortfolioShareStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioShareStatusOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -2939,127 +3071,109 @@ export interface DescribeProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The product name.</p>
    */
   Name?: string;
 }
 
-export namespace DescribeProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A launch path object.</p>
  */
 export interface LaunchPath {
   /**
+   * @public
    * <p>The identifier of the launch path.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the launch path.</p>
    */
   Name?: string;
 }
 
-export namespace LaunchPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPath): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
  */
 export interface ProvisioningArtifact {
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the provisioning artifact.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
-export namespace ProvisioningArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifact): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProductOutput {
   /**
+   * @public
    * <p>Summary information about the product view.</p>
    */
   ProductViewSummary?: ProductViewSummary;
 
   /**
+   * @public
    * <p>Information about the provisioning artifacts for the specified product.</p>
    */
   ProvisioningArtifacts?: ProvisioningArtifact[];
 
   /**
+   * @public
    * <p>Information about the associated budgets.</p>
    */
   Budgets?: BudgetDetail[];
 
   /**
+   * @public
    * <p>Information about the associated launch paths.</p>
    */
   LaunchPaths?: LaunchPath[];
 }
 
-export namespace DescribeProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProductAsAdminInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3073,16 +3187,19 @@ export interface DescribeProductAsAdminInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The product name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the shared portfolio that the specified product is associated
    *          with.</p>
    *          <p>You can provide this parameter to retrieve the shared TagOptions associated with the
@@ -3093,98 +3210,85 @@ export interface DescribeProductAsAdminInput {
   SourcePortfolioId?: string;
 }
 
-export namespace DescribeProductAsAdminInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductAsAdminInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Summary information about a provisioning artifact (also known as a version) for a product.</p>
  */
 export interface ProvisioningArtifactSummary {
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the provisioning artifact.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
-   * <p>The metadata for the provisioning artifact. This is used with AWS Marketplace products.</p>
+   * @public
+   * <p>The metadata for the provisioning artifact. This is used with Amazon Web Services Marketplace products.</p>
    */
-  ProvisioningArtifactMetadata?: { [key: string]: string };
+  ProvisioningArtifactMetadata?: Record<string, string>;
 }
 
-export namespace ProvisioningArtifactSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProductAsAdminOutput {
   /**
+   * @public
    * <p>Information about the product view.</p>
    */
   ProductViewDetail?: ProductViewDetail;
 
   /**
+   * @public
    * <p>Information about the provisioning artifacts (also known as versions) for the specified product.</p>
    */
   ProvisioningArtifactSummaries?: ProvisioningArtifactSummary[];
 
   /**
+   * @public
    * <p>Information about the tags associated with the product.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Information about the TagOptions associated with the product.</p>
    */
   TagOptions?: TagOptionDetail[];
 
   /**
+   * @public
    * <p>Information about the associated budgets.</p>
    */
   Budgets?: BudgetDetail[];
 }
 
-export namespace DescribeProductAsAdminOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductAsAdminOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProductViewInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3198,42 +3302,31 @@ export interface DescribeProductViewInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product view identifier.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DescribeProductViewInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductViewInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProductViewOutput {
   /**
+   * @public
    * <p>Summary information about the product.</p>
    */
   ProductViewSummary?: ProductViewSummary;
 
   /**
+   * @public
    * <p>Information about the provisioning artifacts for the product.</p>
    */
   ProvisioningArtifacts?: ProvisioningArtifact[];
 }
 
-export namespace DescribeProductViewOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductViewOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * DescribeProvisionedProductAPI input structure.
  *
  *         AcceptLanguage - [Optional]
@@ -3247,12 +3340,9 @@ export namespace DescribeProductViewOutput {
  */
 export interface DescribeProvisionedProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3266,79 +3356,80 @@ export interface DescribeProvisionedProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The provisioned product identifier. You must provide the name or ID, but not both.</p>
    *          <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The name of the provisioned product. You must provide the name or ID, but not both.</p>
    *          <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
    */
   Name?: string;
 }
 
-export namespace DescribeProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a CloudWatch dashboard.</p>
  */
 export interface CloudWatchDashboard {
   /**
+   * @public
    * <p>The name of the CloudWatch dashboard.</p>
    */
   Name?: string;
 }
 
-export namespace CloudWatchDashboard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDashboard): any => ({
-    ...obj,
-  });
-}
-
-export enum ProvisionedProductStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
-  TAINTED = "TAINTED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PLAN_IN_PROGRESS: "PLAN_IN_PROGRESS",
+  TAINTED: "TAINTED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisionedProductStatus = (typeof ProvisionedProductStatus)[keyof typeof ProvisionedProductStatus];
+
+/**
+ * @public
  * <p>Information about a provisioned product.</p>
  */
 export interface ProvisionedProductDetail {
   /**
+   * @public
    * <p>The user-friendly name of the provisioned product.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The ARN of the provisioned product.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The current status of the provisioned product.</p>
    *          <ul>
    *             <li>
@@ -3372,32 +3463,37 @@ export interface ProvisionedProductDetail {
   Status?: ProvisionedProductStatus | string;
 
   /**
+   * @public
    * <p>The current status message of the provisioned product.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>The record identifier of the last request performed on this provisioned product.</p>
    */
   LastRecordId?: string;
 
   /**
+   * @public
    * <p>The record identifier of the last request performed on this provisioned product of the following types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -3420,11 +3516,12 @@ export interface ProvisionedProductDetail {
   LastProvisioningRecordId?: string;
 
   /**
+   * @public
    * <p>The record identifier of the last successful request performed on this provisioned product of the following types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -3447,59 +3544,49 @@ export interface ProvisionedProductDetail {
   LastSuccessfulProvisioningRecordId?: string;
 
   /**
+   * @public
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The ARN of the launch role associated with the provisioned product.</p>
    */
   LaunchRoleArn?: string;
 }
 
-export namespace ProvisionedProductDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductDetail): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductOutput {
   /**
+   * @public
    * <p>Information about the provisioned product.</p>
    */
   ProvisionedProductDetail?: ProvisionedProductDetail;
 
   /**
+   * @public
    * <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
    */
   CloudWatchDashboards?: CloudWatchDashboard[];
 }
 
-export namespace DescribeProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductPlanInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3513,49 +3600,56 @@ export interface DescribeProvisionedProductPlanInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The plan identifier.</p>
    */
   PlanId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace DescribeProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
-export enum ProvisionedProductPlanStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESS = "CREATE_SUCCESS",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS = "EXECUTE_SUCCESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductPlanStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESS: "CREATE_SUCCESS",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  EXECUTE_SUCCESS: "EXECUTE_SUCCESS",
+} as const;
 
 /**
+ * @public
+ */
+export type ProvisionedProductPlanStatus =
+  (typeof ProvisionedProductPlanStatus)[keyof typeof ProvisionedProductPlanStatus];
+
+/**
+ * @public
  * <p>Information about a plan.</p>
  */
 export interface ProvisionedProductPlanDetails {
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The path identifier of the product. This value is optional if the product
    *          has a default path, and required if the product has more than one path.
    *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
@@ -3563,259 +3657,294 @@ export interface ProvisionedProductPlanDetails {
   PathId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The name of the plan.</p>
    */
   PlanName?: string;
 
   /**
+   * @public
    * <p>The plan identifier.</p>
    */
   PlanId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProvisionProductId?: string;
 
   /**
+   * @public
    * <p>The user-friendly name of the provisioned product.</p>
    */
   ProvisionProductName?: string;
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   PlanType?: ProvisionedProductPlanType | string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The status.</p>
    */
   Status?: ProvisionedProductPlanStatus | string;
 
   /**
-   * <p>The time when the plan was last updated.</p>
+   * @public
+   * <p>The UTC time stamp when the plan was last updated.</p>
    */
   UpdatedTime?: Date;
 
   /**
+   * @public
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    */
   NotificationArns?: string[];
 
   /**
+   * @public
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    */
   ProvisioningParameters?: UpdateProvisioningParameter[];
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The status message.</p>
    */
   StatusMessage?: string;
 }
 
-export namespace ProvisionedProductPlanDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductPlanDetails): any => ({
-    ...obj,
-  });
-}
-
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
-
-export enum EvaluationType {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
-}
-
-export enum ResourceAttribute {
-  CREATIONPOLICY = "CREATIONPOLICY",
-  DELETIONPOLICY = "DELETIONPOLICY",
-  METADATA = "METADATA",
-  PROPERTIES = "PROPERTIES",
-  TAGS = "TAGS",
-  UPDATEPOLICY = "UPDATEPOLICY",
-}
-
-export enum RequiresRecreation {
-  ALWAYS = "ALWAYS",
-  CONDITIONALLY = "CONDITIONALLY",
-  NEVER = "NEVER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ChangeAction = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+} as const;
 
 /**
+ * @public
+ */
+export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationType = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationType = (typeof EvaluationType)[keyof typeof EvaluationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceAttribute = {
+  CREATIONPOLICY: "CREATIONPOLICY",
+  DELETIONPOLICY: "DELETIONPOLICY",
+  METADATA: "METADATA",
+  PROPERTIES: "PROPERTIES",
+  TAGS: "TAGS",
+  UPDATEPOLICY: "UPDATEPOLICY",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceAttribute = (typeof ResourceAttribute)[keyof typeof ResourceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequiresRecreation = {
+  ALWAYS: "ALWAYS",
+  CONDITIONALLY: "CONDITIONALLY",
+  NEVER: "NEVER",
+} as const;
+
+/**
+ * @public
+ */
+export type RequiresRecreation = (typeof RequiresRecreation)[keyof typeof RequiresRecreation];
+
+/**
+ * @public
  * <p>Information about a change to a resource attribute.</p>
  */
 export interface ResourceTargetDefinition {
   /**
+   * @public
    * <p>The attribute to be changed.</p>
    */
   Attribute?: ResourceAttribute | string;
 
   /**
+   * @public
    * <p>If the attribute is <code>Properties</code>, the value is the name of the property.
    *          Otherwise, the value is null.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>If the attribute is <code>Properties</code>, indicates whether a change to this property
    *          causes the resource to be re-created.</p>
    */
   RequiresRecreation?: RequiresRecreation | string;
 }
 
-export namespace ResourceTargetDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a change to a resource attribute.</p>
  */
 export interface ResourceChangeDetail {
   /**
+   * @public
    * <p>Information about the resource attribute to be modified.</p>
    */
   Target?: ResourceTargetDefinition;
 
   /**
+   * @public
    * <p>For static evaluations, the value of the resource attribute will change and the new value is known.
    *          For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.</p>
    */
   Evaluation?: EvaluationType | string;
 
   /**
+   * @public
    * <p>The ID of the entity that caused the change.</p>
    */
   CausingEntity?: string;
 }
 
-export namespace ResourceChangeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
-    ...obj,
-  });
-}
-
-export enum Replacement {
-  CONDITIONAL = "CONDITIONAL",
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Replacement = {
+  CONDITIONAL: "CONDITIONAL",
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
 
 /**
+ * @public
+ */
+export type Replacement = (typeof Replacement)[keyof typeof Replacement];
+
+/**
+ * @public
  * <p>Information about a resource change that will occur when a plan is executed.</p>
  */
 export interface ResourceChange {
   /**
+   * @public
    * <p>The change action.</p>
    */
   Action?: ChangeAction | string;
 
   /**
+   * @public
    * <p>The ID of the resource, as defined in the CloudFormation template.</p>
    */
   LogicalResourceId?: string;
 
   /**
+   * @public
    * <p>The ID of the resource, if it was already created.</p>
    */
   PhysicalResourceId?: string;
 
   /**
+   * @public
    * <p>The type of resource.</p>
    */
   ResourceType?: string;
 
   /**
+   * @public
    * <p>If the change type is <code>Modify</code>, indicates whether the existing resource
    *          is deleted and replaced with a new one.</p>
    */
   Replacement?: Replacement | string;
 
   /**
+   * @public
    * <p>The change scope.</p>
    */
   Scope?: (ResourceAttribute | string)[];
 
   /**
+   * @public
    * <p>Information about the resource changes.</p>
    */
   Details?: ResourceChangeDetail[];
 }
 
-export namespace ResourceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceChange): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProvisionedProductPlanOutput {
   /**
+   * @public
    * <p>Information about the plan.</p>
    */
   ProvisionedProductPlanDetails?: ProvisionedProductPlanDetails;
 
   /**
+   * @public
    * <p>Information about the resource changes that will occur when the plan is executed.</p>
    */
   ResourceChanges?: ResourceChange[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace DescribeProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProvisioningArtifactInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3829,74 +3958,177 @@ export interface DescribeProvisioningArtifactInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The provisioning artifact name.</p>
    */
   ProvisioningArtifactName?: string;
 
   /**
+   * @public
    * <p>The product name.</p>
    */
   ProductName?: string;
 
   /**
+   * @public
    * <p>Indicates whether a verbose level of detail is enabled.</p>
    */
   Verbose?: boolean;
-}
 
-export namespace DescribeProvisioningArtifactInput {
   /**
-   * @internal
+   * @public
+   * <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
    */
-  export const filterSensitiveLog = (obj: DescribeProvisioningArtifactInput): any => ({
-    ...obj,
-  });
+  IncludeProvisioningArtifactParameters?: boolean;
 }
 
+/**
+ * @public
+ * <p>The constraints that the administrator has put on the parameter.</p>
+ */
+export interface ParameterConstraints {
+  /**
+   * @public
+   * <p>The values that the administrator has allowed for the parameter.</p>
+   */
+  AllowedValues?: string[];
+
+  /**
+   * @public
+   * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
+   */
+  AllowedPattern?: string;
+
+  /**
+   * @public
+   * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
+   *          <p>
+   *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
+   *          </p>
+   *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
+   *          <p>
+   *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
+   *          </p>
+   */
+  ConstraintDescription?: string;
+
+  /**
+   * @public
+   * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
+   */
+  MaxLength?: string;
+
+  /**
+   * @public
+   * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
+   */
+  MinLength?: string;
+
+  /**
+   * @public
+   * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
+   */
+  MaxValue?: string;
+
+  /**
+   * @public
+   * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
+   */
+  MinValue?: string;
+}
+
+/**
+ * @public
+ * <p>Information about a parameter used to provision a product.</p>
+ */
+export interface ProvisioningArtifactParameter {
+  /**
+   * @public
+   * <p>The parameter key.</p>
+   */
+  ParameterKey?: string;
+
+  /**
+   * @public
+   * <p>The default value.</p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * @public
+   * <p>The parameter type.</p>
+   */
+  ParameterType?: string;
+
+  /**
+   * @public
+   * <p>If this value is true, the value for this parameter is obfuscated from view when the
+   *          parameter is retrieved. This parameter is used to hide sensitive information.</p>
+   */
+  IsNoEcho?: boolean;
+
+  /**
+   * @public
+   * <p>The description of the parameter.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Constraints that the administrator has put on a parameter.</p>
+   */
+  ParameterConstraints?: ParameterConstraints;
+}
+
+/**
+ * @public
+ */
 export interface DescribeProvisioningArtifactOutput {
   /**
+   * @public
    * <p>Information about the provisioning artifact.</p>
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3.</p>
+   * @public
+   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    */
-  Info?: { [key: string]: string };
+  Info?: Record<string, string>;
 
   /**
+   * @public
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
 
-export namespace DescribeProvisioningArtifactOutput {
   /**
-   * @internal
+   * @public
+   * <p>Information about the parameters used to provision the product.  </p>
    */
-  export const filterSensitiveLog = (obj: DescribeProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
+  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeProvisioningParametersInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -3910,26 +4142,31 @@ export interface DescribeProvisioningParametersInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier. You must provide the product name or ID, but not both.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The name of the product. You must provide the name or ID, but not both.</p>
    */
   ProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
    */
   ProvisioningArtifactName?: string;
 
   /**
+   * @public
    * <p>The path identifier of the product. This value is optional if the product
    *          has a default path, and required if the product has more than one path.
    *          To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
@@ -3937,25 +4174,19 @@ export interface DescribeProvisioningParametersInput {
   PathId?: string;
 
   /**
+   * @public
    * <p>The name of the path. You must provide the name or ID, but not both.</p>
    */
   PathName?: string;
 }
 
-export namespace DescribeProvisioningParametersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningParametersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Summary information about a constraint.</p>
  */
 export interface ConstraintSummary {
   /**
+   * @public
    * <p>The type of constraint.</p>
    *          <ul>
    *             <li>
@@ -3981,273 +4212,145 @@ export interface ConstraintSummary {
   Type?: string;
 
   /**
+   * @public
    * <p>The description of the constraint.</p>
    */
   Description?: string;
 }
 
-export namespace ConstraintSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstraintSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provisioning artifact output.</p>
  */
 export interface ProvisioningArtifactOutput {
   /**
+   * @public
    * <p>The provisioning artifact output key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>Description of the provisioning artifact output key.</p>
    */
   Description?: string;
 }
 
-export namespace ProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>The constraints that the administrator has put on the parameter.</p>
- */
-export interface ParameterConstraints {
-  /**
-   * <p>The values that the administrator has allowed for the parameter.</p>
-   */
-  AllowedValues?: string[];
-
-  /**
-   * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
-   */
-  AllowedPattern?: string;
-
-  /**
-   * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
-   *
-   *          <p>
-   *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
-   *          </p>
-   *
-   *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
-   *
-   *          <p>
-   *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
-   *          </p>
-   */
-  ConstraintDescription?: string;
-
-  /**
-   * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
-   */
-  MaxLength?: string;
-
-  /**
-   * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
-   */
-  MinLength?: string;
-
-  /**
-   * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
-   */
-  MaxValue?: string;
-
-  /**
-   * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
-   */
-  MinValue?: string;
-}
-
-export namespace ParameterConstraints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about a parameter used to provision a product.</p>
- */
-export interface ProvisioningArtifactParameter {
-  /**
-   * <p>The parameter key.</p>
-   */
-  ParameterKey?: string;
-
-  /**
-   * <p>The default value.</p>
-   */
-  DefaultValue?: string;
-
-  /**
-   * <p>The parameter type.</p>
-   */
-  ParameterType?: string;
-
-  /**
-   * <p>If this value is true, the value for this parameter is obfuscated from view when the
-   *          parameter is retrieved. This parameter is used to hide sensitive information.</p>
-   */
-  IsNoEcho?: boolean;
-
-  /**
-   * <p>The description of the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Constraints that the administrator has put on a parameter.</p>
-   */
-  ParameterConstraints?: ParameterConstraints;
-}
-
-export namespace ProvisioningArtifactParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
+ * @public
  * <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
- *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>CloudFormation User Guide</i>.</p>
  */
 export interface ProvisioningArtifactPreferences {
   /**
-   * <p>One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p>
+   * @public
+   * <p>One or more Amazon Web Services accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    */
   StackSetAccounts?: string[];
 
   /**
-   * <p>One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
+   * @public
+   * <p>One or more Amazon Web Services Regions where stack instances are deployed from the stack set. These Regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    */
   StackSetRegions?: string[];
 }
 
-export namespace ProvisioningArtifactPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactPreferences): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Summary information about a TagOption.</p>
  */
 export interface TagOptionSummary {
   /**
+   * @public
    * <p>The TagOption key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The TagOption value.</p>
    */
   Values?: string[];
 }
 
-export namespace TagOptionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOptionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Additional information provided by the administrator.</p>
  */
 export interface UsageInstruction {
   /**
+   * @public
    * <p>The usage instruction type for the value.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The usage instruction value for this type.</p>
    */
   Value?: string;
 }
 
-export namespace UsageInstruction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageInstruction): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeProvisioningParametersOutput {
   /**
+   * @public
    * <p>Information about the parameters used to provision the product.</p>
    */
   ProvisioningArtifactParameters?: ProvisioningArtifactParameter[];
 
   /**
+   * @public
    * <p>Information about the constraints used to provision the product.</p>
    */
   ConstraintSummaries?: ConstraintSummary[];
 
   /**
+   * @public
    * <p>Any additional metadata specifically related to the provisioning of the product. For
    *          example, see the <code>Version</code> field of the CloudFormation template.</p>
    */
   UsageInstructions?: UsageInstruction[];
 
   /**
+   * @public
    * <p>Information about the TagOptions associated with the resource.</p>
    */
   TagOptions?: TagOptionSummary[];
 
   /**
-   * <p>An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.</p>
+   * @public
+   * <p>An object that contains information about preferences, such as Regions and accounts, for the provisioning artifact.</p>
    */
   ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences;
 
   /**
+   * @public
+   * @deprecated
+   *
    * <p>The output of the provisioning artifact.</p>
    */
   ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[];
-}
 
-export namespace DescribeProvisioningParametersOutput {
   /**
-   * @internal
+   * @public
+   * <p>A list of the keys and descriptions of the outputs. These outputs can be referenced from a provisioned product launched from this provisioning artifact.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeProvisioningParametersOutput): any => ({
-    ...obj,
-  });
+  ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeRecordInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4261,102 +4364,97 @@ export interface DescribeRecordInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The record identifier of the provisioned product. This identifier is returned by the
    *          request operation.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeRecordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecordInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The error code and description resulting from an operation.</p>
  */
 export interface RecordError {
   /**
+   * @public
    * <p>The numeric value of the error.</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Description?: string;
 }
 
-export namespace RecordError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordError): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a tag, which is a key-value pair.</p>
  */
 export interface RecordTag {
   /**
+   * @public
    * <p>The key for this tag.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The value for this tag.</p>
    */
   Value?: string;
 }
 
-export namespace RecordTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordTag): any => ({
-    ...obj,
-  });
-}
-
-export enum RecordStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED = "SUCCEEDED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RecordStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  IN_PROGRESS_IN_ERROR: "IN_PROGRESS_IN_ERROR",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
 
 /**
+ * @public
+ */
+export type RecordStatus = (typeof RecordStatus)[keyof typeof RecordStatus];
+
+/**
+ * @public
  * <p>Information about a request operation.</p>
  */
 export interface RecordDetail {
   /**
+   * @public
    * <p>The identifier of the record.</p>
    */
   RecordId?: string;
 
   /**
+   * @public
    * <p>The user-friendly name of the provisioned product.</p>
    */
   ProvisionedProductName?: string;
 
   /**
+   * @public
    * <p>The status of the provisioned product.</p>
    *          <ul>
    *             <li>
@@ -4386,21 +4484,26 @@ export interface RecordDetail {
   Status?: RecordStatus | string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The time when the record was last updated.</p>
    */
   UpdatedTime?: Date;
 
   /**
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
+   * @public
+   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>,
+   *          <code>TERRAFORM_OPEN_SOURCE</code>, and <code>TERRAFORM_CLOUD</code>.</p>
    */
   ProvisionedProductType?: string;
 
   /**
+   * @public
    * <p>The record type.</p>
    *          <ul>
    *             <li>
@@ -4423,120 +4526,111 @@ export interface RecordDetail {
   RecordType?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   ProvisionedProductId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The path identifier.</p>
    */
   PathId?: string;
 
   /**
+   * @public
    * <p>The errors that occurred.</p>
    */
   RecordErrors?: RecordError[];
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   RecordTags?: RecordTag[];
 
   /**
+   * @public
    * <p>The ARN of the launch role associated with the provisioned product.</p>
    */
   LaunchRoleArn?: string;
 }
 
-export namespace RecordDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The output for the product created as the result of a request. For example, the output for
  *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
  */
 export interface RecordOutput {
   /**
+   * @public
    * <p>The output key.</p>
    */
   OutputKey?: string;
 
   /**
+   * @public
    * <p>The output value.</p>
    */
   OutputValue?: string;
 
   /**
+   * @public
    * <p>The description of the output.</p>
    */
   Description?: string;
 }
 
-export namespace RecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeRecordOutput {
   /**
+   * @public
    * <p>Information about the product.</p>
    */
   RecordDetail?: RecordDetail;
 
   /**
+   * @public
    * <p>Information about the product created as the result of a request. For example, the output for
    *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
    */
   RecordOutputs?: RecordOutput[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace DescribeRecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecordOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeServiceActionInput {
   /**
+   * @public
    * <p>The self-service action identifier.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4550,49 +4644,37 @@ export interface DescribeServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace DescribeServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeServiceActionOutput {
   /**
+   * @public
    * <p>Detailed information about the self-service action.</p>
    */
   ServiceActionDetail?: ServiceActionDetail;
 }
 
-export namespace DescribeServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeServiceActionExecutionParametersInput {
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   ProvisionedProductId: string | undefined;
 
   /**
+   * @public
    * <p>The self-service action identifier.</p>
    */
   ServiceActionId: string | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4606,154 +4688,103 @@ export interface DescribeServiceActionExecutionParametersInput {
   AcceptLanguage?: string;
 }
 
-export namespace DescribeServiceActionExecutionParametersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionExecutionParametersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details of an execution parameter value that is passed to a self-service action when executed on a provisioned product.</p>
  */
 export interface ExecutionParameter {
   /**
+   * @public
    * <p>The name of the execution parameter.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The execution parameter type.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The default values for the execution parameter.</p>
    */
   DefaultValues?: string[];
 }
 
-export namespace ExecutionParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionParameter): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeServiceActionExecutionParametersOutput {
   /**
+   * @public
    * <p>The parameters of the self-service action.</p>
    */
   ServiceActionParameters?: ExecutionParameter[];
 }
 
-export namespace DescribeServiceActionExecutionParametersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionExecutionParametersOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTagOptionInput {
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   Id: string | undefined;
 }
 
-export namespace DescribeTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTagOptionOutput {
   /**
+   * @public
    * <p>Information about the TagOption.</p>
    */
   TagOptionDetail?: TagOptionDetail;
 }
 
-export namespace DescribeTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisableAWSOrganizationsAccessInput {}
 
-export namespace DisableAWSOrganizationsAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAWSOrganizationsAccessInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisableAWSOrganizationsAccessOutput {}
 
-export namespace DisableAWSOrganizationsAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAWSOrganizationsAccessOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateBudgetFromResourceInput {
   /**
+   * @public
    * <p>The name of the budget you want to disassociate.</p>
    */
   BudgetName: string | undefined;
 
   /**
+   * @public
    * <p>The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.</p>
    */
   ResourceId: string | undefined;
 }
 
-export namespace DisassociateBudgetFromResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateBudgetFromResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateBudgetFromResourceOutput {}
 
-export namespace DisassociateBudgetFromResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateBudgetFromResourceOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociatePrincipalFromPortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4767,44 +4798,39 @@ export interface DisassociatePrincipalFromPortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * @public
+   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> with or without wildcard characters if
+   *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
    */
   PrincipalARN: string | undefined;
-}
 
-export namespace DisassociatePrincipalFromPortfolioInput {
   /**
-   * @internal
+   * @public
+   * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
+   *          if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard characters. </p>
    */
-  export const filterSensitiveLog = (obj: DisassociatePrincipalFromPortfolioInput): any => ({
-    ...obj,
-  });
+  PrincipalType?: PrincipalType | string;
 }
 
+/**
+ * @public
+ */
 export interface DisassociatePrincipalFromPortfolioOutput {}
 
-export namespace DisassociatePrincipalFromPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePrincipalFromPortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateProductFromPortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4818,59 +4844,49 @@ export interface DisassociateProductFromPortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 }
 
-export namespace DisassociateProductFromPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateProductFromPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateProductFromPortfolioOutput {}
 
-export namespace DisassociateProductFromPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateProductFromPortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateServiceActionFromProvisioningArtifactInput {
   /**
+   * @public
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   ServiceActionId: string | undefined;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4884,88 +4900,51 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace DisassociateServiceActionFromProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceActionFromProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateServiceActionFromProvisioningArtifactOutput {}
 
-export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceActionFromProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateTagOptionFromResourceInput {
   /**
+   * @public
    * <p>The resource identifier.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   TagOptionId: string | undefined;
 }
 
-export namespace DisassociateTagOptionFromResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTagOptionFromResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateTagOptionFromResourceOutput {}
 
-export namespace DisassociateTagOptionFromResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTagOptionFromResourceOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface EnableAWSOrganizationsAccessInput {}
 
-export namespace EnableAWSOrganizationsAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAWSOrganizationsAccessInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface EnableAWSOrganizationsAccessOutput {}
 
-export namespace EnableAWSOrganizationsAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAWSOrganizationsAccessOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductPlanInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -4979,65 +4958,56 @@ export interface ExecuteProvisionedProductPlanInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The plan identifier.</p>
    */
   PlanId: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace ExecuteProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductPlanOutput {
   /**
+   * @public
    * <p>Information about the result of provisioning the product.</p>
    */
   RecordDetail?: RecordDetail;
 }
 
-export namespace ExecuteProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductServiceActionInput {
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   ProvisionedProductId: string | undefined;
 
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   ServiceActionId: string | undefined;
 
   /**
+   * @public
    * <p>An idempotency token that uniquely identifies the execute request.</p>
    */
   ExecuteToken?: string;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5051,73 +5021,49 @@ export interface ExecuteProvisionedProductServiceActionInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as <code>TARGET</code>, the provided value will
-   *             override the default value generated by AWS Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for
+   *             override the default value generated by Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for
    *             any special parameters such as <code>TARGET</code>.</p>
    */
-  Parameters?: { [key: string]: string[] };
+  Parameters?: Record<string, string[]>;
 }
 
-export namespace ExecuteProvisionedProductServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ExecuteProvisionedProductServiceActionOutput {
   /**
+   * @public
    * <p>An object containing detailed information about the result of provisioning the product.</p>
    */
   RecordDetail?: RecordDetail;
 }
 
-export namespace ExecuteProvisionedProductServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetAWSOrganizationsAccessStatusInput {}
 
-export namespace GetAWSOrganizationsAccessStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAWSOrganizationsAccessStatusInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetAWSOrganizationsAccessStatusOutput {
   /**
+   * @public
    * <p>The status of the portfolio share feature.</p>
    */
   AccessStatus?: AccessStatus | string;
 }
 
-export namespace GetAWSOrganizationsAccessStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAWSOrganizationsAccessStatusOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetProvisionedProductOutputsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5131,70 +5077,62 @@ export interface GetProvisionedProductOutputsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product that you want the outputs from.</p>
    */
   ProvisionedProductId?: string;
 
   /**
+   * @public
    * <p>The name of the provisioned product that you want the outputs from.</p>
    */
   ProvisionedProductName?: string;
 
   /**
+   * @public
    * <p>The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.</p>
    */
   OutputKeys?: string[];
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace GetProvisionedProductOutputsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProvisionedProductOutputsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetProvisionedProductOutputsOutput {
   /**
+   * @public
    * <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
    *       </p>
    */
   Outputs?: RecordOutput[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace GetProvisionedProductOutputsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProvisionedProductOutputsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ImportAsProvisionedProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5208,67 +5146,58 @@ export interface ImportAsProvisionedProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product. The value must be unique for the AWS
-   *          account. The name cannot be updated after the product is provisioned. </p>
+   * @public
+   * <p>The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account.
+   *          The name cannot be updated after the product is provisioned. </p>
    */
   ProvisionedProductName: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the resource to be imported. It only currently supports
    *          CloudFormation stack IDs.</p>
    */
   PhysicalId: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace ImportAsProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportAsProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ImportAsProvisionedProductOutput {
   /**
+   * @public
    * <p>Information about a request operation.</p>
    */
   RecordDetail?: RecordDetail;
 }
 
-export namespace ImportAsProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportAsProvisionedProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAcceptedPortfolioSharesInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5282,74 +5211,64 @@ export interface ListAcceptedPortfolioSharesInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The type of shared portfolios to list. The default is to list imported portfolios.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>AWS_ORGANIZATIONS</code> - List portfolios shared by the management
-   *                account of your organization</p>
+   *                   <code>AWS_ORGANIZATIONS</code> - List portfolios accepted and shared via organizational sharing by the management account or delegated administrator of your organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AWS_SERVICECATALOG</code> - List default portfolios</p>
+   *                   <code>AWS_SERVICECATALOG</code> - Deprecated type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IMPORTED</code> - List imported portfolios</p>
+   *                   <code>IMPORTED</code> - List imported portfolios that have been accepted and
+   *                shared through account-to-account sharing.</p>
    *             </li>
    *          </ul>
    */
   PortfolioShareType?: PortfolioShareType | string;
 }
 
-export namespace ListAcceptedPortfolioSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceptedPortfolioSharesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAcceptedPortfolioSharesOutput {
   /**
+   * @public
    * <p>Information about the portfolios.</p>
    */
   PortfolioDetails?: PortfolioDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListAcceptedPortfolioSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceptedPortfolioSharesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListBudgetsForResourceInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5363,59 +5282,49 @@ export interface ListBudgetsForResourceInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The resource identifier.</p>
    */
   ResourceId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListBudgetsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBudgetsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListBudgetsForResourceOutput {
   /**
+   * @public
    * <p>Information about the associated budgets.</p>
    */
   Budgets?: BudgetDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListBudgetsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBudgetsForResourceOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListConstraintsForPortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5429,64 +5338,55 @@ export interface ListConstraintsForPortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListConstraintsForPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConstraintsForPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListConstraintsForPortfolioOutput {
   /**
+   * @public
    * <p>Information about the constraints.</p>
    */
   ConstraintDetails?: ConstraintDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListConstraintsForPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConstraintsForPortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListLaunchPathsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5500,93 +5400,79 @@ export interface ListLaunchPathsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListLaunchPathsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchPathsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Summary information about a product path for a user.</p>
  */
 export interface LaunchPathSummary {
   /**
+   * @public
    * <p>The identifier of the product path.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The constraints on the portfolio-product relationship.</p>
    */
   ConstraintSummaries?: ConstraintSummary[];
 
   /**
+   * @public
    * <p>The tags associated with this product path.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The name of the portfolio to which the user was assigned.</p>
+   * @public
+   * <p>The name of the portfolio that contains the product. </p>
    */
   Name?: string;
 }
 
-export namespace LaunchPathSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPathSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListLaunchPathsOutput {
   /**
+   * @public
    * <p>Information about the launch path.</p>
    */
   LaunchPathSummaries?: LaunchPathSummary[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListLaunchPathsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchPathsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListOrganizationPortfolioAccessInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5600,11 +5486,13 @@ export interface ListOrganizationPortfolioAccessInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The organization node type that will be returned in the output.</p>
    *          <ul>
    *             <li>
@@ -5624,54 +5512,43 @@ export interface ListOrganizationPortfolioAccessInput {
   OrganizationNodeType: OrganizationNodeType | string | undefined;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace ListOrganizationPortfolioAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationPortfolioAccessInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListOrganizationPortfolioAccessOutput {
   /**
+   * @public
    * <p>Displays information about the organization nodes.</p>
    */
   OrganizationNodes?: OrganizationNode[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListOrganizationPortfolioAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationPortfolioAccessOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortfolioAccessInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5685,64 +5562,55 @@ export interface ListPortfolioAccessInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.</p>
    */
   OrganizationParentId?: string;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace ListPortfolioAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfolioAccessInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortfolioAccessOutput {
   /**
-   * <p>Information about the AWS accounts with access to the portfolio.</p>
+   * @public
+   * <p>Information about the Amazon Web Services accounts with access to the portfolio.</p>
    */
   AccountIds?: string[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListPortfolioAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfolioAccessOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortfoliosInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5756,54 +5624,43 @@ export interface ListPortfoliosInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace ListPortfoliosInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortfoliosOutput {
   /**
+   * @public
    * <p>Information about the portfolios.</p>
    */
   PortfolioDetails?: PortfolioDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListPortfoliosOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortfoliosForProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5817,59 +5674,49 @@ export interface ListPortfoliosForProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace ListPortfoliosForProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosForProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPortfoliosForProductOutput {
   /**
+   * @public
    * <p>Information about the portfolios.</p>
    */
   PortfolioDetails?: PortfolioDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListPortfoliosForProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosForProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPrincipalsForPortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5883,83 +5730,71 @@ export interface ListPrincipalsForPortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListPrincipalsForPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrincipalsForPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a principal.</p>
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * @public
+   * <p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code>, with or without wildcard characters if the
+   *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
+   *          <p>For more information, review <a href="https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options">associate-principal-with-portfolio</a>
+   *       in the Amazon Web Services CLI Command Reference. </p>
    */
   PrincipalARN?: string;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code>.</p>
+   * @public
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
+   *          <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
    */
   PrincipalType?: PrincipalType | string;
 }
 
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListPrincipalsForPortfolioOutput {
   /**
-   * <p>The IAM principals (users or roles) associated with the portfolio.</p>
+   * @public
+   * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
    */
   Principals?: Principal[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListPrincipalsForPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrincipalsForPortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProvisionedProductPlansInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -5973,108 +5808,97 @@ export interface ListProvisionedProductPlansInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProvisionProductId?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    */
   AccessLevelFilter?: AccessLevelFilter;
 }
 
-export namespace ListProvisionedProductPlansInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedProductPlansInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Summary information about a plan.</p>
  */
 export interface ProvisionedProductPlanSummary {
   /**
+   * @public
    * <p>The name of the plan.</p>
    */
   PlanName?: string;
 
   /**
+   * @public
    * <p>The plan identifier.</p>
    */
   PlanId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProvisionProductId?: string;
 
   /**
+   * @public
    * <p>The user-friendly name of the provisioned product.</p>
    */
   ProvisionProductName?: string;
 
   /**
+   * @public
    * <p>The plan type.</p>
    */
   PlanType?: ProvisionedProductPlanType | string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 }
 
-export namespace ProvisionedProductPlanSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductPlanSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProvisionedProductPlansOutput {
   /**
+   * @public
    * <p>Information about the plans.</p>
    */
   ProvisionedProductPlans?: ProvisionedProductPlanSummary[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListProvisionedProductPlansOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedProductPlansOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6088,64 +5912,55 @@ export interface ListProvisioningArtifactsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 }
 
-export namespace ListProvisioningArtifactsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsOutput {
   /**
+   * @public
    * <p>Information about the provisioning artifacts.</p>
    */
   ProvisioningArtifactDetails?: ProvisioningArtifactDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListProvisioningArtifactsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsForServiceActionInput {
   /**
+   * @public
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    */
   ServiceActionId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6159,65 +5974,48 @@ export interface ListProvisioningArtifactsForServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace ListProvisioningArtifactsForServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsForServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains summary information about a product view and a provisioning artifact.</p>
  */
 export interface ProvisioningArtifactView {
   /**
+   * @public
    * <p>Summary information about a product view.</p>
    */
   ProductViewSummary?: ProductViewSummary;
 
   /**
+   * @public
    * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
    */
   ProvisioningArtifact?: ProvisioningArtifact;
 }
 
-export namespace ProvisioningArtifactView {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactView): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListProvisioningArtifactsForServiceActionOutput {
   /**
+   * @public
    * <p>An array of objects with information about product views and provisioning artifacts.</p>
    */
   ProvisioningArtifactViews?: ProvisioningArtifactView[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListProvisioningArtifactsForServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsForServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The search filter to use when listing history records.</p>
  */
 export interface ListRecordHistorySearchFilter {
   /**
+   * @public
    * <p>The filter key.</p>
    *          <ul>
    *             <li>
@@ -6233,28 +6031,20 @@ export interface ListRecordHistorySearchFilter {
   Key?: string;
 
   /**
+   * @public
    * <p>The filter value.</p>
    */
   Value?: string;
 }
 
-export namespace ListRecordHistorySearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordHistorySearchFilter): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListRecordHistoryInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6268,63 +6058,59 @@ export interface ListRecordHistoryInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    */
   AccessLevelFilter?: AccessLevelFilter;
 
   /**
+   * @public
    * <p>The search filter to scope the results.</p>
    */
   SearchFilter?: ListRecordHistorySearchFilter;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListRecordHistoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordHistoryInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListRecordHistoryOutput {
   /**
+   * @public
    * <p>The records, in reverse chronological order.</p>
    */
   RecordDetails?: RecordDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListRecordHistoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordHistoryOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResourcesForTagOptionInput {
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   TagOptionId: string | undefined;
 
   /**
+   * @public
    * <p>The resource type.</p>
    *          <ul>
    *             <li>
@@ -6342,93 +6128,79 @@ export interface ListResourcesForTagOptionInput {
   ResourceType?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListResourcesForTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a resource.</p>
  */
 export interface ResourceDetail {
   /**
+   * @public
    * <p>The identifier of the resource.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ARN?: string;
 
   /**
+   * @public
    * <p>The name of the resource.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The description of the resource.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The creation time of the resource.</p>
    */
   CreatedTime?: Date;
 }
 
-export namespace ResourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDetail): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListResourcesForTagOptionOutput {
   /**
+   * @public
    * <p>Information about the resources.</p>
    */
   ResourceDetails?: ResourceDetail[];
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListResourcesForTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForTagOptionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListServiceActionsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6442,74 +6214,67 @@ export interface ListServiceActionsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListServiceActionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListServiceActionsOutput {
   /**
+   * @public
    * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
    */
   ServiceActionSummaries?: ServiceActionSummary[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListServiceActionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListServiceActionsForProvisioningArtifactInput {
   /**
+   * @public
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6523,44 +6288,31 @@ export interface ListServiceActionsForProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace ListServiceActionsForProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsForProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListServiceActionsForProvisioningArtifactOutput {
   /**
+   * @public
    * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
    */
   ServiceActionSummaries?: ServiceActionSummary[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListServiceActionsForProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsForProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStackInstancesForProvisionedProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6574,51 +6326,58 @@ export interface ListStackInstancesForProvisionedProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   ProvisionedProductId: string | undefined;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace ListStackInstancesForProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackInstancesForProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+} as const;
 
 /**
- * <p>An AWS CloudFormation stack, in a specific account and region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
+ * @public
+ */
+export type StackInstanceStatus = (typeof StackInstanceStatus)[keyof typeof StackInstanceStatus];
+
+/**
+ * @public
+ * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
  */
 export interface StackInstance {
   /**
-   * <p>The name of the AWS account that the stack instance is associated with.</p>
+   * @public
+   * <p>The name of the Amazon Web Services account that the stack instance is associated with.</p>
    */
   Account?: string;
 
   /**
-   * <p>The name of the AWS region that the stack instance is associated with.</p>
+   * @public
+   * <p>The name of the Amazon Web Services Region that the stack instance is associated with.</p>
    */
   Region?: string;
 
   /**
+   * @public
    * <p>The status of the stack instance, in terms of its synchronization with its associated stack set. </p>
    *          <ul>
    *             <li>
@@ -6640,142 +6399,377 @@ export interface StackInstance {
   StackInstanceStatus?: StackInstanceStatus | string;
 }
 
-export namespace StackInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstance): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListStackInstancesForProvisionedProductOutput {
   /**
+   * @public
    * <p>List of stack instances.</p>
    */
   StackInstances?: StackInstance[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ListStackInstancesForProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackInstancesForProvisionedProductOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Filters to use when listing TagOptions.</p>
  */
 export interface ListTagOptionsFilters {
   /**
+   * @public
    * <p>The TagOption key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The TagOption value.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>The active state.</p>
    */
   Active?: boolean;
 }
 
-export namespace ListTagOptionsFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagOptionsInput {
   /**
+   * @public
    * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
    */
   Filters?: ListTagOptionsFilters;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListTagOptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagOptionsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagOptionsOutput {
   /**
+   * @public
    * <p>Information about the TagOptions.</p>
    */
   TagOptionDetails?: TagOptionDetail[];
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ListTagOptionsOutput {
+/**
+ * @public
+ * <p>
+ *          The unique key-value pair
+ *          for a tag
+ *          that identifies provisioned product resources.
+ *       </p>
+ */
+export interface UniqueTagResourceIdentifier {
   /**
-   * @internal
+   * @public
+   * <p>
+   *          A unique key
+   *          that's attached
+   *          to a resource.
+   *       </p>
    */
-  export const filterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
-    ...obj,
-  });
+  Key?: string;
+
+  /**
+   * @public
+   * <p>
+   *          A unique value
+   *          that's attached
+   *          to a resource.
+   *       </p>
+   */
+  Value?: string;
 }
 
 /**
+ * @public
+ * <p>
+ *          The ID
+ *          for the provisioned product resources
+ *          that are part
+ *          of a resource group.
+ *       </p>
+ */
+export interface EngineWorkflowResourceIdentifier {
+  /**
+   * @public
+   * <p>
+   *          The unique key-value pair
+   *          for a tag
+   *          that identifies provisioned product resources.
+   *       </p>
+   */
+  UniqueTag?: UniqueTagResourceIdentifier;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EngineWorkflowStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type EngineWorkflowStatus = (typeof EngineWorkflowStatus)[keyof typeof EngineWorkflowStatus];
+
+/**
+ * @public
+ */
+export interface NotifyProvisionProductEngineWorkflowResultInput {
+  /**
+   * @public
+   * <p>
+   *          The encrypted contents
+   *          of the provisioning engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product provisioning workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The status
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The reason
+   *          why the provisioning engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The ID
+   *          for the provisioned product resources
+   *          that are part
+   *          of a resource group.
+   *       </p>
+   */
+  ResourceIdentifier?: EngineWorkflowResourceIdentifier;
+
+  /**
+   * @public
+   * <p>
+   *          The output
+   *          of the provisioning engine execution.
+   *       </p>
+   */
+  Outputs?: RecordOutput[];
+
+  /**
+   * @public
+   * <p>
+   *          The idempotency token
+   *          that identifies the provisioning engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyProvisionProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
+ */
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
+  /**
+   * @public
+   * <p>
+   *          The encrypted contents
+   *          of the terminate engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product terminate workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The status
+   *          of the terminate engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The reason
+   *          why the terminate engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The idempotency token
+   *          that identifies the terminate engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyTerminateProvisionedProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
+ */
+export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
+  /**
+   * @public
+   * <p>
+   *          The encrypted contents
+   *          of the update engine execution payload
+   *          that Service Catalog sends
+   *          after the Terraform product update workflow starts.
+   *       </p>
+   */
+  WorkflowToken: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The identifier
+   *          of the record.
+   *       </p>
+   */
+  RecordId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The status
+   *          of the update engine execution.
+   *       </p>
+   */
+  Status: EngineWorkflowStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The reason
+   *          why the update engine execution failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The output
+   *          of the update engine execution.
+   *       </p>
+   */
+  Outputs?: RecordOutput[];
+
+  /**
+   * @public
+   * <p>
+   *          The idempotency token
+   *          that identifies the update engine execution.
+   *       </p>
+   */
+  IdempotencyToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface NotifyUpdateProvisionedProductEngineWorkflowResultOutput {}
+
+/**
+ * @public
  * <p>Information about a parameter used to provision a product.</p>
  */
 export interface ProvisioningParameter {
   /**
+   * @public
    * <p>The parameter key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The parameter value.</p>
    */
   Value?: string;
 }
 
-export namespace ProvisioningParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The user-defined preferences that will be applied when updating a provisioned
  *          product. Not all preferences are applicable to all provisioned product type</p>
- *          <p>One or more AWS accounts that will have access to the provisioned product.</p>
+ *          <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
  *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
- *          <p>The AWS accounts specified should be within the list of accounts in the
+ *          <p>The Amazon Web Services accounts specified should be within the list of accounts in the
  *             <code>STACKSET</code> constraint. To get the list of accounts in the
  *             <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code>
  *          operation.</p>
@@ -6784,7 +6778,8 @@ export namespace ProvisioningParameter {
  */
 export interface ProvisioningPreferences {
   /**
-   * <p>One or more AWS accounts where the provisioned product will be available.</p>
+   * @public
+   * <p>One or more Amazon Web Services accounts where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>The specified accounts should be within the list of accounts from the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all acounts from the <code>STACKSET</code> constraint.</p>
@@ -6792,15 +6787,17 @@ export interface ProvisioningPreferences {
   StackSetAccounts?: string[];
 
   /**
-   * <p>One or more AWS Regions where the provisioned product will be available.</p>
+   * @public
+   * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
+   *          <p>The specified Regions should be within the list of Regions from the <code>STACKSET</code> constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
    */
   StackSetRegions?: string[];
 
   /**
-   * <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
+   * @public
+   * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    *          <p>The default value is <code>0</code> if no value is specified.</p>
@@ -6808,14 +6805,16 @@ export interface ProvisioningPreferences {
   StackSetFailureToleranceCount?: number;
 
   /**
-   * <p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p>
+   * @public
+   * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    */
   StackSetFailureTolerancePercentage?: number;
 
   /**
+   * @public
    * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p>
    *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
@@ -6824,8 +6823,9 @@ export interface ProvisioningPreferences {
   StackSetMaxConcurrencyCount?: number;
 
   /**
+   * @public
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as <code>1</code> instead.</p>
    *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
@@ -6833,23 +6833,14 @@ export interface ProvisioningPreferences {
   StackSetMaxConcurrencyPercentage?: number;
 }
 
-export namespace ProvisioningPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningPreferences): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ProvisionProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6863,26 +6854,31 @@ export interface ProvisionProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier. You must provide the name or ID, but not both.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The name of the product. You must provide the name or ID, but not both.</p>
    */
   ProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
    */
   ProvisioningArtifactName?: string;
 
   /**
+   * @public
    * <p>The path identifier of the product. This value is optional if the product
    *          has a default path, and required if the product has more than one path.
    *          To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
@@ -6890,77 +6886,70 @@ export interface ProvisionProductInput {
   PathId?: string;
 
   /**
+   * @public
    * <p>The name of the path. You must provide the name or ID, but not both.</p>
    */
   PathName?: string;
 
   /**
+   * @public
    * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the AWS account and cannot be updated after the product is provisioned.</p>
+   *          unique for the Amazon Web Services account and cannot be updated after the product is provisioned.</p>
    */
   ProvisionedProductName: string | undefined;
 
   /**
+   * @public
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    */
   ProvisioningParameters?: ProvisioningParameter[];
 
   /**
+   * @public
    * <p>An object that contains information about the provisioning preferences for a stack set.</p>
    */
   ProvisioningPreferences?: ProvisioningPreferences;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    */
   NotificationArns?: string[];
 
   /**
+   * @public
    * <p>An idempotency token that uniquely identifies the provisioning request.</p>
    */
   ProvisionToken?: string;
 }
 
-export namespace ProvisionProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ProvisionProductOutput {
   /**
+   * @public
    * <p>Information about the result of provisioning the product.</p>
    */
   RecordDetail?: RecordDetail;
 }
 
-export namespace ProvisionProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RejectPortfolioShareInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -6974,11 +6963,13 @@ export interface RejectPortfolioShareInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId: string | undefined;
 
   /**
+   * @public
    * <p>The type of shared portfolios to reject. The default is to reject imported portfolios.</p>
    *          <ul>
    *             <li>
@@ -7001,34 +6992,19 @@ export interface RejectPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
-export namespace RejectPortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectPortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RejectPortfolioShareOutput {}
 
-export namespace RejectPortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectPortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ScanProvisionedProductsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7042,77 +7018,94 @@ export interface ScanProvisionedProductsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    */
   AccessLevelFilter?: AccessLevelFilter;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace ScanProvisionedProductsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanProvisionedProductsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ScanProvisionedProductsOutput {
   /**
+   * @public
    * <p>Information about the provisioned products.</p>
    */
   ProvisionedProducts?: ProvisionedProductDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace ScanProvisionedProductsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanProvisionedProductsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductViewFilterBy = {
+  FullTextSearch: "FullTextSearch",
+  Owner: "Owner",
+  ProductType: "ProductType",
+  SourceProductId: "SourceProductId",
+} as const;
 
-export enum ProductViewFilterBy {
-  FullTextSearch = "FullTextSearch",
-  Owner = "Owner",
-  ProductType = "ProductType",
-  SourceProductId = "SourceProductId",
-}
+/**
+ * @public
+ */
+export type ProductViewFilterBy = (typeof ProductViewFilterBy)[keyof typeof ProductViewFilterBy];
 
-export enum ProductViewSortBy {
-  CreationDate = "CreationDate",
-  Title = "Title",
-  VersionCount = "VersionCount",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductViewSortBy = {
+  CreationDate: "CreationDate",
+  Title: "Title",
+  VersionCount: "VersionCount",
+} as const;
 
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+/**
+ * @public
+ */
+export type ProductViewSortBy = (typeof ProductViewSortBy)[keyof typeof ProductViewSortBy];
 
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
 export interface SearchProductsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7126,104 +7119,100 @@ export interface SearchProductsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The search filters. If no search filters are specified, the output includes
    *          all products to which the caller has access.</p>
    */
-  Filters?: { [key: string]: string[] };
+  Filters?: Record<string, string[]>;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    */
   SortBy?: ProductViewSortBy | string;
 
   /**
+   * @public
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace SearchProductsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A single product view aggregation value/count pair, containing metadata about each
  *          product to which the calling user has access.</p>
  */
 export interface ProductViewAggregationValue {
   /**
+   * @public
    * <p>The value of the product view aggregation.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>An approximate count of the products that match the value.</p>
    */
   ApproximateCount?: number;
 }
 
-export namespace ProductViewAggregationValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductViewAggregationValue): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SearchProductsOutput {
   /**
+   * @public
    * <p>Information about the product views.</p>
    */
   ProductViewSummaries?: ProductViewSummary[];
 
   /**
+   * @public
    * <p>The product view aggregations.</p>
    */
-  ProductViewAggregations?: { [key: string]: ProductViewAggregationValue[] };
+  ProductViewAggregations?: Record<string, ProductViewAggregationValue[]>;
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace SearchProductsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProductSource = {
+  ACCOUNT: "ACCOUNT",
+} as const;
 
-export enum ProductSource {
-  ACCOUNT = "ACCOUNT",
-}
+/**
+ * @public
+ */
+export type ProductSource = (typeof ProductSource)[keyof typeof ProductSource];
 
+/**
+ * @public
+ */
 export interface SearchProductsAsAdminInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7237,84 +7226,88 @@ export interface SearchProductsAsAdminInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   PortfolioId?: string;
 
   /**
+   * @public
    * <p>The search filters. If no search filters are specified, the output includes all products
    *          to which the administrator has access.</p>
    */
-  Filters?: { [key: string]: string[] };
+  Filters?: Record<string, string[]>;
 
   /**
+   * @public
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    */
   SortBy?: ProductViewSortBy | string;
 
   /**
+   * @public
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>Access level of the source of the product.</p>
    */
   ProductSource?: ProductSource | string;
 }
 
-export namespace SearchProductsAsAdminInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsAsAdminInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SearchProductsAsAdminOutput {
   /**
+   * @public
    * <p>Information about the product views.</p>
    */
   ProductViewDetails?: ProductViewDetail[];
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace SearchProductsAsAdminOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsAsAdminOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProvisionedProductViewFilterBy = {
+  SearchQuery: "SearchQuery",
+} as const;
 
-export enum ProvisionedProductViewFilterBy {
-  SearchQuery = "SearchQuery",
-}
+/**
+ * @public
+ */
+export type ProvisionedProductViewFilterBy =
+  (typeof ProvisionedProductViewFilterBy)[keyof typeof ProvisionedProductViewFilterBy];
 
+/**
+ * @public
+ */
 export interface SearchProvisionedProductsInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7328,79 +7321,82 @@ export interface SearchProvisionedProductsInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    */
   AccessLevelFilter?: AccessLevelFilter;
 
   /**
+   * @public
    * <p>The search filters.</p>
    *          <p>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>,
    *          <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>,
    *          <code>idempotencyToken</code>, <code>name</code>, <code>physicalId</code>, <code>productId</code>,
-   *          <code>provisioningArtifact</code>, <code>type</code>, <code>status</code>,
+   *          <code>provisioningArtifactId</code>, <code>type</code>, <code>status</code>,
    *          <code>tags</code>, <code>userArn</code>, <code>userArnSession</code>, <code>lastProvisioningRecordId</code>, <code>lastSuccessfulProvisioningRecordId</code>,
    *          <code>productName</code>, and <code>provisioningArtifactName</code>.</p>
    *          <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code>
    *          </p>
    */
-  Filters?: { [key: string]: string[] };
+  Filters?: Record<string, string[]>;
 
   /**
+   * @public
    * <p>The sort field. If no value is specified, the results are not sorted. The valid values are <code>arn</code>, <code>id</code>, <code>name</code>,
    *          and <code>lastRecordId</code>.</p>
    */
   SortBy?: string;
 
   /**
+   * @public
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
+   * @public
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
 }
 
-export namespace SearchProvisionedProductsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProvisionedProductsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a provisioned product.</p>
  */
 export interface ProvisionedProductAttribute {
   /**
+   * @public
    * <p>The user-friendly name of the provisioned product.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The ARN of the provisioned product.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   Id?: string;
 
   /**
+   * @public
    * <p>The current status of the provisioned product.</p>
    *          <ul>
    *             <li>
@@ -7434,32 +7430,37 @@ export interface ProvisionedProductAttribute {
   Status?: ProvisionedProductStatus | string;
 
   /**
+   * @public
    * <p>The current status message of the provisioned product.</p>
    */
   StatusMessage?: string;
 
   /**
+   * @public
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
 
   /**
+   * @public
    * <p>The record identifier of the last request performed on this provisioned product.</p>
    */
   LastRecordId?: string;
 
   /**
+   * @public
    * <p>The record identifier of the last request performed on this provisioned product of the following types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -7482,11 +7483,12 @@ export interface ProvisionedProductAttribute {
   LastProvisioningRecordId?: string;
 
   /**
+   * @public
    * <p>The record identifier of the last successful request performed on this provisioned product of the following types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                ProvisionedProduct
+   *                ProvisionProduct
    *             </p>
    *             </li>
    *             <li>
@@ -7509,95 +7511,97 @@ export interface ProvisionedProductAttribute {
   LastSuccessfulProvisioningRecordId?: string;
 
   /**
+   * @public
    * <p>One or more tags.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.</p>
    */
   PhysicalId?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The name of the product.</p>
    */
   ProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact.</p>
    */
   ProvisioningArtifactName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM user.</p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   UserArn?: string;
 
   /**
-   * <p>The ARN of the IAM user in the session. This ARN might contain a session ID.</p>
+   * @public
+   * <p>The ARN of the user in the session. This ARN might contain a session ID.</p>
    */
   UserArnSession?: string;
 }
 
-export namespace ProvisionedProductAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductAttribute): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SearchProvisionedProductsOutput {
   /**
+   * @public
    * <p>Information about the provisioned products.</p>
    */
   ProvisionedProducts?: ProvisionedProductAttribute[];
 
   /**
+   * @public
    * <p>The number of provisioned products found.</p>
    */
   TotalResultsCount?: number;
 
   /**
+   * @public
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace SearchProvisionedProductsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProvisionedProductsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TerminateProvisionedProductInput {
   /**
+   * @public
    * <p>The name of the provisioned product. You cannot specify both
    *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
    */
   ProvisionedProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product. You cannot specify both
    *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
    */
   ProvisionedProductId?: string;
 
   /**
+   * @public
    * <p>An idempotency token that uniquely identifies the termination request. This token is
    *          only valid during the termination process. After the provisioned product is terminated,
    *          subsequent requests to terminate the same provisioned product always return
@@ -7606,18 +7610,16 @@ export interface TerminateProvisionedProductInput {
   TerminateToken?: string;
 
   /**
-   * <p>If set to true, AWS Service Catalog stops managing the specified provisioned product even
+   * @public
+   * <p>If set to true, Service Catalog stops managing the specified provisioned product even
    *          if it cannot delete the underlying resources.</p>
    */
   IgnoreErrors?: boolean;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7631,6 +7633,7 @@ export interface TerminateProvisionedProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code> API deletes
    *          the Service Catalog provisioned product. However, it does not remove the CloudFormation
    *          stack, stack set, or the underlying resources of the deleted provisioned product. The
@@ -7639,39 +7642,25 @@ export interface TerminateProvisionedProductInput {
   RetainPhysicalResources?: boolean;
 }
 
-export namespace TerminateProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TerminateProvisionedProductOutput {
   /**
+   * @public
    * <p>Information about the result of this request.</p>
    */
   RecordDetail?: RecordDetail;
 }
 
-export namespace TerminateProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateProvisionedProductOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateConstraintInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7685,16 +7674,19 @@ export interface UpdateConstraintInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the constraint.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The updated description of the constraint.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
    *          <dl>
    *             <dt>LAUNCH</dt>
@@ -7702,11 +7694,11 @@ export interface UpdateConstraintInput {
    *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
    *                <p>Specify the <code>RoleArn</code> property as follows:</p>
    *                <p>
-   *                   <code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code>
+   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
    *                </p>
    *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
    *                <p>
-   *                   <code>{"LocalRoleName": "SCBasicLaunchRole"}</code>
+   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
    *                </p>
    *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
    *                   account-agnostic so the administrator can create fewer resources per shared account.</p>
@@ -7720,14 +7712,14 @@ export interface UpdateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
    *                <p>
-   *                   <code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code>
+   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
    *                </p>
    *             </dd>
    *             <dt>RESOURCE_UPDATE</dt>
    *             <dd>
    *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code>
+   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
    *                </p>
    *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
    *             </dd>
@@ -7735,11 +7727,11 @@ export interface UpdateConstraintInput {
    *             <dd>
    *                <p>Specify the <code>Parameters</code> property as follows:</p>
    *                <p>
-   *                   <code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code>
+   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
    *                </p>
    *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
    *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-   *                <p>Products with a <code>STACKSET</code> constraint will launch an AWS CloudFormation stack set.</p>
+   *                <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
    *             </dd>
    *             <dt>TEMPLATE</dt>
    *             <dd>
@@ -7751,49 +7743,37 @@ export interface UpdateConstraintInput {
   Parameters?: string;
 }
 
-export namespace UpdateConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConstraintInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateConstraintOutput {
   /**
+   * @public
    * <p>Information about the constraint.</p>
    */
   ConstraintDetail?: ConstraintDetail;
 
   /**
+   * @public
    * <p>The constraint parameters.</p>
    */
   ConstraintParameters?: string;
 
   /**
+   * @public
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
 }
 
-export namespace UpdateConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConstraintOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePortfolioInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7807,74 +7787,67 @@ export interface UpdatePortfolioInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The portfolio identifier.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The name to use for display purposes.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The updated description of the portfolio.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The updated name of the portfolio provider.</p>
    */
   ProviderName?: string;
 
   /**
+   * @public
    * <p>The tags to add.</p>
    */
   AddTags?: Tag[];
 
   /**
+   * @public
    * <p>The tags to remove.</p>
    */
   RemoveTags?: string[];
 }
 
-export namespace UpdatePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePortfolioOutput {
   /**
+   * @public
    * <p>Information about the portfolio.</p>
    */
   PortfolioDetail?: PortfolioDetail;
 
   /**
+   * @public
    * <p>Information about the tags associated with the portfolio.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace UpdatePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePortfolioShareInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7888,42 +7861,50 @@ export interface UpdatePortfolioShareInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the portfolio for which the share will be updated.</p>
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The AWS Account Id of the recipient account. This field is required when updating an external account to account type share.</p>
+   * @public
+   * <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
    */
   AccountId?: string;
 
   /**
+   * @public
    * <p>Information about the organization node.</p>
    */
   OrganizationNode?: OrganizationNode;
 
   /**
-   * <p>A flag to enable or disable TagOptions sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
+   * @public
+   * <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of
+   *          TagOptions sharing on the portfolio share will not be modified.</p>
    */
   ShareTagOptions?: boolean;
-}
 
-export namespace UpdatePortfolioShareInput {
   /**
-   * @internal
+   * @public
+   * <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided,
+   *          the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
    */
-  export const filterSensitiveLog = (obj: UpdatePortfolioShareInput): any => ({
-    ...obj,
-  });
+  SharePrincipals?: boolean;
 }
 
+/**
+ * @public
+ */
 export interface UpdatePortfolioShareOutput {
   /**
+   * @public
    * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
    */
   PortfolioShareToken?: string;
 
   /**
+   * @public
    * <p>The status of <code>UpdatePortfolioShare</code> operation.
    *          You can also obtain the operation status using <code>DescribePortfolioShareStatus</code> API.
    *       </p>
@@ -7931,23 +7912,14 @@ export interface UpdatePortfolioShareOutput {
   Status?: ShareStatus | string;
 }
 
-export namespace UpdatePortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -7961,110 +7933,144 @@ export interface UpdateProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The updated product name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The updated owner of the product.</p>
    */
   Owner?: string;
 
   /**
+   * @public
    * <p>The updated description of the product.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The updated distributor of the product.</p>
    */
   Distributor?: string;
 
   /**
+   * @public
    * <p>The updated support description for the product.</p>
    */
   SupportDescription?: string;
 
   /**
+   * @public
    * <p>The updated support email for the product.</p>
    */
   SupportEmail?: string;
 
   /**
+   * @public
    * <p>The updated support URL for the product.</p>
    */
   SupportUrl?: string;
 
   /**
+   * @public
    * <p>The tags to add to the product.</p>
    */
   AddTags?: Tag[];
 
   /**
+   * @public
    * <p>The tags to remove from the product.</p>
    */
   RemoveTags?: string[];
-}
 
-export namespace UpdateProductInput {
   /**
-   * @internal
+   * @public
+   * <p>Specifies connection details for the updated product and syncs the product to the connection source
+   *          artifact. This automatically manages the product's artifacts based on changes to the source.
+   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConnectionParamters</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  export const filterSensitiveLog = (obj: UpdateProductInput): any => ({
-    ...obj,
-  });
+  SourceConnection?: SourceConnection;
 }
 
+/**
+ * @public
+ */
 export interface UpdateProductOutput {
   /**
+   * @public
    * <p>Information about the product view.</p>
    */
   ProductViewDetail?: ProductViewDetail;
 
   /**
+   * @public
    * <p>Information about the tags associated with the product.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace UpdateProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProductOutput): any => ({
-    ...obj,
-  });
-}
-
-export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
+/**
+ * @public
+ * @enum
+ */
+export const StackSetOperationType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+} as const;
 
 /**
+ * @public
+ */
+export type StackSetOperationType = (typeof StackSetOperationType)[keyof typeof StackSetOperationType];
+
+/**
+ * @public
  * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
  */
 export interface UpdateProvisioningPreferences {
   /**
-   * <p>One or more AWS accounts that will have access to the provisioned product.</p>
+   * @public
+   * <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>The Amazon Web Services accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
    *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
    */
   StackSetAccounts?: string[];
 
   /**
-   * <p>One or more AWS Regions where the provisioned product will be available.</p>
+   * @public
+   * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified regions should be within the list of regions from the <code>STACKSET</code> constraint. To get the list of regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all regions from the <code>STACKSET</code> constraint.</p>
+   *          <p>The specified Regions should be within the list of Regions from the <code>STACKSET</code> constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
    */
   StackSetRegions?: string[];
 
   /**
-   * <p>The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
+   * @public
+   * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    *          <p>The default value is <code>0</code> if no value is specified.</p>
@@ -8072,14 +8078,16 @@ export interface UpdateProvisioningPreferences {
   StackSetFailureToleranceCount?: number;
 
   /**
-   * <p>The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.</p>
+   * @public
+   * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    */
   StackSetFailureTolerancePercentage?: number;
 
   /**
+   * @public
    * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p>
    *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
@@ -8088,8 +8096,9 @@ export interface UpdateProvisioningPreferences {
   StackSetMaxConcurrencyCount?: number;
 
   /**
+   * @public
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code> instead.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as <code>1</code> instead.</p>
    *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
@@ -8097,12 +8106,13 @@ export interface UpdateProvisioningPreferences {
   StackSetMaxConcurrencyPercentage?: number;
 
   /**
-   * <p>Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p>
+   * @public
+   * <p>Determines what action Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    *          <dl>
    *             <dt>CREATE</dt>
    *             <dd>
-   *                <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p>
+   *                <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p>
    *             </dd>
    *             <dt>UPDATE</dt>
    *             <dd>
@@ -8117,23 +8127,14 @@ export interface UpdateProvisioningPreferences {
   StackSetOperationType?: StackSetOperationType | string;
 }
 
-export namespace UpdateProvisioningPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningPreferences): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -8147,106 +8148,113 @@ export interface UpdateProvisionedProductInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The name of the provisioned product. You cannot specify both
    *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
    */
   ProvisionedProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product. You must provide the name or ID, but not both.</p>
    */
   ProvisionedProductId?: string;
 
   /**
+   * @public
    * <p>The identifier of the product. You must provide the name or ID, but not both.</p>
    */
   ProductId?: string;
 
   /**
+   * @public
    * <p>The name of the product. You must provide the name or ID, but not both.</p>
    */
   ProductName?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
 
   /**
+   * @public
    * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
    */
   ProvisioningArtifactName?: string;
 
   /**
+   * @public
    * <p>The path identifier. This value is optional if the product
    *          has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.</p>
    */
   PathId?: string;
 
   /**
+   * @public
    * <p>The name of the path. You must provide the name or ID, but not both.</p>
    */
   PathName?: string;
 
   /**
+   * @public
    * <p>The new parameters.</p>
    */
   ProvisioningParameters?: UpdateProvisioningParameter[];
 
   /**
+   * @public
    * <p>An object that contains information about the provisioning preferences for a stack set.</p>
    */
   ProvisioningPreferences?: UpdateProvisioningPreferences;
 
   /**
+   * @public
    * <p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The idempotency token that uniquely identifies the provisioning update request.</p>
    */
   UpdateToken?: string;
 }
 
-export namespace UpdateProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductOutput {
   /**
+   * @public
    * <p>Information about the result of the request.</p>
    */
   RecordDetail?: RecordDetail;
 }
 
-export namespace UpdateProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const PropertyKey = {
+  LaunchRole: "LAUNCH_ROLE",
+  Owner: "OWNER",
+} as const;
 
-export enum PropertyKey {
-  LaunchRole = "LAUNCH_ROLE",
-  Owner = "OWNER",
-}
+/**
+ * @public
+ */
+export type PropertyKey = (typeof PropertyKey)[keyof typeof PropertyKey];
 
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductPropertiesInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -8260,11 +8268,13 @@ export interface UpdateProvisionedProductPropertiesInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The identifier of the provisioned product.</p>
    */
   ProvisionedProductId: string | undefined;
 
   /**
+   * @public
    * <p>A map that contains the provisioned product properties to be updated.</p>
    *          <p>The <code>LAUNCH_ROLE</code> key accepts role ARNs. This key allows an
    *          administrator to call <code>UpdateProvisionedProductProperties</code> to update the launch
@@ -8272,75 +8282,66 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
    *             <code>TerminateProvisionedProduct</code>, or
    *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
-   *
-   *          <p>The <code>OWNER</code> key accepts user ARNs and role ARNs. The owner is the user
-   *          that has permission to see, update, terminate, and execute service actions in the
-   *          provisioned product.</p>
-   *          <p>The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and
-   *          administrators can see ownership history of the provisioned product using the <code>ListRecordHistory</code> API. The new owner can
-   *       describe all past records for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no longer use <code>DescribeRecord</code>,
-   *       but can still see the product's history from when he was an owner using <code>ListRecordHistory</code>.</p>
+   *          <p>The <code>OWNER</code> key accepts user ARNs, IAM role ARNs, and STS
+   *          assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and
+   *          execute service actions in the provisioned product.</p>
+   *          <p>The administrator can change the owner of a provisioned product to another IAM or STS entity within the
+   *          same account. Both end user owners and administrators can see ownership history of the provisioned
+   *          product using the <code>ListRecordHistory</code> API. The new owner can describe all past records
+   *          for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no
+   *          longer use <code>DescribeRecord</code>, but can still see the product's history from when he was
+   *          an owner using <code>ListRecordHistory</code>.</p>
    *          <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or
    *          Service Catalog console such as update, terminate, and execute service actions.
    *          If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through
    *          API or the Service Catalog console on that provisioned product.</p>
    */
-  ProvisionedProductProperties: { [key: string]: string } | undefined;
+  ProvisionedProductProperties: Record<string, string> | undefined;
 
   /**
+   * @public
    * <p>The idempotency token that uniquely identifies the provisioning product update request.</p>
    */
   IdempotencyToken?: string;
 }
 
-export namespace UpdateProvisionedProductPropertiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductPropertiesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProvisionedProductPropertiesOutput {
   /**
+   * @public
    * <p>The provisioned product identifier.</p>
    */
   ProvisionedProductId?: string;
 
   /**
+   * @public
    * <p>A map that contains the properties updated.</p>
    */
-  ProvisionedProductProperties?: { [key: string]: string };
+  ProvisionedProductProperties?: Record<string, string>;
 
   /**
+   * @public
    * <p>The identifier of the record.</p>
    */
   RecordId?: string;
 
   /**
+   * @public
    * <p>The status of the request.</p>
    */
   Status?: RecordStatus | string;
 }
 
-export namespace UpdateProvisionedProductPropertiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductPropertiesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProvisioningArtifactInput {
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -8354,32 +8355,38 @@ export interface UpdateProvisioningArtifactInput {
   AcceptLanguage?: string;
 
   /**
+   * @public
    * <p>The product identifier.</p>
    */
   ProductId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
+   * @public
    * <p>The updated name of the provisioning artifact.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The updated description of the provisioning artifact.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Indicates whether the product version is active.</p>
    *          <p>Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.</p>
    */
   Active?: boolean;
 
   /**
+   * @public
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    *          <p>The <code>DEFAULT</code> value indicates that the product version is active.</p>
    *          <p>The administrator can set the guidance to <code>DEPRECATED</code> to inform
@@ -8389,69 +8396,61 @@ export interface UpdateProvisioningArtifactInput {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
-export namespace UpdateProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateProvisioningArtifactOutput {
   /**
+   * @public
    * <p>Information about the provisioning artifact.</p>
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3.</p>
+   * @public
+   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    */
-  Info?: { [key: string]: string };
+  Info?: Record<string, string>;
 
   /**
+   * @public
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
 }
 
-export namespace UpdateProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateServiceActionInput {
   /**
+   * @public
    * <p>The self-service action identifier.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The self-service action name.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>A map that defines the self-service action.</p>
    */
-  Definition?: { [key: string]: string };
+  Definition?: Record<string, string>;
 
   /**
+   * @public
    * <p>The self-service action description.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The language code.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>en</code> - English (default)</p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>jp</code> - Japanese</p>
@@ -8465,69 +8464,47 @@ export interface UpdateServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace UpdateServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateServiceActionOutput {
   /**
+   * @public
    * <p>Detailed information about the self-service action.</p>
    */
   ServiceActionDetail?: ServiceActionDetail;
 }
 
-export namespace UpdateServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTagOptionInput {
   /**
+   * @public
    * <p>The TagOption identifier.</p>
    */
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The updated value.</p>
    */
   Value?: string;
 
   /**
+   * @public
    * <p>The updated active state.</p>
    */
   Active?: boolean;
 }
 
-export namespace UpdateTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateTagOptionOutput {
   /**
+   * @public
    * <p>Information about the TagOption.</p>
    */
   TagOptionDetail?: TagOptionDetail;
-}
-
-export namespace UpdateTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
-    ...obj,
-  });
 }

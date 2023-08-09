@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { DeleteDetectorModelRequest, DeleteDetectorModelResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteDetectorModelCommand,
-  serializeAws_restJson1DeleteDetectorModelCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteDetectorModelCommand, se_DeleteDetectorModelCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteDetectorModelCommand}.
+ */
 export interface DeleteDetectorModelCommandInput extends DeleteDetectorModelRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteDetectorModelCommand}.
+ */
 export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a detector model. Any active instances of the detector model are also
  *       deleted.</p>
  * @example
@@ -30,13 +44,41 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * import { IoTEventsClient, DeleteDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, DeleteDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = { // DeleteDetectorModelRequest
+ *   detectorModelName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDetectorModelCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteDetectorModelCommandInput - {@link DeleteDetectorModelCommandInput}
+ * @returns {@link DeleteDetectorModelCommandOutput}
  * @see {@link DeleteDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorModelCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
+ * @throws {@link IoTEventsServiceException}
+ * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
  */
 export class DeleteDetectorModelCommand extends $Command<
@@ -47,6 +89,18 @@ export class DeleteDetectorModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteDetectorModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +116,9 @@ export class DeleteDetectorModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteDetectorModelCommandInput, DeleteDetectorModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteDetectorModelCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +129,8 @@ export class DeleteDetectorModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +140,18 @@ export class DeleteDetectorModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteDetectorModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteDetectorModelCommand(input, context);
+    return se_DeleteDetectorModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDetectorModelCommandOutput> {
-    return deserializeAws_restJson1DeleteDetectorModelCommand(output, context);
+    return de_DeleteDetectorModelCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateMLModelCommand,
-  serializeAws_json1_1UpdateMLModelCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateMLModelCommand, se_UpdateMLModelCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateMLModelCommand}.
+ */
 export interface UpdateMLModelCommandInput extends UpdateMLModelInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateMLModelCommand}.
+ */
 export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
  *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -30,13 +44,36 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * import { MachineLearningClient, UpdateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // UpdateMLModelInput
+ *   MLModelId: "STRING_VALUE", // required
+ *   MLModelName: "STRING_VALUE",
+ *   ScoreThreshold: Number("float"),
+ * };
  * const command = new UpdateMLModelCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateMLModelOutput
+ * //   MLModelId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UpdateMLModelCommandInput - {@link UpdateMLModelCommandInput}
+ * @returns {@link UpdateMLModelCommandOutput}
  * @see {@link UpdateMLModelCommandInput} for command's `input` shape.
  * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class UpdateMLModelCommand extends $Command<
@@ -47,6 +84,18 @@ export class UpdateMLModelCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateMLModelCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +111,7 @@ export class UpdateMLModelCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateMLModelCommandInput, UpdateMLModelCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateMLModelCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +122,8 @@ export class UpdateMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMLModelInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMLModelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +133,18 @@ export class UpdateMLModelCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateMLModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMLModelCommand(input, context);
+    return se_UpdateMLModelCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMLModelCommandOutput> {
-    return deserializeAws_json1_1UpdateMLModelCommand(output, context);
+    return de_UpdateMLModelCommand(output, context);
   }
 
   // Start section: command_body_extra

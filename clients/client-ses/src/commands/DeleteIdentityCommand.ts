@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteIdentityCommand,
-  serializeAws_queryDeleteIdentityCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteIdentityCommand, se_DeleteIdentityCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteIdentityCommand}.
+ */
 export interface DeleteIdentityCommandInput extends DeleteIdentityRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteIdentityCommand}.
+ */
 export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified identity (an email address or a domain) from the list of
  *             verified identities.</p>
  *         <p>You can execute this operation no more than once per second.</p>
@@ -31,13 +45,34 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * import { SESClient, DeleteIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DeleteIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // DeleteIdentityRequest
+ *   Identity: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIdentityCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteIdentityCommandInput - {@link DeleteIdentityCommandInput}
+ * @returns {@link DeleteIdentityCommandOutput}
  * @see {@link DeleteIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example DeleteIdentity
+ * ```javascript
+ * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:
+ * const input = {
+ *   "Identity": "user@example.com"
+ * };
+ * const command = new DeleteIdentityCommand(input);
+ * await client.send(command);
+ * // example id: deleteidentity-1469047858906
+ * ```
  *
  */
 export class DeleteIdentityCommand extends $Command<
@@ -48,6 +83,18 @@ export class DeleteIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteIdentityCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +110,9 @@ export class DeleteIdentityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteIdentityCommandInput, DeleteIdentityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteIdentityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +123,8 @@ export class DeleteIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +134,18 @@ export class DeleteIdentityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteIdentityCommand(input, context);
+    return se_DeleteIdentityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteIdentityCommandOutput> {
-    return deserializeAws_queryDeleteIdentityCommand(output, context);
+    return de_DeleteIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

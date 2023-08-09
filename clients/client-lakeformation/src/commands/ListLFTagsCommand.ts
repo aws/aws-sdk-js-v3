@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,84 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import { ListLFTagsRequest, ListLFTagsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLFTagsCommand,
-  serializeAws_json1_1ListLFTagsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLFTagsCommand, se_ListLFTagsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListLFTagsCommand}.
+ */
 export interface ListLFTagsCommandInput extends ListLFTagsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLFTagsCommand}.
+ */
 export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists tags that the requester has permission to view. </p>
+ * @public
+ * <p>Lists LF-tags that the requester has permission to view. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LakeFormationClient, ListLFTagsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, ListLFTagsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = { // ListLFTagsRequest
+ *   CatalogId: "STRING_VALUE",
+ *   ResourceShareType: "FOREIGN" || "ALL",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLFTagsCommand(input);
  * const response = await client.send(command);
+ * // { // ListLFTagsResponse
+ * //   LFTags: [ // LFTagsList
+ * //     { // LFTagPair
+ * //       CatalogId: "STRING_VALUE",
+ * //       TagKey: "STRING_VALUE", // required
+ * //       TagValues: [ // TagValueList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListLFTagsCommandInput - {@link ListLFTagsCommandInput}
+ * @returns {@link ListLFTagsCommandOutput}
  * @see {@link ListLFTagsCommandInput} for command's `input` shape.
  * @see {@link ListLFTagsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link LakeFormationServiceException}
+ * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
  */
 export class ListLFTagsCommand extends $Command<
@@ -46,6 +99,18 @@ export class ListLFTagsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListLFTagsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +126,7 @@ export class ListLFTagsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListLFTagsCommandInput, ListLFTagsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListLFTagsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +137,8 @@ export class ListLFTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLFTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLFTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +148,18 @@ export class ListLFTagsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLFTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLFTagsCommand(input, context);
+    return se_ListLFTagsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLFTagsCommandOutput> {
-    return deserializeAws_json1_1ListLFTagsCommand(output, context);
+    return de_ListLFTagsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListNamedShadowsForThingCommand,
-  serializeAws_restJson1ListNamedShadowsForThingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListNamedShadowsForThingCommand, se_ListNamedShadowsForThingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListNamedShadowsForThingCommand}.
+ */
 export interface ListNamedShadowsForThingCommandInput extends ListNamedShadowsForThingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListNamedShadowsForThingCommand}.
+ */
 export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsForThingResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the shadows for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListNamedShadowsForThing</a> action.</p>
  * @example
@@ -30,13 +44,52 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * import { IoTDataPlaneClient, ListNamedShadowsForThingCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, ListNamedShadowsForThingCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = { // ListNamedShadowsForThingRequest
+ *   thingName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListNamedShadowsForThingCommand(input);
  * const response = await client.send(command);
+ * // { // ListNamedShadowsForThingResponse
+ * //   results: [ // NamedShadowList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   timestamp: Number("long"),
+ * // };
+ *
  * ```
  *
+ * @param ListNamedShadowsForThingCommandInput - {@link ListNamedShadowsForThingCommandInput}
+ * @returns {@link ListNamedShadowsForThingCommandOutput}
  * @see {@link ListNamedShadowsForThingCommandInput} for command's `input` shape.
  * @see {@link ListNamedShadowsForThingCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The specified combination of HTTP verb and URI is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class ListNamedShadowsForThingCommand extends $Command<
@@ -47,6 +100,18 @@ export class ListNamedShadowsForThingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListNamedShadowsForThingCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +127,9 @@ export class ListNamedShadowsForThingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListNamedShadowsForThingCommandInput, ListNamedShadowsForThingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListNamedShadowsForThingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +140,8 @@ export class ListNamedShadowsForThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +151,18 @@ export class ListNamedShadowsForThingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListNamedShadowsForThingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListNamedShadowsForThingCommand(input, context);
+    return se_ListNamedShadowsForThingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListNamedShadowsForThingCommandOutput> {
-    return deserializeAws_restJson1ListNamedShadowsForThingCommand(output, context);
+    return de_ListNamedShadowsForThingCommand(output, context);
   }
 
   // Start section: command_body_extra

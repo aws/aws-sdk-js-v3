@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Connect } from "../Connect";
 import { ConnectClient } from "../ConnectClient";
 
+/**
+ * @public
+ */
 export interface ConnectPaginationConfiguration extends PaginationConfiguration {
-  client: Connect | ConnectClient;
+  client: ConnectClient;
 }

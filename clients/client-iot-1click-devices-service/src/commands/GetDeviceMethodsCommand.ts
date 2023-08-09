@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   IoT1ClickDevicesServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { GetDeviceMethodsRequest, GetDeviceMethodsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetDeviceMethodsCommand,
-  serializeAws_restJson1GetDeviceMethodsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetDeviceMethodsCommand, se_GetDeviceMethodsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDeviceMethodsCommand}.
+ */
 export interface GetDeviceMethodsCommandInput extends GetDeviceMethodsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDeviceMethodsCommand}.
+ */
 export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, returns the invokable methods associated with the device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,36 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * import { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // GetDeviceMethodsRequest
+ *   DeviceId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceMethodsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDeviceMethodsResponse
+ * //   DeviceMethods: [ // __listOfDeviceMethod
+ * //     { // DeviceMethod
+ * //       DeviceType: "STRING_VALUE",
+ * //       MethodName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetDeviceMethodsCommandInput - {@link GetDeviceMethodsCommandInput}
+ * @returns {@link GetDeviceMethodsCommandOutput}
  * @see {@link GetDeviceMethodsCommandInput} for command's `input` shape.
  * @see {@link GetDeviceMethodsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class GetDeviceMethodsCommand extends $Command<
@@ -50,6 +87,18 @@ export class GetDeviceMethodsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDeviceMethodsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +114,9 @@ export class GetDeviceMethodsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDeviceMethodsCommandInput, GetDeviceMethodsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDeviceMethodsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +127,8 @@ export class GetDeviceMethodsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceMethodsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceMethodsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +138,18 @@ export class GetDeviceMethodsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDeviceMethodsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetDeviceMethodsCommand(input, context);
+    return se_GetDeviceMethodsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceMethodsCommandOutput> {
-    return deserializeAws_restJson1GetDeviceMethodsCommand(output, context);
+    return de_GetDeviceMethodsCommand(output, context);
   }
 
   // Start section: command_body_extra

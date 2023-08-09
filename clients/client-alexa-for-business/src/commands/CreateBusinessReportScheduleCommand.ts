@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,38 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { CreateBusinessReportScheduleRequest, CreateBusinessReportScheduleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateBusinessReportScheduleCommand,
-  serializeAws_json1_1CreateBusinessReportScheduleCommand,
+  de_CreateBusinessReportScheduleCommand,
+  se_CreateBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateBusinessReportScheduleCommand}.
+ */
 export interface CreateBusinessReportScheduleCommandInput extends CreateBusinessReportScheduleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBusinessReportScheduleCommand}.
+ */
 export interface CreateBusinessReportScheduleCommandOutput
   extends CreateBusinessReportScheduleResponse,
     __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>
  * @example
@@ -32,13 +51,44 @@ export interface CreateBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // CreateBusinessReportScheduleRequest
+ *   ScheduleName: "STRING_VALUE",
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   Format: "CSV" || "CSV_ZIP", // required
+ *   ContentRange: { // BusinessReportContentRange
+ *     Interval: "ONE_DAY" || "ONE_WEEK" || "THIRTY_DAYS", // required
+ *   },
+ *   Recurrence: { // BusinessReportRecurrence
+ *     StartDate: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
+ * // { // CreateBusinessReportScheduleResponse
+ * //   ScheduleArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateBusinessReportScheduleCommandInput - {@link CreateBusinessReportScheduleCommandInput}
+ * @returns {@link CreateBusinessReportScheduleCommandOutput}
  * @see {@link CreateBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link CreateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class CreateBusinessReportScheduleCommand extends $Command<
@@ -49,6 +99,18 @@ export class CreateBusinessReportScheduleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateBusinessReportScheduleCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +126,9 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateBusinessReportScheduleCommandInput, CreateBusinessReportScheduleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateBusinessReportScheduleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +139,8 @@ export class CreateBusinessReportScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBusinessReportScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBusinessReportScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +150,21 @@ export class CreateBusinessReportScheduleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateBusinessReportScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateBusinessReportScheduleCommand(input, context);
+    return se_CreateBusinessReportScheduleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1CreateBusinessReportScheduleCommand(output, context);
+    return de_CreateBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

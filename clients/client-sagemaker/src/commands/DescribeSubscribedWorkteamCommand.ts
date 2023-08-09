@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeSubscribedWorkteamRequest, DescribeSubscribedWorkteamResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1DescribeSubscribedWorkteamCommand,
-  serializeAws_json1_1DescribeSubscribedWorkteamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSubscribedWorkteamCommand, se_DescribeSubscribedWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSubscribedWorkteamCommand}.
+ */
 export interface DescribeSubscribedWorkteamCommandInput extends DescribeSubscribedWorkteamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSubscribedWorkteamCommand}.
+ */
 export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscribedWorkteamResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a work team provided by a vendor. It returns details about the
  *             subscription with a vendor in the Amazon Web Services Marketplace.</p>
  * @example
@@ -30,13 +44,31 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * import { SageMakerClient, DescribeSubscribedWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeSubscribedWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DescribeSubscribedWorkteamRequest
+ *   WorkteamArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSubscribedWorkteamCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSubscribedWorkteamResponse
+ * //   SubscribedWorkteam: { // SubscribedWorkteam
+ * //     WorkteamArn: "STRING_VALUE", // required
+ * //     MarketplaceTitle: "STRING_VALUE",
+ * //     SellerName: "STRING_VALUE",
+ * //     MarketplaceDescription: "STRING_VALUE",
+ * //     ListingId: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeSubscribedWorkteamCommandInput - {@link DescribeSubscribedWorkteamCommandInput}
+ * @returns {@link DescribeSubscribedWorkteamCommandOutput}
  * @see {@link DescribeSubscribedWorkteamCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscribedWorkteamCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DescribeSubscribedWorkteamCommand extends $Command<
@@ -47,6 +79,18 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSubscribedWorkteamCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +106,9 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSubscribedWorkteamCommandInput, DescribeSubscribedWorkteamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSubscribedWorkteamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +119,8 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubscribedWorkteamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubscribedWorkteamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +130,21 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSubscribedWorkteamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSubscribedWorkteamCommand(input, context);
+    return se_DescribeSubscribedWorkteamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSubscribedWorkteamCommandOutput> {
-    return deserializeAws_json1_1DescribeSubscribedWorkteamCommand(output, context);
+    return de_DescribeSubscribedWorkteamCommand(output, context);
   }
 
   // Start section: command_body_extra

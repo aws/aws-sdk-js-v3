@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { ListDashboardsInput, ListDashboardsOutput } from "../models/models_0";
-import {
-  deserializeAws_queryListDashboardsCommand,
-  serializeAws_queryListDashboardsCommand,
-} from "../protocols/Aws_query";
+import { de_ListDashboardsCommand, se_ListDashboardsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDashboardsCommand}.
+ */
 export interface ListDashboardsCommandInput extends ListDashboardsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDashboardsCommand}.
+ */
 export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
  * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
  * 			listed.
  * 	    </p>
- * 		       <p>
+ *          <p>
  *             <code>ListDashboards</code> returns up to 1000 results on one page. If there
  * 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
  * 		include the value you received for <code>NextToken</code> in the first call, to receive
@@ -37,13 +51,40 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * import { CloudWatchClient, ListDashboardsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListDashboardsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // ListDashboardsInput
+ *   DashboardNamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDashboardsOutput
+ * //   DashboardEntries: [ // DashboardEntries
+ * //     { // DashboardEntry
+ * //       DashboardName: "STRING_VALUE",
+ * //       DashboardArn: "STRING_VALUE",
+ * //       LastModified: new Date("TIMESTAMP"),
+ * //       Size: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListDashboardsCommandInput - {@link ListDashboardsCommandInput}
+ * @returns {@link ListDashboardsCommandOutput}
  * @see {@link ListDashboardsCommandInput} for command's `input` shape.
  * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class ListDashboardsCommand extends $Command<
@@ -54,6 +95,18 @@ export class ListDashboardsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDashboardsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +122,9 @@ export class ListDashboardsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDashboardsCommandInput, ListDashboardsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDashboardsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +135,8 @@ export class ListDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +146,18 @@ export class ListDashboardsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListDashboardsCommand(input, context);
+    return se_ListDashboardsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
-    return deserializeAws_queryListDashboardsCommand(output, context);
+    return de_ListDashboardsCommand(output, context);
   }
 
   // Start section: command_body_extra

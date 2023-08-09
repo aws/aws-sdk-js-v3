@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { GetRouteResponseRequest, GetRouteResponseResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRouteResponseCommand,
-  serializeAws_restJson1GetRouteResponseCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetRouteResponseCommand, se_GetRouteResponseCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRouteResponseCommand}.
+ */
 export interface GetRouteResponseCommandInput extends GetRouteResponseRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetRouteResponseCommand}.
+ */
 export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a RouteResponse.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,43 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * import { ApiGatewayV2Client, GetRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = { // GetRouteResponseRequest
+ *   ApiId: "STRING_VALUE", // required
+ *   RouteId: "STRING_VALUE", // required
+ *   RouteResponseId: "STRING_VALUE", // required
+ * };
  * const command = new GetRouteResponseCommand(input);
  * const response = await client.send(command);
+ * // { // GetRouteResponseResponse
+ * //   ModelSelectionExpression: "STRING_VALUE",
+ * //   ResponseModels: { // RouteModels
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   ResponseParameters: { // RouteParameters
+ * //     "<keys>": { // ParameterConstraints
+ * //       Required: true || false,
+ * //     },
+ * //   },
+ * //   RouteResponseId: "STRING_VALUE",
+ * //   RouteResponseKey: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetRouteResponseCommandInput - {@link GetRouteResponseCommandInput}
+ * @returns {@link GetRouteResponseCommandOutput}
  * @see {@link GetRouteResponseCommandInput} for command's `input` shape.
  * @see {@link GetRouteResponseCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ * @throws {@link ApiGatewayV2ServiceException}
+ * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
  */
 export class GetRouteResponseCommand extends $Command<
@@ -46,6 +90,18 @@ export class GetRouteResponseCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetRouteResponseCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +117,9 @@ export class GetRouteResponseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetRouteResponseCommandInput, GetRouteResponseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetRouteResponseCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +130,8 @@ export class GetRouteResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRouteResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRouteResponseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +141,18 @@ export class GetRouteResponseCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetRouteResponseCommand(input, context);
+    return se_GetRouteResponseCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteResponseCommandOutput> {
-    return deserializeAws_restJson1GetRouteResponseCommand(output, context);
+    return de_GetRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

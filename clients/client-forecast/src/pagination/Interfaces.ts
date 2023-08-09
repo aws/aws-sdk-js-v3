@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Forecast } from "../Forecast";
 import { ForecastClient } from "../ForecastClient";
 
+/**
+ * @public
+ */
 export interface ForecastPaginationConfiguration extends PaginationConfiguration {
-  client: Forecast | ForecastClient;
+  client: ForecastClient;
 }

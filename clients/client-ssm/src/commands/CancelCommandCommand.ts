@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CancelCommandRequest, CancelCommandResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1CancelCommandCommand,
-  serializeAws_json1_1CancelCommandCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CancelCommandCommand, se_CancelCommandCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CancelCommandCommand}.
+ */
 export interface CancelCommandCommandInput extends CancelCommandRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CancelCommandCommand}.
+ */
 export interface CancelCommandCommandOutput extends CancelCommandResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
  *    command will be terminated and the underlying process stopped.</p>
  * @example
@@ -30,13 +44,55 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * import { SSMClient, CancelCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CancelCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CancelCommandRequest
+ *   CommandId: "STRING_VALUE", // required
+ *   InstanceIds: [ // InstanceIdList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CancelCommandCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CancelCommandCommandInput - {@link CancelCommandCommandInput}
+ * @returns {@link CancelCommandCommandOutput}
  * @see {@link CancelCommandCommandInput} for command's `input` shape.
  * @see {@link CancelCommandCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DuplicateInstanceId} (client fault)
+ *  <p>You can't specify a managed node ID in more than one association.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidCommandId} (client fault)
+ *  <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+ *
+ * @throws {@link InvalidInstanceId} (client fault)
+ *  <p>The following problems can cause this exception:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You don't have permission to access the managed node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *      running.</p>
+ *             </li>
+ *             <li>
+ *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
+ *             </li>
+ *             <li>
+ *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
+ *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CancelCommandCommand extends $Command<
@@ -47,6 +103,18 @@ export class CancelCommandCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CancelCommandCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +130,7 @@ export class CancelCommandCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CancelCommandCommandInput, CancelCommandCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CancelCommandCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +141,8 @@ export class CancelCommandCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelCommandRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelCommandResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +152,18 @@ export class CancelCommandCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CancelCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelCommandCommand(input, context);
+    return se_CancelCommandCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelCommandCommandOutput> {
-    return deserializeAws_json1_1CancelCommandCommand(output, context);
+    return de_CancelCommandCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,38 +1,57 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-export enum AuthenticateCognitoActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./ElasticLoadBalancingV2ServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AuthenticateCognitoActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticateCognitoActionConditionalBehaviorEnum =
+  (typeof AuthenticateCognitoActionConditionalBehaviorEnum)[keyof typeof AuthenticateCognitoActionConditionalBehaviorEnum];
+
+/**
+ * @public
  * <p>Request parameters to use when integrating with Amazon Cognito to authenticate
  *       users.</p>
  */
 export interface AuthenticateCognitoActionConfig {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Cognito user pool.</p>
    */
   UserPoolArn: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the Amazon Cognito user pool client.</p>
    */
   UserPoolClientId: string | undefined;
 
   /**
+   * @public
    * <p>The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.</p>
    */
   UserPoolDomain: string | undefined;
 
   /**
+   * @public
    * <p>The name of the cookie used to maintain session information. The default is
    *       AWSELBAuthSessionCookie.</p>
    */
   SessionCookieName?: string;
 
   /**
+   * @public
    * <p>The set of user claims to be requested from the IdP. The default is
    *       <code>openid</code>.</p>
    *          <p>To verify which scope values your IdP supports and how to separate multiple values, see
@@ -41,18 +60,21 @@ export interface AuthenticateCognitoActionConfig {
   Scope?: string;
 
   /**
+   * @public
    * <p>The maximum duration of the authentication session, in seconds. The default is 604800
    *       seconds (7 days).</p>
    */
   SessionTimeout?: number;
 
   /**
+   * @public
    * <p>The query parameters (up to 10) to include in the redirect request to the authorization
    *       endpoint.</p>
    */
-  AuthenticationRequestExtraParams?: { [key: string]: string };
+  AuthenticationRequestExtraParams?: Record<string, string>;
 
   /**
+   * @public
    * <p>The behavior if the user is not authenticated. The following are possible values:</p>
    *          <ul>
    *             <li>
@@ -70,56 +92,64 @@ export interface AuthenticateCognitoActionConfig {
   OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | string;
 }
 
-export namespace AuthenticateCognitoActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticateCognitoActionConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum AuthenticateOidcActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthenticateOidcActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+} as const;
 
 /**
+ * @public
+ */
+export type AuthenticateOidcActionConditionalBehaviorEnum =
+  (typeof AuthenticateOidcActionConditionalBehaviorEnum)[keyof typeof AuthenticateOidcActionConditionalBehaviorEnum];
+
+/**
+ * @public
  * <p>Request parameters when using an identity provider (IdP) that is compliant with OpenID
  *       Connect (OIDC) to authenticate users.</p>
  */
 export interface AuthenticateOidcActionConfig {
   /**
+   * @public
    * <p>The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS
    *       protocol, the domain, and the path.</p>
    */
   Issuer: string | undefined;
 
   /**
+   * @public
    * <p>The authorization endpoint of the IdP. This must be a full URL, including the HTTPS
    *       protocol, the domain, and the path.</p>
    */
   AuthorizationEndpoint: string | undefined;
 
   /**
+   * @public
    * <p>The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the
    *       domain, and the path.</p>
    */
   TokenEndpoint: string | undefined;
 
   /**
+   * @public
    * <p>The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol,
    *       the domain, and the path.</p>
    */
   UserInfoEndpoint: string | undefined;
 
   /**
+   * @public
    * <p>The OAuth 2.0 client identifier.</p>
    */
   ClientId: string | undefined;
 
   /**
+   * @public
    * <p>The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you
    *       are modifying a rule, you can omit this parameter if you set
    *         <code>UseExistingClientSecret</code> to true.</p>
@@ -127,12 +157,14 @@ export interface AuthenticateOidcActionConfig {
   ClientSecret?: string;
 
   /**
+   * @public
    * <p>The name of the cookie used to maintain session information. The default is
    *       AWSELBAuthSessionCookie.</p>
    */
   SessionCookieName?: string;
 
   /**
+   * @public
    * <p>The set of user claims to be requested from the IdP. The default is
    *       <code>openid</code>.</p>
    *          <p>To verify which scope values your IdP supports and how to separate multiple values, see
@@ -141,18 +173,21 @@ export interface AuthenticateOidcActionConfig {
   Scope?: string;
 
   /**
+   * @public
    * <p>The maximum duration of the authentication session, in seconds. The default is 604800
    *       seconds (7 days).</p>
    */
   SessionTimeout?: number;
 
   /**
+   * @public
    * <p>The query parameters (up to 10) to include in the redirect request to the authorization
    *       endpoint.</p>
    */
-  AuthenticationRequestExtraParams?: { [key: string]: string };
+  AuthenticationRequestExtraParams?: Record<string, string>;
 
   /**
+   * @public
    * <p>The behavior if the user is not authenticated. The following are possible values:</p>
    *          <ul>
    *             <li>
@@ -170,36 +205,32 @@ export interface AuthenticateOidcActionConfig {
   OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum | string;
 
   /**
+   * @public
    * <p>Indicates whether to use the existing client secret when modifying a rule. If you are
    *       creating a rule, you can omit this parameter or set it to false.</p>
    */
   UseExistingClientSecret?: boolean;
 }
 
-export namespace AuthenticateOidcActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticateOidcActionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an action that returns a custom HTTP response.</p>
  */
 export interface FixedResponseActionConfig {
   /**
+   * @public
    * <p>The message.</p>
    */
   MessageBody?: string;
 
   /**
+   * @public
    * <p>The HTTP response code (2XX, 4XX, or 5XX).</p>
    */
   StatusCode: string | undefined;
 
   /**
+   * @public
    * <p>The content type.</p>
    *          <p>Valid Values: text/plain | text/css | text/html | application/javascript |
    *       application/json</p>
@@ -207,96 +238,80 @@ export interface FixedResponseActionConfig {
   ContentType?: string;
 }
 
-export namespace FixedResponseActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FixedResponseActionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about how traffic will be distributed between multiple target groups in a
  *       forward rule.</p>
  */
 export interface TargetGroupTuple {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn?: string;
 
   /**
+   * @public
    * <p>The weight. The range is 0 to 999.</p>
    */
   Weight?: number;
 }
 
-export namespace TargetGroupTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupTuple): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the target group stickiness for a rule.</p>
  */
 export interface TargetGroupStickinessConfig {
   /**
+   * @public
    * <p>Indicates whether target group stickiness is enabled.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The time period, in seconds, during which requests from a client should be routed to the
    *       same target group. The range is 1-604800 seconds (7 days).</p>
    */
   DurationSeconds?: number;
 }
 
-export namespace TargetGroupStickinessConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupStickinessConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a forward action.</p>
  */
 export interface ForwardActionConfig {
   /**
-   * <p>One or more target groups. For Network Load Balancers, you can specify a single target
+   * @public
+   * <p>The target groups. For Network Load Balancers, you can specify a single target
    *       group.</p>
    */
   TargetGroups?: TargetGroupTuple[];
 
   /**
+   * @public
    * <p>The target group stickiness for the rule.</p>
    */
   TargetGroupStickinessConfig?: TargetGroupStickinessConfig;
 }
 
-export namespace ForwardActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForwardActionConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum RedirectActionStatusCodeEnum {
-  HTTP_301 = "HTTP_301",
-  HTTP_302 = "HTTP_302",
-}
+/**
+ * @public
+ * @enum
+ */
+export const RedirectActionStatusCodeEnum = {
+  HTTP_301: "HTTP_301",
+  HTTP_302: "HTTP_302",
+} as const;
 
 /**
+ * @public
+ */
+export type RedirectActionStatusCodeEnum =
+  (typeof RedirectActionStatusCodeEnum)[keyof typeof RedirectActionStatusCodeEnum];
+
+/**
+ * @public
  * <p>Information about a redirect action.</p>
  *          <p>A URI consists of the following components: protocol://hostname:port/path?query. You must
  *       modify at least one of the following components to avoid a redirect loop: protocol, hostname,
@@ -304,49 +319,54 @@ export enum RedirectActionStatusCodeEnum {
  *          <p>You can reuse URI components using the following reserved keywords:</p>
  *          <ul>
  *             <li>
- *                <p>#{protocol}</p>
+ *                <p>#\{protocol\}</p>
  *             </li>
  *             <li>
- *                <p>#{host}</p>
+ *                <p>#\{host\}</p>
  *             </li>
  *             <li>
- *                <p>#{port}</p>
+ *                <p>#\{port\}</p>
  *             </li>
  *             <li>
- *                <p>#{path} (the leading "/" is removed)</p>
+ *                <p>#\{path\} (the leading "/" is removed)</p>
  *             </li>
  *             <li>
- *                <p>#{query}</p>
+ *                <p>#\{query\}</p>
  *             </li>
  *          </ul>
- *          <p>For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}",
- *       or the query to "#{query}&value=xyz".</p>
+ *          <p>For example, you can change the path to "/new/#\{path\}", the hostname to "example.#\{host\}",
+ *       or the query to "#\{query\}&value=xyz".</p>
  */
 export interface RedirectActionConfig {
   /**
-   * <p>The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
+   * @public
+   * <p>The protocol. You can specify HTTP, HTTPS, or #\{protocol\}. You can redirect HTTP to HTTP,
    *       HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.</p>
    */
   Protocol?: string;
 
   /**
-   * <p>The port. You can specify a value from 1 to 65535 or #{port}.</p>
+   * @public
+   * <p>The port. You can specify a value from 1 to 65535 or #\{port\}.</p>
    */
   Port?: string;
 
   /**
+   * @public
    * <p>The hostname. This component is not percent-encoded. The hostname can contain
-   *       #{host}.</p>
+   *       #\{host\}.</p>
    */
   Host?: string;
 
   /**
+   * @public
    * <p>The absolute path, starting with the leading "/". This component is not percent-encoded.
-   *       The path can contain #{host}, #{path}, and #{port}.</p>
+   *       The path can contain #\{host\}, #\{path\}, and #\{port\}.</p>
    */
   Path?: string;
 
   /**
+   * @public
    * <p>The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include
    *       the leading "?", as it is automatically added. You can specify any of the reserved
    *       keywords.</p>
@@ -354,30 +374,32 @@ export interface RedirectActionConfig {
   Query?: string;
 
   /**
+   * @public
    * <p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
    *       302).</p>
    */
   StatusCode: RedirectActionStatusCodeEnum | string | undefined;
 }
 
-export namespace RedirectActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedirectActionConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum ActionTypeEnum {
-  AUTHENTICATE_COGNITO = "authenticate-cognito",
-  AUTHENTICATE_OIDC = "authenticate-oidc",
-  FIXED_RESPONSE = "fixed-response",
-  FORWARD = "forward",
-  REDIRECT = "redirect",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ActionTypeEnum = {
+  AUTHENTICATE_COGNITO: "authenticate-cognito",
+  AUTHENTICATE_OIDC: "authenticate-oidc",
+  FIXED_RESPONSE: "fixed-response",
+  FORWARD: "forward",
+  REDIRECT: "redirect",
+} as const;
 
 /**
+ * @public
+ */
+export type ActionTypeEnum = (typeof ActionTypeEnum)[keyof typeof ActionTypeEnum];
+
+/**
+ * @public
  * <p>Information about an action.</p>
  *          <p>Each rule must include exactly one of the following types of actions:
  *       <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be
@@ -385,11 +407,13 @@ export enum ActionTypeEnum {
  */
 export interface Action {
   /**
+   * @public
    * <p>The type of action.</p>
    */
   Type: ActionTypeEnum | string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
    *         <code>forward</code> and you want to route to a single target group. To route to one or more
    *       target groups, use <code>ForwardConfig</code> instead.</p>
@@ -397,36 +421,42 @@ export interface Action {
   TargetGroupArn?: string;
 
   /**
+   * @public
    * <p>[HTTPS listeners] Information about an identity provider that is compliant with OpenID
    *       Connect (OIDC). Specify only when <code>Type</code> is <code>authenticate-oidc</code>.</p>
    */
   AuthenticateOidcConfig?: AuthenticateOidcActionConfig;
 
   /**
+   * @public
    * <p>[HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only
    *       when <code>Type</code> is <code>authenticate-cognito</code>.</p>
    */
   AuthenticateCognitoConfig?: AuthenticateCognitoActionConfig;
 
   /**
+   * @public
    * <p>The order for the action. This value is required for rules with multiple actions. The
    *       action with the lowest value for order is performed first.</p>
    */
   Order?: number;
 
   /**
+   * @public
    * <p>[Application Load Balancer] Information for creating a redirect action. Specify only when
    *         <code>Type</code> is <code>redirect</code>.</p>
    */
   RedirectConfig?: RedirectActionConfig;
 
   /**
+   * @public
    * <p>[Application Load Balancer] Information for creating an action that returns a custom HTTP
    *       response. Specify only when <code>Type</code> is <code>fixed-response</code>.</p>
    */
   FixedResponseConfig?: FixedResponseActionConfig;
 
   /**
+   * @public
    * <p>Information for creating an action that distributes requests among one or more target
    *       groups. For Network Load Balancers, you can specify a single target group. Specify only when
    *         <code>Type</code> is <code>forward</code>. If you specify both <code>ForwardConfig</code>
@@ -437,25 +467,19 @@ export interface Action {
   ForwardConfig?: ForwardActionConfig;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an SSL server certificate.</p>
  */
 export interface Certificate {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    */
   CertificateArn?: string;
 
   /**
+   * @public
    * <p>Indicates whether the certificate is the default certificate. Do not set this value when
    *       specifying a certificate as an input. This value is not included in the output when describing
    *       a listener, but is included when describing listener certificates.</p>
@@ -463,22 +487,18 @@ export interface Certificate {
   IsDefault?: boolean;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AddListenerCertificatesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The certificate to add. You can specify one certificate per call. Set
    *         <code>CertificateArn</code> to the certificate ARN but do not set
    *       <code>IsDefault</code>.</p>
@@ -486,322 +506,333 @@ export interface AddListenerCertificatesInput {
   Certificates: Certificate[] | undefined;
 }
 
-export namespace AddListenerCertificatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddListenerCertificatesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AddListenerCertificatesOutput {
   /**
+   * @public
    * <p>Information about the certificates in the certificate list.</p>
    */
   Certificates?: Certificate[];
 }
 
-export namespace AddListenerCertificatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddListenerCertificatesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The specified certificate does not exist.</p>
  */
-export interface CertificateNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CertificateNotFoundException";
-  $fault: "client";
+export class CertificateNotFoundException extends __BaseException {
+  readonly name: "CertificateNotFoundException" = "CertificateNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace CertificateNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CertificateNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CertificateNotFoundException, __BaseException>) {
+    super({
+      name: "CertificateNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified listener does not exist.</p>
  */
-export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ListenerNotFoundException";
-  $fault: "client";
+export class ListenerNotFoundException extends __BaseException {
+  readonly name: "ListenerNotFoundException" = "ListenerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ListenerNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ListenerNotFoundException, __BaseException>) {
+    super({
+      name: "ListenerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ListenerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of certificates per load balancer.</p>
  */
-export interface TooManyCertificatesException extends __SmithyException, $MetadataBearer {
-  name: "TooManyCertificatesException";
-  $fault: "client";
+export class TooManyCertificatesException extends __BaseException {
+  readonly name: "TooManyCertificatesException" = "TooManyCertificatesException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyCertificatesException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyCertificatesException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyCertificatesException, __BaseException>) {
+    super({
+      name: "TooManyCertificatesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCertificatesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Information about a tag.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag.</p>
    */
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AddTagsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArns: string[] | undefined;
 
   /**
+   * @public
    * <p>The tags.</p>
    */
   Tags: Tag[] | undefined;
 }
 
-export namespace AddTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AddTagsOutput {}
 
-export namespace AddTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A tag key was specified more than once.</p>
  */
-export interface DuplicateTagKeysException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateTagKeysException";
-  $fault: "client";
+export class DuplicateTagKeysException extends __BaseException {
+  readonly name: "DuplicateTagKeysException" = "DuplicateTagKeysException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace DuplicateTagKeysException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<DuplicateTagKeysException, __BaseException>) {
+    super({
+      name: "DuplicateTagKeysException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTagKeysException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified load balancer does not exist.</p>
  */
-export interface LoadBalancerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "LoadBalancerNotFoundException";
-  $fault: "client";
+export class LoadBalancerNotFoundException extends __BaseException {
+  readonly name: "LoadBalancerNotFoundException" = "LoadBalancerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace LoadBalancerNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LoadBalancerNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LoadBalancerNotFoundException, __BaseException>) {
+    super({
+      name: "LoadBalancerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LoadBalancerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified rule does not exist.</p>
  */
-export interface RuleNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RuleNotFoundException";
-  $fault: "client";
+export class RuleNotFoundException extends __BaseException {
+  readonly name: "RuleNotFoundException" = "RuleNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace RuleNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RuleNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RuleNotFoundException, __BaseException>) {
+    super({
+      name: "RuleNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified target group does not exist.</p>
  */
-export interface TargetGroupNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TargetGroupNotFoundException";
-  $fault: "client";
+export class TargetGroupNotFoundException extends __BaseException {
+  readonly name: "TargetGroupNotFoundException" = "TargetGroupNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TargetGroupNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TargetGroupNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TargetGroupNotFoundException, __BaseException>) {
+    super({
+      name: "TargetGroupNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetGroupNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of tags per load balancer.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyTagsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified allocation ID does not exist.</p>
  */
-export interface AllocationIdNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AllocationIdNotFoundException";
-  $fault: "client";
+export class AllocationIdNotFoundException extends __BaseException {
+  readonly name: "AllocationIdNotFoundException" = "AllocationIdNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace AllocationIdNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AllocationIdNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AllocationIdNotFoundException, __BaseException>) {
+    super({
+      name: "AllocationIdNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AllocationIdNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified ALPN policy is not supported.</p>
  */
-export interface ALPNPolicyNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "ALPNPolicyNotSupportedException";
-  $fault: "client";
+export class ALPNPolicyNotSupportedException extends __BaseException {
+  readonly name: "ALPNPolicyNotSupportedException" = "ALPNPolicyNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ALPNPolicyNotSupportedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ALPNPolicyNotSupportedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ALPNPolicyNotSupportedException, __BaseException>) {
+    super({
+      name: "ALPNPolicyNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ALPNPolicyNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Information about a static IP address for a load balancer.</p>
  */
 export interface LoadBalancerAddress {
   /**
+   * @public
    * <p>The static IP address.</p>
    */
   IpAddress?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] The allocation ID of the Elastic IP address for an
    *       internal-facing load balancer.</p>
    */
   AllocationId?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] The private IPv4 address for an internal load balancer.</p>
    */
   PrivateIPv4Address?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] The IPv6 address.</p>
    */
   IPv6Address?: string;
 }
 
-export namespace LoadBalancerAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerAddress): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an Availability Zone.</p>
  */
 export interface AvailabilityZone {
   /**
+   * @public
    * <p>The name of the Availability Zone.</p>
    */
   ZoneName?: string;
 
   /**
+   * @public
    * <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
    */
   SubnetId?: string;
 
   /**
+   * @public
    * <p>[Application Load Balancers on Outposts] The ID of the Outpost.</p>
    */
   OutpostId?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] If you need static IP addresses for your load balancer, you can
    *       specify one Elastic IP address per Availability Zone when you create an internal-facing load
    *       balancer. For internal load balancers, you can specify a private IP address from the IPv4
@@ -810,66 +841,77 @@ export interface AvailabilityZone {
   LoadBalancerAddresses?: LoadBalancerAddress[];
 }
 
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The specified Availability Zone is not supported.</p>
  */
-export interface AvailabilityZoneNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "AvailabilityZoneNotSupportedException";
-  $fault: "client";
+export class AvailabilityZoneNotSupportedException extends __BaseException {
+  readonly name: "AvailabilityZoneNotSupportedException" = "AvailabilityZoneNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace AvailabilityZoneNotSupportedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AvailabilityZoneNotSupportedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AvailabilityZoneNotSupportedException, __BaseException>) {
+    super({
+      name: "AvailabilityZoneNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AvailabilityZoneNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Information about a cipher used in a policy.</p>
  */
 export interface Cipher {
   /**
+   * @public
    * <p>The name of the cipher.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The priority of the cipher.</p>
    */
   Priority?: number;
 }
 
-export namespace Cipher {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cipher): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ProtocolEnum = {
+  GENEVE: "GENEVE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+  TCP_UDP: "TCP_UDP",
+  TLS: "TLS",
+  UDP: "UDP",
+} as const;
 
-export type ProtocolEnum = "GENEVE" | "HTTP" | "HTTPS" | "TCP" | "TCP_UDP" | "TLS" | "UDP";
+/**
+ * @public
+ */
+export type ProtocolEnum = (typeof ProtocolEnum)[keyof typeof ProtocolEnum];
 
+/**
+ * @public
+ */
 export interface CreateListenerInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 
   /**
+   * @public
    * <p>The protocol for connections from clients to the load balancer. For Application Load
    *       Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the
    *       supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP
@@ -879,12 +921,14 @@ export interface CreateListenerInput {
   Protocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>The port on which the load balancer is listening. You cannot specify a port for a Gateway
    *       Load Balancer.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
    *       supported.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> and
@@ -893,6 +937,7 @@ export interface CreateListenerInput {
   SslPolicy?: string;
 
   /**
+   * @public
    * <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide
    *       exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set
    *         <code>IsDefault</code>.</p>
@@ -900,11 +945,13 @@ export interface CreateListenerInput {
   Certificates?: Certificate[];
 
   /**
+   * @public
    * <p>The actions for the default rule.</p>
    */
   DefaultActions: Action[] | undefined;
 
   /**
+   * @public
    * <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You
    *       can specify one policy name. The following are the possible values:</p>
    *          <ul>
@@ -940,364 +987,427 @@ export interface CreateListenerInput {
   AlpnPolicy?: string[];
 
   /**
+   * @public
    * <p>The tags to assign to the listener.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateListenerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a listener.</p>
  */
 export interface Listener {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn?: string;
 
   /**
+   * @public
    * <p>The port on which the load balancer is listening.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>The protocol for connections from clients to the load balancer.</p>
    */
   Protocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>[HTTPS or TLS listener] The default certificate for the listener.</p>
    */
   Certificates?: Certificate[];
 
   /**
+   * @public
    * <p>[HTTPS or TLS listener] The security policy that defines which protocols and ciphers are
    *       supported.</p>
    */
   SslPolicy?: string;
 
   /**
+   * @public
    * <p>The default actions for the listener.</p>
    */
   DefaultActions?: Action[];
 
   /**
+   * @public
    * <p>[TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN)
    *       policy.</p>
    */
   AlpnPolicy?: string[];
 }
 
-export namespace Listener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateListenerOutput {
   /**
+   * @public
    * <p>Information about the listener.</p>
    */
   Listeners?: Listener[];
 }
 
-export namespace CreateListenerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A listener with the specified port already exists.</p>
  */
-export interface DuplicateListenerException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateListenerException";
-  $fault: "client";
+export class DuplicateListenerException extends __BaseException {
+  readonly name: "DuplicateListenerException" = "DuplicateListenerException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace DuplicateListenerException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DuplicateListenerException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<DuplicateListenerException, __BaseException>) {
+    super({
+      name: "DuplicateListenerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateListenerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified configuration is not valid with this protocol.</p>
  */
-export interface IncompatibleProtocolsException extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleProtocolsException";
-  $fault: "client";
+export class IncompatibleProtocolsException extends __BaseException {
+  readonly name: "IncompatibleProtocolsException" = "IncompatibleProtocolsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace IncompatibleProtocolsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: IncompatibleProtocolsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<IncompatibleProtocolsException, __BaseException>) {
+    super({
+      name: "IncompatibleProtocolsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleProtocolsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The requested configuration is not valid.</p>
  */
-export interface InvalidConfigurationRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationRequestException";
-  $fault: "client";
+export class InvalidConfigurationRequestException extends __BaseException {
+  readonly name: "InvalidConfigurationRequestException" = "InvalidConfigurationRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidConfigurationRequestException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidConfigurationRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationRequestException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The requested action is not valid.</p>
  */
-export interface InvalidLoadBalancerActionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLoadBalancerActionException";
-  $fault: "client";
+export class InvalidLoadBalancerActionException extends __BaseException {
+  readonly name: "InvalidLoadBalancerActionException" = "InvalidLoadBalancerActionException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidLoadBalancerActionException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidLoadBalancerActionException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidLoadBalancerActionException, __BaseException>) {
+    super({
+      name: "InvalidLoadBalancerActionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLoadBalancerActionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified SSL policy does not exist.</p>
  */
-export interface SSLPolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SSLPolicyNotFoundException";
-  $fault: "client";
+export class SSLPolicyNotFoundException extends __BaseException {
+  readonly name: "SSLPolicyNotFoundException" = "SSLPolicyNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace SSLPolicyNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SSLPolicyNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<SSLPolicyNotFoundException, __BaseException>) {
+    super({
+      name: "SSLPolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SSLPolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of load balancers per target group.</p>
  */
-export interface TargetGroupAssociationLimitException extends __SmithyException, $MetadataBearer {
-  name: "TargetGroupAssociationLimitException";
-  $fault: "client";
+export class TargetGroupAssociationLimitException extends __BaseException {
+  readonly name: "TargetGroupAssociationLimitException" = "TargetGroupAssociationLimitException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TargetGroupAssociationLimitException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TargetGroupAssociationLimitException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TargetGroupAssociationLimitException, __BaseException>) {
+    super({
+      name: "TargetGroupAssociationLimitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetGroupAssociationLimitException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of actions per rule.</p>
  */
-export interface TooManyActionsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyActionsException";
-  $fault: "client";
+export class TooManyActionsException extends __BaseException {
+  readonly name: "TooManyActionsException" = "TooManyActionsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyActionsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyActionsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyActionsException, __BaseException>) {
+    super({
+      name: "TooManyActionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyActionsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of listeners per load balancer.</p>
  */
-export interface TooManyListenersException extends __SmithyException, $MetadataBearer {
-  name: "TooManyListenersException";
-  $fault: "client";
+export class TooManyListenersException extends __BaseException {
+  readonly name: "TooManyListenersException" = "TooManyListenersException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyListenersException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyListenersException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyListenersException, __BaseException>) {
+    super({
+      name: "TooManyListenersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyListenersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of times a target can be registered with a load
  *       balancer.</p>
  */
-export interface TooManyRegistrationsForTargetIdException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRegistrationsForTargetIdException";
-  $fault: "client";
+export class TooManyRegistrationsForTargetIdException extends __BaseException {
+  readonly name: "TooManyRegistrationsForTargetIdException" = "TooManyRegistrationsForTargetIdException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyRegistrationsForTargetIdException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyRegistrationsForTargetIdException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyRegistrationsForTargetIdException, __BaseException>) {
+    super({
+      name: "TooManyRegistrationsForTargetIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRegistrationsForTargetIdException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of targets.</p>
  */
-export interface TooManyTargetsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTargetsException";
-  $fault: "client";
+export class TooManyTargetsException extends __BaseException {
+  readonly name: "TooManyTargetsException" = "TooManyTargetsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyTargetsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyTargetsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyTargetsException, __BaseException>) {
+    super({
+      name: "TooManyTargetsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTargetsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of unique target groups per load balancer across
  *       all listeners. If a target group is used by multiple actions for a load balancer, it is
  *       counted as only one use.</p>
  */
-export interface TooManyUniqueTargetGroupsPerLoadBalancerException extends __SmithyException, $MetadataBearer {
-  name: "TooManyUniqueTargetGroupsPerLoadBalancerException";
-  $fault: "client";
+export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseException {
+  readonly name: "TooManyUniqueTargetGroupsPerLoadBalancerException" =
+    "TooManyUniqueTargetGroupsPerLoadBalancerException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyUniqueTargetGroupsPerLoadBalancerException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyUniqueTargetGroupsPerLoadBalancerException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyUniqueTargetGroupsPerLoadBalancerException, __BaseException>) {
+    super({
+      name: "TooManyUniqueTargetGroupsPerLoadBalancerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyUniqueTargetGroupsPerLoadBalancerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified protocol is not supported.</p>
  */
-export interface UnsupportedProtocolException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedProtocolException";
-  $fault: "client";
+export class UnsupportedProtocolException extends __BaseException {
+  readonly name: "UnsupportedProtocolException" = "UnsupportedProtocolException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace UnsupportedProtocolException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnsupportedProtocolException): any => ({
-    ...obj,
-  });
-}
-
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4",
-}
-
-export enum LoadBalancerSchemeEnum {
-  INTERNAL = "internal",
-  INTERNET_FACING = "internet-facing",
+  constructor(opts: __ExceptionOptionType<UnsupportedProtocolException, __BaseException>) {
+    super({
+      name: "UnsupportedProtocolException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedProtocolException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerSchemeEnum = {
+  INTERNAL: "internal",
+  INTERNET_FACING: "internet-facing",
+} as const;
+
+/**
+ * @public
+ */
+export type LoadBalancerSchemeEnum = (typeof LoadBalancerSchemeEnum)[keyof typeof LoadBalancerSchemeEnum];
+
+/**
+ * @public
  * <p>Information about a subnet mapping.</p>
  */
 export interface SubnetMapping {
   /**
+   * @public
    * <p>The ID of the subnet.</p>
    */
   SubnetId?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] The allocation ID of the Elastic IP address for an
    *       internet-facing load balancer.</p>
    */
   AllocationId?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] The private IPv4 address for an internal load balancer.</p>
    */
   PrivateIPv4Address?: string;
 
   /**
+   * @public
    * <p>[Network Load Balancers] The IPv6 address.</p>
    */
   IPv6Address?: string;
 }
 
-export namespace SubnetMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetMapping): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerTypeEnum = {
+  APPLICATION: "application",
+  GATEWAY: "gateway",
+  NETWORK: "network",
+} as const;
 
-export enum LoadBalancerTypeEnum {
-  APPLICATION = "application",
-  GATEWAY = "gateway",
-  NETWORK = "network",
-}
+/**
+ * @public
+ */
+export type LoadBalancerTypeEnum = (typeof LoadBalancerTypeEnum)[keyof typeof LoadBalancerTypeEnum];
 
+/**
+ * @public
+ */
 export interface CreateLoadBalancerInput {
   /**
+   * @public
    * <p>The name of the load balancer.</p>
    *          <p>This name must be unique per region per account, can have a maximum of 32 characters, must
    *       contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must
@@ -1306,8 +1416,10 @@ export interface CreateLoadBalancerInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings.</p>
+   *       must specify either subnets or subnet mappings, but not both. To specify an Elastic IP
+   *       address, specify subnet mappings instead of subnets.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
    *       Zones.</p>
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
@@ -1321,8 +1433,9 @@ export interface CreateLoadBalancerInput {
   Subnets?: string[];
 
   /**
+   * @public
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
-   *       must specify either subnets or subnet mappings.</p>
+   *       must specify either subnets or subnet mappings, but not both.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
    *       Zones. You cannot specify Elastic IP addresses for your subnets.</p>
    *          <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>
@@ -1339,11 +1452,13 @@ export interface CreateLoadBalancerInput {
   SubnetMappings?: SubnetMapping[];
 
   /**
+   * @public
    * <p>[Application Load Balancers] The IDs of the security groups for the load balancer.</p>
    */
   SecurityGroups?: string[];
 
   /**
+   * @public
    * <p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an
    *       Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes.
    *       Therefore, Internet-facing load balancers can route requests from clients over the
@@ -1358,50 +1473,56 @@ export interface CreateLoadBalancerInput {
   Scheme?: LoadBalancerSchemeEnum | string;
 
   /**
+   * @public
    * <p>The tags to assign to the load balancer.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The type of load balancer. The default is <code>application</code>.</p>
    */
   Type?: LoadBalancerTypeEnum | string;
 
   /**
+   * @public
    * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
-   *       addresses). Internal load balancers must use <code>ipv4</code>.</p>
+   *       addresses). </p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP
    *       pool).</p>
    */
   CustomerOwnedIpv4Pool?: string;
 }
 
-export namespace CreateLoadBalancerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerInput): any => ({
-    ...obj,
-  });
-}
-
-export enum LoadBalancerStateEnum {
-  ACTIVE = "active",
-  ACTIVE_IMPAIRED = "active_impaired",
-  FAILED = "failed",
-  PROVISIONING = "provisioning",
-}
+/**
+ * @public
+ * @enum
+ */
+export const LoadBalancerStateEnum = {
+  ACTIVE: "active",
+  ACTIVE_IMPAIRED: "active_impaired",
+  FAILED: "failed",
+  PROVISIONING: "provisioning",
+} as const;
 
 /**
+ * @public
+ */
+export type LoadBalancerStateEnum = (typeof LoadBalancerStateEnum)[keyof typeof LoadBalancerStateEnum];
+
+/**
+ * @public
  * <p>Information about the state of the load balancer.</p>
  */
 export interface LoadBalancerState {
   /**
+   * @public
    * <p>The state code. The initial state of the load balancer is <code>provisioning</code>. After
    *       the load balancer is fully set up and ready to route traffic, its state is
    *       <code>active</code>. If load balancer is routing traffic but does not have the resources it
@@ -1411,50 +1532,49 @@ export interface LoadBalancerState {
   Code?: LoadBalancerStateEnum | string;
 
   /**
+   * @public
    * <p>A description of the state.</p>
    */
   Reason?: string;
 }
 
-export namespace LoadBalancerState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a load balancer.</p>
  */
 export interface LoadBalancer {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn?: string;
 
   /**
+   * @public
    * <p>The public DNS name of the load balancer.</p>
    */
   DNSName?: string;
 
   /**
+   * @public
    * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
    */
   CanonicalHostedZoneId?: string;
 
   /**
+   * @public
    * <p>The date and time the load balancer was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The name of the load balancer.</p>
    */
   LoadBalancerName?: string;
 
   /**
+   * @public
    * <p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an
    *       Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes.
    *       Therefore, Internet-facing load balancers can route requests from clients over the
@@ -1467,31 +1587,37 @@ export interface LoadBalancer {
   Scheme?: LoadBalancerSchemeEnum | string;
 
   /**
+   * @public
    * <p>The ID of the VPC for the load balancer.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>The state of the load balancer.</p>
    */
   State?: LoadBalancerState;
 
   /**
+   * @public
    * <p>The type of load balancer.</p>
    */
   Type?: LoadBalancerTypeEnum | string;
 
   /**
+   * @public
    * <p>The subnets for the load balancer.</p>
    */
   AvailabilityZones?: AvailabilityZone[];
 
   /**
+   * @public
    * <p>The IDs of the security groups for the load balancer.</p>
    */
   SecurityGroups?: string[];
 
   /**
+   * @public
    * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses).</p>
@@ -1499,187 +1625,208 @@ export interface LoadBalancer {
   IpAddressType?: IpAddressType | string;
 
   /**
+   * @public
    * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool.</p>
    */
   CustomerOwnedIpv4Pool?: string;
 }
 
-export namespace LoadBalancer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancer): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateLoadBalancerOutput {
   /**
+   * @public
    * <p>Information about the load balancer.</p>
    */
   LoadBalancers?: LoadBalancer[];
 }
 
-export namespace CreateLoadBalancerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A load balancer with the specified name already exists.</p>
  */
-export interface DuplicateLoadBalancerNameException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateLoadBalancerNameException";
-  $fault: "client";
+export class DuplicateLoadBalancerNameException extends __BaseException {
+  readonly name: "DuplicateLoadBalancerNameException" = "DuplicateLoadBalancerNameException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace DuplicateLoadBalancerNameException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DuplicateLoadBalancerNameException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<DuplicateLoadBalancerNameException, __BaseException>) {
+    super({
+      name: "DuplicateLoadBalancerNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateLoadBalancerNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The requested scheme is not valid.</p>
  */
-export interface InvalidSchemeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSchemeException";
-  $fault: "client";
+export class InvalidSchemeException extends __BaseException {
+  readonly name: "InvalidSchemeException" = "InvalidSchemeException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidSchemeException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidSchemeException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidSchemeException, __BaseException>) {
+    super({
+      name: "InvalidSchemeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSchemeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified security group does not exist.</p>
  */
-export interface InvalidSecurityGroupException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSecurityGroupException";
-  $fault: "client";
+export class InvalidSecurityGroupException extends __BaseException {
+  readonly name: "InvalidSecurityGroupException" = "InvalidSecurityGroupException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidSecurityGroupException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidSecurityGroupException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidSecurityGroupException, __BaseException>) {
+    super({
+      name: "InvalidSecurityGroupException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecurityGroupException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified subnet is out of available addresses.</p>
  */
-export interface InvalidSubnetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnetException";
-  $fault: "client";
+export class InvalidSubnetException extends __BaseException {
+  readonly name: "InvalidSubnetException" = "InvalidSubnetException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidSubnetException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidSubnetException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidSubnetException, __BaseException>) {
+    super({
+      name: "InvalidSubnetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnetException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>This operation is not allowed.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace OperationNotPermittedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>A specified resource is in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The specified subnet does not exist.</p>
  */
-export interface SubnetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SubnetNotFoundException";
-  $fault: "client";
+export class SubnetNotFoundException extends __BaseException {
+  readonly name: "SubnetNotFoundException" = "SubnetNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace SubnetNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SubnetNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<SubnetNotFoundException, __BaseException>) {
+    super({
+      name: "SubnetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
  *       account.</p>
  */
-export interface TooManyLoadBalancersException extends __SmithyException, $MetadataBearer {
-  name: "TooManyLoadBalancersException";
-  $fault: "client";
+export class TooManyLoadBalancersException extends __BaseException {
+  readonly name: "TooManyLoadBalancersException" = "TooManyLoadBalancersException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyLoadBalancersException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyLoadBalancersException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyLoadBalancersException, __BaseException>) {
+    super({
+      name: "TooManyLoadBalancersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyLoadBalancersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Information about a host header condition.</p>
  */
 export interface HostHeaderConditionConfig {
   /**
-   * <p>One or more host names. The maximum size of each name is 128 characters. The comparison is
+   * @public
+   * <p>The host names. The maximum size of each name is 128 characters. The comparison is
    *       case insensitive. The following wildcard characters are supported: * (matches 0 or more
    *       characters) and ? (matches exactly 1 character).</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
@@ -1688,22 +1835,15 @@ export interface HostHeaderConditionConfig {
   Values?: string[];
 }
 
-export namespace HostHeaderConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostHeaderConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an HTTP header condition.</p>
  *          <p>There is a set of standard HTTP header fields. You can also define custom HTTP header
  *       fields.</p>
  */
 export interface HttpHeaderConditionConfig {
   /**
+   * @public
    * <p>The name of the HTTP header field. The maximum size is 40 characters. The header name is
    *       case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not
    *       supported.</p>
@@ -1712,7 +1852,8 @@ export interface HttpHeaderConditionConfig {
   HttpHeaderName?: string;
 
   /**
-   * <p>One or more strings to compare against the value of the HTTP header. The maximum size of
+   * @public
+   * <p>The strings to compare against the value of the HTTP header. The maximum size of
    *       each string is 128 characters. The comparison strings are case insensitive. The following
    *       wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
    *       character).</p>
@@ -1725,16 +1866,8 @@ export interface HttpHeaderConditionConfig {
   Values?: string[];
 }
 
-export namespace HttpHeaderConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpHeaderConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an HTTP method condition.</p>
  *          <p>HTTP defines a set of request methods, also referred to as HTTP verbs. For more
  *       information, see the <a href="https://www.iana.org/assignments/http-methods/http-methods.xhtml">HTTP Method
@@ -1742,6 +1875,7 @@ export namespace HttpHeaderConditionConfig {
  */
 export interface HttpRequestMethodConditionConfig {
   /**
+   * @public
    * <p>The name of the request method. The maximum size is 40 characters. The allowed characters
    *       are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not
    *       supported; therefore, the method name must be an exact match.</p>
@@ -1752,21 +1886,14 @@ export interface HttpRequestMethodConditionConfig {
   Values?: string[];
 }
 
-export namespace HttpRequestMethodConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestMethodConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a path pattern condition.</p>
  */
 export interface PathPatternConditionConfig {
   /**
-   * <p>One or more path patterns to compare against the request URL. The maximum size of each
+   * @public
+   * <p>The path patterns to compare against the request URL. The maximum size of each
    *       string is 128 characters. The comparison is case sensitive. The following wildcard characters
    *       are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of them matches the
@@ -1776,40 +1903,26 @@ export interface PathPatternConditionConfig {
   Values?: string[];
 }
 
-export namespace PathPatternConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathPatternConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a key/value pair.</p>
  */
 export interface QueryStringKeyValuePair {
   /**
+   * @public
    * <p>The key. You can omit the key.</p>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The value.</p>
    */
   Value?: string;
 }
 
-export namespace QueryStringKeyValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringKeyValuePair): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a query string condition.</p>
  *          <p>The query string component of a URI starts after the first '?' character and is terminated
  *       by either a '#' character or the end of the URI. A typical query string contains key/value
@@ -1818,7 +1931,8 @@ export namespace QueryStringKeyValuePair {
  */
 export interface QueryStringConditionConfig {
   /**
-   * <p>One or more key/value pairs or values to find in the query string. The maximum size of
+   * @public
+   * <p>The key/value pairs or values to find in the query string. The maximum size of
    *       each string is 128 characters. The comparison is case insensitive. The following wildcard
    *       characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
    *       character). To search for a literal '*' or '?' character in a query string, you must escape
@@ -1829,16 +1943,8 @@ export interface QueryStringConditionConfig {
   Values?: QueryStringKeyValuePair[];
 }
 
-export namespace QueryStringConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a source IP condition.</p>
  *          <p>You can use this condition to route based on the IP address of the source that connects to
  *       the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the
@@ -1846,7 +1952,8 @@ export namespace QueryStringConditionConfig {
  */
 export interface SourceIpConditionConfig {
   /**
-   * <p>One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.
+   * @public
+   * <p>The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.
    *       Wildcards are not supported.</p>
    *          <p>If you specify multiple addresses, the condition is satisfied if the source IP address of
    *       the request matches one of the CIDR blocks. This condition is not satisfied by the addresses
@@ -1856,24 +1963,18 @@ export interface SourceIpConditionConfig {
   Values?: string[];
 }
 
-export namespace SourceIpConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceIpConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a condition for a rule.</p>
  *          <p>Each rule can optionally include up to one of each of the following conditions:
  *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
  *         <code>source-ip</code>. Each rule can also optionally include one or more of each of the
- *       following conditions: <code>http-header</code> and <code>query-string</code>.</p>
+ *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
+ *       value for a condition cannot be empty.</p>
  */
 export interface RuleCondition {
   /**
+   * @public
    * <p>The field in the HTTP request. The following are the possible values:</p>
    *          <ul>
    *             <li>
@@ -1911,6 +2012,7 @@ export interface RuleCondition {
   Field?: string;
 
   /**
+   * @public
    * <p>The condition value. Specify only when <code>Field</code> is <code>host-header</code> or
    *         <code>path-pattern</code>. Alternatively, to specify multiple host names or multiple path
    *       patterns, use <code>HostHeaderConfig</code> or <code>PathPatternConfig</code>.</p>
@@ -1957,102 +2059,102 @@ export interface RuleCondition {
   Values?: string[];
 
   /**
+   * @public
    * <p>Information for a host header condition. Specify only when <code>Field</code> is
    *         <code>host-header</code>.</p>
    */
   HostHeaderConfig?: HostHeaderConditionConfig;
 
   /**
+   * @public
    * <p>Information for a path pattern condition. Specify only when <code>Field</code> is
    *         <code>path-pattern</code>.</p>
    */
   PathPatternConfig?: PathPatternConditionConfig;
 
   /**
+   * @public
    * <p>Information for an HTTP header condition. Specify only when <code>Field</code> is
    *         <code>http-header</code>.</p>
    */
   HttpHeaderConfig?: HttpHeaderConditionConfig;
 
   /**
+   * @public
    * <p>Information for a query string condition. Specify only when <code>Field</code> is
    *         <code>query-string</code>.</p>
    */
   QueryStringConfig?: QueryStringConditionConfig;
 
   /**
+   * @public
    * <p>Information for an HTTP method condition. Specify only when <code>Field</code> is
    *         <code>http-request-method</code>.</p>
    */
   HttpRequestMethodConfig?: HttpRequestMethodConditionConfig;
 
   /**
+   * @public
    * <p>Information for a source IP condition. Specify only when <code>Field</code> is
    *         <code>source-ip</code>.</p>
    */
   SourceIpConfig?: SourceIpConditionConfig;
 }
 
-export namespace RuleCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleCondition): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateRuleInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The conditions.</p>
    */
   Conditions: RuleCondition[] | undefined;
 
   /**
+   * @public
    * <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
    */
   Priority: number | undefined;
 
   /**
+   * @public
    * <p>The actions.</p>
    */
   Actions: Action[] | undefined;
 
   /**
+   * @public
    * <p>The tags to assign to the rule.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a rule.</p>
  */
 export interface Rule {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   RuleArn?: string;
 
   /**
+   * @public
    * <p>The priority.</p>
    */
   Priority?: string;
 
   /**
+   * @public
    * <p>The conditions. Each rule can include zero or one of the following conditions:
    *         <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and
    *         <code>source-ip</code>, and zero or more of the following conditions:
@@ -2061,6 +2163,7 @@ export interface Rule {
   Conditions?: RuleCondition[];
 
   /**
+   * @public
    * <p>The actions. Each rule must include exactly one of the following types of actions:
    *         <code>forward</code>, <code>redirect</code>, or <code>fixed-response</code>, and it must be
    *       the last action to be performed.</p>
@@ -2068,136 +2171,153 @@ export interface Rule {
   Actions?: Action[];
 
   /**
+   * @public
    * <p>Indicates whether this is the default rule.</p>
    */
   IsDefault?: boolean;
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateRuleOutput {
   /**
+   * @public
    * <p>Information about the rule.</p>
    */
   Rules?: Rule[];
 }
 
-export namespace CreateRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The specified priority is in use.</p>
  */
-export interface PriorityInUseException extends __SmithyException, $MetadataBearer {
-  name: "PriorityInUseException";
-  $fault: "client";
+export class PriorityInUseException extends __BaseException {
+  readonly name: "PriorityInUseException" = "PriorityInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace PriorityInUseException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PriorityInUseException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PriorityInUseException, __BaseException>) {
+    super({
+      name: "PriorityInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PriorityInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of rules per load balancer.</p>
  */
-export interface TooManyRulesException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRulesException";
-  $fault: "client";
+export class TooManyRulesException extends __BaseException {
+  readonly name: "TooManyRulesException" = "TooManyRulesException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyRulesException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyRulesException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyRulesException, __BaseException>) {
+    super({
+      name: "TooManyRulesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRulesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You've reached the limit on the number of target groups for your Amazon Web Services
  *       account.</p>
  */
-export interface TooManyTargetGroupsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTargetGroupsException";
-  $fault: "client";
+export class TooManyTargetGroupsException extends __BaseException {
+  readonly name: "TooManyTargetGroupsException" = "TooManyTargetGroupsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyTargetGroupsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyTargetGroupsException): any => ({
-    ...obj,
-  });
-}
-
-export enum TargetGroupIpAddressTypeEnum {
-  IPV4 = "ipv4",
-  IPV6 = "ipv6",
+  constructor(opts: __ExceptionOptionType<TooManyTargetGroupsException, __BaseException>) {
+    super({
+      name: "TooManyTargetGroupsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTargetGroupsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TargetGroupIpAddressTypeEnum = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetGroupIpAddressTypeEnum =
+  (typeof TargetGroupIpAddressTypeEnum)[keyof typeof TargetGroupIpAddressTypeEnum];
+
+/**
+ * @public
  * <p>The codes to use when checking for a successful response from a target. If the protocol
  *       version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>
  */
 export interface Matcher {
   /**
-   * <p>For Application Load Balancers, you can specify values between 200 and 499, and the
-   *       default value is 200. You can specify multiple values (for example, "200,202") or a range of
-   *       values (for example, "200-299").</p>
-   *          <p>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</p>
+   * @public
+   * <p>For Application Load Balancers, you can specify values between 200 and 499, with the
+   *       default value being 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p>
+   *          <p>For Network Load Balancers, you can specify values between 200 and 599, with the
+   *       default value being 200-399. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p>
+   *          <p>For Gateway Load Balancers, this must be "200–399".</p>
    *          <p>Note that when using shorthand syntax, some values such as commas need to be
    *       escaped.</p>
    */
   HttpCode?: string;
 
   /**
+   * @public
    * <p>You can specify values between 0 and 99. You can specify multiple values (for example,
    *       "0,1") or a range of values (for example, "0-5"). The default value is 12.</p>
    */
   GrpcCode?: string;
 }
 
-export namespace Matcher {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Matcher): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetTypeEnum = {
+  ALB: "alb",
+  INSTANCE: "instance",
+  IP: "ip",
+  LAMBDA: "lambda",
+} as const;
 
-export enum TargetTypeEnum {
-  ALB = "alb",
-  INSTANCE = "instance",
-  IP = "ip",
-  LAMBDA = "lambda",
-}
+/**
+ * @public
+ */
+export type TargetTypeEnum = (typeof TargetTypeEnum)[keyof typeof TargetTypeEnum];
 
+/**
+ * @public
+ */
 export interface CreateTargetGroupInput {
   /**
+   * @public
    * <p>The name of the target group.</p>
    *          <p>This name must be unique per region per account, can have a maximum of 32 characters, must
    *       contain only alphanumeric characters or hyphens, and must not begin or end with a
@@ -2206,6 +2326,7 @@ export interface CreateTargetGroupInput {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The protocol to use for routing traffic to the targets. For Application Load Balancers,
    *       the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
    *       protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is
@@ -2215,6 +2336,7 @@ export interface CreateTargetGroupInput {
   Protocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS protocol] The protocol version. Specify <code>GRPC</code> to send requests to
    *       targets using gRPC. Specify <code>HTTP2</code> to send requests to targets using HTTP/2. The
    *       default is <code>HTTP1</code>, which sends requests to targets using HTTP/1.1.</p>
@@ -2222,6 +2344,7 @@ export interface CreateTargetGroupInput {
   ProtocolVersion?: string;
 
   /**
+   * @public
    * <p>The port on which the targets receive traffic. This port is used unless you specify a port
    *       override when registering the target. If the target is a Lambda function, this parameter does
    *       not apply. If the protocol is GENEVE, the supported port is 6081.</p>
@@ -2229,12 +2352,14 @@ export interface CreateTargetGroupInput {
   Port?: number;
 
   /**
+   * @public
    * <p>The identifier of the virtual private cloud (VPC). If the target is a Lambda function,
    *       this parameter does not apply. Otherwise, this parameter is required.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>The protocol the load balancer uses when performing health checks on targets. For
    *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
    *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
@@ -2244,6 +2369,7 @@ export interface CreateTargetGroupInput {
   HealthCheckProtocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>The port the load balancer uses when performing health checks on targets. If the protocol
    *       is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is <code>traffic-port</code>, which is
    *       the port on which each target receives traffic from the load balancer. If the protocol is
@@ -2252,6 +2378,7 @@ export interface CreateTargetGroupInput {
   HealthCheckPort?: string;
 
   /**
+   * @public
    * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
    *       health checks are disabled by default but can be enabled. If the target type is
    *         <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always
@@ -2260,6 +2387,7 @@ export interface CreateTargetGroupInput {
   HealthCheckEnabled?: boolean;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
    *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
    *          <p>[GRPC protocol version] The path of a custom health check method with the format
@@ -2268,47 +2396,53 @@ export interface CreateTargetGroupInput {
   HealthCheckPath?: string;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target.
-   *       If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30
-   *       seconds. If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the
-   *       target group protocol is GENEVE, the default is 10 seconds. If the target type is
-   *         <code>lambda</code>, the default is 35 seconds.</p>
+   * @public
+   * <p>The approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300.
+   *       If the target group protocol is TCP, TLS, UDP, TCP_UDP, HTTP or HTTPS, the default is 30 seconds.
+   *       If the target group protocol is GENEVE, the default is 10 seconds.
+   *       If the target type is <code>lambda</code>, the default is 35 seconds.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, during which no response from a target means a failed
-   *       health check. For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5
-   *       seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for
-   *       HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is
-   *         <code>lambda</code>, the default is 30 seconds.</p>
+   *       health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the
+   *       default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default
+   *       is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If
+   *       the target type is <code>lambda</code>, the default is 30 seconds.</p>
    */
   HealthCheckTimeoutSeconds?: number;
 
   /**
-   * <p>The number of consecutive health checks successes required before considering an unhealthy
-   *       target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For
-   *       target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is
-   *         <code>lambda</code>, the default is 5.</p>
+   * @public
+   * <p>The number of consecutive health check successes required before considering a target healthy. The range is
+   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups
+   *       with a protocol of GENEVE, the default is 5. If the target type
+   *       is <code>lambda</code>, the default is 5.</p>
    */
   HealthyThresholdCount?: number;
 
   /**
-   * <p>The number of consecutive health check failures required before considering a target
-   *       unhealthy. If the target group protocol is HTTP or HTTPS, the default is 2. If the target
-   *       group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If
-   *       the target group protocol is GENEVE, the default is 3. If the target type is
-   *         <code>lambda</code>, the default is 2.</p>
+   * @public
+   * <p>The number of consecutive health check failures required before considering a target unhealthy. The range is
+   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups
+   *       with a protocol of GENEVE, the default is 2. If the target type
+   *       is <code>lambda</code>, the default is 5.</p>
    */
   UnhealthyThresholdCount?: number;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target.</p>
+   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range
+   *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
+   *       groups with a protocol of GENEVE, the range is 200-399.</p>
    */
   Matcher?: Matcher;
 
   /**
+   * @public
    * <p>The type of target that you must specify when registering targets with this target group.
    *       You can't specify targets for a target group using more than one target type.</p>
    *          <ul>
@@ -2337,11 +2471,13 @@ export interface CreateTargetGroupInput {
   TargetType?: TargetTypeEnum | string;
 
   /**
+   * @public
    * <p>The tags to assign to the target group.</p>
    */
   Tags?: Tag[];
 
   /**
+   * @public
    * <p>The type of IP address used for this target group. The possible values are
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
@@ -2349,103 +2485,111 @@ export interface CreateTargetGroupInput {
   IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
-export namespace CreateTargetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTargetGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a target group.</p>
  */
 export interface TargetGroup {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn?: string;
 
   /**
+   * @public
    * <p>The name of the target group.</p>
    */
   TargetGroupName?: string;
 
   /**
+   * @public
    * <p>The protocol to use for routing traffic to the targets.</p>
    */
   Protocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>The port on which the targets are listening. Not used if the target is a Lambda
    *       function.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>The ID of the VPC for the targets.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
   HealthCheckProtocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>The port to use to connect with the target.</p>
    */
   HealthCheckPort?: string;
 
   /**
+   * @public
    * <p>Indicates whether health checks are enabled.</p>
    */
   HealthCheckEnabled?: boolean;
 
   /**
+   * @public
    * <p>The approximate amount of time, in seconds, between health checks of an individual
    *       target.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, during which no response means a failed health
    *       check.</p>
    */
   HealthCheckTimeoutSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks successes required before considering an unhealthy
    *       target healthy.</p>
    */
   HealthyThresholdCount?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health check failures required before considering the target
    *       unhealthy.</p>
    */
   UnhealthyThresholdCount?: number;
 
   /**
+   * @public
    * <p>The destination for health checks on the targets.</p>
    */
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>The HTTP or gRPC codes to use when checking for a successful response from a
    *       target.</p>
    */
   Matcher?: Matcher;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the load balancers that route traffic to this target
    *       group.</p>
    */
   LoadBalancerArns?: string[];
 
   /**
+   * @public
    * <p>The type of target that you must specify when registering targets with this target group.
    *       The possible values are <code>instance</code> (register targets by instance ID),
    *         <code>ip</code> (register targets by IP address), <code>lambda</code> (register a single
@@ -2455,12 +2599,14 @@ export interface TargetGroup {
   TargetType?: TargetTypeEnum | string;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS protocol] The protocol version. The possible values are <code>GRPC</code>,
    *         <code>HTTP1</code>, and <code>HTTP2</code>.</p>
    */
   ProtocolVersion?: string;
 
   /**
+   * @public
    * <p>The type of IP address used for this target group. The possible values are
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
@@ -2468,162 +2614,110 @@ export interface TargetGroup {
   IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
-export namespace TargetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroup): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTargetGroupOutput {
   /**
+   * @public
    * <p>Information about the target group.</p>
    */
   TargetGroups?: TargetGroup[];
 }
 
-export namespace CreateTargetGroupOutput {
+/**
+ * @public
+ * <p>A target group with the specified name already exists.</p>
+ */
+export class DuplicateTargetGroupNameException extends __BaseException {
+  readonly name: "DuplicateTargetGroupNameException" = "DuplicateTargetGroupNameException";
+  readonly $fault: "client" = "client";
+  Message?: string;
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTargetGroupOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<DuplicateTargetGroupNameException, __BaseException>) {
+    super({
+      name: "DuplicateTargetGroupNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTargetGroupNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
- * <p>A target group with the specified name already exists.</p>
+ * @public
  */
-export interface DuplicateTargetGroupNameException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateTargetGroupNameException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DuplicateTargetGroupNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateTargetGroupNameException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteListenerInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 }
 
-export namespace DeleteListenerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteListenerInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteListenerOutput {}
 
-export namespace DeleteListenerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteListenerOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 }
 
-export namespace DeleteLoadBalancerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteLoadBalancerOutput {}
 
-export namespace DeleteLoadBalancerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteRuleInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   RuleArn: string | undefined;
 }
 
-export namespace DeleteRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteRuleOutput {}
 
-export namespace DeleteRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTargetGroupInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 }
 
-export namespace DeleteTargetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTargetGroupInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteTargetGroupOutput {}
 
-export namespace DeleteTargetGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTargetGroupOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a target.</p>
  */
 export interface TargetDescription {
   /**
+   * @public
    * <p>The ID of the target. If the target type of the target group is <code>instance</code>,
    *       specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the
    *       target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type
@@ -2632,6 +2726,7 @@ export interface TargetDescription {
   Id: string | undefined;
 
   /**
+   * @public
    * <p>The port on which the target is listening. If the target group protocol is GENEVE, the
    *       supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load
    *       Balancer must have at least one listener whose port matches the target group port. Not used if
@@ -2640,112 +2735,99 @@ export interface TargetDescription {
   Port?: number;
 
   /**
+   * @public
    * <p>An Availability Zone or <code>all</code>. This determines whether the target receives
    *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
    *       Availability Zones for the load balancer.</p>
+   *          <p>For Application Load Balancer target groups, the specified Availability Zone value is only applicable
+   *       when cross-zone load balancing is off. Otherwise the parameter is ignored and treated
+   *       as <code>all</code>.</p>
    *          <p>This parameter is not supported if the target type of the target group is
    *       <code>instance</code> or <code>alb</code>.</p>
-   *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the
-   *       target group, the Availability Zone is automatically detected and this parameter is optional.
-   *       If the IP address is outside the VPC, this parameter is required.</p>
-   *          <p>With an Application Load Balancer, if the target type is <code>ip</code> and the IP
-   *       address is outside the VPC for the target group, the only supported value is
-   *       <code>all</code>.</p>
+   *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
+   *       the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside
+   *       the VPC, this parameter is required.</p>
+   *          <p>For Application Load Balancer target groups with cross-zone load balancing off, if the target type
+   *       is <code>ip</code> and the IP address is outside of the VPC for the target group, this should be an
+   *       Availability Zone inside the VPC for the target group.</p>
    *          <p>If the target type is <code>lambda</code>, this parameter is optional and the only
    *       supported value is <code>all</code>.</p>
    */
   AvailabilityZone?: string;
 }
 
-export namespace TargetDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetDescription): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeregisterTargetsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The targets. If you specified a port override when you registered a target, you must
    *       specify both the target ID and the port when you deregister it.</p>
    */
   Targets: TargetDescription[] | undefined;
 }
 
-export namespace DeregisterTargetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTargetsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeregisterTargetsOutput {}
 
-export namespace DeregisterTargetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTargetsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The specified target does not exist, is not in the same VPC as the target group, or has an
  *       unsupported instance type.</p>
  */
-export interface InvalidTargetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTargetException";
-  $fault: "client";
+export class InvalidTargetException extends __BaseException {
+  readonly name: "InvalidTargetException" = "InvalidTargetException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidTargetException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidTargetException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
+    super({
+      name: "InvalidTargetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsInput {
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeAccountLimitsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services
  *       account.</p>
  */
 export interface Limit {
   /**
+   * @public
    * <p>The name of the limit. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -2807,169 +2889,140 @@ export interface Limit {
   Name?: string;
 
   /**
+   * @public
    * <p>The maximum value of the limit.</p>
    */
   Max?: string;
 }
 
-export namespace Limit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Limit): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAccountLimitsOutput {
   /**
+   * @public
    * <p>Information about the limits.</p>
    */
   Limits?: Limit[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeAccountLimitsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeListenerCertificatesInput {
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeListenerCertificatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerCertificatesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeListenerCertificatesOutput {
   /**
+   * @public
    * <p>Information about the certificates.</p>
    */
   Certificates?: Certificate[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeListenerCertificatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerCertificatesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeListenersInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the listeners.</p>
    */
   ListenerArns?: string[];
 
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeListenersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenersInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeListenersOutput {
   /**
+   * @public
    * <p>Information about the listeners.</p>
    */
   Listeners?: Listener[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeListenersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenersOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeLoadBalancerAttributesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 }
 
-export namespace DescribeLoadBalancerAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a load balancer attribute.</p>
  */
 export interface LoadBalancerAttribute {
   /**
+   * @public
    * <p>The name of the attribute.</p>
-   *
-   *          <p>The following attribute is supported by all load balancers:</p>
+   *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2977,8 +3030,14 @@ export interface LoadBalancerAttribute {
    *           enabled. The value is <code>true</code> or <code>false</code>. The default is
    *             <code>false</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
+   *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
+   *           The default for Network Load Balancers and Gateway Load Balancers is <code>false</code>.
+   *           The default for Application Load Balancers is <code>true</code>, and cannot be changed.</p>
+   *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by both Application Load Balancers and Network Load
    *       Balancers:</p>
    *          <ul>
@@ -3000,8 +3059,14 @@ export interface LoadBalancerAttribute {
    *                   <code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
    *           access logs.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6.deny_all_igw_traffic</code> - Blocks internet gateway (IGW) access to the
+   *           load balancer. It is set to <code>false</code> for internet-facing load balancers and
+   *             <code>true</code> for internal load balancers, preventing unintended access to your
+   *           internal load balancer through an internet gateway.</p>
+   *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported by only Application Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3024,6 +3089,13 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>routing.http.preserve_host_header.enabled</code> - Indicates whether the
+   *           Application Load Balancer should preserve the <code>Host</code> header in the HTTP request
+   *           and send it to the target without any change. The possible values are <code>true</code>
+   *           and <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates
    *           whether the two headers (<code>x-amzn-tls-version</code> and
    *             <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated
@@ -3043,6 +3115,31 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>routing.http.xff_header_processing.mode</code> - Enables you to modify,
+   *           preserve, or remove the <code>X-Forwarded-For</code> header in the HTTP request before the
+   *           Application Load Balancer sends the request to the target. The possible values are
+   *             <code>append</code>, <code>preserve</code>, and <code>remove</code>. The default is
+   *             <code>append</code>.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>If the value is <code>append</code>, the Application Load Balancer adds the client
+   *               IP address (of the last hop) to the <code>X-Forwarded-For</code> header in the HTTP
+   *               request before it sends it to targets.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If the value is <code>preserve</code> the Application Load Balancer preserves the
+   *                 <code>X-Forwarded-For</code> header in the HTTP request, and sends it to targets
+   *               without any change.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>If the value is <code>remove</code>, the Application Load Balancer removes the
+   *                 <code>X-Forwarded-For</code> header in the HTTP request before it sends it to
+   *               targets.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The possible
    *           values are <code>true</code> and <code>false</code>. The default is <code>true</code>.
    *           Elastic Load Balancing requires that message header names contain only alphanumeric
@@ -3055,332 +3152,264 @@ export interface LoadBalancerAttribute {
    *           default is <code>false</code>.</p>
    *             </li>
    *          </ul>
-   *
-   *          <p>The following attribute is supported by Network Load Balancers and Gateway Load
-   *       Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
-   *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
-   *           The default is <code>false</code>.</p>
-   *             </li>
-   *          </ul>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The value of the attribute.</p>
    */
   Value?: string;
 }
 
-export namespace LoadBalancerAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerAttribute): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeLoadBalancerAttributesOutput {
   /**
+   * @public
    * <p>Information about the load balancer attributes.</p>
    */
   Attributes?: LoadBalancerAttribute[];
 }
 
-export namespace DescribeLoadBalancerAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeLoadBalancersInput {
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load
    *       balancers in a single call.</p>
    */
   LoadBalancerArns?: string[];
 
   /**
+   * @public
    * <p>The names of the load balancers.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeLoadBalancersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancersInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeLoadBalancersOutput {
   /**
+   * @public
    * <p>Information about the load balancers.</p>
    */
   LoadBalancers?: LoadBalancer[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeLoadBalancersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancersOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeRulesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the rules.</p>
    */
   RuleArns?: string[];
 
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeRulesOutput {
   /**
+   * @public
    * <p>Information about the rules.</p>
    */
   Rules?: Rule[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeSSLPoliciesInput {
   /**
+   * @public
    * <p>The names of the policies.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 
   /**
+   * @public
    * <p> The type of load balancer. The default lists the SSL policies for all load
    *       balancers.</p>
    */
   LoadBalancerType?: LoadBalancerTypeEnum | string;
 }
 
-export namespace DescribeSSLPoliciesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSSLPoliciesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a policy used for SSL negotiation.</p>
  */
 export interface SslPolicy {
   /**
+   * @public
    * <p>The protocols.</p>
    */
   SslProtocols?: string[];
 
   /**
+   * @public
    * <p>The ciphers.</p>
    */
   Ciphers?: Cipher[];
 
   /**
+   * @public
    * <p>The name of the policy.</p>
    */
   Name?: string;
 
   /**
-   * <p>
-   *       The supported load balancers.
-   *     </p>
+   * @public
+   * <p> The supported load balancers. </p>
    */
   SupportedLoadBalancerTypes?: string[];
 }
 
-export namespace SslPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SslPolicy): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeSSLPoliciesOutput {
   /**
+   * @public
    * <p>Information about the security policies.</p>
    */
   SslPolicies?: SslPolicy[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeSSLPoliciesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSSLPoliciesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTagsInput {
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a
    *       single call.</p>
    */
   ResourceArns: string[] | undefined;
 }
 
-export namespace DescribeTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The tags associated with a resource.</p>
  */
 export interface TagDescription {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn?: string;
 
   /**
+   * @public
    * <p>Information about the tags.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace TagDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagDescription): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTagsOutput {
   /**
+   * @public
    * <p>Information about the tags.</p>
    */
   TagDescriptions?: TagDescription[];
 }
 
-export namespace DescribeTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTargetGroupAttributesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 }
 
-export namespace DescribeTargetGroupAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a target group attribute.</p>
  */
 export interface TargetGroupAttribute {
   /**
+   * @public
    * <p>The name of the attribute.</p>
-   *
-   *          <p>The following attribute is supported by all load balancers:</p>
+   *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3390,25 +3419,74 @@ export interface TargetGroupAttribute {
    *           default value is 300 seconds. If the target is a Lambda function, this attribute is not
    *           supported.</p>
    *             </li>
-   *          </ul>
-   *
-   *          <p>The following attributes are supported by both Application Load Balancers and Network Load
-   *       Balancers:</p>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>stickiness.enabled</code> - Indicates whether sticky sessions are enabled. The
+   *                   <code>stickiness.enabled</code> - Indicates whether target stickiness is enabled. The
    *           value is <code>true</code> or <code>false</code>. The default is
    *           <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>stickiness.type</code> - The type of sticky sessions. The possible values are
-   *             <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers or
-   *             <code>source_ip</code> for Network Load Balancers.</p>
+   *                   <code>stickiness.type</code> - Indicates the type of stickiness. The possible values are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>source_ip</code> for Network Load Balancers.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load Balancers.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *          </ul>
-   *
+   *          <p>The following attributes are supported by Application Load Balancers and
+   *       Network Load Balancers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross zone load
+   *           balancing is enabled. The value is <code>true</code>, <code>false</code> or
+   *           <code>use_load_balancer_configuration</code>. The default is
+   *           <code>use_load_balancer_configuration</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.dns_failover.minimum_healthy_targets.count</code> -
+   *           The minimum number of targets that must be healthy.
+   *           If the number of healthy targets is below this value, mark the zone as unhealthy
+   *           in DNS, so that traffic is routed only to healthy zones. The possible values are
+   *           <code>off</code> or an integer from 1 to the maximum number of targets.
+   *           The default is <code>off</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.dns_failover.minimum_healthy_targets.percentage</code> -
+   *           The minimum percentage of targets that must be healthy.
+   *           If the percentage of healthy targets is below this value, mark the zone as unhealthy
+   *           in DNS, so that traffic is routed only to healthy zones. The possible values are
+   *           <code>off</code> or an integer from 1 to 100. The default is <code>off</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.count</code> -
+   *           The minimum number of targets that must be healthy.
+   *           If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets.
+   *           The possible values are 1 to the maximum number of targets. The default is 1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage</code> -
+   *           The minimum percentage of targets that must be healthy.
+   *           If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets.
+   *           The possible values are <code>off</code> or an integer from 1 to 100.
+   *           The default is <code>off</code>.</p>
+   *             </li>
+   *          </ul>
    *          <p>The following attributes are supported only if the load balancer is an Application Load
    *       Balancer and the target is an instance or an IP address:</p>
    *          <ul>
@@ -3445,10 +3523,9 @@ export interface TargetGroupAttribute {
    *                   <code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds,
    *           during which requests from a client should be routed to the same target. After this time
    *           period expires, the load balancer-generated cookie is considered stale. The range is 1
-   *           second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).</p>
+   *           second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attribute is supported only if the load balancer is an Application Load
    *       Balancer and the target is a Lambda function:</p>
    *          <ul>
@@ -3462,7 +3539,6 @@ export interface TargetGroupAttribute {
    *           last value sent by the client.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following attributes are supported only by Network Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3484,161 +3560,181 @@ export interface TargetGroupAttribute {
    *                <p>
    *                   <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is
    *           enabled. The value is <code>true</code> or <code>false</code>. The default is
-   *             <code>false</code>.</p>
+   *             <code>false</code>. </p>
+   *             </li>
+   *          </ul>
+   *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>target_failover.on_deregistration</code> - Indicates how the Gateway Load
+   *           Balancer handles existing flows when a target is deregistered. The possible values are
+   *             <code>rebalance</code> and <code>no_rebalance</code>. The default is
+   *             <code>no_rebalance</code>. The two attributes
+   *             (<code>target_failover.on_deregistration</code> and
+   *             <code>target_failover.on_unhealthy</code>) can't be set independently. The value you set
+   *           for both attributes must be the same.  </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_failover.on_unhealthy</code> - Indicates how the Gateway Load Balancer
+   *           handles existing flows when a target is unhealthy. The possible values are
+   *             <code>rebalance</code> and <code>no_rebalance</code>. The default is
+   *             <code>no_rebalance</code>. The two attributes
+   *             (<code>target_failover.on_deregistration</code> and
+   *             <code>target_failover.on_unhealthy</code>) cannot be set independently. The value you
+   *           set for both attributes must be the same.  </p>
    *             </li>
    *          </ul>
    */
   Key?: string;
 
   /**
+   * @public
    * <p>The value of the attribute.</p>
    */
   Value?: string;
 }
 
-export namespace TargetGroupAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupAttribute): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTargetGroupAttributesOutput {
   /**
+   * @public
    * <p>Information about the target group attributes</p>
    */
   Attributes?: TargetGroupAttribute[];
 }
 
-export namespace DescribeTargetGroupAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupAttributesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTargetGroupsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Names (ARN) of the target groups.</p>
    */
   TargetGroupArns?: string[];
 
   /**
+   * @public
    * <p>The names of the target groups.</p>
    */
   Names?: string[];
 
   /**
+   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *       call.)</p>
    */
   Marker?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
 }
 
-export namespace DescribeTargetGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTargetGroupsOutput {
   /**
+   * @public
    * <p>Information about the target groups.</p>
    */
   TargetGroups?: TargetGroup[];
 
   /**
+   * @public
    * <p>If there are additional results, this is the marker for the next set of results.
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
 }
 
-export namespace DescribeTargetGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTargetHealthInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The targets.</p>
    */
   Targets?: TargetDescription[];
 }
 
-export namespace DescribeTargetHealthInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetHealthInput): any => ({
-    ...obj,
-  });
-}
-
-export enum TargetHealthReasonEnum {
-  DEREGISTRATION_IN_PROGRESS = "Target.DeregistrationInProgress",
-  FAILED_HEALTH_CHECKS = "Target.FailedHealthChecks",
-  HEALTH_CHECK_DISABLED = "Target.HealthCheckDisabled",
-  INITIAL_HEALTH_CHECKING = "Elb.InitialHealthChecking",
-  INTERNAL_ERROR = "Elb.InternalError",
-  INVALID_STATE = "Target.InvalidState",
-  IP_UNUSABLE = "Target.IpUnusable",
-  NOT_IN_USE = "Target.NotInUse",
-  NOT_REGISTERED = "Target.NotRegistered",
-  REGISTRATION_IN_PROGRESS = "Elb.RegistrationInProgress",
-  RESPONSE_CODE_MISMATCH = "Target.ResponseCodeMismatch",
-  TIMEOUT = "Target.Timeout",
-}
-
-export enum TargetHealthStateEnum {
-  DRAINING = "draining",
-  HEALTHY = "healthy",
-  INITIAL = "initial",
-  UNAVAILABLE = "unavailable",
-  UNHEALTHY = "unhealthy",
-  UNUSED = "unused",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TargetHealthReasonEnum = {
+  DEREGISTRATION_IN_PROGRESS: "Target.DeregistrationInProgress",
+  FAILED_HEALTH_CHECKS: "Target.FailedHealthChecks",
+  HEALTH_CHECK_DISABLED: "Target.HealthCheckDisabled",
+  INITIAL_HEALTH_CHECKING: "Elb.InitialHealthChecking",
+  INTERNAL_ERROR: "Elb.InternalError",
+  INVALID_STATE: "Target.InvalidState",
+  IP_UNUSABLE: "Target.IpUnusable",
+  NOT_IN_USE: "Target.NotInUse",
+  NOT_REGISTERED: "Target.NotRegistered",
+  REGISTRATION_IN_PROGRESS: "Elb.RegistrationInProgress",
+  RESPONSE_CODE_MISMATCH: "Target.ResponseCodeMismatch",
+  TIMEOUT: "Target.Timeout",
+} as const;
 
 /**
+ * @public
+ */
+export type TargetHealthReasonEnum = (typeof TargetHealthReasonEnum)[keyof typeof TargetHealthReasonEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetHealthStateEnum = {
+  DRAINING: "draining",
+  HEALTHY: "healthy",
+  INITIAL: "initial",
+  UNAVAILABLE: "unavailable",
+  UNHEALTHY: "unhealthy",
+  UNUSED: "unused",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetHealthStateEnum = (typeof TargetHealthStateEnum)[keyof typeof TargetHealthStateEnum];
+
+/**
+ * @public
  * <p>Information about the current health of a target.</p>
  */
 export interface TargetHealth {
   /**
+   * @public
    * <p>The state of the target.</p>
    */
   State?: TargetHealthStateEnum | string;
 
   /**
+   * @public
    * <p>The reason code.</p>
-   *
    *          <p>If the target state is <code>healthy</code>, a reason code is not provided.</p>
-   *
    *          <p>If the target state is <code>initial</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3653,7 +3749,6 @@ export interface TargetHealth {
    *           minimum number of health checks required to determine its health status.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unhealthy</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3679,7 +3774,6 @@ export interface TargetHealth {
    *           Applies only to Application Load Balancers.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unused</code>, the reason code can be one of the following
    *       values:</p>
    *          <ul>
@@ -3704,7 +3798,6 @@ export interface TargetHealth {
    *           balancer.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>draining</code>, the reason code can be the following
    *       value:</p>
    *          <ul>
@@ -3714,7 +3807,6 @@ export interface TargetHealth {
    *           deregistered and the deregistration delay period has not expired.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>If the target state is <code>unavailable</code>, the reason code can be the following
    *       value:</p>
    *          <ul>
@@ -3733,98 +3825,90 @@ export interface TargetHealth {
   Reason?: TargetHealthReasonEnum | string;
 
   /**
+   * @public
    * <p>A description of the target health that provides additional details. If the state is
    *         <code>healthy</code>, a description is not provided.</p>
    */
   Description?: string;
 }
 
-export namespace TargetHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the health of a target.</p>
  */
 export interface TargetHealthDescription {
   /**
+   * @public
    * <p>The description of the target.</p>
    */
   Target?: TargetDescription;
 
   /**
+   * @public
    * <p>The port to use to connect with the target.</p>
    */
   HealthCheckPort?: string;
 
   /**
+   * @public
    * <p>The health information for the target.</p>
    */
   TargetHealth?: TargetHealth;
 }
 
-export namespace TargetHealthDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealthDescription): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTargetHealthOutput {
   /**
+   * @public
    * <p>Information about the health of the targets.</p>
    */
   TargetHealthDescriptions?: TargetHealthDescription[];
 }
 
-export namespace DescribeTargetHealthOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetHealthOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The health of the specified targets could not be retrieved due to an internal
  *       error.</p>
  */
-export interface HealthUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "HealthUnavailableException";
-  $fault: "server";
+export class HealthUnavailableException extends __BaseException {
+  readonly name: "HealthUnavailableException" = "HealthUnavailableException";
+  readonly $fault: "server" = "server";
   Message?: string;
-}
-
-export namespace HealthUnavailableException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HealthUnavailableException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<HealthUnavailableException, __BaseException>) {
+    super({
+      name: "HealthUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HealthUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
+/**
+ * @public
+ */
 export interface ModifyListenerInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The port for connections from clients to the load balancer. You cannot specify a port for
    *       a Gateway Load Balancer.</p>
    */
   Port?: number;
 
   /**
+   * @public
    * <p>The protocol for connections from clients to the load balancer. Application Load Balancers
    *       support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and
    *       TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
@@ -3833,6 +3917,7 @@ export interface ModifyListenerInput {
   Protocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
    *       supported.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
@@ -3841,6 +3926,7 @@ export interface ModifyListenerInput {
   SslPolicy?: string;
 
   /**
+   * @public
    * <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide
    *       exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set
    *         <code>IsDefault</code>.</p>
@@ -3848,11 +3934,13 @@ export interface ModifyListenerInput {
   Certificates?: Certificate[];
 
   /**
+   * @public
    * <p>The actions for the default rule.</p>
    */
   DefaultActions?: Action[];
 
   /**
+   * @public
    * <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You
    *       can specify one policy name. The following are the possible values:</p>
    *          <ul>
@@ -3888,133 +3976,108 @@ export interface ModifyListenerInput {
   AlpnPolicy?: string[];
 }
 
-export namespace ModifyListenerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyListenerInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyListenerOutput {
   /**
+   * @public
    * <p>Information about the modified listener.</p>
    */
   Listeners?: Listener[];
 }
 
-export namespace ModifyListenerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyListenerOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyLoadBalancerAttributesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 
   /**
+   * @public
    * <p>The load balancer attributes.</p>
    */
   Attributes: LoadBalancerAttribute[] | undefined;
 }
 
-export namespace ModifyLoadBalancerAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyLoadBalancerAttributesOutput {
   /**
+   * @public
    * <p>Information about the load balancer attributes.</p>
    */
   Attributes?: LoadBalancerAttribute[];
 }
 
-export namespace ModifyLoadBalancerAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyRuleInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   RuleArn: string | undefined;
 
   /**
+   * @public
    * <p>The conditions.</p>
    */
   Conditions?: RuleCondition[];
 
   /**
+   * @public
    * <p>The actions.</p>
    */
   Actions?: Action[];
 }
 
-export namespace ModifyRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyRuleInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyRuleOutput {
   /**
+   * @public
    * <p>Information about the modified rule.</p>
    */
   Rules?: Rule[];
 }
 
-export namespace ModifyRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyRuleOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyTargetGroupInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The protocol the load balancer uses when performing health checks on targets. For
    *       Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load
    *       Balancers, the default is TCP. The TCP protocol is not supported for health checks if the
    *       protocol of the target group is HTTP or HTTPS. It is supported for health checks only if the
    *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckProtocol?: ProtocolEnum | string;
 
   /**
+   * @public
    * <p>The port the load balancer uses when performing health checks on targets.</p>
    */
   HealthCheckPort?: string;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
    *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
    *          <p>[GRPC protocol version] The path of a custom health check method with the format
@@ -4023,146 +4086,121 @@ export interface ModifyTargetGroupInput {
   HealthCheckPath?: string;
 
   /**
+   * @public
    * <p>Indicates whether health checks are enabled.</p>
    */
   HealthCheckEnabled?: boolean;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target.
-   *       For TCP health checks, the supported values are 10 or 30 seconds.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
+   * @public
+   * <p>The approximate amount of time, in seconds, between health checks of an individual target.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means
    *       a failed health check.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckTimeoutSeconds?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health checks successes required before considering an unhealthy
    *       target healthy.</p>
    */
   HealthyThresholdCount?: number;
 
   /**
+   * @public
    * <p>The number of consecutive health check failures required before considering the target
-   *       unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as the
-   *       healthy threshold count.</p>
+   *       unhealthy.</p>
    */
   UnhealthyThresholdCount?: number;
 
   /**
+   * @public
    * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target.</p>
-   *          <p>With Network Load Balancers, you can't modify this setting.</p>
+   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range
+   *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
+   *       groups with a protocol of GENEVE, the range is 200-399.</p>
    */
   Matcher?: Matcher;
 }
 
-export namespace ModifyTargetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyTargetGroupOutput {
   /**
+   * @public
    * <p>Information about the modified target group.</p>
    */
   TargetGroups?: TargetGroup[];
 }
 
-export namespace ModifyTargetGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyTargetGroupAttributesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The attributes.</p>
    */
   Attributes: TargetGroupAttribute[] | undefined;
 }
 
-export namespace ModifyTargetGroupAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupAttributesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ModifyTargetGroupAttributesOutput {
   /**
+   * @public
    * <p>Information about the attributes.</p>
    */
   Attributes?: TargetGroupAttribute[];
 }
 
-export namespace ModifyTargetGroupAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupAttributesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RegisterTargetsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The targets.</p>
    */
   Targets: TargetDescription[] | undefined;
 }
 
-export namespace RegisterTargetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTargetsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RegisterTargetsOutput {}
 
-export namespace RegisterTargetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTargetsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RemoveListenerCertificatesInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
 
   /**
+   * @public
    * <p>The certificate to remove. You can specify one certificate per call. Set
    *         <code>CertificateArn</code> to the certificate ARN but do not set
    *       <code>IsDefault</code>.</p>
@@ -4170,198 +4208,144 @@ export interface RemoveListenerCertificatesInput {
   Certificates: Certificate[] | undefined;
 }
 
-export namespace RemoveListenerCertificatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveListenerCertificatesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RemoveListenerCertificatesOutput {}
 
-export namespace RemoveListenerCertificatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveListenerCertificatesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RemoveTagsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArns: string[] | undefined;
 
   /**
+   * @public
    * <p>The tag keys for the tags to remove.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RemoveTagsOutput {}
 
-export namespace RemoveTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetIpAddressTypeInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 
   /**
+   * @public
    * <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use
-   *         <code>ipv4</code>. You can’t specify <code>dualstack</code> for a load balancer with a UDP
-   *       or TCP_UDP listener.</p>
+   *         <code>dualstack</code> (for IPv4 and IPv6 addresses).
+   *        You can’t specify
+   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
    */
   IpAddressType: IpAddressType | string | undefined;
 }
 
-export namespace SetIpAddressTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIpAddressTypeInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetIpAddressTypeOutput {
   /**
+   * @public
    * <p>The IP address type.</p>
    */
   IpAddressType?: IpAddressType | string;
 }
 
-export namespace SetIpAddressTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIpAddressTypeOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the priorities for the rules for a listener.</p>
  */
 export interface RulePriorityPair {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   RuleArn?: string;
 
   /**
+   * @public
    * <p>The rule priority.</p>
    */
   Priority?: number;
 }
 
-export namespace RulePriorityPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulePriorityPair): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetRulePrioritiesInput {
   /**
+   * @public
    * <p>The rule priorities.</p>
    */
   RulePriorities: RulePriorityPair[] | undefined;
 }
 
-export namespace SetRulePrioritiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRulePrioritiesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetRulePrioritiesOutput {
   /**
+   * @public
    * <p>Information about the rules.</p>
    */
   Rules?: Rule[];
 }
 
-export namespace SetRulePrioritiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRulePrioritiesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetSecurityGroupsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the security groups.</p>
    */
   SecurityGroups: string[] | undefined;
 }
 
-export namespace SetSecurityGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSecurityGroupsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetSecurityGroupsOutput {
   /**
+   * @public
    * <p>The IDs of the security groups associated with the load balancer.</p>
    */
   SecurityGroupIds?: string[];
 }
 
-export namespace SetSecurityGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSecurityGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetSubnetsInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
 
   /**
+   * @public
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
    *       must specify either subnets or subnet mappings.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
@@ -4375,6 +4359,7 @@ export interface SetSubnetsInput {
   Subnets?: string[];
 
   /**
+   * @public
    * <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You
    *       must specify either subnets or subnet mappings.</p>
    *          <p>[Application Load Balancers] You must specify subnets from at least two Availability
@@ -4391,41 +4376,29 @@ export interface SetSubnetsInput {
   SubnetMappings?: SubnetMapping[];
 
   /**
+   * @public
    * <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
-   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener. Internal load
-   *       balancers must use <code>ipv4</code>.</p>
+   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.
+   *       .</p>
    */
   IpAddressType?: IpAddressType | string;
 }
 
-export namespace SetSubnetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSubnetsInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SetSubnetsOutput {
   /**
+   * @public
    * <p>Information about the subnets.</p>
    */
   AvailabilityZones?: AvailabilityZone[];
 
   /**
+   * @public
    * <p>[Network Load Balancers] The IP address type.</p>
    */
   IpAddressType?: IpAddressType | string;
-}
-
-export namespace SetSubnetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSubnetsOutput): any => ({
-    ...obj,
-  });
 }

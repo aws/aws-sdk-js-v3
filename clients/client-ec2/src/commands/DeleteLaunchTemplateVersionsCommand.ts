@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteLaunchTemplateVersionsRequest, DeleteLaunchTemplateVersionsResult } from "../models/models_2";
-import {
-  deserializeAws_ec2DeleteLaunchTemplateVersionsCommand,
-  serializeAws_ec2DeleteLaunchTemplateVersionsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DeleteLaunchTemplateVersionsCommand, se_DeleteLaunchTemplateVersionsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteLaunchTemplateVersionsCommand}.
+ */
 export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTemplateVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLaunchTemplateVersionsCommand}.
+ */
 export interface DeleteLaunchTemplateVersionsCommandOutput
   extends DeleteLaunchTemplateVersionsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes one or more versions of a launch template. You cannot delete the default
  *             version of a launch template; you must first assign a different version as the default.
  *             If the default version is the only version for the launch template, you must delete the
@@ -34,13 +48,73 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * import { EC2Client, DeleteLaunchTemplateVersionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLaunchTemplateVersionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DeleteLaunchTemplateVersionsRequest
+ *   DryRun: true || false,
+ *   LaunchTemplateId: "STRING_VALUE",
+ *   LaunchTemplateName: "STRING_VALUE",
+ *   Versions: [ // VersionStringList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteLaunchTemplateVersionsResult
+ * //   SuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseSuccessSet
+ * //     { // DeleteLaunchTemplateVersionsResponseSuccessItem
+ * //       LaunchTemplateId: "STRING_VALUE",
+ * //       LaunchTemplateName: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //     },
+ * //   ],
+ * //   UnsuccessfullyDeletedLaunchTemplateVersions: [ // DeleteLaunchTemplateVersionsResponseErrorSet
+ * //     { // DeleteLaunchTemplateVersionsResponseErrorItem
+ * //       LaunchTemplateId: "STRING_VALUE",
+ * //       LaunchTemplateName: "STRING_VALUE",
+ * //       VersionNumber: Number("long"),
+ * //       ResponseError: { // ResponseError
+ * //         Code: "launchTemplateIdDoesNotExist" || "launchTemplateIdMalformed" || "launchTemplateNameDoesNotExist" || "launchTemplateNameMalformed" || "launchTemplateVersionDoesNotExist" || "unexpectedError",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DeleteLaunchTemplateVersionsCommandInput - {@link DeleteLaunchTemplateVersionsCommandInput}
+ * @returns {@link DeleteLaunchTemplateVersionsCommandOutput}
  * @see {@link DeleteLaunchTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To delete a launch template version
+ * ```javascript
+ * // This example deletes the specified launch template version.
+ * const input = {
+ *   "LaunchTemplateId": "lt-0abcd290751193123",
+ *   "Versions": [
+ *     "1"
+ *   ]
+ * };
+ * const command = new DeleteLaunchTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "SuccessfullyDeletedLaunchTemplateVersions": [
+ *     {
+ *       "LaunchTemplateId": "lt-0abcd290751193123",
+ *       "LaunchTemplateName": "my-template",
+ *       "VersionNumber": 1
+ *     }
+ *   ],
+ *   "UnsuccessfullyDeletedLaunchTemplateVersions": []
+ * }
+ * *\/
+ * // example id: to-delete-a-launch-template-version-1529024790864
+ * ```
  *
  */
 export class DeleteLaunchTemplateVersionsCommand extends $Command<
@@ -51,6 +125,18 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchTemplateVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +152,9 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLaunchTemplateVersionsCommandInput, DeleteLaunchTemplateVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLaunchTemplateVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +165,8 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchTemplateVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchTemplateVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +176,21 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchTemplateVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteLaunchTemplateVersionsCommand(input, context);
+    return se_DeleteLaunchTemplateVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchTemplateVersionsCommandOutput> {
-    return deserializeAws_ec2DeleteLaunchTemplateVersionsCommand(output, context);
+    return de_DeleteLaunchTemplateVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

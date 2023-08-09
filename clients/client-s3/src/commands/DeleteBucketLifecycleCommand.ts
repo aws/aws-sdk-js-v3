@@ -1,7 +1,8 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteBucketLifecycleRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketLifecycleCommand,
-  serializeAws_restXmlDeleteBucketLifecycleCommand,
-} from "../protocols/Aws_restXml";
+import { de_DeleteBucketLifecycleCommand, se_DeleteBucketLifecycleCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteBucketLifecycleCommand}.
+ */
 export interface DeleteBucketLifecycleCommandInput extends DeleteBucketLifecycleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBucketLifecycleCommand}.
+ */
 export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the
  *          lifecycle configuration rules in the lifecycle subresource associated with the bucket. Your
  *          objects never expire, and Amazon S3 no longer automatically deletes any objects on the basis of
@@ -30,12 +43,9 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:PutLifecycleConfiguration</code> action. By default, the bucket owner has this
  *          permission and the bucket owner can grant this permission to others.</p>
- *
  *          <p>There is usually some time lag before lifecycle configuration deletion is fully
  *          propagated to all the Amazon S3 systems.</p>
- *
- *          <p>For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to
- *             Describe Lifecycle Actions</a>.</p>
+ *          <p>For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to Describe Lifecycle Actions</a>.</p>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>
@@ -55,13 +65,35 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * import { S3Client, DeleteBucketLifecycleCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketLifecycleCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // DeleteBucketLifecycleRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketLifecycleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteBucketLifecycleCommandInput - {@link DeleteBucketLifecycleCommandInput}
+ * @returns {@link DeleteBucketLifecycleCommandOutput}
  * @see {@link DeleteBucketLifecycleCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketLifecycleCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
+ * @example To delete lifecycle configuration on a bucket.
+ * ```javascript
+ * // The following example deletes lifecycle configuration on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new DeleteBucketLifecycleCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-lifecycle-configuration-on-a-bucket-1483043310583
+ * ```
  *
  */
 export class DeleteBucketLifecycleCommand extends $Command<
@@ -72,6 +104,24 @@ export class DeleteBucketLifecycleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBucketLifecycleCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,7 +137,9 @@ export class DeleteBucketLifecycleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBucketLifecycleCommandInput, DeleteBucketLifecycleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBucketLifecycleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -98,8 +150,8 @@ export class DeleteBucketLifecycleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketLifecycleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +161,18 @@ export class DeleteBucketLifecycleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBucketLifecycleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlDeleteBucketLifecycleCommand(input, context);
+    return se_DeleteBucketLifecycleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBucketLifecycleCommandOutput> {
-    return deserializeAws_restXmlDeleteBucketLifecycleCommand(output, context);
+    return de_DeleteBucketLifecycleCommand(output, context);
   }
 
   // Start section: command_body_extra

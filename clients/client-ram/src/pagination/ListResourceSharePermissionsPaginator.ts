@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListResourceSharePermissionsCommand,
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "../commands/ListResourceSharePermissionsCommand";
-import { RAM } from "../RAM";
 import { RAMClient } from "../RAMClient";
 import { RAMPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RAMClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListResourceSharePermissionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RAM,
-  input: ListResourceSharePermissionsCommandInput,
-  ...args: any
-): Promise<ListResourceSharePermissionsCommandOutput> => {
-  // @ts-ignore
-  return await client.listResourceSharePermissions(input, ...args);
-};
 export async function* paginateListResourceSharePermissions(
   config: RAMPaginationConfiguration,
   input: ListResourceSharePermissionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListResourceSharePermissions(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RAM) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RAMClient) {
+    if (config.client instanceof RAMClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RAM | RAMClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

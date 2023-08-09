@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import { CreateLocationHdfsRequest, CreateLocationHdfsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLocationHdfsCommand,
-  serializeAws_json1_1CreateLocationHdfsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLocationHdfsCommand, se_CreateLocationHdfsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLocationHdfsCommand}.
+ */
 export interface CreateLocationHdfsCommandInput extends CreateLocationHdfsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLocationHdfsCommand}.
+ */
 export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,59 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * import { DataSyncClient, CreateLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = { // CreateLocationHdfsRequest
+ *   Subdirectory: "STRING_VALUE",
+ *   NameNodes: [ // HdfsNameNodeList // required
+ *     { // HdfsNameNode
+ *       Hostname: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *     },
+ *   ],
+ *   BlockSize: Number("int"),
+ *   ReplicationFactor: Number("int"),
+ *   KmsKeyProviderUri: "STRING_VALUE",
+ *   QopConfiguration: { // QopConfiguration
+ *     RpcProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *     DataTransferProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *   },
+ *   AuthenticationType: "SIMPLE" || "KERBEROS", // required
+ *   SimpleUser: "STRING_VALUE",
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   KerberosKeytab: "BLOB_VALUE",
+ *   KerberosKrb5Conf: "BLOB_VALUE",
+ *   AgentArns: [ // AgentArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationHdfsCommand(input);
  * const response = await client.send(command);
+ * // { // CreateLocationHdfsResponse
+ * //   LocationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateLocationHdfsCommandInput - {@link CreateLocationHdfsCommandInput}
+ * @returns {@link CreateLocationHdfsCommandOutput}
  * @see {@link CreateLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationHdfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link DataSyncServiceException}
+ * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
 export class CreateLocationHdfsCommand extends $Command<
@@ -46,6 +106,18 @@ export class CreateLocationHdfsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLocationHdfsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +133,9 @@ export class CreateLocationHdfsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLocationHdfsCommandInput, CreateLocationHdfsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLocationHdfsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +146,8 @@ export class CreateLocationHdfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationHdfsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationHdfsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +157,18 @@ export class CreateLocationHdfsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLocationHdfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLocationHdfsCommand(input, context);
+    return se_CreateLocationHdfsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationHdfsCommandOutput> {
-    return deserializeAws_json1_1CreateLocationHdfsCommand(output, context);
+    return de_CreateLocationHdfsCommand(output, context);
   }
 
   // Start section: command_body_extra

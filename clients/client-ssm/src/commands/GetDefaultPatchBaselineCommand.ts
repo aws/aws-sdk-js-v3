@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetDefaultPatchBaselineRequest, GetDefaultPatchBaselineResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetDefaultPatchBaselineCommand,
-  serializeAws_json1_1GetDefaultPatchBaselineCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDefaultPatchBaselineCommand, se_GetDefaultPatchBaselineCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDefaultPatchBaselineCommand}.
+ */
 export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBaselineRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDefaultPatchBaselineCommand}.
+ */
 export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
  *    baselines. For example, you can create a default patch baseline for each operating system.</p>
  *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
@@ -32,13 +46,29 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * import { SSMClient, GetDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetDefaultPatchBaselineRequest
+ *   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * };
  * const command = new GetDefaultPatchBaselineCommand(input);
  * const response = await client.send(command);
+ * // { // GetDefaultPatchBaselineResult
+ * //   BaselineId: "STRING_VALUE",
+ * //   OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ * // };
+ *
  * ```
  *
+ * @param GetDefaultPatchBaselineCommandInput - {@link GetDefaultPatchBaselineCommandInput}
+ * @returns {@link GetDefaultPatchBaselineCommandOutput}
  * @see {@link GetDefaultPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link GetDefaultPatchBaselineCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetDefaultPatchBaselineCommand extends $Command<
@@ -49,6 +79,18 @@ export class GetDefaultPatchBaselineCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDefaultPatchBaselineCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +106,9 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDefaultPatchBaselineCommandInput, GetDefaultPatchBaselineCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDefaultPatchBaselineCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +119,8 @@ export class GetDefaultPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDefaultPatchBaselineRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDefaultPatchBaselineResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +130,18 @@ export class GetDefaultPatchBaselineCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDefaultPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDefaultPatchBaselineCommand(input, context);
+    return se_GetDefaultPatchBaselineCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultPatchBaselineCommandOutput> {
-    return deserializeAws_json1_1GetDefaultPatchBaselineCommand(output, context);
+    return de_GetDefaultPatchBaselineCommand(output, context);
   }
 
   // Start section: command_body_extra

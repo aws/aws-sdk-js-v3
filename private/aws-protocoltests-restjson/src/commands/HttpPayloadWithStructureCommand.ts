@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpPayloadWithStructureCommand,
-  serializeAws_restJson1HttpPayloadWithStructureCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpPayloadWithStructureCommand, se_HttpPayloadWithStructureCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link HttpPayloadWithStructureCommand}.
+ */
 export interface HttpPayloadWithStructureCommandInput extends HttpPayloadWithStructureInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpPayloadWithStructureCommand}.
+ */
 export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithStructureInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a structure in the payload.
  *
  * Note that serializing a structure changes the wrapper element name
@@ -32,13 +45,31 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * import { RestJsonProtocolClient, HttpPayloadWithStructureCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPayloadWithStructureCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpPayloadWithStructureInputOutput
+ *   nested: { // NestedPayload
+ *     greeting: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *   },
+ * };
  * const command = new HttpPayloadWithStructureCommand(input);
  * const response = await client.send(command);
+ * // { // HttpPayloadWithStructureInputOutput
+ * //   nested: { // NestedPayload
+ * //     greeting: "STRING_VALUE",
+ * //     name: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param HttpPayloadWithStructureCommandInput - {@link HttpPayloadWithStructureCommandInput}
+ * @returns {@link HttpPayloadWithStructureCommandOutput}
  * @see {@link HttpPayloadWithStructureCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpPayloadWithStructureCommand extends $Command<
@@ -49,6 +80,9 @@ export class HttpPayloadWithStructureCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,8 +108,8 @@ export class HttpPayloadWithStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithStructureInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithStructureInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +119,18 @@ export class HttpPayloadWithStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadWithStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpPayloadWithStructureCommand(input, context);
+    return se_HttpPayloadWithStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithStructureCommandOutput> {
-    return deserializeAws_restJson1HttpPayloadWithStructureCommand(output, context);
+    return de_HttpPayloadWithStructureCommand(output, context);
   }
 
   // Start section: command_body_extra

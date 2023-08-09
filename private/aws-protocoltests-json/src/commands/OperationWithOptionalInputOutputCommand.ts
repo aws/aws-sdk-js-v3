@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,17 +10,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { SimpleStruct } from "../models/models_0";
+import { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1OperationWithOptionalInputOutputCommand,
-  serializeAws_json1_1OperationWithOptionalInputOutputCommand,
+  de_OperationWithOptionalInputOutputCommand,
+  se_OperationWithOptionalInputOutputCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface OperationWithOptionalInputOutputCommandInput extends SimpleStruct {}
-export interface OperationWithOptionalInputOutputCommandOutput extends SimpleStruct, __MetadataBearer {}
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link OperationWithOptionalInputOutputCommand}.
+ */
+export interface OperationWithOptionalInputOutputCommandInput extends OperationWithOptionalInputOutputInput {}
+/**
+ * @public
+ *
+ * The output of {@link OperationWithOptionalInputOutputCommand}.
+ */
+export interface OperationWithOptionalInputOutputCommandOutput
+  extends OperationWithOptionalInputOutputOutput,
+    __MetadataBearer {}
 
 export class OperationWithOptionalInputOutputCommand extends $Command<
   OperationWithOptionalInputOutputCommandInput,
@@ -29,6 +46,9 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: OperationWithOptionalInputOutputCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +74,8 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
-      outputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,18 +85,24 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: OperationWithOptionalInputOutputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1OperationWithOptionalInputOutputCommand(input, context);
+    return se_OperationWithOptionalInputOutputCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<OperationWithOptionalInputOutputCommandOutput> {
-    return deserializeAws_json1_1OperationWithOptionalInputOutputCommand(output, context);
+    return de_OperationWithOptionalInputOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

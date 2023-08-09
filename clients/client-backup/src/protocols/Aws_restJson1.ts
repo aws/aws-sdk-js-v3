@@ -1,5 +1,9 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -8,17 +12,20 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  resolvedPath as __resolvedPath,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "../commands/CancelLegalHoldCommand";
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "../commands/CreateBackupPlanCommand";
 import {
   CreateBackupSelectionCommandInput,
@@ -26,6 +33,11 @@ import {
 } from "../commands/CreateBackupSelectionCommand";
 import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "../commands/CreateBackupVaultCommand";
 import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "../commands/CreateFrameworkCommand";
+import { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "../commands/CreateLegalHoldCommand";
+import {
+  CreateLogicallyAirGappedBackupVaultCommandInput,
+  CreateLogicallyAirGappedBackupVaultCommandOutput,
+} from "../commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "../commands/CreateReportPlanCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "../commands/DeleteBackupPlanCommand";
 import {
@@ -82,6 +94,10 @@ import {
   DisassociateRecoveryPointCommandOutput,
 } from "../commands/DisassociateRecoveryPointCommand";
 import {
+  DisassociateRecoveryPointFromParentCommandInput,
+  DisassociateRecoveryPointFromParentCommandOutput,
+} from "../commands/DisassociateRecoveryPointFromParentCommand";
+import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
 } from "../commands/ExportBackupPlanTemplateCommand";
@@ -103,6 +119,7 @@ import {
   GetBackupVaultNotificationsCommandInput,
   GetBackupVaultNotificationsCommandOutput,
 } from "../commands/GetBackupVaultNotificationsCommand";
+import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "../commands/GetLegalHoldCommand";
 import {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
@@ -128,6 +145,11 @@ import {
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "../commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "../commands/ListCopyJobsCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "../commands/ListFrameworksCommand";
+import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "../commands/ListLegalHoldsCommand";
+import {
+  ListProtectedResourcesByBackupVaultCommandInput,
+  ListProtectedResourcesByBackupVaultCommandOutput,
+} from "../commands/ListProtectedResourcesByBackupVaultCommand";
 import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -136,6 +158,10 @@ import {
   ListRecoveryPointsByBackupVaultCommandInput,
   ListRecoveryPointsByBackupVaultCommandOutput,
 } from "../commands/ListRecoveryPointsByBackupVaultCommand";
+import {
+  ListRecoveryPointsByLegalHoldCommandInput,
+  ListRecoveryPointsByLegalHoldCommandOutput,
+} from "../commands/ListRecoveryPointsByLegalHoldCommand";
 import {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
@@ -178,15 +204,13 @@ import {
   UpdateRegionSettingsCommandOutput,
 } from "../commands/UpdateRegionSettingsCommand";
 import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "../commands/UpdateReportPlanCommand";
+import { BackupServiceException as __BaseException } from "../models/BackupServiceException";
 import {
   AdvancedBackupSetting,
   AlreadyExistsException,
   BackupJob,
-  BackupPlan,
   BackupPlanInput,
   BackupPlansListMember,
-  BackupPlanTemplatesListMember,
-  BackupRule,
   BackupRuleInput,
   BackupSelection,
   BackupSelectionsListMember,
@@ -201,21 +225,22 @@ import {
   ControlScope,
   CopyAction,
   CopyJob,
+  DateRange,
   DependencyFailureException,
   Framework,
   FrameworkControl,
   InvalidParameterValueException,
   InvalidRequestException,
   InvalidResourceStateException,
+  LegalHold,
   Lifecycle,
   LimitExceededException,
   MissingParameterValueException,
   ProtectedResource,
   RecoveryPointByBackupVault,
   RecoveryPointByResource,
-  RecoveryPointCreator,
+  RecoveryPointSelection,
   ReportDeliveryChannel,
-  ReportDestination,
   ReportJob,
   ReportPlan,
   ReportSetting,
@@ -224,7 +249,39 @@ import {
   ServiceUnavailableException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1CreateBackupPlanCommand = async (
+/**
+ * serializeAws_restJson1CancelLegalHoldCommand
+ */
+export const se_CancelLegalHoldCommand = async (
+  input: CancelLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds/{LegalHoldId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  const query: any = map({
+    cancelDescription: [, __expectNonNull(input.CancelDescription!, `CancelDescription`)],
+    retainRecordInDays: [() => input.RetainRecordInDays !== void 0, () => input.RetainRecordInDays!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateBackupPlanCommand
+ */
+export const se_CreateBackupPlanCommand = async (
   input: CreateBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -234,14 +291,13 @@ export const serializeAws_restJson1CreateBackupPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPlan !== undefined &&
-      input.BackupPlan !== null && { BackupPlan: serializeAws_restJson1BackupPlanInput(input.BackupPlan, context) }),
-    ...(input.BackupPlanTags !== undefined &&
-      input.BackupPlanTags !== null && { BackupPlanTags: serializeAws_restJson1Tags(input.BackupPlanTags, context) }),
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPlan: (_) => _json(_),
+      BackupPlanTags: (_) => _json(_),
+      CreatorRequestId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -253,7 +309,10 @@ export const serializeAws_restJson1CreateBackupPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackupSelectionCommand = async (
+/**
+ * serializeAws_restJson1CreateBackupSelectionCommand
+ */
+export const se_CreateBackupSelectionCommand = async (
   input: CreateBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -263,24 +322,21 @@ export const serializeAws_restJson1CreateBackupSelectionCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/selections";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupSelection !== undefined &&
-      input.BackupSelection !== null && {
-        BackupSelection: serializeAws_restJson1BackupSelection(input.BackupSelection, context),
-      }),
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupSelection: (_) => _json(_),
+      CreatorRequestId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -292,7 +348,10 @@ export const serializeAws_restJson1CreateBackupSelectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateBackupVaultCommand = async (
+/**
+ * serializeAws_restJson1CreateBackupVaultCommand
+ */
+export const se_CreateBackupVaultCommand = async (
   input: CreateBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -302,26 +361,22 @@ export const serializeAws_restJson1CreateBackupVaultCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults/{BackupVaultName}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupVaultTags !== undefined &&
-      input.BackupVaultTags !== null && {
-        BackupVaultTags: serializeAws_restJson1Tags(input.BackupVaultTags, context),
-      }),
-    ...(input.CreatorRequestId !== undefined &&
-      input.CreatorRequestId !== null && { CreatorRequestId: input.CreatorRequestId }),
-    ...(input.EncryptionKeyArn !== undefined &&
-      input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultTags: (_) => _json(_),
+      CreatorRequestId: [],
+      EncryptionKeyArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -333,7 +388,10 @@ export const serializeAws_restJson1CreateBackupVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateFrameworkCommand = async (
+/**
+ * serializeAws_restJson1CreateFrameworkCommand
+ */
+export const se_CreateFrameworkCommand = async (
   input: CreateFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -343,18 +401,15 @@ export const serializeAws_restJson1CreateFrameworkCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks";
   let body: any;
-  body = JSON.stringify({
-    ...(input.FrameworkControls !== undefined &&
-      input.FrameworkControls !== null && {
-        FrameworkControls: serializeAws_restJson1FrameworkControls(input.FrameworkControls, context),
-      }),
-    ...(input.FrameworkDescription !== undefined &&
-      input.FrameworkDescription !== null && { FrameworkDescription: input.FrameworkDescription }),
-    ...(input.FrameworkName !== undefined && input.FrameworkName !== null && { FrameworkName: input.FrameworkName }),
-    ...(input.FrameworkTags !== undefined &&
-      input.FrameworkTags !== null && { FrameworkTags: serializeAws_restJson1stringMap(input.FrameworkTags, context) }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FrameworkControls: (_) => _json(_),
+      FrameworkDescription: [],
+      FrameworkName: [],
+      FrameworkTags: (_) => _json(_),
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -366,7 +421,85 @@ export const serializeAws_restJson1CreateFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateReportPlanCommand = async (
+/**
+ * serializeAws_restJson1CreateLegalHoldCommand
+ */
+export const se_CreateLegalHoldCommand = async (
+  input: CreateLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      IdempotencyToken: [],
+      RecoveryPointSelection: (_) => se_RecoveryPointSelection(_, context),
+      Tags: (_) => _json(_),
+      Title: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommand
+ */
+export const se_CreateLogicallyAirGappedBackupVaultCommand = async (
+  input: CreateLogicallyAirGappedBackupVaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/logically-air-gapped-backup-vaults/{BackupVaultName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultTags: (_) => _json(_),
+      CreatorRequestId: [],
+      MaxRetentionDays: [],
+      MinRetentionDays: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateReportPlanCommand
+ */
+export const se_CreateReportPlanCommand = async (
   input: CreateReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -376,25 +509,16 @@ export const serializeAws_restJson1CreateReportPlanCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans";
   let body: any;
-  body = JSON.stringify({
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ReportDeliveryChannel !== undefined &&
-      input.ReportDeliveryChannel !== null && {
-        ReportDeliveryChannel: serializeAws_restJson1ReportDeliveryChannel(input.ReportDeliveryChannel, context),
-      }),
-    ...(input.ReportPlanDescription !== undefined &&
-      input.ReportPlanDescription !== null && { ReportPlanDescription: input.ReportPlanDescription }),
-    ...(input.ReportPlanName !== undefined &&
-      input.ReportPlanName !== null && { ReportPlanName: input.ReportPlanName }),
-    ...(input.ReportPlanTags !== undefined &&
-      input.ReportPlanTags !== null && {
-        ReportPlanTags: serializeAws_restJson1stringMap(input.ReportPlanTags, context),
-      }),
-    ...(input.ReportSetting !== undefined &&
-      input.ReportSetting !== null && {
-        ReportSetting: serializeAws_restJson1ReportSetting(input.ReportSetting, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ReportDeliveryChannel: (_) => _json(_),
+      ReportPlanDescription: [],
+      ReportPlanName: [],
+      ReportPlanTags: (_) => _json(_),
+      ReportSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -406,7 +530,10 @@ export const serializeAws_restJson1CreateReportPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackupPlanCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackupPlanCommand
+ */
+export const se_DeleteBackupPlanCommand = async (
   input: DeleteBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -414,15 +541,14 @@ export const serializeAws_restJson1DeleteBackupPlanCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -435,7 +561,10 @@ export const serializeAws_restJson1DeleteBackupPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackupSelectionCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackupSelectionCommand
+ */
+export const se_DeleteBackupSelectionCommand = async (
   input: DeleteBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -444,24 +573,15 @@ export const serializeAws_restJson1DeleteBackupSelectionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
-  if (input.SelectionId !== undefined) {
-    const labelValue: string = input.SelectionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SelectionId.");
-    }
-    resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SelectionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "SelectionId", () => input.SelectionId!, "{SelectionId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -474,7 +594,10 @@ export const serializeAws_restJson1DeleteBackupSelectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackupVaultCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackupVaultCommand
+ */
+export const se_DeleteBackupVaultCommand = async (
   input: DeleteBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -482,15 +605,14 @@ export const serializeAws_restJson1DeleteBackupVaultCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults/{BackupVaultName}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -503,7 +625,10 @@ export const serializeAws_restJson1DeleteBackupVaultCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand
+ */
+export const se_DeleteBackupVaultAccessPolicyCommand = async (
   input: DeleteBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -512,15 +637,14 @@ export const serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand = async 
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/access-policy";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -533,7 +657,10 @@ export const serializeAws_restJson1DeleteBackupVaultAccessPolicyCommand = async 
   });
 };
 
-export const serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand
+ */
+export const se_DeleteBackupVaultLockConfigurationCommand = async (
   input: DeleteBackupVaultLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -542,15 +669,14 @@ export const serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand = a
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/vault-lock";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -563,7 +689,10 @@ export const serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand = a
   });
 };
 
-export const serializeAws_restJson1DeleteBackupVaultNotificationsCommand = async (
+/**
+ * serializeAws_restJson1DeleteBackupVaultNotificationsCommand
+ */
+export const se_DeleteBackupVaultNotificationsCommand = async (
   input: DeleteBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -572,15 +701,14 @@ export const serializeAws_restJson1DeleteBackupVaultNotificationsCommand = async
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/notification-configuration";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -593,7 +721,10 @@ export const serializeAws_restJson1DeleteBackupVaultNotificationsCommand = async
   });
 };
 
-export const serializeAws_restJson1DeleteFrameworkCommand = async (
+/**
+ * serializeAws_restJson1DeleteFrameworkCommand
+ */
+export const se_DeleteFrameworkCommand = async (
   input: DeleteFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -601,15 +732,14 @@ export const serializeAws_restJson1DeleteFrameworkCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks/{FrameworkName}";
-  if (input.FrameworkName !== undefined) {
-    const labelValue: string = input.FrameworkName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FrameworkName.");
-    }
-    resolvedPath = resolvedPath.replace("{FrameworkName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FrameworkName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FrameworkName",
+    () => input.FrameworkName!,
+    "{FrameworkName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -622,7 +752,10 @@ export const serializeAws_restJson1DeleteFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteRecoveryPointCommand = async (
+/**
+ * serializeAws_restJson1DeleteRecoveryPointCommand
+ */
+export const se_DeleteRecoveryPointCommand = async (
   input: DeleteRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -631,24 +764,22 @@ export const serializeAws_restJson1DeleteRecoveryPointCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
-    }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -661,7 +792,10 @@ export const serializeAws_restJson1DeleteRecoveryPointCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteReportPlanCommand = async (
+/**
+ * serializeAws_restJson1DeleteReportPlanCommand
+ */
+export const se_DeleteReportPlanCommand = async (
   input: DeleteReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -669,15 +803,14 @@ export const serializeAws_restJson1DeleteReportPlanCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans/{ReportPlanName}";
-  if (input.ReportPlanName !== undefined) {
-    const labelValue: string = input.ReportPlanName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ReportPlanName.");
-    }
-    resolvedPath = resolvedPath.replace("{ReportPlanName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ReportPlanName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ReportPlanName",
+    () => input.ReportPlanName!,
+    "{ReportPlanName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -690,7 +823,10 @@ export const serializeAws_restJson1DeleteReportPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBackupJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeBackupJobCommand
+ */
+export const se_DescribeBackupJobCommand = async (
   input: DescribeBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -698,15 +834,7 @@ export const serializeAws_restJson1DescribeBackupJobCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs/{BackupJobId}";
-  if (input.BackupJobId !== undefined) {
-    const labelValue: string = input.BackupJobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupJobId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupJobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupJobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -719,7 +847,10 @@ export const serializeAws_restJson1DescribeBackupJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeBackupVaultCommand = async (
+/**
+ * serializeAws_restJson1DescribeBackupVaultCommand
+ */
+export const se_DescribeBackupVaultCommand = async (
   input: DescribeBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -727,15 +858,17 @@ export const serializeAws_restJson1DescribeBackupVaultCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults/{BackupVaultName}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -744,26 +877,22 @@ export const serializeAws_restJson1DescribeBackupVaultCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
 
-export const serializeAws_restJson1DescribeCopyJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeCopyJobCommand
+ */
+export const se_DescribeCopyJobCommand = async (
   input: DescribeCopyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs/{CopyJobId}";
-  if (input.CopyJobId !== undefined) {
-    const labelValue: string = input.CopyJobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CopyJobId.");
-    }
-    resolvedPath = resolvedPath.replace("{CopyJobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CopyJobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "CopyJobId", () => input.CopyJobId!, "{CopyJobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -776,7 +905,10 @@ export const serializeAws_restJson1DescribeCopyJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeFrameworkCommand = async (
+/**
+ * serializeAws_restJson1DescribeFrameworkCommand
+ */
+export const se_DescribeFrameworkCommand = async (
   input: DescribeFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -784,15 +916,14 @@ export const serializeAws_restJson1DescribeFrameworkCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks/{FrameworkName}";
-  if (input.FrameworkName !== undefined) {
-    const labelValue: string = input.FrameworkName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FrameworkName.");
-    }
-    resolvedPath = resolvedPath.replace("{FrameworkName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FrameworkName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FrameworkName",
+    () => input.FrameworkName!,
+    "{FrameworkName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -805,7 +936,10 @@ export const serializeAws_restJson1DescribeFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeGlobalSettingsCommand = async (
+/**
+ * serializeAws_restJson1DescribeGlobalSettingsCommand
+ */
+export const se_DescribeGlobalSettingsCommand = async (
   input: DescribeGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -827,22 +961,17 @@ export const serializeAws_restJson1DescribeGlobalSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeProtectedResourceCommand = async (
+/**
+ * serializeAws_restJson1DescribeProtectedResourceCommand
+ */
+export const se_DescribeProtectedResourceCommand = async (
   input: DescribeProtectedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -855,7 +984,10 @@ export const serializeAws_restJson1DescribeProtectedResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeRecoveryPointCommand = async (
+/**
+ * serializeAws_restJson1DescribeRecoveryPointCommand
+ */
+export const se_DescribeRecoveryPointCommand = async (
   input: DescribeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -864,24 +996,25 @@ export const serializeAws_restJson1DescribeRecoveryPointCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
-    }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -890,11 +1023,15 @@ export const serializeAws_restJson1DescribeRecoveryPointCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
 
-export const serializeAws_restJson1DescribeRegionSettingsCommand = async (
+/**
+ * serializeAws_restJson1DescribeRegionSettingsCommand
+ */
+export const se_DescribeRegionSettingsCommand = async (
   input: DescribeRegionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -916,7 +1053,10 @@ export const serializeAws_restJson1DescribeRegionSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeReportJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeReportJobCommand
+ */
+export const se_DescribeReportJobCommand = async (
   input: DescribeReportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -924,15 +1064,7 @@ export const serializeAws_restJson1DescribeReportJobCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-jobs/{ReportJobId}";
-  if (input.ReportJobId !== undefined) {
-    const labelValue: string = input.ReportJobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ReportJobId.");
-    }
-    resolvedPath = resolvedPath.replace("{ReportJobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ReportJobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ReportJobId", () => input.ReportJobId!, "{ReportJobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -945,7 +1077,10 @@ export const serializeAws_restJson1DescribeReportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeReportPlanCommand = async (
+/**
+ * serializeAws_restJson1DescribeReportPlanCommand
+ */
+export const se_DescribeReportPlanCommand = async (
   input: DescribeReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -953,15 +1088,14 @@ export const serializeAws_restJson1DescribeReportPlanCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans/{ReportPlanName}";
-  if (input.ReportPlanName !== undefined) {
-    const labelValue: string = input.ReportPlanName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ReportPlanName.");
-    }
-    resolvedPath = resolvedPath.replace("{ReportPlanName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ReportPlanName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ReportPlanName",
+    () => input.ReportPlanName!,
+    "{ReportPlanName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -974,7 +1108,10 @@ export const serializeAws_restJson1DescribeReportPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeRestoreJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeRestoreJobCommand
+ */
+export const se_DescribeRestoreJobCommand = async (
   input: DescribeRestoreJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -982,15 +1119,14 @@ export const serializeAws_restJson1DescribeRestoreJobCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs/{RestoreJobId}";
-  if (input.RestoreJobId !== undefined) {
-    const labelValue: string = input.RestoreJobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RestoreJobId.");
-    }
-    resolvedPath = resolvedPath.replace("{RestoreJobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RestoreJobId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RestoreJobId",
+    () => input.RestoreJobId!,
+    "{RestoreJobId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1003,7 +1139,10 @@ export const serializeAws_restJson1DescribeRestoreJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1DisassociateRecoveryPointCommand = async (
+/**
+ * serializeAws_restJson1DisassociateRecoveryPointCommand
+ */
+export const se_DisassociateRecoveryPointCommand = async (
   input: DisassociateRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1012,24 +1151,22 @@ export const serializeAws_restJson1DisassociateRecoveryPointCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
-    }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1042,7 +1179,50 @@ export const serializeAws_restJson1DisassociateRecoveryPointCommand = async (
   });
 };
 
-export const serializeAws_restJson1ExportBackupPlanTemplateCommand = async (
+/**
+ * serializeAws_restJson1DisassociateRecoveryPointFromParentCommand
+ */
+export const se_DisassociateRecoveryPointFromParentCommand = async (
+  input: DisassociateRecoveryPointFromParentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ExportBackupPlanTemplateCommand
+ */
+export const se_ExportBackupPlanTemplateCommand = async (
   input: ExportBackupPlanTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1050,15 +1230,14 @@ export const serializeAws_restJson1ExportBackupPlanTemplateCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/toTemplate";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1071,7 +1250,10 @@ export const serializeAws_restJson1ExportBackupPlanTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackupPlanCommand = async (
+/**
+ * serializeAws_restJson1GetBackupPlanCommand
+ */
+export const se_GetBackupPlanCommand = async (
   input: GetBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1079,18 +1261,17 @@ export const serializeAws_restJson1GetBackupPlanCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
-  const query: any = {
-    ...(input.VersionId !== undefined && { versionId: input.VersionId }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
+  const query: any = map({
+    versionId: [, input.VersionId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1104,7 +1285,10 @@ export const serializeAws_restJson1GetBackupPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackupPlanFromJSONCommand = async (
+/**
+ * serializeAws_restJson1GetBackupPlanFromJSONCommand
+ */
+export const se_GetBackupPlanFromJSONCommand = async (
   input: GetBackupPlanFromJSONCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1115,10 +1299,11 @@ export const serializeAws_restJson1GetBackupPlanFromJSONCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/template/json/toPlan";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPlanTemplateJson !== undefined &&
-      input.BackupPlanTemplateJson !== null && { BackupPlanTemplateJson: input.BackupPlanTemplateJson }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPlanTemplateJson: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1130,7 +1315,10 @@ export const serializeAws_restJson1GetBackupPlanFromJSONCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
+/**
+ * serializeAws_restJson1GetBackupPlanFromTemplateCommand
+ */
+export const se_GetBackupPlanFromTemplateCommand = async (
   input: GetBackupPlanFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1139,15 +1327,14 @@ export const serializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup/template/plans/{BackupPlanTemplateId}/toPlan";
-  if (input.BackupPlanTemplateId !== undefined) {
-    const labelValue: string = input.BackupPlanTemplateId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanTemplateId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanTemplateId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanTemplateId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanTemplateId",
+    () => input.BackupPlanTemplateId!,
+    "{BackupPlanTemplateId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1160,7 +1347,10 @@ export const serializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackupSelectionCommand = async (
+/**
+ * serializeAws_restJson1GetBackupSelectionCommand
+ */
+export const se_GetBackupSelectionCommand = async (
   input: GetBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1169,24 +1359,15 @@ export const serializeAws_restJson1GetBackupSelectionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
-  if (input.SelectionId !== undefined) {
-    const labelValue: string = input.SelectionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SelectionId.");
-    }
-    resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SelectionId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "SelectionId", () => input.SelectionId!, "{SelectionId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1199,7 +1380,10 @@ export const serializeAws_restJson1GetBackupSelectionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
+/**
+ * serializeAws_restJson1GetBackupVaultAccessPolicyCommand
+ */
+export const se_GetBackupVaultAccessPolicyCommand = async (
   input: GetBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1208,15 +1392,14 @@ export const serializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/access-policy";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1229,7 +1412,10 @@ export const serializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetBackupVaultNotificationsCommand = async (
+/**
+ * serializeAws_restJson1GetBackupVaultNotificationsCommand
+ */
+export const se_GetBackupVaultNotificationsCommand = async (
   input: GetBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1238,15 +1424,14 @@ export const serializeAws_restJson1GetBackupVaultNotificationsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/notification-configuration";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1259,7 +1444,34 @@ export const serializeAws_restJson1GetBackupVaultNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = async (
+/**
+ * serializeAws_restJson1GetLegalHoldCommand
+ */
+export const se_GetLegalHoldCommand = async (
+  input: GetLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds/{LegalHoldId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand
+ */
+export const se_GetRecoveryPointRestoreMetadataCommand = async (
   input: GetRecoveryPointRestoreMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1268,24 +1480,25 @@ export const serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
-    }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1294,11 +1507,15 @@ export const serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = asyn
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
 
-export const serializeAws_restJson1GetSupportedResourceTypesCommand = async (
+/**
+ * serializeAws_restJson1GetSupportedResourceTypesCommand
+ */
+export const se_GetSupportedResourceTypesCommand = async (
   input: GetSupportedResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1321,28 +1538,42 @@ export const serializeAws_restJson1GetSupportedResourceTypesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackupJobsCommand = async (
+/**
+ * serializeAws_restJson1ListBackupJobsCommand
+ */
+export const se_ListBackupJobsCommand = async (
   input: ListBackupJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
-    ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.ByBackupVaultName !== undefined && { backupVaultName: input.ByBackupVaultName }),
-    ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
-  };
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    resourceArn: [, input.ByResourceArn!],
+    state: [, input.ByState!],
+    backupVaultName: [, input.ByBackupVaultName!],
+    createdBefore: [
+      () => input.ByCreatedBefore !== void 0,
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.ByCreatedAfter !== void 0,
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    resourceType: [, input.ByResourceType!],
+    accountId: [, input.ByAccountId!],
+    completeAfter: [
+      () => input.ByCompleteAfter !== void 0,
+      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    completeBefore: [
+      () => input.ByCompleteBefore !== void 0,
+      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    parentJobId: [, input.ByParentJobId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1356,18 +1587,21 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackupPlansCommand = async (
+/**
+ * serializeAws_restJson1ListBackupPlansCommand
+ */
+export const se_ListBackupPlansCommand = async (
   input: ListBackupPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.IncludeDeleted !== undefined && { includeDeleted: input.IncludeDeleted.toString() }),
-  };
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    includeDeleted: [() => input.IncludeDeleted !== void 0, () => input.IncludeDeleted!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1381,17 +1615,20 @@ export const serializeAws_restJson1ListBackupPlansCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackupPlanTemplatesCommand = async (
+/**
+ * serializeAws_restJson1ListBackupPlanTemplatesCommand
+ */
+export const se_ListBackupPlanTemplatesCommand = async (
   input: ListBackupPlanTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/template/plans";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1405,7 +1642,10 @@ export const serializeAws_restJson1ListBackupPlanTemplatesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackupPlanVersionsCommand = async (
+/**
+ * serializeAws_restJson1ListBackupPlanVersionsCommand
+ */
+export const se_ListBackupPlanVersionsCommand = async (
   input: ListBackupPlanVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1413,19 +1653,18 @@ export const serializeAws_restJson1ListBackupPlanVersionsCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/versions";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1439,7 +1678,10 @@ export const serializeAws_restJson1ListBackupPlanVersionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackupSelectionsCommand = async (
+/**
+ * serializeAws_restJson1ListBackupSelectionsCommand
+ */
+export const se_ListBackupSelectionsCommand = async (
   input: ListBackupSelectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1447,19 +1689,18 @@ export const serializeAws_restJson1ListBackupSelectionsCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/selections";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1473,17 +1714,22 @@ export const serializeAws_restJson1ListBackupSelectionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListBackupVaultsCommand = async (
+/**
+ * serializeAws_restJson1ListBackupVaultsCommand
+ */
+export const se_ListBackupVaultsCommand = async (
   input: ListBackupVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  const query: any = map({
+    vaultType: [, input.ByVaultType!],
+    shared: [() => input.ByShared !== void 0, () => input.ByShared!.toString()],
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1497,28 +1743,42 @@ export const serializeAws_restJson1ListBackupVaultsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListCopyJobsCommand = async (
+/**
+ * serializeAws_restJson1ListCopyJobsCommand
+ */
+export const se_ListCopyJobsCommand = async (
   input: ListCopyJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
-    ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.ByDestinationVaultArn !== undefined && { destinationVaultArn: input.ByDestinationVaultArn }),
-    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
-  };
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    resourceArn: [, input.ByResourceArn!],
+    state: [, input.ByState!],
+    createdBefore: [
+      () => input.ByCreatedBefore !== void 0,
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.ByCreatedAfter !== void 0,
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    resourceType: [, input.ByResourceType!],
+    destinationVaultArn: [, input.ByDestinationVaultArn!],
+    accountId: [, input.ByAccountId!],
+    completeBefore: [
+      () => input.ByCompleteBefore !== void 0,
+      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    completeAfter: [
+      () => input.ByCompleteAfter !== void 0,
+      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    parentJobId: [, input.ByParentJobId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1532,17 +1792,20 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListFrameworksCommand = async (
+/**
+ * serializeAws_restJson1ListFrameworksCommand
+ */
+export const se_ListFrameworksCommand = async (
   input: ListFrameworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-  };
+  const query: any = map({
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1556,17 +1819,47 @@ export const serializeAws_restJson1ListFrameworksCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProtectedResourcesCommand = async (
+/**
+ * serializeAws_restJson1ListLegalHoldsCommand
+ */
+export const se_ListLegalHoldsCommand = async (
+  input: ListLegalHoldsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListProtectedResourcesCommand
+ */
+export const se_ListProtectedResourcesCommand = async (
   input: ListProtectedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1580,7 +1873,48 @@ export const serializeAws_restJson1ListProtectedResourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = async (
+/**
+ * serializeAws_restJson1ListProtectedResourcesByBackupVaultCommand
+ */
+export const se_ListProtectedResourcesByBackupVaultCommand = async (
+  input: ListProtectedResourcesByBackupVaultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backup-vaults/{BackupVaultName}/resources";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand
+ */
+export const se_ListRecoveryPointsByBackupVaultCommand = async (
   input: ListRecoveryPointsByBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1589,28 +1923,31 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/recovery-points";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.ByBackupPlanId !== undefined && { backupPlanId: input.ByBackupPlanId }),
-    ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  const query: any = map({
+    backupVaultAccountId: [, input.BackupVaultAccountId!],
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    resourceArn: [, input.ByResourceArn!],
+    resourceType: [, input.ByResourceType!],
+    backupPlanId: [, input.ByBackupPlanId!],
+    createdBefore: [
+      () => input.ByCreatedBefore !== void 0,
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.ByCreatedAfter !== void 0,
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    parentRecoveryPointArn: [, input.ByParentRecoveryPointArn!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1624,7 +1961,40 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
   });
 };
 
-export const serializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
+/**
+ * serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand
+ */
+export const se_ListRecoveryPointsByLegalHoldCommand = async (
+  input: ListRecoveryPointsByLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/legal-holds/{LegalHoldId}/recovery-points";
+  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListRecoveryPointsByResourceCommand
+ */
+export const se_ListRecoveryPointsByResourceCommand = async (
   input: ListRecoveryPointsByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1632,19 +2002,11 @@ export const serializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/recovery-points";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1658,25 +2020,30 @@ export const serializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListReportJobsCommand = async (
+/**
+ * serializeAws_restJson1ListReportJobsCommand
+ */
+export const se_ListReportJobsCommand = async (
   input: ListReportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-jobs";
-  const query: any = {
-    ...(input.ByReportPlanName !== undefined && { ReportPlanName: input.ByReportPlanName }),
-    ...(input.ByCreationBefore !== undefined && {
-      CreationBefore: (input.ByCreationBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByCreationAfter !== undefined && {
-      CreationAfter: (input.ByCreationAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByStatus !== undefined && { Status: input.ByStatus }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-  };
+  const query: any = map({
+    ReportPlanName: [, input.ByReportPlanName!],
+    CreationBefore: [
+      () => input.ByCreationBefore !== void 0,
+      () => (input.ByCreationBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    CreationAfter: [
+      () => input.ByCreationAfter !== void 0,
+      () => (input.ByCreationAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    Status: [, input.ByStatus!],
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1690,17 +2057,20 @@ export const serializeAws_restJson1ListReportJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListReportPlansCommand = async (
+/**
+ * serializeAws_restJson1ListReportPlansCommand
+ */
+export const se_ListReportPlansCommand = async (
   input: ListReportPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-  };
+  const query: any = map({
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1714,25 +2084,38 @@ export const serializeAws_restJson1ListReportPlansCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListRestoreJobsCommand = async (
+/**
+ * serializeAws_restJson1ListRestoreJobsCommand
+ */
+export const se_ListRestoreJobsCommand = async (
   input: ListRestoreJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs";
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
-    ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.ByStatus !== undefined && { status: input.ByStatus }),
-  };
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    accountId: [, input.ByAccountId!],
+    createdBefore: [
+      () => input.ByCreatedBefore !== void 0,
+      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.ByCreatedAfter !== void 0,
+      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    status: [, input.ByStatus!],
+    completeBefore: [
+      () => input.ByCompleteBefore !== void 0,
+      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    completeAfter: [
+      () => input.ByCompleteAfter !== void 0,
+      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1746,26 +2129,21 @@ export const serializeAws_restJson1ListRestoreJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsCommand = async (
+/**
+ * serializeAws_restJson1ListTagsCommand
+ */
+export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
-  const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1779,7 +2157,10 @@ export const serializeAws_restJson1ListTagsCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
+/**
+ * serializeAws_restJson1PutBackupVaultAccessPolicyCommand
+ */
+export const se_PutBackupVaultAccessPolicyCommand = async (
   input: PutBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1790,19 +2171,20 @@ export const serializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/access-policy";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1814,7 +2196,10 @@ export const serializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutBackupVaultLockConfigurationCommand = async (
+/**
+ * serializeAws_restJson1PutBackupVaultLockConfigurationCommand
+ */
+export const se_PutBackupVaultLockConfigurationCommand = async (
   input: PutBackupVaultLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1825,24 +2210,22 @@ export const serializeAws_restJson1PutBackupVaultLockConfigurationCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/vault-lock";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.ChangeableForDays !== undefined &&
-      input.ChangeableForDays !== null && { ChangeableForDays: input.ChangeableForDays }),
-    ...(input.MaxRetentionDays !== undefined &&
-      input.MaxRetentionDays !== null && { MaxRetentionDays: input.MaxRetentionDays }),
-    ...(input.MinRetentionDays !== undefined &&
-      input.MinRetentionDays !== null && { MinRetentionDays: input.MinRetentionDays }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ChangeableForDays: [],
+      MaxRetentionDays: [],
+      MinRetentionDays: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1854,7 +2237,10 @@ export const serializeAws_restJson1PutBackupVaultLockConfigurationCommand = asyn
   });
 };
 
-export const serializeAws_restJson1PutBackupVaultNotificationsCommand = async (
+/**
+ * serializeAws_restJson1PutBackupVaultNotificationsCommand
+ */
+export const se_PutBackupVaultNotificationsCommand = async (
   input: PutBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1865,23 +2251,21 @@ export const serializeAws_restJson1PutBackupVaultNotificationsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/notification-configuration";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupVaultEvents !== undefined &&
-      input.BackupVaultEvents !== null && {
-        BackupVaultEvents: serializeAws_restJson1BackupVaultEvents(input.BackupVaultEvents, context),
-      }),
-    ...(input.SNSTopicArn !== undefined && input.SNSTopicArn !== null && { SNSTopicArn: input.SNSTopicArn }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupVaultEvents: (_) => _json(_),
+      SNSTopicArn: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1893,7 +2277,10 @@ export const serializeAws_restJson1PutBackupVaultNotificationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartBackupJobCommand = async (
+/**
+ * serializeAws_restJson1StartBackupJobCommand
+ */
+export const se_StartBackupJobCommand = async (
   input: StartBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1903,28 +2290,19 @@ export const serializeAws_restJson1StartBackupJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupOptions !== undefined &&
-      input.BackupOptions !== null && {
-        BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
-      }),
-    ...(input.BackupVaultName !== undefined &&
-      input.BackupVaultName !== null && { BackupVaultName: input.BackupVaultName }),
-    ...(input.CompleteWindowMinutes !== undefined &&
-      input.CompleteWindowMinutes !== null && { CompleteWindowMinutes: input.CompleteWindowMinutes }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointTags !== undefined &&
-      input.RecoveryPointTags !== null && {
-        RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
-      }),
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.StartWindowMinutes !== undefined &&
-      input.StartWindowMinutes !== null && { StartWindowMinutes: input.StartWindowMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupOptions: (_) => _json(_),
+      BackupVaultName: [],
+      CompleteWindowMinutes: [],
+      IamRoleArn: [],
+      IdempotencyToken: [],
+      Lifecycle: (_) => _json(_),
+      RecoveryPointTags: (_) => _json(_),
+      ResourceArn: [],
+      StartWindowMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1936,7 +2314,10 @@ export const serializeAws_restJson1StartBackupJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartCopyJobCommand = async (
+/**
+ * serializeAws_restJson1StartCopyJobCommand
+ */
+export const se_StartCopyJobCommand = async (
   input: StartCopyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1946,19 +2327,16 @@ export const serializeAws_restJson1StartCopyJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.DestinationBackupVaultArn !== undefined &&
-      input.DestinationBackupVaultArn !== null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointArn !== undefined &&
-      input.RecoveryPointArn !== null && { RecoveryPointArn: input.RecoveryPointArn }),
-    ...(input.SourceBackupVaultName !== undefined &&
-      input.SourceBackupVaultName !== null && { SourceBackupVaultName: input.SourceBackupVaultName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      DestinationBackupVaultArn: [],
+      IamRoleArn: [],
+      IdempotencyToken: [],
+      Lifecycle: (_) => _json(_),
+      RecoveryPointArn: [],
+      SourceBackupVaultName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1970,7 +2348,10 @@ export const serializeAws_restJson1StartCopyJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartReportJobCommand = async (
+/**
+ * serializeAws_restJson1StartReportJobCommand
+ */
+export const se_StartReportJobCommand = async (
   input: StartReportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1980,19 +2361,20 @@ export const serializeAws_restJson1StartReportJobCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-jobs/{ReportPlanName}";
-  if (input.ReportPlanName !== undefined) {
-    const labelValue: string = input.ReportPlanName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ReportPlanName.");
-    }
-    resolvedPath = resolvedPath.replace("{ReportPlanName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ReportPlanName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ReportPlanName",
+    () => input.ReportPlanName!,
+    "{ReportPlanName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2004,7 +2386,10 @@ export const serializeAws_restJson1StartReportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartRestoreJobCommand = async (
+/**
+ * serializeAws_restJson1StartRestoreJobCommand
+ */
+export const se_StartRestoreJobCommand = async (
   input: StartRestoreJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2014,16 +2399,16 @@ export const serializeAws_restJson1StartRestoreJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs";
   let body: any;
-  body = JSON.stringify({
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.IdempotencyToken !== undefined &&
-      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
-    ...(input.Metadata !== undefined &&
-      input.Metadata !== null && { Metadata: serializeAws_restJson1Metadata(input.Metadata, context) }),
-    ...(input.RecoveryPointArn !== undefined &&
-      input.RecoveryPointArn !== null && { RecoveryPointArn: input.RecoveryPointArn }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      CopySourceTagsToRestoredResource: [],
+      IamRoleArn: [],
+      IdempotencyToken: [],
+      Metadata: (_) => _json(_),
+      RecoveryPointArn: [],
+      ResourceType: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2035,7 +2420,10 @@ export const serializeAws_restJson1StartRestoreJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopBackupJobCommand = async (
+/**
+ * serializeAws_restJson1StopBackupJobCommand
+ */
+export const se_StopBackupJobCommand = async (
   input: StopBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2043,15 +2431,7 @@ export const serializeAws_restJson1StopBackupJobCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs/{BackupJobId}";
-  if (input.BackupJobId !== undefined) {
-    const labelValue: string = input.BackupJobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupJobId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupJobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupJobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -2064,7 +2444,10 @@ export const serializeAws_restJson1StopBackupJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2073,19 +2456,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2097,7 +2474,10 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2106,20 +2486,13 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untag/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.TagKeyList !== undefined &&
-      input.TagKeyList !== null && { TagKeyList: serializeAws_restJson1TagKeyList(input.TagKeyList, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      TagKeyList: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2131,7 +2504,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateBackupPlanCommand = async (
+/**
+ * serializeAws_restJson1UpdateBackupPlanCommand
+ */
+export const se_UpdateBackupPlanCommand = async (
   input: UpdateBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2141,20 +2517,20 @@ export const serializeAws_restJson1UpdateBackupPlanCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}";
-  if (input.BackupPlanId !== undefined) {
-    const labelValue: string = input.BackupPlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupPlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupPlanId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupPlanId",
+    () => input.BackupPlanId!,
+    "{BackupPlanId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.BackupPlan !== undefined &&
-      input.BackupPlan !== null && { BackupPlan: serializeAws_restJson1BackupPlanInput(input.BackupPlan, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      BackupPlan: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2166,7 +2542,10 @@ export const serializeAws_restJson1UpdateBackupPlanCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateFrameworkCommand = async (
+/**
+ * serializeAws_restJson1UpdateFrameworkCommand
+ */
+export const se_UpdateFrameworkCommand = async (
   input: UpdateFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2176,25 +2555,22 @@ export const serializeAws_restJson1UpdateFrameworkCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks/{FrameworkName}";
-  if (input.FrameworkName !== undefined) {
-    const labelValue: string = input.FrameworkName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FrameworkName.");
-    }
-    resolvedPath = resolvedPath.replace("{FrameworkName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FrameworkName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "FrameworkName",
+    () => input.FrameworkName!,
+    "{FrameworkName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.FrameworkControls !== undefined &&
-      input.FrameworkControls !== null && {
-        FrameworkControls: serializeAws_restJson1FrameworkControls(input.FrameworkControls, context),
-      }),
-    ...(input.FrameworkDescription !== undefined &&
-      input.FrameworkDescription !== null && { FrameworkDescription: input.FrameworkDescription }),
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FrameworkControls: (_) => _json(_),
+      FrameworkDescription: [],
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2206,7 +2582,10 @@ export const serializeAws_restJson1UpdateFrameworkCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
+/**
+ * serializeAws_restJson1UpdateGlobalSettingsCommand
+ */
+export const se_UpdateGlobalSettingsCommand = async (
   input: UpdateGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2216,12 +2595,11 @@ export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.GlobalSettings !== undefined &&
-      input.GlobalSettings !== null && {
-        GlobalSettings: serializeAws_restJson1GlobalSettings(input.GlobalSettings, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      GlobalSettings: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2233,7 +2611,10 @@ export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
+/**
+ * serializeAws_restJson1UpdateRecoveryPointLifecycleCommand
+ */
+export const se_UpdateRecoveryPointLifecycleCommand = async (
   input: UpdateRecoveryPointLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2244,29 +2625,28 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  if (input.BackupVaultName !== undefined) {
-    const labelValue: string = input.BackupVaultName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
-    }
-    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BackupVaultName.");
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
-    }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Lifecycle: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2278,7 +2658,10 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateRegionSettingsCommand = async (
+/**
+ * serializeAws_restJson1UpdateRegionSettingsCommand
+ */
+export const se_UpdateRegionSettingsCommand = async (
   input: UpdateRegionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2288,15 +2671,12 @@ export const serializeAws_restJson1UpdateRegionSettingsCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account-settings";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ResourceTypeOptInPreference !== undefined &&
-      input.ResourceTypeOptInPreference !== null && {
-        ResourceTypeOptInPreference: serializeAws_restJson1ResourceTypeOptInPreference(
-          input.ResourceTypeOptInPreference,
-          context
-        ),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ResourceTypeManagementPreference: (_) => _json(_),
+      ResourceTypeOptInPreference: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2308,7 +2688,10 @@ export const serializeAws_restJson1UpdateRegionSettingsCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateReportPlanCommand = async (
+/**
+ * serializeAws_restJson1UpdateReportPlanCommand
+ */
+export const se_UpdateReportPlanCommand = async (
   input: UpdateReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -2318,29 +2701,23 @@ export const serializeAws_restJson1UpdateReportPlanCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans/{ReportPlanName}";
-  if (input.ReportPlanName !== undefined) {
-    const labelValue: string = input.ReportPlanName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ReportPlanName.");
-    }
-    resolvedPath = resolvedPath.replace("{ReportPlanName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ReportPlanName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ReportPlanName",
+    () => input.ReportPlanName!,
+    "{ReportPlanName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ReportDeliveryChannel !== undefined &&
-      input.ReportDeliveryChannel !== null && {
-        ReportDeliveryChannel: serializeAws_restJson1ReportDeliveryChannel(input.ReportDeliveryChannel, context),
-      }),
-    ...(input.ReportPlanDescription !== undefined &&
-      input.ReportPlanDescription !== null && { ReportPlanDescription: input.ReportPlanDescription }),
-    ...(input.ReportSetting !== undefined &&
-      input.ReportSetting !== null && {
-        ReportSetting: serializeAws_restJson1ReportSetting(input.ReportSetting, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ReportDeliveryChannel: (_) => _json(_),
+      ReportPlanDescription: [],
+      ReportSetting: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2352,7390 +2729,5139 @@ export const serializeAws_restJson1UpdateReportPlanCommand = async (
   });
 };
 
-export const deserializeAws_restJson1CreateBackupPlanCommand = async (
+/**
+ * deserializeAws_restJson1CancelLegalHoldCommand
+ */
+export const de_CancelLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLegalHoldCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CancelLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelLegalHoldCommandError
+ */
+const de_CancelLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.backup#InvalidResourceStateException":
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateBackupPlanCommand
+ */
+export const de_CreateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackupPlanCommandError(output, context);
+    return de_CreateBackupPlanCommandError(output, context);
   }
-  const contents: CreateBackupPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AdvancedBackupSettings: undefined,
-    BackupPlanArn: undefined,
-    BackupPlanId: undefined,
-    CreationDate: undefined,
-    VersionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedBackupSettings !== undefined && data.AdvancedBackupSettings !== null) {
-    contents.AdvancedBackupSettings = deserializeAws_restJson1AdvancedBackupSettings(
-      data.AdvancedBackupSettings,
-      context
-    );
-  }
-  if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId !== undefined && data.BackupPlanId !== null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.VersionId !== undefined && data.VersionId !== null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdvancedBackupSettings: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateBackupPlanCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackupPlanCommandError
+ */
+const de_CreateBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreateBackupSelectionCommand = async (
+/**
+ * deserializeAws_restJson1CreateBackupSelectionCommand
+ */
+export const de_CreateBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackupSelectionCommandError(output, context);
+    return de_CreateBackupSelectionCommandError(output, context);
   }
-  const contents: CreateBackupSelectionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanId: undefined,
-    CreationDate: undefined,
-    SelectionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanId !== undefined && data.BackupPlanId !== null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.SelectionId !== undefined && data.SelectionId !== null) {
-    contents.SelectionId = __expectString(data.SelectionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SelectionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateBackupSelectionCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackupSelectionCommandError
+ */
+const de_CreateBackupSelectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreateBackupVaultCommand = async (
+/**
+ * deserializeAws_restJson1CreateBackupVaultCommand
+ */
+export const de_CreateBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateBackupVaultCommandError(output, context);
+    return de_CreateBackupVaultCommandError(output, context);
   }
-  const contents: CreateBackupVaultCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    CreationDate: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateBackupVaultCommandError = async (
+/**
+ * deserializeAws_restJson1CreateBackupVaultCommandError
+ */
+const de_CreateBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreateFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1CreateFrameworkCommand
+ */
+export const de_CreateFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateFrameworkCommandError(output, context);
+    return de_CreateFrameworkCommandError(output, context);
   }
-  const contents: CreateFrameworkCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FrameworkArn: undefined,
-    FrameworkName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.FrameworkArn !== undefined && data.FrameworkArn !== null) {
-    contents.FrameworkArn = __expectString(data.FrameworkArn);
-  }
-  if (data.FrameworkName !== undefined && data.FrameworkName !== null) {
-    contents.FrameworkName = __expectString(data.FrameworkName);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FrameworkArn: __expectString,
+    FrameworkName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1CreateFrameworkCommandError
+ */
+const de_CreateFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFrameworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CreateReportPlanCommand = async (
+/**
+ * deserializeAws_restJson1CreateLegalHoldCommand
+ */
+export const de_CreateLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLegalHoldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LegalHoldArn: __expectString,
+    LegalHoldId: __expectString,
+    RecoveryPointSelection: (_) => de_RecoveryPointSelection(_, context),
+    Status: __expectString,
+    Title: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLegalHoldCommandError
+ */
+const de_CreateLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommand
+ */
+export const de_CreateLogicallyAirGappedBackupVaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLogicallyAirGappedBackupVaultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VaultState: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommandError
+ */
+const de_CreateLogicallyAirGappedBackupVaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateReportPlanCommand
+ */
+export const de_CreateReportPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateReportPlanCommandError(output, context);
+    return de_CreateReportPlanCommandError(output, context);
   }
-  const contents: CreateReportPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CreationTime: undefined,
-    ReportPlanArn: undefined,
-    ReportPlanName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ReportPlanArn !== undefined && data.ReportPlanArn !== null) {
-    contents.ReportPlanArn = __expectString(data.ReportPlanArn);
-  }
-  if (data.ReportPlanName !== undefined && data.ReportPlanName !== null) {
-    contents.ReportPlanName = __expectString(data.ReportPlanName);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportPlanArn: __expectString,
+    ReportPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1CreateReportPlanCommandError = async (
+/**
+ * deserializeAws_restJson1CreateReportPlanCommandError
+ */
+const de_CreateReportPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReportPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBackupPlanCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackupPlanCommand
+ */
+export const de_DeleteBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackupPlanCommandError(output, context);
+    return de_DeleteBackupPlanCommandError(output, context);
   }
-  const contents: DeleteBackupPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanArn: undefined,
-    BackupPlanId: undefined,
-    DeletionDate: undefined,
-    VersionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId !== undefined && data.BackupPlanId !== null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.DeletionDate !== undefined && data.DeletionDate !== null) {
-    contents.DeletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DeletionDate)));
-  }
-  if (data.VersionId !== undefined && data.VersionId !== null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    DeletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBackupPlanCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackupPlanCommandError
+ */
+const de_DeleteBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBackupSelectionCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackupSelectionCommand
+ */
+export const de_DeleteBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackupSelectionCommandError(output, context);
+    return de_DeleteBackupSelectionCommandError(output, context);
   }
-  const contents: DeleteBackupSelectionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBackupSelectionCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackupSelectionCommandError
+ */
+const de_DeleteBackupSelectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBackupVaultCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultCommand
+ */
+export const de_DeleteBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackupVaultCommandError(output, context);
+    return de_DeleteBackupVaultCommandError(output, context);
   }
-  const contents: DeleteBackupVaultCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBackupVaultCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultCommandError
+ */
+const de_DeleteBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand
+ */
+export const de_DeleteBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommandError(output, context);
+    return de_DeleteBackupVaultAccessPolicyCommandError(output, context);
   }
-  const contents: DeleteBackupVaultAccessPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommandError
+ */
+const de_DeleteBackupVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand
+ */
+export const de_DeleteBackupVaultLockConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultLockConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommandError(output, context);
+    return de_DeleteBackupVaultLockConfigurationCommandError(output, context);
   }
-  const contents: DeleteBackupVaultLockConfigurationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommandError
+ */
+const de_DeleteBackupVaultLockConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultLockConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteBackupVaultNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultNotificationsCommand
+ */
+export const de_DeleteBackupVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteBackupVaultNotificationsCommandError(output, context);
+    return de_DeleteBackupVaultNotificationsCommandError(output, context);
   }
-  const contents: DeleteBackupVaultNotificationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteBackupVaultNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteBackupVaultNotificationsCommandError
+ */
+const de_DeleteBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1DeleteFrameworkCommand
+ */
+export const de_DeleteFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteFrameworkCommandError(output, context);
+    return de_DeleteFrameworkCommandError(output, context);
   }
-  const contents: DeleteFrameworkCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteFrameworkCommandError
+ */
+const de_DeleteFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFrameworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteRecoveryPointCommand = async (
+/**
+ * deserializeAws_restJson1DeleteRecoveryPointCommand
+ */
+export const de_DeleteRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteRecoveryPointCommandError(output, context);
+    return de_DeleteRecoveryPointCommandError(output, context);
   }
-  const contents: DeleteRecoveryPointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteRecoveryPointCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteRecoveryPointCommandError
+ */
+const de_DeleteRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidResourceStateException":
     case "com.amazonaws.backup#InvalidResourceStateException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DeleteReportPlanCommand = async (
+/**
+ * deserializeAws_restJson1DeleteReportPlanCommand
+ */
+export const de_DeleteReportPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteReportPlanCommandError(output, context);
+    return de_DeleteReportPlanCommandError(output, context);
   }
-  const contents: DeleteReportPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DeleteReportPlanCommandError = async (
+/**
+ * deserializeAws_restJson1DeleteReportPlanCommandError
+ */
+const de_DeleteReportPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeBackupJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBackupJobCommand
+ */
+export const de_DescribeBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBackupJobCommandError(output, context);
+    return de_DescribeBackupJobCommandError(output, context);
   }
-  const contents: DescribeBackupJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AccountId: undefined,
-    BackupJobId: undefined,
-    BackupOptions: undefined,
-    BackupSizeInBytes: undefined,
-    BackupType: undefined,
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    BytesTransferred: undefined,
-    CompletionDate: undefined,
-    CreatedBy: undefined,
-    CreationDate: undefined,
-    ExpectedCompletionDate: undefined,
-    IamRoleArn: undefined,
-    PercentDone: undefined,
-    RecoveryPointArn: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined,
-    StartBy: undefined,
-    State: undefined,
-    StatusMessage: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountId !== undefined && data.AccountId !== null) {
-    contents.AccountId = __expectString(data.AccountId);
-  }
-  if (data.BackupJobId !== undefined && data.BackupJobId !== null) {
-    contents.BackupJobId = __expectString(data.BackupJobId);
-  }
-  if (data.BackupOptions !== undefined && data.BackupOptions !== null) {
-    contents.BackupOptions = deserializeAws_restJson1BackupOptions(data.BackupOptions, context);
-  }
-  if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
-    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
-  }
-  if (data.BackupType !== undefined && data.BackupType !== null) {
-    contents.BackupType = __expectString(data.BackupType);
-  }
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.BytesTransferred !== undefined && data.BytesTransferred !== null) {
-    contents.BytesTransferred = __expectLong(data.BytesTransferred);
-  }
-  if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
-  }
-  if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1RecoveryPointCreator(data.CreatedBy, context);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.ExpectedCompletionDate !== undefined && data.ExpectedCompletionDate !== null) {
-    contents.ExpectedCompletionDate = __expectNonNull(
-      __parseEpochTimestamp(__expectNumber(data.ExpectedCompletionDate))
-    );
-  }
-  if (data.IamRoleArn !== undefined && data.IamRoleArn !== null) {
-    contents.IamRoleArn = __expectString(data.IamRoleArn);
-  }
-  if (data.PercentDone !== undefined && data.PercentDone !== null) {
-    contents.PercentDone = __expectString(data.PercentDone);
-  }
-  if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.StartBy !== undefined && data.StartBy !== null) {
-    contents.StartBy = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartBy)));
-  }
-  if (data.State !== undefined && data.State !== null) {
-    contents.State = __expectString(data.State);
-  }
-  if (data.StatusMessage !== undefined && data.StatusMessage !== null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountId: __expectString,
+    BackupJobId: __expectString,
+    BackupOptions: _json,
+    BackupSizeInBytes: __expectLong,
+    BackupType: __expectString,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    BytesTransferred: __expectLong,
+    ChildJobsInState: _json,
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    NumberOfChildJobs: __expectLong,
+    ParentJobId: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    StartBy: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StatusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeBackupJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBackupJobCommandError
+ */
+const de_DescribeBackupJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.backup#DependencyFailureException":
-      response = {
-        ...(await deserializeAws_restJson1DependencyFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeBackupVaultCommand = async (
+/**
+ * deserializeAws_restJson1DescribeBackupVaultCommand
+ */
+export const de_DescribeBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeBackupVaultCommandError(output, context);
+    return de_DescribeBackupVaultCommandError(output, context);
   }
-  const contents: DescribeBackupVaultCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    CreationDate: undefined,
-    CreatorRequestId: undefined,
-    EncryptionKeyArn: undefined,
-    LockDate: undefined,
-    Locked: undefined,
-    MaxRetentionDays: undefined,
-    MinRetentionDays: undefined,
-    NumberOfRecoveryPoints: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.EncryptionKeyArn !== undefined && data.EncryptionKeyArn !== null) {
-    contents.EncryptionKeyArn = __expectString(data.EncryptionKeyArn);
-  }
-  if (data.LockDate !== undefined && data.LockDate !== null) {
-    contents.LockDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LockDate)));
-  }
-  if (data.Locked !== undefined && data.Locked !== null) {
-    contents.Locked = __expectBoolean(data.Locked);
-  }
-  if (data.MaxRetentionDays !== undefined && data.MaxRetentionDays !== null) {
-    contents.MaxRetentionDays = __expectLong(data.MaxRetentionDays);
-  }
-  if (data.MinRetentionDays !== undefined && data.MinRetentionDays !== null) {
-    contents.MinRetentionDays = __expectLong(data.MinRetentionDays);
-  }
-  if (data.NumberOfRecoveryPoints !== undefined && data.NumberOfRecoveryPoints !== null) {
-    contents.NumberOfRecoveryPoints = __expectLong(data.NumberOfRecoveryPoints);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    EncryptionKeyArn: __expectString,
+    LockDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Locked: __expectBoolean,
+    MaxRetentionDays: __expectLong,
+    MinRetentionDays: __expectLong,
+    NumberOfRecoveryPoints: __expectLong,
+    VaultType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeBackupVaultCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeBackupVaultCommandError
+ */
+const de_DescribeBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeCopyJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeCopyJobCommand
+ */
+export const de_DescribeCopyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeCopyJobCommandError(output, context);
+    return de_DescribeCopyJobCommandError(output, context);
   }
-  const contents: DescribeCopyJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CopyJob: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CopyJob !== undefined && data.CopyJob !== null) {
-    contents.CopyJob = deserializeAws_restJson1CopyJob(data.CopyJob, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CopyJob: (_) => de_CopyJob(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeCopyJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeCopyJobCommandError
+ */
+const de_DescribeCopyJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1DescribeFrameworkCommand
+ */
+export const de_DescribeFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeFrameworkCommandError(output, context);
+    return de_DescribeFrameworkCommandError(output, context);
   }
-  const contents: DescribeFrameworkCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CreationTime: undefined,
-    DeploymentStatus: undefined,
-    FrameworkArn: undefined,
-    FrameworkControls: undefined,
-    FrameworkDescription: undefined,
-    FrameworkName: undefined,
-    FrameworkStatus: undefined,
-    IdempotencyToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DeploymentStatus !== undefined && data.DeploymentStatus !== null) {
-    contents.DeploymentStatus = __expectString(data.DeploymentStatus);
-  }
-  if (data.FrameworkArn !== undefined && data.FrameworkArn !== null) {
-    contents.FrameworkArn = __expectString(data.FrameworkArn);
-  }
-  if (data.FrameworkControls !== undefined && data.FrameworkControls !== null) {
-    contents.FrameworkControls = deserializeAws_restJson1FrameworkControls(data.FrameworkControls, context);
-  }
-  if (data.FrameworkDescription !== undefined && data.FrameworkDescription !== null) {
-    contents.FrameworkDescription = __expectString(data.FrameworkDescription);
-  }
-  if (data.FrameworkName !== undefined && data.FrameworkName !== null) {
-    contents.FrameworkName = __expectString(data.FrameworkName);
-  }
-  if (data.FrameworkStatus !== undefined && data.FrameworkStatus !== null) {
-    contents.FrameworkStatus = __expectString(data.FrameworkStatus);
-  }
-  if (data.IdempotencyToken !== undefined && data.IdempotencyToken !== null) {
-    contents.IdempotencyToken = __expectString(data.IdempotencyToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentStatus: __expectString,
+    FrameworkArn: __expectString,
+    FrameworkControls: _json,
+    FrameworkDescription: __expectString,
+    FrameworkName: __expectString,
+    FrameworkStatus: __expectString,
+    IdempotencyToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeFrameworkCommandError
+ */
+const de_DescribeFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFrameworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeGlobalSettingsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeGlobalSettingsCommand
+ */
+export const de_DescribeGlobalSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeGlobalSettingsCommandError(output, context);
+    return de_DescribeGlobalSettingsCommandError(output, context);
   }
-  const contents: DescribeGlobalSettingsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    GlobalSettings: undefined,
-    LastUpdateTime: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.GlobalSettings !== undefined && data.GlobalSettings !== null) {
-    contents.GlobalSettings = deserializeAws_restJson1GlobalSettings(data.GlobalSettings, context);
-  }
-  if (data.LastUpdateTime !== undefined && data.LastUpdateTime !== null) {
-    contents.LastUpdateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdateTime)));
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GlobalSettings: _json,
+    LastUpdateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeGlobalSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeGlobalSettingsCommandError
+ */
+const de_DescribeGlobalSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeProtectedResourceCommand = async (
+/**
+ * deserializeAws_restJson1DescribeProtectedResourceCommand
+ */
+export const de_DescribeProtectedResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeProtectedResourceCommandError(output, context);
+    return de_DescribeProtectedResourceCommandError(output, context);
   }
-  const contents: DescribeProtectedResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    LastBackupTime: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.LastBackupTime !== undefined && data.LastBackupTime !== null) {
-    contents.LastBackupTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastBackupTime)));
-  }
-  if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LastBackupTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeProtectedResourceCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeProtectedResourceCommandError
+ */
+const de_DescribeProtectedResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
+/**
+ * deserializeAws_restJson1DescribeRecoveryPointCommand
+ */
+export const de_DescribeRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeRecoveryPointCommandError(output, context);
+    return de_DescribeRecoveryPointCommandError(output, context);
   }
-  const contents: DescribeRecoveryPointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupSizeInBytes: undefined,
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    CalculatedLifecycle: undefined,
-    CompletionDate: undefined,
-    CreatedBy: undefined,
-    CreationDate: undefined,
-    EncryptionKeyArn: undefined,
-    IamRoleArn: undefined,
-    IsEncrypted: undefined,
-    LastRestoreTime: undefined,
-    Lifecycle: undefined,
-    RecoveryPointArn: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined,
-    SourceBackupVaultArn: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    StorageClass: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
-    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
-  }
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.CalculatedLifecycle !== undefined && data.CalculatedLifecycle !== null) {
-    contents.CalculatedLifecycle = deserializeAws_restJson1CalculatedLifecycle(data.CalculatedLifecycle, context);
-  }
-  if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
-  }
-  if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1RecoveryPointCreator(data.CreatedBy, context);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.EncryptionKeyArn !== undefined && data.EncryptionKeyArn !== null) {
-    contents.EncryptionKeyArn = __expectString(data.EncryptionKeyArn);
-  }
-  if (data.IamRoleArn !== undefined && data.IamRoleArn !== null) {
-    contents.IamRoleArn = __expectString(data.IamRoleArn);
-  }
-  if (data.IsEncrypted !== undefined && data.IsEncrypted !== null) {
-    contents.IsEncrypted = __expectBoolean(data.IsEncrypted);
-  }
-  if (data.LastRestoreTime !== undefined && data.LastRestoreTime !== null) {
-    contents.LastRestoreTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastRestoreTime)));
-  }
-  if (data.Lifecycle !== undefined && data.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1Lifecycle(data.Lifecycle, context);
-  }
-  if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
-    contents.ResourceArn = __expectString(data.ResourceArn);
-  }
-  if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.SourceBackupVaultArn !== undefined && data.SourceBackupVaultArn !== null) {
-    contents.SourceBackupVaultArn = __expectString(data.SourceBackupVaultArn);
-  }
-  if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusMessage !== undefined && data.StatusMessage !== null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
-  if (data.StorageClass !== undefined && data.StorageClass !== null) {
-    contents.StorageClass = __expectString(data.StorageClass);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupSizeInBytes: __expectLong,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CalculatedLifecycle: (_) => de_CalculatedLifecycle(_, context),
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompositeMemberIdentifier: __expectString,
+    CreatedBy: _json,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionKeyArn: __expectString,
+    IamRoleArn: __expectString,
+    IsEncrypted: __expectBoolean,
+    IsParent: __expectBoolean,
+    LastRestoreTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Lifecycle: _json,
+    ParentRecoveryPointArn: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    SourceBackupVaultArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+    StorageClass: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeRecoveryPointCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeRecoveryPointCommandError
+ */
+const de_DescribeRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeRegionSettingsCommand = async (
+/**
+ * deserializeAws_restJson1DescribeRegionSettingsCommand
+ */
+export const de_DescribeRegionSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegionSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeRegionSettingsCommandError(output, context);
+    return de_DescribeRegionSettingsCommandError(output, context);
   }
-  const contents: DescribeRegionSettingsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ResourceTypeOptInPreference: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceTypeOptInPreference !== undefined && data.ResourceTypeOptInPreference !== null) {
-    contents.ResourceTypeOptInPreference = deserializeAws_restJson1ResourceTypeOptInPreference(
-      data.ResourceTypeOptInPreference,
-      context
-    );
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ResourceTypeManagementPreference: _json,
+    ResourceTypeOptInPreference: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeRegionSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeRegionSettingsCommandError
+ */
+const de_DescribeRegionSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegionSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeReportJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeReportJobCommand
+ */
+export const de_DescribeReportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeReportJobCommandError(output, context);
+    return de_DescribeReportJobCommandError(output, context);
   }
-  const contents: DescribeReportJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ReportJob: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReportJob !== undefined && data.ReportJob !== null) {
-    contents.ReportJob = deserializeAws_restJson1ReportJob(data.ReportJob, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReportJob: (_) => de_ReportJob(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeReportJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeReportJobCommandError
+ */
+const de_DescribeReportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeReportPlanCommand = async (
+/**
+ * deserializeAws_restJson1DescribeReportPlanCommand
+ */
+export const de_DescribeReportPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeReportPlanCommandError(output, context);
+    return de_DescribeReportPlanCommandError(output, context);
   }
-  const contents: DescribeReportPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ReportPlan: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReportPlan !== undefined && data.ReportPlan !== null) {
-    contents.ReportPlan = deserializeAws_restJson1ReportPlan(data.ReportPlan, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReportPlan: (_) => de_ReportPlan(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeReportPlanCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeReportPlanCommandError
+ */
+const de_DescribeReportPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeRestoreJobCommand
+ */
+export const de_DescribeRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeRestoreJobCommandError(output, context);
+    return de_DescribeRestoreJobCommandError(output, context);
   }
-  const contents: DescribeRestoreJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AccountId: undefined,
-    BackupSizeInBytes: undefined,
-    CompletionDate: undefined,
-    CreatedResourceArn: undefined,
-    CreationDate: undefined,
-    ExpectedCompletionTimeMinutes: undefined,
-    IamRoleArn: undefined,
-    PercentDone: undefined,
-    RecoveryPointArn: undefined,
-    ResourceType: undefined,
-    RestoreJobId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccountId !== undefined && data.AccountId !== null) {
-    contents.AccountId = __expectString(data.AccountId);
-  }
-  if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
-    contents.BackupSizeInBytes = __expectLong(data.BackupSizeInBytes);
-  }
-  if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
-  }
-  if (data.CreatedResourceArn !== undefined && data.CreatedResourceArn !== null) {
-    contents.CreatedResourceArn = __expectString(data.CreatedResourceArn);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.ExpectedCompletionTimeMinutes !== undefined && data.ExpectedCompletionTimeMinutes !== null) {
-    contents.ExpectedCompletionTimeMinutes = __expectLong(data.ExpectedCompletionTimeMinutes);
-  }
-  if (data.IamRoleArn !== undefined && data.IamRoleArn !== null) {
-    contents.IamRoleArn = __expectString(data.IamRoleArn);
-  }
-  if (data.PercentDone !== undefined && data.PercentDone !== null) {
-    contents.PercentDone = __expectString(data.PercentDone);
-  }
-  if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = __expectString(data.ResourceType);
-  }
-  if (data.RestoreJobId !== undefined && data.RestoreJobId !== null) {
-    contents.RestoreJobId = __expectString(data.RestoreJobId);
-  }
-  if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = __expectString(data.Status);
-  }
-  if (data.StatusMessage !== undefined && data.StatusMessage !== null) {
-    contents.StatusMessage = __expectString(data.StatusMessage);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountId: __expectString,
+    BackupSizeInBytes: __expectLong,
+    CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedResourceArn: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionTimeMinutes: __expectLong,
+    IamRoleArn: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
+    RestoreJobId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeRestoreJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeRestoreJobCommandError
+ */
+const de_DescribeRestoreJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.backup#DependencyFailureException":
-      response = {
-        ...(await deserializeAws_restJson1DependencyFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DisassociateRecoveryPointCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateRecoveryPointCommand
+ */
+export const de_DisassociateRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DisassociateRecoveryPointCommandError(output, context);
+    return de_DisassociateRecoveryPointCommandError(output, context);
   }
-  const contents: DisassociateRecoveryPointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1DisassociateRecoveryPointCommandError = async (
+/**
+ * deserializeAws_restJson1DisassociateRecoveryPointCommandError
+ */
+const de_DisassociateRecoveryPointCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRecoveryPointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidResourceStateException":
     case "com.amazonaws.backup#InvalidResourceStateException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ExportBackupPlanTemplateCommand = async (
+/**
+ * deserializeAws_restJson1DisassociateRecoveryPointFromParentCommand
+ */
+export const de_DisassociateRecoveryPointFromParentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRecoveryPointFromParentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DisassociateRecoveryPointFromParentCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateRecoveryPointFromParentCommandError
+ */
+const de_DisassociateRecoveryPointFromParentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRecoveryPointFromParentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ExportBackupPlanTemplateCommand
+ */
+export const de_ExportBackupPlanTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ExportBackupPlanTemplateCommandError(output, context);
+    return de_ExportBackupPlanTemplateCommandError(output, context);
   }
-  const contents: ExportBackupPlanTemplateCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanTemplateJson: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanTemplateJson !== undefined && data.BackupPlanTemplateJson !== null) {
-    contents.BackupPlanTemplateJson = __expectString(data.BackupPlanTemplateJson);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanTemplateJson: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ExportBackupPlanTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1ExportBackupPlanTemplateCommandError
+ */
+const de_ExportBackupPlanTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBackupPlanCommand = async (
+/**
+ * deserializeAws_restJson1GetBackupPlanCommand
+ */
+export const de_GetBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackupPlanCommandError(output, context);
+    return de_GetBackupPlanCommandError(output, context);
   }
-  const contents: GetBackupPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AdvancedBackupSettings: undefined,
-    BackupPlan: undefined,
-    BackupPlanArn: undefined,
-    BackupPlanId: undefined,
-    CreationDate: undefined,
-    CreatorRequestId: undefined,
-    DeletionDate: undefined,
-    LastExecutionDate: undefined,
-    VersionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedBackupSettings !== undefined && data.AdvancedBackupSettings !== null) {
-    contents.AdvancedBackupSettings = deserializeAws_restJson1AdvancedBackupSettings(
-      data.AdvancedBackupSettings,
-      context
-    );
-  }
-  if (data.BackupPlan !== undefined && data.BackupPlan !== null) {
-    contents.BackupPlan = deserializeAws_restJson1BackupPlan(data.BackupPlan, context);
-  }
-  if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId !== undefined && data.BackupPlanId !== null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.DeletionDate !== undefined && data.DeletionDate !== null) {
-    contents.DeletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.DeletionDate)));
-  }
-  if (data.LastExecutionDate !== undefined && data.LastExecutionDate !== null) {
-    contents.LastExecutionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastExecutionDate)));
-  }
-  if (data.VersionId !== undefined && data.VersionId !== null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdvancedBackupSettings: _json,
+    BackupPlan: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    DeletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBackupPlanCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackupPlanCommandError
+ */
+const de_GetBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBackupPlanFromJSONCommand = async (
+/**
+ * deserializeAws_restJson1GetBackupPlanFromJSONCommand
+ */
+export const de_GetBackupPlanFromJSONCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackupPlanFromJSONCommandError(output, context);
+    return de_GetBackupPlanFromJSONCommandError(output, context);
   }
-  const contents: GetBackupPlanFromJSONCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlan: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlan !== undefined && data.BackupPlan !== null) {
-    contents.BackupPlan = deserializeAws_restJson1BackupPlan(data.BackupPlan, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlan: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBackupPlanFromJSONCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackupPlanFromJSONCommandError
+ */
+const de_GetBackupPlanFromJSONCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
+/**
+ * deserializeAws_restJson1GetBackupPlanFromTemplateCommand
+ */
+export const de_GetBackupPlanFromTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackupPlanFromTemplateCommandError(output, context);
+    return de_GetBackupPlanFromTemplateCommandError(output, context);
   }
-  const contents: GetBackupPlanFromTemplateCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanDocument: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanDocument !== undefined && data.BackupPlanDocument !== null) {
-    contents.BackupPlanDocument = deserializeAws_restJson1BackupPlan(data.BackupPlanDocument, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanDocument: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBackupPlanFromTemplateCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackupPlanFromTemplateCommandError
+ */
+const de_GetBackupPlanFromTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBackupSelectionCommand = async (
+/**
+ * deserializeAws_restJson1GetBackupSelectionCommand
+ */
+export const de_GetBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackupSelectionCommandError(output, context);
+    return de_GetBackupSelectionCommandError(output, context);
   }
-  const contents: GetBackupSelectionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanId: undefined,
-    BackupSelection: undefined,
-    CreationDate: undefined,
-    CreatorRequestId: undefined,
-    SelectionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanId !== undefined && data.BackupPlanId !== null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.BackupSelection !== undefined && data.BackupSelection !== null) {
-    contents.BackupSelection = deserializeAws_restJson1BackupSelection(data.BackupSelection, context);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.SelectionId !== undefined && data.SelectionId !== null) {
-    contents.SelectionId = __expectString(data.SelectionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanId: __expectString,
+    BackupSelection: _json,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    SelectionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBackupSelectionCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackupSelectionCommandError
+ */
+const de_GetBackupSelectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
+/**
+ * deserializeAws_restJson1GetBackupVaultAccessPolicyCommand
+ */
+export const de_GetBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackupVaultAccessPolicyCommandError(output, context);
+    return de_GetBackupVaultAccessPolicyCommandError(output, context);
   }
-  const contents: GetBackupVaultAccessPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    Policy: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBackupVaultAccessPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackupVaultAccessPolicyCommandError
+ */
+const de_GetBackupVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetBackupVaultNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1GetBackupVaultNotificationsCommand
+ */
+export const de_GetBackupVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetBackupVaultNotificationsCommandError(output, context);
+    return de_GetBackupVaultNotificationsCommandError(output, context);
   }
-  const contents: GetBackupVaultNotificationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultArn: undefined,
-    BackupVaultEvents: undefined,
-    BackupVaultName: undefined,
-    SNSTopicArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.BackupVaultEvents !== undefined && data.BackupVaultEvents !== null) {
-    contents.BackupVaultEvents = deserializeAws_restJson1BackupVaultEvents(data.BackupVaultEvents, context);
-  }
-  if (data.BackupVaultName !== undefined && data.BackupVaultName !== null) {
-    contents.BackupVaultName = __expectString(data.BackupVaultName);
-  }
-  if (data.SNSTopicArn !== undefined && data.SNSTopicArn !== null) {
-    contents.SNSTopicArn = __expectString(data.SNSTopicArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    BackupVaultEvents: _json,
+    BackupVaultName: __expectString,
+    SNSTopicArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetBackupVaultNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1GetBackupVaultNotificationsCommandError
+ */
+const de_GetBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = async (
+/**
+ * deserializeAws_restJson1GetLegalHoldCommand
+ */
+export const de_GetLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLegalHoldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CancelDescription: __expectString,
+    CancellationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LegalHoldArn: __expectString,
+    LegalHoldId: __expectString,
+    RecoveryPointSelection: (_) => de_RecoveryPointSelection(_, context),
+    RetainRecordUntil: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Title: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLegalHoldCommandError
+ */
+const de_GetLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand
+ */
+export const de_GetRecoveryPointRestoreMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommandError(output, context);
+    return de_GetRecoveryPointRestoreMetadataCommandError(output, context);
   }
-  const contents: GetRecoveryPointRestoreMetadataCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultArn: undefined,
-    RecoveryPointArn: undefined,
-    RestoreMetadata: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  if (data.RestoreMetadata !== undefined && data.RestoreMetadata !== null) {
-    contents.RestoreMetadata = deserializeAws_restJson1Metadata(data.RestoreMetadata, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    RecoveryPointArn: __expectString,
+    RestoreMetadata: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommandError = async (
+/**
+ * deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommandError
+ */
+const de_GetRecoveryPointRestoreMetadataCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetSupportedResourceTypesCommand = async (
+/**
+ * deserializeAws_restJson1GetSupportedResourceTypesCommand
+ */
+export const de_GetSupportedResourceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSupportedResourceTypesCommandError(output, context);
+    return de_GetSupportedResourceTypesCommandError(output, context);
   }
-  const contents: GetSupportedResourceTypesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ResourceTypes: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ResourceTypes !== undefined && data.ResourceTypes !== null) {
-    contents.ResourceTypes = deserializeAws_restJson1ResourceTypes(data.ResourceTypes, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ResourceTypes: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSupportedResourceTypesCommandError = async (
+/**
+ * deserializeAws_restJson1GetSupportedResourceTypesCommandError
+ */
+const de_GetSupportedResourceTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListBackupJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListBackupJobsCommand
+ */
+export const de_ListBackupJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackupJobsCommandError(output, context);
+    return de_ListBackupJobsCommandError(output, context);
   }
-  const contents: ListBackupJobsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupJobs: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupJobs !== undefined && data.BackupJobs !== null) {
-    contents.BackupJobs = deserializeAws_restJson1BackupJobsList(data.BackupJobs, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupJobs: (_) => de_BackupJobsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListBackupJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackupJobsCommandError
+ */
+const de_ListBackupJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListBackupPlansCommand = async (
+/**
+ * deserializeAws_restJson1ListBackupPlansCommand
+ */
+export const de_ListBackupPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackupPlansCommandError(output, context);
+    return de_ListBackupPlansCommandError(output, context);
   }
-  const contents: ListBackupPlansCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlansList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlansList !== undefined && data.BackupPlansList !== null) {
-    contents.BackupPlansList = deserializeAws_restJson1BackupPlansList(data.BackupPlansList, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlansList: (_) => de_BackupPlansList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListBackupPlansCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackupPlansCommandError
+ */
+const de_ListBackupPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListBackupPlanTemplatesCommand = async (
+/**
+ * deserializeAws_restJson1ListBackupPlanTemplatesCommand
+ */
+export const de_ListBackupPlanTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackupPlanTemplatesCommandError(output, context);
+    return de_ListBackupPlanTemplatesCommandError(output, context);
   }
-  const contents: ListBackupPlanTemplatesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanTemplatesList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanTemplatesList !== undefined && data.BackupPlanTemplatesList !== null) {
-    contents.BackupPlanTemplatesList = deserializeAws_restJson1BackupPlanTemplatesList(
-      data.BackupPlanTemplatesList,
-      context
-    );
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanTemplatesList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListBackupPlanTemplatesCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackupPlanTemplatesCommandError
+ */
+const de_ListBackupPlanTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListBackupPlanVersionsCommand = async (
+/**
+ * deserializeAws_restJson1ListBackupPlanVersionsCommand
+ */
+export const de_ListBackupPlanVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackupPlanVersionsCommandError(output, context);
+    return de_ListBackupPlanVersionsCommandError(output, context);
   }
-  const contents: ListBackupPlanVersionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupPlanVersionsList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupPlanVersionsList !== undefined && data.BackupPlanVersionsList !== null) {
-    contents.BackupPlanVersionsList = deserializeAws_restJson1BackupPlanVersionsList(
-      data.BackupPlanVersionsList,
-      context
-    );
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupPlanVersionsList: (_) => de_BackupPlanVersionsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListBackupPlanVersionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackupPlanVersionsCommandError
+ */
+const de_ListBackupPlanVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListBackupSelectionsCommand = async (
+/**
+ * deserializeAws_restJson1ListBackupSelectionsCommand
+ */
+export const de_ListBackupSelectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackupSelectionsCommandError(output, context);
+    return de_ListBackupSelectionsCommandError(output, context);
   }
-  const contents: ListBackupSelectionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupSelectionsList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupSelectionsList !== undefined && data.BackupSelectionsList !== null) {
-    contents.BackupSelectionsList = deserializeAws_restJson1BackupSelectionsList(data.BackupSelectionsList, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupSelectionsList: (_) => de_BackupSelectionsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListBackupSelectionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackupSelectionsCommandError
+ */
+const de_ListBackupSelectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListBackupVaultsCommand = async (
+/**
+ * deserializeAws_restJson1ListBackupVaultsCommand
+ */
+export const de_ListBackupVaultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListBackupVaultsCommandError(output, context);
+    return de_ListBackupVaultsCommandError(output, context);
   }
-  const contents: ListBackupVaultsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultList: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultList !== undefined && data.BackupVaultList !== null) {
-    contents.BackupVaultList = deserializeAws_restJson1BackupVaultList(data.BackupVaultList, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultList: (_) => de_BackupVaultList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListBackupVaultsCommandError = async (
+/**
+ * deserializeAws_restJson1ListBackupVaultsCommandError
+ */
+const de_ListBackupVaultsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListCopyJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListCopyJobsCommand
+ */
+export const de_ListCopyJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListCopyJobsCommandError(output, context);
+    return de_ListCopyJobsCommandError(output, context);
   }
-  const contents: ListCopyJobsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CopyJobs: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CopyJobs !== undefined && data.CopyJobs !== null) {
-    contents.CopyJobs = deserializeAws_restJson1CopyJobsList(data.CopyJobs, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CopyJobs: (_) => de_CopyJobsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListCopyJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListCopyJobsCommandError
+ */
+const de_ListCopyJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListFrameworksCommand = async (
+/**
+ * deserializeAws_restJson1ListFrameworksCommand
+ */
+export const de_ListFrameworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFrameworksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListFrameworksCommandError(output, context);
+    return de_ListFrameworksCommandError(output, context);
   }
-  const contents: ListFrameworksCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Frameworks: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Frameworks !== undefined && data.Frameworks !== null) {
-    contents.Frameworks = deserializeAws_restJson1FrameworkList(data.Frameworks, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Frameworks: (_) => de_FrameworkList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListFrameworksCommandError = async (
+/**
+ * deserializeAws_restJson1ListFrameworksCommandError
+ */
+const de_ListFrameworksCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFrameworksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListProtectedResourcesCommand = async (
+/**
+ * deserializeAws_restJson1ListLegalHoldsCommand
+ */
+export const de_ListLegalHoldsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLegalHoldsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLegalHoldsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LegalHolds: (_) => de_LegalHoldsList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLegalHoldsCommandError
+ */
+const de_ListLegalHoldsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLegalHoldsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListProtectedResourcesCommand
+ */
+export const de_ListProtectedResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProtectedResourcesCommandError(output, context);
+    return de_ListProtectedResourcesCommandError(output, context);
   }
-  const contents: ListProtectedResourcesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    Results: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Results !== undefined && data.Results !== null) {
-    contents.Results = deserializeAws_restJson1ProtectedResourcesList(data.Results, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Results: (_) => de_ProtectedResourcesList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListProtectedResourcesCommandError = async (
+/**
+ * deserializeAws_restJson1ListProtectedResourcesCommandError
+ */
+const de_ListProtectedResourcesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = async (
+/**
+ * deserializeAws_restJson1ListProtectedResourcesByBackupVaultCommand
+ */
+export const de_ListProtectedResourcesByBackupVaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectedResourcesByBackupVaultCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProtectedResourcesByBackupVaultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Results: (_) => de_ProtectedResourcesList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProtectedResourcesByBackupVaultCommandError
+ */
+const de_ListProtectedResourcesByBackupVaultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectedResourcesByBackupVaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand
+ */
+export const de_ListRecoveryPointsByBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError(output, context);
+    return de_ListRecoveryPointsByBackupVaultCommandError(output, context);
   }
-  const contents: ListRecoveryPointsByBackupVaultCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    RecoveryPoints: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecoveryPoints !== undefined && data.RecoveryPoints !== null) {
-    contents.RecoveryPoints = deserializeAws_restJson1RecoveryPointByBackupVaultList(data.RecoveryPoints, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecoveryPoints: (_) => de_RecoveryPointByBackupVaultList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError = async (
+/**
+ * deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError
+ */
+const de_ListRecoveryPointsByBackupVaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand
+ */
+export const de_ListRecoveryPointsByLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRecoveryPointsByLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecoveryPoints: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommandError
+ */
+const de_ListRecoveryPointsByLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRecoveryPointsByResourceCommand
+ */
+export const de_ListRecoveryPointsByResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRecoveryPointsByResourceCommandError(output, context);
+    return de_ListRecoveryPointsByResourceCommandError(output, context);
   }
-  const contents: ListRecoveryPointsByResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    RecoveryPoints: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RecoveryPoints !== undefined && data.RecoveryPoints !== null) {
-    contents.RecoveryPoints = deserializeAws_restJson1RecoveryPointByResourceList(data.RecoveryPoints, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RecoveryPoints: (_) => de_RecoveryPointByResourceList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListRecoveryPointsByResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListRecoveryPointsByResourceCommandError
+ */
+const de_ListRecoveryPointsByResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListReportJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListReportJobsCommand
+ */
+export const de_ListReportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListReportJobsCommandError(output, context);
+    return de_ListReportJobsCommandError(output, context);
   }
-  const contents: ListReportJobsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    ReportJobs: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReportJobs !== undefined && data.ReportJobs !== null) {
-    contents.ReportJobs = deserializeAws_restJson1ReportJobList(data.ReportJobs, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReportJobs: (_) => de_ReportJobList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListReportJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListReportJobsCommandError
+ */
+const de_ListReportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListReportPlansCommand = async (
+/**
+ * deserializeAws_restJson1ListReportPlansCommand
+ */
+export const de_ListReportPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListReportPlansCommandError(output, context);
+    return de_ListReportPlansCommandError(output, context);
   }
-  const contents: ListReportPlansCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    ReportPlans: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.ReportPlans !== undefined && data.ReportPlans !== null) {
-    contents.ReportPlans = deserializeAws_restJson1ReportPlanList(data.ReportPlans, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReportPlans: (_) => de_ReportPlanList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListReportPlansCommandError = async (
+/**
+ * deserializeAws_restJson1ListReportPlansCommandError
+ */
+const de_ListReportPlansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReportPlansCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListRestoreJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListRestoreJobsCommand
+ */
+export const de_ListRestoreJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRestoreJobsCommandError(output, context);
+    return de_ListRestoreJobsCommandError(output, context);
   }
-  const contents: ListRestoreJobsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    RestoreJobs: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.RestoreJobs !== undefined && data.RestoreJobs !== null) {
-    contents.RestoreJobs = deserializeAws_restJson1RestoreJobsList(data.RestoreJobs, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreJobs: (_) => de_RestoreJobsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListRestoreJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListRestoreJobsCommandError
+ */
+const de_ListRestoreJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTagsCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsCommand
+ */
+export const de_ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsCommandError(output, context);
+    return de_ListTagsCommandError(output, context);
   }
-  const contents: ListTagsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Tags !== undefined && data.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsCommandError
+ */
+const de_ListTagsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
+/**
+ * deserializeAws_restJson1PutBackupVaultAccessPolicyCommand
+ */
+export const de_PutBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutBackupVaultAccessPolicyCommandError(output, context);
+    return de_PutBackupVaultAccessPolicyCommandError(output, context);
   }
-  const contents: PutBackupVaultAccessPolicyCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutBackupVaultAccessPolicyCommandError = async (
+/**
+ * deserializeAws_restJson1PutBackupVaultAccessPolicyCommandError
+ */
+const de_PutBackupVaultAccessPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutBackupVaultLockConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1PutBackupVaultLockConfigurationCommand
+ */
+export const de_PutBackupVaultLockConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultLockConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutBackupVaultLockConfigurationCommandError(output, context);
+    return de_PutBackupVaultLockConfigurationCommandError(output, context);
   }
-  const contents: PutBackupVaultLockConfigurationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutBackupVaultLockConfigurationCommandError = async (
+/**
+ * deserializeAws_restJson1PutBackupVaultLockConfigurationCommandError
+ */
+const de_PutBackupVaultLockConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultLockConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutBackupVaultNotificationsCommand = async (
+/**
+ * deserializeAws_restJson1PutBackupVaultNotificationsCommand
+ */
+export const de_PutBackupVaultNotificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutBackupVaultNotificationsCommandError(output, context);
+    return de_PutBackupVaultNotificationsCommandError(output, context);
   }
-  const contents: PutBackupVaultNotificationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1PutBackupVaultNotificationsCommandError = async (
+/**
+ * deserializeAws_restJson1PutBackupVaultNotificationsCommandError
+ */
+const de_PutBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartBackupJobCommand = async (
+/**
+ * deserializeAws_restJson1StartBackupJobCommand
+ */
+export const de_StartBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartBackupJobCommandError(output, context);
+    return de_StartBackupJobCommandError(output, context);
   }
-  const contents: StartBackupJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupJobId: undefined,
-    CreationDate: undefined,
-    RecoveryPointArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupJobId !== undefined && data.BackupJobId !== null) {
-    contents.BackupJobId = __expectString(data.BackupJobId);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupJobId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsParent: __expectBoolean,
+    RecoveryPointArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartBackupJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartBackupJobCommandError
+ */
+const de_StartBackupJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartCopyJobCommand = async (
+/**
+ * deserializeAws_restJson1StartCopyJobCommand
+ */
+export const de_StartCopyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartCopyJobCommandError(output, context);
+    return de_StartCopyJobCommandError(output, context);
   }
-  const contents: StartCopyJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CopyJobId: undefined,
-    CreationDate: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CopyJobId !== undefined && data.CopyJobId !== null) {
-    contents.CopyJobId = __expectString(data.CopyJobId);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CopyJobId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsParent: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartCopyJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartCopyJobCommandError
+ */
+const de_StartCopyJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCopyJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartReportJobCommand = async (
+/**
+ * deserializeAws_restJson1StartReportJobCommand
+ */
+export const de_StartReportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartReportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartReportJobCommandError(output, context);
+    return de_StartReportJobCommandError(output, context);
   }
-  const contents: StartReportJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ReportJobId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ReportJobId !== undefined && data.ReportJobId !== null) {
-    contents.ReportJobId = __expectString(data.ReportJobId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReportJobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartReportJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartReportJobCommandError
+ */
+const de_StartReportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartReportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartRestoreJobCommand = async (
+/**
+ * deserializeAws_restJson1StartRestoreJobCommand
+ */
+export const de_StartRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartRestoreJobCommandError(output, context);
+    return de_StartRestoreJobCommandError(output, context);
   }
-  const contents: StartRestoreJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RestoreJobId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.RestoreJobId !== undefined && data.RestoreJobId !== null) {
-    contents.RestoreJobId = __expectString(data.RestoreJobId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RestoreJobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartRestoreJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartRestoreJobCommandError
+ */
+const de_StartRestoreJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1StopBackupJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBackupJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopBackupJobCommandError(output, context);
-  }
-  const contents: StopBackupJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1StopBackupJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBackupJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1StopBackupJobCommand
+ */
+export const de_StopBackupJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBackupJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopBackupJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopBackupJobCommandError
+ */
+const de_StopBackupJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopBackupJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateBackupPlanCommand = async (
+/**
+ * deserializeAws_restJson1UpdateBackupPlanCommand
+ */
+export const de_UpdateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateBackupPlanCommandError(output, context);
+    return de_UpdateBackupPlanCommandError(output, context);
   }
-  const contents: UpdateBackupPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AdvancedBackupSettings: undefined,
-    BackupPlanArn: undefined,
-    BackupPlanId: undefined,
-    CreationDate: undefined,
-    VersionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdvancedBackupSettings !== undefined && data.AdvancedBackupSettings !== null) {
-    contents.AdvancedBackupSettings = deserializeAws_restJson1AdvancedBackupSettings(
-      data.AdvancedBackupSettings,
-      context
-    );
-  }
-  if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
-    contents.BackupPlanArn = __expectString(data.BackupPlanArn);
-  }
-  if (data.BackupPlanId !== undefined && data.BackupPlanId !== null) {
-    contents.BackupPlanId = __expectString(data.BackupPlanId);
-  }
-  if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
-  }
-  if (data.VersionId !== undefined && data.VersionId !== null) {
-    contents.VersionId = __expectString(data.VersionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdvancedBackupSettings: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateBackupPlanCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateBackupPlanCommandError
+ */
+const de_UpdateBackupPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateFrameworkCommand = async (
+/**
+ * deserializeAws_restJson1UpdateFrameworkCommand
+ */
+export const de_UpdateFrameworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateFrameworkCommandError(output, context);
+    return de_UpdateFrameworkCommandError(output, context);
   }
-  const contents: UpdateFrameworkCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CreationTime: undefined,
-    FrameworkArn: undefined,
-    FrameworkName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FrameworkArn !== undefined && data.FrameworkArn !== null) {
-    contents.FrameworkArn = __expectString(data.FrameworkArn);
-  }
-  if (data.FrameworkName !== undefined && data.FrameworkName !== null) {
-    contents.FrameworkName = __expectString(data.FrameworkName);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FrameworkArn: __expectString,
+    FrameworkName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateFrameworkCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateFrameworkCommandError
+ */
+const de_UpdateFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFrameworkCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateGlobalSettingsCommand = async (
+/**
+ * deserializeAws_restJson1UpdateGlobalSettingsCommand
+ */
+export const de_UpdateGlobalSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateGlobalSettingsCommandError(output, context);
+    return de_UpdateGlobalSettingsCommandError(output, context);
   }
-  const contents: UpdateGlobalSettingsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateGlobalSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateGlobalSettingsCommandError
+ */
+const de_UpdateGlobalSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand
+ */
+export const de_UpdateRecoveryPointLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError(output, context);
+    return de_UpdateRecoveryPointLifecycleCommandError(output, context);
   }
-  const contents: UpdateRecoveryPointLifecycleCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BackupVaultArn: undefined,
-    CalculatedLifecycle: undefined,
-    Lifecycle: undefined,
-    RecoveryPointArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
-    contents.BackupVaultArn = __expectString(data.BackupVaultArn);
-  }
-  if (data.CalculatedLifecycle !== undefined && data.CalculatedLifecycle !== null) {
-    contents.CalculatedLifecycle = deserializeAws_restJson1CalculatedLifecycle(data.CalculatedLifecycle, context);
-  }
-  if (data.Lifecycle !== undefined && data.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1Lifecycle(data.Lifecycle, context);
-  }
-  if (data.RecoveryPointArn !== undefined && data.RecoveryPointArn !== null) {
-    contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BackupVaultArn: __expectString,
+    CalculatedLifecycle: (_) => de_CalculatedLifecycle(_, context),
+    Lifecycle: _json,
+    RecoveryPointArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError
+ */
+const de_UpdateRecoveryPointLifecycleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateRegionSettingsCommand = async (
+/**
+ * deserializeAws_restJson1UpdateRegionSettingsCommand
+ */
+export const de_UpdateRegionSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegionSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateRegionSettingsCommandError(output, context);
+    return de_UpdateRegionSettingsCommandError(output, context);
   }
-  const contents: UpdateRegionSettingsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateRegionSettingsCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateRegionSettingsCommandError
+ */
+const de_UpdateRegionSettingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegionSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateReportPlanCommand = async (
+/**
+ * deserializeAws_restJson1UpdateReportPlanCommand
+ */
+export const de_UpdateReportPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateReportPlanCommandError(output, context);
+    return de_UpdateReportPlanCommandError(output, context);
   }
-  const contents: UpdateReportPlanCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CreationTime: undefined,
-    ReportPlanArn: undefined,
-    ReportPlanName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ReportPlanArn !== undefined && data.ReportPlanArn !== null) {
-    contents.ReportPlanArn = __expectString(data.ReportPlanArn);
-  }
-  if (data.ReportPlanName !== undefined && data.ReportPlanName !== null) {
-    contents.ReportPlanName = __expectString(data.ReportPlanName);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportPlanArn: __expectString,
+    ReportPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateReportPlanCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateReportPlanCommandError
+ */
+const de_UpdateReportPlanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateReportPlanCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AlreadyExistsExceptionRes
+ */
+const de_AlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
-  const contents: AlreadyExistsException = {
-    name: "AlreadyExistsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Arn: undefined,
-    Code: undefined,
-    Context: undefined,
-    CreatorRequestId: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.CreatorRequestId !== undefined && data.CreatorRequestId !== null) {
-    contents.CreatorRequestId = __expectString(data.CreatorRequestId);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Arn: __expectString,
+    Code: __expectString,
+    Context: __expectString,
+    CreatorRequestId: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const contents: ConflictException = {
-    name: "ConflictException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1DependencyFailureExceptionResponse = async (
+/**
+ * deserializeAws_restJson1DependencyFailureExceptionRes
+ */
+const de_DependencyFailureExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyFailureException> => {
-  const contents: DependencyFailureException = {
-    name: "DependencyFailureException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DependencyFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidParameterValueExceptionRes
+ */
+const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidParameterValueException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidResourceStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidResourceStateExceptionRes
+ */
+const de_InvalidResourceStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
-  const contents: InvalidResourceStateException = {
-    name: "InvalidResourceStateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidResourceStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1MissingParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_restJson1MissingParameterValueExceptionRes
+ */
+const de_MissingParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingParameterValueException> => {
-  const contents: MissingParameterValueException = {
-    name: "MissingParameterValueException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new MissingParameterValueException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = __expectString(data.Code);
-  }
-  if (data.Context !== undefined && data.Context !== null) {
-    contents.Context = __expectString(data.Context);
-  }
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = __expectString(data.Type);
-  }
-  return contents;
+  const doc = take(data, {
+    Code: __expectString,
+    Context: __expectString,
+    Message: __expectString,
+    Type: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AdvancedBackupSetting = (input: AdvancedBackupSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.BackupOptions !== undefined &&
-      input.BackupOptions !== null && {
-        BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
-      }),
-    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
-  };
+// se_AdvancedBackupSetting omitted.
+
+// se_AdvancedBackupSettings omitted.
+
+// se_BackupOptions omitted.
+
+// se_BackupPlanInput omitted.
+
+// se_BackupRuleInput omitted.
+
+// se_BackupRulesInput omitted.
+
+// se_BackupSelection omitted.
+
+// se_BackupVaultEvents omitted.
+
+// se_ComplianceResourceIdList omitted.
+
+// se_Condition omitted.
+
+// se_ConditionParameter omitted.
+
+// se_ConditionParameters omitted.
+
+// se_Conditions omitted.
+
+// se_ControlInputParameter omitted.
+
+// se_ControlInputParameters omitted.
+
+// se_ControlScope omitted.
+
+// se_CopyAction omitted.
+
+// se_CopyActions omitted.
+
+/**
+ * serializeAws_restJson1DateRange
+ */
+const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
+  return take(input, {
+    FromDate: (_) => Math.round(_.getTime() / 1000),
+    ToDate: (_) => Math.round(_.getTime() / 1000),
+  });
 };
 
-const serializeAws_restJson1AdvancedBackupSettings = (input: AdvancedBackupSetting[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1AdvancedBackupSetting(entry, context);
-    });
+// se_FormatList omitted.
+
+// se_FrameworkControl omitted.
+
+// se_FrameworkControls omitted.
+
+// se_GlobalSettings omitted.
+
+// se_Lifecycle omitted.
+
+// se_ListOfTags omitted.
+
+// se_Metadata omitted.
+
+/**
+ * serializeAws_restJson1RecoveryPointSelection
+ */
+const se_RecoveryPointSelection = (input: RecoveryPointSelection, context: __SerdeContext): any => {
+  return take(input, {
+    DateRange: (_) => se_DateRange(_, context),
+    ResourceIdentifiers: _json,
+    VaultNames: _json,
+  });
 };
 
-const serializeAws_restJson1BackupOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
+// se_ReportDeliveryChannel omitted.
+
+// se_ReportSetting omitted.
+
+// se_ResourceArns omitted.
+
+// se_ResourceIdentifiers omitted.
+
+// se_ResourceTypeList omitted.
+
+// se_ResourceTypeManagementPreference omitted.
+
+// se_ResourceTypeOptInPreference omitted.
+
+// se_stringList omitted.
+
+// se_stringMap omitted.
+
+// se_TagKeyList omitted.
+
+// se_Tags omitted.
+
+// se_VaultNames omitted.
+
+// de_AdvancedBackupSetting omitted.
+
+// de_AdvancedBackupSettings omitted.
+
+/**
+ * deserializeAws_restJson1BackupJob
+ */
+const de_BackupJob = (output: any, context: __SerdeContext): BackupJob => {
+  return take(output, {
+    AccountId: __expectString,
+    BackupJobId: __expectString,
+    BackupOptions: _json,
+    BackupSizeInBytes: __expectLong,
+    BackupType: __expectString,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    BytesTransferred: __expectLong,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    ParentJobId: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    StartBy: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1BackupPlanInput = (input: BackupPlanInput, context: __SerdeContext): any => {
-  return {
-    ...(input.AdvancedBackupSettings !== undefined &&
-      input.AdvancedBackupSettings !== null && {
-        AdvancedBackupSettings: serializeAws_restJson1AdvancedBackupSettings(input.AdvancedBackupSettings, context),
-      }),
-    ...(input.BackupPlanName !== undefined &&
-      input.BackupPlanName !== null && { BackupPlanName: input.BackupPlanName }),
-    ...(input.Rules !== undefined &&
-      input.Rules !== null && { Rules: serializeAws_restJson1BackupRulesInput(input.Rules, context) }),
-  };
-};
+// de_BackupJobChildJobsInState omitted.
 
-const serializeAws_restJson1BackupRuleInput = (input: BackupRuleInput, context: __SerdeContext): any => {
-  return {
-    ...(input.CompletionWindowMinutes !== undefined &&
-      input.CompletionWindowMinutes !== null && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
-    ...(input.CopyActions !== undefined &&
-      input.CopyActions !== null && { CopyActions: serializeAws_restJson1CopyActions(input.CopyActions, context) }),
-    ...(input.EnableContinuousBackup !== undefined &&
-      input.EnableContinuousBackup !== null && { EnableContinuousBackup: input.EnableContinuousBackup }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-    ...(input.RecoveryPointTags !== undefined &&
-      input.RecoveryPointTags !== null && {
-        RecoveryPointTags: serializeAws_restJson1Tags(input.RecoveryPointTags, context),
-      }),
-    ...(input.RuleName !== undefined && input.RuleName !== null && { RuleName: input.RuleName }),
-    ...(input.ScheduleExpression !== undefined &&
-      input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
-    ...(input.StartWindowMinutes !== undefined &&
-      input.StartWindowMinutes !== null && { StartWindowMinutes: input.StartWindowMinutes }),
-    ...(input.TargetBackupVaultName !== undefined &&
-      input.TargetBackupVaultName !== null && { TargetBackupVaultName: input.TargetBackupVaultName }),
-  };
-};
-
-const serializeAws_restJson1BackupRulesInput = (input: BackupRuleInput[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1BackupRuleInput(entry, context);
-    });
-};
-
-const serializeAws_restJson1BackupSelection = (input: BackupSelection, context: __SerdeContext): any => {
-  return {
-    ...(input.Conditions !== undefined &&
-      input.Conditions !== null && { Conditions: serializeAws_restJson1Conditions(input.Conditions, context) }),
-    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
-    ...(input.ListOfTags !== undefined &&
-      input.ListOfTags !== null && { ListOfTags: serializeAws_restJson1ListOfTags(input.ListOfTags, context) }),
-    ...(input.NotResources !== undefined &&
-      input.NotResources !== null && { NotResources: serializeAws_restJson1ResourceArns(input.NotResources, context) }),
-    ...(input.Resources !== undefined &&
-      input.Resources !== null && { Resources: serializeAws_restJson1ResourceArns(input.Resources, context) }),
-    ...(input.SelectionName !== undefined && input.SelectionName !== null && { SelectionName: input.SelectionName }),
-  };
-};
-
-const serializeAws_restJson1BackupVaultEvents = (
-  input: (BackupVaultEvent | string)[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1ComplianceResourceIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Condition = (input: Condition, context: __SerdeContext): any => {
-  return {
-    ...(input.ConditionKey !== undefined && input.ConditionKey !== null && { ConditionKey: input.ConditionKey }),
-    ...(input.ConditionType !== undefined && input.ConditionType !== null && { ConditionType: input.ConditionType }),
-    ...(input.ConditionValue !== undefined &&
-      input.ConditionValue !== null && { ConditionValue: input.ConditionValue }),
-  };
-};
-
-const serializeAws_restJson1ConditionParameter = (input: ConditionParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.ConditionKey !== undefined && input.ConditionKey !== null && { ConditionKey: input.ConditionKey }),
-    ...(input.ConditionValue !== undefined &&
-      input.ConditionValue !== null && { ConditionValue: input.ConditionValue }),
-  };
-};
-
-const serializeAws_restJson1ConditionParameters = (input: ConditionParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1ConditionParameter(entry, context);
-    });
-};
-
-const serializeAws_restJson1Conditions = (input: Conditions, context: __SerdeContext): any => {
-  return {
-    ...(input.StringEquals !== undefined &&
-      input.StringEquals !== null && {
-        StringEquals: serializeAws_restJson1ConditionParameters(input.StringEquals, context),
-      }),
-    ...(input.StringLike !== undefined &&
-      input.StringLike !== null && {
-        StringLike: serializeAws_restJson1ConditionParameters(input.StringLike, context),
-      }),
-    ...(input.StringNotEquals !== undefined &&
-      input.StringNotEquals !== null && {
-        StringNotEquals: serializeAws_restJson1ConditionParameters(input.StringNotEquals, context),
-      }),
-    ...(input.StringNotLike !== undefined &&
-      input.StringNotLike !== null && {
-        StringNotLike: serializeAws_restJson1ConditionParameters(input.StringNotLike, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1ControlInputParameter = (input: ControlInputParameter, context: __SerdeContext): any => {
-  return {
-    ...(input.ParameterName !== undefined && input.ParameterName !== null && { ParameterName: input.ParameterName }),
-    ...(input.ParameterValue !== undefined &&
-      input.ParameterValue !== null && { ParameterValue: input.ParameterValue }),
-  };
-};
-
-const serializeAws_restJson1ControlInputParameters = (input: ControlInputParameter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1ControlInputParameter(entry, context);
-    });
-};
-
-const serializeAws_restJson1ControlScope = (input: ControlScope, context: __SerdeContext): any => {
-  return {
-    ...(input.ComplianceResourceIds !== undefined &&
-      input.ComplianceResourceIds !== null && {
-        ComplianceResourceIds: serializeAws_restJson1ComplianceResourceIdList(input.ComplianceResourceIds, context),
-      }),
-    ...(input.ComplianceResourceTypes !== undefined &&
-      input.ComplianceResourceTypes !== null && {
-        ComplianceResourceTypes: serializeAws_restJson1ResourceTypeList(input.ComplianceResourceTypes, context),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { Tags: serializeAws_restJson1stringMap(input.Tags, context) }),
-  };
-};
-
-const serializeAws_restJson1CopyAction = (input: CopyAction, context: __SerdeContext): any => {
-  return {
-    ...(input.DestinationBackupVaultArn !== undefined &&
-      input.DestinationBackupVaultArn !== null && { DestinationBackupVaultArn: input.DestinationBackupVaultArn }),
-    ...(input.Lifecycle !== undefined &&
-      input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
-  };
-};
-
-const serializeAws_restJson1CopyActions = (input: CopyAction[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1CopyAction(entry, context);
-    });
-};
-
-const serializeAws_restJson1FormatList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1FrameworkControl = (input: FrameworkControl, context: __SerdeContext): any => {
-  return {
-    ...(input.ControlInputParameters !== undefined &&
-      input.ControlInputParameters !== null && {
-        ControlInputParameters: serializeAws_restJson1ControlInputParameters(input.ControlInputParameters, context),
-      }),
-    ...(input.ControlName !== undefined && input.ControlName !== null && { ControlName: input.ControlName }),
-    ...(input.ControlScope !== undefined &&
-      input.ControlScope !== null && { ControlScope: serializeAws_restJson1ControlScope(input.ControlScope, context) }),
-  };
-};
-
-const serializeAws_restJson1FrameworkControls = (input: FrameworkControl[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1FrameworkControl(entry, context);
-    });
-};
-
-const serializeAws_restJson1GlobalSettings = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1Lifecycle = (input: Lifecycle, context: __SerdeContext): any => {
-  return {
-    ...(input.DeleteAfterDays !== undefined &&
-      input.DeleteAfterDays !== null && { DeleteAfterDays: input.DeleteAfterDays }),
-    ...(input.MoveToColdStorageAfterDays !== undefined &&
-      input.MoveToColdStorageAfterDays !== null && { MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays }),
-  };
-};
-
-const serializeAws_restJson1ListOfTags = (input: Condition[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1Condition(entry, context);
-    });
-};
-
-const serializeAws_restJson1Metadata = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1ReportDeliveryChannel = (input: ReportDeliveryChannel, context: __SerdeContext): any => {
-  return {
-    ...(input.Formats !== undefined &&
-      input.Formats !== null && { Formats: serializeAws_restJson1FormatList(input.Formats, context) }),
-    ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
-    ...(input.S3KeyPrefix !== undefined && input.S3KeyPrefix !== null && { S3KeyPrefix: input.S3KeyPrefix }),
-  };
-};
-
-const serializeAws_restJson1ReportSetting = (input: ReportSetting, context: __SerdeContext): any => {
-  return {
-    ...(input.FrameworkArns !== undefined &&
-      input.FrameworkArns !== null && {
-        FrameworkArns: serializeAws_restJson1stringList(input.FrameworkArns, context),
-      }),
-    ...(input.NumberOfFrameworks !== undefined &&
-      input.NumberOfFrameworks !== null && { NumberOfFrameworks: input.NumberOfFrameworks }),
-    ...(input.ReportTemplate !== undefined &&
-      input.ReportTemplate !== null && { ReportTemplate: input.ReportTemplate }),
-  };
-};
-
-const serializeAws_restJson1ResourceArns = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1ResourceTypeList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1ResourceTypeOptInPreference = (
-  input: { [key: string]: boolean },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1stringList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1stringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1AdvancedBackupSetting = (output: any, context: __SerdeContext): AdvancedBackupSetting => {
-  return {
-    BackupOptions:
-      output.BackupOptions !== undefined && output.BackupOptions !== null
-        ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
-        : undefined,
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
-
-const deserializeAws_restJson1AdvancedBackupSettings = (
-  output: any,
-  context: __SerdeContext
-): AdvancedBackupSetting[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1BackupJobsList
+ */
+const de_BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AdvancedBackupSetting(entry, context);
+      return de_BackupJob(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext): BackupJob => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BackupJobId: __expectString(output.BackupJobId),
-    BackupOptions:
-      output.BackupOptions !== undefined && output.BackupOptions !== null
-        ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
-        : undefined,
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    BackupType: __expectString(output.BackupType),
-    BackupVaultArn: __expectString(output.BackupVaultArn),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    BytesTransferred: __expectLong(output.BytesTransferred),
-    CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context)
-        : undefined,
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ExpectedCompletionDate:
-      output.ExpectedCompletionDate !== undefined && output.ExpectedCompletionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpectedCompletionDate)))
-        : undefined,
-    IamRoleArn: __expectString(output.IamRoleArn),
-    PercentDone: __expectString(output.PercentDone),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceType: __expectString(output.ResourceType),
-    StartBy:
-      output.StartBy !== undefined && output.StartBy !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartBy)))
-        : undefined,
-    State: __expectString(output.State),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
+// de_BackupOptions omitted.
 
-const deserializeAws_restJson1BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] => {
-  return (output || [])
+// de_BackupPlan omitted.
+
+/**
+ * deserializeAws_restJson1BackupPlansList
+ */
+const de_BackupPlansList = (output: any, context: __SerdeContext): BackupPlansListMember[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupJob(entry, context);
+      return de_BackupPlansListMember(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
+/**
+ * deserializeAws_restJson1BackupPlansListMember
+ */
+const de_BackupPlansListMember = (output: any, context: __SerdeContext): BackupPlansListMember => {
+  return take(output, {
+    AdvancedBackupSettings: _json,
+    BackupPlanArn: __expectString,
+    BackupPlanId: __expectString,
+    BackupPlanName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    VersionId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BackupPlan = (output: any, context: __SerdeContext): BackupPlan => {
-  return {
-    AdvancedBackupSettings:
-      output.AdvancedBackupSettings !== undefined && output.AdvancedBackupSettings !== null
-        ? deserializeAws_restJson1AdvancedBackupSettings(output.AdvancedBackupSettings, context)
-        : undefined,
-    BackupPlanName: __expectString(output.BackupPlanName),
-    Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_restJson1BackupRules(output.Rules, context)
-        : undefined,
-  } as any;
-};
+// de_BackupPlanTemplatesList omitted.
 
-const deserializeAws_restJson1BackupPlansList = (output: any, context: __SerdeContext): BackupPlansListMember[] => {
-  return (output || [])
+// de_BackupPlanTemplatesListMember omitted.
+
+/**
+ * deserializeAws_restJson1BackupPlanVersionsList
+ */
+const de_BackupPlanVersionsList = (output: any, context: __SerdeContext): BackupPlansListMember[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupPlansListMember(entry, context);
+      return de_BackupPlansListMember(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupPlansListMember = (output: any, context: __SerdeContext): BackupPlansListMember => {
-  return {
-    AdvancedBackupSettings:
-      output.AdvancedBackupSettings !== undefined && output.AdvancedBackupSettings !== null
-        ? deserializeAws_restJson1AdvancedBackupSettings(output.AdvancedBackupSettings, context)
-        : undefined,
-    BackupPlanArn: __expectString(output.BackupPlanArn),
-    BackupPlanId: __expectString(output.BackupPlanId),
-    BackupPlanName: __expectString(output.BackupPlanName),
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    DeletionDate:
-      output.DeletionDate !== undefined && output.DeletionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletionDate)))
-        : undefined,
-    LastExecutionDate:
-      output.LastExecutionDate !== undefined && output.LastExecutionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastExecutionDate)))
-        : undefined,
-    VersionId: __expectString(output.VersionId),
-  } as any;
-};
+// de_BackupRule omitted.
 
-const deserializeAws_restJson1BackupPlanTemplatesList = (
-  output: any,
-  context: __SerdeContext
-): BackupPlanTemplatesListMember[] => {
-  return (output || [])
+// de_BackupRules omitted.
+
+// de_BackupSelection omitted.
+
+/**
+ * deserializeAws_restJson1BackupSelectionsList
+ */
+const de_BackupSelectionsList = (output: any, context: __SerdeContext): BackupSelectionsListMember[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupPlanTemplatesListMember(entry, context);
+      return de_BackupSelectionsListMember(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupPlanTemplatesListMember = (
-  output: any,
-  context: __SerdeContext
-): BackupPlanTemplatesListMember => {
-  return {
-    BackupPlanTemplateId: __expectString(output.BackupPlanTemplateId),
-    BackupPlanTemplateName: __expectString(output.BackupPlanTemplateName),
-  } as any;
+/**
+ * deserializeAws_restJson1BackupSelectionsListMember
+ */
+const de_BackupSelectionsListMember = (output: any, context: __SerdeContext): BackupSelectionsListMember => {
+  return take(output, {
+    BackupPlanId: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    IamRoleArn: __expectString,
+    SelectionId: __expectString,
+    SelectionName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BackupPlanVersionsList = (
-  output: any,
-  context: __SerdeContext
-): BackupPlansListMember[] => {
-  return (output || [])
+// de_BackupVaultEvents omitted.
+
+/**
+ * deserializeAws_restJson1BackupVaultList
+ */
+const de_BackupVaultList = (output: any, context: __SerdeContext): BackupVaultListMember[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupPlansListMember(entry, context);
+      return de_BackupVaultListMember(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupRule = (output: any, context: __SerdeContext): BackupRule => {
-  return {
-    CompletionWindowMinutes: __expectLong(output.CompletionWindowMinutes),
-    CopyActions:
-      output.CopyActions !== undefined && output.CopyActions !== null
-        ? deserializeAws_restJson1CopyActions(output.CopyActions, context)
-        : undefined,
-    EnableContinuousBackup: __expectBoolean(output.EnableContinuousBackup),
-    Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context)
-        : undefined,
-    RecoveryPointTags:
-      output.RecoveryPointTags !== undefined && output.RecoveryPointTags !== null
-        ? deserializeAws_restJson1Tags(output.RecoveryPointTags, context)
-        : undefined,
-    RuleId: __expectString(output.RuleId),
-    RuleName: __expectString(output.RuleName),
-    ScheduleExpression: __expectString(output.ScheduleExpression),
-    StartWindowMinutes: __expectLong(output.StartWindowMinutes),
-    TargetBackupVaultName: __expectString(output.TargetBackupVaultName),
-  } as any;
+/**
+ * deserializeAws_restJson1BackupVaultListMember
+ */
+const de_BackupVaultListMember = (output: any, context: __SerdeContext): BackupVaultListMember => {
+  return take(output, {
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    EncryptionKeyArn: __expectString,
+    LockDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Locked: __expectBoolean,
+    MaxRetentionDays: __expectLong,
+    MinRetentionDays: __expectLong,
+    NumberOfRecoveryPoints: __expectLong,
+  }) as any;
 };
 
-const deserializeAws_restJson1BackupRules = (output: any, context: __SerdeContext): BackupRule[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1CalculatedLifecycle
+ */
+const de_CalculatedLifecycle = (output: any, context: __SerdeContext): CalculatedLifecycle => {
+  return take(output, {
+    DeleteAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MoveToColdStorageAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ComplianceResourceIdList omitted.
+
+// de_Condition omitted.
+
+// de_ConditionParameter omitted.
+
+// de_ConditionParameters omitted.
+
+// de_Conditions omitted.
+
+// de_ControlInputParameter omitted.
+
+// de_ControlInputParameters omitted.
+
+// de_ControlScope omitted.
+
+// de_CopyAction omitted.
+
+// de_CopyActions omitted.
+
+/**
+ * deserializeAws_restJson1CopyJob
+ */
+const de_CopyJob = (output: any, context: __SerdeContext): CopyJob => {
+  return take(output, {
+    AccountId: __expectString,
+    BackupSizeInBytes: __expectLong,
+    ChildJobsInState: _json,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompositeMemberIdentifier: __expectString,
+    CopyJobId: __expectString,
+    CreatedBy: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationBackupVaultArn: __expectString,
+    DestinationRecoveryPointArn: __expectString,
+    IamRoleArn: __expectString,
+    IsParent: __expectBoolean,
+    NumberOfChildJobs: __expectLong,
+    ParentJobId: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    SourceBackupVaultArn: __expectString,
+    SourceRecoveryPointArn: __expectString,
+    State: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+// de_CopyJobChildJobsInState omitted.
+
+/**
+ * deserializeAws_restJson1CopyJobsList
+ */
+const de_CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupRule(entry, context);
+      return de_CopyJob(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupSelection = (output: any, context: __SerdeContext): BackupSelection => {
-  return {
-    Conditions:
-      output.Conditions !== undefined && output.Conditions !== null
-        ? deserializeAws_restJson1Conditions(output.Conditions, context)
-        : undefined,
-    IamRoleArn: __expectString(output.IamRoleArn),
-    ListOfTags:
-      output.ListOfTags !== undefined && output.ListOfTags !== null
-        ? deserializeAws_restJson1ListOfTags(output.ListOfTags, context)
-        : undefined,
-    NotResources:
-      output.NotResources !== undefined && output.NotResources !== null
-        ? deserializeAws_restJson1ResourceArns(output.NotResources, context)
-        : undefined,
-    Resources:
-      output.Resources !== undefined && output.Resources !== null
-        ? deserializeAws_restJson1ResourceArns(output.Resources, context)
-        : undefined,
-    SelectionName: __expectString(output.SelectionName),
-  } as any;
+/**
+ * deserializeAws_restJson1DateRange
+ */
+const de_DateRange = (output: any, context: __SerdeContext): DateRange => {
+  return take(output, {
+    FromDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ToDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1BackupSelectionsList = (
-  output: any,
-  context: __SerdeContext
-): BackupSelectionsListMember[] => {
-  return (output || [])
+// de_FormatList omitted.
+
+/**
+ * deserializeAws_restJson1Framework
+ */
+const de_Framework = (output: any, context: __SerdeContext): Framework => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentStatus: __expectString,
+    FrameworkArn: __expectString,
+    FrameworkDescription: __expectString,
+    FrameworkName: __expectString,
+    NumberOfControls: __expectInt32,
+  }) as any;
+};
+
+// de_FrameworkControl omitted.
+
+// de_FrameworkControls omitted.
+
+/**
+ * deserializeAws_restJson1FrameworkList
+ */
+const de_FrameworkList = (output: any, context: __SerdeContext): Framework[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupSelectionsListMember(entry, context);
+      return de_Framework(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupSelectionsListMember = (
-  output: any,
-  context: __SerdeContext
-): BackupSelectionsListMember => {
-  return {
-    BackupPlanId: __expectString(output.BackupPlanId),
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    SelectionId: __expectString(output.SelectionId),
-    SelectionName: __expectString(output.SelectionName),
-  } as any;
+// de_GlobalSettings omitted.
+
+/**
+ * deserializeAws_restJson1LegalHold
+ */
+const de_LegalHold = (output: any, context: __SerdeContext): LegalHold => {
+  return take(output, {
+    CancellationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LegalHoldArn: __expectString,
+    LegalHoldId: __expectString,
+    Status: __expectString,
+    Title: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1BackupVaultEvents = (
-  output: any,
-  context: __SerdeContext
-): (BackupVaultEvent | string)[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1LegalHoldsList
+ */
+const de_LegalHoldsList = (output: any, context: __SerdeContext): LegalHold[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_LegalHold(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupVaultList = (output: any, context: __SerdeContext): BackupVaultListMember[] => {
-  return (output || [])
+// de_Lifecycle omitted.
+
+// de_ListOfTags omitted.
+
+// de_Metadata omitted.
+
+/**
+ * deserializeAws_restJson1ProtectedResource
+ */
+const de_ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
+  return take(output, {
+    LastBackupTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ProtectedResourcesList
+ */
+const de_ProtectedResourcesList = (output: any, context: __SerdeContext): ProtectedResource[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1BackupVaultListMember(entry, context);
+      return de_ProtectedResource(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1BackupVaultListMember = (output: any, context: __SerdeContext): BackupVaultListMember => {
-  return {
-    BackupVaultArn: __expectString(output.BackupVaultArn),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    CreatorRequestId: __expectString(output.CreatorRequestId),
-    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    LockDate:
-      output.LockDate !== undefined && output.LockDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LockDate)))
-        : undefined,
-    Locked: __expectBoolean(output.Locked),
-    MaxRetentionDays: __expectLong(output.MaxRetentionDays),
-    MinRetentionDays: __expectLong(output.MinRetentionDays),
-    NumberOfRecoveryPoints: __expectLong(output.NumberOfRecoveryPoints),
-  } as any;
+/**
+ * deserializeAws_restJson1RecoveryPointByBackupVault
+ */
+const de_RecoveryPointByBackupVault = (output: any, context: __SerdeContext): RecoveryPointByBackupVault => {
+  return take(output, {
+    BackupSizeInBytes: __expectLong,
+    BackupVaultArn: __expectString,
+    BackupVaultName: __expectString,
+    CalculatedLifecycle: (_: any) => de_CalculatedLifecycle(_, context),
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CompositeMemberIdentifier: __expectString,
+    CreatedBy: _json,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionKeyArn: __expectString,
+    IamRoleArn: __expectString,
+    IsEncrypted: __expectBoolean,
+    IsParent: __expectBoolean,
+    LastRestoreTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Lifecycle: _json,
+    ParentRecoveryPointArn: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceArn: __expectString,
+    ResourceName: __expectString,
+    ResourceType: __expectString,
+    SourceBackupVaultArn: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1CalculatedLifecycle = (output: any, context: __SerdeContext): CalculatedLifecycle => {
-  return {
-    DeleteAt:
-      output.DeleteAt !== undefined && output.DeleteAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeleteAt)))
-        : undefined,
-    MoveToColdStorageAt:
-      output.MoveToColdStorageAt !== undefined && output.MoveToColdStorageAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.MoveToColdStorageAt)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ComplianceResourceIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1RecoveryPointByBackupVaultList
+ */
+const de_RecoveryPointByBackupVaultList = (output: any, context: __SerdeContext): RecoveryPointByBackupVault[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_RecoveryPointByBackupVault(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
-  return {
-    ConditionKey: __expectString(output.ConditionKey),
-    ConditionType: __expectString(output.ConditionType),
-    ConditionValue: __expectString(output.ConditionValue),
-  } as any;
+/**
+ * deserializeAws_restJson1RecoveryPointByResource
+ */
+const de_RecoveryPointByResource = (output: any, context: __SerdeContext): RecoveryPointByResource => {
+  return take(output, {
+    BackupSizeBytes: __expectLong,
+    BackupVaultName: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EncryptionKeyArn: __expectString,
+    IsParent: __expectBoolean,
+    ParentRecoveryPointArn: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceName: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ConditionParameter = (output: any, context: __SerdeContext): ConditionParameter => {
-  return {
-    ConditionKey: __expectString(output.ConditionKey),
-    ConditionValue: __expectString(output.ConditionValue),
-  } as any;
-};
-
-const deserializeAws_restJson1ConditionParameters = (output: any, context: __SerdeContext): ConditionParameter[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1RecoveryPointByResourceList
+ */
+const de_RecoveryPointByResourceList = (output: any, context: __SerdeContext): RecoveryPointByResource[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ConditionParameter(entry, context);
+      return de_RecoveryPointByResource(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1Conditions = (output: any, context: __SerdeContext): Conditions => {
-  return {
-    StringEquals:
-      output.StringEquals !== undefined && output.StringEquals !== null
-        ? deserializeAws_restJson1ConditionParameters(output.StringEquals, context)
-        : undefined,
-    StringLike:
-      output.StringLike !== undefined && output.StringLike !== null
-        ? deserializeAws_restJson1ConditionParameters(output.StringLike, context)
-        : undefined,
-    StringNotEquals:
-      output.StringNotEquals !== undefined && output.StringNotEquals !== null
-        ? deserializeAws_restJson1ConditionParameters(output.StringNotEquals, context)
-        : undefined,
-    StringNotLike:
-      output.StringNotLike !== undefined && output.StringNotLike !== null
-        ? deserializeAws_restJson1ConditionParameters(output.StringNotLike, context)
-        : undefined,
-  } as any;
+// de_RecoveryPointCreator omitted.
+
+// de_RecoveryPointMember omitted.
+
+/**
+ * deserializeAws_restJson1RecoveryPointSelection
+ */
+const de_RecoveryPointSelection = (output: any, context: __SerdeContext): RecoveryPointSelection => {
+  return take(output, {
+    DateRange: (_: any) => de_DateRange(_, context),
+    ResourceIdentifiers: _json,
+    VaultNames: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1ControlInputParameter = (output: any, context: __SerdeContext): ControlInputParameter => {
-  return {
-    ParameterName: __expectString(output.ParameterName),
-    ParameterValue: __expectString(output.ParameterValue),
-  } as any;
+// de_RecoveryPointsList omitted.
+
+// de_ReportDeliveryChannel omitted.
+
+// de_ReportDestination omitted.
+
+/**
+ * deserializeAws_restJson1ReportJob
+ */
+const de_ReportJob = (output: any, context: __SerdeContext): ReportJob => {
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportDestination: _json,
+    ReportJobId: __expectString,
+    ReportPlanArn: __expectString,
+    ReportTemplate: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1ControlInputParameters = (
-  output: any,
-  context: __SerdeContext
-): ControlInputParameter[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1ReportJobList
+ */
+const de_ReportJobList = (output: any, context: __SerdeContext): ReportJob[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ControlInputParameter(entry, context);
+      return de_ReportJob(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1ControlScope = (output: any, context: __SerdeContext): ControlScope => {
-  return {
-    ComplianceResourceIds:
-      output.ComplianceResourceIds !== undefined && output.ComplianceResourceIds !== null
-        ? deserializeAws_restJson1ComplianceResourceIdList(output.ComplianceResourceIds, context)
-        : undefined,
-    ComplianceResourceTypes:
-      output.ComplianceResourceTypes !== undefined && output.ComplianceResourceTypes !== null
-        ? deserializeAws_restJson1ResourceTypeList(output.ComplianceResourceTypes, context)
-        : undefined,
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_restJson1stringMap(output.Tags, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1ReportPlan
+ */
+const de_ReportPlan = (output: any, context: __SerdeContext): ReportPlan => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentStatus: __expectString,
+    LastAttemptedExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessfulExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ReportDeliveryChannel: _json,
+    ReportPlanArn: __expectString,
+    ReportPlanDescription: __expectString,
+    ReportPlanName: __expectString,
+    ReportSetting: _json,
+  }) as any;
 };
 
-const deserializeAws_restJson1CopyAction = (output: any, context: __SerdeContext): CopyAction => {
-  return {
-    DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
-    Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1CopyActions = (output: any, context: __SerdeContext): CopyAction[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1ReportPlanList
+ */
+const de_ReportPlanList = (output: any, context: __SerdeContext): ReportPlan[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CopyAction(entry, context);
+      return de_ReportPlan(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): CopyJob => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CopyJobId: __expectString(output.CopyJobId),
-    CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context)
-        : undefined,
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
-    DestinationRecoveryPointArn: __expectString(output.DestinationRecoveryPointArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceType: __expectString(output.ResourceType),
-    SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
-    SourceRecoveryPointArn: __expectString(output.SourceRecoveryPointArn),
-    State: __expectString(output.State),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
+// de_ReportSetting omitted.
 
-const deserializeAws_restJson1CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
-  return (output || [])
+// de_ResourceArns omitted.
+
+// de_ResourceIdentifiers omitted.
+
+// de_ResourceTypeList omitted.
+
+// de_ResourceTypeManagementPreference omitted.
+
+// de_ResourceTypeOptInPreference omitted.
+
+// de_ResourceTypes omitted.
+
+/**
+ * deserializeAws_restJson1RestoreJobsList
+ */
+const de_RestoreJobsList = (output: any, context: __SerdeContext): RestoreJobsListMember[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1CopyJob(entry, context);
+      return de_RestoreJobsListMember(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1FormatList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
+/**
+ * deserializeAws_restJson1RestoreJobsListMember
+ */
+const de_RestoreJobsListMember = (output: any, context: __SerdeContext): RestoreJobsListMember => {
+  return take(output, {
+    AccountId: __expectString,
+    BackupSizeInBytes: __expectLong,
+    CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedResourceArn: __expectString,
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExpectedCompletionTimeMinutes: __expectLong,
+    IamRoleArn: __expectString,
+    PercentDone: __expectString,
+    RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
+    RestoreJobId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext): Framework => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DeploymentStatus: __expectString(output.DeploymentStatus),
-    FrameworkArn: __expectString(output.FrameworkArn),
-    FrameworkDescription: __expectString(output.FrameworkDescription),
-    FrameworkName: __expectString(output.FrameworkName),
-    NumberOfControls: __expectInt32(output.NumberOfControls),
-  } as any;
-};
+// de_stringList omitted.
 
-const deserializeAws_restJson1FrameworkControl = (output: any, context: __SerdeContext): FrameworkControl => {
-  return {
-    ControlInputParameters:
-      output.ControlInputParameters !== undefined && output.ControlInputParameters !== null
-        ? deserializeAws_restJson1ControlInputParameters(output.ControlInputParameters, context)
-        : undefined,
-    ControlName: __expectString(output.ControlName),
-    ControlScope:
-      output.ControlScope !== undefined && output.ControlScope !== null
-        ? deserializeAws_restJson1ControlScope(output.ControlScope, context)
-        : undefined,
-  } as any;
-};
+// de_stringMap omitted.
 
-const deserializeAws_restJson1FrameworkControls = (output: any, context: __SerdeContext): FrameworkControl[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FrameworkControl(entry, context);
-    });
-};
+// de_Tags omitted.
 
-const deserializeAws_restJson1FrameworkList = (output: any, context: __SerdeContext): Framework[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Framework(entry, context);
-    });
-};
-
-const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
-  return {
-    DeleteAfterDays: __expectLong(output.DeleteAfterDays),
-    MoveToColdStorageAfterDays: __expectLong(output.MoveToColdStorageAfterDays),
-  } as any;
-};
-
-const deserializeAws_restJson1ListOfTags = (output: any, context: __SerdeContext): Condition[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Condition(entry, context);
-    });
-};
-
-const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
-  return {
-    LastBackupTime:
-      output.LastBackupTime !== undefined && output.LastBackupTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastBackupTime)))
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceType: __expectString(output.ResourceType),
-  } as any;
-};
-
-const deserializeAws_restJson1ProtectedResourcesList = (output: any, context: __SerdeContext): ProtectedResource[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ProtectedResource(entry, context);
-    });
-};
-
-const deserializeAws_restJson1RecoveryPointByBackupVault = (
-  output: any,
-  context: __SerdeContext
-): RecoveryPointByBackupVault => {
-  return {
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    BackupVaultArn: __expectString(output.BackupVaultArn),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    CalculatedLifecycle:
-      output.CalculatedLifecycle !== undefined && output.CalculatedLifecycle !== null
-        ? deserializeAws_restJson1CalculatedLifecycle(output.CalculatedLifecycle, context)
-        : undefined,
-    CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CreatedBy:
-      output.CreatedBy !== undefined && output.CreatedBy !== null
-        ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context)
-        : undefined,
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    IsEncrypted: __expectBoolean(output.IsEncrypted),
-    LastRestoreTime:
-      output.LastRestoreTime !== undefined && output.LastRestoreTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRestoreTime)))
-        : undefined,
-    Lifecycle:
-      output.Lifecycle !== undefined && output.Lifecycle !== null
-        ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context)
-        : undefined,
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceArn: __expectString(output.ResourceArn),
-    ResourceType: __expectString(output.ResourceType),
-    SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1RecoveryPointByBackupVaultList = (
-  output: any,
-  context: __SerdeContext
-): RecoveryPointByBackupVault[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecoveryPointByBackupVault(entry, context);
-    });
-};
-
-const deserializeAws_restJson1RecoveryPointByResource = (
-  output: any,
-  context: __SerdeContext
-): RecoveryPointByResource => {
-  return {
-    BackupSizeBytes: __expectLong(output.BackupSizeBytes),
-    BackupVaultName: __expectString(output.BackupVaultName),
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1RecoveryPointByResourceList = (
-  output: any,
-  context: __SerdeContext
-): RecoveryPointByResource[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RecoveryPointByResource(entry, context);
-    });
-};
-
-const deserializeAws_restJson1RecoveryPointCreator = (output: any, context: __SerdeContext): RecoveryPointCreator => {
-  return {
-    BackupPlanArn: __expectString(output.BackupPlanArn),
-    BackupPlanId: __expectString(output.BackupPlanId),
-    BackupPlanVersion: __expectString(output.BackupPlanVersion),
-    BackupRuleId: __expectString(output.BackupRuleId),
-  } as any;
-};
-
-const deserializeAws_restJson1ReportDeliveryChannel = (output: any, context: __SerdeContext): ReportDeliveryChannel => {
-  return {
-    Formats:
-      output.Formats !== undefined && output.Formats !== null
-        ? deserializeAws_restJson1FormatList(output.Formats, context)
-        : undefined,
-    S3BucketName: __expectString(output.S3BucketName),
-    S3KeyPrefix: __expectString(output.S3KeyPrefix),
-  } as any;
-};
-
-const deserializeAws_restJson1ReportDestination = (output: any, context: __SerdeContext): ReportDestination => {
-  return {
-    S3BucketName: __expectString(output.S3BucketName),
-    S3Keys:
-      output.S3Keys !== undefined && output.S3Keys !== null
-        ? deserializeAws_restJson1stringList(output.S3Keys, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ReportJob = (output: any, context: __SerdeContext): ReportJob => {
-  return {
-    CompletionTime:
-      output.CompletionTime !== undefined && output.CompletionTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionTime)))
-        : undefined,
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    ReportDestination:
-      output.ReportDestination !== undefined && output.ReportDestination !== null
-        ? deserializeAws_restJson1ReportDestination(output.ReportDestination, context)
-        : undefined,
-    ReportJobId: __expectString(output.ReportJobId),
-    ReportPlanArn: __expectString(output.ReportPlanArn),
-    ReportTemplate: __expectString(output.ReportTemplate),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1ReportJobList = (output: any, context: __SerdeContext): ReportJob[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ReportJob(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ReportPlan = (output: any, context: __SerdeContext): ReportPlan => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DeploymentStatus: __expectString(output.DeploymentStatus),
-    LastAttemptedExecutionTime:
-      output.LastAttemptedExecutionTime !== undefined && output.LastAttemptedExecutionTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastAttemptedExecutionTime)))
-        : undefined,
-    LastSuccessfulExecutionTime:
-      output.LastSuccessfulExecutionTime !== undefined && output.LastSuccessfulExecutionTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastSuccessfulExecutionTime)))
-        : undefined,
-    ReportDeliveryChannel:
-      output.ReportDeliveryChannel !== undefined && output.ReportDeliveryChannel !== null
-        ? deserializeAws_restJson1ReportDeliveryChannel(output.ReportDeliveryChannel, context)
-        : undefined,
-    ReportPlanArn: __expectString(output.ReportPlanArn),
-    ReportPlanDescription: __expectString(output.ReportPlanDescription),
-    ReportPlanName: __expectString(output.ReportPlanName),
-    ReportSetting:
-      output.ReportSetting !== undefined && output.ReportSetting !== null
-        ? deserializeAws_restJson1ReportSetting(output.ReportSetting, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ReportPlanList = (output: any, context: __SerdeContext): ReportPlan[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ReportPlan(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ReportSetting = (output: any, context: __SerdeContext): ReportSetting => {
-  return {
-    FrameworkArns:
-      output.FrameworkArns !== undefined && output.FrameworkArns !== null
-        ? deserializeAws_restJson1stringList(output.FrameworkArns, context)
-        : undefined,
-    NumberOfFrameworks: __expectInt32(output.NumberOfFrameworks),
-    ReportTemplate: __expectString(output.ReportTemplate),
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1ResourceTypeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1ResourceTypeOptInPreference = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: boolean } => {
-  return Object.entries(output).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectBoolean(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1ResourceTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1RestoreJobsList = (output: any, context: __SerdeContext): RestoreJobsListMember[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RestoreJobsListMember(entry, context);
-    });
-};
-
-const deserializeAws_restJson1RestoreJobsListMember = (output: any, context: __SerdeContext): RestoreJobsListMember => {
-  return {
-    AccountId: __expectString(output.AccountId),
-    BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
-    CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
-        : undefined,
-    CreatedResourceArn: __expectString(output.CreatedResourceArn),
-    CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
-        : undefined,
-    ExpectedCompletionTimeMinutes: __expectLong(output.ExpectedCompletionTimeMinutes),
-    IamRoleArn: __expectString(output.IamRoleArn),
-    PercentDone: __expectString(output.PercentDone),
-    RecoveryPointArn: __expectString(output.RecoveryPointArn),
-    ResourceType: __expectString(output.ResourceType),
-    RestoreJobId: __expectString(output.RestoreJobId),
-    Status: __expectString(output.Status),
-    StatusMessage: __expectString(output.StatusMessage),
-  } as any;
-};
-
-const deserializeAws_restJson1stringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1stringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_VaultNames omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -9756,14 +7882,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -9785,6 +7923,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

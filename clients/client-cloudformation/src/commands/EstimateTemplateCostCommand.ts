@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,35 +11,67 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/models_0";
-import {
-  deserializeAws_queryEstimateTemplateCostCommand,
-  serializeAws_queryEstimateTemplateCostCommand,
-} from "../protocols/Aws_query";
+import { de_EstimateTemplateCostCommand, se_EstimateTemplateCostCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link EstimateTemplateCostCommand}.
+ */
 export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostInput {}
+/**
+ * @public
+ *
+ * The output of {@link EstimateTemplateCostCommand}.
+ */
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple
- *          Monthly Calculator URL with a query string that describes the resources required to run the
- *          template.</p>
+ * @public
+ * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly
+ *    Calculator URL with a query string that describes the resources required to run the template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, EstimateTemplateCostCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, EstimateTemplateCostCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = { // EstimateTemplateCostInput
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   Parameters: [ // Parameters
+ *     { // Parameter
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new EstimateTemplateCostCommand(input);
  * const response = await client.send(command);
+ * // { // EstimateTemplateCostOutput
+ * //   Url: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param EstimateTemplateCostCommandInput - {@link EstimateTemplateCostCommandInput}
+ * @returns {@link EstimateTemplateCostCommandOutput}
  * @see {@link EstimateTemplateCostCommandInput} for command's `input` shape.
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
+ *
+ * @throws {@link CloudFormationServiceException}
+ * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
 export class EstimateTemplateCostCommand extends $Command<
@@ -48,6 +82,18 @@ export class EstimateTemplateCostCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: EstimateTemplateCostCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +109,9 @@ export class EstimateTemplateCostCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EstimateTemplateCostCommandInput, EstimateTemplateCostCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EstimateTemplateCostCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +122,8 @@ export class EstimateTemplateCostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EstimateTemplateCostInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EstimateTemplateCostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +133,18 @@ export class EstimateTemplateCostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EstimateTemplateCostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEstimateTemplateCostCommand(input, context);
+    return se_EstimateTemplateCostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EstimateTemplateCostCommandOutput> {
-    return deserializeAws_queryEstimateTemplateCostCommand(output, context);
+    return de_EstimateTemplateCostCommand(output, context);
   }
 
   // Start section: command_body_extra

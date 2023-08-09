@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateConfigurationSetSendingEnabledRequest } from "../models/models_0";
 import {
-  deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
-  serializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
+  de_UpdateConfigurationSetSendingEnabledCommand,
+  se_UpdateConfigurationSetSendingEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateConfigurationSetSendingEnabledCommand}.
+ */
 export interface UpdateConfigurationSetSendingEnabledCommandInput extends UpdateConfigurationSetSendingEnabledRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateConfigurationSetSendingEnabledCommand}.
+ */
 export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables or disables email sending for messages sent using a specific configuration set
  *             in a given AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms
  *             to temporarily pause email sending for a configuration set when the reputation metrics
@@ -34,13 +51,39 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * import { SESClient, UpdateConfigurationSetSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, UpdateConfigurationSetSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // UpdateConfigurationSetSendingEnabledRequest
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   Enabled: true || false, // required
+ * };
  * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateConfigurationSetSendingEnabledCommandInput - {@link UpdateConfigurationSetSendingEnabledCommandInput}
+ * @returns {@link UpdateConfigurationSetSendingEnabledCommandOutput}
  * @see {@link UpdateConfigurationSetSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationSetSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example UpdateConfigurationSetReputationMetricsEnabled
+ * ```javascript
+ * // Set the sending enabled flag for a specific configuration set.
+ * const input = {
+ *   "ConfigurationSetName": "foo",
+ *   "Enabled": true
+ * };
+ * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
+ * await client.send(command);
+ * // example id: updateconfigurationsetsendingenabled-2362747741333
+ * ```
  *
  */
 export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
@@ -51,6 +94,18 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateConfigurationSetSendingEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +121,9 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateConfigurationSetSendingEnabledCommandInput, UpdateConfigurationSetSendingEnabledCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateConfigurationSetSendingEnabledCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +134,8 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetSendingEnabledRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +145,24 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateConfigurationSetSendingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(input, context);
+    return se_UpdateConfigurationSetSendingEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand(output, context);
+    return de_UpdateConfigurationSetSendingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateLifecyclePolicyCommand";
 export * from "./DeleteLifecyclePolicyCommand";
 export * from "./GetLifecyclePoliciesCommand";

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
@@ -21,17 +23,32 @@ import {
   DescribeApplicableIndividualAssessmentsResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
-  serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
+  de_DescribeApplicableIndividualAssessmentsCommand,
+  se_DescribeApplicableIndividualAssessmentsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeApplicableIndividualAssessmentsCommand}.
+ */
 export interface DescribeApplicableIndividualAssessmentsCommandInput
   extends DescribeApplicableIndividualAssessmentsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeApplicableIndividualAssessmentsCommand}.
+ */
 export interface DescribeApplicableIndividualAssessmentsCommandOutput
   extends DescribeApplicableIndividualAssessmentsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides a list of individual assessments that you can specify for a new premigration
  *          assessment run, given one or more parameters.</p>
  *          <p>If you specify an existing migration task, this operation provides the default individual
@@ -53,13 +70,44 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * import { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeApplicableIndividualAssessmentsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DescribeApplicableIndividualAssessmentsMessage
+ *   ReplicationTaskArn: "STRING_VALUE",
+ *   ReplicationInstanceArn: "STRING_VALUE",
+ *   SourceEngineName: "STRING_VALUE",
+ *   TargetEngineName: "STRING_VALUE",
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeApplicableIndividualAssessmentsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeApplicableIndividualAssessmentsResponse
+ * //   IndividualAssessmentNames: [ // IndividualAssessmentNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeApplicableIndividualAssessmentsCommandInput - {@link DescribeApplicableIndividualAssessmentsCommandInput}
+ * @returns {@link DescribeApplicableIndividualAssessmentsCommandOutput}
  * @see {@link DescribeApplicableIndividualAssessmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicableIndividualAssessmentsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  */
 export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
@@ -70,6 +118,18 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeApplicableIndividualAssessmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +148,12 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     DescribeApplicableIndividualAssessmentsCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DescribeApplicableIndividualAssessmentsCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -98,8 +164,8 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicableIndividualAssessmentsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicableIndividualAssessmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,18 +175,24 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeApplicableIndividualAssessmentsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand(input, context);
+    return se_DescribeApplicableIndividualAssessmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> {
-    return deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand(output, context);
+    return de_DescribeApplicableIndividualAssessmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

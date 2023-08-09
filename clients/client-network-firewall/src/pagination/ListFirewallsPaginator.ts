@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListFirewallsCommand,
   ListFirewallsCommandInput,
   ListFirewallsCommandOutput,
 } from "../commands/ListFirewallsCommand";
-import { NetworkFirewall } from "../NetworkFirewall";
 import { NetworkFirewallClient } from "../NetworkFirewallClient";
 import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NetworkFirewallClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFirewallsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: NetworkFirewall,
-  input: ListFirewallsCommandInput,
-  ...args: any
-): Promise<ListFirewallsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFirewalls(input, ...args);
-};
 export async function* paginateListFirewalls(
   config: NetworkFirewallPaginationConfiguration,
   input: ListFirewallsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListFirewalls(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkFirewall) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NetworkFirewallClient) {
+    if (config.client instanceof NetworkFirewallClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected NetworkFirewall | NetworkFirewallClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

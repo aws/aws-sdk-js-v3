@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
-  deserializeAws_restJson1DisassociateCustomerGatewayCommand,
-  serializeAws_restJson1DisassociateCustomerGatewayCommand,
+  de_DisassociateCustomerGatewayCommand,
+  se_DisassociateCustomerGatewayCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateCustomerGatewayCommand}.
+ */
 export interface DisassociateCustomerGatewayCommandInput extends DisassociateCustomerGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateCustomerGatewayCommand}.
+ */
 export interface DisassociateCustomerGatewayCommandOutput
   extends DisassociateCustomerGatewayResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a customer gateway from a device and a link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,51 @@ export interface DisassociateCustomerGatewayCommandOutput
  * import { NetworkManagerClient, DisassociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DisassociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = { // DisassociateCustomerGatewayRequest
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CustomerGatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateCustomerGatewayCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateCustomerGatewayResponse
+ * //   CustomerGatewayAssociation: { // CustomerGatewayAssociation
+ * //     CustomerGatewayArn: "STRING_VALUE",
+ * //     GlobalNetworkId: "STRING_VALUE",
+ * //     DeviceId: "STRING_VALUE",
+ * //     LinkId: "STRING_VALUE",
+ * //     State: "PENDING" || "AVAILABLE" || "DELETING" || "DELETED",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DisassociateCustomerGatewayCommandInput - {@link DisassociateCustomerGatewayCommandInput}
+ * @returns {@link DisassociateCustomerGatewayCommandOutput}
  * @see {@link DisassociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomerGatewayCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Updating or deleting the resource can
+ *             cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request has failed due to an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * @throws {@link NetworkManagerServiceException}
+ * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
  */
 export class DisassociateCustomerGatewayCommand extends $Command<
@@ -48,6 +103,18 @@ export class DisassociateCustomerGatewayCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateCustomerGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +130,9 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateCustomerGatewayCommandInput, DisassociateCustomerGatewayCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateCustomerGatewayCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +143,8 @@ export class DisassociateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateCustomerGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateCustomerGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +154,21 @@ export class DisassociateCustomerGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateCustomerGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateCustomerGatewayCommand(input, context);
+    return se_DisassociateCustomerGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateCustomerGatewayCommandOutput> {
-    return deserializeAws_restJson1DisassociateCustomerGatewayCommand(output, context);
+    return de_DisassociateCustomerGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Neptune } from "../Neptune";
 import { NeptuneClient } from "../NeptuneClient";
 
+/**
+ * @public
+ */
 export interface NeptunePaginationConfiguration extends PaginationConfiguration {
-  client: Neptune | NeptuneClient;
+  client: NeptuneClient;
 }

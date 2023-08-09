@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { VerifySMSSandboxPhoneNumberInput, VerifySMSSandboxPhoneNumberResult } from "../models/models_0";
-import {
-  deserializeAws_queryVerifySMSSandboxPhoneNumberCommand,
-  serializeAws_queryVerifySMSSandboxPhoneNumberCommand,
-} from "../protocols/Aws_query";
+import { de_VerifySMSSandboxPhoneNumberCommand, se_VerifySMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link VerifySMSSandboxPhoneNumberCommand}.
+ */
 export interface VerifySMSSandboxPhoneNumberCommandInput extends VerifySMSSandboxPhoneNumberInput {}
+/**
+ * @public
+ *
+ * The output of {@link VerifySMSSandboxPhoneNumberCommand}.
+ */
 export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Verifies a destination phone number with a one-time password (OTP) for the calling Amazon Web Services account.</p>
- *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
+ * @public
+ * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
+ *             Amazon Web Services account.</p>
+ *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
  *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
  *                 Amazon Web Services account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
@@ -37,13 +52,44 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * import { SNSClient, VerifySMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, VerifySMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // VerifySMSSandboxPhoneNumberInput
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   OneTimePassword: "STRING_VALUE", // required
+ * };
  * const command = new VerifySMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param VerifySMSSandboxPhoneNumberCommandInput - {@link VerifySMSSandboxPhoneNumberCommandInput}
+ * @returns {@link VerifySMSSandboxPhoneNumberCommandOutput}
  * @see {@link VerifySMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link VerifySMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Can’t perform the action on the specified resource. Make sure that the resource
+ *             exists.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * @throws {@link VerificationException} (client fault)
+ *  <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
+ *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class VerifySMSSandboxPhoneNumberCommand extends $Command<
@@ -54,6 +100,18 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: VerifySMSSandboxPhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +127,9 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<VerifySMSSandboxPhoneNumberCommandInput, VerifySMSSandboxPhoneNumberCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, VerifySMSSandboxPhoneNumberCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +140,8 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifySMSSandboxPhoneNumberInput.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifySMSSandboxPhoneNumberResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +151,21 @@ export class VerifySMSSandboxPhoneNumberCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifySMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifySMSSandboxPhoneNumberCommand(input, context);
+    return se_VerifySMSSandboxPhoneNumberCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> {
-    return deserializeAws_queryVerifySMSSandboxPhoneNumberCommand(output, context);
+    return de_VerifySMSSandboxPhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

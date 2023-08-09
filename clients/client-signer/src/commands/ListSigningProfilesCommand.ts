@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSigningProfilesCommand,
-  serializeAws_restJson1ListSigningProfilesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListSigningProfilesCommand, se_ListSigningProfilesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListSigningProfilesCommand}.
+ */
 export interface ListSigningProfilesCommandInput extends ListSigningProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListSigningProfilesCommand}.
+ */
 export interface ListSigningProfilesCommandOutput extends ListSigningProfilesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available signing profiles in your AWS account. Returns only profiles with
  * 			an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is
  * 			set to <code>true</code>. If additional jobs remain to be listed, code signing returns a
@@ -36,13 +50,65 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * import { SignerClient, ListSigningProfilesCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListSigningProfilesCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = { // ListSigningProfilesRequest
+ *   includeCanceled: true || false,
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   platformId: "STRING_VALUE",
+ *   statuses: [ // Statuses
+ *     "Active" || "Canceled" || "Revoked",
+ *   ],
+ * };
  * const command = new ListSigningProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListSigningProfilesResponse
+ * //   profiles: [ // SigningProfiles
+ * //     { // SigningProfile
+ * //       profileName: "STRING_VALUE",
+ * //       profileVersion: "STRING_VALUE",
+ * //       profileVersionArn: "STRING_VALUE",
+ * //       signingMaterial: { // SigningMaterial
+ * //         certificateArn: "STRING_VALUE", // required
+ * //       },
+ * //       signatureValidityPeriod: { // SignatureValidityPeriod
+ * //         value: Number("int"),
+ * //         type: "DAYS" || "MONTHS" || "YEARS",
+ * //       },
+ * //       platformId: "STRING_VALUE",
+ * //       platformDisplayName: "STRING_VALUE",
+ * //       signingParameters: { // SigningParameters
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       status: "Active" || "Canceled" || "Revoked",
+ * //       arn: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListSigningProfilesCommandInput - {@link ListSigningProfilesCommandInput}
+ * @returns {@link ListSigningProfilesCommandOutput}
  * @see {@link ListSigningProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSigningProfilesCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The allowed number of job-signing requests has been exceeded.</p>
+ * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * @throws {@link SignerServiceException}
+ * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
 export class ListSigningProfilesCommand extends $Command<
@@ -53,6 +119,18 @@ export class ListSigningProfilesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListSigningProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +146,9 @@ export class ListSigningProfilesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListSigningProfilesCommandInput, ListSigningProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListSigningProfilesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +159,8 @@ export class ListSigningProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSigningProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSigningProfilesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +170,18 @@ export class ListSigningProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListSigningProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListSigningProfilesCommand(input, context);
+    return se_ListSigningProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningProfilesCommandOutput> {
-    return deserializeAws_restJson1ListSigningProfilesCommand(output, context);
+    return de_ListSigningProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

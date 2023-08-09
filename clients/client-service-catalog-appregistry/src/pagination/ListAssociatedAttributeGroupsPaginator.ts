@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListAssociatedAttributeGroupsCommand,
   ListAssociatedAttributeGroupsCommandInput,
   ListAssociatedAttributeGroupsCommandOutput,
 } from "../commands/ListAssociatedAttributeGroupsCommand";
-import { ServiceCatalogAppRegistry } from "../ServiceCatalogAppRegistry";
 import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
 import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogAppRegistryClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAssociatedAttributeGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceCatalogAppRegistry,
-  input: ListAssociatedAttributeGroupsCommandInput,
-  ...args: any
-): Promise<ListAssociatedAttributeGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAssociatedAttributeGroups(input, ...args);
-};
 export async function* paginateListAssociatedAttributeGroups(
   config: ServiceCatalogAppRegistryPaginationConfiguration,
   input: ListAssociatedAttributeGroupsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListAssociatedAttributeGroups(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof ServiceCatalogAppRegistry) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogAppRegistryClient) {
+    if (config.client instanceof ServiceCatalogAppRegistryClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalogAppRegistry | ServiceCatalogAppRegistryClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListPackagesForDomainCommand,
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "../commands/ListPackagesForDomainCommand";
-import { OpenSearch } from "../OpenSearch";
 import { OpenSearchClient } from "../OpenSearchClient";
 import { OpenSearchPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: OpenSearchClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPackagesForDomainCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: OpenSearch,
-  input: ListPackagesForDomainCommandInput,
-  ...args: any
-): Promise<ListPackagesForDomainCommandOutput> => {
-  // @ts-ignore
-  return await client.listPackagesForDomain(input, ...args);
-};
 export async function* paginateListPackagesForDomain(
   config: OpenSearchPaginationConfiguration,
   input: ListPackagesForDomainCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListPackagesForDomain(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof OpenSearch) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof OpenSearchClient) {
+    if (config.client instanceof OpenSearchClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected OpenSearch | OpenSearchClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

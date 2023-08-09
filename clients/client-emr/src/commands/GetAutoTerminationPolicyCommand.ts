@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { GetAutoTerminationPolicyInput, GetAutoTerminationPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetAutoTerminationPolicyCommand,
-  serializeAws_json1_1GetAutoTerminationPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetAutoTerminationPolicyCommand, se_GetAutoTerminationPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAutoTerminationPolicyCommand}.
+ */
 export interface GetAutoTerminationPolicyCommandInput extends GetAutoTerminationPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetAutoTerminationPolicyCommand}.
+ */
 export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the auto-termination policy for an Amazon EMR cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,27 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * import { EMRClient, GetAutoTerminationPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetAutoTerminationPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // GetAutoTerminationPolicyInput
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new GetAutoTerminationPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // GetAutoTerminationPolicyOutput
+ * //   AutoTerminationPolicy: { // AutoTerminationPolicy
+ * //     IdleTimeout: Number("long"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetAutoTerminationPolicyCommandInput - {@link GetAutoTerminationPolicyCommandInput}
+ * @returns {@link GetAutoTerminationPolicyCommandOutput}
  * @see {@link GetAutoTerminationPolicyCommandInput} for command's `input` shape.
  * @see {@link GetAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class GetAutoTerminationPolicyCommand extends $Command<
@@ -46,6 +74,18 @@ export class GetAutoTerminationPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAutoTerminationPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +101,9 @@ export class GetAutoTerminationPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAutoTerminationPolicyCommandInput, GetAutoTerminationPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAutoTerminationPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +114,8 @@ export class GetAutoTerminationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutoTerminationPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAutoTerminationPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +125,18 @@ export class GetAutoTerminationPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAutoTerminationPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAutoTerminationPolicyCommand(input, context);
+    return se_GetAutoTerminationPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoTerminationPolicyCommandOutput> {
-    return deserializeAws_json1_1GetAutoTerminationPolicyCommand(output, context);
+    return de_GetAutoTerminationPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

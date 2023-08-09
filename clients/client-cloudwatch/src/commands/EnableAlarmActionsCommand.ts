@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { EnableAlarmActionsInput } from "../models/models_0";
-import {
-  deserializeAws_queryEnableAlarmActionsCommand,
-  serializeAws_queryEnableAlarmActionsCommand,
-} from "../protocols/Aws_query";
+import { de_EnableAlarmActionsCommand, se_EnableAlarmActionsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link EnableAlarmActionsCommand}.
+ */
 export interface EnableAlarmActionsCommandInput extends EnableAlarmActionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link EnableAlarmActionsCommand}.
+ */
 export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables the actions for the specified alarms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,25 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, EnableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, EnableAlarmActionsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // EnableAlarmActionsInput
+ *   AlarmNames: [ // AlarmNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new EnableAlarmActionsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param EnableAlarmActionsCommandInput - {@link EnableAlarmActionsCommandInput}
+ * @returns {@link EnableAlarmActionsCommandOutput}
  * @see {@link EnableAlarmActionsCommandInput} for command's `input` shape.
  * @see {@link EnableAlarmActionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class EnableAlarmActionsCommand extends $Command<
@@ -46,6 +72,18 @@ export class EnableAlarmActionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: EnableAlarmActionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +99,9 @@ export class EnableAlarmActionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<EnableAlarmActionsCommandInput, EnableAlarmActionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, EnableAlarmActionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +112,8 @@ export class EnableAlarmActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAlarmActionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +123,18 @@ export class EnableAlarmActionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: EnableAlarmActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryEnableAlarmActionsCommand(input, context);
+    return se_EnableAlarmActionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAlarmActionsCommandOutput> {
-    return deserializeAws_queryEnableAlarmActionsCommand(output, context);
+    return de_EnableAlarmActionsCommand(output, context);
   }
 
   // Start section: command_body_extra

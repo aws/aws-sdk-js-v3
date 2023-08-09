@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
   ListOfferingsCommandOutput,
 } from "../commands/ListOfferingsCommand";
-import { MediaConnect } from "../MediaConnect";
 import { MediaConnectClient } from "../MediaConnectClient";
 import { MediaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaConnectClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListOfferingsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaConnect,
-  input: ListOfferingsCommandInput,
-  ...args: any
-): Promise<ListOfferingsCommandOutput> => {
-  // @ts-ignore
-  return await client.listOfferings(input, ...args);
-};
 export async function* paginateListOfferings(
   config: MediaConnectPaginationConfiguration,
   input: ListOfferingsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListOfferings(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaConnect) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaConnectClient) {
+    if (config.client instanceof MediaConnectClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaConnect | MediaConnectClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

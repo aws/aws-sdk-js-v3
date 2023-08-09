@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import { DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeTopicsDetectionJobCommand,
-  serializeAws_json1_1DescribeTopicsDetectionJobCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeTopicsDetectionJobCommand, se_DescribeTopicsDetectionJobCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeTopicsDetectionJobCommand}.
+ */
 export interface DescribeTopicsDetectionJobCommandInput extends DescribeTopicsDetectionJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTopicsDetectionJobCommand}.
+ */
 export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the properties associated with a topic detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -30,13 +44,71 @@ export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsD
  * import { ComprehendClient, DescribeTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = { // DescribeTopicsDetectionJobRequest
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTopicsDetectionJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTopicsDetectionJobResponse
+ * //   TopicsDetectionJobProperties: { // TopicsDetectionJobProperties
+ * //     JobId: "STRING_VALUE",
+ * //     JobArn: "STRING_VALUE",
+ * //     JobName: "STRING_VALUE",
+ * //     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ * //     Message: "STRING_VALUE",
+ * //     SubmitTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //     InputDataConfig: { // InputDataConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ * //       DocumentReaderConfig: { // DocumentReaderConfig
+ * //         DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
+ * //         DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",
+ * //         FeatureTypes: [ // ListOfDocumentReadFeatureTypes
+ * //           "TABLES" || "FORMS",
+ * //         ],
+ * //       },
+ * //     },
+ * //     OutputDataConfig: { // OutputDataConfig
+ * //       S3Uri: "STRING_VALUE", // required
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     NumberOfTopics: Number("int"),
+ * //     DataAccessRoleArn: "STRING_VALUE",
+ * //     VolumeKmsKeyId: "STRING_VALUE",
+ * //     VpcConfig: { // VpcConfig
+ * //       SecurityGroupIds: [ // SecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeTopicsDetectionJobCommandInput - {@link DescribeTopicsDetectionJobCommandInput}
+ * @returns {@link DescribeTopicsDetectionJobCommandOutput}
  * @see {@link DescribeTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTopicsDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * @throws {@link ComprehendServiceException}
+ * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
 export class DescribeTopicsDetectionJobCommand extends $Command<
@@ -47,6 +119,18 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTopicsDetectionJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +146,9 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTopicsDetectionJobCommandInput, DescribeTopicsDetectionJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeTopicsDetectionJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +159,8 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTopicsDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTopicsDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +170,21 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTopicsDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTopicsDetectionJobCommand(input, context);
+    return se_DescribeTopicsDetectionJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTopicsDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeTopicsDetectionJobCommand(output, context);
+    return de_DescribeTopicsDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

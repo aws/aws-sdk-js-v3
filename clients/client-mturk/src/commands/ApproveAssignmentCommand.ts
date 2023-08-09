@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1ApproveAssignmentCommand,
-  serializeAws_json1_1ApproveAssignmentCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ApproveAssignmentCommand, se_ApproveAssignmentCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ApproveAssignmentCommand}.
+ */
 export interface ApproveAssignmentCommandInput extends ApproveAssignmentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ApproveAssignmentCommand}.
+ */
 export interface ApproveAssignmentCommandOutput extends ApproveAssignmentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>ApproveAssignment</code> operation approves the results of a completed assignment.
  *         </p>
@@ -58,13 +72,31 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * import { MTurkClient, ApproveAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ApproveAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // ApproveAssignmentRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ *   RequesterFeedback: "STRING_VALUE",
+ *   OverrideRejection: true || false,
+ * };
  * const command = new ApproveAssignmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param ApproveAssignmentCommandInput - {@link ApproveAssignmentCommandInput}
+ * @returns {@link ApproveAssignmentCommandOutput}
  * @see {@link ApproveAssignmentCommandInput} for command's `input` shape.
  * @see {@link ApproveAssignmentCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class ApproveAssignmentCommand extends $Command<
@@ -75,6 +107,18 @@ export class ApproveAssignmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ApproveAssignmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -90,6 +134,9 @@ export class ApproveAssignmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ApproveAssignmentCommandInput, ApproveAssignmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ApproveAssignmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -100,8 +147,8 @@ export class ApproveAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApproveAssignmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ApproveAssignmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -111,12 +158,18 @@ export class ApproveAssignmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ApproveAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ApproveAssignmentCommand(input, context);
+    return se_ApproveAssignmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveAssignmentCommandOutput> {
-    return deserializeAws_json1_1ApproveAssignmentCommand(output, context);
+    return de_ApproveAssignmentCommand(output, context);
   }
 
   // Start section: command_body_extra

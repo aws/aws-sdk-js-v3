@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeProjectsRequest, DescribeProjectsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeProjectsCommand,
-  serializeAws_json1_1DescribeProjectsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeProjectsCommand, se_DescribeProjectsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeProjectsCommand}.
+ */
 export interface DescribeProjectsCommandInput extends DescribeProjectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProjectsCommand}.
+ */
 export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about your Amazon Rekognition Custom Labels projects. </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
  * @example
@@ -30,13 +44,108 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * import { RekognitionClient, DescribeProjectsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeProjectsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DescribeProjectsRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ProjectNames: [ // ProjectNames
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeProjectsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProjectsResponse
+ * //   ProjectDescriptions: [ // ProjectDescriptions
+ * //     { // ProjectDescription
+ * //       ProjectArn: "STRING_VALUE",
+ * //       CreationTimestamp: new Date("TIMESTAMP"),
+ * //       Status: "CREATING" || "CREATED" || "DELETING",
+ * //       Datasets: [ // DatasetMetadataList
+ * //         { // DatasetMetadata
+ * //           CreationTimestamp: new Date("TIMESTAMP"),
+ * //           DatasetType: "TRAIN" || "TEST",
+ * //           DatasetArn: "STRING_VALUE",
+ * //           Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
+ * //           StatusMessage: "STRING_VALUE",
+ * //           StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeProjectsCommandInput - {@link DescribeProjectsCommandInput}
+ * @returns {@link DescribeProjectsCommandOutput}
  * @see {@link DescribeProjectsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectsCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
+ *
+ * @example To describe an Amazon Rekognition Custom Labels project.
+ * ```javascript
+ * // Describes an Amazon Rekognition Custom Labels projects.
+ * const input = {
+ *   "ProjectNames": [
+ *     "my-project"
+ *   ]
+ * };
+ * const command = new DescribeProjectsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProjectDescriptions": [
+ *     {
+ *       "CreationTimestamp": "2022-06-13T15:16:00.634000-07:00",
+ *       "Datasets": [
+ *         {
+ *           "CreationTimestamp": "2022-06-13T15:17:34.620000-07:00",
+ *           "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/test/1655158654491",
+ *           "DatasetType": "TEST",
+ *           "Status": "CREATE_COMPLETE",
+ *           "StatusMessage": "The dataset was successfully created from the manifest file.",
+ *           "StatusMessageCode": "SUCCESS"
+ *         },
+ *         {
+ *           "CreationTimestamp": "2022-06-13T15:17:50.118000-07:00",
+ *           "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/train/1655158669954",
+ *           "DatasetType": "TRAIN",
+ *           "Status": "CREATE_COMPLETE",
+ *           "StatusMessage": "The dataset was successfully created from the manifest file.",
+ *           "StatusMessageCode": "SUCCESS"
+ *         }
+ *       ],
+ *       "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1655158560634",
+ *       "Status": "CREATED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-describe-an-amazon-rekognition-custom-labels-project-1690400952376
+ * ```
  *
  */
 export class DescribeProjectsCommand extends $Command<
@@ -47,6 +156,18 @@ export class DescribeProjectsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +183,9 @@ export class DescribeProjectsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeProjectsCommandInput, DescribeProjectsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeProjectsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +196,8 @@ export class DescribeProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProjectsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProjectsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +207,18 @@ export class DescribeProjectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeProjectsCommand(input, context);
+    return se_DescribeProjectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectsCommandOutput> {
-    return deserializeAws_json1_1DescribeProjectsCommand(output, context);
+    return de_DescribeProjectsCommand(output, context);
   }
 
   // Start section: command_body_extra

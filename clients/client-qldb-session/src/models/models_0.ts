@@ -1,108 +1,101 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { QLDBSessionServiceException as __BaseException } from "./QLDBSessionServiceException";
 
 /**
+ * @public
  * <p>Contains the details of the transaction to abort.</p>
  */
 export interface AbortTransactionRequest {}
 
-export namespace AbortTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains server-side performance information for a command. Amazon QLDB captures timing
  *          information between the times when it receives the request and when it sends the
  *          corresponding response.</p>
  */
 export interface TimingInformation {
   /**
+   * @public
    * <p>The amount of time that QLDB spent on processing the command, measured in
    *          milliseconds.</p>
    */
   ProcessingTimeMilliseconds?: number;
 }
 
-export namespace TimingInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimingInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the details of the aborted transaction.</p>
  */
 export interface AbortTransactionResult {
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 }
 
-export namespace AbortTransactionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortTransactionResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Returned if the request is malformed or contains an error such as an invalid parameter
  *          value or a missing required parameter.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace BadRequestException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
+ * @public
  * <p>Returned when the request exceeds the processing capacity of the ledger.</p>
  */
-export interface CapacityExceededException extends __SmithyException, $MetadataBearer {
-  name: "CapacityExceededException";
-  $fault: "server";
+export class CapacityExceededException extends __BaseException {
+  readonly name: "CapacityExceededException" = "CapacityExceededException";
+  readonly $fault: "server" = "server";
   Message?: string;
-}
-
-export namespace CapacityExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CapacityExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CapacityExceededException, __BaseException>) {
+    super({
+      name: "CapacityExceededException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CapacityExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Contains the details of the transaction to commit.</p>
  */
 export interface CommitTransactionRequest {
   /**
+   * @public
    * <p>Specifies the transaction ID of the transaction to commit.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the commit digest for the transaction to commit. For every active transaction,
    *          the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
    *          the commit with an error if the digest computed on the client does not match the digest
@@ -114,374 +107,313 @@ export interface CommitTransactionRequest {
   CommitDigest: Uint8Array | undefined;
 }
 
-export namespace CommitTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains I/O usage metrics for a command that was invoked.</p>
  */
 export interface IOUsage {
   /**
+   * @public
    * <p>The number of read I/O requests that the command made.</p>
    */
   ReadIOs?: number;
 
   /**
+   * @public
    * <p>The number of write I/O requests that the command made.</p>
    */
   WriteIOs?: number;
 }
 
-export namespace IOUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IOUsage): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the details of the committed transaction.</p>
  */
 export interface CommitTransactionResult {
   /**
+   * @public
    * <p>The transaction ID of the committed transaction.</p>
    */
   TransactionId?: string;
 
   /**
+   * @public
    * <p>The commit digest of the committed transaction.</p>
    */
   CommitDigest?: Uint8Array;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 
   /**
+   * @public
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
 }
 
-export namespace CommitTransactionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies a request to end the session.</p>
  */
 export interface EndSessionRequest {}
 
-export namespace EndSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the details of the ended session.</p>
  */
 export interface EndSessionResult {
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 }
 
-export namespace EndSessionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndSessionResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure that can contain a value in multiple encoding formats.</p>
  */
 export interface ValueHolder {
   /**
+   * @public
    * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonBinary?: Uint8Array;
 
   /**
+   * @public
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
 }
 
-export namespace ValueHolder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValueHolder): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies a request to execute a statement.</p>
  */
 export interface ExecuteStatementRequest {
   /**
+   * @public
    * <p>Specifies the transaction ID of the request.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the statement of the request.</p>
    */
   Statement: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the parameters for the parameterized statement in the request.</p>
    */
   Parameters?: ValueHolder[];
 }
 
-export namespace ExecuteStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains details of the fetched page.</p>
  */
 export interface Page {
   /**
+   * @public
    * <p>A structure that contains values in multiple encoding formats.</p>
    */
   Values?: ValueHolder[];
 
   /**
+   * @public
    * <p>The token of the next page.</p>
    */
   NextPageToken?: string;
 }
 
-export namespace Page {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the details of the executed statement.</p>
  */
 export interface ExecuteStatementResult {
   /**
+   * @public
    * <p>Contains the details of the first fetched page.</p>
    */
   FirstPage?: Page;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 
   /**
+   * @public
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
 }
 
-export namespace ExecuteStatementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the details of the page to be fetched.</p>
  */
 export interface FetchPageRequest {
   /**
+   * @public
    * <p>Specifies the transaction ID of the page to be fetched.</p>
    */
   TransactionId: string | undefined;
 
   /**
+   * @public
    * <p>Specifies the next page token of the page to be fetched.</p>
    */
   NextPageToken: string | undefined;
 }
 
-export namespace FetchPageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FetchPageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the page that was fetched.</p>
  */
 export interface FetchPageResult {
   /**
+   * @public
    * <p>Contains details of the fetched page.</p>
    */
   Page?: Page;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 
   /**
+   * @public
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
 }
 
-export namespace FetchPageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FetchPageResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
  */
-export interface InvalidSessionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSessionException";
-  $fault: "client";
+export class InvalidSessionException extends __BaseException {
+  readonly name: "InvalidSessionException" = "InvalidSessionException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
-}
-
-export namespace InvalidSessionException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidSessionException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidSessionException, __BaseException>) {
+    super({
+      name: "InvalidSessionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSessionException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
+ * @public
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returned when a transaction cannot be written to the journal due to a failure in the
  *          verification phase of <i>optimistic concurrency control</i> (OCC).</p>
  */
-export interface OccConflictException extends __SmithyException, $MetadataBearer {
-  name: "OccConflictException";
-  $fault: "client";
+export class OccConflictException extends __BaseException {
+  readonly name: "OccConflictException" = "OccConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace OccConflictException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: OccConflictException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<OccConflictException, __BaseException>) {
+    super({
+      name: "OccConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OccConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
-export interface RateExceededException extends __SmithyException, $MetadataBearer {
-  name: "RateExceededException";
-  $fault: "client";
+export class RateExceededException extends __BaseException {
+  readonly name: "RateExceededException" = "RateExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace RateExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RateExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RateExceededException, __BaseException>) {
+    super({
+      name: "RateExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RateExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Specifies a request to start a new session.</p>
  */
 export interface StartSessionRequest {
   /**
+   * @public
    * <p>The name of the ledger to start a new session against.</p>
    */
   LedgerName: string | undefined;
 }
 
-export namespace StartSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies a request to start a transaction.</p>
  */
 export interface StartTransactionRequest {}
 
-export namespace StartTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SendCommandRequest {
   /**
+   * @public
    * <p>Specifies the session token for the current command. A session token is constant
    *          throughout the life of the session.</p>
    *          <p>To obtain a session token, run the <code>StartSession</code> command. This
@@ -491,102 +423,92 @@ export interface SendCommandRequest {
   SessionToken?: string;
 
   /**
+   * @public
    * <p>Command to start a new session. A session token is obtained as part of the
    *          response.</p>
    */
   StartSession?: StartSessionRequest;
 
   /**
+   * @public
    * <p>Command to start a new transaction.</p>
    */
   StartTransaction?: StartTransactionRequest;
 
   /**
+   * @public
    * <p>Command to end the current session.</p>
    */
   EndSession?: EndSessionRequest;
 
   /**
+   * @public
    * <p>Command to commit the specified transaction.</p>
    */
   CommitTransaction?: CommitTransactionRequest;
 
   /**
+   * @public
    * <p>Command to abort the current transaction.</p>
    */
   AbortTransaction?: AbortTransactionRequest;
 
   /**
+   * @public
    * <p>Command to execute a statement in the specified transaction.</p>
    */
   ExecuteStatement?: ExecuteStatementRequest;
 
   /**
+   * @public
    * <p>Command to fetch a page.</p>
    */
   FetchPage?: FetchPageRequest;
 }
 
-export namespace SendCommandRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the details of the started session.</p>
  */
 export interface StartSessionResult {
   /**
+   * @public
    * <p>Session token of the started session. This <code>SessionToken</code> is required for
    *          every subsequent command that is issued during the current session.</p>
    */
   SessionToken?: string;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 }
 
-export namespace StartSessionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSessionResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the details of the started transaction.</p>
  */
 export interface StartTransactionResult {
   /**
+   * @public
    * <p>The transaction ID of the started transaction.</p>
    */
   TransactionId?: string;
 
   /**
+   * @public
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
 }
 
-export namespace StartTransactionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTransactionResult): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SendCommandResult {
   /**
+   * @public
    * <p>Contains the details of the started session that includes a session token. This
    *             <code>SessionToken</code> is required for every subsequent command that is issued during
    *          the current session.</p>
@@ -594,41 +516,38 @@ export interface SendCommandResult {
   StartSession?: StartSessionResult;
 
   /**
+   * @public
    * <p>Contains the details of the started transaction.</p>
    */
   StartTransaction?: StartTransactionResult;
 
   /**
+   * @public
    * <p>Contains the details of the ended session.</p>
    */
   EndSession?: EndSessionResult;
 
   /**
+   * @public
    * <p>Contains the details of the committed transaction.</p>
    */
   CommitTransaction?: CommitTransactionResult;
 
   /**
+   * @public
    * <p>Contains the details of the aborted transaction.</p>
    */
   AbortTransaction?: AbortTransactionResult;
 
   /**
+   * @public
    * <p>Contains the details of the executed statement.</p>
    */
   ExecuteStatement?: ExecuteStatementResult;
 
   /**
+   * @public
    * <p>Contains the details of the fetched page.</p>
    */
   FetchPage?: FetchPageResult;
-}
-
-export namespace SendCommandResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCommandResult): any => ({
-    ...obj,
-  });
 }

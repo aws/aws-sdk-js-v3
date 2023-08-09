@@ -1,7 +1,8 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,27 +11,43 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketCorsCommand,
-  serializeAws_restXmlGetBucketCorsCommand,
-} from "../protocols/Aws_restXml";
+import { de_GetBucketCorsCommand, se_GetBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetBucketCorsCommand}.
+ */
 export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBucketCorsCommand}.
+ */
 export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the cors configuration information set for the bucket.</p>
- *
- *          <p> To use this operation, you must have permission to perform the s3:GetBucketCORS action.
- *          By default, the bucket owner has this permission and can grant it to others.</p>
- *
- *          <p> For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling
- *             Cross-Origin Resource Sharing</a>.</p>
- *
+ * @public
+ * <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
+ *          bucket.</p>
+ *          <p> To use this operation, you must have permission to perform the
+ *             <code>s3:GetBucketCORS</code> action. By default, the bucket owner has this permission
+ *          and can grant it to others.</p>
+ *          <p>To use this API operation against an access point, provide the alias of the access point in place of the bucket name.</p>
+ *          <p>To use this API operation against an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name.
+ * If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned.
+ * For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of
+ *             Error Codes</a>.</p>
+ *          <p> For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling Cross-Origin Resource
+ *          Sharing</a>.</p>
  *          <p>The following operations are related to <code>GetBucketCors</code>:</p>
  *          <ul>
  *             <li>
@@ -50,13 +67,72 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * import { S3Client, GetBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // GetBucketCorsRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new GetBucketCorsCommand(input);
  * const response = await client.send(command);
+ * // { // GetBucketCorsOutput
+ * //   CORSRules: [ // CORSRules
+ * //     { // CORSRule
+ * //       ID: "STRING_VALUE",
+ * //       AllowedHeaders: [ // AllowedHeaders
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllowedMethods: [ // AllowedMethods // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       AllowedOrigins: [ // AllowedOrigins // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ExposeHeaders: [ // ExposeHeaders
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       MaxAgeSeconds: Number("int"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetBucketCorsCommandInput - {@link GetBucketCorsCommandInput}
+ * @returns {@link GetBucketCorsCommandOutput}
  * @see {@link GetBucketCorsCommandInput} for command's `input` shape.
  * @see {@link GetBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
+ * @example To get cors configuration set on a bucket
+ * ```javascript
+ * // The following example returns cross-origin resource sharing (CORS) configuration set on a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new GetBucketCorsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CORSRules": [
+ *     {
+ *       "AllowedHeaders": [
+ *         "Authorization"
+ *       ],
+ *       "AllowedMethods": [
+ *         "GET"
+ *       ],
+ *       "AllowedOrigins": [
+ *         "*"
+ *       ],
+ *       "MaxAgeSeconds": 3000
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-get-cors-configuration-set-on-a-bucket-1481596855475
+ * ```
  *
  */
 export class GetBucketCorsCommand extends $Command<
@@ -67,6 +143,24 @@ export class GetBucketCorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetBucketCorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,7 +176,7 @@ export class GetBucketCorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBucketCorsCommandInput, GetBucketCorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetBucketCorsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -93,8 +187,8 @@ export class GetBucketCorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketCorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketCorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +198,18 @@ export class GetBucketCorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBucketCorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetBucketCorsCommand(input, context);
+    return se_GetBucketCorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketCorsCommandOutput> {
-    return deserializeAws_restXmlGetBucketCorsCommand(output, context);
+    return de_GetBucketCorsCommand(output, context);
   }
 
   // Start section: command_body_extra

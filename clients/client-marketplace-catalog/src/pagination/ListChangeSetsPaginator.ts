@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListChangeSetsCommand,
   ListChangeSetsCommandInput,
   ListChangeSetsCommandOutput,
 } from "../commands/ListChangeSetsCommand";
-import { MarketplaceCatalog } from "../MarketplaceCatalog";
 import { MarketplaceCatalogClient } from "../MarketplaceCatalogClient";
 import { MarketplaceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MarketplaceCatalogClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListChangeSetsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MarketplaceCatalog,
-  input: ListChangeSetsCommandInput,
-  ...args: any
-): Promise<ListChangeSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.listChangeSets(input, ...args);
-};
 export async function* paginateListChangeSets(
   config: MarketplaceCatalogPaginationConfiguration,
   input: ListChangeSetsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListChangeSets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MarketplaceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MarketplaceCatalogClient) {
+    if (config.client instanceof MarketplaceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MarketplaceCatalog | MarketplaceCatalogClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

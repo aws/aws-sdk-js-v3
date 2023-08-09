@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListKnowledgeBasesCommand,
   ListKnowledgeBasesCommandInput,
   ListKnowledgeBasesCommandOutput,
 } from "../commands/ListKnowledgeBasesCommand";
-import { Wisdom } from "../Wisdom";
 import { WisdomClient } from "../WisdomClient";
 import { WisdomPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WisdomClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListKnowledgeBasesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Wisdom,
-  input: ListKnowledgeBasesCommandInput,
-  ...args: any
-): Promise<ListKnowledgeBasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listKnowledgeBases(input, ...args);
-};
 export async function* paginateListKnowledgeBases(
   config: WisdomPaginationConfiguration,
   input: ListKnowledgeBasesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListKnowledgeBases(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Wisdom) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WisdomClient) {
+    if (config.client instanceof WisdomClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Wisdom | WisdomClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

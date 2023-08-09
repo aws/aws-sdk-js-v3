@@ -1,28 +1,38 @@
-# @aws-sdk/client-pricing
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pricing/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pricing)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pricing.svg)](https://www.npmjs.com/package/@aws-sdk/client-pricing)
+# @aws-sdk/client-pricing
 
 ## Description
 
 AWS SDK for JavaScript Pricing Client for Node.js, Browser and React Native.
 
-<p>Amazon Web Services Price List Service API (Amazon Web Services Price List Service) is a centralized and convenient way to
-programmatically query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List Service
-uses standardized product attributes such as <code>Location</code>, <code>Storage
-Class</code>, and <code>Operating System</code>, and provides prices at the SKU
-level. You can use the Amazon Web Services Price List Service to build cost control and scenario planning tools, reconcile
-billing data, forecast future spend for budgeting purposes, and provide cost benefit
-analysis that compare your internal workloads with Amazon Web Services.</p>
-<p>Use <code>GetServices</code> without a service code to retrieve the service codes for all AWS services, then
-<code>GetServices</code> with a service code to retreive the attribute names for
-that service. After you have the service code and attribute names, you can use <code>GetAttributeValues</code>
-to see what values are available for an attribute. With the service code and an attribute name and value,
-you can use <code>GetProducts</code> to find specific products that you're interested in, such as
+<p>The Amazon Web Services Price List API is a centralized and convenient way to programmatically
+query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List uses standardized product attributes such as <code>Location</code>,
+<code>Storage Class</code>, and <code>Operating System</code>, and provides prices at
+the SKU level. You can use the Amazon Web Services Price List to do the following:</p>
+<ul>
+<li>
+<p>Build cost control and scenario planning tools</p>
+</li>
+<li>
+<p>Reconcile billing data</p>
+</li>
+<li>
+<p>Forecast future spend for budgeting purposes</p>
+</li>
+<li>
+<p>Provide cost benefit analysis that compare your internal workloads with Amazon Web Services</p>
+</li>
+</ul>
+<p>Use <code>GetServices</code> without a service code to retrieve the service codes for
+all Amazon Web Services, then <code>GetServices</code> with a service code to
+retrieve the attribute names for that service. After you have the service code and
+attribute names, you can use <code>GetAttributeValues</code> to see what values are
+available for an attribute. With the service code and an attribute name and value, you can
+use <code>GetProducts</code> to find specific products that you're interested in, such as
 an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
 <code>volumeType</code>.</p>
-<p>Service Endpoint</p>
-<p>Amazon Web Services Price List Service API provides the following two endpoints:</p>
+<p>You can use the following endpoints for the Amazon Web Services Price List API:</p>
 <ul>
 <li>
 <p>https://api.pricing.us-east-1.amazonaws.com</p>
@@ -138,7 +148,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -172,7 +182,7 @@ client
 
 // callbacks.
 client.describeServices(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -186,7 +196,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -224,3 +234,46 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DescribeServices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/describeservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/describeservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/describeservicescommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAttributeValues
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getattributevaluescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getattributevaluescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getattributevaluescommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetPriceListFileUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getpricelistfileurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getpricelistfileurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getpricelistfileurlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetProducts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getproductscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPriceLists
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/listpricelistscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/listpricelistscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/listpricelistscommandoutput.html)
+
+</details>

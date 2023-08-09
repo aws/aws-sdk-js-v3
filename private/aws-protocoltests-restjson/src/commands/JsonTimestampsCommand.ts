@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { JsonTimestampsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonTimestampsCommand,
-  serializeAws_restJson1JsonTimestampsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonTimestampsCommand, se_JsonTimestampsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link JsonTimestampsCommand}.
+ */
 export interface JsonTimestampsCommandInput extends JsonTimestampsInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link JsonTimestampsCommand}.
+ */
 export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
@@ -31,13 +44,37 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * import { RestJsonProtocolClient, JsonTimestampsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonTimestampsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // JsonTimestampsInputOutput
+ *   normal: new Date("TIMESTAMP"),
+ *   dateTime: new Date("TIMESTAMP"),
+ *   dateTimeOnTarget: new Date("TIMESTAMP"),
+ *   epochSeconds: new Date("TIMESTAMP"),
+ *   epochSecondsOnTarget: new Date("TIMESTAMP"),
+ *   httpDate: new Date("TIMESTAMP"),
+ *   httpDateOnTarget: new Date("TIMESTAMP"),
+ * };
  * const command = new JsonTimestampsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonTimestampsInputOutput
+ * //   normal: new Date("TIMESTAMP"),
+ * //   dateTime: new Date("TIMESTAMP"),
+ * //   dateTimeOnTarget: new Date("TIMESTAMP"),
+ * //   epochSeconds: new Date("TIMESTAMP"),
+ * //   epochSecondsOnTarget: new Date("TIMESTAMP"),
+ * //   httpDate: new Date("TIMESTAMP"),
+ * //   httpDateOnTarget: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param JsonTimestampsCommandInput - {@link JsonTimestampsCommandInput}
+ * @returns {@link JsonTimestampsCommandOutput}
  * @see {@link JsonTimestampsCommandInput} for command's `input` shape.
  * @see {@link JsonTimestampsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonTimestampsCommand extends $Command<
@@ -48,6 +85,9 @@ export class JsonTimestampsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonTimestampsCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,8 +113,8 @@ export class JsonTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +124,18 @@ export class JsonTimestampsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonTimestampsCommand(input, context);
+    return se_JsonTimestampsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonTimestampsCommandOutput> {
-    return deserializeAws_restJson1JsonTimestampsCommand(output, context);
+    return de_JsonTimestampsCommand(output, context);
   }
 
   // Start section: command_body_extra

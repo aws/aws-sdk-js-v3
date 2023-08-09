@@ -1,8 +1,9 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -11,24 +12,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { PutPublicAccessBlockRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlPutPublicAccessBlockCommand,
-  serializeAws_restXmlPutPublicAccessBlockCommand,
-} from "../protocols/Aws_restXml";
+import { PutPublicAccessBlockRequest } from "../models/models_1";
+import { de_PutPublicAccessBlockCommand, se_PutPublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutPublicAccessBlockCommand}.
+ */
 export interface PutPublicAccessBlockCommandInput extends PutPublicAccessBlockRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPublicAccessBlockCommand}.
+ */
 export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *          Policy</a>.</p>
- *
+ *             Policy</a>.</p>
  *          <important>
  *             <p>When Amazon S3 evaluates the <code>PublicAccessBlock</code> configuration for a bucket or
  *             an object, it checks the <code>PublicAccessBlock</code> configuration for both the
@@ -37,15 +49,8 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *             the account, Amazon S3 uses the most restrictive combination of the bucket-level and
  *             account-level settings.</p>
  *          </important>
- *
- *
  *          <p>For more information about when Amazon S3 considers a bucket or an object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a>.</p>
- *
- *
- *
- *          <p class="title">
- *             <b>Related Resources</b>
- *          </p>
+ *          <p>The following operations are related to <code>PutPublicAccessBlock</code>:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -75,13 +80,32 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutPublicAccessBlockCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutPublicAccessBlockCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // PutPublicAccessBlockRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
+ *     BlockPublicAcls: true || false,
+ *     IgnorePublicAcls: true || false,
+ *     BlockPublicPolicy: true || false,
+ *     RestrictPublicBuckets: true || false,
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutPublicAccessBlockCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PutPublicAccessBlockCommandInput - {@link PutPublicAccessBlockCommandInput}
+ * @returns {@link PutPublicAccessBlockCommandOutput}
  * @see {@link PutPublicAccessBlockCommandInput} for command's `input` shape.
  * @see {@link PutPublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
 export class PutPublicAccessBlockCommand extends $Command<
@@ -92,6 +116,24 @@ export class PutPublicAccessBlockCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutPublicAccessBlockCommandInput) {
     // Start section: command_constructor
     super();
@@ -107,8 +149,16 @@ export class PutPublicAccessBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutPublicAccessBlockCommandInput, PutPublicAccessBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutPublicAccessBlockCommand.getEndpointParameterInstructions())
+    );
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: true,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -119,8 +169,8 @@ export class PutPublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPublicAccessBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -130,12 +180,18 @@ export class PutPublicAccessBlockCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlPutPublicAccessBlockCommand(input, context);
+    return se_PutPublicAccessBlockCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPublicAccessBlockCommandOutput> {
-    return deserializeAws_restXmlPutPublicAccessBlockCommand(output, context);
+    return de_PutPublicAccessBlockCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,35 +11,110 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeOutboundConnectionsRequest, DescribeOutboundConnectionsResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeOutboundConnectionsCommand,
-  serializeAws_restJson1DescribeOutboundConnectionsCommand,
+  de_DescribeOutboundConnectionsCommand,
+  se_DescribeOutboundConnectionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeOutboundConnectionsCommand}.
+ */
 export interface DescribeOutboundConnectionsCommandInput extends DescribeOutboundConnectionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOutboundConnectionsCommand}.
+ */
 export interface DescribeOutboundConnectionsCommandOutput
   extends DescribeOutboundConnectionsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists all the outbound cross-cluster connections for a local domain.</p>
+ * @public
+ * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
+ *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
+ *     for Amazon OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OpenSearchClient, DescribeOutboundConnectionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeOutboundConnectionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = { // DescribeOutboundConnectionsRequest
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeOutboundConnectionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOutboundConnectionsResponse
+ * //   Connections: [ // OutboundConnections
+ * //     { // OutboundConnection
+ * //       LocalDomainInfo: { // DomainInformationContainer
+ * //         AWSDomainInformation: { // AWSDomainInformation
+ * //           OwnerId: "STRING_VALUE",
+ * //           DomainName: "STRING_VALUE", // required
+ * //           Region: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       RemoteDomainInfo: {
+ * //         AWSDomainInformation: {
+ * //           OwnerId: "STRING_VALUE",
+ * //           DomainName: "STRING_VALUE", // required
+ * //           Region: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       ConnectionId: "STRING_VALUE",
+ * //       ConnectionAlias: "STRING_VALUE",
+ * //       ConnectionStatus: { // OutboundConnectionStatus
+ * //         StatusCode: "VALIDATING" || "VALIDATION_FAILED" || "PENDING_ACCEPTANCE" || "APPROVED" || "PROVISIONING" || "ACTIVE" || "REJECTING" || "REJECTED" || "DELETING" || "DELETED",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //       ConnectionMode: "DIRECT" || "VPC_ENDPOINT",
+ * //       ConnectionProperties: { // ConnectionProperties
+ * //         Endpoint: "STRING_VALUE",
+ * //         CrossClusterSearch: { // CrossClusterSearchConnectionProperties
+ * //           SkipUnavailable: "ENABLED" || "DISABLED",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeOutboundConnectionsCommandInput - {@link DescribeOutboundConnectionsCommandInput}
+ * @returns {@link DescribeOutboundConnectionsCommandOutput}
  * @see {@link DescribeOutboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundConnectionsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Request processing failed because you provided an invalid pagination token.</p>
+ *
+ * @throws {@link OpenSearchServiceException}
+ * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
 export class DescribeOutboundConnectionsCommand extends $Command<
@@ -48,6 +125,18 @@ export class DescribeOutboundConnectionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOutboundConnectionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +152,9 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeOutboundConnectionsCommandInput, DescribeOutboundConnectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeOutboundConnectionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +165,8 @@ export class DescribeOutboundConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOutboundConnectionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOutboundConnectionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +176,21 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOutboundConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOutboundConnectionsCommand(input, context);
+    return se_DescribeOutboundConnectionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeOutboundConnectionsCommandOutput> {
-    return deserializeAws_restJson1DescribeOutboundConnectionsCommand(output, context);
+    return de_DescribeOutboundConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

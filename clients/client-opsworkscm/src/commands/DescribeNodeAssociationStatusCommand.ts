@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DescribeNodeAssociationStatusRequest, DescribeNodeAssociationStatusResponse } from "../models/models_0";
+import {
+  DescribeNodeAssociationStatusRequest,
+  DescribeNodeAssociationStatusResponse,
+  DescribeNodeAssociationStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1DescribeNodeAssociationStatusCommand,
-  serializeAws_json1_1DescribeNodeAssociationStatusCommand,
+  de_DescribeNodeAssociationStatusCommand,
+  se_DescribeNodeAssociationStatusCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeNodeAssociationStatusCommand}.
+ */
 export interface DescribeNodeAssociationStatusCommandInput extends DescribeNodeAssociationStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNodeAssociationStatusCommand}.
+ */
 export interface DescribeNodeAssociationStatusCommandOutput
   extends DescribeNodeAssociationStatusResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Returns the current status of an existing association or disassociation request.
  *     </p>
@@ -37,13 +58,40 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * import { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // DescribeNodeAssociationStatusRequest
+ *   NodeAssociationStatusToken: "STRING_VALUE", // required
+ *   ServerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNodeAssociationStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNodeAssociationStatusResponse
+ * //   NodeAssociationStatus: "STRING_VALUE",
+ * //   EngineAttributes: [ // EngineAttributes
+ * //     { // EngineAttribute
+ * //       Name: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeNodeAssociationStatusCommandInput - {@link DescribeNodeAssociationStatusCommandInput}
+ * @returns {@link DescribeNodeAssociationStatusCommandOutput}
  * @see {@link DescribeNodeAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeAssociationStatusCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class DescribeNodeAssociationStatusCommand extends $Command<
@@ -54,6 +102,18 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNodeAssociationStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +129,9 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeNodeAssociationStatusCommandInput, DescribeNodeAssociationStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeNodeAssociationStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +142,8 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeNodeAssociationStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,15 +153,21 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeNodeAssociationStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNodeAssociationStatusCommand(input, context);
+    return se_DescribeNodeAssociationStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNodeAssociationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeNodeAssociationStatusCommand(output, context);
+    return de_DescribeNodeAssociationStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

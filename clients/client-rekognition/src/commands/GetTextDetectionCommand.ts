@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetTextDetectionRequest, GetTextDetectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetTextDetectionCommand,
-  serializeAws_json1_1GetTextDetectionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetTextDetectionCommand, se_GetTextDetectionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetTextDetectionCommand}.
+ */
 export interface GetTextDetectionCommandInput extends GetTextDetectionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetTextDetectionCommand}.
+ */
 export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the text detection results of a Amazon Rekognition Video analysis started by <a>StartTextDetection</a>.</p>
  *          <p>Text detection with Amazon Rekognition Video is an asynchronous operation. You start text detection by
  *      calling <a>StartTextDetection</a> which returns a job identifier (<code>JobId</code>)
@@ -32,7 +46,7 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  *      of <code>StartLabelDetection</code>.</p>
  *          <p>
  *             <code>GetTextDetection</code> returns an array of detected text (<code>TextDetections</code>) sorted by
- *        the time the text was detected, up to 50 words per frame of video.</p>
+ *        the time the text was detected, up to 100 words per frame of video.</p>
  *          <p>Each element of the array includes the detected text, the precentage confidence in the acuracy
  *        of the detected text, the time the text was detected, bounding box information for where the text
  *        was located, and unique identifiers for words and their lines.</p>
@@ -47,13 +61,97 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  * import { RekognitionClient, GetTextDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetTextDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // GetTextDetectionRequest
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTextDetectionCommand(input);
  * const response = await client.send(command);
+ * // { // GetTextDetectionResponse
+ * //   JobStatus: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
+ * //   StatusMessage: "STRING_VALUE",
+ * //   VideoMetadata: { // VideoMetadata
+ * //     Codec: "STRING_VALUE",
+ * //     DurationMillis: Number("long"),
+ * //     Format: "STRING_VALUE",
+ * //     FrameRate: Number("float"),
+ * //     FrameHeight: Number("long"),
+ * //     FrameWidth: Number("long"),
+ * //     ColorRange: "FULL" || "LIMITED",
+ * //   },
+ * //   TextDetections: [ // TextDetectionResults
+ * //     { // TextDetectionResult
+ * //       Timestamp: Number("long"),
+ * //       TextDetection: { // TextDetection
+ * //         DetectedText: "STRING_VALUE",
+ * //         Type: "LINE" || "WORD",
+ * //         Id: Number("int"),
+ * //         ParentId: Number("int"),
+ * //         Confidence: Number("float"),
+ * //         Geometry: { // Geometry
+ * //           BoundingBox: { // BoundingBox
+ * //             Width: Number("float"),
+ * //             Height: Number("float"),
+ * //             Left: Number("float"),
+ * //             Top: Number("float"),
+ * //           },
+ * //           Polygon: [ // Polygon
+ * //             { // Point
+ * //               X: Number("float"),
+ * //               Y: Number("float"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * //   TextModelVersion: "STRING_VALUE",
+ * //   JobId: "STRING_VALUE",
+ * //   Video: { // Video
+ * //     S3Object: { // S3Object
+ * //       Bucket: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   JobTag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetTextDetectionCommandInput - {@link GetTextDetectionCommandInput}
+ * @returns {@link GetTextDetectionCommandOutput}
  * @see {@link GetTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetTextDetectionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Pagination token in the request is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
  */
 export class GetTextDetectionCommand extends $Command<
@@ -64,6 +162,18 @@ export class GetTextDetectionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetTextDetectionCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +189,9 @@ export class GetTextDetectionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetTextDetectionCommandInput, GetTextDetectionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetTextDetectionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +202,8 @@ export class GetTextDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTextDetectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTextDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +213,18 @@ export class GetTextDetectionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetTextDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetTextDetectionCommand(input, context);
+    return se_GetTextDetectionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTextDetectionCommandOutput> {
-    return deserializeAws_json1_1GetTextDetectionCommand(output, context);
+    return de_GetTextDetectionCommand(output, context);
   }
 
   // Start section: command_body_extra

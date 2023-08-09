@@ -1,31 +1,160 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
-export enum AggregatedUtterancesFilterName {
-  Utterance = "Utterance",
-}
+import { LexModelsV2ServiceException as __BaseException } from "./LexModelsV2ServiceException";
 
-export enum AggregatedUtterancesFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
+/**
+ * @public
+ * <p>The active context used in the test execution.</p>
+ */
+export interface ActiveContext {
+  /**
+   * @public
+   * <p>The name of active context.</p>
+   */
+  name: string | undefined;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AudioRecognitionStrategy = {
+  UseSlotValuesAsCustomVocabulary: "UseSlotValuesAsCustomVocabulary",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioRecognitionStrategy = (typeof AudioRecognitionStrategy)[keyof typeof AudioRecognitionStrategy];
+
+/**
+ * @public
+ * <p>Provides settings that enable advanced recognition settings for slot values.</p>
+ */
+export interface AdvancedRecognitionSetting {
+  /**
+   * @public
+   * <p>Enables using the slot values as a custom vocabulary for recognizing user utterances.</p>
+   */
+  audioRecognitionStrategy?: AudioRecognitionStrategy | string;
+}
+
+/**
+ * @public
+ * <p>Details about an error in an execution of a test set.</p>
+ */
+export interface ExecutionErrorDetails {
+  /**
+   * @public
+   * <p>The error code for the error.</p>
+   */
+  errorCode: string | undefined;
+
+  /**
+   * @public
+   * <p>The message describing the error.</p>
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The information about the agent turn in a test set execution.</p>
+ */
+export interface AgentTurnResult {
+  /**
+   * @public
+   * <p>The expected agent prompt for the agent turn in a test set execution.</p>
+   */
+  expectedAgentPrompt: string | undefined;
+
+  /**
+   * @public
+   * <p>The actual agent prompt for the agent turn in a test set execution.</p>
+   */
+  actualAgentPrompt?: string;
+
+  /**
+   * @public
+   * <p>Details about an error in an execution of a test set.</p>
+   */
+  errorDetails?: ExecutionErrorDetails;
+
+  /**
+   * @public
+   * <p>The actual elicited slot for the agent turn in a test set execution.</p>
+   */
+  actualElicitedSlot?: string;
+
+  /**
+   * @public
+   * <p>The actual intent for the agent turn in a test set execution.</p>
+   */
+  actualIntent?: string;
+}
+
+/**
+ * @public
+ * <p>The specification of an agent turn.</p>
+ */
+export interface AgentTurnSpecification {
+  /**
+   * @public
+   * <p>The agent prompt for the agent turn in a test set.</p>
+   */
+  agentPrompt: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregatedUtterancesFilterName = {
+  Utterance: "Utterance",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregatedUtterancesFilterName =
+  (typeof AggregatedUtterancesFilterName)[keyof typeof AggregatedUtterancesFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregatedUtterancesFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregatedUtterancesFilterOperator =
+  (typeof AggregatedUtterancesFilterOperator)[keyof typeof AggregatedUtterancesFilterOperator];
+
+/**
+ * @public
  * <p>Filters responses returned by the
  *             <code>ListAggregatedUtterances</code> operation.</p>
  */
 export interface AggregatedUtterancesFilter {
   /**
+   * @public
    * <p>The name of the field to filter the utterance list.</p>
    */
   name: AggregatedUtterancesFilterName | string | undefined;
 
   /**
+   * @public
    * <p>The value to use for filtering the list of bots.</p>
    */
   values: string[] | undefined;
 
   /**
+   * @public
    * <p>The operator to use for the filter. Specify <code>EQ</code> when the
    *             <code>ListAggregatedUtterances</code> operation should return only
    *          utterances that equal the specified value. Specify <code>CO</code> when
@@ -35,51 +164,56 @@ export interface AggregatedUtterancesFilter {
   operator: AggregatedUtterancesFilterOperator | string | undefined;
 }
 
-export namespace AggregatedUtterancesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedUtterancesFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum AggregatedUtterancesSortAttribute {
-  HitCount = "HitCount",
-  MissedCount = "MissedCount",
-}
-
-export enum SortOrder {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AggregatedUtterancesSortAttribute = {
+  HitCount: "HitCount",
+  MissedCount: "MissedCount",
+} as const;
 
 /**
+ * @public
+ */
+export type AggregatedUtterancesSortAttribute =
+  (typeof AggregatedUtterancesSortAttribute)[keyof typeof AggregatedUtterancesSortAttribute];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
  * <p>Specifies attributes for sorting a list of utterances.</p>
  */
 export interface AggregatedUtterancesSortBy {
   /**
+   * @public
    * <p>The utterance attribute to sort by.</p>
    */
   attribute: AggregatedUtterancesSortAttribute | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether to sort the aggregated utterances in ascending or
    *          descending order.</p>
    */
   order: SortOrder | string | undefined;
 }
 
-export namespace AggregatedUtterancesSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedUtterancesSortBy): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides summary information for aggregated utterances. The
  *             <code>ListAggregatedUtterances</code> operations combines all
  *          instances of the same utterance into a single aggregated
@@ -87,6 +221,7 @@ export namespace AggregatedUtterancesSortBy {
  */
 export interface AggregatedUtterancesSummary {
   /**
+   * @public
    * <p>The text of the utterance. If the utterance was used with the
    *             <code>RecognizeUtterance</code> operation, the text is the
    *          transcription of the audio utterance.</p>
@@ -94,6 +229,7 @@ export interface AggregatedUtterancesSummary {
   utterance?: string;
 
   /**
+   * @public
    * <p>The number of times that the utterance was detected by Amazon Lex during
    *          the time period. When an utterance is detected, it activates an intent
    *          or a slot.</p>
@@ -101,12 +237,14 @@ export interface AggregatedUtterancesSummary {
   hitCount?: number;
 
   /**
+   * @public
    * <p>The number of times that the utterance was missed by Amazon Lex An
    *          utterance is missed when it doesn't activate an intent or slot.</p>
    */
   missedCount?: number;
 
   /**
+   * @public
    * <p>The date and time that the utterance was first recorded in the time
    *          window for aggregation. An utterance may have been sent to Amazon Lex before
    *          that time, but only utterances within the time window are
@@ -115,6 +253,7 @@ export interface AggregatedUtterancesSummary {
   utteranceFirstRecordedInAggregationDuration?: Date;
 
   /**
+   * @public
    * <p>The last date and time that an utterance was recorded in the time
    *          window for aggregation. An utterance may be sent to Amazon Lex after that
    *          time, but only utterances within the time window are counted.</p>
@@ -122,6 +261,7 @@ export interface AggregatedUtterancesSummary {
   utteranceLastRecordedInAggregationDuration?: Date;
 
   /**
+   * @public
    * <p>Aggregated utterance data may contain utterances from versions of
    *          your bot that have since been deleted. When the aggregated contains
    *          this kind of data, this field is set to true.</p>
@@ -129,328 +269,2919 @@ export interface AggregatedUtterancesSummary {
   containsDataFromDeletedResources?: boolean;
 }
 
-export namespace AggregatedUtterancesSummary {
+/**
+ * @public
+ * <p>Specifies the allowed input types.</p>
+ */
+export interface AllowedInputTypes {
   /**
-   * @internal
+   * @public
+   * <p>Indicates whether audio input is allowed.</p>
    */
-  export const filterSensitiveLog = (obj: AggregatedUtterancesSummary): any => ({
-    ...obj,
-  });
+  allowAudioInput: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether DTMF input is allowed.</p>
+   */
+  allowDTMFInput: boolean | undefined;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AnalyticsInterval = {
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsInterval = (typeof AnalyticsInterval)[keyof typeof AnalyticsInterval];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsBinByName = {
+  ConversationStartTime: "ConversationStartTime",
+  UtteranceTimestamp: "UtteranceTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsBinByName = (typeof AnalyticsBinByName)[keyof typeof AnalyticsBinByName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSortOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSortOrder = (typeof AnalyticsSortOrder)[keyof typeof AnalyticsSortOrder];
+
+/**
+ * @public
+ * <p>Contains the time metric, interval, and method by which to bin the analytics data.</p>
+ */
+export interface AnalyticsBinBySpecification {
+  /**
+   * @public
+   * <p>Specifies the time metric by which to bin the analytics data.</p>
+   */
+  name: AnalyticsBinByName | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the interval of time by which to bin the analytics data.</p>
+   */
+  interval: AnalyticsInterval | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to bin the analytics data in ascending or descending order. If this field is left blank, the default order is by the key of the bin in descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the criterion by which to bin the results and the value that defines that bin.</p>
+ */
+export interface AnalyticsBinKey {
+  /**
+   * @public
+   * <p>The criterion by which to bin the results.</p>
+   */
+  name?: AnalyticsBinByName | string;
+
+  /**
+   * @public
+   * <p>The value of the criterion that defines the bin.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsCommonFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsCommonFilterName = (typeof AnalyticsCommonFilterName)[keyof typeof AnalyticsCommonFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsFilterOperator = {
+  Equals: "EQ",
+  GreaterThan: "GT",
+  LessThan: "LT",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsFilterOperator = (typeof AnalyticsFilterOperator)[keyof typeof AnalyticsFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentField = {
+  IntentEndState: "IntentEndState",
+  IntentLevel: "IntentLevel",
+  IntentName: "IntentName",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentField = (typeof AnalyticsIntentField)[keyof typeof AnalyticsIntentField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  IntentEndState: "IntentEndState",
+  IntentName: "IntentName",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentFilterName = (typeof AnalyticsIntentFilterName)[keyof typeof AnalyticsIntentFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the intents. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName CO Book</code> – The intent name contains the string "Book."</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion EQ 2</code> – The bot version is equal to two.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsIntentFilter {
+  /**
+   * @public
+   * <p>The category by which to filter the intents. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – The name of the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentEndState</code> – The final state of the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentFilterName | string | undefined;
+
+  /**
+   * @public
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the intent analytics were grouped and a member of that category.</p>
+ */
+export interface AnalyticsIntentGroupByKey {
+  /**
+   * @public
+   * <p>A category by which the intent analytics were grouped.</p>
+   */
+  name?: AnalyticsIntentField | string;
+
+  /**
+   * @public
+   * <p>A member of the category by which the intent analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the intents.</p>
+ */
+export interface AnalyticsIntentGroupBySpecification {
+  /**
+   * @public
+   * <p>Specifies whether to group the intent stages by their name or their end state.</p>
+   */
+  name: AnalyticsIntentField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentMetricName = {
+  Count: "Count",
+  Dropped: "Dropped",
+  Failure: "Failure",
+  Success: "Success",
+  Switched: "Switched",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentMetricName = (typeof AnalyticsIntentMetricName)[keyof typeof AnalyticsIntentMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsMetricStatistic = {
+  Avg: "Avg",
+  Max: "Max",
+  Sum: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsMetricStatistic = (typeof AnalyticsMetricStatistic)[keyof typeof AnalyticsMetricStatistic];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the intents in the bot.</p>
+ */
+export interface AnalyticsIntentMetric {
+  /**
+   * @public
+   * <p>The metric for which you want to get intent summary statistics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent was invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Switched</code> – The number of times there was a switch to a different intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentMetricName | string | undefined;
+
+  /**
+   * @public
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intents in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the intent metric you requested.</p>
+ */
+export interface AnalyticsIntentMetricResult {
+  /**
+   * @public
+   * <p>The metric that you requested. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/analytics-key-definitions.html">Key definitions</a> for more details about these metrics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent was invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Switched</code> – The number of times there was a switch to a different intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsIntentMetricName | string;
+
+  /**
+   * @public
+   * <p>The statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intents in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * @public
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsNodeType = {
+  Exit: "Exit",
+  Inner: "Inner",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsNodeType = (typeof AnalyticsNodeType)[keyof typeof AnalyticsNodeType];
+
+/**
+ * @public
+ * <p>An object containing information about the requested path.</p>
+ */
+export interface AnalyticsIntentNodeSummary {
+  /**
+   * @public
+   * <p>The name of the intent at the end of the requested path.</p>
+   */
+  intentName?: string;
+
+  /**
+   * @public
+   * <p>The path.</p>
+   */
+  intentPath?: string;
+
+  /**
+   * @public
+   * <p>The total number of sessions that follow the given path to the given intent.</p>
+   */
+  intentCount?: number;
+
+  /**
+   * @public
+   * <p>The number of intents up to and including the requested path.</p>
+   */
+  intentLevel?: number;
+
+  /**
+   * @public
+   * <p>Specifies whether the node is the end of a path (<code>Exit</code>) or not (<code>Inner</code>).</p>
+   */
+  nodeType?: AnalyticsNodeType | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the intent metrics you requested and the bin and/or group(s) they refer to, if applicable.</p>
+ */
+export interface AnalyticsIntentResult {
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the groups.</p>
+   */
+  groupByKeys?: AnalyticsIntentGroupByKey[];
+
+  /**
+   * @public
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsIntentMetricResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentStageField = {
+  IntentStageName: "IntentStageName",
+  SwitchedToIntent: "SwitchedToIntent",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentStageField = (typeof AnalyticsIntentStageField)[keyof typeof AnalyticsIntentStageField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentStageFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  IntentName: "IntentName",
+  IntentStageName: "IntentStageName",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentStageFilterName =
+  (typeof AnalyticsIntentStageFilterName)[keyof typeof AnalyticsIntentStageFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the intent stages. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName CO Book</code> – The intent name contains the string "Book."</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion EQ 2</code> – The bot version is equal to two.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentStageName</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsIntentStageFilter {
+  /**
+   * @public
+   * <p>The category by which to filter the intent stages. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – The name of the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentStageName</code> – The stage in the intent.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentStageFilterName | string | undefined;
+
+  /**
+   * @public
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentName</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentStageName</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the intent stage analytics and the values for that category were grouped.</p>
+ */
+export interface AnalyticsIntentStageGroupByKey {
+  /**
+   * @public
+   * <p>A category by which the intent stage analytics were grouped.</p>
+   */
+  name?: AnalyticsIntentStageField | string;
+
+  /**
+   * @public
+   * <p>A member of the category by which the intent stage analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the intent stages.</p>
+ */
+export interface AnalyticsIntentStageGroupBySpecification {
+  /**
+   * @public
+   * <p>Specifies whether to group the intent stages by their name or the intent to which the session was switched.</p>
+   */
+  name: AnalyticsIntentStageField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsIntentStageMetricName = {
+  Count: "Count",
+  Dropped: "Dropped",
+  Failed: "Failed",
+  Retry: "Retry",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsIntentStageMetricName =
+  (typeof AnalyticsIntentStageMetricName)[keyof typeof AnalyticsIntentStageMetricName];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the intent stages across the user sessions with the bot.</p>
+ */
+export interface AnalyticsIntentStageMetric {
+  /**
+   * @public
+   * <p>The metric for which you want to get intent stage summary statistics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/analytics-key-definitions.html">Key definitions</a> for more details about these metrics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent stage occurred.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent stage succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent stage failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Retry</code> – The number of times the bot tried to elicit a response from the user at this stage.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsIntentStageMetricName | string | undefined;
+
+  /**
+   * @public
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intent stages in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to sort the results in ascending or descending order of the summary statistic (<code>value</code> in the response).</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for an intent stage metric you requested.</p>
+ */
+export interface AnalyticsIntentStageMetricResult {
+  /**
+   * @public
+   * <p>The metric that you requested.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of times the intent stage occurred.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of times the intent stage succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of times the intent stage failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of times the user dropped the intent stage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Retry</code> – The number of times the bot tried to elicit a response from the user at this stage.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsIntentStageMetricName | string;
+
+  /**
+   * @public
+   * <p>The summary statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of intent stages in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * @public
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the intent stage metrics you requested and the bin and/or group they refer to, if applicable.</p>
+ */
+export interface AnalyticsIntentStageResult {
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
+   */
+  groupByKeys?: AnalyticsIntentStageGroupByKey[];
+
+  /**
+   * @public
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsIntentStageMetricResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsModality = {
+  DTMF: "DTMF",
+  MultiMode: "MultiMode",
+  Speech: "Speech",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsModality = (typeof AnalyticsModality)[keyof typeof AnalyticsModality];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the paths. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId EQ en</code> – The locale is "en".</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion EQ 2</code> – The bot version is equal to two.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsPathFilter {
+  /**
+   * @public
+   * <p>The category by which to filter the intent paths. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsCommonFilterName | string | undefined;
+
+  /**
+   * @public
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionField = {
+  ConversationEndState: "ConversationEndState",
+  LocaleId: "LocaleId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionField = (typeof AnalyticsSessionField)[keyof typeof AnalyticsSessionField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  ConversationEndState: "ConversationEndState",
+  Duration: "Duration",
+  IntentPath: "IntentPath",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionFilterName = (typeof AnalyticsSessionFilterName)[keyof typeof AnalyticsSessionFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the sessions. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId EQ en</code> – The locale is "en".</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Duration GT 200</code> – The duration is greater than 200 seconds.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Duration</code> – <code>EQ</code>, <code>GT</code>, <code>LT</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>conversationEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IntentPath</code> – <code>EQ</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsSessionFilter {
+  /**
+   * @public
+   * <p>The category by which to filter the sessions. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – The duration of the session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>conversationEndState</code> – The final state of the session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentPath</code> – The order of intents taken in a session.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsSessionFilterName | string | undefined;
+
+  /**
+   * @public
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – <code>EQ</code>, <code>GT</code>, <code>LT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>conversationEndState</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentPath</code> – <code>EQ</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the session analytics were grouped and a member of that category.</p>
+ */
+export interface AnalyticsSessionGroupByKey {
+  /**
+   * @public
+   * <p>The category by which the session analytics were grouped.</p>
+   */
+  name?: AnalyticsSessionField | string;
+
+  /**
+   * @public
+   * <p>A member of the category by which the session analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the sessions.</p>
+ */
+export interface AnalyticsSessionGroupBySpecification {
+  /**
+   * @public
+   * <p>Specifies whether to group the session by their end state or their locale.</p>
+   */
+  name: AnalyticsSessionField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionMetricName = {
+  Concurrency: "Concurrency",
+  Count: "Count",
+  Dropped: "Dropped",
+  Duration: "Duration",
+  Failure: "Failure",
+  Success: "Success",
+  TurnsPerConversation: "TurnsPerConversation",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionMetricName = (typeof AnalyticsSessionMetricName)[keyof typeof AnalyticsSessionMetricName];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the user sessions with the bot.</p>
+ */
+export interface AnalyticsSessionMetric {
+  /**
+   * @public
+   * <p>The metric for which you want to get session summary statistics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of sessions that succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of sessions that failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of sessions that the user dropped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – The duration of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TurnsPerSession</code> – The number of turns in the sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Concurrency</code> – The number of sessions occurring in the same period of time.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsSessionMetricName | string | undefined;
+
+  /**
+   * @public
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of sessions in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for a session metric you requested.</p>
+ */
+export interface AnalyticsSessionMetricResult {
+  /**
+   * @public
+   * <p>The metric that you requested.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Success</code> – The number of sessions that succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Failure</code> – The number of sessions that failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dropped</code> – The number of sessions that the user dropped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Duration</code> – The duration of sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TurnPersession</code> – The number of turns in the sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Concurrency</code> – The number of sessions occurring in the same period of time.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsSessionMetricName | string;
+
+  /**
+   * @public
+   * <p>The summary statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of sessions in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * @public
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the session metrics you requested and the bin and/or group(s) they refer to, if applicable.</p>
+ */
+export interface AnalyticsSessionResult {
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
+   */
+  groupByKeys?: AnalyticsSessionGroupByKey[];
+
+  /**
+   * @public
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsSessionMetricResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsSessionSortByName = {
+  ConversationStartTime: "ConversationStartTime",
+  Duration: "Duration",
+  NumberOfTurns: "NumberOfTurns",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsSessionSortByName = (typeof AnalyticsSessionSortByName)[keyof typeof AnalyticsSessionSortByName];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceAttributeName = {
+  LastUsedIntent: "LastUsedIntent",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceAttributeName =
+  (typeof AnalyticsUtteranceAttributeName)[keyof typeof AnalyticsUtteranceAttributeName];
+
+/**
+ * @public
+ * <p>An object that specifies the last used intent at the time of the utterance as an attribute to return.</p>
+ */
+export interface AnalyticsUtteranceAttribute {
+  /**
+   * @public
+   * <p>An attribute to return. The only available attribute is the intent that the bot mapped the utterance to.</p>
+   */
+  name: AnalyticsUtteranceAttributeName | string | undefined;
+}
+
+/**
+ * @public
+ * <p>An object containing the intent that the bot mapped the utterance to.</p>
+ */
+export interface AnalyticsUtteranceAttributeResult {
+  /**
+   * @public
+   * <p>The intent that the bot mapped the utterance to.</p>
+   */
+  lastUsedIntent?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceField = {
+  UtteranceState: "UtteranceState",
+  UtteranceText: "UtteranceText",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceField = (typeof AnalyticsUtteranceField)[keyof typeof AnalyticsUtteranceField];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceFilterName = {
+  BotAliasId: "BotAliasId",
+  BotVersion: "BotVersion",
+  Channel: "Channel",
+  LocaleId: "LocaleId",
+  Modality: "Modality",
+  OriginatingRequestId: "OriginatingRequestId",
+  SessionId: "SessionId",
+  UtteranceState: "UtteranceState",
+  UtteranceText: "UtteranceText",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceFilterName =
+  (typeof AnalyticsUtteranceFilterName)[keyof typeof AnalyticsUtteranceFilterName];
+
+/**
+ * @public
+ * <p>Contains fields describing a condition by which to filter the utterances. The expression may be understood as <code>name</code>
+ *             <code>operator</code>
+ *             <code>values</code>. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId EQ Book</code> – The locale is the string "en".</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UtteranceText CO help</code> – The text of the utterance contains the string "help".</p>
+ *             </li>
+ *          </ul>
+ *          <p>The operators that each filter supports are listed below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Modality</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Channel</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>SessionId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UtteranceState</code> – <code>EQ</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UtteranceText</code> – <code>EQ</code>, <code>CO</code>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface AnalyticsUtteranceFilter {
+  /**
+   * @public
+   * <p>The category by which to filter the utterances. The descriptions for each option are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – The name of the bot alias.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – The version of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – The locale of the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – The channel that the bot is integrated with.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – The identifier of the session with the bot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceState</code> – The state of the utterance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceText</code> – The text in the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsUtteranceFilterName | string | undefined;
+
+  /**
+   * @public
+   * <p>The operation by which to filter the category. The following operations are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CO</code> – Contains</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EQ</code> – Equals</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GT</code> – Greater than</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LT</code> – Less than</p>
+   *             </li>
+   *          </ul>
+   *          <p>The operators that each filter supports are listed below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BotAlias</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BotVersion</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LocaleId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Modality</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Channel</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SessionId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OriginatingRequestId</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceState</code> – <code>EQ</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceText</code> – <code>EQ</code>, <code>CO</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  operator: AnalyticsFilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>An array containing the values of the category by which to apply the operator to filter the results. You can provide multiple values if the operator is <code>EQ</code> or <code>CO</code>. If you provide multiple values, you filter for results that equal/contain any of the values. For example, if the <code>name</code>, <code>operator</code>, and <code>values</code> fields are <code>Modality</code>, <code>EQ</code>, and <code>[Speech, Text]</code>, the operation filters for results where the modality was either <code>Speech</code> or <code>Text</code>.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which the utterance analytics were grouped and the values for that category.</p>
+ */
+export interface AnalyticsUtteranceGroupByKey {
+  /**
+   * @public
+   * <p>The category by which the utterance analytics were grouped.</p>
+   */
+  name?: AnalyticsUtteranceField | string;
+
+  /**
+   * @public
+   * <p>A member of the category by which the utterance analytics were grouped.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the category by which to group the utterances.</p>
+ */
+export interface AnalyticsUtteranceGroupBySpecification {
+  /**
+   * @public
+   * <p>Specifies whether to group the utterances by their text or their state.</p>
+   */
+  name: AnalyticsUtteranceField | string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceMetricName = {
+  Count: "Count",
+  Detected: "Detected",
+  Missed: "Missed",
+  UtteranceTimestamp: "UtteranceTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceMetricName =
+  (typeof AnalyticsUtteranceMetricName)[keyof typeof AnalyticsUtteranceMetricName];
+
+/**
+ * @public
+ * <p>Contains the metric and the summary statistic you want to calculate, and the order in which to sort the results, for the utterances across the user sessions with the bot.</p>
+ */
+export interface AnalyticsUtteranceMetric {
+  /**
+   * @public
+   * <p>The metric for which you want to get utterance summary statistics.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of utterances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Missed</code> – The number of utterances that Amazon Lex failed to recognize.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Detected</code> – The number of utterances that Amazon Lex managed to detect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceTimestamp</code> – The date and time of the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name: AnalyticsUtteranceMetricName | string | undefined;
+
+  /**
+   * @public
+   * <p>The summary statistic to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of utterances in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic: AnalyticsMetricStatistic | string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether to sort the results in ascending or descending order.</p>
+   */
+  order?: AnalyticsSortOrder | string;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the utterance metric you requested.</p>
+ */
+export interface AnalyticsUtteranceMetricResult {
+  /**
+   * @public
+   * <p>The metric that you requested.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Count</code> – The number of utterances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Missed</code> – The number of utterances that Amazon Lex failed to recognize.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Detected</code> – The number of utterances that Amazon Lex managed to detect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UtteranceTimestamp</code> – The date and time of the utterance.</p>
+   *             </li>
+   *          </ul>
+   */
+  name?: AnalyticsUtteranceMetricName | string;
+
+  /**
+   * @public
+   * <p>The summary statistic that you requested to calculate.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> – The total count for the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> – The total count divided by the number of utterances in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Max</code> – The highest count in the category you provide in <code>name</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistic?: AnalyticsMetricStatistic | string;
+
+  /**
+   * @public
+   * <p>The value of the summary statistic for the metric that you requested.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>An object containing the results for the utterance metrics you requested and the bin and/or group(s) they refer to, if applicable.</p>
+ */
+export interface AnalyticsUtteranceResult {
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
+   */
+  binKeys?: AnalyticsBinKey[];
+
+  /**
+   * @public
+   * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
+   */
+  groupByKeys?: AnalyticsUtteranceGroupByKey[];
+
+  /**
+   * @public
+   * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
+   */
+  metricsResults?: AnalyticsUtteranceMetricResult[];
+
+  /**
+   * @public
+   * <p>A list of objects containing information about the last used intent at the time of an utterance.</p>
+   */
+  attributeResults?: AnalyticsUtteranceAttributeResult[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalyticsUtteranceSortByName = {
+  UtteranceTimestamp: "UtteranceTimestamp",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalyticsUtteranceSortByName =
+  (typeof AnalyticsUtteranceSortByName)[keyof typeof AnalyticsUtteranceSortByName];
+
+/**
+ * @public
+ * <p>The object containing information that associates the recommended
+ *          intent/slot type with a conversation.</p>
+ */
+export interface AssociatedTranscript {
+  /**
+   * @public
+   * <p>The content of the transcript that meets the search filter criteria.
+   *          For the JSON format of the transcript, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/designing-output-format.html">Output transcript
+   *             format</a>.</p>
+   */
+  transcript?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociatedTranscriptFilterName = {
+  IntentId: "IntentId",
+  SlotTypeId: "SlotTypeId",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociatedTranscriptFilterName =
+  (typeof AssociatedTranscriptFilterName)[keyof typeof AssociatedTranscriptFilterName];
+
+/**
+ * @public
+ * <p>Filters to search for the associated transcript.</p>
+ */
+export interface AssociatedTranscriptFilter {
+  /**
+   * @public
+   * <p>The name of the field to use for filtering. The allowed names are
+   *          IntentId and SlotTypeId.</p>
+   */
+  name: AssociatedTranscriptFilterName | string | undefined;
+
+  /**
+   * @public
+   * <p>The values to use to filter the transcript.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the audio input specifications.</p>
+ */
+export interface AudioSpecification {
+  /**
+   * @public
+   * <p>Time for how long Amazon Lex waits before speech input is truncated and the speech
+   *          is returned to application.</p>
+   */
+  maxLengthMs: number | undefined;
+
+  /**
+   * @public
+   * <p>Time for which a bot waits after the customer stops speaking to assume the
+   *          utterance is finished.</p>
+   */
+  endTimeoutMs: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the DTMF input specifications.</p>
+ */
+export interface DTMFSpecification {
+  /**
+   * @public
+   * <p>The maximum number of DTMF digits allowed in an utterance.</p>
+   */
+  maxLength: number | undefined;
+
+  /**
+   * @public
+   * <p>How long the bot should wait after the last DTMF character input before assuming
+   *          that the input has concluded.</p>
+   */
+  endTimeoutMs: number | undefined;
+
+  /**
+   * @public
+   * <p>The DTMF character that clears the accumulated DTMF digits and immediately ends
+   *          the input.</p>
+   */
+  deletionCharacter: string | undefined;
+
+  /**
+   * @public
+   * <p>The DTMF character that immediately ends input. If the user does not press this
+   *          character, the input ends after the end timeout.</p>
+   */
+  endCharacter: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the audio and DTMF input specification.</p>
+ */
+export interface AudioAndDTMFInputSpecification {
+  /**
+   * @public
+   * <p>Time for which a bot waits before assuming that the customer isn't going to speak or press
+   *          a key. This timeout is shared between Audio and DTMF inputs.</p>
+   */
+  startTimeoutMs: number | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the settings on audio input.</p>
+   */
+  audioSpecification?: AudioSpecification;
+
+  /**
+   * @public
+   * <p>Specifies the settings on DTMF input.</p>
+   */
+  dtmfSpecification?: DTMFSpecification;
+}
+
+/**
+ * @public
  * <p>Specifies an Amazon S3 bucket for logging audio conversations</p>
  */
 export interface S3BucketLogDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Key Management Service
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Key Management Service
    *          (KMS) key for encrypting audio log files stored in an S3 bucket.</p>
    */
   kmsKeyArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio
    *          log files are stored.</p>
    */
   s3BucketArn: string | undefined;
 
   /**
+   * @public
    * <p>The S3 prefix to assign to audio log files.</p>
    */
   logPrefix: string | undefined;
 }
 
-export namespace S3BucketLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketLogDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The location of audio log files collected when conversation logging
  *          is enabled for a bot.</p>
  */
 export interface AudioLogDestination {
   /**
+   * @public
    * <p>The Amazon S3 bucket where the audio log files are stored. The IAM
-   *          role specified in the <code>roleArn</code> parameter of the <a>CreateBot</a> operation must have permission to write to
-   *          this bucket.</p>
+   *          role specified in the <code>roleArn</code> parameter of the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation must have permission to write to this
+   *          bucket.</p>
    */
   s3Bucket: S3BucketLogDestination | undefined;
 }
 
-export namespace AudioLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioLogDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Settings for logging audio of conversations between Amazon Lex and a
  *          user. You specify whether to log audio and the Amazon S3 bucket where
  *          the audio file is stored.</p>
  */
 export interface AudioLogSetting {
   /**
+   * @public
    * <p>Determines whether audio logging in enabled for the bot.</p>
    */
   enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The location of audio log files collected when conversation logging
    *          is enabled for a bot.</p>
    */
   destination: AudioLogDestination | undefined;
 }
 
-export namespace AudioLogSetting {
+/**
+ * @public
+ * <p>The new custom vocabulary item from the custom
+ *          vocabulary list.</p>
+ */
+export interface NewCustomVocabularyItem {
   /**
-   * @internal
+   * @public
+   * <p>The unique phrase for the new custom vocabulary item from the custom
+   *          vocabulary list.</p>
    */
-  export const filterSensitiveLog = (obj: AudioLogSetting): any => ({
-    ...obj,
-  });
+  phrase: string | undefined;
+
+  /**
+   * @public
+   * <p>The weight assigned to the new custom vocabulary item from the custom
+   *          vocabulary list.</p>
+   */
+  weight?: number;
+
+  /**
+   * @public
+   * <p>The display as value assigned to the new custom vocabulary item from the custom
+   *          vocabulary list.</p>
+   */
+  displayAs?: string;
 }
 
 /**
+ * @public
+ */
+export interface BatchCreateCustomVocabularyItemRequest {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the version of the bot associated with this
+   *          custom vocabulary.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of new custom vocabulary items. Each entry must contain a phrase and
+   *          can optionally contain a displayAs and/or a weight.</p>
+   */
+  customVocabularyItemList: NewCustomVocabularyItem[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  DUPLICATE_INPUT: "DUPLICATE_INPUT",
+  INTERNAL_SERVER_FAILURE: "INTERNAL_SERVER_FAILURE",
+  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
+  RESOURCE_DOES_NOT_EXIST: "RESOURCE_DOES_NOT_EXIST",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
+ * <p>The unique failed custom vocabulary item from the custom
+ *          vocabulary list.</p>
+ */
+export interface FailedCustomVocabularyItem {
+  /**
+   * @public
+   * <p>The unique item identifer for the failed custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  itemId?: string;
+
+  /**
+   * @public
+   * <p>The error message for the failed custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>The unique error code for the failed custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  errorCode?: ErrorCode | string;
+}
+
+/**
+ * @public
+ * <p>The unique custom vocabulary item from the custom
+ *          vocabulary list.</p>
+ */
+export interface CustomVocabularyItem {
+  /**
+   * @public
+   * <p>The unique item identifer for the custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  itemId: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique phrase for the custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  phrase: string | undefined;
+
+  /**
+   * @public
+   * <p>The weight assigned for the custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  weight?: number;
+
+  /**
+   * @public
+   * <p>The DisplayAs value for the custom vocabulary item
+   *          from the custom vocabulary list.</p>
+   */
+  displayAs?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchCreateCustomVocabularyItemResponse {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the version of the bot associated with this
+   *          custom vocabulary.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale where this custom vocabulary is used.
+   *          The string must match one of the supported locales.
+   *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items that failed to create during the operation.
+   *          The reason for the error is contained within each error object.</p>
+   */
+  errors?: FailedCustomVocabularyItem[];
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items that were
+   *          successfully created during the operation.</p>
+   */
+  resources?: CustomVocabularyItem[];
+}
+
+/**
+ * @public
+ * <p>The service encountered an unexpected condition. Try your request
+ *          again.</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You asked to describe a resource that doesn't exist. Check the
+ *          resource that you are requesting and try again.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>You have reached a quota for your bot. </p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Your request rate is too high. Reduce the frequency of
+ *          requests.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The number of seconds after which the user can invoke the API again.</p>
+   */
+  retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * @public
+ * <p>One of the input parameters in your request isn't valid. Check the
+ *          parameters and try your request again.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The unique entry identifier for the custom vocabulary
+ *          items.</p>
+ */
+export interface CustomVocabularyEntryId {
+  /**
+   * @public
+   * <p>The unique item identifier for the custom vocabulary
+   *          items.</p>
+   */
+  itemId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteCustomVocabularyItemRequest {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale where this custom vocabulary is
+   *          used. The string must match one of the supported locales.
+   *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items requested to be deleted.
+   *          Each entry must contain the unique custom vocabulary entry identifier.</p>
+   */
+  customVocabularyItemList: CustomVocabularyEntryId[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteCustomVocabularyItemResponse {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale where this custom vocabulary is
+   *          used. The string must match one of the supported locales.
+   *          For more information, see Supported
+   *          languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items that failed to delete during the operation.
+   *          The reason for the error is contained within each error object.</p>
+   */
+  errors?: FailedCustomVocabularyItem[];
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items that were
+   *          successfully deleted during the operation.</p>
+   */
+  resources?: CustomVocabularyItem[];
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateCustomVocabularyItemRequest {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with this custom vocabulary</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items with updated fields. Each entry must contain a phrase
+   *          and can optionally contain a displayAs and/or a weight.</p>
+   */
+  customVocabularyItemList: CustomVocabularyItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchUpdateCustomVocabularyItemResponse {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with this custom vocabulary.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the version of the bot associated with this custom
+   *          vocabulary.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale where this custom vocabulary
+   *          is used. The string must match one of the supported locales. For more
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items that failed to update during the operation.
+   *          The reason for the error is contained within each error object.</p>
+   */
+  errors?: FailedCustomVocabularyItem[];
+
+  /**
+   * @public
+   * <p>A list of custom vocabulary items that were
+   *          successfully updated during the operation.</p>
+   */
+  resources?: CustomVocabularyItem[];
+}
+
+/**
+ * @public
  * <p>Provides a record of an event that affects a bot alias. For example,
  *          when the version of a bot that the alias points to changes.</p>
  */
 export interface BotAliasHistoryEvent {
   /**
+   * @public
    * <p>The version of the bot that was used in the event. </p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The date and time that the event started.</p>
    */
   startDate?: Date;
 
   /**
+   * @public
    * <p>The date and time that the event ended.</p>
    */
   endDate?: Date;
 }
 
-export namespace BotAliasHistoryEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotAliasHistoryEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies a Lambda function that verifies requests to a bot or
  *          fulfills the user's request to a bot.</p>
  */
 export interface LambdaCodeHook {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
    */
   lambdaARN: string | undefined;
 
   /**
+   * @public
    * <p>The version of the request-response that you want Amazon Lex to use to
    *          invoke your Lambda function.</p>
    */
   codeHookInterfaceVersion: string | undefined;
 }
 
-export namespace LambdaCodeHook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaCodeHook): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about code hooks that Amazon Lex calls during a
  *          conversation.</p>
  */
 export interface CodeHookSpecification {
   /**
+   * @public
    * <p>Specifies a Lambda function that verifies requests to a bot or
    *          fulfills the user's request to a bot.</p>
    */
   lambdaCodeHook: LambdaCodeHook | undefined;
 }
 
-export namespace CodeHookSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeHookSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies settings that are unique to a locale. For example, you can
  *          use different Lambda function depending on the bot's locale.</p>
  */
 export interface BotAliasLocaleSettings {
   /**
+   * @public
    * <p>Determines whether the locale is enabled for the bot. If the value
    *          is <code>false</code>, the locale isn't available for use.</p>
    */
   enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Specifies the Lambda function that should be used in the
    *          locale.</p>
    */
   codeHookSpecification?: CodeHookSpecification;
 }
 
-export namespace BotAliasLocaleSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotAliasLocaleSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum BotAliasStatus {
-  Available = "Available",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotAliasStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+} as const;
 
 /**
- * <p>Summary information about bot aliases returned from the <a>ListBotAliases</a> operation.</p>
+ * @public
+ */
+export type BotAliasStatus = (typeof BotAliasStatus)[keyof typeof BotAliasStatus];
+
+/**
+ * @public
+ * <p>Summary information about bot aliases returned from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotAliases.html">ListBotAliases</a> operation.</p>
  */
 export interface BotAliasSummary {
   /**
+   * @public
    * <p>The unique identifier assigned to the bot alias. You can use this ID
-   *          to get detailed information about the alias using the <a>DescribeBotAlias</a> operation.</p>
+   *          to get detailed information about the alias using the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html">DescribeBotAlias</a> operation.</p>
    */
   botAliasId?: string;
 
   /**
+   * @public
    * <p>The name of the bot alias.</p>
    */
   botAliasName?: string;
 
   /**
+   * @public
    * <p>The description of the bot alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The version of the bot that the bot alias references.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The current state of the bot alias. If the status is
-   *             <code>Available</code>, the alias is ready for use.</p>
+   *          <code>Available</code>, the alias is ready for use.</p>
    */
   botAliasStatus?: BotAliasStatus | string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot alias was
    *          created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot alias was last
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
 }
 
-export namespace BotAliasSummary {
+/**
+ * @public
+ * <p>The target Amazon S3 location for the test set execution using a bot alias.</p>
+ */
+export interface BotAliasTestExecutionTarget {
   /**
-   * @internal
+   * @public
+   * <p>The bot Id of the bot alias used in the test set execution.</p>
    */
-  export const filterSensitiveLog = (obj: BotAliasSummary): any => ({
-    ...obj,
-  });
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The bot alias Id of the bot alias used in the test set execution.</p>
+   */
+  botAliasId: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale Id of the bot alias used in the test set execution.</p>
+   */
+  localeId: string | undefined;
 }
 
 /**
+ * @public
  * <p>Provides the identity of a the bot that was exported.</p>
  */
 export interface BotExportSpecification {
   /**
+   * @public
    * <p>The identifier of the bot assigned by Amazon Lex.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot that was exported. This will be either
    *             <code>DRAFT</code> or the version number.</p>
    */
   botVersion: string | undefined;
 }
 
-export namespace BotExportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotExportSpecification): any => ({
-    ...obj,
-  });
-}
-
-export enum BotFilterName {
-  BotName = "BotName",
-}
-
-export enum BotFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotFilterName = {
+  BotName: "BotName",
+  BotType: "BotType",
+} as const;
 
 /**
+ * @public
+ */
+export type BotFilterName = (typeof BotFilterName)[keyof typeof BotFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+  NotEquals: "NE",
+} as const;
+
+/**
+ * @public
+ */
+export type BotFilterOperator = (typeof BotFilterOperator)[keyof typeof BotFilterOperator];
+
+/**
+ * @public
  * <p>Filters the responses returned by the <code>ListBots</code>
  *          operation.</p>
  */
 export interface BotFilter {
   /**
+   * @public
    * <p>The name of the field to filter the list of bots.</p>
    */
   name: BotFilterName | string | undefined;
 
   /**
+   * @public
    * <p>The value to use for filtering the list of bots.</p>
    */
   values: string[] | undefined;
 
   /**
+   * @public
    * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *             <code>ListBots</code> operation should return only aliases that
+   *          <code>ListBots</code> operation should return only aliases that
    *          equal the specified value. Specify <code>CO</code> when the
-   *             <code>ListBots</code> operation should return aliases that contain
+   *          <code>ListBots</code> operation should return aliases that contain
    *          the specified value.</p>
    */
   operator: BotFilterOperator | string | undefined;
 }
 
-export namespace BotFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>By default, data stored by Amazon Lex is encrypted. The
  *             <code>DataPrivacy</code> structure provides settings that determine
  *          how Amazon Lex handles special cases of securing the data for your bot.
@@ -458,6 +3189,7 @@ export namespace BotFilter {
  */
 export interface DataPrivacy {
   /**
+   * @public
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
    *          you must specify whether your use of Amazon Lex is related to a website,
    *          program, or other application that is directed or targeted, in whole or
@@ -482,37 +3214,32 @@ export interface DataPrivacy {
    *          must obtain any required verifiable parental consent under COPPA. For
    *          information regarding the use of Amazon Lex in connection with websites,
    *          programs, or other applications that are directed or targeted, in whole
-   *          or in part, to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon Lex
+   *          or in part, to children under age 13, see the <a href="http://aws.amazon.com/lex/faqs#data-security">Amazon Lex
    *             FAQ</a>.</p>
    */
   childDirected: boolean | undefined;
 }
 
-export namespace DataPrivacy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataPrivacy): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides the bot parameters required for importing a bot.</p>
  */
 export interface BotImportSpecification {
   /**
+   * @public
    * <p>The name that Amazon Lex should use for the bot.</p>
    */
   botName: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used to build and run
    *          the bot.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>By default, data stored by Amazon Lex is encrypted. The
    *             <code>DataPrivacy</code> structure provides settings that determine
    *          how Amazon Lex handles special cases of securing the data for your bot.
@@ -521,6 +3248,7 @@ export interface BotImportSpecification {
   dataPrivacy: DataPrivacy | undefined;
 
   /**
+   * @public
    * <p>The time, in seconds, that Amazon Lex should keep information about a
    *          user's conversation with the bot. </p>
    *          <p>A user interaction remains active for the amount of time specified.
@@ -532,167 +3260,181 @@ export interface BotImportSpecification {
   idleSessionTTLInSeconds?: number;
 
   /**
+   * @public
    * <p>A list of tags to add to the bot. You can only add tags when you
    *          import a bot. You can't use the <code>UpdateBot</code> operation to
    *          update tags. To update tags, use the <code>TagResource</code>
    *          operation.</p>
    */
-  botTags?: { [key: string]: string };
+  botTags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of tags to add to the test alias for a bot. You can only add
    *          tags when you import a bot. You can't use the <code>UpdateAlias</code>
    *          operation to update tags. To update tags on the test alias, use the
    *             <code>TagResource</code> operation.</p>
    */
-  testBotAliasTags?: { [key: string]: string };
-}
-
-export namespace BotImportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotImportSpecification): any => ({
-    ...obj,
-  });
+  testBotAliasTags?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>Provides the bot locale parameters required for exporting a bot
  *          locale.</p>
  */
 export interface BotLocaleExportSpecification {
   /**
+   * @public
    * <p>The identifier of the bot to create the locale for.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot to export.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale to export. The string must
    *          match one of the locales in the bot.</p>
    */
   localeId: string | undefined;
 }
 
-export namespace BotLocaleExportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleExportSpecification): any => ({
-    ...obj,
-  });
-}
-
-export enum BotLocaleFilterName {
-  BotLocaleName = "BotLocaleName",
-}
-
-export enum BotLocaleFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotLocaleFilterName = {
+  BotLocaleName: "BotLocaleName",
+} as const;
 
 /**
+ * @public
+ */
+export type BotLocaleFilterName = (typeof BotLocaleFilterName)[keyof typeof BotLocaleFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotLocaleFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+} as const;
+
+/**
+ * @public
+ */
+export type BotLocaleFilterOperator = (typeof BotLocaleFilterOperator)[keyof typeof BotLocaleFilterOperator];
+
+/**
+ * @public
  * <p>Filters responses returned by the <code>ListBotLocales</code>
  *          operation.</p>
  */
 export interface BotLocaleFilter {
   /**
+   * @public
    * <p>The name of the field to filter the list of bots.</p>
    */
   name: BotLocaleFilterName | string | undefined;
 
   /**
+   * @public
    * <p>The value to use for filtering the list of bots.</p>
    */
   values: string[] | undefined;
 
   /**
+   * @public
    * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *             <code>ListBotLocales</code> operation should return only aliases
+   *          <code>ListBotLocales</code> operation should return only aliases
    *          that equal the specified value. Specify <code>CO</code> when the
-   *             <code>ListBotLocales</code> operation should return aliases that
+   *          <code>ListBotLocales</code> operation should return aliases that
    *          contain the specified value.</p>
    */
   operator: BotLocaleFilterOperator | string | undefined;
 }
 
-export namespace BotLocaleFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides information about an event that occurred affecting the bot
- *          locale.</p>
+ *             locale.</p>
  */
 export interface BotLocaleHistoryEvent {
   /**
+   * @public
    * <p>A description of the event that occurred.</p>
    */
   event: string | undefined;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the event occurred.</p>
    */
   eventDate: Date | undefined;
 }
 
-export namespace BotLocaleHistoryEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleHistoryEvent): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const VoiceEngine = {
+  Neural: "neural",
+  Standard: "standard",
+} as const;
 
 /**
+ * @public
+ */
+export type VoiceEngine = (typeof VoiceEngine)[keyof typeof VoiceEngine];
+
+/**
+ * @public
  * <p>Defines settings for using an Amazon Polly voice to communicate with a
  *          user.</p>
  */
 export interface VoiceSettings {
   /**
+   * @public
    * <p>The identifier of the Amazon Polly voice to use.</p>
    */
   voiceId: string | undefined;
-}
 
-export namespace VoiceSettings {
   /**
-   * @internal
+   * @public
+   * <p>Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine">
+   *                <code>engine</code> parameter of the <code>SynthesizeSpeech</code> operation</a> in the <i>Amazon Polly developer guide</i>.</p>
+   *          <p>If you do not specify a value, the default is <code>standard</code>.</p>
    */
-  export const filterSensitiveLog = (obj: VoiceSettings): any => ({
-    ...obj,
-  });
+  engine?: VoiceEngine | string;
 }
 
 /**
+ * @public
  * <p>Provides the bot locale parameters required for importing a bot
  *          locale.</p>
  */
 export interface BotLocaleImportSpecification {
   /**
+   * @public
    * <p>The identifier of the bot to import the locale to.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot to import the locale to. This can only be the
    *             <code>DRAFT</code> version of the bot.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that the bot will be used
    *          in. The string must match one of the supported locales. All of the
    *          intents, slot types, and slots used in the bot must have the same
@@ -702,6 +3444,7 @@ export interface BotLocaleImportSpecification {
   localeId: string | undefined;
 
   /**
+   * @public
    * <p>Determines the threshold where Amazon Lex will insert the
    *             <code>AMAZON.FallbackIntent</code>,
    *             <code>AMAZON.KendraSearchIntent</code>, or both when returning
@@ -739,297 +3482,496 @@ export interface BotLocaleImportSpecification {
   nluIntentConfidenceThreshold?: number;
 
   /**
+   * @public
    * <p>Defines settings for using an Amazon Polly voice to communicate with a
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
 }
 
-export namespace BotLocaleImportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleImportSpecification): any => ({
-    ...obj,
-  });
-}
-
-export enum BotLocaleSortAttribute {
-  BotLocaleName = "BotLocaleName",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotLocaleSortAttribute = {
+  BotLocaleName: "BotLocaleName",
+} as const;
 
 /**
+ * @public
+ */
+export type BotLocaleSortAttribute = (typeof BotLocaleSortAttribute)[keyof typeof BotLocaleSortAttribute];
+
+/**
+ * @public
  * <p>Specifies attributes for sorting a list of bot locales.</p>
  */
 export interface BotLocaleSortBy {
   /**
+   * @public
    * <p>The bot locale attribute to sort by.</p>
    */
   attribute: BotLocaleSortAttribute | string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether to sort the bot locales in ascending or descending
    *          order.</p>
    */
   order: SortOrder | string | undefined;
 }
 
-export namespace BotLocaleSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleSortBy): any => ({
-    ...obj,
-  });
-}
-
-export enum BotLocaleStatus {
-  Building = "Building",
-  Built = "Built",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Importing = "Importing",
-  NotBuilt = "NotBuilt",
-  ReadyExpressTesting = "ReadyExpressTesting",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotLocaleStatus = {
+  Building: "Building",
+  Built: "Built",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Importing: "Importing",
+  NotBuilt: "NotBuilt",
+  Processing: "Processing",
+  ReadyExpressTesting: "ReadyExpressTesting",
+} as const;
 
 /**
- * <p>Summary information about bot locales returned by the <a>ListBotLocales</a> operation.</p>
+ * @public
+ */
+export type BotLocaleStatus = (typeof BotLocaleStatus)[keyof typeof BotLocaleStatus];
+
+/**
+ * @public
+ * <p>Summary information about bot locales returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotLocales.html">ListBotLocales</a> operation.</p>
  */
 export interface BotLocaleSummary {
   /**
+   * @public
    * <p>The language and locale of the bot locale.</p>
    */
   localeId?: string;
 
   /**
+   * @public
    * <p>The name of the bot locale.</p>
    */
   localeName?: string;
 
   /**
+   * @public
    * <p>The description of the bot locale.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The current status of the bot locale. When the status is
-   *             <code>Built</code> the locale is ready for use.</p>
+   *          <code>Built</code> the locale is ready for use.</p>
    */
   botLocaleStatus?: BotLocaleStatus | string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot locale was last
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot locale was last
    *          built.</p>
    */
   lastBuildSubmittedDateTime?: Date;
 }
 
-export namespace BotLocaleSummary {
+/**
+ * @public
+ * <p>A bot that is a member of a network of bots.</p>
+ */
+export interface BotMember {
   /**
-   * @internal
+   * @public
+   * <p>The unique ID of a bot that is a member of this network of bots.</p>
    */
-  export const filterSensitiveLog = (obj: BotLocaleSummary): any => ({
-    ...obj,
-  });
-}
+  botMemberId: string | undefined;
 
-export enum BotSortAttribute {
-  BotName = "BotName",
+  /**
+   * @public
+   * <p>The unique name of a bot that is a member of this network of bots.</p>
+   */
+  botMemberName: string | undefined;
+
+  /**
+   * @public
+   * <p>The alias ID of a bot that is a member of this network of bots.</p>
+   */
+  botMemberAliasId: string | undefined;
+
+  /**
+   * @public
+   * <p>The alias name of a bot that is a member of this network of bots.</p>
+   */
+  botMemberAliasName: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of a bot that is a member of this network of bots.</p>
+   */
+  botMemberVersion: string | undefined;
 }
 
 /**
+ * @public
+ * <p>The object that contains the statistical summary of recommended
+ *             intents associated with the bot recommendation.</p>
+ */
+export interface IntentStatistics {
+  /**
+   * @public
+   * <p>The number of recommended intents associated with the bot
+   *             recommendation.</p>
+   */
+  discoveredIntentCount?: number;
+}
+
+/**
+ * @public
+ * <p>The object that contains the statistical summary of the recommended
+ *             slot type associated with the bot recommendation.</p>
+ */
+export interface SlotTypeStatistics {
+  /**
+   * @public
+   * <p>The number of recommended slot types associated with the bot
+   *             recommendation.</p>
+   */
+  discoveredSlotTypeCount?: number;
+}
+
+/**
+ * @public
+ * <p>A statistical summary of the bot recommendation results.</p>
+ */
+export interface BotRecommendationResultStatistics {
+  /**
+   * @public
+   * <p>Statistical information about about the intents associated with the
+   *             bot recommendation results.</p>
+   */
+  intents?: IntentStatistics;
+
+  /**
+   * @public
+   * <p>Statistical information about the slot types associated with the bot
+   *             recommendation results.</p>
+   */
+  slotTypes?: SlotTypeStatistics;
+}
+
+/**
+ * @public
+ * <p>The object representing the URL of the bot definition, the URL of
+ *             the associated transcript, and a statistical summary of the bot
+ *             recommendation results.</p>
+ */
+export interface BotRecommendationResults {
+  /**
+   * @public
+   * <p>The presigned URL link of the recommended bot definition.</p>
+   */
+  botLocaleExportUrl?: string;
+
+  /**
+   * @public
+   * <p>The presigned url link of the associated transcript.</p>
+   */
+  associatedTranscriptsUrl?: string;
+
+  /**
+   * @public
+   * <p>The statistical summary of the bot recommendation results.</p>
+   */
+  statistics?: BotRecommendationResultStatistics;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BotRecommendationStatus = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Downloading: "Downloading",
+  Failed: "Failed",
+  Processing: "Processing",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type BotRecommendationStatus = (typeof BotRecommendationStatus)[keyof typeof BotRecommendationStatus];
+
+/**
+ * @public
+ * <p>A summary of the bot recommendation.</p>
+ */
+export interface BotRecommendationSummary {
+  /**
+   * @public
+   * <p>The status of the bot recommendation.</p>
+   *          <p>If the status is Failed, then the reasons for the failure are listed
+   *          in the failureReasons field. </p>
+   */
+  botRecommendationStatus: BotRecommendationStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the bot recommendation to be
+   *          updated.</p>
+   */
+  botRecommendationId: string | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>A timestamp of the date and time that the bot recommendation was
+   *          last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BotSortAttribute = {
+  BotName: "BotName",
+} as const;
+
+/**
+ * @public
+ */
+export type BotSortAttribute = (typeof BotSortAttribute)[keyof typeof BotSortAttribute];
+
+/**
+ * @public
  * <p>Specifies attributes for sorting a list of bots.</p>
  */
 export interface BotSortBy {
   /**
+   * @public
    * <p>The attribute to use to sort the list of bots.</p>
    */
   attribute: BotSortAttribute | string | undefined;
 
   /**
+   * @public
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
   order: SortOrder | string | undefined;
 }
 
-export namespace BotSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotSortBy): any => ({
-    ...obj,
-  });
-}
-
-export enum BotStatus {
-  Available = "Available",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Importing = "Importing",
-  Inactive = "Inactive",
-  Versioning = "Versioning",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Importing: "Importing",
+  Inactive: "Inactive",
+  Updating: "Updating",
+  Versioning: "Versioning",
+} as const;
 
 /**
- * <p>Summary information about a bot returned by the <a>ListBots</a> operation.</p>
+ * @public
+ */
+export type BotStatus = (typeof BotStatus)[keyof typeof BotStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotType = {
+  Bot: "Bot",
+  BotNetwork: "BotNetwork",
+} as const;
+
+/**
+ * @public
+ */
+export type BotType = (typeof BotType)[keyof typeof BotType];
+
+/**
+ * @public
+ * <p>Summary information about a bot returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBots.html">ListBots</a> operation.</p>
  */
 export interface BotSummary {
   /**
+   * @public
    * <p>The unique identifier assigned to the bot. Use this ID to get
-   *          detailed information about the bot with the <a>DescribeBot</a> operation.</p>
+   *          detailed information about the bot with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html">DescribeBot</a> operation.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The name of the bot.</p>
    */
   botName?: string;
 
   /**
+   * @public
    * <p>The description of the bot.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The current status of the bot. When the status is
-   *             <code>Available</code> the bot is ready for use.</p>
+   *          <code>Available</code> the bot is ready for use.</p>
    */
   botStatus?: BotStatus | string;
 
   /**
+   * @public
    * <p>The latest numerical version in use for the bot.</p>
    */
   latestBotVersion?: string;
 
   /**
+   * @public
    * <p>The date and time that the bot was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-}
 
-export namespace BotSummary {
   /**
-   * @internal
+   * @public
+   * <p>The type of the bot.</p>
    */
-  export const filterSensitiveLog = (obj: BotSummary): any => ({
-    ...obj,
-  });
+  botType?: BotType | string;
 }
 
 /**
+ * @public
  * <p>The version of a bot used for a bot locale.</p>
  */
 export interface BotVersionLocaleDetails {
   /**
+   * @public
    * <p>The version of a bot used for a bot locale.</p>
    */
   sourceBotVersion: string | undefined;
 }
 
-export namespace BotVersionLocaleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotVersionLocaleDetails): any => ({
-    ...obj,
-  });
-}
-
-export enum BotVersionSortAttribute {
-  BotVersion = "BotVersion",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BotVersionSortAttribute = {
+  BotVersion: "BotVersion",
+} as const;
 
 /**
+ * @public
+ */
+export type BotVersionSortAttribute = (typeof BotVersionSortAttribute)[keyof typeof BotVersionSortAttribute];
+
+/**
+ * @public
  * <p>Specifies attributes for sorting a list of bot versions.</p>
  */
 export interface BotVersionSortBy {
   /**
+   * @public
    * <p>The attribute to use to sort the list of versions.</p>
    */
   attribute: BotVersionSortAttribute | string | undefined;
 
   /**
+   * @public
    * <p>The order to sort the list. You can specify ascending or descending
    *          order.</p>
    */
   order: SortOrder | string | undefined;
 }
 
-export namespace BotVersionSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotVersionSortBy): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Summary information about a bot version returned by the <a>ListBotVersions</a> operation.</p>
+ * @public
+ * <p>Summary information about a bot version returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotVersions.html">ListBotVersions</a> operation.</p>
  */
 export interface BotVersionSummary {
   /**
+   * @public
    * <p>The name of the bot associated with the version.</p>
    */
   botName?: string;
 
   /**
+   * @public
    * <p>The numeric version of the bot, or <code>DRAFT</code> to indicate
    *          that this is the version of the bot that can be updated..</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The description of the version.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The status of the bot. When the status is available, the version of
    *          the bot is ready for use.</p>
    */
   botStatus?: BotStatus | string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the version was
    *          created.</p>
    */
   creationDateTime?: Date;
 }
 
-export namespace BotVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotVersionSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BuildBotLocaleRequest {
   /**
+   * @public
    * <p>The identifier of the bot to build. The identifier is returned in
-   *          the response from the  operation.</p>
+   *          the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a> operation.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot to build. This can only be the draft version
    *          of the bot.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that the bot will be used
    *          in. The string must match one of the supported locales. All of the
    *          intents, slot types, and slots used in the bot must have the same
@@ -1038,34 +3980,32 @@ export interface BuildBotLocaleRequest {
   localeId: string | undefined;
 }
 
-export namespace BuildBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBotLocaleRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BuildBotLocaleResponse {
   /**
+   * @public
    * <p>The identifier of the specified bot.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The version of the bot that was built. This is only the draft
    *          version of the bot.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The language and locale specified of where the bot can be
    *          used.</p>
    */
   localeId?: string;
 
   /**
+   * @public
    * <p>The bot's build status. When the status is
    *             <code>ReadyExpressTesting</code> you can test the bot using the
    *          utterances defined for the intents and slot types. When the status is
@@ -1075,399 +4015,785 @@ export interface BuildBotLocaleResponse {
   botLocaleStatus?: BotLocaleStatus | string;
 
   /**
+   * @public
    * <p>A timestamp indicating the date and time that the bot was last built
    *          for this locale.</p>
    */
   lastBuildSubmittedDateTime?: Date;
 }
 
-export namespace BuildBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The action that you tried to perform couldn't be completed because
  *          the resource is in a conflicting state. For example, deleting a bot
  *          that is in the CREATING state. Try your request again. </p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ConflictException {
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 /**
- * <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
- */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
-/**
+ * @public
  * <p>Your request couldn't be completed because one or more request
  *          fields aren't valid. Check the fields in your request and try
  *          again.</p>
  */
-export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace PreconditionFailedException {
+export class PreconditionFailedException extends __BaseException {
+  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
+    super({
+      name: "PreconditionFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
+  }
 }
 
 /**
- * <p>You have reached a quota for your bot. </p>
+ * @public
+ * @enum
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
+export const BuiltInIntentSortAttribute = {
+  IntentSignature: "IntentSignature",
+} as const;
 
 /**
- * <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ * @public
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  retryAfterSeconds?: number;
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
+export type BuiltInIntentSortAttribute = (typeof BuiltInIntentSortAttribute)[keyof typeof BuiltInIntentSortAttribute];
 
 /**
- * <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
-export enum BuiltInIntentSortAttribute {
-  IntentSignature = "IntentSignature",
-}
-
-/**
+ * @public
  * <p>Specifies attributes for sorting a list of built-in intents.</p>
  */
 export interface BuiltInIntentSortBy {
   /**
+   * @public
    * <p>The attribute to use to sort the list of built-in intents.</p>
    */
   attribute: BuiltInIntentSortAttribute | string | undefined;
 
   /**
+   * @public
    * <p>The order to sort the list. You can specify ascending or descending
    *          order.</p>
    */
   order: SortOrder | string | undefined;
 }
 
-export namespace BuiltInIntentSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInIntentSortBy): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Provides summary information about a built-in intent for the <a>ListBuiltInIntents</a> operation.</p>
+ * @public
+ * <p>Provides summary information about a built-in intent for the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInIntents.html"> ListBuiltInIntents </a> operation.</p>
  */
 export interface BuiltInIntentSummary {
   /**
+   * @public
    * <p>The signature of the built-in intent. Use this to specify the parent
    *          intent of a derived intent.</p>
    */
   intentSignature?: string;
 
   /**
+   * @public
    * <p>The description of the intent.</p>
    */
   description?: string;
 }
 
-export namespace BuiltInIntentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInIntentSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum BuiltInSlotTypeSortAttribute {
-  SlotTypeSignature = "SlotTypeSignature",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BuiltInSlotTypeSortAttribute = {
+  SlotTypeSignature: "SlotTypeSignature",
+} as const;
 
 /**
+ * @public
+ */
+export type BuiltInSlotTypeSortAttribute =
+  (typeof BuiltInSlotTypeSortAttribute)[keyof typeof BuiltInSlotTypeSortAttribute];
+
+/**
+ * @public
  * <p>Specifies attributes for sorting a list of built-in slot
  *          types.</p>
  */
 export interface BuiltInSlotTypeSortBy {
   /**
+   * @public
    * <p>The attribute to use to sort the list of built-in intents.</p>
    */
   attribute: BuiltInSlotTypeSortAttribute | string | undefined;
 
   /**
+   * @public
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
   order: SortOrder | string | undefined;
 }
 
-export namespace BuiltInSlotTypeSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInSlotTypeSortBy): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides summary information about a built-in slot type for the
- *             <a>ListBuiltInSlotTypes</a> operation.</p>
+ *          <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInSlotTypes.html"> ListBuiltInSlotTypes </a>
+ *          operation.</p>
  */
 export interface BuiltInSlotTypeSummary {
   /**
+   * @public
    * <p>The signature of the built-in slot type. Use this to specify the
    *          parent slot type of a derived slot type.</p>
    */
   slotTypeSignature?: string;
 
   /**
+   * @public
    * <p>The description of the built-in slot type.</p>
    */
   description?: string;
 }
 
-export namespace BuiltInSlotTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInSlotTypeSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a button to use on a response card used to gather slot
  *          values from a user.</p>
  */
 export interface Button {
   /**
+   * @public
    * <p>The text that appears on the button. Use this to tell the user what
    *          value is returned when they choose this button.</p>
    */
   text: string | undefined;
 
   /**
+   * @public
    * <p>The value returned to Amazon Lex when the user chooses this button. This
    *          must be one of the slot values configured for the slot.</p>
    */
   value: string | undefined;
 }
 
-export namespace Button {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Button): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The Amazon CloudWatch Logs log group where the text and metadata logs are
  *          delivered. The log group must exist before you enable logging.</p>
  */
 export interface CloudWatchLogGroupLogDestination {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the log group where text and
    *          metadata logs are delivered.</p>
    */
   cloudWatchLogGroupArn: string | undefined;
 
   /**
+   * @public
    * <p>The prefix of the log stream name within the log group that you
    *          specified </p>
    */
   logPrefix: string | undefined;
 }
 
-export namespace CloudWatchLogGroupLogDestination {
+/**
+ * @public
+ * <p>Subslot type composition.</p>
+ */
+export interface SubSlotTypeComposition {
   /**
-   * @internal
+   * @public
+   * <p>Name of a constituent sub slot inside a composite slot.</p>
    */
-  export const filterSensitiveLog = (obj: CloudWatchLogGroupLogDestination): any => ({
-    ...obj,
-  });
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier assigned to a slot type.
+   *         This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.</p>
+   */
+  slotTypeId: string | undefined;
 }
 
 /**
+ * @public
+ * <p>A composite slot is a combination of two or more slots
+ *        that capture multiple pieces of information in a single user input.</p>
+ */
+export interface CompositeSlotTypeSetting {
+  /**
+   * @public
+   * <p>Subslots in the composite slot.</p>
+   */
+  subSlots?: SubSlotTypeComposition[];
+}
+
+/**
+ * @public
+ * <p>Provides an expression that evaluates to true or false. </p>
+ */
+export interface Condition {
+  /**
+   * @public
+   * <p>The expression string that is evaluated. </p>
+   */
+  expressionString: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DialogActionType = {
+  CloseIntent: "CloseIntent",
+  ConfirmIntent: "ConfirmIntent",
+  ElicitIntent: "ElicitIntent",
+  ElicitSlot: "ElicitSlot",
+  EndConversation: "EndConversation",
+  EvaluateConditional: "EvaluateConditional",
+  FulfillIntent: "FulfillIntent",
+  InvokeDialogCodeHook: "InvokeDialogCodeHook",
+  StartIntent: "StartIntent",
+} as const;
+
+/**
+ * @public
+ */
+export type DialogActionType = (typeof DialogActionType)[keyof typeof DialogActionType];
+
+/**
+ * @public
+ * <p>Defines the action that the bot executes at runtime when the
+ *          conversation reaches this step.</p>
+ */
+export interface DialogAction {
+  /**
+   * @public
+   * <p>The action that the bot should execute. </p>
+   */
+  type: DialogActionType | string | undefined;
+
+  /**
+   * @public
+   * <p>If the dialog action is <code>ElicitSlot</code>, defines the slot to
+   *          elicit from the user.</p>
+   */
+  slotToElicit?: string;
+
+  /**
+   * @public
+   * <p>When true the next message for the intent is not used.</p>
+   */
+  suppressNextMessage?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SlotShape = {
+  List: "List",
+  Scalar: "Scalar",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotShape = (typeof SlotShape)[keyof typeof SlotShape];
+
+/**
+ * @public
+ * <p>The value to set in a slot.</p>
+ */
+export interface SlotValue {
+  /**
+   * @public
+   * <p>The value that Amazon Lex determines for the slot. The
+   *          actual value depends on the setting of the value selection strategy for
+   *          the bot. You can choose to use the value entered by the user, or you
+   *          can have Amazon Lex choose the first value in the
+   *             <code>resolvedValues</code> list.</p>
+   */
+  interpretedValue?: string;
+}
+
+/**
+ * @public
+ * <p>A custom response string that Amazon Lex sends to your application. You
+ *          define the content and structure the string.</p>
+ */
+export interface CustomPayload {
+  /**
+   * @public
+   * <p>The string that is sent to your application.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A card that is shown to the user by a messaging platform. You define
+ *          the contents of the card, the card is displayed by the platform. </p>
+ *          <p>When you use a response card, the response from the user is
+ *          constrained to the text associated with a button on the card.</p>
+ */
+export interface ImageResponseCard {
+  /**
+   * @public
+   * <p>The title to display on the response card. The format of the title
+   *          is determined by the platform displaying the response card.</p>
+   */
+  title: string | undefined;
+
+  /**
+   * @public
+   * <p>The subtitle to display on the response card. The format of the
+   *          subtitle is determined by the platform displaying the response
+   *          card.</p>
+   */
+  subtitle?: string;
+
+  /**
+   * @public
+   * <p>The URL of an image to display on the response card. The image URL
+   *          must be publicly available so that the platform displaying the response
+   *          card has access to the image.</p>
+   */
+  imageUrl?: string;
+
+  /**
+   * @public
+   * <p>A list of buttons that should be displayed on the response card. The
+   *          arrangement of the buttons is determined by the platform that displays
+   *          the button.</p>
+   */
+  buttons?: Button[];
+}
+
+/**
+ * @public
+ * <p>Defines an ASCII text message to send to the user.</p>
+ */
+export interface PlainTextMessage {
+  /**
+   * @public
+   * <p>The message to send to the user.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Defines a Speech Synthesis Markup Language (SSML) prompt.</p>
+ */
+export interface SSMLMessage {
+  /**
+   * @public
+   * <p>The SSML text that defines the prompt.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The object that provides message text and its type.</p>
+ */
+export interface Message {
+  /**
+   * @public
+   * <p>A message in plain text format.</p>
+   */
+  plainTextMessage?: PlainTextMessage;
+
+  /**
+   * @public
+   * <p>A message in a custom format defined by the client
+   *          application.</p>
+   */
+  customPayload?: CustomPayload;
+
+  /**
+   * @public
+   * <p>A message in Speech Synthesis Markup Language (SSML).</p>
+   */
+  ssmlMessage?: SSMLMessage;
+
+  /**
+   * @public
+   * <p>A message that defines a response card that the client application
+   *          can show to the user.</p>
+   */
+  imageResponseCard?: ImageResponseCard;
+}
+
+/**
+ * @public
+ * <p>Provides one or more messages that Amazon Lex should send to the
+ *          user.</p>
+ */
+export interface MessageGroup {
+  /**
+   * @public
+   * <p>The primary message that Amazon Lex should send to the user.</p>
+   */
+  message: Message | undefined;
+
+  /**
+   * @public
+   * <p>Message variations to send to the user. When variations are defined,
+   *          Amazon Lex chooses the primary message or one of the variations to send to
+   *          the user.</p>
+   */
+  variations?: Message[];
+}
+
+/**
+ * @public
+ * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+ *          user input.</p>
+ */
+export interface ResponseSpecification {
+  /**
+   * @public
+   * <p>A collection of responses that Amazon Lex can send to the user. Amazon Lex
+   *          chooses the actual response to send at runtime.</p>
+   */
+  messageGroups: MessageGroup[] | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether the user can interrupt a speech response from
+   *          Amazon Lex.</p>
+   */
+  allowInterrupt?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationEndState = {
+  Dropped: "Dropped",
+  Failure: "Failure",
+  Success: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ConversationEndState = (typeof ConversationEndState)[keyof typeof ConversationEndState];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestResultMatchStatus = {
+  ExecutionError: "ExecutionError",
+  Matched: "Matched",
+  Mismatched: "Mismatched",
+} as const;
+
+/**
+ * @public
+ */
+export type TestResultMatchStatus = (typeof TestResultMatchStatus)[keyof typeof TestResultMatchStatus];
+
+/**
+ * @public
+ * <p>The item listing the evaluation of intent level success or failure.</p>
+ */
+export interface ConversationLevelIntentClassificationResultItem {
+  /**
+   * @public
+   * <p>The intent name used in the evaluation of intent level success or failure.</p>
+   */
+  intentName: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of times the specific intent is used in the evaluation of intent level
+   *       success or failure.</p>
+   */
+  matchResult: TestResultMatchStatus | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The conversation level details of the conversation used in the test set.</p>
+ */
+export interface ConversationLevelResultDetail {
+  /**
+   * @public
+   * <p>The success or failure of the streaming of the conversation.</p>
+   */
+  endToEndResult: TestResultMatchStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The speech transcription success or failure details of the conversation.</p>
+   */
+  speechTranscriptionResult?: TestResultMatchStatus | string;
+}
+
+/**
+ * @public
+ * <p>The slots used for the slot resolution in the conversation.</p>
+ */
+export interface ConversationLevelSlotResolutionResultItem {
+  /**
+   * @public
+   * <p>The intents used in the slots list for the slot resolution details.</p>
+   */
+  intentName: string | undefined;
+
+  /**
+   * @public
+   * <p>The slot name in the slots list for the slot resolution details.</p>
+   */
+  slotName: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of matching slots used in the slots listings for the slot resolution evaluation.</p>
+   */
+  matchResult: TestResultMatchStatus | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The test result evaluation item at the conversation level.</p>
+ */
+export interface ConversationLevelTestResultItem {
+  /**
+   * @public
+   * <p>The conversation Id of the test result evaluation item.</p>
+   */
+  conversationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The end-to-end success or failure of the test result evaluation item.</p>
+   */
+  endToEndResult: TestResultMatchStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>The speech transcription success or failure of the test result evaluation item.</p>
+   */
+  speechTranscriptionResult?: TestResultMatchStatus | string;
+
+  /**
+   * @public
+   * <p>The intent classification of the test result evaluation item.</p>
+   */
+  intentClassificationResults: ConversationLevelIntentClassificationResultItem[] | undefined;
+
+  /**
+   * @public
+   * <p>The slot success or failure of the test result evaluation item.</p>
+   */
+  slotResolutionResults: ConversationLevelSlotResolutionResultItem[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The test set results data at the conversation level.</p>
+ */
+export interface ConversationLevelTestResults {
+  /**
+   * @public
+   * <p>The item list in the test set results data at the conversation level.</p>
+   */
+  items: ConversationLevelTestResultItem[] | undefined;
+}
+
+/**
+ * @public
+ * <p>The selection to filter the test set results data at the conversation level.</p>
+ */
+export interface ConversationLevelTestResultsFilterBy {
+  /**
+   * @public
+   * <p>The selection of matched or mismatched end-to-end status to filter test set results data
+   *       at the conversation level.</p>
+   */
+  endToEndResult?: TestResultMatchStatus | string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConversationLogsInputModeFilter = {
+  Speech: "Speech",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type ConversationLogsInputModeFilter =
+  (typeof ConversationLogsInputModeFilter)[keyof typeof ConversationLogsInputModeFilter];
+
+/**
+ * @public
+ * <p>The selected data source to filter the conversation log.</p>
+ */
+export interface ConversationLogsDataSourceFilterBy {
+  /**
+   * @public
+   * <p>The start time for the conversation log.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The end time for the conversation log.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The selection to filter by input mode for the conversation logs. </p>
+   */
+  inputMode: ConversationLogsInputModeFilter | string | undefined;
+}
+
+/**
+ * @public
+ * <p>The data source that uses conversation logs.</p>
+ */
+export interface ConversationLogsDataSource {
+  /**
+   * @public
+   * <p>The bot Id from the conversation logs.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The bot alias Id from the conversation logs.</p>
+   */
+  botAliasId: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale Id of the conversation log.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The filter for the data source of the conversation log.</p>
+   */
+  filter: ConversationLogsDataSourceFilterBy | undefined;
+}
+
+/**
+ * @public
  * <p>Defines the Amazon CloudWatch Logs destination log group for
  *          conversation text logs.</p>
  */
 export interface TextLogDestination {
   /**
+   * @public
    * <p>Defines the Amazon CloudWatch Logs log group where text and metadata logs are
    *          delivered.</p>
    */
   cloudWatch: CloudWatchLogGroupLogDestination | undefined;
 }
 
-export namespace TextLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextLogDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Defines settings to enable text conversation logs.</p>
  */
 export interface TextLogSetting {
   /**
+   * @public
    * <p>Determines whether conversation logs should be stored for an
    *          alias.</p>
    */
   enabled: boolean | undefined;
 
   /**
+   * @public
    * <p>Defines the Amazon CloudWatch Logs destination log group for
    *          conversation text logs.</p>
    */
   destination: TextLogDestination | undefined;
 }
 
-export namespace TextLogSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextLogSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Configures conversation logging that saves audio, text, and metadata
  *          for the conversations with your users.</p>
  */
 export interface ConversationLogSettings {
   /**
+   * @public
    * <p>The Amazon CloudWatch Logs settings for logging text and metadata.</p>
    */
   textLogSettings?: TextLogSetting[];
 
   /**
+   * @public
    * <p>The Amazon S3 settings for logging audio to an S3 bucket.</p>
    */
   audioLogSettings?: AudioLogSetting[];
 }
 
-export namespace ConversationLogSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConversationLogSettings): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotRequest {
   /**
+   * @public
    * <p>The name of the bot. The bot name must be unique in the account that
    *          creates the bot.</p>
    */
   botName: string | undefined;
 
   /**
+   * @public
    * <p>A description of the bot. It appears in lists to help you identify a
    *          particular bot.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
    *          access the bot.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>Provides information on additional privacy protections Amazon Lex should
    *          use with the bot's data.</p>
    */
   dataPrivacy: DataPrivacy | undefined;
 
   /**
+   * @public
    * <p>The time, in seconds, that Amazon Lex should keep information about a
    *          user's conversation with the bot. </p>
    *          <p>A user interaction remains active for the amount of time specified.
@@ -1479,145 +4805,167 @@ export interface CreateBotRequest {
   idleSessionTTLInSeconds: number | undefined;
 
   /**
+   * @public
    * <p>A list of tags to add to the bot. You can only add tags when you
    *          create a bot. You can't use the <code>UpdateBot</code> operation to
    *          update tags. To update tags, use the <code>TagResource</code>
    *          operation.</p>
    */
-  botTags?: { [key: string]: string };
+  botTags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of tags to add to the test alias for a bot. You can only add
    *          tags when you create a bot. You can't use the <code>UpdateAlias</code>
    *          operation to update tags. To update tags on the test alias, use the
    *             <code>TagResource</code> operation.</p>
    */
-  testBotAliasTags?: { [key: string]: string };
-}
+  testBotAliasTags?: Record<string, string>;
 
-export namespace CreateBotRequest {
   /**
-   * @internal
+   * @public
+   * <p>The type of a bot to create.</p>
    */
-  export const filterSensitiveLog = (obj: CreateBotRequest): any => ({
-    ...obj,
-  });
+  botType?: BotType | string;
+
+  /**
+   * @public
+   * <p>The list of bot members in a network to be created.</p>
+   */
+  botMembers?: BotMember[];
 }
 
+/**
+ * @public
+ */
 export interface CreateBotResponse {
   /**
+   * @public
    * <p>A unique identifier for a particular bot. You use this to identify
    *          the bot when you call other Amazon Lex API operations.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The name specified for the bot.</p>
    */
   botName?: string;
 
   /**
+   * @public
    * <p>The description specified for the bot.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The IAM role specified for the bot.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>The data privacy settings specified for the bot.</p>
    */
   dataPrivacy?: DataPrivacy;
 
   /**
+   * @public
    * <p>The session idle time specified for the bot.</p>
    */
   idleSessionTTLInSeconds?: number;
 
   /**
+   * @public
    * <p>Shows the current status of the bot. The bot is first in the
    *             <code>Creating</code> status. Once the bot is read for use, it
    *          changes to the <code>Available</code> status. After the bot is created,
-   *          you can use the <code>Draft</code> version of the bot.</p>
+   *          you can use the <code>DRAFT</code> version of the bot.</p>
    */
   botStatus?: BotStatus | string;
 
   /**
+   * @public
    * <p>A timestamp indicating the date and time that the bot was
    *          created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>A list of tags associated with the bot.</p>
    */
-  botTags?: { [key: string]: string };
+  botTags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A list of tags associated with the test alias for the bot.</p>
    */
-  testBotAliasTags?: { [key: string]: string };
-}
+  testBotAliasTags?: Record<string, string>;
 
-export namespace CreateBotResponse {
   /**
-   * @internal
+   * @public
+   * <p>The type of a bot that was created.</p>
    */
-  export const filterSensitiveLog = (obj: CreateBotResponse): any => ({
-    ...obj,
-  });
+  botType?: BotType | string;
+
+  /**
+   * @public
+   * <p>The list of bots in a network that was created.</p>
+   */
+  botMembers?: BotMember[];
 }
 
 /**
+ * @public
  * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
  *          user utterances.</p>
  */
 export interface SentimentAnalysisSettings {
   /**
+   * @public
    * <p>Sets whether Amazon Lex uses Amazon Comprehend to detect the sentiment of user
    *          utterances.</p>
    */
   detectSentiment: boolean | undefined;
 }
 
-export namespace SentimentAnalysisSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SentimentAnalysisSettings): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotAliasRequest {
   /**
+   * @public
    * <p>The alias to create. The name must be unique for the bot.</p>
    */
   botAliasName: string | undefined;
 
   /**
+   * @public
    * <p>A description of the alias. Use this description to help identify
    *          the alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The version of the bot that this alias points to. You can use the
-   *              operation to change the bot
-   *          version associated with the alias.</p>
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateBotAlias.html">UpdateBotAlias</a> operation to change the
+   *          bot version associated with the alias.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>Maps configuration information to a specific locale. You can use
    *          this parameter to specify a specific Lambda function to run different
    *          functions in different locales.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
+   * @public
    * <p>Specifies whether Amazon Lex logs text and audio for a conversation with
    *          the bot. When you enable conversation logs, text logs store text input,
    *          transcripts of audio input, and associated metadata in Amazon CloudWatch Logs. Audio
@@ -1626,72 +4974,77 @@ export interface CreateBotAliasRequest {
   conversationLogSettings?: ConversationLogSettings;
 
   /**
+   * @public
    * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
    *          user utterances.</p>
    */
   sentimentAnalysisSettings?: SentimentAnalysisSettings;
 
   /**
+   * @public
    * <p>The unique identifier of the bot that the alias applies to.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>A list of tags to add to the bot alias. You can only add tags when
    *          you create an alias, you can't use the <code>UpdateBotAlias</code>
    *          operation to update the tags on a bot alias. To update tags, use the
    *             <code>TagResource</code> operation.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace CreateBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotAliasRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotAliasResponse {
   /**
+   * @public
    * <p>The unique identifier of the bot alias.</p>
    */
   botAliasId?: string;
 
   /**
+   * @public
    * <p>The name specified for the bot alias.</p>
    */
   botAliasName?: string;
 
   /**
+   * @public
    * <p>The description specified for the bot alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The version of the bot associated with this alias.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>Configuration information for a specific locale.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
+   * @public
    * <p>The conversation log settings specified for the alias.</p>
    */
   conversationLogSettings?: ConversationLogSettings;
 
   /**
+   * @public
    * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
    *          user utterances.</p>
    */
   sentimentAnalysisSettings?: SentimentAnalysisSettings;
 
   /**
+   * @public
    * <p>The current status of the alias. The alias is first put into the
    *             <code>Creating</code> state. When the alias is ready to be used, it
    *          is put into the <code>Available</code> state. You can use the
@@ -1701,44 +5054,44 @@ export interface CreateBotAliasResponse {
   botAliasStatus?: BotAliasStatus | string;
 
   /**
+   * @public
    * <p>The unique identifier of the bot that this alias applies to.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>A Unix timestamp indicating the date and time that the bot alias was
    *          created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>A list of tags associated with the bot alias.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace CreateBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotLocaleRequest {
   /**
+   * @public
    * <p>The identifier of the bot to create the locale for.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot to create the locale for. This can only be
    *          the draft version of the bot.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that the bot will be used
    *          in. The string must match one of the supported locales. All of the
    *          intents, slot types, and slots used in the bot must have the same
@@ -1747,12 +5100,14 @@ export interface CreateBotLocaleRequest {
   localeId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the bot locale. Use this to help identify the bot
    *          locale in lists.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Determines the threshold where Amazon Lex will insert the
    *             <code>AMAZON.FallbackIntent</code>,
    *             <code>AMAZON.KendraSearchIntent</code>, or both when returning
@@ -1782,48 +5137,49 @@ export interface CreateBotLocaleRequest {
   nluIntentConfidenceThreshold: number | undefined;
 
   /**
+   * @public
    * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
 }
 
-export namespace CreateBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotLocaleRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotLocaleResponse {
   /**
+   * @public
    * <p>The specified bot identifier.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The specified bot version.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The specified locale name.</p>
    */
   localeName?: string;
 
   /**
+   * @public
    * <p>The specified locale identifier.</p>
    */
   localeId?: string;
 
   /**
+   * @public
    * <p>The specified description of the bot locale.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The specified confidence threshold for inserting the
    *             <code>AMAZON.FallbackIntent</code> and
    *             <code>AMAZON.KendraSearchIntent</code> intents.</p>
@@ -1831,12 +5187,14 @@ export interface CreateBotLocaleResponse {
   nluIntentConfidenceThreshold?: number;
 
   /**
+   * @public
    * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
 
   /**
+   * @public
    * <p>The status of the bot.</p>
    *          <p>When the status is <code>Creating</code> the bot locale is being
    *          configured. When the status is <code>Building</code> Amazon Lex is building
@@ -1852,73 +5210,70 @@ export interface CreateBotLocaleResponse {
   botLocaleStatus?: BotLocaleStatus | string;
 
   /**
+   * @public
    * <p>A timestamp specifying the date and time that the bot locale was
    *          created.</p>
    */
   creationDateTime?: Date;
 }
 
-export namespace CreateBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotVersionRequest {
   /**
+   * @public
    * <p>The identifier of the bot to create the version for.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>A description of the version. Use the description to help identify
    *          the version in lists.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Specifies the locales that Amazon Lex adds to this version. You can
    *          choose the <code>Draft</code> version or any other previously published
    *          version for each locale. When you specify a source version, the locale
    *          data is copied from the source version to the new version.</p>
    */
-  botVersionLocaleSpecification: { [key: string]: BotVersionLocaleDetails } | undefined;
+  botVersionLocaleSpecification: Record<string, BotVersionLocaleDetails> | undefined;
 }
 
-export namespace CreateBotVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotVersionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateBotVersionResponse {
   /**
+   * @public
    * <p>The bot identifier specified in the request.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The description of the version specified in the request.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The version number assigned to the version.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The source versions used for each locale in the new version.</p>
    */
-  botVersionLocaleSpecification?: { [key: string]: BotVersionLocaleDetails };
+  botVersionLocaleSpecification?: Record<string, BotVersionLocaleDetails>;
 
   /**
+   * @public
    * <p>When you send a request to create or update a bot, Amazon Lex sets the
    *          status response element to <code>Creating</code>. After Amazon Lex builds
    *          the bot, it sets status to <code>Available</code>. If Amazon Lex can't build
@@ -1927,64 +5282,115 @@ export interface CreateBotVersionResponse {
   botStatus?: BotStatus | string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the version was
    *          created.</p>
    */
   creationDateTime?: Date;
 }
 
-export namespace CreateBotVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotVersionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportExportFileFormat = {
+  CSV: "CSV",
+  LexJson: "LexJson",
+  TSV: "TSV",
+} as const;
 
-export enum ImportExportFileFormat {
-  LexJson = "LexJson",
+/**
+ * @public
+ */
+export type ImportExportFileFormat = (typeof ImportExportFileFormat)[keyof typeof ImportExportFileFormat];
+
+/**
+ * @public
+ * <p>Provides the parameters required for exporting a custom vocabulary.</p>
+ */
+export interface CustomVocabularyExportSpecification {
+  /**
+   * @public
+   * <p>The identifier of the bot that contains the custom vocabulary to export.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot that contains the custom vocabulary to export.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale of the bot that contains the custom vocabulary to export.</p>
+   */
+  localeId: string | undefined;
 }
 
 /**
+ * @public
+ * <p>Contains information about the test set that is exported.</p>
+ */
+export interface TestSetExportSpecification {
+  /**
+   * @public
+   * <p>The unique identifier of the test set.</p>
+   */
+  testSetId: string | undefined;
+}
+
+/**
+ * @public
  * <p>Provides information about the bot or bot locale that you want to
  *          export. You can specify the <code>botExportSpecification</code> or the
  *             <code>botLocaleExportSpecification</code>, but not both.</p>
  */
 export interface ExportResourceSpecification {
   /**
+   * @public
    * <p>Parameters for exporting a bot.</p>
    */
   botExportSpecification?: BotExportSpecification;
 
   /**
+   * @public
    * <p>Parameters for exporting a bot locale.</p>
    */
   botLocaleExportSpecification?: BotLocaleExportSpecification;
-}
 
-export namespace ExportResourceSpecification {
   /**
-   * @internal
+   * @public
+   * <p>The parameters required to export a custom vocabulary.</p>
    */
-  export const filterSensitiveLog = (obj: ExportResourceSpecification): any => ({
-    ...obj,
-  });
+  customVocabularyExportSpecification?: CustomVocabularyExportSpecification;
+
+  /**
+   * @public
+   * <p>Specifications for the test set that is exported as a resource.</p>
+   */
+  testSetExportSpecification?: TestSetExportSpecification;
 }
 
+/**
+ * @public
+ */
 export interface CreateExportRequest {
   /**
+   * @public
    * <p>Specifies the type of resource to export, either a bot or a bot
    *          locale. You can only specify one type of resource to export.</p>
    */
   resourceSpecification: ExportResourceSpecification | undefined;
 
   /**
+   * @public
    * <p>The file format of the bot or bot locale definition files.</p>
    */
   fileFormat: ImportExportFileFormat | string | undefined;
 
   /**
+   * @public
    * <p>An password to use to encrypt the exported archive. Using a password
    *          is optional, but you should encrypt the archive to protect the data in
    *          transit between Amazon Lex and your local computer.</p>
@@ -1992,275 +5398,84 @@ export interface CreateExportRequest {
   filePassword?: string;
 }
 
-export namespace CreateExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExportRequest): any => ({
-    ...obj,
-    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  Completed: "Completed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InProgress: "InProgress",
+} as const;
 
-export enum ExportStatus {
-  Completed = "Completed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
+/**
+ * @public
+ */
 export interface CreateExportResponse {
   /**
+   * @public
    * <p>An identifier for a specific request to create an export.</p>
    */
   exportId?: string;
 
   /**
+   * @public
    * <p>A description of the type of resource that was exported, either a
    *          bot or a bot locale.</p>
    */
   resourceSpecification?: ExportResourceSpecification;
 
   /**
+   * @public
    * <p>The file format used for the bot or bot locale definition
    *          files.</p>
    */
   fileFormat?: ImportExportFileFormat | string;
 
   /**
+   * @public
    * <p>The status of the export. When the status is <code>Completed</code>,
-   *          you can use the  operation to get
-   *          the pre-signed S3 URL link to your exported bot or bot locale.</p>
+   *          you can use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation to get the
+   *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    */
   exportStatus?: ExportStatus | string;
 
   /**
+   * @public
    * <p>The date and time that the request to export a bot was
    *          created.</p>
    */
   creationDateTime?: Date;
 }
 
-export namespace CreateExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>You asked to describe a resource that doesn't exist. Check the
- *          resource that you are requesting and try again.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
+ * @public
  * <p>Settings that determine the Lambda function that Amazon Lex uses for
  *          processing user responses.</p>
  */
 export interface DialogCodeHookSettings {
   /**
+   * @public
    * <p>Enables the dialog code hook so that it processes user
    *          requests.</p>
    */
   enabled: boolean | undefined;
 }
 
-export namespace DialogCodeHookSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DialogCodeHookSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>A custom response string that Amazon Lex sends to your application. You
- *          define the content and structure the string.</p>
- */
-export interface CustomPayload {
-  /**
-   * <p>The string that is sent to your application.</p>
-   */
-  value: string | undefined;
-}
-
-export namespace CustomPayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPayload): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A card that is shown to the user by a messaging platform. You define
- *          the contents of the card, the card is displayed by the platform. </p>
- *          <p>When you use a response card, the response from the user is
- *          constrained to the text associated with a button on the card.</p>
- */
-export interface ImageResponseCard {
-  /**
-   * <p>The title to display on the response card. The format of the title
-   *          is determined by the platform displaying the response card.</p>
-   */
-  title: string | undefined;
-
-  /**
-   * <p>The subtitle to display on the response card. The format of the
-   *          subtitle is determined by the platform displaying the response
-   *          card.</p>
-   */
-  subtitle?: string;
-
-  /**
-   * <p>The URL of an image to display on the response card. The image URL
-   *          must be publicly available so that the platform displaying the response
-   *          card has access to the image.</p>
-   */
-  imageUrl?: string;
-
-  /**
-   * <p>A list of buttons that should be displayed on the response card. The
-   *          arrangement of the buttons is determined by the platform that displays
-   *          the button.</p>
-   */
-  buttons?: Button[];
-}
-
-export namespace ImageResponseCard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageResponseCard): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines an ASCII text message to send to the user.</p>
- */
-export interface PlainTextMessage {
-  /**
-   * <p>The message to send to the user.</p>
-   */
-  value: string | undefined;
-}
-
-export namespace PlainTextMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlainTextMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines a Speech Synthesis Markup Language (SSML) prompt.</p>
- */
-export interface SSMLMessage {
-  /**
-   * <p>The SSML text that defines the prompt.</p>
-   */
-  value: string | undefined;
-}
-
-export namespace SSMLMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSMLMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The object that provides message text and it's type.</p>
- */
-export interface Message {
-  /**
-   * <p>A message in plain text format.</p>
-   */
-  plainTextMessage?: PlainTextMessage;
-
-  /**
-   * <p>A message in a custom format defined by the client
-   *          application.</p>
-   */
-  customPayload?: CustomPayload;
-
-  /**
-   * <p>A message in Speech Synthesis Markup Language (SSML).</p>
-   */
-  ssmlMessage?: SSMLMessage;
-
-  /**
-   * <p>A message that defines a response card that the client application
-   *          can show to the user.</p>
-   */
-  imageResponseCard?: ImageResponseCard;
-}
-
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides one or more messages that Amazon Lex should send to the
- *          user.</p>
- */
-export interface MessageGroup {
-  /**
-   * <p>The primary message that Amazon Lex should send to the user.</p>
-   */
-  message: Message | undefined;
-
-  /**
-   * <p>Message variations to send to the user. When variations are defined,
-   *          Amazon Lex chooses the primary message or one of the variations to send to
-   *          the user.</p>
-   */
-  variations?: Message[];
-}
-
-export namespace MessageGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
+ * @public
  * <p>Provides settings for a message that is sent to the user when a
  *          fulfillment Lambda function starts running.</p>
  */
 export interface FulfillmentStartResponseSpecification {
   /**
+   * @public
    * <p>The delay between when the Lambda fulfillment function starts running
    *          and the start message is played. If the Lambda function returns before
    *          the delay is over, the start message isn't played.</p>
@@ -2268,33 +5483,28 @@ export interface FulfillmentStartResponseSpecification {
   delayInSeconds: number | undefined;
 
   /**
-   * <p>One to 5 message groups that contain start messages. Amazon Lex chooses
+   * @public
+   * <p>1 - 5 message groups that contain start messages. Amazon Lex chooses
    *          one of the messages to play to the user.</p>
    */
   messageGroups: MessageGroup[] | undefined;
 
   /**
+   * @public
    * <p>Determines whether the user can interrupt the start message while it
    *          is playing.</p>
    */
   allowInterrupt?: boolean;
 }
 
-export namespace FulfillmentStartResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentStartResponseSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides settings for a message that is sent periodically to the
  *          user while a fulfillment Lambda function is running.</p>
  */
 export interface FulfillmentUpdateResponseSpecification {
   /**
+   * @public
    * <p>The frequency that a message is sent to the user. When the period
    *          ends, Amazon Lex chooses a message from the message groups and plays it to
    *          the user. If the fulfillment Lambda returns before the first period
@@ -2303,33 +5513,28 @@ export interface FulfillmentUpdateResponseSpecification {
   frequencyInSeconds: number | undefined;
 
   /**
-   * <p>One to 5 message groups that contain update messages. Amazon Lex chooses
+   * @public
+   * <p>1 - 5 message groups that contain update messages. Amazon Lex chooses
    *          one of the messages to play to the user.</p>
    */
   messageGroups: MessageGroup[] | undefined;
 
   /**
+   * @public
    * <p>Determines whether the user can interrupt an update message while it
    *          is playing.</p>
    */
   allowInterrupt?: boolean;
 }
 
-export namespace FulfillmentUpdateResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentUpdateResponseSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides information for updating the user on the progress of
  *          fulfilling an intent.</p>
  */
 export interface FulfillmentUpdatesSpecification {
   /**
+   * @public
    * <p>Determines whether fulfillment updates are sent to the user. When
    *          this field is true, updates are sent.</p>
    *          <p>If the <code>active</code> field is set to true, the
@@ -2339,274 +5544,199 @@ export interface FulfillmentUpdatesSpecification {
   active: boolean | undefined;
 
   /**
+   * @public
    * <p>Provides configuration information for the message sent to users
    *          when the fulfillment Lambda functions starts running.</p>
    */
   startResponse?: FulfillmentStartResponseSpecification;
 
   /**
+   * @public
    * <p>Provides configuration information for messages sent periodically to
    *          the user while the fulfillment Lambda function is running.</p>
    */
   updateResponse?: FulfillmentUpdateResponseSpecification;
 
   /**
+   * @public
    * <p>The length of time that the fulfillment Lambda function should run
    *          before it times out.</p>
    */
   timeoutInSeconds?: number;
 }
 
-export namespace FulfillmentUpdatesSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentUpdatesSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Specifies a list of message groups that Amazon Lex uses to respond the
- *          user input.</p>
- */
-export interface ResponseSpecification {
-  /**
-   * <p>A collection of responses that Amazon Lex can send to the user. Amazon Lex
-   *          chooses the actual response to send at runtime.</p>
-   */
-  messageGroups: MessageGroup[] | undefined;
-
-  /**
-   * <p>Indicates whether the user can interrupt a speech response from
-   *          Amazon Lex.</p>
-   */
-  allowInterrupt?: boolean;
-}
-
-export namespace ResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides a setting that determines whether the post-fulfillment
- *          response is sent to the user. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete">https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete</a>
- *          </p>
- */
-export interface PostFulfillmentStatusSpecification {
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  successResponse?: ResponseSpecification;
-
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  failureResponse?: ResponseSpecification;
-
-  /**
-   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
-   *          user input.</p>
-   */
-  timeoutResponse?: ResponseSpecification;
-}
-
-export namespace PostFulfillmentStatusSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostFulfillmentStatusSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Determines if a Lambda function should be invoked for a specific
- *          intent.</p>
- */
-export interface FulfillmentCodeHookSettings {
-  /**
-   * <p>Indicates whether a Lambda function should be invoked to fulfill a
-   *          specific intent.</p>
-   */
-  enabled: boolean | undefined;
-
-  /**
-   * <p>Provides settings for messages sent to the user for after the Lambda
-   *          fulfillment function completes. Post-fulfillment messages can be sent
-   *          for both streaming and non-streaming conversations.</p>
-   */
-  postFulfillmentStatusSpecification?: PostFulfillmentStatusSpecification;
-
-  /**
-   * <p>Provides settings for update messages sent to the user for
-   *          long-running Lambda fulfillment functions. Fulfillment updates can be
-   *          used only with streaming conversations.</p>
-   */
-  fulfillmentUpdatesSpecification?: FulfillmentUpdatesSpecification;
-}
-
-export namespace FulfillmentCodeHookSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The name of a context that must be active for an intent to be
+ * @public
+ * <p>A context that must be active for an intent to be
  *          selected by Amazon Lex.</p>
  */
 export interface InputContext {
   /**
+   * @public
    * <p>The name of the context.</p>
    */
   name: string | undefined;
 }
 
-export namespace InputContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputContext): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Provides a statement the Amazon Lex conveys to the user when the intent
- *          is successfully fulfilled.</p>
+ * @public
+ * <p>Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.</p>
  */
-export interface IntentClosingSetting {
+export interface ElicitationCodeHookInvocationSetting {
   /**
-   * <p>The response that Amazon Lex sends to the user when the intent is
-   *          complete.</p>
+   * @public
+   * <p>Indicates whether a Lambda function should be invoked
+   *          for the dialog.</p>
    */
-  closingResponse: ResponseSpecification | undefined;
+  enableCodeHookInvocation: boolean | undefined;
 
   /**
-   * <p>Specifies whether an intent's closing response is used. When this
-   *          field is false, the closing response isn't sent to the user. If the
-   *             <code>active</code> field isn't specified, the default is
-   *          true.</p>
+   * @public
+   * <p>A label that indicates the dialog step from which the dialog code
+   *          hook is happening.</p>
    */
-  active?: boolean;
-}
-
-export namespace IntentClosingSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentClosingSetting): any => ({
-    ...obj,
-  });
+  invocationLabel?: string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const MessageSelectionStrategy = {
+  Ordered: "Ordered",
+  Random: "Random",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageSelectionStrategy = (typeof MessageSelectionStrategy)[keyof typeof MessageSelectionStrategy];
+
+/**
+ * @public
+ * @enum
+ */
+export const PromptAttempt = {
+  Initial: "Initial",
+  Retry1: "Retry1",
+  Retry2: "Retry2",
+  Retry3: "Retry3",
+  Retry4: "Retry4",
+  Retry5: "Retry5",
+} as const;
+
+/**
+ * @public
+ */
+export type PromptAttempt = (typeof PromptAttempt)[keyof typeof PromptAttempt];
+
+/**
+ * @public
+ * <p>Specifies the text input specifications.</p>
+ */
+export interface TextInputSpecification {
+  /**
+   * @public
+   * <p>Time for which a bot waits before re-prompting a customer for text input.</p>
+   */
+  startTimeoutMs: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the settings on a prompt attempt.</p>
+ */
+export interface PromptAttemptSpecification {
+  /**
+   * @public
+   * <p>Indicates whether the user can interrupt a speech prompt attempt from the bot.</p>
+   */
+  allowInterrupt?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates the allowed input types of the prompt attempt.</p>
+   */
+  allowedInputTypes: AllowedInputTypes | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the settings on audio and DTMF input.</p>
+   */
+  audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification;
+
+  /**
+   * @public
+   * <p>Specifies the settings on text input.</p>
+   */
+  textInputSpecification?: TextInputSpecification;
+}
+
+/**
+ * @public
  * <p>Specifies a list of message groups that Amazon Lex sends to a user to
  *          elicit a response.</p>
  */
 export interface PromptSpecification {
   /**
+   * @public
    * <p>A collection of messages that Amazon Lex can send to the user. Amazon Lex
    *          chooses the actual message to send at runtime.</p>
    */
   messageGroups: MessageGroup[] | undefined;
 
   /**
+   * @public
    * <p>The maximum number of times the bot tries to elicit a response from
    *          the user using this prompt.</p>
    */
   maxRetries: number | undefined;
 
   /**
+   * @public
    * <p>Indicates whether the user can interrupt a speech prompt from the
    *          bot.</p>
    */
   allowInterrupt?: boolean;
-}
-
-export namespace PromptSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PromptSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides a prompt for making sure that the user is ready for the
- *          intent to be fulfilled.</p>
- */
-export interface IntentConfirmationSetting {
-  /**
-   * <p>Prompts the user to confirm the intent. This question should have a
-   *          yes or no answer.</p>
-   *          <p>Amazon Lex uses this prompt to ensure that the user acknowledges that the
-   *          intent is ready for fulfillment. For example, with the
-   *             <code>OrderPizza</code> intent, you might want to confirm that the
-   *          order is correct before placing it. For other intents, such as intents
-   *          that simply respond to user questions, you might not need to ask the
-   *          user for confirmation before providing the information. </p>
-   */
-  promptSpecification: PromptSpecification | undefined;
 
   /**
-   * <p>When the user answers "no" to the question defined in
-   *             <code>promptSpecification</code>, Amazon Lex responds with this response
-   *          to acknowledge that the intent was canceled. </p>
+   * @public
+   * <p>Indicates how a message is selected from a message group among retries.</p>
    */
-  declinationResponse: ResponseSpecification | undefined;
+  messageSelectionStrategy?: MessageSelectionStrategy | string;
 
   /**
-   * <p>Specifies whether the intent's confirmation is sent to the user.
-   *          When this field is false, confirmation and declination responses aren't
-   *          sent. If the <code>active</code> field isn't specified, the default is
-   *          true.</p>
+   * @public
+   * <p>Specifies the advanced settings on each attempt of the prompt.</p>
    */
-  active?: boolean;
-}
-
-export namespace IntentConfirmationSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentConfirmationSetting): any => ({
-    ...obj,
-  });
+  promptAttemptsSpecification?: Record<string, PromptAttemptSpecification>;
 }
 
 /**
- * <p>Provides configuration information for the AMAZON.KendraSearchIntent
+ * @public
+ * <p>Provides configuration information for the <code>AMAZON.KendraSearchIntent</code>
  *          intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra
  *          index and returns documents from the index that match the user's
  *          utterance.</p>
  */
 export interface KendraConfiguration {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the
-   *          AMAZON.KendraSearchIntent intent to search. The index must be in the
+   *          <code>AMAZON.KendraSearchIntent</code> intent to search. The index must be in the
    *          same account and Region as the Amazon Lex bot.</p>
    */
   kendraIndex: string | undefined;
 
   /**
-   * <p>Determines whether the AMAZON.KendraSearchIntent intent uses a
+   * @public
+   * <p>Determines whether the <code>AMAZON.KendraSearchIntent</code> intent uses a
    *          custom query string to query the Amazon Kendra index.</p>
    */
   queryFilterStringEnabled?: boolean;
 
   /**
+   * @public
    * <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from
    *          a query. The filter is in the format defined by Amazon Kendra. For more
    *          information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering
@@ -2615,26 +5745,20 @@ export interface KendraConfiguration {
   queryFilterString?: string;
 }
 
-export namespace KendraConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KendraConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a session context that is activated when an intent is
  *          fulfilled.</p>
  */
 export interface OutputContext {
   /**
+   * @public
    * <p>The name of the output context.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The amount of time, in seconds, that the output context should
    *          remain active. The time is figured from the first time the context is
    *          sent to the user.</p>
@@ -2642,6 +5766,7 @@ export interface OutputContext {
   timeToLiveInSeconds: number | undefined;
 
   /**
+   * @public
    * <p>The number of conversation turns that the output context should
    *          remain active. The number of turns is counted from the first time that
    *          the context is sent to the user.</p>
@@ -2649,271 +5774,33 @@ export interface OutputContext {
   turnsToLive: number | undefined;
 }
 
-export namespace OutputContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputContext): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A sample utterance that invokes an intent or respond to a slot
  *          elicitation prompt.</p>
  */
 export interface SampleUtterance {
   /**
+   * @public
    * <p>The sample utterance that Amazon Lex uses to build its machine-learning
    *          model to recognize intents.</p>
    */
   utterance: string | undefined;
 }
 
-export namespace SampleUtterance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleUtterance): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateIntentRequest {
-  /**
-   * <p>The name of the intent. Intent names must be unique in the locale
-   *          that contains the intent and cannot match the name of any built-in
-   *          intent.</p>
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>A description of the intent. Use the description to help identify
-   *          the intent in lists.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>A unique identifier for the built-in intent to base this intent
-   *          on.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>An array of strings that a user might say to signal the intent. For
-   *          example, "I want a pizza", or "I want a {PizzaSize} pizza". </p>
-   *          <p>In an utterance, slot names are enclosed in curly braces ("{", "}")
-   *          to indicate where they should be displayed in the utterance shown to
-   *          the user.. </p>
-   */
-  sampleUtterances?: SampleUtterance[];
-
-  /**
-   * <p>Specifies that Amazon Lex invokes the alias Lambda function for each user
-   *          input. You can invoke this Lambda function to personalize user
-   *          interaction.</p>
-   *          <p>For example, suppose that your bot determines that the user's name
-   *          is John. You Lambda function might retrieve John's information from a
-   *          backend database and prepopulate some of the values. For example, if
-   *          you find that John is gluten intolerant, you might set the
-   *          corresponding intent slot, <code>glutenIntolerant</code> to
-   *             <code>true</code>. You might find John's phone number and set the
-   *          corresponding session attribute.</p>
-   */
-  dialogCodeHook?: DialogCodeHookSettings;
-
-  /**
-   * <p>Specifies that Amazon Lex invokes the alias Lambda function when the
-   *          intent is ready for fulfillment. You can invoke this function to
-   *          complete the bot's transaction with the user.</p>
-   *          <p>For example, in a pizza ordering bot, the Lambda function can look up
-   *          the closest pizza restaurant to the customer's location and then place
-   *          an order on the customer's behalf.</p>
-   */
-  fulfillmentCodeHook?: FulfillmentCodeHookSettings;
-
-  /**
-   * <p>Provides prompts that Amazon Lex sends to the user to confirm the
-   *          completion of an intent. If the user answers "no," the settings contain
-   *          a statement that is sent to the user to end the intent.</p>
-   */
-  intentConfirmationSetting?: IntentConfirmationSetting;
-
-  /**
-   * <p>Sets the response that Amazon Lex sends to the user when the intent is
-   *          closed.</p>
-   */
-  intentClosingSetting?: IntentClosingSetting;
-
-  /**
-   * <p>A list of contexts that must be active for this intent to be
-   *          considered by Amazon Lex.</p>
-   *          <p>When an intent has an input context list, Amazon Lex only considers using
-   *          the intent in an interaction with the user when the specified contexts
-   *          are included in the active context list for the session. If the
-   *          contexts are not active, then Amazon Lex will not use the intent.</p>
-   *          <p>A context can be automatically activated using the
-   *             <code>outputContexts</code> property or it can be set at
-   *          runtime.</p>
-   *          <p> For example, if there are two intents with different input contexts
-   *          that respond to the same utterances, only the intent with the active
-   *          context will respond.</p>
-   *          <p>An intent may have up to 5 input contexts. If an intent has multiple
-   *          input contexts, all of the contexts must be active to consider the
-   *          intent.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>A lists of contexts that the intent activates when it is
-   *          fulfilled.</p>
-   *          <p>You can use an output context to indicate the intents that Amazon Lex
-   *          should consider for the next turn of the conversation with a customer. </p>
-   *          <p>When you use the <code>outputContextsList</code> property, all of
-   *          the contexts specified in the list are activated when the intent is
-   *          fulfilled. You can set up to 10 output contexts. You can also set the
-   *          number of conversation turns that the context should be active, or the
-   *          length of time that the context should be active.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>Configuration information required to use the
-   *             <code>AMAZON.KendraSearchIntent</code> intent to connect to an Amazon Kendra
-   *          index. The <code>AMAZON.KendraSearchIntent</code> intent is called when
-   *          Amazon Lex can't determine another intent to invoke.</p>
-   */
-  kendraConfiguration?: KendraConfiguration;
-
-  /**
-   * <p>The identifier of the bot associated with this intent.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The identifier of the version of the bot associated with this
-   *          intent.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale where this intent is used.
-   *          All of the bots, slot types, and slots used by the intent must have the
-   *          same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-}
-
-export namespace CreateIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateIntentResponse {
-  /**
-   * <p>A unique identifier for the intent.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The name specified for the intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The description specified for the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The signature of the parent intent specified for the intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The sample utterances specified for the intent.</p>
-   */
-  sampleUtterances?: SampleUtterance[];
-
-  /**
-   * <p>The dialog Lambda function specified for the intent.</p>
-   */
-  dialogCodeHook?: DialogCodeHookSettings;
-
-  /**
-   * <p>The fulfillment Lambda function specified for the intent.</p>
-   */
-  fulfillmentCodeHook?: FulfillmentCodeHookSettings;
-
-  /**
-   * <p>The confirmation setting specified for the intent.</p>
-   */
-  intentConfirmationSetting?: IntentConfirmationSetting;
-
-  /**
-   * <p>The closing setting specified for the intent.</p>
-   */
-  intentClosingSetting?: IntentClosingSetting;
-
-  /**
-   * <p>The list of input contexts specified for the intent.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>The list of output contexts specified for the intent.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>Configuration for searching a Amazon Kendra index specified for the
-   *          intent.</p>
-   */
-  kendraConfiguration?: KendraConfiguration;
-
-  /**
-   * <p>The identifier of the bot associated with the intent.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The identifier of the version of the bot associated with the
-   *          intent.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The locale that the intent is specified to use.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the intent was created.</p>
-   */
-  creationDateTime?: Date;
-}
-
-export namespace CreateIntentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntentResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateResourcePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A resource policy to add to the resource. The policy is a JSON
    *          structure that contains one or more statements that define the policy.
    *          The policy must follow the IAM syntax. For more information about the
@@ -2925,23 +5812,19 @@ export interface CreateResourcePolicyRequest {
   policy: string | undefined;
 }
 
-export namespace CreateResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateResourcePolicyResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy was attached to.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The current revision of the resource policy. Use the revision ID to
    *          make sure that you are updating the most current version of a resource
    *          policy when you add a policy statement to a resource, delete a
@@ -2950,55 +5833,54 @@ export interface CreateResourcePolicyResponse {
   revisionId?: string;
 }
 
-export namespace CreateResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum Effect {
-  Allow = "Allow",
-  Deny = "Deny",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Effect = {
+  Allow: "Allow",
+  Deny: "Deny",
+} as const;
 
 /**
+ * @public
+ */
+export type Effect = (typeof Effect)[keyof typeof Effect];
+
+/**
+ * @public
  * <p>The IAM principal that you allowing or denying access to an Amazon Lex
  *          action. You must provide a <code>service</code> or an <code>arn</code>,
  *          but not both in the same statement. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html"> AWS JSON policy elements: Principal </a>.</p>
  */
 export interface Principal {
   /**
-   * <p>The name of the AWS service that should allowed or denied access to
+   * @public
+   * <p>The name of the Amazon Web Services service that should allowed or denied access to
    *          an Amazon Lex action.</p>
    */
   service?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    */
   arn?: string;
 }
 
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateResourcePolicyStatementRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the statement. The ID is the same as the
    *             <code>Sid</code> IAM property. The statement name must be unique
    *          within the policy. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html">IAM
@@ -3007,19 +5889,23 @@ export interface CreateResourcePolicyStatementRequest {
   statementId: string | undefined;
 
   /**
+   * @public
    * <p>Determines whether the statement allows or denies access to the
    *          resource.</p>
    */
   effect: Effect | string | undefined;
 
   /**
-   * <p>An IAM principal, such as an IAM users, IAM roles, or AWS services
+   * @public
+   * <p>An IAM principal, such as an IAM user, IAM role,
+   *          or Amazon Web Services services
    *          that is allowed or denied access to a resource. For more information,
-   *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">AWS JSON policy elements: Principal</a>.</p>
+   *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">Amazon Web Services JSON policy elements: Principal</a>.</p>
    */
   principal: Principal[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Lex action that this policy either allows or denies. The
    *          action must apply to the resource type of the specified ARN. For more
    *          information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html">
@@ -3028,15 +5914,17 @@ export interface CreateResourcePolicyStatementRequest {
   action: string[] | undefined;
 
   /**
+   * @public
    * <p>Specifies a condition when the policy is in effect. If the principal
    *          of the policy is a service principal, you must provide two condition
    *          blocks, one with a SourceAccount global condition key and one with a
    *          SourceArn global condition key.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html">IAM JSON policy elements: Condition </a>.</p>
    */
-  condition?: { [key: string]: { [key: string]: string } };
+  condition?: Record<string, Record<string, string>>;
 
   /**
+   * @public
    * <p>The identifier of the revision of the policy to edit. If this
    *          revision ID doesn't match the current revision ID, Amazon Lex throws an
    *          exception.</p>
@@ -3046,23 +5934,19 @@ export interface CreateResourcePolicyStatementRequest {
   expectedRevisionId?: string;
 }
 
-export namespace CreateResourcePolicyStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyStatementRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateResourcePolicyStatementResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The current revision of the resource policy. Use the revision ID to
    *          make sure that you are updating the most current version of a resource
    *          policy when you add a policy statement to a resource, delete a
@@ -3071,20 +5955,13 @@ export interface CreateResourcePolicyStatementResponse {
   revisionId?: string;
 }
 
-export namespace CreateResourcePolicyStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyStatementResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates whether a slot can return multiple values.</p>
  */
 export interface MultipleValuesSetting {
   /**
+   * @public
    * <p>Indicates whether a slot can return multiple values. When
    *             <code>true</code>, the slot may return more than one value in a
    *          response. When <code>false</code>, the slot returns only a single
@@ -3098,151 +5975,126 @@ export interface MultipleValuesSetting {
   allowMultipleValues?: boolean;
 }
 
-export namespace MultipleValuesSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipleValuesSetting): any => ({
-    ...obj,
-  });
-}
-
-export enum ObfuscationSettingType {
-  DefaultObfuscation = "DefaultObfuscation",
-  None = "None",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ObfuscationSettingType = {
+  DefaultObfuscation: "DefaultObfuscation",
+  None: "None",
+} as const;
 
 /**
+ * @public
+ */
+export type ObfuscationSettingType = (typeof ObfuscationSettingType)[keyof typeof ObfuscationSettingType];
+
+/**
+ * @public
  * <p>Determines whether Amazon Lex obscures slot values in conversation logs.
  *       </p>
  */
 export interface ObfuscationSetting {
   /**
+   * @public
    * <p>Value that determines whether Amazon Lex obscures slot values in
    *          conversation logs. The default is to obscure the values.</p>
    */
   obfuscationSettingType: ObfuscationSettingType | string | undefined;
 }
 
-export namespace ObfuscationSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObfuscationSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the default value to use when a user doesn't provide a
  *          value for a slot.</p>
  */
 export interface SlotDefaultValue {
   /**
+   * @public
    * <p>The default value to use when a user doesn't provide a value for a
    *          slot.</p>
    */
   defaultValue: string | undefined;
 }
 
-export namespace SlotDefaultValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotDefaultValue): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Defines a list of values that Amazon Lex should use as the default value
  *          for a slot.</p>
  */
 export interface SlotDefaultValueSpecification {
   /**
+   * @public
    * <p>A list of default values. Amazon Lex chooses the default value to use in
    *          the order that they are presented in the list.</p>
    */
   defaultValueList: SlotDefaultValue[] | undefined;
 }
 
-export namespace SlotDefaultValueSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotDefaultValueSpecification): any => ({
-    ...obj,
-  });
-}
-
-export enum SlotConstraint {
-  Optional = "Optional",
-  Required = "Required",
-}
-
 /**
+ * @public
  * <p>Defines the messages that Amazon Lex sends to a user to remind them that
  *          the bot is waiting for a response.</p>
  */
 export interface StillWaitingResponseSpecification {
   /**
+   * @public
    * <p>One or more message groups, each containing one or more messages,
    *          that define the prompts that Amazon Lex sends to the user.</p>
    */
   messageGroups: MessageGroup[] | undefined;
 
   /**
+   * @public
    * <p>How often a message should be sent to the user. Minimum of 1 second,
    *          maximum of 5 minutes.</p>
    */
   frequencyInSeconds: number | undefined;
 
   /**
+   * @public
    * <p>If Amazon Lex waits longer than this length of time for a response, it
    *          will stop sending messages.</p>
    */
   timeoutInSeconds: number | undefined;
 
   /**
+   * @public
    * <p>Indicates that the user can interrupt the response by speaking while
    *          the message is being played.</p>
    */
   allowInterrupt?: boolean;
 }
 
-export namespace StillWaitingResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StillWaitingResponseSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the prompts that Amazon Lex uses while a bot is waiting for
  *          customer input. </p>
  */
 export interface WaitAndContinueSpecification {
   /**
+   * @public
    * <p>The response that Amazon Lex sends to indicate that the bot is waiting
    *          for the conversation to continue.</p>
    */
   waitingResponse: ResponseSpecification | undefined;
 
   /**
+   * @public
    * <p>The response that Amazon Lex sends to indicate that the bot is ready to
    *          continue the conversation.</p>
    */
   continueResponse: ResponseSpecification | undefined;
 
   /**
+   * @public
    * <p>A response that Amazon Lex sends periodically to the user to indicate
    *          that the bot is still waiting for input from the user.</p>
    */
   stillWaitingResponse?: StillWaitingResponseSpecification;
 
   /**
+   * @public
    * <p>Specifies whether the bot will wait for a user to respond. When this
    *          field is false, wait and continue responses for a slot aren't used. If
    *          the <code>active</code> field isn't specified, the default is
@@ -3251,267 +6103,188 @@ export interface WaitAndContinueSpecification {
   active?: boolean;
 }
 
-export namespace WaitAndContinueSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WaitAndContinueSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Settings that you can use for eliciting a slot value.</p>
+ * @public
+ * <p>Subslot elicitation settings.</p>
+ *          <p>
+ *             <code>DefaultValueSpecification</code> is a list of default values for a constituent sub slot in a composite slot. Default values are used when
+ *         Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables,
+ *         session attributes, and defined values. This is similar to <code>DefaultValueSpecification</code> for slots.</p>
+ *          <p>
+ *             <code>PromptSpecification</code> is the prompt that Amazon Lex uses to elicit the sub slot value from the user.
+ *         This is similar to <code>PromptSpecification</code> for slots.</p>
  */
-export interface SlotValueElicitationSetting {
+export interface SubSlotValueElicitationSetting {
   /**
-   * <p>A list of default values for a slot. Default values are used when
-   *          Amazon Lex hasn't determined a value for a slot. You can specify default
-   *          values from context variables, session attributes, and defined
-   *          values.</p>
+   * @public
+   * <p>Defines a list of values that Amazon Lex should use as the default value
+   *          for a slot.</p>
    */
   defaultValueSpecification?: SlotDefaultValueSpecification;
 
   /**
-   * <p>Specifies whether the slot is required or optional.</p>
+   * @public
+   * <p>Specifies a list of message groups that Amazon Lex sends to a user to
+   *          elicit a response.</p>
    */
-  slotConstraint: SlotConstraint | string | undefined;
+  promptSpecification: PromptSpecification | undefined;
 
   /**
-   * <p>The prompt that Amazon Lex uses to elicit the slot value from the
-   *          user.</p>
-   */
-  promptSpecification?: PromptSpecification;
-
-  /**
-   * <p>If you know a specific pattern that users might respond to an Amazon Lex
-   *          request for a slot value, you can provide those utterances to improve
-   *          accuracy. This is optional. In most cases, Amazon Lex is capable of
-   *          understanding user utterances.</p>
+   * @public
+   * <p>If you know a specific pattern that users might respond to an Amazon Lex request for a sub slot value,
+   *       you can provide those utterances to improve accuracy. This is optional. In most cases Amazon Lex is capable
+   *       of understanding user utterances. This is similar to <code>SampleUtterances</code> for slots.</p>
    */
   sampleUtterances?: SampleUtterance[];
 
   /**
+   * @public
    * <p>Specifies the prompts that Amazon Lex uses while a bot is waiting for
    *          customer input. </p>
    */
   waitAndContinueSpecification?: WaitAndContinueSpecification;
 }
 
-export namespace SlotValueElicitationSetting {
+/**
+ * @public
+ * <p>Subslot specifications.</p>
+ */
+export interface Specifications {
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotValueElicitationSetting): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateSlotRequest {
-  /**
-   * <p>The name of the slot. Slot names must be unique within the bot that
-   *          contains the slot.</p>
-   */
-  slotName: string | undefined;
-
-  /**
-   * <p>A description of the slot. Use this to help identify the slot in
-   *          lists.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The unique identifier for the slot type associated with this slot.
-   *          The slot type determines the values that can be entered into the
-   *          slot.</p>
+   * @public
+   * <p>The unique identifier assigned to the slot type.</p>
    */
   slotTypeId: string | undefined;
 
   /**
-   * <p>Specifies prompts that Amazon Lex sends to the user to elicit a response
-   *          that provides the value for the slot. </p>
+   * @public
+   * <p>Specifies the elicitation setting details for constituent sub slots of a composite slot.</p>
    */
-  valueElicitationSetting: SlotValueElicitationSetting | undefined;
-
-  /**
-   * <p>Determines how slot values are used in Amazon CloudWatch logs. If the value of
-   *          the <code>obfuscationSetting</code> parameter is
-   *             <code>DefaultObfuscation</code>, slot values are obfuscated in the
-   *          log output. If the value is <code>None</code>, the actual value is
-   *          present in the log output.</p>
-   *          <p>The default is to obfuscate values in the CloudWatch logs.</p>
-   */
-  obfuscationSetting?: ObfuscationSetting;
-
-  /**
-   * <p>The identifier of the bot associated with the slot.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot associated with the slot.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale that the slot will be used
-   *          in. The string must match one of the supported locales. All of the
-   *          bots, intents, slot types used by the slot must have the same locale.
-   *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The identifier of the intent that contains the slot.</p>
-   */
-  intentId: string | undefined;
-
-  /**
-   * <p>Indicates whether the slot returns multiple values in one response.
-   *          Multi-value slots are only available in the en-US locale. If you set
-   *          this value to <code>true</code> in any other locale, Amazon Lex throws a
-   *             <code>ValidationException</code>. </p>
-   *          <p>If the <code>multipleValuesSetting</code> is not set, the default
-   *          value is <code>false</code>.</p>
-   */
-  multipleValuesSetting?: MultipleValuesSetting;
-}
-
-export namespace CreateSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSlotRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateSlotResponse {
-  /**
-   * <p>The unique identifier associated with the slot. Use this to identify
-   *          the slot when you update or delete it.</p>
-   */
-  slotId?: string;
-
-  /**
-   * <p>The name specified for the slot.</p>
-   */
-  slotName?: string;
-
-  /**
-   * <p>The description associated with the slot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The unique identifier of the slot type associated with this
-   *          slot.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The value elicitation settings specified for the slot.</p>
-   */
-  valueElicitationSetting?: SlotValueElicitationSetting;
-
-  /**
-   * <p>Indicates whether the slot is configured to obfuscate values in Amazon CloudWatch
-   *          logs.</p>
-   */
-  obfuscationSetting?: ObfuscationSetting;
-
-  /**
-   * <p>The unique identifier of the bot associated with the slot.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot associated with the slot.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and local specified for the slot.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The unique identifier of the intent associated with the slot.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The timestamp of the date and time that the slot was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>Indicates whether the slot returns multiple values in one
-   *          response.</p>
-   */
-  multipleValuesSetting?: MultipleValuesSetting;
-}
-
-export namespace CreateSlotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSlotResponse): any => ({
-    ...obj,
-  });
+  valueElicitationSetting: SubSlotValueElicitationSetting | undefined;
 }
 
 /**
+ * @public
+ * <p>Specifications for the constituent sub slots and the
+ *         expression for the composite slot.</p>
+ */
+export interface SubSlotSetting {
+  /**
+   * @public
+   * <p>The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.</p>
+   */
+  expression?: string;
+
+  /**
+   * @public
+   * <p>Specifications for the constituent sub slots of a composite slot.</p>
+   */
+  slotSpecifications?: Record<string, Specifications>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SlotConstraint = {
+  Optional: "Optional",
+  Required: "Required",
+} as const;
+
+/**
+ * @public
+ */
+export type SlotConstraint = (typeof SlotConstraint)[keyof typeof SlotConstraint];
+
+/**
+ * @public
+ * <p>Describes the Amazon S3 bucket name and location for the grammar
+ *             that is the source for the slot type.</p>
+ */
+export interface GrammarSlotTypeSource {
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket that contains the grammar source.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The path to the grammar in the Amazon S3 bucket.</p>
+   */
+  s3ObjectKey: string | undefined;
+
+  /**
+   * @public
+   * <p>The KMS key required to decrypt the contents of the grammar, if any.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>Settings requried for a slot type based on a grammar that you provide.</p>
+ */
+export interface GrammarSlotTypeSetting {
+  /**
+   * @public
+   * <p>The source of the grammar used to create the slot type.</p>
+   */
+  source?: GrammarSlotTypeSource;
+}
+
+/**
+ * @public
+ * <p>Provides information about the external source of the slot type's definition.</p>
+ */
+export interface ExternalSourceSetting {
+  /**
+   * @public
+   * <p>Settings required for a slot type based on a grammar that you provide.</p>
+   */
+  grammarSlotTypeSetting?: GrammarSlotTypeSetting;
+}
+
+/**
+ * @public
  * <p>Defines one of the values for a slot type.</p>
  */
 export interface SampleValue {
   /**
+   * @public
    * <p>The value that can be used for a slot type.</p>
    */
   value: string | undefined;
 }
 
-export namespace SampleValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleValue): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Each slot type can have a set of values. Each
  *             <code>SlotTypeValue</code> represents a value that the slot type can
  *          take.</p>
  */
 export interface SlotTypeValue {
   /**
+   * @public
    * <p>The value of the slot type entry.</p>
    */
   sampleValue?: SampleValue;
 
   /**
+   * @public
    * <p>Additional values related to the slot type entry.</p>
    */
   synonyms?: SampleValue[];
 }
 
-export namespace SlotTypeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Provides a regular expression used to validate the value of a
  *          slot.</p>
  */
 export interface SlotValueRegexFilter {
   /**
+   * @public
    * <p>A regular expression used to validate the value of a slot.</p>
    *          <p> Use a standard regular expression. Amazon Lex supports the following
    *          characters in the regular expression: </p>
@@ -3523,15 +6296,15 @@ export interface SlotValueRegexFilter {
    *                <p>0-9</p>
    *             </li>
    *             <li>
-   *                <p>Unicode characters ("\ u<Unicode>")</p>
+   *                <p>Unicode characters ("\⁠u<Unicode>")</p>
    *             </li>
    *          </ul>
-   *          <p> Represent Unicode characters with four digits, for example "\u0041"
-   *          or "\u005A". </p>
+   *          <p> Represent Unicode characters with four digits, for example "\⁠u0041"
+   *          or "\⁠u005A". </p>
    *          <p> The following regular expression operators are not supported: </p>
    *          <ul>
    *             <li>
-   *                <p>Infinite repeaters: *, +, or {x,} with no upper bound.</p>
+   *                <p>Infinite repeaters: *, +, or \{x,\} with no upper bound.</p>
    *             </li>
    *             <li>
    *                <p>Wild card (.)</p>
@@ -3541,75 +6314,85 @@ export interface SlotValueRegexFilter {
   pattern: string | undefined;
 }
 
-export namespace SlotValueRegexFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotValueRegexFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum SlotValueResolutionStrategy {
-  OriginalValue = "OriginalValue",
-  TopResolution = "TopResolution",
-}
+/**
+ * @public
+ * @enum
+ */
+export const SlotValueResolutionStrategy = {
+  Concatenation: "Concatenation",
+  OriginalValue: "OriginalValue",
+  TopResolution: "TopResolution",
+} as const;
 
 /**
+ * @public
+ */
+export type SlotValueResolutionStrategy =
+  (typeof SlotValueResolutionStrategy)[keyof typeof SlotValueResolutionStrategy];
+
+/**
+ * @public
  * <p>Contains settings used by Amazon Lex to select a slot value.</p>
  */
 export interface SlotValueSelectionSetting {
   /**
+   * @public
    * <p>Determines the slot resolution strategy that Amazon Lex uses to
    *          return slot type values. The field can be set to one of the following
    *          values:</p>
-   *
    *          <ul>
    *             <li>
-   *                <p>OriginalValue - Returns the value entered by the user, if the
+   *                <p>
+   *                   <code>ORIGINAL_VALUE</code> - Returns the value entered by the user, if the
    *                user value is similar to the slot value.</p>
    *             </li>
    *             <li>
-   *                <p>TopResolution - If there is a resolution list for the slot,
+   *                <p>
+   *                   <code>TOP_RESOLUTION</code> - If there is a resolution list for the slot,
    *                return the first value in the resolution list as the slot type
    *                value. If there is no resolution list, null is returned.</p>
    *             </li>
    *          </ul>
-   *
-   *          <p>If you don't specify the valueSelectionStrategy, the default is
-   *          OriginalValue. </p>
+   *          <p>If you don't specify the <code>valueSelectionStrategy</code>, the
+   *          default is <code>ORIGINAL_VALUE</code>.</p>
    */
   resolutionStrategy: SlotValueResolutionStrategy | string | undefined;
 
   /**
+   * @public
    * <p>A regular expression used to validate the value of a slot.</p>
    */
   regexFilter?: SlotValueRegexFilter;
-}
 
-export namespace SlotValueSelectionSetting {
   /**
-   * @internal
+   * @public
+   * <p>Provides settings that enable advanced recognition settings for slot
+   *          values. You can use this to enable using slot values as a custom
+   *          vocabulary for recognizing user utterances.</p>
    */
-  export const filterSensitiveLog = (obj: SlotValueSelectionSetting): any => ({
-    ...obj,
-  });
+  advancedRecognitionSetting?: AdvancedRecognitionSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotTypeRequest {
   /**
+   * @public
    * <p>The name for the slot. A slot type name must be unique within the
-   *          account.</p>
+   *          intent.</p>
    */
   slotTypeName: string | undefined;
 
   /**
+   * @public
    * <p>A description of the slot type. Use the description to help identify
    *          the slot type in lists.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A list of <code>SlotTypeValue</code> objects that defines the values
    *          that the slot type can take. Each value can have a list of synonyms,
    *          additional values that help train the machine learning model about the
@@ -3618,28 +6401,30 @@ export interface CreateSlotTypeRequest {
   slotTypeValues?: SlotTypeValue[];
 
   /**
+   * @public
    * <p>Determines the strategy that Amazon Lex uses to select a value from the
    *          list of possible values. The field can be set to one of the following
    *          values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>OriginalValue</code> - Returns the value entered by the
+   *                   <code>ORIGINAL_VALUE</code> - Returns the value entered by the
    *                user, if the user value is similar to the slot value.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TopResolution</code> - If there is a resolution list for
+   *                   <code>TOP_RESOLUTION</code> - If there is a resolution list for
    *                the slot, return the first value in the resolution list. If there
    *                is no resolution list, return null.</p>
    *             </li>
    *          </ul>
    *          <p>If you don't specify the <code>valueSelectionSetting</code>
-   *          parameter, the default is <code>OriginalValue</code>.</p>
+   *          parameter, the default is <code>ORIGINAL_VALUE</code>.</p>
    */
-  valueSelectionSetting: SlotValueSelectionSetting | undefined;
+  valueSelectionSetting?: SlotValueSelectionSetting;
 
   /**
+   * @public
    * <p>The built-in slot type used as a parent of this slot type. When you
    *          define a parent slot type, the new slot type has the configuration of
    *          the parent slot type.</p>
@@ -3648,36 +6433,47 @@ export interface CreateSlotTypeRequest {
   parentSlotTypeSignature?: string;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with this slot type.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot version associated with this slot
    *          type.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that the slot type will be
    *          used in. The string must match one of the supported locales. All of the
    *          bots, intents, and slots used by the slot type must have the same
    *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
-}
 
-export namespace CreateSlotTypeRequest {
   /**
-   * @internal
+   * @public
+   * <p>Sets the type of external information used to create the slot
+   *          type.</p>
    */
-  export const filterSensitiveLog = (obj: CreateSlotTypeRequest): any => ({
-    ...obj,
-  });
+  externalSourceSetting?: ExternalSourceSetting;
+
+  /**
+   * @public
+   * <p>Specifications for a composite slot type.</p>
+   */
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
+/**
+ * @public
+ */
 export interface CreateSlotTypeResponse {
   /**
+   * @public
    * <p>The unique identifier assigned to the slot type. Use this to
    *          identify the slot type in the <code>UpdateSlotType</code> and
    *             <code>DeleteSlotType</code> operations.</p>
@@ -3685,183 +6481,336 @@ export interface CreateSlotTypeResponse {
   slotTypeId?: string;
 
   /**
+   * @public
    * <p>The name specified for the slot type.</p>
    */
   slotTypeName?: string;
 
   /**
+   * @public
    * <p>The description specified for the slot type.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The list of values that the slot type can assume.</p>
    */
   slotTypeValues?: SlotTypeValue[];
 
   /**
+   * @public
    * <p>The strategy that Amazon Lex uses to select a value from the list of
    *          possible values.</p>
    */
   valueSelectionSetting?: SlotValueSelectionSetting;
 
   /**
+   * @public
    * <p>The signature of the base slot type specified for the slot
    *          type.</p>
    */
   parentSlotTypeSignature?: string;
 
   /**
+   * @public
    * <p>The identifier for the bot associated with the slot type.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The version of the bot associated with the slot type.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The specified language and local specified for the slot type.</p>
    */
   localeId?: string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the slot type was
    *          created.</p>
    */
   creationDateTime?: Date;
-}
 
-export namespace CreateSlotTypeResponse {
   /**
-   * @internal
+   * @public
+   * <p>The type of external information used to create the slot
+   *          type.</p>
    */
-  export const filterSensitiveLog = (obj: CreateSlotTypeResponse): any => ({
-    ...obj,
-  });
+  externalSourceSetting?: ExternalSourceSetting;
+
+  /**
+   * @public
+   * <p>Specifications for a composite slot type.</p>
+   */
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
 }
 
+/**
+ * @public
+ * <p>Contains information about the bot alias used for the
+ *  test set discrepancy report.</p>
+ */
+export interface TestSetDiscrepancyReportBotAliasTarget {
+  /**
+   * @public
+   * <p>The unique identifier for the bot alias.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier for the bot associated with the bot alias.</p>
+   */
+  botAliasId: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique identifier of the locale associated with the bot alias.</p>
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about the resource used for the
+ *  test set discrepancy report.</p>
+ */
+export interface TestSetDiscrepancyReportResourceTarget {
+  /**
+   * @public
+   * <p>Contains information about the bot alias used as the resource for the
+   *  test set discrepancy report.</p>
+   */
+  botAliasTarget?: TestSetDiscrepancyReportBotAliasTarget;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestSetDiscrepancyReportRequest {
+  /**
+   * @public
+   * <p>The test set Id for the test set discrepancy report.</p>
+   */
+  testSetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The target bot for the test set discrepancy report.</p>
+   */
+  target: TestSetDiscrepancyReportResourceTarget | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestSetDiscrepancyReportResponse {
+  /**
+   * @public
+   * <p>The unique identifier of the test set discrepancy report to describe.</p>
+   */
+  testSetDiscrepancyReportId?: string;
+
+  /**
+   * @public
+   * <p>The creation date and time for the test set discrepancy report.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The test set Id for the test set discrepancy report.</p>
+   */
+  testSetId?: string;
+
+  /**
+   * @public
+   * <p>The target bot for the test set discrepancy report.</p>
+   */
+  target?: TestSetDiscrepancyReportResourceTarget;
+}
+
+/**
+ * @public
+ */
 export interface CreateUploadUrlRequest {}
 
-export namespace CreateUploadUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUploadUrlRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateUploadUrlResponse {
   /**
+   * @public
    * <p>An identifier for a unique import job. Use it when you call the
-   *              operation.</p>
+   *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html">StartImport</a> operation.</p>
    */
   importId?: string;
 
   /**
+   * @public
    * <p>A pre-signed S3 write URL. Upload the zip archive file that contains
    *          the definition of your bot or bot locale.</p>
    */
   uploadUrl?: string;
 }
 
-export namespace CreateUploadUrlResponse {
+/**
+ * @public
+ * <p>Provides the parameters required for importing a custom vocabulary.</p>
+ */
+export interface CustomVocabularyImportSpecification {
   /**
-   * @internal
+   * @public
+   * <p>The identifier of the bot to import the custom vocabulary to.</p>
    */
-  export const filterSensitiveLog = (obj: CreateUploadUrlResponse): any => ({
-    ...obj,
-  });
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot to import the custom vocabulary to.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the local to import the custom vocabulary to. The value must
+   *             be <code>en_GB</code>.</p>
+   */
+  localeId: string | undefined;
 }
 
+/**
+ * @public
+ * @enum
+ */
+export const CustomVocabularyStatus = {
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Exporting: "Exporting",
+  Importing: "Importing",
+  Ready: "Ready",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomVocabularyStatus = (typeof CustomVocabularyStatus)[keyof typeof CustomVocabularyStatus];
+
+/**
+ * @public
+ * <p>The object used for specifying the data range that the customer
+ *             wants Amazon Lex to read through in the input transcripts.</p>
+ */
+export interface DateRangeFilter {
+  /**
+   * @public
+   * <p>A timestamp indicating the start date for the date range
+   *             filter.</p>
+   */
+  startDateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp indicating the end date for the date range
+   *             filter.</p>
+   */
+  endDateTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteBotRequest {
   /**
+   * @public
    * <p>The identifier of the bot to delete. </p>
    */
   botId: string | undefined;
 
   /**
-   * <p>When <code>true</code>, Amazon Lex doesn't check to see if another
-   *          resource, such as an alias, is using the bot before it is
-   *          deleted.</p>
+   * @public
+   * <p>By default, Amazon Lex checks if any other resource, such as an alias or
+   *          bot network, is using the bot version before it is deleted and throws a
+   *          <code>ResourceInUseException</code> exception if the bot is
+   *          being used by another resource. Set this parameter to <code>true</code>
+   *          to skip this check and remove the bot even if it is being used by
+   *          another resource.</p>
    */
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotResponse {
   /**
+   * @public
    * <p>The unique identifier of the bot that Amazon Lex is deleting.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The current status of the bot. The status is <code>Deleting</code>
    *          while the bot and its associated resources are being deleted.</p>
    */
   botStatus?: BotStatus | string;
 }
 
-export namespace DeleteBotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotAliasRequest {
   /**
+   * @public
    * <p>The unique identifier of the bot alias to delete.</p>
    */
   botAliasId: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the bot associated with the alias to
    *          delete.</p>
    */
   botId: string | undefined;
 
   /**
-   * <p>When this parameter is true, Amazon Lex doesn't check to see if any other
-   *          resource is using the alias before it is deleted.</p>
+   * @public
+   * <p>By default, Amazon Lex checks if any other resource, such as a bot network,
+   *          is using the bot alias before it is deleted and throws a
+   *          <code>ResourceInUseException</code> exception if the alias is
+   *          being used by another resource. Set this parameter to <code>true</code>
+   *          to skip this check and remove the alias even if it is being used by
+   *          another resource.</p>
    */
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotAliasRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotAliasResponse {
   /**
+   * @public
    * <p>The unique identifier of the bot alias to delete.</p>
    */
   botAliasId?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the bot that contains the alias to
    *          delete.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The current status of the alias. The status is <code>Deleting</code>
    *          while the alias is in the process of being deleted. Once the alias is
    *          deleted, it will no longer appear in the list of aliases returned by
@@ -3870,27 +6819,24 @@ export interface DeleteBotAliasResponse {
   botAliasStatus?: BotAliasStatus | string;
 }
 
-export namespace DeleteBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotLocaleRequest {
   /**
+   * @public
    * <p>The unique identifier of the bot that contains the locale.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot that contains the locale. </p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that will be deleted. The
    *          string must match one of the supported locales. For more information,
    *          see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -3898,32 +6844,30 @@ export interface DeleteBotLocaleRequest {
   localeId: string | undefined;
 }
 
-export namespace DeleteBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotLocaleRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotLocaleResponse {
   /**
+   * @public
    * <p>The identifier of the bot that contained the deleted locale.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The version of the bot that contained the deleted locale.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The language and locale of the deleted locale.</p>
    */
   localeId?: string;
 
   /**
+   * @public
    * <p>The status of deleting the bot locale. The locale first enters the
    *             <code>Deleting</code> status. Once the locale is deleted it no
    *          longer appears in the list of locales for the bot.</p>
@@ -3931,174 +6875,216 @@ export interface DeleteBotLocaleResponse {
   botLocaleStatus?: BotLocaleStatus | string;
 }
 
-export namespace DeleteBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotVersionRequest {
   /**
+   * @public
    * <p>The identifier of the bot that contains the version.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot to delete.</p>
    */
   botVersion: string | undefined;
 
   /**
-   * <p>By default, the <code>DeleteBotVersion</code> operations throws a
-   *             <code>ResourceInUseException</code> exception if you try to delete a
-   *          bot version that has an alias pointing at it. Set the
-   *             <code>skipResourceInUseCheck</code> parameter to <code>true</code>
-   *          to skip this check and remove the version even if an alias points to
-   *          it.</p>
+   * @public
+   * <p>By default, Amazon Lex checks if any other resource, such as an alias or bot network,
+   *          is using the bot version before it is deleted and throws a
+   *          <code>ResourceInUseException</code> exception if the version is
+   *          being used by another resource. Set this parameter to <code>true</code>
+   *          to skip this check and remove the version even if it is being used by
+   *          another resource.</p>
    */
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteBotVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotVersionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteBotVersionResponse {
   /**
+   * @public
    * <p>The identifier of the bot that is being deleted.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The version of the bot that is being deleted.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The current status of the bot. </p>
    */
   botStatus?: BotStatus | string;
 }
 
-export namespace DeleteBotVersionResponse {
+/**
+ * @public
+ */
+export interface DeleteCustomVocabularyRequest {
   /**
-   * @internal
+   * @public
+   * <p>The unique identifier of the bot to remove the custom
+   *       vocabulary from.</p>
    */
-  export const filterSensitiveLog = (obj: DeleteBotVersionResponse): any => ({
-    ...obj,
-  });
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot to remove the custom vocabulary
+   *       from.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale identifier for the locale that contains the
+   *       custom vocabulary to remove.</p>
+   */
+  localeId: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteCustomVocabularyResponse {
+  /**
+   * @public
+   * <p>The identifier of the bot that the custom vocabulary
+   *       was removed from.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The version of the bot that the custom vocabulary
+   *          was removed from.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The locale identifier for the locale that the
+   *          custom vocabulary was removed from.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>The status of removing the custom vocabulary.</p>
+   */
+  customVocabularyStatus?: CustomVocabularyStatus | string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteExportRequest {
   /**
+   * @public
    * <p>The unique identifier of the export to delete.</p>
    */
   exportId: string | undefined;
 }
 
-export namespace DeleteExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExportRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteExportResponse {
   /**
+   * @public
    * <p>The unique identifier of the deleted export.</p>
    */
   exportId?: string;
 
   /**
+   * @public
    * <p>The current status of the deletion. When the deletion is complete,
-   *          the export will no longer be returned by the  operation and calls to the  with the export identifier will
+   *          the export will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html">ListExports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">
+   *             DescribeExport</a> operation with the export identifier will
    *          fail.</p>
    */
   exportStatus?: ExportStatus | string;
 }
 
-export namespace DeleteExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExportResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteImportRequest {
   /**
+   * @public
    * <p>The unique identifier of the import to delete.</p>
    */
   importId: string | undefined;
 }
 
-export namespace DeleteImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImportRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ImportStatus = {
+  Completed: "Completed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InProgress: "InProgress",
+} as const;
 
-export enum ImportStatus {
-  Completed = "Completed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+/**
+ * @public
+ */
+export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
+/**
+ * @public
+ */
 export interface DeleteImportResponse {
   /**
+   * @public
    * <p>The unique identifier of the deleted import.</p>
    */
   importId?: string;
 
   /**
+   * @public
    * <p>The current status of the deletion. When the deletion is complete,
-   *          the import will no longer be returned by the  operation and calls to the  with the import identifier will
+   *          the import will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html">DescribeImport</a> operation with the import identifier will
    *          fail.</p>
    */
   importStatus?: ImportStatus | string;
 }
 
-export namespace DeleteImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImportResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteIntentRequest {
   /**
+   * @public
    * <p>The unique identifier of the intent to delete.</p>
    */
   intentId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the intent.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot associated with the intent.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale where the bot will be
    *          deleted. The string must match one of the supported locales. For more
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -4106,23 +7092,19 @@ export interface DeleteIntentRequest {
   localeId: string | undefined;
 }
 
-export namespace DeleteIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntentRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that has the
    *          resource policy attached.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the revision to edit. If this ID doesn't match the
    *          current revision number, Amazon Lex returns an exception</p>
    *          <p>If you don't specify a revision ID, Amazon Lex will delete the current
@@ -4131,23 +7113,19 @@ export interface DeleteResourcePolicyRequest {
   expectedRevisionId?: string;
 }
 
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy was deleted from.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The current revision of the resource policy. Use the revision ID to
    *          make sure that you are updating the most current version of a resource
    *          policy when you add a policy statement to a resource, delete a
@@ -4156,28 +7134,25 @@ export interface DeleteResourcePolicyResponse {
   revisionId?: string;
 }
 
-export namespace DeleteResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyStatementRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the statement (SID) to delete from the policy.</p>
    */
   statementId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the revision of the policy to delete the statement
    *          from. If this revision ID doesn't match the current revision ID, Amazon Lex
    *          throws an exception.</p>
@@ -4187,23 +7162,19 @@ export interface DeleteResourcePolicyStatementRequest {
   expectedRevisionId?: string;
 }
 
-export namespace DeleteResourcePolicyStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyStatementRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteResourcePolicyStatementResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy statement was removed from.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The current revision of the resource policy. Use the revision ID to
    *          make sure that you are updating the most current version of a resource
    *          policy when you add a policy statement to a resource, delete a
@@ -4212,32 +7183,30 @@ export interface DeleteResourcePolicyStatementResponse {
   revisionId?: string;
 }
 
-export namespace DeleteResourcePolicyStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyStatementResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteSlotRequest {
   /**
+   * @public
    * <p>The identifier of the slot to delete. </p>
    */
   slotId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the slot to delete.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot associated with the slot to delete.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that the slot will be
    *          deleted from. The string must match one of the supported locales. For
    *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -4245,37 +7214,36 @@ export interface DeleteSlotRequest {
   localeId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the intent associated with the slot.</p>
    */
   intentId: string | undefined;
 }
 
-export namespace DeleteSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSlotRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteSlotTypeRequest {
   /**
+   * @public
    * <p>The identifier of the slot type to delete.</p>
    */
   slotTypeId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the slot type.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot associated with the slot type.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale that the slot type will be
    *          deleted from. The string must match one of the supported locales. For
    *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -4283,6 +7251,7 @@ export interface DeleteSlotTypeRequest {
   localeId: string | undefined;
 
   /**
+   * @public
    * <p>By default, the <code>DeleteSlotType</code> operations throws a
    *             <code>ResourceInUseException</code> exception if you try to delete a
    *          slot type used by a slot. Set the <code>skipResourceInUseCheck</code>
@@ -4292,23 +7261,30 @@ export interface DeleteSlotTypeRequest {
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteSlotTypeRequest {
+/**
+ * @public
+ */
+export interface DeleteTestSetRequest {
   /**
-   * @internal
+   * @public
+   * <p>The test set Id of the test set to be deleted.</p>
    */
-  export const filterSensitiveLog = (obj: DeleteSlotTypeRequest): any => ({
-    ...obj,
-  });
+  testSetId: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DeleteUtterancesRequest {
   /**
+   * @public
    * <p>The unique identifier of the bot that contains the
    *          utterances.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale where the utterances were
    *          collected. The string must match one of the supported locales. For more
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
@@ -4317,83 +7293,74 @@ export interface DeleteUtterancesRequest {
   localeId?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the session with the user. The ID is
-   *          returned in the response from the  and  operations.</p>
+   *          returned in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html">RecognizeText</a> and <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html">RecognizeUtterance</a> operations.</p>
    */
   sessionId?: string;
 }
 
-export namespace DeleteUtterancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUtterancesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteUtterancesResponse {}
 
-export namespace DeleteUtterancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUtterancesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeBotRequest {
   /**
+   * @public
    * <p>The unique identifier of the bot to describe.</p>
    */
   botId: string | undefined;
 }
 
-export namespace DescribeBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeBotResponse {
   /**
+   * @public
    * <p>The unique identifier of the bot.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The name of the bot.</p>
    */
   botName?: string;
 
   /**
+   * @public
    * <p>The description of the bot. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
    *          access the bot.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>Settings for managing data privacy of the bot and its conversations
    *          with users.</p>
    */
   dataPrivacy?: DataPrivacy;
 
   /**
+   * @public
    * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
    *          a conversation.</p>
    */
   idleSessionTTLInSeconds?: number;
 
   /**
+   * @public
    * <p>The current status of the bot. When the status is
    *             <code>Available</code> the bot is ready to be used in conversations
    *          with users.</p>
@@ -4401,93 +7368,131 @@ export interface DescribeBotResponse {
   botStatus?: BotStatus | string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot was created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot was last
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
-}
 
-export namespace DescribeBotResponse {
   /**
-   * @internal
+   * @public
+   * <p>The type of the bot that was described.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeBotResponse): any => ({
-    ...obj,
-  });
+  botType?: BotType | string;
+
+  /**
+   * @public
+   * <p>The list of bots in the network that was described.</p>
+   */
+  botMembers?: BotMember[];
+
+  /**
+   * @public
+   * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
+   *          a list of reasons that the bot couldn't be built.</p>
+   */
+  failureReasons?: string[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotAliasRequest {
   /**
+   * @public
    * <p>The identifier of the bot alias to describe.</p>
    */
   botAliasId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the bot alias to
    *          describe.</p>
    */
   botId: string | undefined;
 }
 
-export namespace DescribeBotAliasRequest {
+/**
+ * @public
+ * <p>A network of bots.</p>
+ */
+export interface ParentBotNetwork {
   /**
-   * @internal
+   * @public
+   * <p>The identifier of the network of bots assigned by Amazon Lex.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeBotAliasRequest): any => ({
-    ...obj,
-  });
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the network of bots.</p>
+   */
+  botVersion: string | undefined;
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotAliasResponse {
   /**
+   * @public
    * <p>The identifier of the bot alias.</p>
    */
   botAliasId?: string;
 
   /**
+   * @public
    * <p>The name of the bot alias.</p>
    */
   botAliasName?: string;
 
   /**
+   * @public
    * <p>The description of the bot alias.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The version of the bot associated with the bot alias.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The locale settings that are unique to the alias.</p>
    */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
 
   /**
+   * @public
    * <p>Specifics of how Amazon Lex logs text and audio conversations with the
    *          bot associated with the alias.</p>
    */
   conversationLogSettings?: ConversationLogSettings;
 
   /**
+   * @public
    * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
    *          user utterances.</p>
    */
   sentimentAnalysisSettings?: SentimentAnalysisSettings;
 
   /**
+   * @public
    * <p>A list of events that affect a bot alias. For example, an event is
    *          recorded when the version that the alias points to changes.</p>
    */
   botAliasHistoryEvents?: BotAliasHistoryEvent[];
 
   /**
+   * @public
    * <p>The current status of the alias. When the alias is
    *             <code>Available</code>, the alias is ready for use with your
    *          bot.</p>
@@ -4495,87 +7500,93 @@ export interface DescribeBotAliasResponse {
   botAliasStatus?: BotAliasStatus | string;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the bot alias.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the alias was created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the alias was last
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
-}
 
-export namespace DescribeBotAliasResponse {
   /**
-   * @internal
+   * @public
+   * <p>A list of the networks to which the bot alias you described belongs.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeBotAliasResponse): any => ({
-    ...obj,
-  });
+  parentBotNetworks?: ParentBotNetwork[];
 }
 
+/**
+ * @public
+ */
 export interface DescribeBotLocaleRequest {
   /**
+   * @public
    * <p>The identifier of the bot associated with the locale.</p>
    */
   botId: string | undefined;
 
   /**
-   * <p>The identifier of the version of the bot associated with the
+   * @public
+   * <p>The version of the bot associated with the
    *          locale.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the locale to describe. The string must
    *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>. </p>
    */
   localeId: string | undefined;
 }
 
-export namespace DescribeBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotLocaleRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeBotLocaleResponse {
   /**
+   * @public
    * <p>The identifier of the bot associated with the locale.</p>
    */
   botId?: string;
 
   /**
-   * <p>The identifier of the version of the bot associated with the
+   * @public
+   * <p>The version of the bot associated with the
    *          locale.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The unique identifier of the described locale.</p>
    */
   localeId?: string;
 
   /**
+   * @public
    * <p>The name of the locale.</p>
    */
   localeName?: string;
 
   /**
+   * @public
    * <p>The description of the locale.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The confidence threshold where Amazon Lex inserts the
    *             <code>AMAZON.FallbackIntent</code> and
    *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
@@ -4584,22 +7595,26 @@ export interface DescribeBotLocaleResponse {
   nluIntentConfidenceThreshold?: number;
 
   /**
+   * @public
    * <p>The Amazon Polly voice Amazon Lex uses for voice interaction with the
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
 
   /**
+   * @public
    * <p>The number of intents defined for the locale.</p>
    */
   intentsCount?: number;
 
   /**
+   * @public
    * <p>The number of slot types defined for the locale.</p>
    */
   slotTypesCount?: number;
 
   /**
+   * @public
    * <p>The status of the bot. If the status is <code>Failed</code>, the
    *          reasons for the failure are listed in the <code>failureReasons</code>
    *          field.</p>
@@ -4607,178 +7622,533 @@ export interface DescribeBotLocaleResponse {
   botLocaleStatus?: BotLocaleStatus | string;
 
   /**
+   * @public
    * <p>if <code>botLocaleStatus</code> is <code>Failed</code>, Amazon Lex
    *          explains why it failed to build the bot.</p>
    */
   failureReasons?: string[];
 
   /**
+   * @public
    * <p>The date and time that the locale was created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the locale was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the locale was last submitted for
    *          building.</p>
    */
   lastBuildSubmittedDateTime?: Date;
 
   /**
+   * @public
    * <p>History of changes, such as when a locale is used in an alias, that
    *          have taken place for the locale.</p>
    */
   botLocaleHistoryEvents?: BotLocaleHistoryEvent[];
-}
 
-export namespace DescribeBotLocaleResponse {
   /**
-   * @internal
+   * @public
+   * <p>Recommended actions to take to resolve an error in the
+   *             <code>failureReasons</code> field.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeBotLocaleResponse): any => ({
-    ...obj,
-  });
+  recommendedActions?: string[];
 }
 
+/**
+ * @public
+ */
+export interface DescribeBotRecommendationRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to describe. The string must match one of the supported locales. For
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the bot recommendation to describe.</p>
+   */
+  botRecommendationId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The object representing the passwords that were used to encrypt the
+ *             data related to the bot recommendation, as well as the KMS key ARN used
+ *             to encrypt the associated metadata.</p>
+ */
+export interface EncryptionSetting {
+  /**
+   * @public
+   * <p>The KMS key ARN used to encrypt the metadata associated with the bot
+   *             recommendation.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>The password used to encrypt the recommended bot recommendation
+   *             file.</p>
+   */
+  botLocaleExportPassword?: string;
+
+  /**
+   * @public
+   * <p>The password used to encrypt the associated transcript file.</p>
+   */
+  associatedTranscriptsPassword?: string;
+}
+
+/**
+ * @public
+ * <p>The object that contains a path format that will be applied when
+ *             Amazon Lex reads the transcript file in the bucket you provide. Specify this
+ *             object if you only want Lex to read a subset of files in your Amazon S3
+ *             bucket.</p>
+ */
+export interface PathFormat {
+  /**
+   * @public
+   * <p>A list of Amazon S3 prefixes that points to sub-folders in the Amazon S3
+   *             bucket. Specify this list if you only want Lex to read the files under
+   *             this set of sub-folders.</p>
+   */
+  objectPrefixes?: string[];
+}
+
+/**
+ * @public
+ * <p>The object that contains transcript filter details that are
+ *             associated with a bot recommendation.</p>
+ */
+export interface LexTranscriptFilter {
+  /**
+   * @public
+   * <p>The object that contains a date range filter that will be applied to
+   *             the transcript. Specify this object if you want Amazon Lex to only read the
+   *             files that are within the date range.</p>
+   */
+  dateRangeFilter?: DateRangeFilter;
+}
+
+/**
+ * @public
+ * <p>The object representing the filter that Amazon Lex will use to select the
+ *             appropriate transcript.</p>
+ */
+export interface TranscriptFilter {
+  /**
+   * @public
+   * <p>The object representing the filter that Amazon Lex will use to select the
+   *             appropriate transcript when the transcript format is the Amazon Lex
+   *             format.</p>
+   */
+  lexTranscriptFilter?: LexTranscriptFilter;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscriptFormat = {
+  Lex: "Lex",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscriptFormat = (typeof TranscriptFormat)[keyof typeof TranscriptFormat];
+
+/**
+ * @public
+ * <p>The object representing the Amazon S3 bucket containing the transcript,
+ *             as well as the associated metadata.</p>
+ */
+export interface S3BucketTranscriptSource {
+  /**
+   * @public
+   * <p>The name of the bucket containing the transcript and the associated
+   *             metadata.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The object that contains a path format that will be applied when
+   *             Amazon Lex reads the transcript file in the bucket you provide. Specify this
+   *             object if you only want Lex to read a subset of files in your Amazon S3
+   *             bucket.</p>
+   */
+  pathFormat?: PathFormat;
+
+  /**
+   * @public
+   * <p>The format of the transcript content. Currently, Genie only supports
+   *             the Amazon Lex transcript format.</p>
+   */
+  transcriptFormat: TranscriptFormat | string | undefined;
+
+  /**
+   * @public
+   * <p>The object that contains the filter which will be applied when Amazon Lex
+   *             reads through the Amazon S3 bucket. Specify this object if you want Amazon Lex to
+   *             read only a subset of the Amazon S3 bucket based on the filter you
+   *             provide.</p>
+   */
+  transcriptFilter?: TranscriptFilter;
+
+  /**
+   * @public
+   * <p>The ARN of the KMS key that customer use to encrypt their Amazon S3
+   *             bucket. Only use this field if your bucket is encrypted using a
+   *             customer managed KMS key.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>Indicates the setting of the location where the transcript is
+ *             stored.</p>
+ */
+export interface TranscriptSourceSetting {
+  /**
+   * @public
+   * <p>Indicates the setting of the Amazon S3 bucket where the transcript is
+   *             stored.</p>
+   */
+  s3BucketTranscriptSource?: S3BucketTranscriptSource;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBotRecommendationResponse {
+  /**
+   * @public
+   * <p>The identifier of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The version of the bot associated with the bot
+   *          recommendation.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the language and locale of the bot recommendation
+   *          to describe.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>The status of the bot recommendation. If the status is Failed, then
+   *          the reasons for the failure are listed in the failureReasons field.
+   *       </p>
+   */
+  botRecommendationStatus?: BotRecommendationStatus | string;
+
+  /**
+   * @public
+   * <p>The identifier of the bot recommendation being described.</p>
+   */
+  botRecommendationId?: string;
+
+  /**
+   * @public
+   * <p>If botRecommendationStatus is Failed, Amazon Lex explains why.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * @public
+   * <p>The date and time that the bot recommendation was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time that the bot recommendation was last
+   *          updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The object representing the Amazon S3 bucket containing the transcript,
+   *          as well as the associated metadata.</p>
+   */
+  transcriptSourceSetting?: TranscriptSourceSetting;
+
+  /**
+   * @public
+   * <p>The object representing the passwords that were used to encrypt the
+   *          data related to the bot recommendation results, as well as the KMS key
+   *          ARN used to encrypt the associated metadata.</p>
+   */
+  encryptionSetting?: EncryptionSetting;
+
+  /**
+   * @public
+   * <p>The object representing the URL of the bot definition, the URL of
+   *          the associated transcript and a statistical summary of the bot
+   *          recommendation results.</p>
+   */
+  botRecommendationResults?: BotRecommendationResults;
+}
+
+/**
+ * @public
+ */
 export interface DescribeBotVersionRequest {
   /**
+   * @public
    * <p>The identifier of the bot containing the version to return metadata
    *          for.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot to return metadata for.</p>
    */
   botVersion: string | undefined;
 }
 
-export namespace DescribeBotVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotVersionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeBotVersionResponse {
   /**
+   * @public
    * <p>The identifier of the bot that contains the version.</p>
    */
   botId?: string;
 
   /**
+   * @public
    * <p>The name of the bot that contains the version.</p>
    */
   botName?: string;
 
   /**
-   * <p>The version of the bot to describe.</p>
+   * @public
+   * <p>The version of the bot that was described.</p>
    */
   botVersion?: string;
 
   /**
+   * @public
    * <p>The description specified for the bot.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
    *          access the bot version.</p>
    */
   roleArn?: string;
 
   /**
+   * @public
    * <p>Data privacy settings for the bot version.</p>
    */
   dataPrivacy?: DataPrivacy;
 
   /**
+   * @public
    * <p>The number of seconds that a session with the bot remains active
    *          before it is discarded by Amazon Lex.</p>
    */
   idleSessionTTLInSeconds?: number;
 
   /**
+   * @public
    * <p>The current status of the bot. When the status is
    *             <code>Available</code>, the bot version is ready for use.</p>
    */
   botStatus?: BotStatus | string;
 
   /**
+   * @public
    * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
    *          a list of reasons that the version couldn't be built.</p>
    */
   failureReasons?: string[];
 
   /**
+   * @public
    * <p>A timestamp of the date and time that the bot version was
    *          created.</p>
    */
   creationDateTime?: Date;
-}
 
-export namespace DescribeBotVersionResponse {
   /**
-   * @internal
+   * @public
+   * <p>A list of the networks to which the bot version you described belongs.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeBotVersionResponse): any => ({
-    ...obj,
-  });
+  parentBotNetworks?: ParentBotNetwork[];
+
+  /**
+   * @public
+   * <p>The type of the bot in the version that was described.</p>
+   */
+  botType?: BotType | string;
+
+  /**
+   * @public
+   * <p>The members of bot network in the version that was described.</p>
+   */
+  botMembers?: BotMember[];
 }
 
+/**
+ * @public
+ */
+export interface DescribeCustomVocabularyMetadataRequest {
+  /**
+   * @public
+   * <p>The unique identifier of the bot that contains the custom vocabulary.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The bot version of the bot to return metadata for.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The locale to return the custom vocabulary information for.
+   *       The locale must be <code>en_GB</code>.</p>
+   */
+  localeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomVocabularyMetadataResponse {
+  /**
+   * @public
+   * <p>The identifier of the bot that contains the custom vocabulary.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The version of the bot that contains the custom vocabulary to describe.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The locale that contains the custom vocabulary to describe.</p>
+   */
+  localeId?: string;
+
+  /**
+   * @public
+   * <p>The status of the custom vocabulary. If the status is
+   *       <code>Ready</code> the custom vocabulary is ready to use.</p>
+   */
+  customVocabularyStatus?: CustomVocabularyStatus | string;
+
+  /**
+   * @public
+   * <p>The date and time that the custom vocabulary was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time that the custom vocabulary was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+/**
+ * @public
+ */
 export interface DescribeExportRequest {
   /**
+   * @public
    * <p>The unique identifier of the export to describe.</p>
    */
   exportId: string | undefined;
 }
 
-export namespace DescribeExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeExportResponse {
   /**
+   * @public
    * <p>The unique identifier of the described export.</p>
    */
   exportId?: string;
 
   /**
+   * @public
    * <p>The bot, bot ID, and optional locale ID of the exported bot or bot
    *          locale.</p>
    */
   resourceSpecification?: ExportResourceSpecification;
 
   /**
-   * <p>The file format used in the files that describe the bot or bot
-   *          locale.</p>
+   * @public
+   * <p>The file format used in the files that describe the resource.
+   *       </p>
    */
   fileFormat?: ImportExportFileFormat | string;
 
   /**
+   * @public
    * <p>The status of the export. When the status is <code>Complete</code>
    *          the export archive file is available for download.</p>
    */
   exportStatus?: ExportStatus | string;
 
   /**
+   * @public
    * <p>If the <code>exportStatus</code> is failed, contains one or more
    *          reasons why the export could not be completed.</p>
    */
   failureReasons?: string[];
 
   /**
+   * @public
    * <p>A pre-signed S3 URL that points to the bot or bot locale archive.
    *          The URL is only available for 5 minutes after calling the
    *             <code>DescribeExport</code> operation.</p>
@@ -4786,95 +8156,214 @@ export interface DescribeExportResponse {
   downloadUrl?: string;
 
   /**
+   * @public
    * <p>The date and time that the export was created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>The last date and time that the export was updated.</p>
    */
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeImportRequest {
   /**
+   * @public
    * <p>The unique identifier of the import to describe.</p>
    */
   importId: string | undefined;
 }
 
-export namespace DescribeImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const MergeStrategy = {
+  Append: "Append",
+  FailOnConflict: "FailOnConflict",
+  Overwrite: "Overwrite",
+} as const;
 
-export enum MergeStrategy {
-  FailOnConflict = "FailOnConflict",
-  Overwrite = "Overwrite",
+/**
+ * @public
+ */
+export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
+
+/**
+ * @public
+ * <p>Contains information about the Amazon S3 location from which the test set is imported.</p>
+ */
+export interface TestSetImportInputLocation {
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The path inside the Amazon S3 bucket pointing to the test-set CSV file.</p>
+   */
+  s3Path: string | undefined;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TestSetModality = {
+  Audio: "Audio",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type TestSetModality = (typeof TestSetModality)[keyof typeof TestSetModality];
+
+/**
+ * @public
+ * <p>Contains information about the location in which the test set is stored.</p>
+ */
+export interface TestSetStorageLocation {
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket in which the test set is stored.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The path inside the Amazon S3 bucket where the test set is stored.</p>
+   */
+  s3Path: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services Key Management Service
+   *  (KMS) key for encrypting the test set.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the test set that is imported.</p>
+ */
+export interface TestSetImportResourceSpecification {
+  /**
+   * @public
+   * <p>The name of the test set.</p>
+   */
+  testSetName: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the test set.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an IAM role that has
+   *  permission to access the test set.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Contains information about the location that Amazon Lex uses to store the test-set.</p>
+   */
+  storageLocation: TestSetStorageLocation | undefined;
+
+  /**
+   * @public
+   * <p>Contains information about the input location from where test-set should be imported.</p>
+   */
+  importInputLocation: TestSetImportInputLocation | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether the test-set being imported contains written or spoken data.</p>
+   */
+  modality: TestSetModality | string | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags to add to the test set. You can only add tags when you import/generate a new test set. You can't use the <code>UpdateTestSet</code> operation to update tags. To update tags, use the <code>TagResource</code> operation.</p>
+   */
+  testSetTags?: Record<string, string>;
+}
+
+/**
+ * @public
  * <p>Provides information about the bot or bot locale that you want to
  *          import. You can specify the <code>botImportSpecification</code> or the
  *             <code>botLocaleImportSpecification</code>, but not both.</p>
  */
 export interface ImportResourceSpecification {
   /**
+   * @public
    * <p>Parameters for importing a bot.</p>
    */
   botImportSpecification?: BotImportSpecification;
 
   /**
+   * @public
    * <p>Parameters for importing a bot locale.</p>
    */
   botLocaleImportSpecification?: BotLocaleImportSpecification;
-}
 
-export namespace ImportResourceSpecification {
   /**
-   * @internal
+   * @public
+   * <p>Provides the parameters required for importing a custom vocabulary.</p>
    */
-  export const filterSensitiveLog = (obj: ImportResourceSpecification): any => ({
-    ...obj,
-  });
+  customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
+
+  /**
+   * @public
+   * <p>Specifications for the test set that is imported.</p>
+   */
+  testSetImportResourceSpecification?: TestSetImportResourceSpecification;
 }
 
+/**
+ * @public
+ */
 export interface DescribeImportResponse {
   /**
+   * @public
    * <p>The unique identifier of the described import.</p>
    */
   importId?: string;
 
   /**
-   * <p>The specifications of the imported bot or bot locale.</p>
+   * @public
+   * <p>The specifications of the imported bot, bot locale, or custom
+   *          vocabulary.</p>
    */
   resourceSpecification?: ImportResourceSpecification;
 
   /**
+   * @public
    * <p>The unique identifier that Amazon Lex assigned to the resource created by
    *          the import.</p>
    */
   importedResourceId?: string;
 
   /**
+   * @public
    * <p>The name of the imported resource.</p>
    */
   importedResourceName?: string;
 
   /**
+   * @public
    * <p>The strategy used when there was a name conflict between the
    *          imported resource and an existing resource. When the merge strategy is
    *             <code>FailOnConflict</code> existing resources are not overwritten
@@ -4883,6 +8372,7 @@ export interface DescribeImportResponse {
   mergeStrategy?: MergeStrategy | string;
 
   /**
+   * @public
    * <p>The status of the import process. When the status is
    *             <code>Completed</code> the resource is imported and ready for
    *          use.</p>
@@ -4890,48 +8380,49 @@ export interface DescribeImportResponse {
   importStatus?: ImportStatus | string;
 
   /**
+   * @public
    * <p>If the <code>importStatus</code> field is <code>Failed</code>, this
    *          provides one or more reasons for the failure.</p>
    */
   failureReasons?: string[];
 
   /**
+   * @public
    * <p>The date and time that the import was created.</p>
    */
   creationDateTime?: Date;
 
   /**
+   * @public
    * <p>The date and time that the import was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeIntentRequest {
   /**
+   * @public
    * <p>The identifier of the intent to describe.</p>
    */
   intentId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the intent.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot associated with the intent.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale of the intent to describe.
    *          The string must match one of the supported locales. For more
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -4939,176 +8430,50 @@ export interface DescribeIntentRequest {
   localeId: string | undefined;
 }
 
-export namespace DescribeIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIntentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Sets the priority that Amazon Lex should use when eliciting slot values
  *          from a user.</p>
  */
 export interface SlotPriority {
   /**
-   * <p>The priority that a slot should be elicited.</p>
+   * @public
+   * <p>The priority that Amazon Lex should apply to the slot.</p>
    */
   priority: number | undefined;
 
   /**
+   * @public
    * <p>The unique identifier of the slot.</p>
    */
   slotId: string | undefined;
 }
 
-export namespace SlotPriority {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotPriority): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIntentResponse {
-  /**
-   * <p>The unique identifier assigned to the intent when it was
-   *          created.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The name specified for the intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The identifier of the built-in intent that this intent is derived
-   *          from, if any.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>User utterances that trigger this intent.</p>
-   */
-  sampleUtterances?: SampleUtterance[];
-
-  /**
-   * <p>The Lambda function called during each turn of a conversation with
-   *          the intent.</p>
-   */
-  dialogCodeHook?: DialogCodeHookSettings;
-
-  /**
-   * <p>The Lambda function called when the intent is complete and ready for
-   *          fulfillment.</p>
-   */
-  fulfillmentCodeHook?: FulfillmentCodeHookSettings;
-
-  /**
-   * <p>The list that determines the priority that slots should be elicited
-   *          from the user.</p>
-   */
-  slotPriorities?: SlotPriority[];
-
-  /**
-   * <p>Prompts that Amazon Lex sends to the user to confirm completion of an
-   *          intent.</p>
-   */
-  intentConfirmationSetting?: IntentConfirmationSetting;
-
-  /**
-   * <p>The response that Amazon Lex sends to when the intent is closed.</p>
-   */
-  intentClosingSetting?: IntentClosingSetting;
-
-  /**
-   * <p>A list of contexts that must be active for the intent to be
-   *          considered for sending to the user.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>A list of contexts that are activated when the intent is
-   *          fulfilled.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>Configuration information required to use the
-   *             <code>AMAZON.KendraSearchIntent</code> intent.</p>
-   */
-  kendraConfiguration?: KendraConfiguration;
-
-  /**
-   * <p>The identifier of the bot associated with the intent.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot associated with the intent.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale specified for the intent.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the intent was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the intent was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace DescribeIntentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIntentResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace DescribeResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeResourcePolicyResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The JSON structure that contains the resource policy. For more
    *          information about the contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
    *             reference </a>.</p>
@@ -5116,6 +8481,7 @@ export interface DescribeResourcePolicyResponse {
   policy?: string;
 
   /**
+   * @public
    * <p>The current revision of the resource policy. Use the revision ID to
    *          make sure that you are updating the most current version of a resource
    *          policy when you add a policy statement to a resource, delete a
@@ -5124,32 +8490,30 @@ export interface DescribeResourcePolicyResponse {
   revisionId?: string;
 }
 
-export namespace DescribeResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeSlotRequest {
   /**
+   * @public
    * <p>The unique identifier for the slot.</p>
    */
   slotId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the slot.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot associated with the slot.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale of the slot to describe.
    *          The string must match one of the supported locales. For more
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -5157,120 +8521,36 @@ export interface DescribeSlotRequest {
   localeId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the intent that contains the slot.</p>
    */
   intentId: string | undefined;
 }
 
-export namespace DescribeSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSlotResponse {
-  /**
-   * <p>The unique identifier generated for the slot.</p>
-   */
-  slotId?: string;
-
-  /**
-   * <p>The name specified for the slot.</p>
-   */
-  slotName?: string;
-
-  /**
-   * <p>The description specified for the slot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The identifier of the slot type that determines the values entered
-   *          into the slot.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>Prompts that Amazon Lex uses to elicit a value for the slot.</p>
-   */
-  valueElicitationSetting?: SlotValueElicitationSetting;
-
-  /**
-   * <p>Whether slot values are shown in Amazon CloudWatch logs. If the value is
-   *             <code>None</code>, the actual value of the slot is shown in
-   *          logs.</p>
-   */
-  obfuscationSetting?: ObfuscationSetting;
-
-  /**
-   * <p>The identifier of the bot associated with the slot.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot associated with the slot.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale specified for the slot.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The identifier of the intent associated with the slot.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the slot was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the slot was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Indicates whether the slot accepts multiple values in a single
-   *          utterance.</p>
-   *          <p>If the <code>multipleValuesSetting</code> is not set, the default
-   *          value is <code>false</code>.</p>
-   */
-  multipleValuesSetting?: MultipleValuesSetting;
-}
-
-export namespace DescribeSlotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeSlotTypeRequest {
   /**
+   * @public
    * <p>The identifier of the slot type.</p>
    */
   slotTypeId: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the bot associated with the slot type.</p>
    */
   botId: string | undefined;
 
   /**
+   * @public
    * <p>The version of the bot associated with the slot type.</p>
    */
   botVersion: string | undefined;
 
   /**
+   * @public
    * <p>The identifier of the language and locale of the slot type to
    *          describe. The string must match one of the supported locales. For more
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
@@ -5278,3075 +8558,27 @@ export interface DescribeSlotTypeRequest {
   localeId: string | undefined;
 }
 
-export namespace DescribeSlotTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotTypeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSlotTypeResponse {
-  /**
-   * <p>The unique identifier for the slot type.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The name specified for the slot type.</p>
-   */
-  slotTypeName?: string;
-
-  /**
-   * <p>The description specified for the slot type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The values that the slot type can take. Includes any synonyms for
-   *          the slot type values.</p>
-   */
-  slotTypeValues?: SlotTypeValue[];
-
-  /**
-   * <p>The strategy that Amazon Lex uses to choose a value from a list of
-   *          possible values.</p>
-   */
-  valueSelectionSetting?: SlotValueSelectionSetting;
-
-  /**
-   * <p>The built in slot type used as a parent to this slot type.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>The identifier of the bot associated with the slot type.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot associated with the slot type.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale specified for the slot type.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was
-   *          created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace DescribeSlotTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotTypeResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ExportFilterName {
-  ExportResourceType = "ExportResourceType",
-}
-
-export enum ExportFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+/**
+ * @internal
+ */
+export const CreateExportRequestFilterSensitiveLog = (obj: CreateExportRequest): any => ({
+  ...obj,
+  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Filters the response form the
- *          operation</p>
+ * @internal
  */
-export interface ExportFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   */
-  name: ExportFilterName | string | undefined;
-
-  /**
-   * <p>The values to use to filter the response.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify EQ when the
-   *             <code>ListExports</code> operation should return only resource types
-   *          that equal the specified value. Specify CO when the
-   *             <code>ListExports</code> operation should return resource types that
-   *          contain the specified value.</p>
-   */
-  operator: ExportFilterOperator | string | undefined;
-}
-
-export namespace ExportFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum ExportSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export const EncryptionSettingFilterSensitiveLog = (obj: EncryptionSetting): any => ({
+  ...obj,
+  ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
+  ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Provides information about sorting a list of exports.</p>
+ * @internal
  */
-export interface ExportSortBy {
-  /**
-   * <p>The export field to use for sorting.</p>
-   */
-  attribute: ExportSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-export namespace ExportSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSortBy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides summary information about an export in an export list.
- *       </p>
- */
-export interface ExportSummary {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the export.</p>
-   */
-  exportId?: string;
-
-  /**
-   * <p>Information about the bot or bot locale that was exported.</p>
-   */
-  resourceSpecification?: ExportResourceSpecification;
-
-  /**
-   * <p>The file format used in the export files.</p>
-   */
-  fileFormat?: ImportExportFileFormat | string;
-
-  /**
-   * <p>The status of the export. When the status is <code>Completed</code>
-   *          the export is ready to download.</p>
-   */
-  exportStatus?: ExportStatus | string;
-
-  /**
-   * <p>The date and time that the export was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time that the export was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace ExportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum ImportFilterName {
-  ImportResourceType = "ImportResourceType",
-}
-
-export enum ImportFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
-
-/**
- * <p>Filters the response from the
- *          operation.</p>
- */
-export interface ImportFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   */
-  name: ImportFilterName | string | undefined;
-
-  /**
-   * <p>The values to use to filter the response.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify EQ when the
-   *             <code>ListImports</code> operation should return only resource types
-   *          that equal the specified value. Specify CO when the
-   *             <code>ListImports</code> operation should return resource types that
-   *          contain the specified value.</p>
-   */
-  operator: ImportFilterOperator | string | undefined;
-}
-
-export namespace ImportFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum ImportSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
-
-/**
- * <p>Provides information for sorting a list of imports.</p>
- */
-export interface ImportSortBy {
-  /**
-   * <p>The export field to use for sorting.</p>
-   */
-  attribute: ImportSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-export namespace ImportSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSortBy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides summary information about an import in an import
- *          list.</p>
- */
-export interface ImportSummary {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the import.</p>
-   */
-  importId?: string;
-
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the imported
-   *          resource.</p>
-   */
-  importedResourceId?: string;
-
-  /**
-   * <p>The name that you gave the imported resource.</p>
-   */
-  importedResourceName?: string;
-
-  /**
-   * <p>The status of the resource. When the status is
-   *             <code>Completed</code> the resource is ready to build.</p>
-   */
-  importStatus?: ImportStatus | string;
-
-  /**
-   * <p>The strategy used to merge existing bot or bot locale definitions
-   *          with the imported definition.</p>
-   */
-  mergeStrategy?: MergeStrategy | string;
-
-  /**
-   * <p>The date and time that the import was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time that the import was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace ImportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum IntentFilterName {
-  IntentName = "IntentName",
-}
-
-export enum IntentFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
-
-/**
- * <p>Filters the response from the <code>ListIntents</code>
- *          operation.</p>
- */
-export interface IntentFilter {
-  /**
-   * <p>The name of the field to use for the filter.</p>
-   */
-  name: IntentFilterName | string | undefined;
-
-  /**
-   * <p>The value to use for the filter.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *             <code>ListIntents</code> operation should return only aliases that
-   *          equal the specified value. Specify <code>CO</code> when the
-   *             <code>ListIntents</code> operation should return aliases that
-   *          contain the specified value.</p>
-   */
-  operator: IntentFilterOperator | string | undefined;
-}
-
-export namespace IntentFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum IntentSortAttribute {
-  IntentName = "IntentName",
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
-
-/**
- * <p>Specifies attributes for sorting a list of intents.</p>
- */
-export interface IntentSortBy {
-  /**
-   * <p>The attribute to use to sort the list of intents.</p>
-   */
-  attribute: IntentSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list. You can choose ascending or
-   *          descending.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-export namespace IntentSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentSortBy): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Summary information about an intent returned by the
- *             <code>ListIntents</code> operation.</p>
- */
-export interface IntentSummary {
-  /**
-   * <p>The unique identifier assigned to the intent. Use this ID to get
-   *          detailed information about the intent with the
-   *             <code>DescribeIntent</code> operation.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The name of the intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>If this intent is derived from a built-in intent, the name of the
-   *          parent intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The input contexts that must be active for this intent to be
-   *          considered for recognition.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>The output contexts that are activated when this intent is
-   *          fulfilled.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>The timestamp of the date and time that the intent was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace IntentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentSummary): any => ({
-    ...obj,
-  });
-}
-
-export enum TimeDimension {
-  Days = "Days",
-  Hours = "Hours",
-  Weeks = "Weeks",
-}
-
-/**
- * <p>Specifies the time window that utterance statistics are returned
- *          for. The time window is always relative to the last time that the that
- *          utterances were aggregated. For example, if the
- *             <code>ListAggregatedUtterances</code> operation is called at 1600,
- *          the time window is set to 1 hour, and the last refresh time was 1530,
- *          only utterances made between 1430 and 1530 are returned.</p>
- *          <p>You can choose the time window that statistics should be returned
- *          for.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Hours</b> - You can request
- *                utterance statistics for 1, 3, 6, 12, or 24 hour time windows.
- *                Statistics are refreshed every half hour for 1 hour time windows,
- *                and hourly for the other time windows.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Days</b> - You can request
- *                utterance statistics for 3 days. Statistics are refreshed every 6
- *                hours.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Weeks</b> - You can see
- *                statistics for one or two weeks. Statistics are refreshed every
- *                12 hours for one week time windows, and once per day for two week
- *                time windows.</p>
- *             </li>
- *          </ul>
- */
-export interface RelativeAggregationDuration {
-  /**
-   * <p>The type of time period that the <code>timeValue</code> field
-   *          represents. </p>
-   */
-  timeDimension: TimeDimension | string | undefined;
-
-  /**
-   * <p>The period of the time window to gather statistics for. The valid
-   *          value depends on the setting of the <code>timeDimension</code>
-   *          field.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Hours</code> - 1/3/6/12/24</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Days</code> - 3</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Weeks</code> - 1/2</p>
-   *             </li>
-   *          </ul>
-   */
-  timeValue: number | undefined;
-}
-
-export namespace RelativeAggregationDuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelativeAggregationDuration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides parameters for setting the time window and duration for
- *          aggregating utterance data.</p>
- */
-export interface UtteranceAggregationDuration {
-  /**
-   * <p>The desired time window for aggregating utterances. </p>
-   */
-  relativeAggregationDuration: RelativeAggregationDuration | undefined;
-}
-
-export namespace UtteranceAggregationDuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UtteranceAggregationDuration): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAggregatedUtterancesRequest {
-  /**
-   * <p>The unique identifier of the bot associated with this
-   *          request.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The identifier of the bot alias associated with this request. If you
-   *          specify the bot alias, you can't specify the bot version.</p>
-   */
-  botAliasId?: string;
-
-  /**
-   * <p>The identifier of the bot version associated with this request. If
-   *          you specify the bot version, you can't specify the bot alias.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The identifier of the language and locale where the utterances were
-   *          collected. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
-   *          languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The time window for aggregating the utterance information. You can
-   *          specify a time between one hour and two weeks.</p>
-   */
-  aggregationDuration: UtteranceAggregationDuration | undefined;
-
-  /**
-   * <p>Specifies sorting parameters for the list of utterances. You can
-   *          sort by the hit count, the missed count, or the number of distinct
-   *          sessions the utterance appeared in.</p>
-   */
-  sortBy?: AggregatedUtterancesSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the utterances
-   *          in the response to only those that match the filter specification. You
-   *          can only specify one filter and one string to filter on.</p>
-   */
-  filters?: AggregatedUtterancesFilter[];
-
-  /**
-   * <p>The maximum number of utterances to return in each page of results.
-   *          If there are fewer results than the maximum page size, only the actual
-   *          number of results are returned. If you don't specify the
-   *             <code>maxResults</code> parameter, 1,000 results are
-   *          returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListAggregatedUtterances</code>
-   *          operation contains more results that specified in the
-   *             <code>maxResults</code> parameter, a token is returned in the
-   *          response. Use that token in the <code>nextToken</code> parameter to
-   *          return the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAggregatedUtterancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAggregatedUtterancesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListAggregatedUtterancesResponse {
-  /**
-   * <p>The identifier of the bot that contains the utterances.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The identifier of the bot alias that contains the utterances. If you
-   *          specified the bot version, the bot alias ID isn't returned.</p>
-   */
-  botAliasId?: string;
-
-  /**
-   * <p>The identifier of the bot version that contains the utterances. If
-   *          you specified the bot alias, the bot version isn't returned.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The identifier of the language and locale that the utterances are
-   *          in.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The time period used to aggregate the utterance data.</p>
-   */
-  aggregationDuration?: UtteranceAggregationDuration;
-
-  /**
-   * <p>The date and time that the aggregation window begins. Only data
-   *          collected after this time is returned in the results.</p>
-   */
-  aggregationWindowStartTime?: Date;
-
-  /**
-   * <p>The date and time that the aggregation window ends. Only data
-   *          collected between the start time and the end time are returned in the
-   *          results. </p>
-   */
-  aggregationWindowEndTime?: Date;
-
-  /**
-   * <p>The last date and time that the aggregated data was collected. The
-   *          time period depends on the length of the aggregation window.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Hours</b> - for 1 hour time
-   *                window, every half hour; otherwise every hour.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Days</b> - every 6 hours</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Weeks</b> - for a one week time
-   *                window, every 12 hours; otherwise, every day</p>
-   *             </li>
-   *          </ul>
-   */
-  aggregationLastRefreshedDateTime?: Date;
-
-  /**
-   * <p>Summaries of the aggregated utterance data. Each response contains
-   *          information about the number of times that the utterance was seen
-   *          during the time period, whether it was detected or missed, and when it
-   *          was seen during the time period.</p>
-   */
-  aggregatedUtterancesSummaries?: AggregatedUtterancesSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListAggregatedUtterances</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a
-   *             <code>ListAggregatedUtterances</code> operation request to get the
-   *          next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListAggregatedUtterancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAggregatedUtterancesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotAliasesRequest {
-  /**
-   * <p>The identifier of the bot to list aliases for.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The maximum number of aliases to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListBotAliases</code> operation
-   *          contains more results than specified in the <code>maxResults</code>
-   *          parameter, a token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBotAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotAliasesResponse {
-  /**
-   * <p>Summary information for the bot aliases that meet the filter
-   *          criteria specified in the request. The length of the list is specified
-   *          in the <code>maxResults</code> parameter of the request. If there are
-   *          more aliases available, the <code>nextToken</code> field contains a
-   *          token to get the next page of results.</p>
-   */
-  botAliasSummaries?: BotAliasSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListBotAliases</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListBotAliases</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The identifier of the bot associated with the aliases.</p>
-   */
-  botId?: string;
-}
-
-export namespace ListBotAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotAliasesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotLocalesRequest {
-  /**
-   * <p>The identifier of the bot to list locales for.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot to list locales for.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>Specifies sorting parameters for the list of locales. You can sort
-   *          by locale name in ascending or descending order.</p>
-   */
-  sortBy?: BotLocaleSortBy;
-
-  /**
-   * <p>Provides the specification for a filter used to limit the response
-   *          to only those locales that match the filter specification. You can only
-   *          specify one filter and one value to filter on.</p>
-   */
-  filters?: BotLocaleFilter[];
-
-  /**
-   * <p>The maximum number of aliases to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListBotLocales</code> operation
-   *          contains more results than specified in the <code>maxResults</code>
-   *          parameter, a token is returned in the response. Use that token as the
-   *             <code>nextToken</code> parameter to return the next page of results.
-   *       </p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBotLocalesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotLocalesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotLocalesResponse {
-  /**
-   * <p>The identifier of the bot to list locales for.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListBotLocales</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListBotLocales</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>Summary information for the locales that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter of the request. If there are more
-   *          locales available, the <code>nextToken</code> field contains a token to
-   *          get the next page of results.</p>
-   */
-  botLocaleSummaries?: BotLocaleSummary[];
-}
-
-export namespace ListBotLocalesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotLocalesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotsRequest {
-  /**
-   * <p>Specifies sorting parameters for the list of bots. You can specify
-   *          that the list be sorted by bot name in ascending or descending
-   *          order.</p>
-   */
-  sortBy?: BotSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the bots in the
-   *          response to only those that match the filter specification. You can
-   *          only specify one filter and one string to filter on.</p>
-   */
-  filters?: BotFilter[];
-
-  /**
-   * <p>The maximum number of bots to return in each page of results. If
-   *          there are fewer results than the maximum page size, only the actual
-   *          number of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListBots</code> operation contains
-   *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotsResponse {
-  /**
-   * <p>Summary information for the bots that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter of the request. If there are more
-   *          bots available, the <code>nextToken</code> field contains a token to
-   *          the next page of results.</p>
-   */
-  botSummaries?: BotSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListBots</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListBots</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotVersionsRequest {
-  /**
-   * <p>The identifier of the bot to list versions for.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>Specifies sorting parameters for the list of versions. You can
-   *          specify that the list be sorted by version name in either ascending or
-   *          descending order.</p>
-   */
-  sortBy?: BotVersionSortBy;
-
-  /**
-   * <p>The maximum number of versions to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response to the <code>ListBotVersion</code> operation
-   *          contains more results than specified in the <code>maxResults</code>
-   *          parameter, a token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBotVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBotVersionsResponse {
-  /**
-   * <p>The identifier of the bot to list versions for.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>Summary information for the bot versions that meet the filter
-   *          criteria specified in the request. The length of the list is specified
-   *          in the <code>maxResults</code> parameter of the request. If there are
-   *          more versions available, the <code>nextToken</code> field contains a
-   *          token to get the next page of results.</p>
-   */
-  botVersionSummaries?: BotVersionSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListBotVersions</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListBotAliases</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBotVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBuiltInIntentsRequest {
-  /**
-   * <p>The identifier of the language and locale of the intents to list.
-   *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>Specifies sorting parameters for the list of built-in intents. You
-   *          can specify that the list be sorted by the built-in intent signature in
-   *          either ascending or descending order.</p>
-   */
-  sortBy?: BuiltInIntentSortBy;
-
-  /**
-   * <p>The maximum number of built-in intents to return in each page of
-   *          results. If there are fewer results than the max page size, only the
-   *          actual number of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListBuiltInIntents</code> operation
-   *          contains more results than specified in the <code>maxResults</code>
-   *          parameter, a token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBuiltInIntentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInIntentsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBuiltInIntentsResponse {
-  /**
-   * <p>Summary information for the built-in intents that meet the filter
-   *          criteria specified in the request. The length of the list is specified
-   *          in the <code>maxResults</code> parameter of the request. If there are
-   *          more intents available, the <code>nextToken</code> field contains a
-   *          token to get the next page of results.</p>
-   */
-  builtInIntentSummaries?: BuiltInIntentSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListBuiltInIntents</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListBotAliases</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The language and locale of the intents in the list.</p>
-   */
-  localeId?: string;
-}
-
-export namespace ListBuiltInIntentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInIntentsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBuiltInSlotTypesRequest {
-  /**
-   * <p>The identifier of the language and locale of the slot types to list.
-   *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>Determines the sort order for the response from the
-   *             <code>ListBuiltInSlotTypes</code> operation. You can choose to sort
-   *          by the slot type signature in either ascending or descending
-   *          order.</p>
-   */
-  sortBy?: BuiltInSlotTypeSortBy;
-
-  /**
-   * <p>The maximum number of built-in slot types to return in each page of
-   *          results. If there are fewer results than the max page size, only the
-   *          actual number of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListBuiltInSlotTypes</code> operation
-   *          contains more results than specified in the <code>maxResults</code>
-   *          parameter, a token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListBuiltInSlotTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInSlotTypesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListBuiltInSlotTypesResponse {
-  /**
-   * <p>Summary information for the built-in slot types that meet the filter
-   *          criteria specified in the request. The length of the list is specified
-   *          in the <code>maxResults</code> parameter of the request. If there are
-   *          more slot types available, the <code>nextToken</code> field contains a
-   *          token to get the next page of results.</p>
-   */
-  builtInSlotTypeSummaries?: BuiltInSlotTypeSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListBuiltInSlotTypes</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a
-   *             <code>LIstBuiltInSlotTypes</code> operation request to get the next
-   *          page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The language and locale of the slot types in the list.</p>
-   */
-  localeId?: string;
-}
-
-export namespace ListBuiltInSlotTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInSlotTypesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListExportsRequest {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the bot.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot to list exports for. </p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>Determines the field that the list of exports is sorted by. You can
-   *          sort by the <code>LastUpdatedDateTime</code> field in ascending or
-   *          descending order.</p>
-   */
-  sortBy?: ExportSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the exports in
-   *          the response to only those that match the filter specification. You can
-   *          only specify one filter and one string to filter on.</p>
-   */
-  filters?: ExportFilter[];
-
-  /**
-   * <p>The maximum number of exports to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListExports</code> operation contains
-   *          more results that specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListExportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExportsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListExportsResponse {
-  /**
-   * <p>The unique identifier assigned to the bot by Amazon Lex.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that was exported.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>Summary information for the exports that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter. If there are more exports
-   *          available, the <code>nextToken</code> field contains a token to get the
-   *          next page of results.</p>
-   */
-  exportSummaries?: ExportSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListExports</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListExports</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListExportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExportsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListImportsRequest {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the bot.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot to list imports for.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>Determines the field that the list of imports is sorted by. You can
-   *          sort by the <code>LastUpdatedDateTime</code> field in ascending or
-   *          descending order.</p>
-   */
-  sortBy?: ImportSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the bots in the
-   *          response to only those that match the filter specification. You can
-   *          only specify one filter and one string to filter on.</p>
-   */
-  filters?: ImportFilter[];
-
-  /**
-   * <p>The maximum number of imports to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListImports</code> operation contains
-   *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListImportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListImportsResponse {
-  /**
-   * <p>The unique identifier assigned by Amazon Lex to the bot.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that was imported. It will always be
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>Summary information for the imports that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter. If there are more imports
-   *          available, the <code>nextToken</code> field contains a token to get the
-   *          next page of results.</p>
-   */
-  importSummaries?: ImportSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListImports</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListImports</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListImportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIntentsRequest {
-  /**
-   * <p>The unique identifier of the bot that contains the intent.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the intent.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale of the intents to list.
-   *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>Determines the sort order for the response from the
-   *             <code>ListIntents</code> operation. You can choose to sort by the
-   *          intent name or last updated date in either ascending or descending
-   *          order.</p>
-   */
-  sortBy?: IntentSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the intents in
-   *          the response to only those that match the filter specification. You can
-   *          only specify one filter and only one string to filter on.</p>
-   */
-  filters?: IntentFilter[];
-
-  /**
-   * <p>The maximum number of intents to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListIntents</code> operation contains
-   *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListIntentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntentsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIntentsResponse {
-  /**
-   * <p>The identifier of the bot that contains the intent.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the intent.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale of the intents in the list.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>Summary information for the intents that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter of the request. If there are more
-   *          intents available, the <code>nextToken</code> field contains a token to
-   *          get the next page of results.</p>
-   */
-  intentSummaries?: IntentSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListIntents</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListIntents</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListIntentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntentsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum SlotFilterName {
-  SlotName = "SlotName",
-}
-
-export enum SlotFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
-
-/**
- * <p>Filters the response from the <code>ListSlots</code>
- *          operation.</p>
- */
-export interface SlotFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   */
-  name: SlotFilterName | string | undefined;
-
-  /**
-   * <p>The value to use to filter the response.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *             <code>ListSlots</code> operation should return only aliases that
-   *          equal the specified value. Specify <code>CO</code> when the
-   *             <code>ListSlots</code> operation should return aliases that contain
-   *          the specified value.</p>
-   */
-  operator: SlotFilterOperator | string | undefined;
-}
-
-export namespace SlotFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum SlotSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-  SlotName = "SlotName",
-}
-
-/**
- * <p>Specifies attributes for sorting a list of bots.</p>
- */
-export interface SlotSortBy {
-  /**
-   * <p>The attribute to use to sort the list.</p>
-   */
-  attribute: SlotSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list. You can choose ascending or
-   *          descending.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-export namespace SlotSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotSortBy): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSlotsRequest {
-  /**
-   * <p>The identifier of the bot that contains the slot.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the slot.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale of the slots to list. The
-   *          string must match one of the supported locales. For more information,
-   *          see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the intent that contains the slot.</p>
-   */
-  intentId: string | undefined;
-
-  /**
-   * <p>Determines the sort order for the response from the
-   *             <code>ListSlots</code> operation. You can choose to sort by the slot
-   *          name or last updated date in either ascending or descending
-   *          order.</p>
-   */
-  sortBy?: SlotSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the slots in
-   *          the response to only those that match the filter specification. You can
-   *          only specify one filter and only one string to filter on.</p>
-   */
-  filters?: SlotFilter[];
-
-  /**
-   * <p>The maximum number of slots to return in each page of results. If
-   *          there are fewer results than the max page size, only the actual number
-   *          of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListSlots</code> operation contains
-   *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListSlotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Summary information about a slot, a value that the bot elicits from
- *          the user.</p>
- */
-export interface SlotSummary {
-  /**
-   * <p>The unique identifier of the slot.</p>
-   */
-  slotId?: string;
-
-  /**
-   * <p>The name given to the slot.</p>
-   */
-  slotName?: string;
-
-  /**
-   * <p>The description of the slot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Whether the slot is required or optional. An intent is complete when
-   *          all required slots are filled.</p>
-   */
-  slotConstraint?: SlotConstraint | string;
-
-  /**
-   * <p>The unique identifier for the slot type that defines the values for
-   *          the slot.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>Prompts that are sent to the user to elicit a value for the
-   *          slot.</p>
-   */
-  valueElicitationPromptSpecification?: PromptSpecification;
-
-  /**
-   * <p>The timestamp of the last date and time that the slot was
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace SlotSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSlotsResponse {
-  /**
-   * <p>The identifier of the bot that contains the slots.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the slots.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale of the slots in the list.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The identifier of the intent that contains the slots.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>Summary information for the slots that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter of the request. If there are more
-   *          slots available, the <code>nextToken</code> field contains a token to
-   *          get the next page of results.</p>
-   */
-  slotSummaries?: SlotSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListSlots</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListSlots</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListSlotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum SlotTypeFilterName {
-  SlotTypeName = "SlotTypeName",
-}
-
-export enum SlotTypeFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
-
-/**
- * <p>Filters the response from the <code>ListSlotTypes</code>
- *          operation.</p>
- */
-export interface SlotTypeFilter {
-  /**
-   * <p>The name of the field to use for filtering.</p>
-   */
-  name: SlotTypeFilterName | string | undefined;
-
-  /**
-   * <p>The value to use to filter the response.</p>
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *             <code>ListSlotTypes</code> operation should return only aliases that
-   *          equal the specified value. Specify <code>CO</code> when the
-   *             <code>ListSlotTypes</code> operation should return aliases that
-   *          contain the specified value.</p>
-   */
-  operator: SlotTypeFilterOperator | string | undefined;
-}
-
-export namespace SlotTypeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeFilter): any => ({
-    ...obj,
-  });
-}
-
-export enum SlotTypeSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-  SlotTypeName = "SlotTypeName",
-}
-
-/**
- * <p>Specifies attributes for sorting a list of slot types.</p>
- */
-export interface SlotTypeSortBy {
-  /**
-   * <p>The attribute to use to sort the list of slot types.</p>
-   */
-  attribute: SlotTypeSortAttribute | string | undefined;
-
-  /**
-   * <p>The order to sort the list. You can say ascending or
-   *          descending.</p>
-   */
-  order: SortOrder | string | undefined;
-}
-
-export namespace SlotTypeSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeSortBy): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSlotTypesRequest {
-  /**
-   * <p>The unique identifier of the bot that contains the slot
-   *          types.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the slot type.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale of the slot types to list.
-   *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>Determines the sort order for the response from the
-   *             <code>ListSlotTypes</code> operation. You can choose to sort by the
-   *          slot type name or last updated date in either ascending or descending
-   *          order.</p>
-   */
-  sortBy?: SlotTypeSortBy;
-
-  /**
-   * <p>Provides the specification of a filter used to limit the slot types
-   *          in the response to only those that match the filter specification. You
-   *          can only specify one filter and only one string to filter on.</p>
-   */
-  filters?: SlotTypeFilter[];
-
-  /**
-   * <p>The maximum number of slot types to return in each page of results.
-   *          If there are fewer results than the max page size, only the actual
-   *          number of results are returned.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>If the response from the <code>ListSlotTypes</code> operation
-   *          contains more results than specified in the <code>maxResults</code>
-   *          parameter, a token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListSlotTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotTypesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides summary information about a slot type.</p>
- */
-export interface SlotTypeSummary {
-  /**
-   * <p>The unique identifier assigned to the slot type.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The name of the slot type.</p>
-   */
-  slotTypeName?: string;
-
-  /**
-   * <p>The description of the slot type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>If the slot type is derived from a built-on slot type, the name of
-   *          the parent slot type.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace SlotTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListSlotTypesResponse {
-  /**
-   * <p>The identifier of the bot that contains the slot types.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the slot types.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and local of the slot types in the list.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>Summary information for the slot types that meet the filter criteria
-   *          specified in the request. The length of the list is specified in the
-   *             <code>maxResults</code> parameter of the request. If there are more
-   *          slot types available, the <code>nextToken</code> field contains a token
-   *          to get the next page of results.</p>
-   */
-  slotTypeSummaries?: SlotTypeSummary[];
-
-  /**
-   * <p>A token that indicates whether there are more results to return in a
-   *          response to the <code>ListSlotTypes</code> operation. If the
-   *             <code>nextToken</code> field is present, you send the contents as
-   *          the <code>nextToken</code> parameter of a <code>ListSlotTypes</code>
-   *          operation request to get the next page of results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListSlotTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotTypesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to get a list of tags
-   *          for.</p>
-   */
-  resourceARN: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags associated with a resource.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartImportRequest {
-  /**
-   * <p>The unique identifier for the import. It is included in the response
-   *          from the  operation.</p>
-   */
-  importId: string | undefined;
-
-  /**
-   * <p>Parameters for creating the bot or bot locale.</p>
-   */
-  resourceSpecification: ImportResourceSpecification | undefined;
-
-  /**
-   * <p>The strategy to use when there is a name conflict between the
-   *          imported resource and an existing resource. When the merge strategy is
-   *             <code>FailOnConflict</code> existing resources are not overwritten
-   *          and the import fails.</p>
-   */
-  mergeStrategy: MergeStrategy | string | undefined;
-
-  /**
-   * <p>The password used to encrypt the zip archive that contains the bot
-   *          or bot locale definition. You should always encrypt the zip archive to
-   *          protect it during transit between your site and Amazon Lex.</p>
-   */
-  filePassword?: string;
-}
-
-export namespace StartImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportRequest): any => ({
-    ...obj,
-    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-  });
-}
-
-export interface StartImportResponse {
-  /**
-   * <p>A unique identifier for the import.</p>
-   */
-  importId?: string;
-
-  /**
-   * <p>The parameters used when importing the bot or bot locale.</p>
-   */
-  resourceSpecification?: ImportResourceSpecification;
-
-  /**
-   * <p>The strategy used when there was a name conflict between the
-   *          imported resource and an existing resource. When the merge strategy is
-   *             <code>FailOnConflict</code> existing resources are not overwritten
-   *          and the import fails.</p>
-   */
-  mergeStrategy?: MergeStrategy | string;
-
-  /**
-   * <p>The current status of the import. When the status is
-   *             <code>Complete</code> the bot or bot alias is ready to use.</p>
-   */
-  importStatus?: ImportStatus | string;
-
-  /**
-   * <p>The date and time that the import request was created.</p>
-   */
-  creationDateTime?: Date;
-}
-
-export namespace StartImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel
-   *          to tag.</p>
-   */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>A list of tag keys to add to the resource. If a tag key already
-   *          exists, the existing value is replaced with the new value.</p>
-   */
-  tags: { [key: string]: string } | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove the tags
-   *          from.</p>
-   */
-  resourceARN: string | undefined;
-
-  /**
-   * <p>A list of tag keys to remove from the resource. If a tag key does
-   *          not exist on the resource, it is ignored.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotRequest {
-  /**
-   * <p>The unique identifier of the bot to update. This identifier is
-   *          returned by the <a>CreateBot</a> operation.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The new name of the bot. The name must be unique in the account that
-   *          creates the bot.</p>
-   */
-  botName: string | undefined;
-
-  /**
-   * <p>A description of the bot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions
-   *          to access the bot.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>Provides information on additional privacy protections Amazon Lex should
-   *          use with the bot's data.</p>
-   */
-  dataPrivacy: DataPrivacy | undefined;
-
-  /**
-   * <p>The time, in seconds, that Amazon Lex should keep information about a
-   *          user's conversation with the bot.</p>
-   *          <p>A user interaction remains active for the amount of time specified.
-   *          If no conversation occurs during this time, the session expires and
-   *          Amazon Lex deletes any data provided before the timeout.</p>
-   *          <p>You can specify between 60 (1 minute) and 86,400 (24 hours)
-   *          seconds.</p>
-   */
-  idleSessionTTLInSeconds: number | undefined;
-}
-
-export namespace UpdateBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotResponse {
-  /**
-   * <p>The unique identifier of the bot that was updated.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The name of the bot after the update.</p>
-   */
-  botName?: string;
-
-  /**
-   * <p>The description of the bot after the update.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the bot after
-   *          the update.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The data privacy settings for the bot after the update.</p>
-   */
-  dataPrivacy?: DataPrivacy;
-
-  /**
-   * <p>The session timeout, in seconds, for the bot after the
-   *          update.</p>
-   */
-  idleSessionTTLInSeconds?: number;
-
-  /**
-   * <p>Shows the current status of the bot. The bot is first in the
-   *             <code>Creating</code> status. Once the bot is read for use, it
-   *          changes to the <code>Available</code> status. After the bot is created,
-   *          you can use the <code>DRAFT</code> version of the bot.</p>
-   */
-  botStatus?: BotStatus | string;
-
-  /**
-   * <p>A timestamp of the date and time that the bot was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the bot was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateBotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotAliasRequest {
-  /**
-   * <p>The unique identifier of the bot alias.</p>
-   */
-  botAliasId: string | undefined;
-
-  /**
-   * <p>The new name to assign to the bot alias.</p>
-   */
-  botAliasName: string | undefined;
-
-  /**
-   * <p>The new description to assign to the bot alias.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The new bot version to assign to the bot alias.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The new Lambda functions to use in each locale for the bot
-   *          alias.</p>
-   */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
-
-  /**
-   * <p>The new settings for storing conversation logs in Amazon CloudWatch Logs and
-   *          Amazon S3 buckets.</p>
-   */
-  conversationLogSettings?: ConversationLogSettings;
-
-  /**
-   * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
-   *          user utterances.</p>
-   */
-  sentimentAnalysisSettings?: SentimentAnalysisSettings;
-
-  /**
-   * <p>The identifier of the bot with the updated alias.</p>
-   */
-  botId: string | undefined;
-}
-
-export namespace UpdateBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotAliasRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotAliasResponse {
-  /**
-   * <p>The identifier of the updated bot alias.</p>
-   */
-  botAliasId?: string;
-
-  /**
-   * <p>The updated name of the bot alias.</p>
-   */
-  botAliasName?: string;
-
-  /**
-   * <p>The updated description of the bot alias.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The updated version of the bot that the alias points to.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The updated Lambda functions to use in each locale for the bot
-   *          alias.</p>
-   */
-  botAliasLocaleSettings?: { [key: string]: BotAliasLocaleSettings };
-
-  /**
-   * <p>The updated settings for storing conversation logs in Amazon CloudWatch Logs and
-   *          Amazon S3 buckets.</p>
-   */
-  conversationLogSettings?: ConversationLogSettings;
-
-  /**
-   * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
-   *          user utterances.</p>
-   */
-  sentimentAnalysisSettings?: SentimentAnalysisSettings;
-
-  /**
-   * <p>The current status of the bot alias. When the status is
-   *             <code>Available</code> the alias is ready for use.</p>
-   */
-  botAliasStatus?: BotAliasStatus | string;
-
-  /**
-   * <p>The identifier of the bot with the updated alias.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the bot was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the bot was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotLocaleRequest {
-  /**
-   * <p>The unique identifier of the bot that contains the locale.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the locale to be updated. The
-   *          version can only be the <code>DRAFT</code> version.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale to update. The string must
-   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The new description of the locale.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The new confidence threshold where Amazon Lex inserts the
-   *             <code>AMAZON.FallbackIntent</code> and
-   *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
-   *          possible intents for an utterance.</p>
-   */
-  nluIntentConfidenceThreshold: number | undefined;
-
-  /**
-   * <p>The new Amazon Polly voice Amazon Lex should use for voice interaction with the
-   *          user.</p>
-   */
-  voiceSettings?: VoiceSettings;
-}
-
-export namespace UpdateBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotLocaleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateBotLocaleResponse {
-  /**
-   * <p>The identifier of the bot that contains the updated locale.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the updated locale.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale of the updated bot locale.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The updated locale name for the locale.</p>
-   */
-  localeName?: string;
-
-  /**
-   * <p>The updated description of the locale.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The updated confidence threshold for inserting the
-   *             <code>AMAZON.FallbackIntent</code> and
-   *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
-   *          possible intents for an utterance.</p>
-   */
-  nluIntentConfidenceThreshold?: number;
-
-  /**
-   * <p>The updated Amazon Polly voice to use for voice interaction with the
-   *          user.</p>
-   */
-  voiceSettings?: VoiceSettings;
-
-  /**
-   * <p>The current status of the locale. When the bot status is
-   *             <code>Built</code> the locale is ready for use.</p>
-   */
-  botLocaleStatus?: BotLocaleStatus | string;
-
-  /**
-   * <p>If the <code>botLocaleStatus</code> is <code>Failed</code>, the
-   *             <code>failureReasons</code> field lists the errors that occurred
-   *          while building the bot.</p>
-   */
-  failureReasons?: string[];
-
-  /**
-   * <p>A timestamp of the date and time that the locale was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the locale was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateExportRequest {
-  /**
-   * <p>The unique identifier Amazon Lex assigned to the export.</p>
-   */
-  exportId: string | undefined;
-
-  /**
-   * <p>The new password to use to encrypt the export zip archive.</p>
-   */
-  filePassword?: string;
-}
-
-export namespace UpdateExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExportRequest): any => ({
-    ...obj,
-    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateExportResponse {
-  /**
-   * <p>The unique identifier Amazon Lex assigned to the export.</p>
-   */
-  exportId?: string;
-
-  /**
-   * <p>A description of the type of resource that was exported, either a
-   *          bot or a bot locale.</p>
-   */
-  resourceSpecification?: ExportResourceSpecification;
-
-  /**
-   * <p>The file format used for the files that define the resource.</p>
-   */
-  fileFormat?: ImportExportFileFormat | string;
-
-  /**
-   * <p>The status of the export. When the status is <code>Completed</code>
-   *          the export archive is available for download.</p>
-   */
-  exportStatus?: ExportStatus | string;
-
-  /**
-   * <p>The date and time that the export was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time that the export was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExportResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateIntentRequest {
-  /**
-   * <p>The unique identifier of the intent to update.</p>
-   */
-  intentId: string | undefined;
-
-  /**
-   * <p>The new name for the intent.</p>
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>The new description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The signature of the new built-in intent to use as the parent of
-   *          this intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>New utterances used to invoke the intent.</p>
-   */
-  sampleUtterances?: SampleUtterance[];
-
-  /**
-   * <p>The new Lambda function to use between each turn of the conversation
-   *          with the bot.</p>
-   */
-  dialogCodeHook?: DialogCodeHookSettings;
-
-  /**
-   * <p>The new Lambda function to call when all of the intents required
-   *          slots are provided and the intent is ready for fulfillment.</p>
-   */
-  fulfillmentCodeHook?: FulfillmentCodeHookSettings;
-
-  /**
-   * <p>A new list of slots and their priorities that are contained by the
-   *          intent.</p>
-   */
-  slotPriorities?: SlotPriority[];
-
-  /**
-   * <p>New prompts that Amazon Lex sends to the user to confirm the completion
-   *          of an intent.</p>
-   */
-  intentConfirmationSetting?: IntentConfirmationSetting;
-
-  /**
-   * <p>The new response that Amazon Lex sends the user when the intent is
-   *          closed.</p>
-   */
-  intentClosingSetting?: IntentClosingSetting;
-
-  /**
-   * <p>A new list of contexts that must be active in order for Amazon Lex to
-   *          consider the intent.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>A new list of contexts that Amazon Lex activates when the intent is
-   *          fulfilled.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>New configuration settings for connecting to an Amazon Kendra index.</p>
-   */
-  kendraConfiguration?: KendraConfiguration;
-
-  /**
-   * <p>The identifier of the bot that contains the intent.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the intent. Must be
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale where this intent is used.
-   *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-}
-
-export namespace UpdateIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateIntentResponse {
-  /**
-   * <p>The identifier of the intent that was updated.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The updated name of the intent.</p>
-   */
-  intentName?: string;
-
-  /**
-   * <p>The updated description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The updated built-in intent that is the parent of this
-   *          intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The updated list of sample utterances for the intent.</p>
-   */
-  sampleUtterances?: SampleUtterance[];
-
-  /**
-   * <p>The updated Lambda function called during each turn of the
-   *          conversation with the user.</p>
-   */
-  dialogCodeHook?: DialogCodeHookSettings;
-
-  /**
-   * <p>The updated Lambda function called when the intent is ready for
-   *          fulfillment.</p>
-   */
-  fulfillmentCodeHook?: FulfillmentCodeHookSettings;
-
-  /**
-   * <p>The updated list of slots and their priorities that are elicited
-   *          from the user for the intent.</p>
-   */
-  slotPriorities?: SlotPriority[];
-
-  /**
-   * <p>The updated prompts that Amazon Lex sends to the user to confirm the
-   *          completion of an intent.</p>
-   */
-  intentConfirmationSetting?: IntentConfirmationSetting;
-
-  /**
-   * <p>The updated response that Amazon Lex sends the user when the intent is
-   *          closed.</p>
-   */
-  intentClosingSetting?: IntentClosingSetting;
-
-  /**
-   * <p>The updated list of contexts that must be active for the intent to
-   *          be considered by Amazon Lex.</p>
-   */
-  inputContexts?: InputContext[];
-
-  /**
-   * <p>The updated list of contexts that Amazon Lex activates when the intent is
-   *          fulfilled.</p>
-   */
-  outputContexts?: OutputContext[];
-
-  /**
-   * <p>The updated configuration for connecting to an Amazon Kendra index with the
-   *             <code>AMAZON.KendraSearchIntent</code> intent.</p>
-   */
-  kendraConfiguration?: KendraConfiguration;
-
-  /**
-   * <p>The identifier of the bot that contains the intent.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the intent. Will always be
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The updated language and locale of the intent.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>A timestamp of when the intent was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the last time that the intent was modified.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateIntentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntentResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateResourcePolicyRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
-   *          resource policy is attached to.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A resource policy to add to the resource. The policy is a JSON
-   *          structure that contains one or more statements that define the policy.
-   *          The policy must follow the IAM syntax. For more information about the
-   *          contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
-   *             reference </a>. </p>
-   *          <p>If the policy isn't valid, Amazon Lex returns a validation
-   *          exception.</p>
-   */
-  policy: string | undefined;
-
-  /**
-   * <p>The identifier of the revision of the policy to update. If this
-   *          revision ID doesn't match the current revision ID, Amazon Lex throws an
-   *          exception.</p>
-   *          <p>If you don't specify a revision, Amazon Lex overwrites the contents of
-   *          the policy with the new values.</p>
-   */
-  expectedRevisionId?: string;
-}
-
-export namespace UpdateResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateResourcePolicyResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
-   *          resource policy is attached to.</p>
-   */
-  resourceArn?: string;
-
-  /**
-   * <p>The current revision of the resource policy. Use the revision ID to
-   *          make sure that you are updating the most current version of a resource
-   *          policy when you add a policy statement to a resource, delete a
-   *          resource, or update a resource.</p>
-   */
-  revisionId?: string;
-}
-
-export namespace UpdateResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSlotRequest {
-  /**
-   * <p>The unique identifier for the slot to update.</p>
-   */
-  slotId: string | undefined;
-
-  /**
-   * <p>The new name for the slot.</p>
-   */
-  slotName: string | undefined;
-
-  /**
-   * <p>The new description for the slot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The unique identifier of the new slot type to associate with this
-   *          slot. </p>
-   */
-  slotTypeId: string | undefined;
-
-  /**
-   * <p>A new set of prompts that Amazon Lex sends to the user to elicit a
-   *          response the provides a value for the slot.</p>
-   */
-  valueElicitationSetting: SlotValueElicitationSetting | undefined;
-
-  /**
-   * <p>New settings that determine how slot values are formatted in Amazon CloudWatch
-   *          logs. </p>
-   */
-  obfuscationSetting?: ObfuscationSetting;
-
-  /**
-   * <p>The unique identifier of the bot that contains the slot.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the slot. Must always be
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale that contains the slot.
-   *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The identifier of the intent that contains the slot.</p>
-   */
-  intentId: string | undefined;
-
-  /**
-   * <p>Determines whether the slot accepts multiple values in one response.
-   *          Multiple value slots are only available in the en-US locale. If you set
-   *          this value to <code>true</code> in any other locale, Amazon Lex throws a
-   *             <code>ValidationException</code>.</p>
-   *          <p>If the <code>multipleValuesSetting</code> is not set, the default
-   *          value is <code>false</code>.</p>
-   */
-  multipleValuesSetting?: MultipleValuesSetting;
-}
-
-export namespace UpdateSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSlotResponse {
-  /**
-   * <p>The unique identifier of the slot that was updated.</p>
-   */
-  slotId?: string;
-
-  /**
-   * <p>The updated name of the slot.</p>
-   */
-  slotName?: string;
-
-  /**
-   * <p>The updated description of the bot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The updated identifier of the slot type that provides values for the
-   *          slot.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The updated prompts that Amazon Lex sends to the user to elicit a
-   *          response that provides a value for the slot.</p>
-   */
-  valueElicitationSetting?: SlotValueElicitationSetting;
-
-  /**
-   * <p>The updated setting that determines whether the slot value is
-   *          obfuscated in the Amazon CloudWatch logs.</p>
-   */
-  obfuscationSetting?: ObfuscationSetting;
-
-  /**
-   * <p>The identifier of the bot that contains the slot.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The identifier of the slot version that contains the slot. Will
-   *          always be <code>DRAFT</code>.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The locale that contains the slot.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The intent that contains the slot.</p>
-   */
-  intentId?: string;
-
-  /**
-   * <p>The timestamp of the date and time that the slot was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The timestamp of the date and time that the slot was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>Indicates whether the slot accepts multiple values in one
-   *          response.</p>
-   */
-  multipleValuesSetting?: MultipleValuesSetting;
-}
-
-export namespace UpdateSlotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSlotTypeRequest {
-  /**
-   * <p>The unique identifier of the slot type to update.</p>
-   */
-  slotTypeId: string | undefined;
-
-  /**
-   * <p>The new name of the slot type.</p>
-   */
-  slotTypeName: string | undefined;
-
-  /**
-   * <p>The new description of the slot type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>A new list of values and their optional synonyms that define the
-   *          values that the slot type can take.</p>
-   */
-  slotTypeValues?: SlotTypeValue[];
-
-  /**
-   * <p>The strategy that Amazon Lex should use when deciding on a value from the
-   *          list of slot type values.</p>
-   */
-  valueSelectionSetting: SlotValueSelectionSetting | undefined;
-
-  /**
-   * <p>The new built-in slot type that should be used as the parent of this
-   *          slot type.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>The identifier of the bot that contains the slot type.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot that contains the slot type. Must be
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale that contains the slot
-   *          type. The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   */
-  localeId: string | undefined;
-}
-
-export namespace UpdateSlotTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotTypeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSlotTypeResponse {
-  /**
-   * <p>The unique identifier of the updated slot type.</p>
-   */
-  slotTypeId?: string;
-
-  /**
-   * <p>The updated name of the slot type.</p>
-   */
-  slotTypeName?: string;
-
-  /**
-   * <p>The updated description of the slot type.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The updated values that the slot type provides.</p>
-   */
-  slotTypeValues?: SlotTypeValue[];
-
-  /**
-   * <p>The updated strategy that Amazon Lex uses to determine which value to
-   *          select from the slot type.</p>
-   */
-  valueSelectionSetting?: SlotValueSelectionSetting;
-
-  /**
-   * <p>The updated signature of the built-in slot type that is the parent
-   *          of this slot type.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>The identifier of the bot that contains the slot type.</p>
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot that contains the slot type. This is always
-   *             <code>DRAFT</code>.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The language and locale of the updated slot type.</p>
-   */
-  localeId?: string;
-
-  /**
-   * <p>The timestamp of the date and time that the slot type was
-   *          created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the slot type was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateSlotTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotTypeResponse): any => ({
-    ...obj,
-  });
-}
+export const DescribeBotRecommendationResponseFilterSensitiveLog = (obj: DescribeBotRecommendationResponse): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});

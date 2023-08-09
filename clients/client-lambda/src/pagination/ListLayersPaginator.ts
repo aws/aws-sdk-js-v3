@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListLayersCommand, ListLayersCommandInput, ListLayersCommandOutput } from "../commands/ListLayersCommand";
-import { Lambda } from "../Lambda";
 import { LambdaClient } from "../LambdaClient";
 import { LambdaPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LambdaClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLayersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Lambda,
-  input: ListLayersCommandInput,
-  ...args: any
-): Promise<ListLayersCommandOutput> => {
-  // @ts-ignore
-  return await client.listLayers(input, ...args);
-};
 export async function* paginateListLayers(
   config: LambdaPaginationConfiguration,
   input: ListLayersCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListLayers(
   while (hasNext) {
     input.Marker = token;
     input["MaxItems"] = config.pageSize;
-    if (config.client instanceof Lambda) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LambdaClient) {
+    if (config.client instanceof LambdaClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Lambda | LambdaClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

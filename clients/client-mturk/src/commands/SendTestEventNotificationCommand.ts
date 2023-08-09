@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { SendTestEventNotificationRequest, SendTestEventNotificationResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1SendTestEventNotificationCommand,
-  serializeAws_json1_1SendTestEventNotificationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_SendTestEventNotificationCommand, se_SendTestEventNotificationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SendTestEventNotificationCommand}.
+ */
 export interface SendTestEventNotificationCommandInput extends SendTestEventNotificationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendTestEventNotificationCommand}.
+ */
 export interface SendTestEventNotificationCommandOutput extends SendTestEventNotificationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The <code>SendTestEventNotification</code> operation causes Amazon Mechanical Turk to send
  *             a notification message as if a HIT event occurred, according to the provided
@@ -35,13 +49,37 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * import { MTurkClient, SendTestEventNotificationCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, SendTestEventNotificationCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // SendTestEventNotificationRequest
+ *   Notification: { // NotificationSpecification
+ *     Destination: "STRING_VALUE", // required
+ *     Transport: "STRING_VALUE", // required
+ *     Version: "STRING_VALUE", // required
+ *     EventTypes: [ // EventTypeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   TestEventType: "STRING_VALUE", // required
+ * };
  * const command = new SendTestEventNotificationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SendTestEventNotificationCommandInput - {@link SendTestEventNotificationCommandInput}
+ * @returns {@link SendTestEventNotificationCommandOutput}
  * @see {@link SendTestEventNotificationCommandInput} for command's `input` shape.
  * @see {@link SendTestEventNotificationCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class SendTestEventNotificationCommand extends $Command<
@@ -52,6 +90,18 @@ export class SendTestEventNotificationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SendTestEventNotificationCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +117,9 @@ export class SendTestEventNotificationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendTestEventNotificationCommandInput, SendTestEventNotificationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SendTestEventNotificationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +130,8 @@ export class SendTestEventNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTestEventNotificationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendTestEventNotificationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,15 +141,21 @@ export class SendTestEventNotificationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendTestEventNotificationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1SendTestEventNotificationCommand(input, context);
+    return se_SendTestEventNotificationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SendTestEventNotificationCommandOutput> {
-    return deserializeAws_json1_1SendTestEventNotificationCommand(output, context);
+    return de_SendTestEventNotificationCommand(output, context);
   }
 
   // Start section: command_body_extra

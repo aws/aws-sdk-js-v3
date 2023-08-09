@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeJobsCommand,
   DescribeJobsCommandInput,
   DescribeJobsCommandOutput,
 } from "../commands/DescribeJobsCommand";
-import { Drs } from "../Drs";
 import { DrsClient } from "../DrsClient";
 import { DrsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DrsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Drs,
-  input: DescribeJobsCommandInput,
-  ...args: any
-): Promise<DescribeJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeJobs(input, ...args);
-};
 export async function* paginateDescribeJobs(
   config: DrsPaginationConfiguration,
   input: DescribeJobsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Drs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DrsClient) {
+    if (config.client instanceof DrsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Drs | DrsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -8,29 +9,40 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
+} from "@smithy/types";
 
-import { StreamingTraitsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1StreamingTraitsCommand,
-  serializeAws_restJson1StreamingTraitsCommand,
-} from "../protocols/Aws_restJson1";
+import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> & {
-  /**
-   * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
-   */
-  blob?: StreamingTraitsInputOutput["blob"] | string | Uint8Array | Buffer;
-};
 /**
- * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
+ * @public
  */
-export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
-export interface StreamingTraitsCommandOutput extends StreamingTraitsInputOutput, __MetadataBearer {}
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StreamingTraitsCommand}.
+ */
+export interface StreamingTraitsCommandInput extends Omit<StreamingTraitsInputOutput, "blob"> {
+  blob?: StreamingBlobPayloadInputTypes;
+}
 
 /**
+ * @public
+ *
+ * The output of {@link StreamingTraitsCommand}.
+ */
+export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputOutput, "blob">, __MetadataBearer {
+  blob?: StreamingBlobPayloadOutputTypes;
+}
+
+/**
+ * @public
  * This examples serializes a streaming blob shape in the request body.
  *
  * In this example, no JSON document is synthesized because the payload is
@@ -41,13 +53,27 @@ export interface StreamingTraitsCommandOutput extends StreamingTraitsInputOutput
  * import { RestJsonProtocolClient, StreamingTraitsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // StreamingTraitsInputOutput
+ *   foo: "STRING_VALUE",
+ *   blob: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
+ * // { // StreamingTraitsInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   blob: "STREAMING_BLOB_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param StreamingTraitsCommandInput - {@link StreamingTraitsCommandInput}
+ * @returns {@link StreamingTraitsCommandOutput}
  * @see {@link StreamingTraitsCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class StreamingTraitsCommand extends $Command<
@@ -58,6 +84,9 @@ export class StreamingTraitsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamingTraitsCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +112,8 @@ export class StreamingTraitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamingTraitsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: StreamingTraitsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +123,21 @@ export class StreamingTraitsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamingTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsCommand(input, context);
+    return se_StreamingTraitsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StreamingTraitsCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsCommand(output, context);
+  /**
+   * @internal
+   */
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<StreamingTraitsCommandOutput> {
+    return de_StreamingTraitsCommand(output, context);
   }
 
   // Start section: command_body_extra

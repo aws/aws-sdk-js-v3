@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,20 +11,32 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1BatchPutMessageCommand,
-  serializeAws_restJson1BatchPutMessageCommand,
-} from "../protocols/Aws_restJson1";
+import { de_BatchPutMessageCommand, se_BatchPutMessageCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link BatchPutMessageCommand}.
+ */
 export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
+/**
+ * @public
+ *
+ * The output of {@link BatchPutMessageCommand}.
+ */
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a set of messages to the AWS IoT Events system. Each message payload is transformed into
+ * @public
+ * <p>Sends a set of messages to the IoT Events system. Each message payload is transformed into
  *       the input you specify (<code>"inputName"</code>) and ingested into any detectors that monitor
  *       that input. If multiple messages are sent, the order in which the messages are processed isn't
  *       guaranteed. To guarantee ordering, you must send messages one at a time and wait for a
@@ -33,13 +47,52 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * import { IoTEventsDataClient, BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchPutMessageCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = { // BatchPutMessageRequest
+ *   messages: [ // Messages // required
+ *     { // Message
+ *       messageId: "STRING_VALUE", // required
+ *       inputName: "STRING_VALUE", // required
+ *       payload: "BLOB_VALUE", // required
+ *       timestamp: { // TimestampValue
+ *         timeInMillis: Number("long"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);
+ * // { // BatchPutMessageResponse
+ * //   BatchPutMessageErrorEntries: [ // BatchPutMessageErrorEntries
+ * //     { // BatchPutMessageErrorEntry
+ * //       messageId: "STRING_VALUE",
+ * //       errorCode: "STRING_VALUE",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param BatchPutMessageCommandInput - {@link BatchPutMessageCommandInput}
+ * @returns {@link BatchPutMessageCommandOutput}
  * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
  * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
+ * @throws {@link IoTEventsDataServiceException}
+ * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
 export class BatchPutMessageCommand extends $Command<
@@ -50,6 +103,18 @@ export class BatchPutMessageCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: BatchPutMessageCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +130,9 @@ export class BatchPutMessageCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchPutMessageCommandInput, BatchPutMessageCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, BatchPutMessageCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +143,8 @@ export class BatchPutMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutMessageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +154,18 @@ export class BatchPutMessageCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1BatchPutMessageCommand(input, context);
+    return se_BatchPutMessageCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
-    return deserializeAws_restJson1BatchPutMessageCommand(output, context);
+    return de_BatchPutMessageCommand(output, context);
   }
 
   // Start section: command_body_extra

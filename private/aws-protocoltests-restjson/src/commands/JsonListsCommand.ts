@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { JsonListsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1JsonListsCommand,
-  serializeAws_restJson1JsonListsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_JsonListsCommand, se_JsonListsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link JsonListsCommand}.
+ */
 export interface JsonListsCommandInput extends JsonListsInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link JsonListsCommand}.
+ */
 export interface JsonListsCommandOutput extends JsonListsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This test case serializes JSON lists for the following cases for both
  * input and output:
  *
@@ -35,13 +48,93 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * import { RestJsonProtocolClient, JsonListsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonListsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // JsonListsInputOutput
+ *   stringList: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
+ *   sparseStringList: [ // SparseStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   stringSet: [ // StringSet
+ *     "STRING_VALUE",
+ *   ],
+ *   integerList: [ // IntegerList
+ *     Number("int"),
+ *   ],
+ *   booleanList: [ // BooleanList
+ *     true || false,
+ *   ],
+ *   timestampList: [ // TimestampList
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   enumList: [ // FooEnumList
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ *   intEnumList: [ // IntegerEnumList
+ *     1 || 2 || 3,
+ *   ],
+ *   nestedStringList: [ // NestedStringList
+ *     [
+ *       "STRING_VALUE",
+ *     ],
+ *   ],
+ *   structureList: [ // StructureList
+ *     { // StructureListMember
+ *       a: "STRING_VALUE",
+ *       b: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new JsonListsCommand(input);
  * const response = await client.send(command);
+ * // { // JsonListsInputOutput
+ * //   stringList: [ // StringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   sparseStringList: [ // SparseStringList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   stringSet: [ // StringSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   integerList: [ // IntegerList
+ * //     Number("int"),
+ * //   ],
+ * //   booleanList: [ // BooleanList
+ * //     true || false,
+ * //   ],
+ * //   timestampList: [ // TimestampList
+ * //     new Date("TIMESTAMP"),
+ * //   ],
+ * //   enumList: [ // FooEnumList
+ * //     "Foo" || "Baz" || "Bar" || "1" || "0",
+ * //   ],
+ * //   intEnumList: [ // IntegerEnumList
+ * //     1 || 2 || 3,
+ * //   ],
+ * //   nestedStringList: [ // NestedStringList
+ * //     [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   ],
+ * //   structureList: [ // StructureList
+ * //     { // StructureListMember
+ * //       a: "STRING_VALUE",
+ * //       b: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param JsonListsCommandInput - {@link JsonListsCommandInput}
+ * @returns {@link JsonListsCommandOutput}
  * @see {@link JsonListsCommandInput} for command's `input` shape.
  * @see {@link JsonListsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class JsonListsCommand extends $Command<
@@ -52,6 +145,9 @@ export class JsonListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -77,8 +173,8 @@ export class JsonListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +184,18 @@ export class JsonListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1JsonListsCommand(input, context);
+    return se_JsonListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonListsCommandOutput> {
-    return deserializeAws_restJson1JsonListsCommand(output, context);
+    return de_JsonListsCommand(output, context);
   }
 
   // Start section: command_body_extra

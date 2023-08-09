@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,42 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/models_4";
+import { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
-  deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
-  serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
+  de_DisableVpcClassicLinkDnsSupportCommand,
+  se_DisableVpcClassicLinkDnsSupportCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcClassicLinkDnsSupportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableVpcClassicLinkDnsSupportCommand}.
+ */
 export interface DisableVpcClassicLinkDnsSupportCommandOutput
   extends DisableVpcClassicLinkDnsSupportResult,
     __MetadataBearer {}
 
 /**
- * <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
+ * @public
+ * <note>
+ *             <p>This action is deprecated.</p>
+ *          </note>
+ *          <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
  * 			public IP addresses when addressed between a linked EC2-Classic instance and instances
- * 			in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
- * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 			in the VPC to which it's linked.</p>
  *          <p>You must specify a VPC ID in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +54,25 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, DisableVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableVpcClassicLinkDnsSupportRequest
+ *   VpcId: "STRING_VALUE",
+ * };
  * const command = new DisableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
+ * // { // DisableVpcClassicLinkDnsSupportResult
+ * //   Return: true || false,
+ * // };
+ *
  * ```
  *
+ * @param DisableVpcClassicLinkDnsSupportCommandInput - {@link DisableVpcClassicLinkDnsSupportCommandInput}
+ * @returns {@link DisableVpcClassicLinkDnsSupportCommandOutput}
  * @see {@link DisableVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DisableVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
@@ -52,6 +83,18 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVpcClassicLinkDnsSupportCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +110,9 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableVpcClassicLinkDnsSupportCommandInput, DisableVpcClassicLinkDnsSupportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableVpcClassicLinkDnsSupportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +123,8 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableVpcClassicLinkDnsSupportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableVpcClassicLinkDnsSupportResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,18 +134,24 @@ export class DisableVpcClassicLinkDnsSupportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DisableVpcClassicLinkDnsSupportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(input, context);
+    return se_DisableVpcClassicLinkDnsSupportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> {
-    return deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand(output, context);
+    return de_DisableVpcClassicLinkDnsSupportCommand(output, context);
   }
 
   // Start section: command_body_extra

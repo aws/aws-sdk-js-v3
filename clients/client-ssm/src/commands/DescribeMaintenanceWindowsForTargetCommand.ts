@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DescribeMaintenanceWindowsForTargetRequest,
   DescribeMaintenanceWindowsForTargetResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
+  de_DescribeMaintenanceWindowsForTargetCommand,
+  se_DescribeMaintenanceWindowsForTargetCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeMaintenanceWindowsForTargetCommand}.
+ */
 export interface DescribeMaintenanceWindowsForTargetCommandInput extends DescribeMaintenanceWindowsForTargetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeMaintenanceWindowsForTargetCommand}.
+ */
 export interface DescribeMaintenanceWindowsForTargetCommandOutput
   extends DescribeMaintenanceWindowsForTargetResult,
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the maintenance window targets or tasks that an instance is
+ * @public
+ * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
  *    associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,44 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * import { SSMClient, DescribeMaintenanceWindowsForTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowsForTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeMaintenanceWindowsForTargetRequest
+ *   Targets: [ // Targets // required
+ *     { // Target
+ *       Key: "STRING_VALUE",
+ *       Values: [ // TargetValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ResourceType: "INSTANCE" || "RESOURCE_GROUP", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMaintenanceWindowsForTargetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeMaintenanceWindowsForTargetResult
+ * //   WindowIdentities: [ // MaintenanceWindowsForTargetList
+ * //     { // MaintenanceWindowIdentityForTarget
+ * //       WindowId: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeMaintenanceWindowsForTargetCommandInput - {@link DescribeMaintenanceWindowsForTargetCommandInput}
+ * @returns {@link DescribeMaintenanceWindowsForTargetCommandOutput}
  * @see {@link DescribeMaintenanceWindowsForTargetCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsForTargetCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
@@ -52,6 +100,18 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeMaintenanceWindowsForTargetCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +127,9 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeMaintenanceWindowsForTargetCommandInput, DescribeMaintenanceWindowsForTargetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeMaintenanceWindowsForTargetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +140,8 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowsForTargetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowsForTargetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,18 +151,24 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeMaintenanceWindowsForTargetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(input, context);
+    return se_DescribeMaintenanceWindowsForTargetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand(output, context);
+    return de_DescribeMaintenanceWindowsForTargetCommand(output, context);
   }
 
   // Start section: command_body_extra

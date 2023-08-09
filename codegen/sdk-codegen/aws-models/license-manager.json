@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -142,7 +142,13 @@
           "target": "com.amazonaws.licensemanager#ListReceivedGrants"
         },
         {
+          "target": "com.amazonaws.licensemanager#ListReceivedGrantsForOrganization"
+        },
+        {
           "target": "com.amazonaws.licensemanager#ListReceivedLicenses"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ListReceivedLicensesForOrganization"
         },
         {
           "target": "com.amazonaws.licensemanager#ListResourceInventory"
@@ -194,6 +200,1021 @@
         "smithy.api#title": "AWS License Manager",
         "smithy.api#xmlNamespace": {
           "uri": "https://license-manager.amazonaws.com/doc/2018_08_01"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://license-manager-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://license-manager-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://license-manager.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://license-manager.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "af-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-east-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-northeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-northeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-northeast-3"
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-south-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-southeast-1"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-southeast-2"
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ap-southeast-3"
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "ca-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-central-1"
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-north-1"
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-south-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-west-1"
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-west-2"
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "eu-west-3"
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "me-south-1"
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "sa-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-west-2"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "cn-northwest-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-gov-west-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://license-manager-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
         }
       }
     },
@@ -242,6 +1263,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#AcceptGrantResponse": {
@@ -265,6 +1289,9 @@
             "smithy.api#documentation": "<p>Grant version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#AccessDeniedException": {
@@ -284,39 +1311,68 @@
         "smithy.api#httpError": 401
       }
     },
-    "com.amazonaws.licensemanager#AllowedOperation": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CreateGrant",
-            "name": "CREATE_GRANT"
-          },
-          {
-            "value": "CheckoutLicense",
-            "name": "CHECKOUT_LICENSE"
-          },
-          {
-            "value": "CheckoutBorrowLicense",
-            "name": "CHECKOUT_BORROW_LICENSE"
-          },
-          {
-            "value": "CheckInLicense",
-            "name": "CHECK_IN_LICENSE"
-          },
-          {
-            "value": "ExtendConsumptionLicense",
-            "name": "EXTEND_CONSUMPTION_LICENSE"
-          },
-          {
-            "value": "ListPurchasedLicenses",
-            "name": "LIST_PURCHASED_LICENSES"
-          },
-          {
-            "value": "CreateToken",
-            "name": "CREATE_TOKEN"
+    "com.amazonaws.licensemanager#ActivationOverrideBehavior": {
+      "type": "enum",
+      "members": {
+        "DISTRIBUTED_GRANTS_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISTRIBUTED_GRANTS_ONLY"
           }
-        ]
+        },
+        "ALL_GRANTS_PERMITTED_BY_ISSUER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL_GRANTS_PERMITTED_BY_ISSUER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.licensemanager#AllowedOperation": {
+      "type": "enum",
+      "members": {
+        "CREATE_GRANT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreateGrant"
+          }
+        },
+        "CHECKOUT_LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CheckoutLicense"
+          }
+        },
+        "CHECKOUT_BORROW_LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CheckoutBorrowLicense"
+          }
+        },
+        "CHECK_IN_LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CheckInLicense"
+          }
+        },
+        "EXTEND_CONSUMPTION_LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExtendConsumptionLicense"
+          }
+        },
+        "LIST_PURCHASED_LICENSES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ListPurchasedLicenses"
+          }
+        },
+        "CREATE_TOKEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreateToken"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#AllowedOperationList": {
@@ -379,7 +1435,10 @@
       }
     },
     "com.amazonaws.licensemanager#Boolean": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.licensemanager#BorrowConfiguration": {
       "type": "structure",
@@ -404,22 +1463,13 @@
       }
     },
     "com.amazonaws.licensemanager#BoxBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.licensemanager#BoxInteger": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.licensemanager#BoxLong": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.licensemanager#CheckInLicense": {
       "type": "operation",
@@ -475,11 +1525,17 @@
             "smithy.api#documentation": "<p>License beneficiary.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CheckInLicenseResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#CheckoutBorrowLicense": {
       "type": "operation",
@@ -571,6 +1627,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CheckoutBorrowLicenseResponse": {
@@ -624,6 +1683,9 @@
             "smithy.api#documentation": "<p>Information about constraints.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CheckoutLicense": {
@@ -667,7 +1729,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Checks out the specified license.</p>"
+        "smithy.api#documentation": "<p>Checks out the specified license.</p>\n         <note>\n            <p>If the account that created the license is the same that is performing the check out, you must\n            specify the account as the beneficiary.</p>\n         </note>"
       }
     },
     "com.amazonaws.licensemanager#CheckoutLicenseRequest": {
@@ -720,6 +1782,9 @@
             "smithy.api#documentation": "<p>Node ID.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CheckoutLicenseResponse": {
@@ -773,21 +1838,26 @@
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the checkout license.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CheckoutType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROVISIONAL",
-            "name": "PROVISIONAL"
-          },
-          {
-            "value": "PERPETUAL",
-            "name": "PERPETUAL"
+      "type": "enum",
+      "members": {
+        "PROVISIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROVISIONAL"
           }
-        ]
+        },
+        "PERPETUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERPETUAL"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#ClientRequestToken": {
@@ -910,7 +1980,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific Amazon Web Services accounts.</p>"
+        "smithy.api#documentation": "<p>Creates a grant for the specified license. A grant shares the use of license\n         entitlements with a specific Amazon Web Services account, an organization, or an\n         organizational unit (OU). For more information, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>"
       }
     },
     "com.amazonaws.licensemanager#CreateGrantRequest": {
@@ -940,7 +2010,7 @@
         "Principals": {
           "target": "com.amazonaws.licensemanager#PrincipalArnList",
           "traits": {
-            "smithy.api#documentation": "<p>The grant principals.</p>",
+            "smithy.api#documentation": "<p>The grant principals. You can specify one of the following as an Amazon Resource Name\n         (ARN):</p>\n         <ul>\n            <li>\n               <p>An Amazon Web Services account, which includes only the account specified.</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>An organizational unit (OU), which includes all accounts in the OU.</p>\n            </li>\n         </ul>\n         <ul>\n            <li>\n               <p>An organization, which will include all accounts across your organization.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -958,6 +2028,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateGrantResponse": {
@@ -981,6 +2054,9 @@
             "smithy.api#documentation": "<p>Grant version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateGrantVersion": {
@@ -1015,7 +2091,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new version of the specified grant.</p>"
+        "smithy.api#documentation": "<p>Creates a new version of the specified grant. For more information, see\n         <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>"
       }
     },
     "com.amazonaws.licensemanager#CreateGrantVersionRequest": {
@@ -1064,7 +2140,16 @@
           "traits": {
             "smithy.api#documentation": "<p>Current version of the grant.</p>"
           }
+        },
+        "Options": {
+          "target": "com.amazonaws.licensemanager#Options",
+          "traits": {
+            "smithy.api#documentation": "<p>The options specified for the grant.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateGrantVersionResponse": {
@@ -1088,6 +2173,9 @@
             "smithy.api#documentation": "<p>New version of the grant.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicense": {
@@ -1154,7 +2242,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a license configuration.</p> \n         <p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a \n         license must be associated with a host), and the number of licenses purchased and used.</p>"
+        "smithy.api#documentation": "<p>Creates a license configuration.</p>\n         <p>A license configuration is an abstraction of a customer license agreement that can be\n         consumed and enforced by License Manager. Components include specifications for the license\n         type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy, \n         Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a \n         license must be associated with a host), and the number of licenses purchased and used.</p>"
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseConfigurationRequest": {
@@ -1216,6 +2304,9 @@
             "smithy.api#documentation": "<p>Product information.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseConfigurationResponse": {
@@ -1227,6 +2318,9 @@
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the license configuration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseConversionTaskForResource": {
@@ -1274,17 +2368,20 @@
         "SourceLicenseContext": {
           "target": "com.amazonaws.licensemanager#LicenseConversionContext",
           "traits": {
-            "smithy.api#documentation": "<p>Information that identifies the license type you are converting from. \n         For the structure of the source license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the AWS CLI</a> in the <i>License Manager User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>Information that identifies the license type you are converting from. \n\n         For the structure of the source license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
         "DestinationLicenseContext": {
           "target": "com.amazonaws.licensemanager#LicenseConversionContext",
           "traits": {
-            "smithy.api#documentation": "<p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the AWS CLI</a> in the <i>License Manager User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>Information that identifies the license type you are converting to. For the structure of the destination license, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/conversion-procedures.html#conversion-cli\">Convert a license type using the CLI </a> in the <i>License Manager User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseConversionTaskForResourceResponse": {
@@ -1296,6 +2393,9 @@
             "smithy.api#documentation": "<p>The ID of the created license type conversion task.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseManagerReportGenerator": {
@@ -1386,6 +2486,9 @@
             "smithy.api#documentation": "<p>Tags to add to the report generator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseManagerReportGeneratorResponse": {
@@ -1397,6 +2500,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the new report generator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseRequest": {
@@ -1478,6 +2584,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseResponse": {
@@ -1501,6 +2610,9 @@
             "smithy.api#documentation": "<p>License version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseVersion": {
@@ -1626,6 +2738,9 @@
             "smithy.api#documentation": "<p>Current version of the license.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateLicenseVersionResponse": {
@@ -1649,6 +2764,9 @@
             "smithy.api#documentation": "<p>License status.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#CreateToken": {
@@ -1724,6 +2842,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#CreateTokenResponse": {
@@ -1747,6 +2868,9 @@
             "smithy.api#documentation": "<p>Refresh token, encoded as a JWT token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#DateTime": {
@@ -1831,6 +2955,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteGrantResponse": {
@@ -1854,6 +2981,9 @@
             "smithy.api#documentation": "<p>Grant version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteLicense": {
@@ -1920,7 +3050,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified license configuration.</p> \n         <p>You cannot delete a license configuration that is in use.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified license configuration.</p>\n         <p>You cannot delete a license configuration that is in use.</p>"
       }
     },
     "com.amazonaws.licensemanager#DeleteLicenseConfigurationRequest": {
@@ -1933,11 +3063,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteLicenseConfigurationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#DeleteLicenseManagerReportGenerator": {
       "type": "operation",
@@ -1987,11 +3123,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteLicenseManagerReportGeneratorResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#DeleteLicenseRequest": {
       "type": "structure",
@@ -2010,6 +3152,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteLicenseResponse": {
@@ -2027,6 +3172,9 @@
             "smithy.api#documentation": "<p>Date when the license is deleted.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteToken": {
@@ -2074,21 +3222,27 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#DeleteTokenResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#DigitalSignatureMethod": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "JWT_PS384",
-            "name": "JWT_PS384"
+      "type": "enum",
+      "members": {
+        "JWT_PS384": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JWT_PS384"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.licensemanager#Entitlement": {
@@ -2172,118 +3326,170 @@
       }
     },
     "com.amazonaws.licensemanager#EntitlementDataUnit": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Count",
-            "name": "COUNT"
-          },
-          {
-            "value": "None",
-            "name": "NONE"
-          },
-          {
-            "value": "Seconds",
-            "name": "SECONDS"
-          },
-          {
-            "value": "Microseconds",
-            "name": "MICROSECONDS"
-          },
-          {
-            "value": "Milliseconds",
-            "name": "MILLISECONDS"
-          },
-          {
-            "value": "Bytes",
-            "name": "BYTES"
-          },
-          {
-            "value": "Kilobytes",
-            "name": "KILOBYTES"
-          },
-          {
-            "value": "Megabytes",
-            "name": "MEGABYTES"
-          },
-          {
-            "value": "Gigabytes",
-            "name": "GIGABYTES"
-          },
-          {
-            "value": "Terabytes",
-            "name": "TERABYTES"
-          },
-          {
-            "value": "Bits",
-            "name": "BITS"
-          },
-          {
-            "value": "Kilobits",
-            "name": "KILOBITS"
-          },
-          {
-            "value": "Megabits",
-            "name": "MEGABITS"
-          },
-          {
-            "value": "Gigabits",
-            "name": "GIGABITS"
-          },
-          {
-            "value": "Terabits",
-            "name": "TERABITS"
-          },
-          {
-            "value": "Percent",
-            "name": "PERCENT"
-          },
-          {
-            "value": "Bytes/Second",
-            "name": "BYTES_PER_SECOND"
-          },
-          {
-            "value": "Kilobytes/Second",
-            "name": "KILOBYTES_PER_SECOND"
-          },
-          {
-            "value": "Megabytes/Second",
-            "name": "MEGABYTES_PER_SECOND"
-          },
-          {
-            "value": "Gigabytes/Second",
-            "name": "GIGABYTES_PER_SECOND"
-          },
-          {
-            "value": "Terabytes/Second",
-            "name": "TERABYTES_PER_SECOND"
-          },
-          {
-            "value": "Bits/Second",
-            "name": "BITS_PER_SECOND"
-          },
-          {
-            "value": "Kilobits/Second",
-            "name": "KILOBITS_PER_SECOND"
-          },
-          {
-            "value": "Megabits/Second",
-            "name": "MEGABITS_PER_SECOND"
-          },
-          {
-            "value": "Gigabits/Second",
-            "name": "GIGABITS_PER_SECOND"
-          },
-          {
-            "value": "Terabits/Second",
-            "name": "TERABITS_PER_SECOND"
-          },
-          {
-            "value": "Count/Second",
-            "name": "COUNT_PER_SECOND"
+      "type": "enum",
+      "members": {
+        "COUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count"
           }
-        ]
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "None"
+          }
+        },
+        "SECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Seconds"
+          }
+        },
+        "MICROSECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Microseconds"
+          }
+        },
+        "MILLISECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Milliseconds"
+          }
+        },
+        "BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bytes"
+          }
+        },
+        "KILOBYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobytes"
+          }
+        },
+        "MEGABYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabytes"
+          }
+        },
+        "GIGABYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabytes"
+          }
+        },
+        "TERABYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabytes"
+          }
+        },
+        "BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bits"
+          }
+        },
+        "KILOBITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobits"
+          }
+        },
+        "MEGABITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabits"
+          }
+        },
+        "GIGABITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabits"
+          }
+        },
+        "TERABITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabits"
+          }
+        },
+        "PERCENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Percent"
+          }
+        },
+        "BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bytes/Second"
+          }
+        },
+        "KILOBYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobytes/Second"
+          }
+        },
+        "MEGABYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabytes/Second"
+          }
+        },
+        "GIGABYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabytes/Second"
+          }
+        },
+        "TERABYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabytes/Second"
+          }
+        },
+        "BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bits/Second"
+          }
+        },
+        "KILOBITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobits/Second"
+          }
+        },
+        "MEGABITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabits/Second"
+          }
+        },
+        "GIGABITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabits/Second"
+          }
+        },
+        "TERABITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabits/Second"
+          }
+        },
+        "COUNT_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count/Second"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#EntitlementList": {
@@ -2306,118 +3512,170 @@
       }
     },
     "com.amazonaws.licensemanager#EntitlementUnit": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Count",
-            "name": "COUNT"
-          },
-          {
-            "value": "None",
-            "name": "NONE"
-          },
-          {
-            "value": "Seconds",
-            "name": "SECONDS"
-          },
-          {
-            "value": "Microseconds",
-            "name": "MICROSECONDS"
-          },
-          {
-            "value": "Milliseconds",
-            "name": "MILLISECONDS"
-          },
-          {
-            "value": "Bytes",
-            "name": "BYTES"
-          },
-          {
-            "value": "Kilobytes",
-            "name": "KILOBYTES"
-          },
-          {
-            "value": "Megabytes",
-            "name": "MEGABYTES"
-          },
-          {
-            "value": "Gigabytes",
-            "name": "GIGABYTES"
-          },
-          {
-            "value": "Terabytes",
-            "name": "TERABYTES"
-          },
-          {
-            "value": "Bits",
-            "name": "BITS"
-          },
-          {
-            "value": "Kilobits",
-            "name": "KILOBITS"
-          },
-          {
-            "value": "Megabits",
-            "name": "MEGABITS"
-          },
-          {
-            "value": "Gigabits",
-            "name": "GIGABITS"
-          },
-          {
-            "value": "Terabits",
-            "name": "TERABITS"
-          },
-          {
-            "value": "Percent",
-            "name": "PERCENT"
-          },
-          {
-            "value": "Bytes/Second",
-            "name": "BYTES_PER_SECOND"
-          },
-          {
-            "value": "Kilobytes/Second",
-            "name": "KILOBYTES_PER_SECOND"
-          },
-          {
-            "value": "Megabytes/Second",
-            "name": "MEGABYTES_PER_SECOND"
-          },
-          {
-            "value": "Gigabytes/Second",
-            "name": "GIGABYTES_PER_SECOND"
-          },
-          {
-            "value": "Terabytes/Second",
-            "name": "TERABYTES_PER_SECOND"
-          },
-          {
-            "value": "Bits/Second",
-            "name": "BITS_PER_SECOND"
-          },
-          {
-            "value": "Kilobits/Second",
-            "name": "KILOBITS_PER_SECOND"
-          },
-          {
-            "value": "Megabits/Second",
-            "name": "MEGABITS_PER_SECOND"
-          },
-          {
-            "value": "Gigabits/Second",
-            "name": "GIGABITS_PER_SECOND"
-          },
-          {
-            "value": "Terabits/Second",
-            "name": "TERABITS_PER_SECOND"
-          },
-          {
-            "value": "Count/Second",
-            "name": "COUNT_PER_SECOND"
+      "type": "enum",
+      "members": {
+        "COUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count"
           }
-        ]
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "None"
+          }
+        },
+        "SECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Seconds"
+          }
+        },
+        "MICROSECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Microseconds"
+          }
+        },
+        "MILLISECONDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Milliseconds"
+          }
+        },
+        "BYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bytes"
+          }
+        },
+        "KILOBYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobytes"
+          }
+        },
+        "MEGABYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabytes"
+          }
+        },
+        "GIGABYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabytes"
+          }
+        },
+        "TERABYTES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabytes"
+          }
+        },
+        "BITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bits"
+          }
+        },
+        "KILOBITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobits"
+          }
+        },
+        "MEGABITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabits"
+          }
+        },
+        "GIGABITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabits"
+          }
+        },
+        "TERABITS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabits"
+          }
+        },
+        "PERCENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Percent"
+          }
+        },
+        "BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bytes/Second"
+          }
+        },
+        "KILOBYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobytes/Second"
+          }
+        },
+        "MEGABYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabytes/Second"
+          }
+        },
+        "GIGABYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabytes/Second"
+          }
+        },
+        "TERABYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabytes/Second"
+          }
+        },
+        "BITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Bits/Second"
+          }
+        },
+        "KILOBITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Kilobits/Second"
+          }
+        },
+        "MEGABITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Megabits/Second"
+          }
+        },
+        "GIGABITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Gigabits/Second"
+          }
+        },
+        "TERABITS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terabits/Second"
+          }
+        },
+        "COUNT_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count/Second"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#EntitlementUsage": {
@@ -2509,9 +3767,13 @@
         "DryRun": {
           "target": "com.amazonaws.licensemanager#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request. Provides an error response if you do not have the required permissions.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ExtendLicenseConsumptionResponse": {
@@ -2529,6 +3791,9 @@
             "smithy.api#documentation": "<p>Date and time at which the license consumption expires.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#FailedDependencyException": {
@@ -2563,7 +3828,7 @@
         "Values": {
           "target": "com.amazonaws.licensemanager#FilterValues",
           "traits": {
-            "smithy.api#documentation": "<p>Filter values. Filter values are case-sensitive.</p>"
+            "smithy.api#documentation": "<p>The value of the filter, which is case-sensitive. You can only specify one value for the filter.</p>"
           }
         }
       },
@@ -2663,6 +3928,9 @@
             "smithy.api#documentation": "<p>Token properties to validate against those present in the JWT token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetAccessTokenResponse": {
@@ -2674,6 +3942,9 @@
             "smithy.api#documentation": "<p>Temporary access token.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetGrant": {
@@ -2727,6 +3998,9 @@
             "smithy.api#documentation": "<p>Grant version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetGrantResponse": {
@@ -2738,6 +4012,9 @@
             "smithy.api#documentation": "<p>Grant details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicense": {
@@ -2811,6 +4088,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseConfigurationResponse": {
@@ -2918,6 +4198,9 @@
             "smithy.api#documentation": "<p>When true, disassociates a resource when software is uninstalled.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseConversionTask": {
@@ -2959,6 +4242,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseConversionTaskResponse": {
@@ -3018,6 +4304,9 @@
             "smithy.api#documentation": "<p>Time at which the license type conversion task was completed.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseManagerReportGenerator": {
@@ -3068,6 +4357,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseManagerReportGeneratorResponse": {
@@ -3079,6 +4371,9 @@
             "smithy.api#documentation": "<p>A report generator that creates periodic reports about your license configurations.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseRequest": {
@@ -3097,6 +4392,9 @@
             "smithy.api#documentation": "<p>License version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseResponse": {
@@ -3108,6 +4406,9 @@
             "smithy.api#documentation": "<p>License details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseUsage": {
@@ -3152,6 +4453,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#GetLicenseUsageResponse": {
@@ -3163,6 +4467,9 @@
             "smithy.api#documentation": "<p>License usage details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#GetServiceSettings": {
@@ -3193,7 +4500,10 @@
     },
     "com.amazonaws.licensemanager#GetServiceSettingsRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.licensemanager#GetServiceSettingsResponse": {
       "type": "structure",
@@ -3228,6 +4538,9 @@
             "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource share. The License Manager management account \n         provides member accounts with access to this share.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#Grant": {
@@ -3301,6 +4614,12 @@
             "smithy.api#documentation": "<p>Granted operations.</p>",
             "smithy.api#required": {}
           }
+        },
+        "Options": {
+          "target": "com.amazonaws.licensemanager#Options",
+          "traits": {
+            "smithy.api#documentation": "<p>The options specified for the grant.</p>"
+          }
         }
       },
       "traits": {
@@ -3314,46 +4633,62 @@
       }
     },
     "com.amazonaws.licensemanager#GrantStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING_WORKFLOW",
-            "name": "PENDING_WORKFLOW"
-          },
-          {
-            "value": "PENDING_ACCEPT",
-            "name": "PENDING_ACCEPT"
-          },
-          {
-            "value": "REJECTED",
-            "name": "REJECTED"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "FAILED_WORKFLOW",
-            "name": "FAILED_WORKFLOW"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
-          },
-          {
-            "value": "PENDING_DELETE",
-            "name": "PENDING_DELETE"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
-          },
-          {
-            "value": "WORKFLOW_COMPLETED",
-            "name": "WORKFLOW_COMPLETED"
+      "type": "enum",
+      "members": {
+        "PENDING_WORKFLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_WORKFLOW"
           }
-        ]
+        },
+        "PENDING_ACCEPT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_ACCEPT"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "FAILED_WORKFLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_WORKFLOW"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        },
+        "PENDING_DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETE"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "WORKFLOW_COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_COMPLETED"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#GrantedLicense": {
@@ -3471,10 +4806,7 @@
       }
     },
     "com.amazonaws.licensemanager#Integer": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "integer"
     },
     "com.amazonaws.licensemanager#InvalidParameterValueException": {
       "type": "structure",
@@ -3539,26 +4871,32 @@
       }
     },
     "com.amazonaws.licensemanager#InventoryFilterCondition": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EQUALS",
-            "name": "EQUALS"
-          },
-          {
-            "value": "NOT_EQUALS",
-            "name": "NOT_EQUALS"
-          },
-          {
-            "value": "BEGINS_WITH",
-            "name": "BEGINS_WITH"
-          },
-          {
-            "value": "CONTAINS",
-            "name": "CONTAINS"
+      "type": "enum",
+      "members": {
+        "EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUALS"
           }
-        ]
+        },
+        "NOT_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EQUALS"
+          }
+        },
+        "BEGINS_WITH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BEGINS_WITH"
+          }
+        },
+        "CONTAINS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTAINS"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#InventoryFilterList": {
@@ -3855,18 +5193,20 @@
       }
     },
     "com.amazonaws.licensemanager#LicenseConfigurationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#LicenseConfigurationUsage": {
@@ -4012,22 +5352,26 @@
       }
     },
     "com.amazonaws.licensemanager#LicenseConversionTaskStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#LicenseConversionTasks": {
@@ -4037,41 +5381,49 @@
       }
     },
     "com.amazonaws.licensemanager#LicenseCountingType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "vCPU",
-            "name": "VCPU"
-          },
-          {
-            "value": "Instance",
-            "name": "INSTANCE"
-          },
-          {
-            "value": "Core",
-            "name": "CORE"
-          },
-          {
-            "value": "Socket",
-            "name": "SOCKET"
+      "type": "enum",
+      "members": {
+        "VCPU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "vCPU"
           }
-        ]
+        },
+        "INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Instance"
+          }
+        },
+        "CORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Core"
+          }
+        },
+        "SOCKET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Socket"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#LicenseDeletionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING_DELETE",
-            "name": "PENDING_DELETE"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
+      "type": "enum",
+      "members": {
+        "PENDING_DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETE"
           }
-        ]
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#LicenseList": {
@@ -4170,38 +5522,50 @@
       }
     },
     "com.amazonaws.licensemanager#LicenseStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "PENDING_AVAILABLE",
-            "name": "PENDING_AVAILABLE"
-          },
-          {
-            "value": "DEACTIVATED",
-            "name": "DEACTIVATED"
-          },
-          {
-            "value": "SUSPENDED",
-            "name": "SUSPENDED"
-          },
-          {
-            "value": "EXPIRED",
-            "name": "EXPIRED"
-          },
-          {
-            "value": "PENDING_DELETE",
-            "name": "PENDING_DELETE"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
           }
-        ]
+        },
+        "PENDING_AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_AVAILABLE"
+          }
+        },
+        "DEACTIVATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEACTIVATED"
+          }
+        },
+        "SUSPENDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUSPENDED"
+          }
+        },
+        "EXPIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPIRED"
+          }
+        },
+        "PENDING_DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_DELETE"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#LicenseUsage": {
@@ -4264,7 +5628,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the resource associations for the specified license configuration.</p> \n         <p>Resource associations need not consume licenses from a license configuration. \n         For example, an AMI or a stopped instance might not consume a license (depending on \n         the license rules).</p>"
+        "smithy.api#documentation": "<p>Lists the resource associations for the specified license configuration.</p>\n         <p>Resource associations need not consume licenses from a license configuration. \n         For example, an AMI or a stopped instance might not consume a license (depending on \n         the license rules).</p>"
       }
     },
     "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationRequest": {
@@ -4289,6 +5653,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListAssociationsForLicenseConfigurationResponse": {
@@ -4306,6 +5673,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListDistributedGrants": {
@@ -4370,6 +5740,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListDistributedGrantsResponse": {
@@ -4387,6 +5760,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperations": {
@@ -4440,6 +5816,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperationsResponse": {
@@ -4457,6 +5836,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseConfigurations": {
@@ -4518,6 +5900,9 @@
             "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>licenseCountingType</code> - The dimension for which licenses are counted.\n               Possible values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license enforcement is used. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>usagelimitExceeded</code> - A Boolean value that indicates whether the available licenses have been exceeded. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseConfigurationsResponse": {
@@ -4535,6 +5920,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseConversionTasks": {
@@ -4587,6 +5975,9 @@
             "smithy.api#documentation": "<p>\n         Filters to scope the results. Valid filters are <code>ResourceArns</code> and <code>Status</code>.\n      </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseConversionTasksResponse": {
@@ -4604,6 +5995,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseManagerReportGenerators": {
@@ -4665,6 +6059,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseManagerReportGeneratorsResponse": {
@@ -4682,6 +6079,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseSpecificationsForResource": {
@@ -4735,6 +6135,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceResponse": {
@@ -4752,6 +6155,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseVersions": {
@@ -4805,6 +6211,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenseVersionsResponse": {
@@ -4822,6 +6231,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicenses": {
@@ -4883,6 +6295,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListLicensesResponse": {
@@ -4900,6 +6315,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListReceivedGrants": {
@@ -4934,7 +6352,95 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists grants that are received but not accepted.</p>"
+        "smithy.api#documentation": "<p>Lists grants that are received. Received grants are grants created while specifying the\n         recipient as this Amazon Web Services account, your organization, or an organizational unit\n         (OU) to which this member account belongs.</p>"
+      }
+    },
+    "com.amazonaws.licensemanager#ListReceivedGrantsForOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanager#ListReceivedGrantsForOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanager#ListReceivedGrantsForOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the grants received for all accounts in the organization.</p>"
+      }
+    },
+    "com.amazonaws.licensemanager#ListReceivedGrantsForOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "LicenseArn": {
+          "target": "com.amazonaws.licensemanager#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the received license.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.licensemanager#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters to scope the results. The following filters are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ParentArn</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>GranteePrincipalArn</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanager#MaxSize100",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.licensemanager#ListReceivedGrantsForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "Grants": {
+          "target": "com.amazonaws.licensemanager#GrantList",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the grants the organization has received.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListReceivedGrantsRequest": {
@@ -4964,6 +6470,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListReceivedGrantsResponse": {
@@ -4981,6 +6490,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListReceivedLicenses": {
@@ -5018,6 +6530,87 @@
         "smithy.api#documentation": "<p>Lists received licenses.</p>"
       }
     },
+    "com.amazonaws.licensemanager#ListReceivedLicensesForOrganization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.licensemanager#ListReceivedLicensesForOrganizationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.licensemanager#ListReceivedLicensesForOrganizationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.licensemanager#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#AuthorizationException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#RateLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ServerInternalException"
+        },
+        {
+          "target": "com.amazonaws.licensemanager#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the licenses received for all accounts in the organization.</p>"
+      }
+    },
+    "com.amazonaws.licensemanager#ListReceivedLicensesForOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "Filters": {
+          "target": "com.amazonaws.licensemanager#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters to scope the results. The following filters are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Beneficiary</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ProductSKU</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.licensemanager#MaxSize100",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.licensemanager#ListReceivedLicensesForOrganizationResponse": {
+      "type": "structure",
+      "members": {
+        "Licenses": {
+          "target": "com.amazonaws.licensemanager#GrantedLicenseList",
+          "traits": {
+            "smithy.api#documentation": "<p>Lists the licenses the organization has received.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.licensemanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Token for the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.licensemanager#ListReceivedLicensesRequest": {
       "type": "structure",
       "members": {
@@ -5045,6 +6638,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListReceivedLicensesResponse": {
@@ -5062,6 +6658,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListResourceInventory": {
@@ -5120,6 +6719,9 @@
             "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>account_id</code> - The ID of the Amazon Web Services account that owns the resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>application_name</code> - The name of the application. \n               Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>license_included</code> - The type of license included. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.\n               Possible values are <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>platform</code> - The platform of the resource.\n               Logical operators are <code>EQUALS</code> | <code>BEGINS_WITH</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resource_id</code> - The ID of the resource. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag:<key></code> - The key/value combination of a tag assigned \n               to the resource. Logical operators are <code>EQUALS</code> (single account) or\n               <code>EQUALS</code> | <code>NOT_EQUALS</code> (cross account).</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListResourceInventoryResponse": {
@@ -5137,6 +6739,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListTagsForResource": {
@@ -5178,6 +6783,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListTagsForResourceResponse": {
@@ -5189,6 +6797,9 @@
             "smithy.api#documentation": "<p>Information about the tags.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListTokens": {
@@ -5247,6 +6858,9 @@
             "smithy.api#documentation": "<p>Maximum number of results to return in a single call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListTokensResponse": {
@@ -5264,6 +6878,9 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#ListUsageForLicenseConfiguration": {
@@ -5326,6 +6943,9 @@
             "smithy.api#documentation": "<p>Filters to scope the results. The following filters and logical operators\n        are supported:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>resourceArn</code> - The ARN of the license configuration resource.\n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceType</code> - The resource type (<code>EC2_INSTANCE</code> | <code>EC2_HOST</code> | <code>EC2_AMI</code> | <code>SYSTEMS_MANAGER_MANAGED_INSTANCE</code>). \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>resourceAccount</code> - The ID of the account that owns the resource. \n               Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</p>\n            </li>\n         </ul>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#ListUsageForLicenseConfigurationResponse": {
@@ -5343,16 +6963,16 @@
             "smithy.api#documentation": "<p>Token for the next set of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#Location": {
       "type": "string"
     },
     "com.amazonaws.licensemanager#Long": {
-      "type": "long",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "long"
     },
     "com.amazonaws.licensemanager#ManagedResourceSummary": {
       "type": "structure",
@@ -5383,7 +7003,6 @@
     "com.amazonaws.licensemanager#MaxSize100": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -5444,12 +7063,27 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.licensemanager#Options": {
+      "type": "structure",
+      "members": {
+        "ActivationOverrideBehavior": {
+          "target": "com.amazonaws.licensemanager#ActivationOverrideBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>An activation option for your grant that determines the behavior of activating a grant.\n         Activation options can only be used with granted licenses sourced from the Amazon Web Services Marketplace. Additionally, the operation must specify the value of <code>ACTIVE</code> for the\n            <code>Status</code> parameter.</p>\n         <ul>\n            <li>\n               <p>As a license administrator, you can optionally specify an\n                  <code>ActivationOverrideBehavior</code> when activating a grant.</p>\n            </li>\n            <li>\n               <p>As a grantor, you can optionally specify an\n                  <code>ActivationOverrideBehavior</code> when you activate a grant for a grantee\n               account in your organization.</p>\n            </li>\n            <li>\n               <p>As a grantee, if the grantor creating the distributed grant doesn’t specify an\n                  <code>ActivationOverrideBehavior</code>, you can optionally specify one when you\n               are activating the grant.</p>\n            </li>\n         </ul>\n         <dl>\n            <dt>DISTRIBUTED_GRANTS_ONLY</dt>\n            <dd>\n               <p>Use this value to activate a grant without replacing any member account’s\n                  active grants for the same product.</p>\n            </dd>\n            <dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt>\n            <dd>\n               <p>Use this value to activate a grant and disable other active grants in any\n                  member accounts for the same product. This action will also replace their\n                  previously activated grants with this activated grant.</p>\n            </dd>\n         </dl>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The options you can specify when you create a new version of a grant, such as activation\n         override behavior. For more information, see <a href=\"https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html\">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>"
+      }
+    },
     "com.amazonaws.licensemanager#OrganizationConfiguration": {
       "type": "structure",
       "members": {
         "EnableIntegration": {
           "target": "com.amazonaws.licensemanager#Boolean",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Enables Organizations integration.</p>",
             "smithy.api#required": {}
           }
@@ -5484,7 +7118,7 @@
         "ProductInformationFilterList": {
           "target": "com.amazonaws.licensemanager#ProductInformationFilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A Product information filter consists of a <code>ProductInformationFilterComparator</code> which is a logical operator, a <code>ProductInformationFilterName</code> which specifies the type of filter being declared, and a <code>ProductInformationFilterValue</code> that specifies the value to filter on. </p>\n         <p>Accepted values for <code>ProductInformationFilterName</code> are listed here along with descriptions and valid options for <code>ProductInformationFilterComparator</code>. </p> \n         <p>The following filters and are supported when the resource type \n         is <code>SSM_MANAGED</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Application Name</code> - The name of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Publisher</code> - The publisher of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Version</code> - The version of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Name</code> - The name of the platform.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Type</code> - The platform type.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Tag:key</code> - The key of a tag attached to an Amazon Web Services resource you wish to exclude from automated discovery. Logical operator is <code>NOT_EQUALS</code>.  The key for your tag must be appended to <code>Tag:</code> following the example: <code>Tag:name-of-your-key</code>. <code>ProductInformationFilterValue</code> is optional if you are not using values for the key.\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>AccountId</code> - The 12-digit ID of an Amazon Web Services account you wish to exclude from automated discovery.\n               Logical operator is <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Included</code> - The type of license included.\n               Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.\n               Possible values are: <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n         </ul>\n         <p>The following filters and logical operators are supported when the resource type\n         is <code>RDS</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Engine Edition</code> - The edition of the database engine.\n               Logical operator is <code>EQUALS</code>.\n               Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Pack</code> - The license pack.\n               Logical operator is <code>EQUALS</code>.\n               Possible values are: <code>data guard</code> | \n               <code>diagnostic pack sqlt</code> | \n               <code>tuning pack sqlt</code> | \n               <code>ols</code> | \n               <code>olap</code>.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>A Product information filter consists of a <code>ProductInformationFilterComparator</code> which is a logical operator, a <code>ProductInformationFilterName</code> which specifies the type of filter being declared, and a <code>ProductInformationFilterValue</code> that specifies the value to filter on. </p>\n         <p>Accepted values for <code>ProductInformationFilterName</code> are listed here along with descriptions and valid options for <code>ProductInformationFilterComparator</code>. </p>\n         <p>The following filters and are supported when the resource type \n         is <code>SSM_MANAGED</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Application Name</code> - The name of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Publisher</code> - The publisher of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Application Version</code> - The version of the application.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Name</code> - The name of the platform.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Platform Type</code> - The platform type.\n               Logical operator is <code>EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Tag:key</code> - The key of a tag attached to an Amazon Web Services resource you wish to exclude from automated discovery. Logical operator is <code>NOT_EQUALS</code>.  The key for your tag must be appended to <code>Tag:</code> following the example: <code>Tag:name-of-your-key</code>. <code>ProductInformationFilterValue</code> is optional if you are not using values for the key.\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>AccountId</code> - The 12-digit ID of an Amazon Web Services account you wish to exclude from automated discovery.\n               Logical operator is <code>NOT_EQUALS</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Included</code> - The type of license included.\n               Logical operators are <code>EQUALS</code> and <code>NOT_EQUALS</code>.\n               Possible values are: <code>sql-server-enterprise</code> | \n               <code>sql-server-standard</code> | \n               <code>sql-server-web</code> |  \n               <code>windows-server-datacenter</code>.</p>\n            </li>\n         </ul>\n         <p>The following filters and logical operators are supported when the resource type\n         is <code>RDS</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Engine Edition</code> - The edition of the database engine.\n               Logical operator is <code>EQUALS</code>.\n               Possible values are: <code>oracle-ee</code> | <code>oracle-se</code> | <code>oracle-se1</code> | <code>oracle-se2</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>License Pack</code> - The license pack.\n               Logical operator is <code>EQUALS</code>.\n               Possible values are: <code>data guard</code> | \n               <code>diagnostic pack sqlt</code> | \n               <code>tuning pack sqlt</code> | \n               <code>ols</code> | \n               <code>olap</code>.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         }
@@ -5592,42 +7226,56 @@
       }
     },
     "com.amazonaws.licensemanager#ReceivedStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING_WORKFLOW",
-            "name": "PENDING_WORKFLOW"
-          },
-          {
-            "value": "PENDING_ACCEPT",
-            "name": "PENDING_ACCEPT"
-          },
-          {
-            "value": "REJECTED",
-            "name": "REJECTED"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "FAILED_WORKFLOW",
-            "name": "FAILED_WORKFLOW"
-          },
-          {
-            "value": "DELETED",
-            "name": "DELETED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
-          },
-          {
-            "value": "WORKFLOW_COMPLETED",
-            "name": "WORKFLOW_COMPLETED"
+      "type": "enum",
+      "members": {
+        "PENDING_WORKFLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_WORKFLOW"
           }
-        ]
+        },
+        "PENDING_ACCEPT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_ACCEPT"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REJECTED"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "FAILED_WORKFLOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_WORKFLOW"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "WORKFLOW_COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKFLOW_COMPLETED"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#RedirectException": {
@@ -5694,6 +7342,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#RejectGrantResponse": {
@@ -5717,25 +7368,32 @@
             "smithy.api#documentation": "<p>Grant version.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.licensemanager#RenewType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "None",
-            "name": "NONE"
-          },
-          {
-            "value": "Weekly",
-            "name": "WEEKLY"
-          },
-          {
-            "value": "Monthly",
-            "name": "MONTHLY"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "None"
           }
-        ]
+        },
+        "WEEKLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Weekly"
+          }
+        },
+        "MONTHLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Monthly"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#ReportContext": {
@@ -5774,22 +7432,26 @@
       }
     },
     "com.amazonaws.licensemanager#ReportFrequencyType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAY",
-            "name": "DAY"
-          },
-          {
-            "value": "WEEK",
-            "name": "WEEK"
-          },
-          {
-            "value": "MONTH",
-            "name": "MONTH"
+      "type": "enum",
+      "members": {
+        "DAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAY"
           }
-        ]
+        },
+        "WEEK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEEK"
+          }
+        },
+        "MONTH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONTH"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#ReportGenerator": {
@@ -5894,18 +7556,20 @@
       }
     },
     "com.amazonaws.licensemanager#ReportType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LicenseConfigurationSummaryReport",
-            "name": "LICENSE_CONFIGURATION_SUMMARY_REPORT"
-          },
-          {
-            "value": "LicenseConfigurationUsageReport",
-            "name": "LICENSE_CONFIGURATION_USAGE_REPORT"
+      "type": "enum",
+      "members": {
+        "LICENSE_CONFIGURATION_SUMMARY_REPORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LicenseConfigurationSummaryReport"
           }
-        ]
+        },
+        "LICENSE_CONFIGURATION_USAGE_REPORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LicenseConfigurationUsageReport"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#ReportTypeList": {
@@ -5999,30 +7663,38 @@
       }
     },
     "com.amazonaws.licensemanager#ResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EC2_INSTANCE",
-            "name": "EC2_INSTANCE"
-          },
-          {
-            "value": "EC2_HOST",
-            "name": "EC2_HOST"
-          },
-          {
-            "value": "EC2_AMI",
-            "name": "EC2_AMI"
-          },
-          {
-            "value": "RDS",
-            "name": "RDS"
-          },
-          {
-            "value": "SYSTEMS_MANAGER_MANAGED_INSTANCE",
-            "name": "SYSTEMS_MANAGER_MANAGED_INSTANCE"
+      "type": "enum",
+      "members": {
+        "EC2_INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EC2_INSTANCE"
           }
-        ]
+        },
+        "EC2_HOST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EC2_HOST"
+          }
+        },
+        "EC2_AMI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EC2_AMI"
+          }
+        },
+        "RDS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RDS"
+          }
+        },
+        "SYSTEMS_MANAGER_MANAGED_INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SYSTEMS_MANAGER_MANAGED_INSTANCE"
+          }
+        }
       }
     },
     "com.amazonaws.licensemanager#S3Location": {
@@ -6167,11 +7839,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#TokenData": {
       "type": "structure",
@@ -6240,14 +7918,14 @@
       }
     },
     "com.amazonaws.licensemanager#TokenType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "REFRESH_TOKEN",
-            "name": "REFRESH_TOKEN"
+      "type": "enum",
+      "members": {
+        "REFRESH_TOKEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REFRESH_TOKEN"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.licensemanager#UnsupportedDigitalSignatureMethodException": {
@@ -6309,11 +7987,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#UpdateLicenseConfiguration": {
       "type": "operation",
@@ -6405,11 +8089,17 @@
             "smithy.api#documentation": "<p>When true, disassociates a resource when software is uninstalled.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#UpdateLicenseConfigurationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#UpdateLicenseManagerReportGenerator": {
       "type": "operation",
@@ -6500,11 +8190,17 @@
             "smithy.api#documentation": "<p>Description of the report generator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#UpdateLicenseManagerReportGeneratorResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResource": {
       "type": "operation",
@@ -6538,7 +8234,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p> \n         <p>You can update the license specifications of AMIs, instances, and hosts.\n         You cannot update the license specifications for launch templates and CloudFormation templates, \n         as they send license configurations to the operation that creates the resource.</p>"
+        "smithy.api#documentation": "<p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>\n         <p>You can update the license specifications of AMIs, instances, and hosts.\n         You cannot update the license specifications for launch templates and CloudFormation templates, \n         as they send license configurations to the operation that creates the resource.</p>"
       }
     },
     "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceRequest": {
@@ -6563,11 +8259,17 @@
             "smithy.api#documentation": "<p>ARNs of the license configurations to remove.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#UpdateLicenseSpecificationsForResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#UpdateServiceSettings": {
       "type": "operation",
@@ -6625,11 +8327,17 @@
             "smithy.api#documentation": "<p>Activates cross-account discovery.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.licensemanager#UpdateServiceSettingsResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.licensemanager#UsageOperation": {
       "type": "string",

@@ -1,88 +1,110 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { PinpointEmailServiceException as __BaseException } from "./PinpointEmailServiceException";
 
 /**
+ * @public
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
-export interface AccountSuspendedException extends __SmithyException, $MetadataBearer {
-  name: "AccountSuspendedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AccountSuspendedException {
+export class AccountSuspendedException extends __BaseException {
+  readonly name: "AccountSuspendedException" = "AccountSuspendedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AccountSuspendedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AccountSuspendedException, __BaseException>) {
+    super({
+      name: "AccountSuspendedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountSuspendedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The resource specified in your request already exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AlreadyExistsException {
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The input you provided is invalid.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace BadRequestException {
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The resource is being modified by another operation or thread.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace ConcurrentModificationException {
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
-export enum TlsPolicy {
-  OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE",
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TlsPolicy = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRE: "REQUIRE",
+} as const;
+
+/**
+ * @public
+ */
+export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
+
+/**
+ * @public
  * <p>Used to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface DeliveryOptions {
   /**
+   * @public
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
@@ -91,27 +113,21 @@ export interface DeliveryOptions {
   TlsPolicy?: TlsPolicy | string;
 
   /**
+   * @public
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
    */
   SendingPoolName?: string;
 }
 
-export namespace DeliveryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Enable or disable collection of reputation metrics for emails that you send using this
  *             configuration set in the current AWS Region. </p>
  */
 export interface ReputationOptions {
   /**
+   * @public
    * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
    *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
    *             configuration set.</p>
@@ -119,6 +135,7 @@ export interface ReputationOptions {
   ReputationMetricsEnabled?: boolean;
 
   /**
+   * @public
    * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
    *             start. When your account is given a fresh start, your reputation metrics are calculated
    *             starting from the date of the fresh start.</p>
@@ -126,37 +143,22 @@ export interface ReputationOptions {
   LastFreshStart?: Date;
 }
 
-export namespace ReputationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReputationOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Used to enable or disable email sending for messages that use this configuration set
  *             in the current AWS Region.</p>
  */
 export interface SendingOptions {
   /**
+   * @public
    * <p>If <code>true</code>, email sending is enabled for the configuration set. If
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
    */
   SendingEnabled?: boolean;
 }
 
-export namespace SendingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendingOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines the tags that are associated with a resource.
  *                 A <i>tag</i> is a label that you optionally define and associate with
  *             a resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different
@@ -193,12 +195,14 @@ export namespace SendingOptions {
  */
 export interface Tag {
   /**
+   * @public
    * <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
    *             128 characters. The minimum length is 1 character.</p>
    */
   Key: string | undefined;
 
   /**
+   * @public
    * <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
    *             value is 256 characters. The minimum length is 0 characters. If you don’t want a
    *             resource to have a specific tag value, don’t specify a value for this parameter. Amazon Pinpoint
@@ -207,16 +211,8 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines the tracking options for a configuration set. When you use
  *             Amazon Pinpoint to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
@@ -227,150 +223,149 @@ export namespace Tag {
  */
 export interface TrackingOptions {
   /**
+   * @public
    * <p>The domain that you want to use for tracking open and click events.</p>
    */
   CustomRedirectDomain: string | undefined;
 }
 
-export namespace TrackingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackingOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to create a configuration set.</p>
  */
 export interface CreateConfigurationSetRequest {
   /**
+   * @public
    * <p>The name of the configuration set.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>An object that defines the open and click tracking options for emails that you send
    *             using the configuration set.</p>
    */
   TrackingOptions?: TrackingOptions;
 
   /**
+   * @public
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
    *             using the configuration set.</p>
    */
   DeliveryOptions?: DeliveryOptions;
 
   /**
+   * @public
    * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
    *             that you send that use the configuration set.</p>
    */
   ReputationOptions?: ReputationOptions;
 
   /**
+   * @public
    * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
    *             configuration set.</p>
    */
   SendingOptions?: SendingOptions;
 
   /**
+   * @public
    * <p>An array of objects that define the tags (keys and values) that you want to associate
    *             with the configuration set.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateConfigurationSetResponse {}
 
-export namespace CreateConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>There are too many instances of the specified resource type.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The resource you attempted to access doesn't exist.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Too many requests have been made to the operation.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TooManyRequestsException {
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
-export enum DimensionValueSource {
-  EMAIL_HEADER = "EMAIL_HEADER",
-  LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG",
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const DimensionValueSource = {
+  EMAIL_HEADER: "EMAIL_HEADER",
+  LINK_TAG: "LINK_TAG",
+  MESSAGE_TAG: "MESSAGE_TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof DimensionValueSource];
+
+/**
+ * @public
  * <p>An object that defines the dimension configuration to use when you send Amazon Pinpoint email
  *             events to Amazon CloudWatch.</p>
  */
 export interface CloudWatchDimensionConfiguration {
   /**
+   * @public
    * <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to
    *             meet the following criteria:</p>
    *         <ul>
@@ -386,6 +381,7 @@ export interface CloudWatchDimensionConfiguration {
   DimensionName: string | undefined;
 
   /**
+   * @public
    * <p>The location where Amazon Pinpoint finds the value of a dimension to publish to Amazon CloudWatch. If you
    *             want Amazon Pinpoint to use the message tags that you specify using an X-SES-MESSAGE-TAGS header
    *             or a parameter to the SendEmail/SendRawEmail API, choose <code>messageTag</code>. If you
@@ -395,6 +391,7 @@ export interface CloudWatchDimensionConfiguration {
   DimensionValueSource: DimensionValueSource | string | undefined;
 
   /**
+   * @public
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
    *             value of the dimension when you send an email. This value has to meet the following
    *             criteria:</p>
@@ -411,102 +408,84 @@ export interface CloudWatchDimensionConfiguration {
   DefaultDimensionValue: string | undefined;
 }
 
-export namespace CloudWatchDimensionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
  *             monitor and gain insights on your email sending metrics.</p>
  */
 export interface CloudWatchDestination {
   /**
+   * @public
    * <p>An array of objects that define the dimensions to use when you send email events to
    *             Amazon CloudWatch.</p>
    */
   DimensionConfigurations: CloudWatchDimensionConfiguration[] | undefined;
 }
 
-export namespace CloudWatchDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
  *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
  */
 export interface KinesisFirehoseDestination {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses when sending email
    *             events to the Amazon Kinesis Data Firehose stream.</p>
    */
   IamRoleArn: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that Amazon Pinpoint sends email events
    *             to.</p>
    */
   DeliveryStreamArn: string | undefined;
 }
 
-export namespace KinesisFirehoseDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj,
-  });
-}
-
-export enum EventType {
-  BOUNCE = "BOUNCE",
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  OPEN = "OPEN",
-  REJECT = "REJECT",
-  RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND",
-}
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  BOUNCE: "BOUNCE",
+  CLICK: "CLICK",
+  COMPLAINT: "COMPLAINT",
+  DELIVERY: "DELIVERY",
+  OPEN: "OPEN",
+  REJECT: "REJECT",
+  RENDERING_FAILURE: "RENDERING_FAILURE",
+  SEND: "SEND",
+} as const;
 
 /**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
  * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
  *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
  *             for your campaigns.</p>
  */
 export interface PinpointDestination {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send email
    *             events to.</p>
    */
   ApplicationArn?: string;
 }
 
-export namespace PinpointDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PinpointDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
  *             send notification when certain email events occur.</p>
  */
 export interface SnsDestination {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email
    *             events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer
    *                 Guide</a>.</p>
@@ -514,16 +493,8 @@ export interface SnsDestination {
   TopicArn: string | undefined;
 }
 
-export namespace SnsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines the event destination. Specifically, it defines which services
  *             receive events from emails sent using the configuration set that the event destination
  *             is associated with. Also defines the types of events that are sent to the event
@@ -531,6 +502,7 @@ export namespace SnsDestination {
  */
 export interface EventDestinationDefinition {
   /**
+   * @public
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
    *             enabled, the specified event types are sent to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
@@ -540,30 +512,35 @@ export interface EventDestinationDefinition {
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>An array that specifies which events Amazon Pinpoint should send to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
    */
   MatchingEventTypes?: (EventType | string)[];
 
   /**
+   * @public
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
+   * @public
    * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
    *             monitor and gain insights on your email sending metrics.</p>
    */
   CloudWatchDestination?: CloudWatchDestination;
 
   /**
+   * @public
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
    *             send notification when certain email events occur.</p>
    */
   SnsDestination?: SnsDestination;
 
   /**
+   * @public
    * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
    *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
    *             for your campaigns.</p>
@@ -571,104 +548,70 @@ export interface EventDestinationDefinition {
   PinpointDestination?: PinpointDestination;
 }
 
-export namespace EventDestinationDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to add an event destination to a configuration set.</p>
  */
 export interface CreateConfigurationSetEventDestinationRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to add an event destination to.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>A name that identifies the event destination within the configuration set.</p>
    */
   EventDestinationName: string | undefined;
 
   /**
+   * @public
    * <p>An object that defines the event destination.</p>
    */
   EventDestination: EventDestinationDefinition | undefined;
 }
 
-export namespace CreateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
-export namespace CreateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to create a new dedicated IP pool.</p>
  */
 export interface CreateDedicatedIpPoolRequest {
   /**
+   * @public
    * <p>The name of the dedicated IP pool.</p>
    */
   PoolName: string | undefined;
 
   /**
+   * @public
    * <p>An object that defines the tags (keys and values) that you want to associate with the
    *             pool.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateDedicatedIpPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDedicatedIpPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateDedicatedIpPoolResponse {}
 
-export namespace CreateDedicatedIpPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDedicatedIpPoolResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The raw email message.</p>
  */
 export interface RawMessage {
   /**
+   * @public
    * <p>The raw email message. The message has to meet the following criteria:</p>
    *         <ul>
    *             <li>
@@ -702,26 +645,20 @@ export interface RawMessage {
   Data: Uint8Array | undefined;
 }
 
-export namespace RawMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that represents the content of the email, and optionally a character set
  *             specification.</p>
  */
 export interface Content {
   /**
+   * @public
    * <p>The content of the message itself.</p>
    */
   Data: string | undefined;
 
   /**
+   * @public
    * <p>The character set for the content. Because of the constraints of the SMTP protocol,
    *             Amazon Pinpoint uses 7-bit ASCII by default. If the text includes characters outside of the ASCII
    *             range, you have to specify a character set. For example, you could specify
@@ -730,20 +667,13 @@ export interface Content {
   Charset?: string;
 }
 
-export namespace Content {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the body of the email message.</p>
  */
 export interface Body {
   /**
+   * @public
    * <p>An object that represents the version of the message that is displayed in email
    *             clients that don't support HTML, or clients where the recipient has disabled HTML
    *             rendering.</p>
@@ -751,6 +681,7 @@ export interface Body {
   Text?: Content;
 
   /**
+   * @public
    * <p>An object that represents the version of the message that is displayed in email
    *             clients that support HTML. HTML messages can include formatted text, hyperlinks, images,
    *             and more. </p>
@@ -758,21 +689,14 @@ export interface Body {
   Html?: Content;
 }
 
-export namespace Body {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the email message that you're sending. The <code>Message</code> object
  *             consists of a subject line and a message body.</p>
  */
 export interface Message {
   /**
+   * @public
    * <p>The subject line of the email. The subject line can only contain 7-bit ASCII
    *             characters. However, you can specify non-ASCII characters in the subject line by using
    *             encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.</p>
@@ -780,43 +704,32 @@ export interface Message {
   Subject: Content | undefined;
 
   /**
+   * @public
    * <p>The body of the message. You can specify an HTML version of the message, a text-only
    *             version of the message, or both.</p>
    */
   Body: Body | undefined;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface Template {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    */
   TemplateArn?: string;
 
   /**
+   * @public
    * <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
    */
   TemplateData?: string;
 }
 
-export namespace Template {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that defines the entire content of the email, including the message headers
  *             and the body content. You can create a simple email message, in which you specify the
  *             subject and the text and HTML versions of the message body. You can also create raw
@@ -825,11 +738,13 @@ export namespace Template {
  */
 export interface EmailContent {
   /**
+   * @public
    * <p>The simple email message. The message consists of a subject and a message body.</p>
    */
   Simple?: Message;
 
   /**
+   * @public
    * <p>The raw email message. The message has to meet the following criteria:</p>
    *         <ul>
    *             <li>
@@ -863,21 +778,14 @@ export interface EmailContent {
   Raw?: RawMessage;
 
   /**
+   * @public
    * <p>The template to use for the email message.</p>
    */
   Template?: Template;
 }
 
-export namespace EmailContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailContent): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to perform a predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will
  *             be handled by various email providers around the world. When you perform a predictive inbox placement test, you
  *             provide a sample message that contains the content that you plan to send to your
@@ -888,52 +796,59 @@ export namespace EmailContent {
  */
 export interface CreateDeliverabilityTestReportRequest {
   /**
+   * @public
    * <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the
    *             results.</p>
    */
   ReportName?: string;
 
   /**
+   * @public
    * <p>The email address that the predictive inbox placement test email was sent from.</p>
    */
   FromEmailAddress: string | undefined;
 
   /**
+   * @public
    * <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
    */
   Content: EmailContent | undefined;
 
   /**
+   * @public
    * <p>An array of objects that define the tags (keys and values) that you want to associate
    *             with the predictive inbox placement test.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateDeliverabilityTestReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DeliverabilityTestStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliverabilityTestStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliverabilityTestStatus = (typeof DeliverabilityTestStatus)[keyof typeof DeliverabilityTestStatus];
+
+/**
+ * @public
  * <p>Information about the predictive inbox placement test that you created.</p>
  */
 export interface CreateDeliverabilityTestReportResponse {
   /**
+   * @public
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    */
   ReportId: string | undefined;
 
   /**
+   * @public
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
@@ -942,110 +857,112 @@ export interface CreateDeliverabilityTestReportResponse {
   DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
 }
 
-export namespace CreateDeliverabilityTestReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The message can't be sent because the sending domain isn't verified.</p>
  */
-export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "MailFromDomainNotVerifiedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace MailFromDomainNotVerifiedException {
+export class MailFromDomainNotVerifiedException extends __BaseException {
+  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
+    super({
+      name: "MailFromDomainNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The message can't be sent because it contains invalid content.</p>
  */
-export interface MessageRejected extends __SmithyException, $MetadataBearer {
-  name: "MessageRejected";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace MessageRejected {
+export class MessageRejected extends __BaseException {
+  readonly name: "MessageRejected" = "MessageRejected";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
+    super({
+      name: "MessageRejected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageRejected.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The message can't be sent because the account's ability to send email is currently
  *             paused.</p>
  */
-export interface SendingPausedException extends __SmithyException, $MetadataBearer {
-  name: "SendingPausedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SendingPausedException {
+export class SendingPausedException extends __BaseException {
+  readonly name: "SendingPausedException" = "SendingPausedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SendingPausedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<SendingPausedException, __BaseException>) {
+    super({
+      name: "SendingPausedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SendingPausedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A request to begin the verification process for an email identity (an email address or
  *             domain).</p>
  */
 export interface CreateEmailIdentityRequest {
   /**
+   * @public
    * <p>The email address or domain that you want to verify.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
+   * @public
    * <p>An array of objects that define the tags (keys and values) that you want to associate
    *             with the email identity.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace CreateEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DkimStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DkimStatus = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+} as const;
 
 /**
+ * @public
+ */
+export type DkimStatus = (typeof DkimStatus)[keyof typeof DkimStatus];
+
+/**
+ * @public
  * <p>An object that contains information about the DKIM configuration for an email
  *             identity.</p>
  */
 export interface DkimAttributes {
   /**
+   * @public
    * <p>If the value is <code>true</code>, then the messages that Amazon Pinpoint sends from the
    *             identity are DKIM-signed. If the value is <code>false</code>, then the messages that
    *             Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>
@@ -1053,6 +970,7 @@ export interface DkimAttributes {
   SigningEnabled?: boolean;
 
   /**
+   * @public
    * <p>Describes whether or not Amazon Pinpoint has successfully located the DKIM records in the DNS
    *             records for the domain. The status can be one of the following:</p>
    *         <ul>
@@ -1088,6 +1006,7 @@ export interface DkimAttributes {
   Status?: DkimStatus | string;
 
   /**
+   * @public
    * <p>A set of unique strings that you use to create a set of CNAME records that you add to
    *             the DNS configuration for your domain. When Amazon Pinpoint detects these records in the DNS
    *             configuration for your domain, the DKIM authentication process is complete. Amazon Pinpoint
@@ -1097,22 +1016,23 @@ export interface DkimAttributes {
   Tokens?: string[];
 }
 
-export namespace DkimAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DkimAttributes): any => ({
-    ...obj,
-  });
-}
-
-export enum IdentityType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  MANAGED_DOMAIN: "MANAGED_DOMAIN",
+} as const;
 
 /**
+ * @public
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+/**
+ * @public
  * <p>If the email identity is a domain, this object contains tokens that you can use to
  *             create a set of CNAME records. To sucessfully verify your domain, you have to add these
  *             records to the DNS configuration for your domain.</p>
@@ -1120,11 +1040,13 @@ export enum IdentityType {
  */
 export interface CreateEmailIdentityResponse {
   /**
+   * @public
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
 
   /**
+   * @public
    * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
    *             from verified email addresses or domains. For more information about verifying
    *             identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
@@ -1132,6 +1054,7 @@ export interface CreateEmailIdentityResponse {
   VerifiedForSendingStatus?: boolean;
 
   /**
+   * @public
    * <p>An object that contains information about the DKIM attributes for the identity. This
    *             object includes the tokens that you use to create the CNAME records that are required to
    *             complete the DKIM verification process.</p>
@@ -1139,181 +1062,107 @@ export interface CreateEmailIdentityResponse {
   DkimAttributes?: DkimAttributes;
 }
 
-export namespace CreateEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to delete a configuration set.</p>
  */
 export interface DeleteConfigurationSetRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to delete.</p>
    */
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteConfigurationSetResponse {}
 
-export namespace DeleteConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to delete an event destination from a configuration set.</p>
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
+   * @public
    * <p>The name of the configuration set that contains the event destination that you want to
    *             delete.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the event destination that you want to delete.</p>
    */
   EventDestinationName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
-export namespace DeleteConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to delete a dedicated IP pool.</p>
  */
 export interface DeleteDedicatedIpPoolRequest {
   /**
+   * @public
    * <p>The name of the dedicated IP pool that you want to delete.</p>
    */
   PoolName: string | undefined;
 }
 
-export namespace DeleteDedicatedIpPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteDedicatedIpPoolResponse {}
 
-export namespace DeleteDedicatedIpPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to delete an existing email identity. When you delete an identity, you lose
  *             the ability to use Amazon Pinpoint to send email from that identity. You can restore your ability
  *             to send email by completing the verification process for the identity again.</p>
  */
 export interface DeleteEmailIdentityRequest {
   /**
+   * @public
    * <p>The identity (that is, the email address or domain) that you want to delete from your
    *             Amazon Pinpoint account.</p>
    */
   EmailIdentity: string | undefined;
 }
 
-export namespace DeleteEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteEmailIdentityResponse {}
 
-export namespace DeleteEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain information about the email-sending capabilities of your Amazon Pinpoint
  *             account.</p>
  */
 export interface GetAccountRequest {}
 
-export namespace GetAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about the per-day and per-second sending limits
  *             for your Amazon Pinpoint account in the current AWS Region.</p>
  */
 export interface SendQuota {
   /**
+   * @public
    * <p>The maximum number of emails that you can send in the current AWS Region over a
    *             24-hour period. This value is also called your <i>sending
    *             quota</i>.</p>
@@ -1321,6 +1170,7 @@ export interface SendQuota {
   Max24HourSend?: number;
 
   /**
+   * @public
    * <p>The maximum number of emails that you can send per second in the current AWS Region.
    *             This value is also called your <i>maximum sending rate</i> or your
    *                 <i>maximum TPS (transactions per second) rate</i>.</p>
@@ -1328,45 +1178,42 @@ export interface SendQuota {
   MaxSendRate?: number;
 
   /**
+   * @public
    * <p>The number of emails sent from your Amazon Pinpoint account in the current AWS Region over the
    *             past 24 hours.</p>
    */
   SentLast24Hours?: number;
 }
 
-export namespace SendQuota {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendQuota): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of details about the email-sending capabilities of your Amazon Pinpoint account in the
  *             current AWS Region.</p>
  */
 export interface GetAccountResponse {
   /**
+   * @public
    * <p>An object that contains information about the per-day and per-second sending limits
    *             for your Amazon Pinpoint account in the current AWS Region.</p>
    */
   SendQuota?: SendQuota;
 
   /**
+   * @public
    * <p>Indicates whether or not email sending is enabled for your Amazon Pinpoint account in the
    *             current AWS Region.</p>
    */
   SendingEnabled?: boolean;
 
   /**
+   * @public
    * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
    *             addresses that are associated with your account.</p>
    */
   DedicatedIpAutoWarmupEnabled?: boolean;
 
   /**
+   * @public
    * <p>The reputation status of your Amazon Pinpoint account. The status can be one of the
    *             following:</p>
    *         <ul>
@@ -1393,6 +1240,7 @@ export interface GetAccountResponse {
   EnforcementStatus?: string;
 
   /**
+   * @public
    * <p>Indicates whether or not your account has production access in the current AWS
    *             Region.</p>
    *         <p>If the value is <code>false</code>, then your account is in the
@@ -1407,21 +1255,14 @@ export interface GetAccountResponse {
   ProductionAccessEnabled?: boolean;
 }
 
-export namespace GetAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to retrieve a list of the blacklists that your dedicated IP addresses appear
  *             on.</p>
  */
 export interface GetBlacklistReportsRequest {
   /**
+   * @public
    * <p>A list of IP addresses that you want to retrieve blacklist information about. You can
    *             only specify the dedicated IP addresses that you use to send email using Amazon Pinpoint or
    *             Amazon SES.</p>
@@ -1429,156 +1270,120 @@ export interface GetBlacklistReportsRequest {
   BlacklistItemNames: string[] | undefined;
 }
 
-export namespace GetBlacklistReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlacklistReportsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about a blacklisting event that impacts one of the
  *             dedicated IP addresses that is associated with your account.</p>
  */
 export interface BlacklistEntry {
   /**
+   * @public
    * <p>The name of the blacklist that the IP address appears on.</p>
    */
   RblName?: string;
 
   /**
+   * @public
    * <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
    */
   ListingTime?: Date;
 
   /**
+   * @public
    * <p>Additional information about the blacklisting event, as provided by the blacklist
    *             maintainer.</p>
    */
   Description?: string;
 }
 
-export namespace BlacklistEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlacklistEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about blacklist events.</p>
  */
 export interface GetBlacklistReportsResponse {
   /**
+   * @public
    * <p>An object that contains information about a blacklist that one of your dedicated IP
    *             addresses appears on.</p>
    */
-  BlacklistReport: { [key: string]: BlacklistEntry[] } | undefined;
-}
-
-export namespace GetBlacklistReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlacklistReportsResponse): any => ({
-    ...obj,
-  });
+  BlacklistReport: Record<string, BlacklistEntry[]> | undefined;
 }
 
 /**
+ * @public
  * <p>A request to obtain information about a configuration set.</p>
  */
 export interface GetConfigurationSetRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to obtain more information
    *             about.</p>
    */
   ConfigurationSetName: string | undefined;
 }
 
-export namespace GetConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a configuration set.</p>
  */
 export interface GetConfigurationSetResponse {
   /**
+   * @public
    * <p>The name of the configuration set.</p>
    */
   ConfigurationSetName?: string;
 
   /**
+   * @public
    * <p>An object that defines the open and click tracking options for emails that you send
    *             using the configuration set.</p>
    */
   TrackingOptions?: TrackingOptions;
 
   /**
+   * @public
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
    *             using the configuration set.</p>
    */
   DeliveryOptions?: DeliveryOptions;
 
   /**
+   * @public
    * <p>An object that defines whether or not Amazon Pinpoint collects reputation metrics for the emails
    *             that you send that use the configuration set.</p>
    */
   ReputationOptions?: ReputationOptions;
 
   /**
+   * @public
    * <p>An object that defines whether or not Amazon Pinpoint can send email that you send using the
    *             configuration set.</p>
    */
   SendingOptions?: SendingOptions;
 
   /**
+   * @public
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the configuration set.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace GetConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain information about the event destinations for a configuration
  *             set.</p>
  */
 export interface GetConfigurationSetEventDestinationsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that contains the event destination.</p>
    */
   ConfigurationSetName: string | undefined;
 }
 
-export namespace GetConfigurationSetEventDestinationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
  *             clicks, bounces, and complaints. <i>Event destinations</i> are places that
  *             you can send information about these events to. For example, you can send event data to
@@ -1587,11 +1392,13 @@ export namespace GetConfigurationSetEventDestinationsRequest {
  */
 export interface EventDestination {
   /**
+   * @public
    * <p>A name that identifies the event destination.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
    *             enabled, the specified event types are sent to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
@@ -1601,29 +1408,34 @@ export interface EventDestination {
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>
    */
   MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
+   * @public
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
+   * @public
    * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
    *             monitor and gain insights on your email sending metrics.</p>
    */
   CloudWatchDestination?: CloudWatchDestination;
 
   /**
+   * @public
    * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
    *             send notification when certain email events occur.</p>
    */
   SnsDestination?: SnsDestination;
 
   /**
+   * @public
    * <p>An object that defines a Amazon Pinpoint destination for email events. You can use Amazon Pinpoint events
    *             to create attributes in Amazon Pinpoint projects. You can use these attributes to create segments
    *             for your campaigns.</p>
@@ -1631,72 +1443,61 @@ export interface EventDestination {
   PinpointDestination?: PinpointDestination;
 }
 
-export namespace EventDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an event destination for a configuration set.</p>
  */
 export interface GetConfigurationSetEventDestinationsResponse {
   /**
+   * @public
    * <p>An array that includes all of the events destinations that have been configured for
    *             the configuration set.</p>
    */
   EventDestinations?: EventDestination[];
 }
 
-export namespace GetConfigurationSetEventDestinationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain more information about a dedicated IP address.</p>
  */
 export interface GetDedicatedIpRequest {
   /**
+   * @public
    * <p>The IP address that you want to obtain more information about. The value you specify
    *             has to be a dedicated IP address that's assocaited with your Amazon Pinpoint account.</p>
    */
   Ip: string | undefined;
 }
 
-export namespace GetDedicatedIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum WarmupStatus {
-  DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const WarmupStatus = {
+  DONE: "DONE",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
 /**
+ * @public
+ */
+export type WarmupStatus = (typeof WarmupStatus)[keyof typeof WarmupStatus];
+
+/**
+ * @public
  * <p>Contains information about a dedicated IP address that is associated with your Amazon Pinpoint
  *             account.</p>
  *         <p></p>
  */
 export interface DedicatedIp {
   /**
+   * @public
    * <p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>
    */
   Ip: string | undefined;
 
   /**
+   * @public
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
    *             values:</p>
    *         <ul>
@@ -1715,61 +1516,51 @@ export interface DedicatedIp {
   WarmupStatus: WarmupStatus | string | undefined;
 
   /**
+   * @public
    * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
    *             the address has completed the warm-up process and is ready for use.</p>
    */
   WarmupPercentage: number | undefined;
 
   /**
+   * @public
    * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
    */
   PoolName?: string;
 }
 
-export namespace DedicatedIp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DedicatedIp): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a dedicated IP address.</p>
  */
 export interface GetDedicatedIpResponse {
   /**
+   * @public
    * <p>An object that contains information about a dedicated IP address.</p>
    */
   DedicatedIp?: DedicatedIp;
 }
 
-export namespace GetDedicatedIpResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain more information about dedicated IP pools.</p>
  */
 export interface GetDedicatedIpsRequest {
   /**
+   * @public
    * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
    */
   PoolName?: string;
 
   /**
+   * @public
    * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
    *             position of the dedicated IP pool in the list of IP pools.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
@@ -1778,27 +1569,21 @@ export interface GetDedicatedIpsRequest {
   PageSize?: number;
 }
 
-export namespace GetDedicatedIpsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the dedicated IP addresses that are associated with your Amazon Pinpoint
  *             account.</p>
  */
 export interface GetDedicatedIpsResponse {
   /**
+   * @public
    * <p>A list of dedicated IP addresses that are reserved for use by your Amazon Pinpoint
    *             account.</p>
    */
   DedicatedIps?: DedicatedIp[];
 
   /**
+   * @public
    * <p>A token that indicates that there are additional dedicated IP addresses to list. To
    *             view additional addresses, issue another request to <code>GetDedicatedIps</code>,
    *             passing this token in the <code>NextToken</code> parameter.</p>
@@ -1806,16 +1591,8 @@ export interface GetDedicatedIpsResponse {
   NextToken?: string;
 }
 
-export namespace GetDedicatedIpsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account.
  *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
  *             other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the
@@ -1826,22 +1603,24 @@ export namespace GetDedicatedIpsResponse {
  */
 export interface GetDeliverabilityDashboardOptionsRequest {}
 
-export namespace GetDeliverabilityDashboardOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DeliverabilityDashboardAccountStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeliverabilityDashboardAccountStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  PENDING_EXPIRATION: "PENDING_EXPIRATION",
+} as const;
 
 /**
+ * @public
+ */
+export type DeliverabilityDashboardAccountStatus =
+  (typeof DeliverabilityDashboardAccountStatus)[keyof typeof DeliverabilityDashboardAccountStatus];
+
+/**
+ * @public
  * <p>An object that contains information about the inbox placement data settings for a
  *             verified domain that’s associated with your AWS account. This data is available only
  *             if you enabled the Deliverability dashboard for the domain
@@ -1849,27 +1628,21 @@ export enum DeliverabilityDashboardAccountStatus {
  */
 export interface InboxPlacementTrackingOption {
   /**
+   * @public
    * <p>Specifies whether inbox placement data is being tracked for the domain.</p>
    */
   Global?: boolean;
 
   /**
+   * @public
    * <p>An array of strings, one for each major email provider that the inbox placement data
    *             applies to.</p>
    */
   TrackedIsps?: string[];
 }
 
-export namespace InboxPlacementTrackingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InboxPlacementTrackingOption): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about the Deliverability dashboard subscription for a
  *             verified domain that you use to send email and currently has an active Deliverability dashboard
  *             subscription. If a Deliverability dashboard subscription is active for a domain, you gain access
@@ -1877,44 +1650,41 @@ export namespace InboxPlacementTrackingOption {
  */
 export interface DomainDeliverabilityTrackingOption {
   /**
+   * @public
    * <p>A verified domain that’s associated with your AWS account and currently has an
    *             active Deliverability dashboard subscription.</p>
    */
   Domain?: string;
 
   /**
+   * @public
    * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
    *             domain.</p>
    */
   SubscriptionStartDate?: Date;
 
   /**
+   * @public
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
    */
   InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
 }
 
-export namespace DomainDeliverabilityTrackingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDeliverabilityTrackingOption): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that shows the status of the Deliverability dashboard for your Amazon Pinpoint account.</p>
  */
 export interface GetDeliverabilityDashboardOptionsResponse {
   /**
+   * @public
    * <p>Specifies whether the Deliverability dashboard is enabled for your Amazon Pinpoint account. If this value
    *             is <code>true</code>, the dashboard is enabled.</p>
    */
   DashboardEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
    *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
    *             current calendar month. This value is null if you have an active subscription that isn’t
@@ -1923,6 +1693,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   SubscriptionExpiryDate?: Date;
 
   /**
+   * @public
    * <p>The current status of your Deliverability dashboard subscription. If this value is
    *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
    *             of the current calendar month.</p>
@@ -1930,6 +1701,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   AccountStatus?: DeliverabilityDashboardAccountStatus | string;
 
   /**
+   * @public
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at
    *             the end of the current calendar month.</p>
@@ -1937,6 +1709,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 
   /**
+   * @public
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             currently has an active Deliverability dashboard subscription that's scheduled to expire at the
    *             end of the current calendar month.</p>
@@ -1944,64 +1717,55 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 }
 
-export namespace GetDeliverabilityDashboardOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to retrieve the results of a predictive inbox placement test.</p>
  */
 export interface GetDeliverabilityTestReportRequest {
   /**
+   * @public
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    */
   ReportId: string | undefined;
 }
 
-export namespace GetDeliverabilityTestReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityTestReportRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains metadata related to a predictive inbox placement test.</p>
  */
 export interface DeliverabilityTestReport {
   /**
+   * @public
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    */
   ReportId?: string;
 
   /**
+   * @public
    * <p>A name that helps you identify a predictive inbox placement test report.</p>
    */
   ReportName?: string;
 
   /**
+   * @public
    * <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
    */
   Subject?: string;
 
   /**
+   * @public
    * <p>The sender address that you specified for the predictive inbox placement test.</p>
    */
   FromEmailAddress?: string;
 
   /**
+   * @public
    * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
    */
   CreateDate?: Date;
 
   /**
+   * @public
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
@@ -2010,93 +1774,78 @@ export interface DeliverabilityTestReport {
   DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
 }
 
-export namespace DeliverabilityTestReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliverabilityTestReport): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains inbox placement data for an email provider.</p>
  */
 export interface PlacementStatistics {
   /**
+   * @public
    * <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
    */
   InboxPercentage?: number;
 
   /**
+   * @public
    * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
    *             the predictive inbox placement test.</p>
    */
   SpamPercentage?: number;
 
   /**
+   * @public
    * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
    *             predictive inbox placement test.</p>
    */
   MissingPercentage?: number;
 
   /**
+   * @public
    * <p>The percentage of emails that were authenticated by using Sender Policy Framework
    *             (SPF) during the predictive inbox placement test.</p>
    */
   SpfPercentage?: number;
 
   /**
+   * @public
    * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
    *             (DKIM) during the predictive inbox placement test.</p>
    */
   DkimPercentage?: number;
 }
 
-export namespace PlacementStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that describes how email sent during the predictive inbox placement test was handled by a certain
  *             email provider.</p>
  */
 export interface IspPlacement {
   /**
+   * @public
    * <p>The name of the email provider that the inbox placement data applies to.</p>
    */
   IspName?: string;
 
   /**
+   * @public
    * <p>An object that contains inbox placement metrics for a specific email provider.</p>
    */
   PlacementStatistics?: PlacementStatistics;
 }
 
-export namespace IspPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IspPlacement): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The results of the predictive inbox placement test.</p>
  */
 export interface GetDeliverabilityTestReportResponse {
   /**
+   * @public
    * <p>An object that contains the results of the predictive inbox placement test.</p>
    */
   DeliverabilityTestReport: DeliverabilityTestReport | undefined;
 
   /**
+   * @public
    * <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were
    *             delivered to recipients' inboxes, how many were sent to recipients' spam folders, and
    *             how many weren't delivered.</p>
@@ -2104,34 +1853,29 @@ export interface GetDeliverabilityTestReportResponse {
   OverallPlacement: PlacementStatistics | undefined;
 
   /**
+   * @public
    * <p>An object that describes how the test email was handled by several email providers,
    *             including Gmail, Hotmail, Yahoo, AOL, and others.</p>
    */
   IspPlacements: IspPlacement[] | undefined;
 
   /**
+   * @public
    * <p>An object that contains the message that you sent when you performed this
    *             predictive inbox placement test.</p>
    */
   Message?: string;
 
   /**
+   * @public
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the predictive inbox placement test.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace GetDeliverabilityTestReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityTestReportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -2139,6 +1883,7 @@ export namespace GetDeliverabilityTestReportResponse {
  */
 export interface GetDomainDeliverabilityCampaignRequest {
   /**
+   * @public
    * <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
    *             identifier to a campaign. This value is not the same as the campaign identifier that
    *             Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
@@ -2147,16 +1892,8 @@ export interface GetDomainDeliverabilityCampaignRequest {
   CampaignId: string | undefined;
 }
 
-export namespace GetDomainDeliverabilityCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains the deliverability data for a specific campaign. This data is
  *             available for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -2164,6 +1901,7 @@ export namespace GetDomainDeliverabilityCampaignRequest {
  */
 export interface DomainDeliverabilityCampaign {
   /**
+   * @public
    * <p>The unique identifier for the campaign. Amazon Pinpoint automatically generates and assigns this
    *             identifier to a campaign. This value is not the same as the campaign identifier that
    *             Amazon Pinpoint assigns to campaigns that you create and manage by using the Amazon Pinpoint API or the
@@ -2172,27 +1910,32 @@ export interface DomainDeliverabilityCampaign {
   CampaignId?: string;
 
   /**
+   * @public
    * <p>The URL of an image that contains a snapshot of the email message that was
    *             sent.</p>
    */
   ImageUrl?: string;
 
   /**
+   * @public
    * <p>The subject line, or title, of the email message.</p>
    */
   Subject?: string;
 
   /**
+   * @public
    * <p>The verified email address that the email message was sent from.</p>
    */
   FromAddress?: string;
 
   /**
+   * @public
    * <p>The IP addresses that were used to send the email message.</p>
    */
   SendingIps?: string[];
 
   /**
+   * @public
    * <p>The first time, in Unix time format, when the email message was delivered to any
    *             recipient's inbox. This value can help you determine how long it took for a campaign to
    *             deliver an email message.</p>
@@ -2200,6 +1943,7 @@ export interface DomainDeliverabilityCampaign {
   FirstSeenDateTime?: Date;
 
   /**
+   * @public
    * <p>The last time, in Unix time format, when the email message was delivered to any
    *             recipient's inbox. This value can help you determine how long it took for a campaign to
    *             deliver an email message.</p>
@@ -2207,17 +1951,20 @@ export interface DomainDeliverabilityCampaign {
   LastSeenDateTime?: Date;
 
   /**
+   * @public
    * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
    */
   InboxCount?: number;
 
   /**
+   * @public
    * <p>The number of email messages that were delivered to recipients' spam or junk mail
    *             folders.</p>
    */
   SpamCount?: number;
 
   /**
+   * @public
    * <p>The percentage of email messages that were opened by recipients. Due to technical
    *             limitations, this value only includes recipients who opened the message by using an
    *             email client that supports images.</p>
@@ -2225,6 +1972,7 @@ export interface DomainDeliverabilityCampaign {
   ReadRate?: number;
 
   /**
+   * @public
    * <p>The percentage of email messages that were deleted by recipients, without being opened
    *             first. Due to technical limitations, this value only includes recipients who opened the
    *             message by using an email client that supports images.</p>
@@ -2232,6 +1980,7 @@ export interface DomainDeliverabilityCampaign {
   DeleteRate?: number;
 
   /**
+   * @public
    * <p>The percentage of email messages that were opened and then deleted by recipients. Due
    *             to technical limitations, this value only includes recipients who opened the message by
    *             using an email client that supports images.</p>
@@ -2239,26 +1988,20 @@ export interface DomainDeliverabilityCampaign {
   ReadDeleteRate?: number;
 
   /**
+   * @public
    * <p>The projected number of recipients that the email message was sent to.</p>
    */
   ProjectedVolume?: number;
 
   /**
+   * @public
    * <p>The major email providers who handled the email message.</p>
    */
   Esps?: string[];
 }
 
-export namespace DomainDeliverabilityCampaign {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDeliverabilityCampaign): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains all the deliverability data for a specific campaign. This data
  *             is available for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -2266,36 +2009,32 @@ export namespace DomainDeliverabilityCampaign {
  */
 export interface GetDomainDeliverabilityCampaignResponse {
   /**
+   * @public
    * <p>An object that contains the deliverability data for the campaign.</p>
    */
   DomainDeliverabilityCampaign: DomainDeliverabilityCampaign | undefined;
 }
 
-export namespace GetDomainDeliverabilityCampaignResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain deliverability metrics for a domain.</p>
  */
 export interface GetDomainStatisticsReportRequest {
   /**
+   * @public
    * <p>The domain that you want to obtain deliverability metrics for.</p>
    */
   Domain: string | undefined;
 
   /**
+   * @public
    * <p>The first day (in Unix time) that you want to obtain domain deliverability metrics
    *             for.</p>
    */
   StartDate: Date | undefined;
 
   /**
+   * @public
    * <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for.
    *             The <code>EndDate</code> that you specify has to be less than or equal to 30 days after
    *             the <code>StartDate</code>.</p>
@@ -2303,168 +2042,144 @@ export interface GetDomainStatisticsReportRequest {
   EndDate: Date | undefined;
 }
 
-export namespace GetDomainStatisticsReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainStatisticsReportRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains inbox placement data for email sent from one of your email
  *             domains to a specific email provider.</p>
  */
 export interface DomainIspPlacement {
   /**
+   * @public
    * <p>The name of the email provider that the inbox placement data applies to.</p>
    */
   IspName?: string;
 
   /**
+   * @public
    * <p>The total number of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    */
   InboxRawCount?: number;
 
   /**
+   * @public
    * <p>The total number of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    */
   SpamRawCount?: number;
 
   /**
+   * @public
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' inboxes.</p>
    */
   InboxPercentage?: number;
 
   /**
+   * @public
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    */
   SpamPercentage?: number;
 }
 
-export namespace DomainIspPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainIspPlacement): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about the amount of email that was delivered to
  *             recipients.</p>
  */
 export interface VolumeStatistics {
   /**
+   * @public
    * <p>The total number of emails that arrived in recipients' inboxes.</p>
    */
   InboxRawCount?: number;
 
   /**
+   * @public
    * <p>The total number of emails that arrived in recipients' spam or junk mail
    *             folders.</p>
    */
   SpamRawCount?: number;
 
   /**
+   * @public
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' inboxes.</p>
    */
   ProjectedInbox?: number;
 
   /**
+   * @public
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' spam or junk mail folders.</p>
    */
   ProjectedSpam?: number;
 }
 
-export namespace VolumeStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about the volume of email sent on each day of the
  *             analysis period.</p>
  */
 export interface DailyVolume {
   /**
+   * @public
    * <p>The date that the DailyVolume metrics apply to, in Unix time.</p>
    */
   StartDate?: Date;
 
   /**
+   * @public
    * <p>An object that contains inbox placement metrics for a specific day in the analysis
    *             period.</p>
    */
   VolumeStatistics?: VolumeStatistics;
 
   /**
+   * @public
    * <p>An object that contains inbox placement metrics for a specified day in the analysis
    *             period, broken out by the recipient's email provider.</p>
    */
   DomainIspPlacements?: DomainIspPlacement[];
 }
 
-export namespace DailyVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DailyVolume): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that contains information about email that was sent from the selected
  *             domain.</p>
  */
 export interface OverallVolume {
   /**
+   * @public
    * <p>An object that contains information about the numbers of messages that arrived in
    *             recipients' inboxes and junk mail folders.</p>
    */
   VolumeStatistics?: VolumeStatistics;
 
   /**
+   * @public
    * <p>The percentage of emails that were sent from the domain that were read by their
    *             recipients.</p>
    */
   ReadRatePercent?: number;
 
   /**
+   * @public
    * <p>An object that contains inbox and junk mail placement metrics for individual email
    *             providers.</p>
    */
   DomainIspPlacements?: DomainIspPlacement[];
 }
 
-export namespace OverallVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverallVolume): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that includes statistics that are related to the domain that you
  *             specified.</p>
  */
 export interface GetDomainStatisticsReportResponse {
   /**
+   * @public
    * <p>An object that contains deliverability metrics for the domain that you specified. The
    *             data in this object is a summary of all of the data that was collected from the
    *                 <code>StartDate</code> to the <code>EndDate</code>.</p>
@@ -2472,6 +2187,7 @@ export interface GetDomainStatisticsReportResponse {
   OverallVolume: OverallVolume | undefined;
 
   /**
+   * @public
    * <p>An object that contains deliverability metrics for the domain that you specified. This
    *             object contains data for each day, starting on the <code>StartDate</code> and ending on
    *             the <code>EndDate</code>.</p>
@@ -2479,56 +2195,61 @@ export interface GetDomainStatisticsReportResponse {
   DailyVolumes: DailyVolume[] | undefined;
 }
 
-export namespace GetDomainStatisticsReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainStatisticsReportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to return details about an email identity.</p>
  */
 export interface GetEmailIdentityRequest {
   /**
+   * @public
    * <p>The email identity that you want to retrieve details for.</p>
    */
   EmailIdentity: string | undefined;
 }
 
-export namespace GetEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum BehaviorOnMxFailure {
-  REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
-}
-
-export enum MailFromDomainStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const BehaviorOnMxFailure = {
+  REJECT_MESSAGE: "REJECT_MESSAGE",
+  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
+} as const;
 
 /**
+ * @public
+ */
+export type BehaviorOnMxFailure = (typeof BehaviorOnMxFailure)[keyof typeof BehaviorOnMxFailure];
+
+/**
+ * @public
+ * @enum
+ */
+export const MailFromDomainStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type MailFromDomainStatus = (typeof MailFromDomainStatus)[keyof typeof MailFromDomainStatus];
+
+/**
+ * @public
  * <p>A list of attributes that are associated with a MAIL FROM domain.</p>
  */
 export interface MailFromAttributes {
   /**
+   * @public
    * <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
    */
   MailFromDomain: string | undefined;
 
   /**
+   * @public
    * <p>The status of the MAIL FROM domain. This status can have the following values:</p>
    *         <ul>
    *             <li>
@@ -2556,6 +2277,7 @@ export interface MailFromAttributes {
   MailFromDomainStatus: MailFromDomainStatus | string | undefined;
 
   /**
+   * @public
    * <p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom
    *             MAIL FROM domain. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
@@ -2568,25 +2290,19 @@ export interface MailFromAttributes {
   BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
 }
 
-export namespace MailFromAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailFromAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details about an email identity.</p>
  */
 export interface GetEmailIdentityResponse {
   /**
+   * @public
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
 
   /**
+   * @public
    * <p>The feedback forwarding configuration for the identity.</p>
    *         <p>If the value is <code>true</code>, Amazon Pinpoint sends you email notifications when bounce or
    *             complaint events occur. Amazon Pinpoint sends this notification to the address that you specified
@@ -2600,6 +2316,7 @@ export interface GetEmailIdentityResponse {
   FeedbackForwardingStatus?: boolean;
 
   /**
+   * @public
    * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
    *             from verified email addresses or domains. For more information about verifying
    *             identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
@@ -2607,6 +2324,7 @@ export interface GetEmailIdentityResponse {
   VerifiedForSendingStatus?: boolean;
 
   /**
+   * @public
    * <p>An object that contains information about the DKIM attributes for the identity. This
    *             object includes the tokens that you use to create the CNAME records that are required to
    *             complete the DKIM verification process.</p>
@@ -2614,39 +2332,35 @@ export interface GetEmailIdentityResponse {
   DkimAttributes?: DkimAttributes;
 
   /**
+   * @public
    * <p>An object that contains information about the Mail-From attributes for the email
    *             identity.</p>
    */
   MailFromAttributes?: MailFromAttributes;
 
   /**
+   * @public
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the email identity.</p>
    */
   Tags?: Tag[];
 }
 
-export namespace GetEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain a list of configuration sets for your Amazon Pinpoint account in the current
  *             AWS Region.</p>
  */
 export interface ListConfigurationSetsRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
    *             indicate the position in the list of configuration sets.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of results to show in a single call to <code>ListConfigurationSets</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
@@ -2655,26 +2369,20 @@ export interface ListConfigurationSetsRequest {
   PageSize?: number;
 }
 
-export namespace ListConfigurationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of configuration sets in your Amazon Pinpoint account in the current AWS Region.</p>
  */
 export interface ListConfigurationSetsResponse {
   /**
+   * @public
    * <p>An array that contains all of the configuration sets in your Amazon Pinpoint account in the
    *             current AWS Region.</p>
    */
   ConfigurationSets?: string[];
 
   /**
+   * @public
    * <p>A token that indicates that there are additional configuration sets to list. To view
    *             additional configuration sets, issue another request to
    *                 <code>ListConfigurationSets</code>, and pass this token in the
@@ -2683,26 +2391,20 @@ export interface ListConfigurationSetsResponse {
   NextToken?: string;
 }
 
-export namespace ListConfigurationSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to obtain a list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate
    *             the position in the list of dedicated IP pools.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>.
    *             If the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
@@ -2711,26 +2413,20 @@ export interface ListDedicatedIpPoolsRequest {
   PageSize?: number;
 }
 
-export namespace ListDedicatedIpPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDedicatedIpPoolsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of dedicated IP pools.</p>
  */
 export interface ListDedicatedIpPoolsResponse {
   /**
+   * @public
    * <p>A list of all of the dedicated IP pools that are associated with your Amazon Pinpoint
    *             account.</p>
    */
   DedicatedIpPools?: string[];
 
   /**
+   * @public
    * <p>A token that indicates that there are additional IP pools to list. To view additional
    *             IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token
    *             in the <code>NextToken</code> parameter.</p>
@@ -2738,26 +2434,20 @@ export interface ListDedicatedIpPoolsResponse {
   NextToken?: string;
 }
 
-export namespace ListDedicatedIpPoolsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDedicatedIpPoolsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to list all of the predictive inbox placement tests that you've performed.</p>
  */
 export interface ListDeliverabilityTestReportsRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to
    *             indicate the position in the list of predictive inbox placement tests.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of results to show in a single call to
    *                 <code>ListDeliverabilityTestReports</code>. If the number of results is larger than
    *             the number you specified in this parameter, then the response includes a
@@ -2768,26 +2458,20 @@ export interface ListDeliverabilityTestReportsRequest {
   PageSize?: number;
 }
 
-export namespace ListDeliverabilityTestReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of the predictive inbox placement test reports that are available for your account, regardless of
  *             whether or not those tests are complete.</p>
  */
 export interface ListDeliverabilityTestReportsResponse {
   /**
+   * @public
    * <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
    */
   DeliverabilityTestReports: DeliverabilityTestReport[] | undefined;
 
   /**
+   * @public
    * <p>A token that indicates that there are additional predictive inbox placement tests to list. To view additional
    *             predictive inbox placement tests, issue another request to <code>ListDeliverabilityTestReports</code>, and pass
    *             this token in the <code>NextToken</code> parameter.</p>
@@ -2795,16 +2479,8 @@ export interface ListDeliverabilityTestReportsResponse {
   NextToken?: string;
 }
 
-export namespace ListDeliverabilityTestReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
  *             email during a specified time range. This data is available for a domain only if you
  *             enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code> operation)
@@ -2812,12 +2488,14 @@ export namespace ListDeliverabilityTestReportsResponse {
  */
 export interface ListDomainDeliverabilityCampaignsRequest {
   /**
+   * @public
    * <p>The first day, in Unix time format, that you want to obtain deliverability data
    *             for.</p>
    */
   StartDate: Date | undefined;
 
   /**
+   * @public
    * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
    *             This value has to be less than or equal to 30 days after the value of the
    *                 <code>StartDate</code> parameter.</p>
@@ -2825,11 +2503,13 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   EndDate: Date | undefined;
 
   /**
+   * @public
    * <p>The domain to obtain deliverability data for.</p>
    */
   SubscribedDomain: string | undefined;
 
   /**
+   * @public
    * <p>A token that’s returned from a previous call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
    *             position of a campaign in the list of campaigns.</p>
@@ -2837,6 +2517,7 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to include in response to a single call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results
    *             is larger than the number that you specify in this parameter, the response includes a
@@ -2846,16 +2527,8 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   PageSize?: number;
 }
 
-export namespace ListDomainDeliverabilityCampaignsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An array of objects that provide deliverability data for all the campaigns that used a
  *             specific domain to send email during a specified time range. This data is available for
  *             a domain only if you enabled the Deliverability dashboard
@@ -2863,12 +2536,14 @@ export namespace ListDomainDeliverabilityCampaignsRequest {
  */
 export interface ListDomainDeliverabilityCampaignsResponse {
   /**
+   * @public
    * <p>An array of responses, one for each campaign that used the domain to send email during
    *             the specified time range.</p>
    */
   DomainDeliverabilityCampaigns: DomainDeliverabilityCampaign[] | undefined;
 
   /**
+   * @public
    * <p>A token that’s returned from a previous call to the
    *                 <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the
    *             position of the campaign in the list of campaigns.</p>
@@ -2876,28 +2551,22 @@ export interface ListDomainDeliverabilityCampaignsResponse {
   NextToken?: string;
 }
 
-export namespace ListDomainDeliverabilityCampaignsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to list all of the email identities associated with your Amazon Pinpoint account. This
  *             list includes identities that you've already verified, identities that are unverified,
  *             and identities that were verified in the past, but are no longer verified.</p>
  */
 export interface ListEmailIdentitiesRequest {
   /**
+   * @public
    * <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate
    *             the position in the list of identities.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If
    *             the number of results is larger than the number you specified in this parameter, then
    *             the response includes a <code>NextToken</code> element, which you can use to obtain
@@ -2907,20 +2576,13 @@ export interface ListEmailIdentitiesRequest {
   PageSize?: number;
 }
 
-export namespace ListEmailIdentitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEmailIdentitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about an email identity.</p>
  */
 export interface IdentityInfo {
   /**
+   * @public
    * <p>The email identity type. The identity type can be one of the following:</p>
    *         <ul>
    *             <li>
@@ -2941,11 +2603,13 @@ export interface IdentityInfo {
   IdentityType?: IdentityType | string;
 
   /**
+   * @public
    * <p>The address or domain of the identity.</p>
    */
   IdentityName?: string;
 
   /**
+   * @public
    * <p>Indicates whether or not you can send email from the identity.</p>
    *         <p>In Amazon Pinpoint, an identity is an email address or domain that you send email from. Before
    *             you can send email from an identity, you have to demostrate that you own the identity,
@@ -2954,27 +2618,21 @@ export interface IdentityInfo {
   SendingEnabled?: boolean;
 }
 
-export namespace IdentityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A list of all of the identities that you've attempted to verify for use with Amazon Pinpoint,
  *             regardless of whether or not those identities were successfully verified.</p>
  */
 export interface ListEmailIdentitiesResponse {
   /**
+   * @public
    * <p>An array that includes all of the identities associated with your Amazon Pinpoint
    *             account.</p>
    */
   EmailIdentities?: IdentityInfo[];
 
   /**
+   * @public
    * <p>A token that indicates that there are additional configuration sets to list. To view
    *             additional configuration sets, issue another request to
    *             <code>ListEmailIdentities</code>, and pass this token in the <code>NextToken</code>
@@ -2983,34 +2641,24 @@ export interface ListEmailIdentitiesResponse {
   NextToken?: string;
 }
 
-export namespace ListEmailIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEmailIdentitiesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
    *             information for.</p>
    */
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>An array that lists all the tags that are associated with the resource. Each tag
    *             consists of a required tag key (<code>Key</code>) and an associated tag value
    *                 (<code>Value</code>)</p>
@@ -3018,20 +2666,13 @@ export interface ListTagsForResourceResponse {
   Tags: Tag[] | undefined;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to enable or disable the automatic IP address warm-up feature.</p>
  */
 export interface PutAccountDedicatedIpWarmupAttributesRequest {
   /**
+   * @public
    * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are
    *             associated with your Amazon Pinpoint account in the current AWS Region. Set to <code>true</code>
    *             to enable the automatic warm-up feature, or set to <code>false</code> to disable
@@ -3040,35 +2681,20 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
   AutoWarmupEnabled?: boolean;
 }
 
-export namespace PutAccountDedicatedIpWarmupAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountDedicatedIpWarmupAttributesResponse {}
 
-export namespace PutAccountDedicatedIpWarmupAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to change the ability of your account to send email.</p>
  */
 export interface PutAccountSendingAttributesRequest {
   /**
+   * @public
    * <p>Enables or disables your account's ability to send email. Set to <code>true</code> to
    *             enable email sending, or set to <code>false</code> to disable email sending.</p>
    *         <note>
@@ -3079,41 +2705,27 @@ export interface PutAccountSendingAttributesRequest {
   SendingEnabled?: boolean;
 }
 
-export namespace PutAccountSendingAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSendingAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountSendingAttributesResponse {}
 
-export namespace PutAccountSendingAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSendingAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to associate with a dedicated IP
    *             pool.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
@@ -3122,48 +2734,35 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
   TlsPolicy?: TlsPolicy | string;
 
   /**
+   * @public
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
    *             set.</p>
    */
   SendingPoolName?: string;
 }
 
-export namespace PutConfigurationSetDeliveryOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsResponse {}
 
-export namespace PutConfigurationSetDeliveryOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to enable or disable tracking of reputation metrics for a configuration
  *             set.</p>
  */
 export interface PutConfigurationSetReputationOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to enable or disable reputation metric
    *             tracking for.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
    *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
    *             configuration set.</p>
@@ -3171,196 +2770,124 @@ export interface PutConfigurationSetReputationOptionsRequest {
   ReputationMetricsEnabled?: boolean;
 }
 
-export namespace PutConfigurationSetReputationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetReputationOptionsResponse {}
 
-export namespace PutConfigurationSetReputationOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to enable or disable the ability of Amazon Pinpoint to send emails that use a specific
  *             configuration set.</p>
  */
 export interface PutConfigurationSetSendingOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to enable or disable email sending
    *             for.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>If <code>true</code>, email sending is enabled for the configuration set. If
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
    */
   SendingEnabled?: boolean;
 }
 
-export namespace PutConfigurationSetSendingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetSendingOptionsResponse {}
 
-export namespace PutConfigurationSetSendingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to add a custom domain for tracking open and click events to a configuration
  *             set.</p>
  */
 export interface PutConfigurationSetTrackingOptionsRequest {
   /**
+   * @public
    * <p>The name of the configuration set that you want to add a custom tracking domain
    *             to.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>The domain that you want to use to track open and click events.</p>
    */
   CustomRedirectDomain?: string;
 }
 
-export namespace PutConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetTrackingOptionsResponse {}
 
-export namespace PutConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
  */
 export interface PutDedicatedIpInPoolRequest {
   /**
+   * @public
    * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
    *             has to be a dedicated IP address that's associated with your Amazon Pinpoint account.</p>
    */
   Ip: string | undefined;
 
   /**
+   * @public
    * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
    *             specify an IP pool that already exists.</p>
    */
   DestinationPoolName: string | undefined;
 }
 
-export namespace PutDedicatedIpInPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpInPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutDedicatedIpInPoolResponse {}
 
-export namespace PutDedicatedIpInPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpInPoolResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
  *             is useful when you want to resume the warm-up process for an existing IP address.</p>
  */
 export interface PutDedicatedIpWarmupAttributesRequest {
   /**
+   * @public
    * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
    */
   Ip: string | undefined;
 
   /**
+   * @public
    * <p>The warm-up percentage that you want to associate with the dedicated IP
    *             address.</p>
    */
   WarmupPercentage: number | undefined;
 }
 
-export namespace PutDedicatedIpWarmupAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutDedicatedIpWarmupAttributesResponse {}
 
-export namespace PutDedicatedIpWarmupAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the
  *             Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for
  *             the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform
@@ -3371,53 +2898,41 @@ export namespace PutDedicatedIpWarmupAttributesResponse {
  */
 export interface PutDeliverabilityDashboardOptionRequest {
   /**
+   * @public
    * <p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the
    *             dashboard, set this value to <code>true</code>.</p>
    */
   DashboardEnabled: boolean | undefined;
 
   /**
+   * @public
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             enabled the Deliverability dashboard for.</p>
    */
   SubscribedDomains?: DomainDeliverabilityTrackingOption[];
 }
 
-export namespace PutDeliverabilityDashboardOptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A response that indicates whether the Deliverability dashboard is enabled for your Amazon Pinpoint
  *             account.</p>
  */
 export interface PutDeliverabilityDashboardOptionResponse {}
 
-export namespace PutDeliverabilityDashboardOptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to enable or disable DKIM signing of email that you send from an email
  *             identity.</p>
  */
 export interface PutEmailIdentityDkimAttributesRequest {
   /**
+   * @public
    * <p>The email identity that you want to change the DKIM settings for.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
+   * @public
    * <p>Sets the DKIM signing configuration for the identity.</p>
    *         <p>When you set this value <code>true</code>, then the messages that Amazon Pinpoint sends from the
    *             identity are DKIM-signed. When you set this value to <code>false</code>, then the
@@ -3426,42 +2941,28 @@ export interface PutEmailIdentityDkimAttributesRequest {
   SigningEnabled?: boolean;
 }
 
-export namespace PutEmailIdentityDkimAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityDkimAttributesResponse {}
 
-export namespace PutEmailIdentityDkimAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to set the attributes that control how bounce and complaint events are
  *             processed.</p>
  */
 export interface PutEmailIdentityFeedbackAttributesRequest {
   /**
+   * @public
    * <p>The email identity that you want to configure bounce and complaint feedback forwarding
    *             for.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
+   * @public
    * <p>Sets the feedback forwarding configuration for the identity.</p>
    *         <p>If the value is <code>true</code>, Amazon Pinpoint sends you email notifications when bounce or
    *             complaint events occur. Amazon Pinpoint sends this notification to the address that you specified
@@ -3475,41 +2976,27 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
   EmailForwardingEnabled?: boolean;
 }
 
-export namespace PutEmailIdentityFeedbackAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityFeedbackAttributesResponse {}
 
-export namespace PutEmailIdentityFeedbackAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
   /**
+   * @public
    * <p>The verified email identity that you want to set up the custom MAIL FROM domain
    *             for.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
+   * @public
    * <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM
    *             domain must meet the following criteria:</p>
    *         <ul>
@@ -3528,6 +3015,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
   MailFromDomain?: string;
 
   /**
+   * @public
    * <p>The action that you want Amazon Pinpoint to take if it can't read the required MX record when
    *             you send an email. When you set this value to <code>UseDefaultValue</code>, Amazon Pinpoint uses
    *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
@@ -3540,69 +3028,49 @@ export interface PutEmailIdentityMailFromAttributesRequest {
   BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
 }
 
-export namespace PutEmailIdentityMailFromAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityMailFromAttributesResponse {}
 
-export namespace PutEmailIdentityMailFromAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An object that describes the recipients for an email.</p>
  */
 export interface Destination {
   /**
+   * @public
    * <p>An array that contains the email addresses of the "To" recipients for the
    *             email.</p>
    */
   ToAddresses?: string[];
 
   /**
+   * @public
    * <p>An array that contains the email addresses of the "CC" (carbon copy) recipients for
    *             the email.</p>
    */
   CcAddresses?: string[];
 
   /**
+   * @public
    * <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients
    *             for the email.</p>
    */
   BccAddresses?: string[];
 }
 
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the name and value of a tag that you apply to an email. You can use message
  *             tags when you publish email sending events.
  *             </p>
  */
 export interface MessageTag {
   /**
+   * @public
    * <p>The name of the message tag. The message tag name has to meet the following
    *             criteria:</p>
    *         <ul>
@@ -3618,6 +3086,7 @@ export interface MessageTag {
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The value of the message tag. The message tag value has to meet the following
    *             criteria:</p>
    *         <ul>
@@ -3633,20 +3102,13 @@ export interface MessageTag {
   Value: string | undefined;
 }
 
-export namespace MessageTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageTag): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to send an email message.</p>
  */
 export interface SendEmailRequest {
   /**
+   * @public
    * <p>The email address that you want to use as the "From" address for the email. The
    *             address that you specify has to be verified.
    *             </p>
@@ -3654,28 +3116,33 @@ export interface SendEmailRequest {
   FromEmailAddress?: string;
 
   /**
+   * @public
    * <p>An object that contains the recipients of the email message.</p>
    */
   Destination: Destination | undefined;
 
   /**
+   * @public
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    */
   ReplyToAddresses?: string[];
 
   /**
+   * @public
    * <p>The address that Amazon Pinpoint should send bounce and complaint notifications to.</p>
    */
   FeedbackForwardingEmailAddress?: string;
 
   /**
+   * @public
    * <p>An object that contains the body of the message. You can send either a Simple message
    *             or a Raw message.</p>
    */
   Content: EmailContent | undefined;
 
   /**
+   * @public
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
    *             email that you define, so that you can publish email sending events. </p>
@@ -3683,25 +3150,19 @@ export interface SendEmailRequest {
   EmailTags?: MessageTag[];
 
   /**
+   * @public
    * <p>The name of the configuration set that you want to use when sending the email.</p>
    */
   ConfigurationSetName?: string;
 }
 
-export namespace SendEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A unique message ID that you receive when Amazon Pinpoint accepts an email for sending.</p>
  */
 export interface SendEmailResponse {
   /**
+   * @public
    * <p>A unique identifier for the message that is generated when Amazon Pinpoint accepts the
    *             message.</p>
    *         <note>
@@ -3714,23 +3175,19 @@ export interface SendEmailResponse {
   MessageId?: string;
 }
 
-export namespace SendEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags
    *             to.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the tags that you want to add to the resource. A tag consists of a required
    *             tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum
    *             length of a tag key is 128 characters. The maximum length of a tag value is 256
@@ -3739,34 +3196,24 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more
    *             tags from.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag
    *             key, the action removes both that key and its associated tag value.</p>
    *         <p>To remove more than one tag from the resource, append the <code>TagKeys</code>
@@ -3778,68 +3225,40 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A request to change the settings for an event destination for a configuration
  *             set.</p>
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
   /**
+   * @public
    * <p>The name of the configuration set that contains the event destination that you want to
    *             modify.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the event destination that you want to modify.</p>
    */
   EventDestinationName: string | undefined;
 
   /**
+   * @public
    * <p>An object that defines the event destination.</p>
    */
   EventDestination: EventDestinationDefinition | undefined;
 }
 
-export namespace UpdateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
-
-export namespace UpdateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeResourceGroupsRequest, DescribeResourceGroupsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeResourceGroupsCommand,
-  serializeAws_json1_1DescribeResourceGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeResourceGroupsCommand, se_DescribeResourceGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeResourceGroupsCommand}.
+ */
 export interface DescribeResourceGroupsCommandInput extends DescribeResourceGroupsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeResourceGroupsCommand}.
+ */
 export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGroupsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the resource groups that are specified by the ARNs of the resource
  *          groups.</p>
  * @example
@@ -30,13 +44,81 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * import { InspectorClient, DescribeResourceGroupsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeResourceGroupsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeResourceGroupsRequest
+ *   resourceGroupArns: [ // BatchDescribeArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeResourceGroupsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeResourceGroupsResponse
+ * //   resourceGroups: [ // ResourceGroupList // required
+ * //     { // ResourceGroup
+ * //       arn: "STRING_VALUE", // required
+ * //       tags: [ // ResourceGroupTags // required
+ * //         { // ResourceGroupTag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeResourceGroupsCommandInput - {@link DescribeResourceGroupsCommandInput}
+ * @returns {@link DescribeResourceGroupsCommandOutput}
  * @see {@link DescribeResourceGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
+ *
+ * @example Describe resource groups
+ * ```javascript
+ * // Describes the resource groups that are specified by the ARNs of the resource groups.
+ * const input = {
+ *   "resourceGroupArns": [
+ *     "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI"
+ *   ]
+ * };
+ * const command = new DescribeResourceGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failedItems": {},
+ *   "resourceGroups": [
+ *     {
+ *       "arn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
+ *       "createdAt": "1458074191.098",
+ *       "tags": [
+ *         {
+ *           "key": "Name",
+ *           "value": "example"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describe-resource-groups-1481065787743
+ * ```
  *
  */
 export class DescribeResourceGroupsCommand extends $Command<
@@ -47,6 +129,18 @@ export class DescribeResourceGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeResourceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +156,9 @@ export class DescribeResourceGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeResourceGroupsCommandInput, DescribeResourceGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeResourceGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +169,8 @@ export class DescribeResourceGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourceGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourceGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +180,18 @@ export class DescribeResourceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeResourceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeResourceGroupsCommand(input, context);
+    return se_DescribeResourceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeResourceGroupsCommandOutput> {
-    return deserializeAws_json1_1DescribeResourceGroupsCommand(output, context);
+    return de_DescribeResourceGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

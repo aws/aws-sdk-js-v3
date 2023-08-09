@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateGatewayRouteCommand";
 export * from "./CreateMeshCommand";
 export * from "./CreateRouteCommand";

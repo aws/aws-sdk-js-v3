@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,72 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { BasePathMapping, GetBasePathMappingRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetBasePathMappingCommand,
-  serializeAws_restJson1GetBasePathMappingCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetBasePathMappingCommand, se_GetBasePathMappingCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetBasePathMappingCommand}.
+ */
 export interface GetBasePathMappingCommandInput extends GetBasePathMappingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetBasePathMappingCommand}.
+ */
 export interface GetBasePathMappingCommandOutput extends BasePathMapping, __MetadataBearer {}
 
 /**
- * <p>Describe a <a>BasePathMapping</a> resource.</p>
+ * @public
+ * <p>Describe a BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = { // GetBasePathMappingRequest
+ *   domainName: "STRING_VALUE", // required
+ *   basePath: "STRING_VALUE", // required
+ * };
  * const command = new GetBasePathMappingCommand(input);
  * const response = await client.send(command);
+ * // { // BasePathMapping
+ * //   basePath: "STRING_VALUE",
+ * //   restApiId: "STRING_VALUE",
+ * //   stage: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetBasePathMappingCommandInput - {@link GetBasePathMappingCommandInput}
+ * @returns {@link GetBasePathMappingCommandOutput}
  * @see {@link GetBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link GetBasePathMappingCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ * @throws {@link APIGatewayServiceException}
+ * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
 export class GetBasePathMappingCommand extends $Command<
@@ -46,6 +87,18 @@ export class GetBasePathMappingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetBasePathMappingCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +114,9 @@ export class GetBasePathMappingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBasePathMappingCommandInput, GetBasePathMappingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBasePathMappingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +127,8 @@ export class GetBasePathMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBasePathMappingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BasePathMapping.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +138,18 @@ export class GetBasePathMappingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBasePathMappingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBasePathMappingCommand(input, context);
+    return se_GetBasePathMappingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1GetBasePathMappingCommand(output, context);
+    return de_GetBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

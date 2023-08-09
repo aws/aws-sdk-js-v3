@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { RebuildEnvironmentMessage } from "../models/models_0";
-import {
-  deserializeAws_queryRebuildEnvironmentCommand,
-  serializeAws_queryRebuildEnvironmentCommand,
-} from "../protocols/Aws_query";
+import { de_RebuildEnvironmentCommand, se_RebuildEnvironmentCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RebuildEnvironmentCommand}.
+ */
 export interface RebuildEnvironmentCommandInput extends RebuildEnvironmentMessage {}
+/**
+ * @public
+ *
+ * The output of {@link RebuildEnvironmentCommand}.
+ */
 export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
  *       load balancer, etc.) for a specified environment and forces a restart.</p>
  * @example
@@ -30,13 +44,39 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, RebuildEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RebuildEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // RebuildEnvironmentMessage
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ * };
  * const command = new RebuildEnvironmentCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param RebuildEnvironmentCommandInput - {@link RebuildEnvironmentCommandInput}
+ * @returns {@link RebuildEnvironmentCommandOutput}
  * @see {@link RebuildEnvironmentCommandInput} for command's `input` shape.
  * @see {@link RebuildEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
+ *
+ * @example To rebuild an environment
+ * ```javascript
+ * // The following operation terminates and recreates the resources in an environment named my-env:
+ * const input = {
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new RebuildEnvironmentCommand(input);
+ * await client.send(command);
+ * // example id: to-rebuild-an-environment-1456277600918
+ * ```
  *
  */
 export class RebuildEnvironmentCommand extends $Command<
@@ -47,6 +87,18 @@ export class RebuildEnvironmentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RebuildEnvironmentCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +114,9 @@ export class RebuildEnvironmentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RebuildEnvironmentCommandInput, RebuildEnvironmentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RebuildEnvironmentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +127,8 @@ export class RebuildEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebuildEnvironmentMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +138,18 @@ export class RebuildEnvironmentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RebuildEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryRebuildEnvironmentCommand(input, context);
+    return se_RebuildEnvironmentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebuildEnvironmentCommandOutput> {
-    return deserializeAws_queryRebuildEnvironmentCommand(output, context);
+    return de_RebuildEnvironmentCommand(output, context);
   }
 
   // Start section: command_body_extra

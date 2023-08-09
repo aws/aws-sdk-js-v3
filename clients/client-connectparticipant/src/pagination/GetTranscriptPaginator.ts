@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetTranscriptCommand,
   GetTranscriptCommandInput,
   GetTranscriptCommandOutput,
 } from "../commands/GetTranscriptCommand";
-import { ConnectParticipant } from "../ConnectParticipant";
 import { ConnectParticipantClient } from "../ConnectParticipantClient";
 import { ConnectParticipantPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ConnectParticipantClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetTranscriptCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ConnectParticipant,
-  input: GetTranscriptCommandInput,
-  ...args: any
-): Promise<GetTranscriptCommandOutput> => {
-  // @ts-ignore
-  return await client.getTranscript(input, ...args);
-};
 export async function* paginateGetTranscript(
   config: ConnectParticipantPaginationConfiguration,
   input: GetTranscriptCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetTranscript(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ConnectParticipant) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ConnectParticipantClient) {
+    if (config.client instanceof ConnectParticipantClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ConnectParticipant | ConnectParticipantClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   SearchResourcesCommand,
   SearchResourcesCommandInput,
   SearchResourcesCommandOutput,
 } from "../commands/SearchResourcesCommand";
-import { ResourceGroups } from "../ResourceGroups";
 import { ResourceGroupsClient } from "../ResourceGroupsClient";
 import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResourceGroupsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ResourceGroups,
-  input: SearchResourcesCommandInput,
-  ...args: any
-): Promise<SearchResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.searchResources(input, ...args);
-};
 export async function* paginateSearchResources(
   config: ResourceGroupsPaginationConfiguration,
   input: SearchResourcesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateSearchResources(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ResourceGroups) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResourceGroupsClient) {
+    if (config.client instanceof ResourceGroupsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ResourceGroups | ResourceGroupsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

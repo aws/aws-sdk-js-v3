@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateContactRequest, UpdateContactResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateContactCommand,
-  serializeAws_restJson1UpdateContactCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateContactCommand}.
+ */
 export interface UpdateContactCommandInput extends UpdateContactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateContactCommand}.
+ */
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a contact's preferences for a list. It is not necessary to specify all
  *             existing topic preferences in the TopicPreferences object, just the ones that need
  *             updating.</p>
@@ -31,13 +45,44 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * import { SESv2Client, UpdateContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // UpdateContactRequest
+ *   ContactListName: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ *   TopicPreferences: [ // TopicPreferenceList
+ *     { // TopicPreference
+ *       TopicName: "STRING_VALUE", // required
+ *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *     },
+ *   ],
+ *   UnsubscribeAll: true || false,
+ *   AttributesData: "STRING_VALUE",
+ * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateContactCommandInput - {@link UpdateContactCommandInput}
+ * @returns {@link UpdateContactCommandOutput}
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class UpdateContactCommand extends $Command<
@@ -48,6 +93,18 @@ export class UpdateContactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateContactCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +120,7 @@ export class UpdateContactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateContactCommandInput, UpdateContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateContactCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +131,8 @@ export class UpdateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +142,18 @@ export class UpdateContactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateContactCommand(input, context);
+    return se_UpdateContactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactCommandOutput> {
-    return deserializeAws_restJson1UpdateContactCommand(output, context);
+    return de_UpdateContactCommand(output, context);
   }
 
   // Start section: command_body_extra

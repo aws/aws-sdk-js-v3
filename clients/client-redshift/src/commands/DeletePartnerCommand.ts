@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeletePartnerCommand,
-  serializeAws_queryDeletePartnerCommand,
-} from "../protocols/Aws_query";
+import { de_DeletePartnerCommand, se_DeletePartnerCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeletePartnerCommand}.
+ */
 export interface DeletePartnerCommandInput extends PartnerIntegrationInputMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePartnerCommand}.
+ */
 export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,39 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * import { RedshiftClient, DeletePartnerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeletePartnerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // PartnerIntegrationInputMessage
+ *   AccountId: "STRING_VALUE", // required
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   PartnerName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePartnerCommand(input);
  * const response = await client.send(command);
+ * // { // PartnerIntegrationOutputMessage
+ * //   DatabaseName: "STRING_VALUE",
+ * //   PartnerName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeletePartnerCommandInput - {@link DeletePartnerCommandInput}
+ * @returns {@link DeletePartnerCommandOutput}
  * @see {@link DeletePartnerCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link PartnerNotFoundFault} (client fault)
+ *  <p>The name of the partner was not found.</p>
+ *
+ * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
+ *  <p>The partner integration is not authorized.</p>
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DeletePartnerCommand extends $Command<
@@ -46,6 +86,18 @@ export class DeletePartnerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePartnerCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +113,7 @@ export class DeletePartnerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePartnerCommandInput, DeletePartnerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeletePartnerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +124,8 @@ export class DeletePartnerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PartnerIntegrationInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +135,18 @@ export class DeletePartnerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeletePartnerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeletePartnerCommand(input, context);
+    return se_DeletePartnerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePartnerCommandOutput> {
-    return deserializeAws_queryDeletePartnerCommand(output, context);
+    return de_DeletePartnerCommand(output, context);
   }
 
   // Start section: command_body_extra

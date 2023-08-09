@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   MigrationHubStrategyClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { ListCollectorsRequest, ListCollectorsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListCollectorsCommand,
-  serializeAws_restJson1ListCollectorsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListCollectorsCommand, se_ListCollectorsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListCollectorsCommand}.
+ */
 export interface ListCollectorsCommandInput extends ListCollectorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCollectorsCommand}.
+ */
 export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Retrieves a list of all the installed collectors. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,80 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * import { MigrationHubStrategyClient, ListCollectorsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListCollectorsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // ListCollectorsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListCollectorsCommand(input);
  * const response = await client.send(command);
+ * // { // ListCollectorsResponse
+ * //   Collectors: [ // Collectors
+ * //     { // Collector
+ * //       collectorId: "STRING_VALUE",
+ * //       ipAddress: "STRING_VALUE",
+ * //       hostName: "STRING_VALUE",
+ * //       collectorHealth: "STRING_VALUE",
+ * //       collectorVersion: "STRING_VALUE",
+ * //       registeredTimeStamp: "STRING_VALUE",
+ * //       lastActivityTimeStamp: "STRING_VALUE",
+ * //       configurationSummary: { // ConfigurationSummary
+ * //         vcenterBasedRemoteInfoList: [ // VcenterBasedRemoteInfoList
+ * //           { // VcenterBasedRemoteInfo
+ * //             vcenterConfigurationTimeStamp: "STRING_VALUE",
+ * //             osType: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         ipAddressBasedRemoteInfoList: [ // IPAddressBasedRemoteInfoList
+ * //           { // IPAddressBasedRemoteInfo
+ * //             ipAddressConfigurationTimeStamp: "STRING_VALUE",
+ * //             authType: "STRING_VALUE",
+ * //             osType: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         versionControlInfoList: [ // VersionControlInfoList
+ * //           { // VersionControlInfo
+ * //             versionControlType: "STRING_VALUE",
+ * //             versionControlConfigurationTimeStamp: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         pipelineInfoList: [ // PipelineInfoList
+ * //           { // PipelineInfo
+ * //             pipelineType: "STRING_VALUE",
+ * //             pipelineConfigurationTimeStamp: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         remoteSourceCodeAnalysisServerInfo: { // RemoteSourceCodeAnalysisServerInfo
+ * //           remoteSourceCodeAnalysisServerConfigurationTimestamp: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListCollectorsCommandInput - {@link ListCollectorsCommandInput}
+ * @returns {@link ListCollectorsCommandOutput}
  * @see {@link ListCollectorsCommandInput} for command's `input` shape.
  * @see {@link ListCollectorsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class ListCollectorsCommand extends $Command<
@@ -50,6 +131,18 @@ export class ListCollectorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListCollectorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +158,9 @@ export class ListCollectorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListCollectorsCommandInput, ListCollectorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListCollectorsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +171,8 @@ export class ListCollectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCollectorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCollectorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +182,18 @@ export class ListCollectorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCollectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListCollectorsCommand(input, context);
+    return se_ListCollectorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCollectorsCommandOutput> {
-    return deserializeAws_restJson1ListCollectorsCommand(output, context);
+    return de_ListCollectorsCommand(output, context);
   }
 
   // Start section: command_body_extra

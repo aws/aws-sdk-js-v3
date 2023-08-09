@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeTemplateAliasCommand,
-  serializeAws_restJson1DescribeTemplateAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/models_3";
+import { de_DescribeTemplateAliasCommand, se_DescribeTemplateAliasCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeTemplateAliasCommand}.
+ */
 export interface DescribeTemplateAliasCommandInput extends DescribeTemplateAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeTemplateAliasCommand}.
+ */
 export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAliasResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the template alias for a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,48 @@ export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAlia
  * import { QuickSightClient, DescribeTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = { // DescribeTemplateAliasRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTemplateAliasCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeTemplateAliasResponse
+ * //   TemplateAlias: { // TemplateAlias
+ * //     AliasName: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     TemplateVersionNumber: Number("long"),
+ * //   },
+ * //   Status: Number("int"),
+ * //   RequestId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeTemplateAliasCommandInput - {@link DescribeTemplateAliasCommandInput}
+ * @returns {@link DescribeTemplateAliasCommandOutput}
  * @see {@link DescribeTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateAliasCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Access is throttled.</p>
+ *
+ * @throws {@link UnsupportedUserEditionException} (client fault)
+ *  <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			Amazon QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
+ * @throws {@link QuickSightServiceException}
+ * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
 export class DescribeTemplateAliasCommand extends $Command<
@@ -46,6 +95,18 @@ export class DescribeTemplateAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeTemplateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +122,9 @@ export class DescribeTemplateAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTemplateAliasCommandInput, DescribeTemplateAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeTemplateAliasCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +135,8 @@ export class DescribeTemplateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTemplateAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTemplateAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +146,18 @@ export class DescribeTemplateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeTemplateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplateAliasCommand(input, context);
+    return se_DescribeTemplateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplateAliasCommand(output, context);
+    return de_DescribeTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

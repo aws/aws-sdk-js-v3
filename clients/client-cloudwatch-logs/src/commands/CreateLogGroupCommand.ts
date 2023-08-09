@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { CreateLogGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateLogGroupCommand,
-  serializeAws_json1_1CreateLogGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateLogGroupCommand, se_CreateLogGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLogGroupCommand}.
+ */
 export interface CreateLogGroupCommandInput extends CreateLogGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLogGroupCommand}.
+ */
 export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
  *             <li>
- *                <p>Log group names must be unique within a region for an Amazon Web Services account.</p>
+ *                <p>Log group names must be unique within a Region for an Amazon Web Services
+ *           account.</p>
  *             </li>
  *             <li>
  *                <p>Log group names can be between 1 and 512 characters long.</p>
@@ -36,18 +51,19 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *           '/' (forward slash), '.' (period), and '#' (number sign)</p>
  *             </li>
  *          </ul>
- *          <p>When you create a log group, by default the log events in the log group never expire. To set
- *     a retention policy so that events expire and are deleted after a specified time, use
- *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p>
- *          <p>If you associate a Key Management Service customer master key (CMK) with the log group, ingested data is encrypted using the CMK.
- *       This association is stored as long as the data encrypted with the CMK is still within CloudWatch Logs.
- *       This enables CloudWatch Logs to decrypt this data whenever it is requested.</p>
- *          <p>If you attempt to associate a CMK with the log group but the CMK does not exist or the
- *       CMK is disabled, you receive an <code>InvalidParameterException</code> error. </p>
+ *          <p>When you create a log group, by default the log events in the log group do not expire.
+ *       To set a retention policy so that events expire and are deleted after a specified time, use
+ *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.</p>
+ *          <p>If you associate an KMS key with the log group, ingested data is
+ *       encrypted using the KMS key. This association is stored as long as the data
+ *       encrypted with the KMS key is still within CloudWatch Logs. This enables
+ *         CloudWatch Logs to decrypt this data whenever it is requested.</p>
+ *          <p>If you attempt to associate a KMS key with the log group but the KMS key does not exist or the KMS key is disabled, you receive an
+ *         <code>InvalidParameterException</code> error. </p>
  *          <important>
- *             <p>CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with
- *         your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric
- *           Keys</a>.</p>
+ *             <p>CloudWatch Logs supports only symmetric KMS keys. Do not associate an
+ *         asymmetric KMS key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+ *           Symmetric and Asymmetric Keys</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,13 +71,42 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CreateLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // CreateLogGroupRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateLogGroupCommandInput - {@link CreateLogGroupCommandInput}
+ * @returns {@link CreateLogGroupCommandOutput}
  * @see {@link CreateLogGroupCommandInput} for command's `input` shape.
  * @see {@link CreateLogGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class CreateLogGroupCommand extends $Command<
@@ -72,6 +117,18 @@ export class CreateLogGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLogGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,6 +144,9 @@ export class CreateLogGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLogGroupCommandInput, CreateLogGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLogGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -97,8 +157,8 @@ export class CreateLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +168,18 @@ export class CreateLogGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateLogGroupCommand(input, context);
+    return se_CreateLogGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogGroupCommandOutput> {
-    return deserializeAws_json1_1CreateLogGroupCommand(output, context);
+    return de_CreateLogGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

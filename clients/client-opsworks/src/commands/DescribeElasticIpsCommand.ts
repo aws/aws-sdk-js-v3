@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeElasticIpsCommand,
-  serializeAws_json1_1DescribeElasticIpsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeElasticIpsCommand, se_DescribeElasticIpsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeElasticIpsCommand}.
+ */
 export interface DescribeElasticIpsCommandInput extends DescribeElasticIpsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeElasticIpsCommand}.
+ */
 export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -37,13 +51,43 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * import { OpsWorksClient, DescribeElasticIpsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeElasticIpsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeElasticIpsRequest
+ *   InstanceId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   Ips: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeElasticIpsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeElasticIpsResult
+ * //   ElasticIps: [ // ElasticIps
+ * //     { // ElasticIp
+ * //       Ip: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Domain: "STRING_VALUE",
+ * //       Region: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeElasticIpsCommandInput - {@link DescribeElasticIpsCommandInput}
+ * @returns {@link DescribeElasticIpsCommandOutput}
  * @see {@link DescribeElasticIpsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticIpsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeElasticIpsCommand extends $Command<
@@ -54,6 +98,18 @@ export class DescribeElasticIpsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeElasticIpsCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +125,9 @@ export class DescribeElasticIpsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeElasticIpsCommandInput, DescribeElasticIpsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeElasticIpsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +138,8 @@ export class DescribeElasticIpsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticIpsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticIpsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +149,18 @@ export class DescribeElasticIpsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeElasticIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeElasticIpsCommand(input, context);
+    return se_DescribeElasticIpsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeElasticIpsCommandOutput> {
-    return deserializeAws_json1_1DescribeElasticIpsCommand(output, context);
+    return de_DescribeElasticIpsCommand(output, context);
   }
 
   // Start section: command_body_extra

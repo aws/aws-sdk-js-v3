@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
 import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreatePartnerEventSourceCommand,
-  serializeAws_json1_1CreatePartnerEventSourceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreatePartnerEventSourceCommand, se_CreatePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreatePartnerEventSourceCommand}.
+ */
 export interface CreatePartnerEventSourceCommandInput extends CreatePartnerEventSourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreatePartnerEventSourceCommand}.
+ */
 export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Called by an SaaS partner to create a partner event source. This operation is not used by
  *       Amazon Web Services customers.</p>
  *          <p>Each partner event source can be used by one Amazon Web Services account to create a matching partner
@@ -52,13 +66,42 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * import { CloudWatchEventsClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = { // CreatePartnerEventSourceRequest
+ *   Name: "STRING_VALUE", // required
+ *   Account: "STRING_VALUE", // required
+ * };
  * const command = new CreatePartnerEventSourceCommand(input);
  * const response = await client.send(command);
+ * // { // CreatePartnerEventSourceResponse
+ * //   EventSourceArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreatePartnerEventSourceCommandInput - {@link CreatePartnerEventSourceCommandInput}
+ * @returns {@link CreatePartnerEventSourceCommandOutput}
  * @see {@link CreatePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerEventSourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because it attempted to create resource beyond the allowed service
+ *       quota.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource you are trying to create already exists.</p>
+ *
+ * @throws {@link CloudWatchEventsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
 export class CreatePartnerEventSourceCommand extends $Command<
@@ -69,6 +112,18 @@ export class CreatePartnerEventSourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreatePartnerEventSourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,6 +139,9 @@ export class CreatePartnerEventSourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreatePartnerEventSourceCommandInput, CreatePartnerEventSourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreatePartnerEventSourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -94,8 +152,8 @@ export class CreatePartnerEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePartnerEventSourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePartnerEventSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +163,18 @@ export class CreatePartnerEventSourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreatePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreatePartnerEventSourceCommand(input, context);
+    return se_CreatePartnerEventSourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerEventSourceCommandOutput> {
-    return deserializeAws_json1_1CreatePartnerEventSourceCommand(output, context);
+    return de_CreatePartnerEventSourceCommand(output, context);
   }
 
   // Start section: command_body_extra

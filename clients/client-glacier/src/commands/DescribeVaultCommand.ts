@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { DescribeVaultInput, DescribeVaultOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeVaultCommand,
-  serializeAws_restJson1DescribeVaultCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeVaultCommand, se_DescribeVaultCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeVaultCommand}.
+ */
 export interface DescribeVaultCommandInput extends DescribeVaultInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeVaultCommand}.
+ */
 export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns information about a vault, including the vault's Amazon
  *          Resource Name (ARN), the date the vault was created, the number of archives it contains,
  *          and the total size of all the archives in the vault. The number of archives and their total
@@ -46,13 +60,65 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * import { GlacierClient, DescribeVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DescribeVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = { // DescribeVaultInput
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeVaultOutput
+ * //   VaultARN: "STRING_VALUE",
+ * //   VaultName: "STRING_VALUE",
+ * //   CreationDate: "STRING_VALUE",
+ * //   LastInventoryDate: "STRING_VALUE",
+ * //   NumberOfArchives: Number("long"),
+ * //   SizeInBytes: Number("long"),
+ * // };
+ *
  * ```
  *
+ * @param DescribeVaultCommandInput - {@link DescribeVaultCommandInput}
+ * @returns {@link DescribeVaultCommandOutput}
  * @see {@link DescribeVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
+ *          exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * @throws {@link GlacierServiceException}
+ * <p>Base exception class for all service exceptions from Glacier service.</p>
+ *
+ * @example To retrieve information about a vault
+ * ```javascript
+ * // The example retrieves data about a vault named my-vault.
+ * const input = {
+ *   "accountId": "-",
+ *   "vaultName": "my-vault"
+ * };
+ * const command = new DescribeVaultCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "CreationDate": "2016-09-23T19:27:18.665Z",
+ *   "NumberOfArchives": 0,
+ *   "SizeInBytes": 0,
+ *   "VaultARN": "arn:aws:glacier:us-west-2:111122223333:vaults/my-vault",
+ *   "VaultName": "my-vault"
+ * }
+ * *\/
+ * // example id: 3c1c6e9d-f5a2-427a-aa6a-f439eacfc05f
+ * ```
  *
  */
 export class DescribeVaultCommand extends $Command<
@@ -63,6 +129,18 @@ export class DescribeVaultCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeVaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +156,7 @@ export class DescribeVaultCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeVaultCommandInput, DescribeVaultCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeVaultCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -88,8 +167,8 @@ export class DescribeVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVaultInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVaultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +178,18 @@ export class DescribeVaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeVaultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeVaultCommand(input, context);
+    return se_DescribeVaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVaultCommandOutput> {
-    return deserializeAws_restJson1DescribeVaultCommand(output, context);
+    return de_DescribeVaultCommand(output, context);
   }
 
   // Start section: command_body_extra

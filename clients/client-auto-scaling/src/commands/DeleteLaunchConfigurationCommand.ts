@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { LaunchConfigurationNameType } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteLaunchConfigurationCommand,
-  serializeAws_queryDeleteLaunchConfigurationCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteLaunchConfigurationCommand, se_DeleteLaunchConfigurationCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteLaunchConfigurationCommand}.
+ */
 export interface DeleteLaunchConfigurationCommandInput extends LaunchConfigurationNameType {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLaunchConfigurationCommand}.
+ */
 export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified launch configuration.</p>
- *         <p>The launch configuration must not be attached to an Auto Scaling group. When this call
+ *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
  *             completes, the launch configuration is no longer available for use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +45,41 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * import { AutoScalingClient, DeleteLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = { // LaunchConfigurationNameType
+ *   LaunchConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLaunchConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteLaunchConfigurationCommandInput - {@link DeleteLaunchConfigurationCommandInput}
+ * @returns {@link DeleteLaunchConfigurationCommandOutput}
  * @see {@link DeleteLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ResourceInUseFault} (client fault)
+ *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ * @throws {@link AutoScalingServiceException}
+ * <p>Base exception class for all service exceptions from AutoScaling service.</p>
+ *
+ * @example To delete a launch configuration
+ * ```javascript
+ * // This example deletes the specified launch configuration.
+ * const input = {
+ *   "LaunchConfigurationName": "my-launch-config"
+ * };
+ * const command = new DeleteLaunchConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: autoscaling-delete-launch-configuration-1
+ * ```
  *
  */
 export class DeleteLaunchConfigurationCommand extends $Command<
@@ -48,6 +90,18 @@ export class DeleteLaunchConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLaunchConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +117,9 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLaunchConfigurationCommandInput, DeleteLaunchConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLaunchConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +130,8 @@ export class DeleteLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LaunchConfigurationNameType.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +141,21 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLaunchConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteLaunchConfigurationCommand(input, context);
+    return se_DeleteLaunchConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteLaunchConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteLaunchConfigurationCommand(output, context);
+    return de_DeleteLaunchConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

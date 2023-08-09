@@ -1,302 +1,480 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
 
 /**
+ * @public
+ * <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>
+ */
+export interface ProvisionedThroughput {
+  /**
+   * @public
+   * <p>Provisioned throughput is enabled or not.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>
+   */
+  VolumeThroughput?: number;
+}
+
+/**
+ * @public
  * <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>
  */
 export interface BrokerEBSVolumeInfo {
   /**
+   * @public
    * <p>The ID of the broker to update.</p>
    */
   KafkaBrokerNodeId: string | undefined;
 
   /**
+   * @public
+   * <p>EBS volume provisioned throughput information.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * @public
    * <p>Size of the EBS volume to update.</p>
    */
-  VolumeSizeGB: number | undefined;
-}
-
-export namespace BrokerEBSVolumeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerEBSVolumeInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT",
+  VolumeSizeGB?: number;
 }
 
 /**
- * <p>Contains information about the EBS storage volumes attached to Kafka broker nodes.</p>
+ * @public
+ * @enum
+ */
+export const VpcConnectionState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcConnectionState = (typeof VpcConnectionState)[keyof typeof VpcConnectionState];
+
+/**
+ * @public
+ * <p>The client VPC connection object.</p>
+ */
+export interface ClientVpcConnection {
+  /**
+   * @public
+   * <p>Information about the auth scheme of Vpc Connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * @public
+   * <p>Creation time of the Vpc Connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>State of the Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * @public
+   * <p>The ARN that identifies the Vpc Connection.</p>
+   */
+  VpcConnectionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Owner of the Vpc Connection.</p>
+   */
+  Owner?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterType = {
+  PROVISIONED: "PROVISIONED",
+  SERVERLESS: "SERVERLESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BrokerAZDistribution = {
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type BrokerAZDistribution = (typeof BrokerAZDistribution)[keyof typeof BrokerAZDistribution];
+
+/**
+ * @public
+ * Public access control for brokers.
+ */
+export interface PublicAccess {
+  /**
+   * @public
+   * <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Details for IAM access control for VPC connectivity.</p>
+ */
+export interface VpcConnectivityIam {
+  /**
+   * @public
+   * <p>SASL/IAM authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivityScram {
+  /**
+   * @public
+   * <p>SASL/SCRAM authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for SASL client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivitySasl {
+  /**
+   * @public
+   * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+   */
+  Scram?: VpcConnectivityScram;
+
+  /**
+   * @public
+   * <p>Details for SASL/IAM client authentication for VPC connectivity.</p>
+   */
+  Iam?: VpcConnectivityIam;
+}
+
+/**
+ * @public
+ * <p>Details for TLS client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivityTls {
+  /**
+   * @public
+   * <p>TLS authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Includes all client authentication information for VPC connectivity.</p>
+ */
+export interface VpcConnectivityClientAuthentication {
+  /**
+   * @public
+   * <p>SASL authentication type details for VPC connectivity.</p>
+   */
+  Sasl?: VpcConnectivitySasl;
+
+  /**
+   * @public
+   * <p>TLS authentication type details for VPC connectivity.</p>
+   */
+  Tls?: VpcConnectivityTls;
+}
+
+/**
+ * @public
+ * VPC connectivity access control for brokers.
+ */
+export interface VpcConnectivity {
+  /**
+   * @public
+   * <p>Includes all client authentication information for VPC connectivity.</p>
+   */
+  ClientAuthentication?: VpcConnectivityClientAuthentication;
+}
+
+/**
+ * @public
+ * <p>Information about the broker access configuration.</p>
+ */
+export interface ConnectivityInfo {
+  /**
+   * @public
+   * <p>Public access control for brokers.</p>
+   */
+  PublicAccess?: PublicAccess;
+
+  /**
+   * @public
+   * <p>VPC connectivity access control for brokers.</p>
+   */
+  VpcConnectivity?: VpcConnectivity;
+}
+
+/**
+ * @public
+ * <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>
  */
 export interface EBSStorageInfo {
   /**
+   * @public
+   * <p>EBS volume provisioned throughput information.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * @public
    * <p>The size in GiB of the EBS volume for the data drive on each broker node.</p>
    */
   VolumeSize?: number;
 }
 
-export namespace EBSStorageInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSStorageInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
  */
 export interface StorageInfo {
   /**
+   * @public
    * <p>EBS volume information.</p>
    */
   EbsStorageInfo?: EBSStorageInfo;
 }
 
-export namespace StorageInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Describes the setup to be used for Kafka broker nodes in the cluster.</p>
+ * @public
+ * <p>Describes the setup to be used for Apache Kafka broker nodes in the cluster.</p>
  */
 export interface BrokerNodeGroupInfo {
   /**
+   * @public
    * <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>
    *          <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>
    */
   BrokerAZDistribution?: BrokerAZDistribution | string;
 
   /**
-   * <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't be in Availability Zone us-east-1e.</p>
+   * @public
+   * <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't occupy the Availability Zone with ID use use1-az3.</p>
    */
   ClientSubnets: string[] | undefined;
 
   /**
-   * <p>The type of Amazon EC2 instances to use for Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
+   * @public
+   * <p>The type of Amazon EC2 instances to use for Apache Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
    * kafka.m5.4xlarge, kafka.m5.12xlarge, and kafka.m5.24xlarge.</p>
    */
   InstanceType: string | undefined;
 
   /**
+   * @public
    * <p>The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC.</p>
    */
   SecurityGroups?: string[];
 
   /**
+   * @public
    * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
    */
   StorageInfo?: StorageInfo;
-}
 
-export namespace BrokerNodeGroupInfo {
   /**
-   * @internal
+   * @public
+   * <p>Information about the broker access configuration.</p>
    */
-  export const filterSensitiveLog = (obj: BrokerNodeGroupInfo): any => ({
-    ...obj,
-  });
+  ConnectivityInfo?: ConnectivityInfo;
+
+  /**
+   * @public
+   * <p>The list of zoneIds for the cluster in the virtual private cloud (VPC).</p>
+   */
+  ZoneIds?: string[];
 }
 
 /**
+ * @public
  * <p>Details for IAM access control.</p>
  */
 export interface Iam {
   /**
+   * @public
    * <p>Indicates whether IAM access control is enabled.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace Iam {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Iam): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details for SASL/SCRAM client authentication.</p>
  */
 export interface Scram {
   /**
+   * @public
    * <p>SASL/SCRAM authentication is enabled or not.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace Scram {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scram): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details for client authentication using SASL.</p>
  */
 export interface Sasl {
   /**
+   * @public
    * <p>Details for SASL/SCRAM client authentication.</p>
    */
   Scram?: Scram;
 
   /**
+   * @public
    * <p>Indicates whether IAM access control is enabled.</p>
    */
   Iam?: Iam;
 }
 
-export namespace Sasl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sasl): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Details for client authentication using TLS.</p>
  */
 export interface Tls {
   /**
+   * @public
    * <p>List of ACM Certificate Authority ARNs.</p>
    */
   CertificateAuthorityArnList?: string[];
 
   /**
-   * <p>Specifies whether you want to enable or disable TLS authentication.</p>
+   * @public
+   * <p>Specifies whether you want to turn on or turn off TLS authentication.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace Tls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tls): any => ({
-    ...obj,
-  });
-}
-
-export interface Unauthenticated {
-  /**
-   * <p>Specifies whether you want to enable or disable unauthenticated traffic to your cluster.</p>
-   */
-  Enabled?: boolean;
-}
-
-export namespace Unauthenticated {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Unauthenticated): any => ({
-    ...obj,
-  });
 }
 
 /**
+ * @public
+ */
+export interface Unauthenticated {
+  /**
+   * @public
+   * <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
  * <p>Includes all client authentication information.</p>
  */
 export interface ClientAuthentication {
   /**
+   * @public
    * <p>Details for ClientAuthentication using SASL.</p>
    */
   Sasl?: Sasl;
 
   /**
+   * @public
    * <p>Details for ClientAuthentication using TLS.</p>
    */
   Tls?: Tls;
 
   /**
+   * @public
    * <p>Contains information about unauthenticated traffic to the cluster.</p>
    */
   Unauthenticated?: Unauthenticated;
 }
 
-export namespace ClientAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientAuthentication): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the current software installed on the cluster.</p>
  */
 export interface BrokerSoftwareInfo {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn't visible in this preview release.</p>
    */
   ConfigurationArn?: string;
 
   /**
+   * @public
    * <p>The revision of the configuration to use. This field isn't visible in this preview release.</p>
    */
   ConfigurationRevision?: number;
 
   /**
+   * @public
    * <p>The version of Apache Kafka.</p>
    */
   KafkaVersion?: string;
 }
 
-export namespace BrokerSoftwareInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerSoftwareInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The data-volume encryption details.</p>
  */
 export interface EncryptionAtRest {
   /**
+   * @public
    * <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>
    */
   DataVolumeKMSKeyId: string | undefined;
 }
 
-export namespace EncryptionAtRest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionAtRest): any => ({
-    ...obj,
-  });
-}
-
-export enum ClientBroker {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ClientBroker = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+  TLS_PLAINTEXT: "TLS_PLAINTEXT",
+} as const;
 
 /**
+ * @public
+ */
+export type ClientBroker = (typeof ClientBroker)[keyof typeof ClientBroker];
+
+/**
+ * @public
  * <p>The settings for encrypting data in transit.</p>
  */
 export interface EncryptionInTransit {
   /**
+   * @public
    * <p>Indicates the encryption setting for data in transit between clients and brokers. The following are the possible values.</p>
    *             <p>
    *                TLS means that client-broker communication is enabled with TLS only.</p>
@@ -309,2138 +487,3154 @@ export interface EncryptionInTransit {
   ClientBroker?: ClientBroker | string;
 
   /**
+   * @public
    * <p>When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.</p>
    *             <p>The default value is true.</p>
    */
   InCluster?: boolean;
 }
 
-export namespace EncryptionInTransit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionInTransit): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
  */
 export interface EncryptionInfo {
   /**
+   * @public
    * <p>The data-volume encryption details.</p>
    */
   EncryptionAtRest?: EncryptionAtRest;
 
   /**
+   * @public
    * <p>The details for encryption in transit.</p>
    */
   EncryptionInTransit?: EncryptionInTransit;
 }
 
-export namespace EncryptionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionInfo): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const EnhancedMonitoring = {
+  DEFAULT: "DEFAULT",
+  PER_BROKER: "PER_BROKER",
+  PER_TOPIC_PER_BROKER: "PER_TOPIC_PER_BROKER",
+  PER_TOPIC_PER_PARTITION: "PER_TOPIC_PER_PARTITION",
+} as const;
 
-export enum EnhancedMonitoring {
-  DEFAULT = "DEFAULT",
-  PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER",
-  PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION",
-}
+/**
+ * @public
+ */
+export type EnhancedMonitoring = (typeof EnhancedMonitoring)[keyof typeof EnhancedMonitoring];
 
+/**
+ * @public
+ */
 export interface CloudWatchLogs {
   Enabled: boolean | undefined;
   LogGroup?: string;
 }
 
-export namespace CloudWatchLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogs): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface Firehose {
   DeliveryStream?: string;
   Enabled: boolean | undefined;
 }
 
-export namespace Firehose {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Firehose): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface S3 {
   Bucket?: string;
   Enabled: boolean | undefined;
   Prefix?: string;
 }
 
-export namespace S3 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BrokerLogs {
   CloudWatchLogs?: CloudWatchLogs;
   Firehose?: Firehose;
   S3?: S3;
 }
 
-export namespace BrokerLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerLogs): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface LoggingInfo {
   BrokerLogs: BrokerLogs | undefined;
 }
 
-export namespace LoggingInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+ * @public
+ * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
  */
-export interface JmxExporter {
+export interface JmxExporterInfo {
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
 }
 
-export namespace JmxExporter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JmxExporter): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+ * @public
+ * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
-export interface NodeExporter {
+export interface NodeExporterInfo {
   /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
 }
 
-export namespace NodeExporter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeExporter): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Prometheus settings.</p>
  */
-export interface Prometheus {
+export interface PrometheusInfo {
   /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
    */
-  JmxExporter?: JmxExporter;
+  JmxExporter?: JmxExporterInfo;
 
   /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
-  NodeExporter?: NodeExporter;
-}
-
-export namespace Prometheus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Prometheus): any => ({
-    ...obj,
-  });
+  NodeExporter?: NodeExporterInfo;
 }
 
 /**
+ * @public
  * <p>JMX and Node monitoring for the MSK cluster.</p>
  */
-export interface OpenMonitoring {
+export interface OpenMonitoringInfo {
   /**
+   * @public
    * <p>Prometheus settings.</p>
    */
-  Prometheus: Prometheus | undefined;
-}
-
-export namespace OpenMonitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenMonitoring): any => ({
-    ...obj,
-  });
-}
-
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALING = "HEALING",
-  MAINTENANCE = "MAINTENANCE",
-  REBOOTING_BROKER = "REBOOTING_BROKER",
-  UPDATING = "UPDATING",
-}
-
-export interface StateInfo {
-  Code?: string;
-  Message?: string;
-}
-
-export namespace StateInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateInfo): any => ({
-    ...obj,
-  });
+  Prometheus: PrometheusInfo | undefined;
 }
 
 /**
- * <p>Returns information about a cluster.</p>
+ * @public
+ * @enum
  */
-export interface ClusterInfo {
+export const StorageMode = {
+  LOCAL: "LOCAL",
+  TIERED: "TIERED",
+} as const;
+
+/**
+ * @public
+ */
+export type StorageMode = (typeof StorageMode)[keyof typeof StorageMode];
+
+/**
+ * @public
+ * <p>Provisioned cluster.</p>
+ */
+export interface Provisioned {
   /**
-   * <p>Arn of active cluster operation.</p>
+   * @public
+   * <p>Information about the brokers.</p>
    */
-  ActiveOperationArn?: string;
+  BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
 
   /**
-   * <p>Information about the broker nodes.</p>
+   * @public
+   * <p>Information about the Apache Kafka version deployed on the brokers.</p>
    */
-  BrokerNodeGroupInfo?: BrokerNodeGroupInfo;
+  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
   /**
+   * @public
    * <p>Includes all client authentication information.</p>
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
-   */
-  ClusterArn?: string;
-
-  /**
-   * <p>The name of the cluster.</p>
-   */
-  ClusterName?: string;
-
-  /**
-   * <p>The time when the cluster was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
-   */
-  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
-
-  /**
-   * <p>The current version of the MSK cluster.</p>
-   */
-  CurrentVersion?: string;
-
-  /**
+   * @public
    * <p>Includes all encryption-related information.</p>
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
+   * @public
+   * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
+   */
+  EnhancedMonitoring?: EnhancedMonitoring | string;
+
+  /**
+   * @public
+   * <p>The settings for open monitoring.</p>
+   */
+  OpenMonitoring?: OpenMonitoringInfo;
+
+  /**
+   * @public
+   * <p>Log delivery information for the cluster.</p>
+   */
+  LoggingInfo?: LoggingInfo;
+
+  /**
+   * @public
+   * <p>The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes: number | undefined;
+
+  /**
+   * @public
+   * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
+   */
+  ZookeeperConnectString?: string;
+
+  /**
+   * @public
+   * <p>The connection string to use to connect to the Apache ZooKeeper cluster on a TLS port.</p>
+   */
+  ZookeeperConnectStringTls?: string;
+
+  /**
+   * @public
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
+}
+
+/**
+ * @public
+ * <p>Details for client authentication using SASL.</p>
+ */
+export interface ServerlessSasl {
+  /**
+   * @public
+   * <p>Indicates whether IAM access control is enabled.</p>
+   */
+  Iam?: Iam;
+}
+
+/**
+ * @public
+ * <p>Includes all client authentication information.</p>
+ */
+export interface ServerlessClientAuthentication {
+  /**
+   * @public
+   * <p>Details for ClientAuthentication using SASL.</p>
+   */
+  Sasl?: ServerlessSasl;
+}
+
+/**
+ * @public
+ * <p>The configuration of the Amazon VPCs for the cluster.</p>
+ */
+export interface VpcConfig {
+  /**
+   * @public
+   * <p>The IDs of the subnets associated with the cluster.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The IDs of the security groups associated with the cluster.</p>
+   */
+  SecurityGroupIds?: string[];
+}
+
+/**
+ * @public
+ * <p>Serverless cluster.</p>
+ */
+export interface Serverless {
+  /**
+   * @public
+   * <p>The configuration of the Amazon VPCs for the cluster.</p>
+   */
+  VpcConfigs: VpcConfig[] | undefined;
+
+  /**
+   * @public
+   * <p>Includes all client authentication information.</p>
+   */
+  ClientAuthentication?: ServerlessClientAuthentication;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALING: "HEALING",
+  MAINTENANCE: "MAINTENANCE",
+  REBOOTING_BROKER: "REBOOTING_BROKER",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+
+/**
+ * @public
+ */
+export interface StateInfo {
+  Code?: string;
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>Returns information about a cluster.</p>
+ */
+export interface Cluster {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a cluster operation.</p>
+   */
+  ActiveOperationArn?: string;
+
+  /**
+   * @public
+   * <p>Cluster Type.</p>
+   */
+  ClusterType?: ClusterType | string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>The time when the cluster was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The current version of the MSK cluster.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   */
+  State?: ClusterState | string;
+
+  /**
+   * @public
+   * <p>State Info for the Amazon MSK cluster.</p>
+   */
+  StateInfo?: StateInfo;
+
+  /**
+   * @public
+   * <p>Tags attached to the cluster.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Information about the provisioned cluster.</p>
+   */
+  Provisioned?: Provisioned;
+
+  /**
+   * @public
+   * <p>Information about the serverless cluster.</p>
+   */
+  Serverless?: Serverless;
+}
+
+/**
+ * @public
+ * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+ */
+export interface JmxExporter {
+  /**
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+   */
+  EnabledInBroker: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+ */
+export interface NodeExporter {
+  /**
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+   */
+  EnabledInBroker: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>Prometheus settings.</p>
+ */
+export interface Prometheus {
+  /**
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+   */
+  JmxExporter?: JmxExporter;
+
+  /**
+   * @public
+   * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+   */
+  NodeExporter?: NodeExporter;
+}
+
+/**
+ * @public
+ * <p>JMX and Node monitoring for the MSK cluster.</p>
+ */
+export interface OpenMonitoring {
+  /**
+   * @public
+   * <p>Prometheus settings.</p>
+   */
+  Prometheus: Prometheus | undefined;
+}
+
+/**
+ * @public
+ * <p>Returns information about a cluster.</p>
+ */
+export interface ClusterInfo {
+  /**
+   * @public
+   * <p>Arn of active cluster operation.</p>
+   */
+  ActiveOperationArn?: string;
+
+  /**
+   * @public
+   * <p>Information about the broker nodes.</p>
+   */
+  BrokerNodeGroupInfo?: BrokerNodeGroupInfo;
+
+  /**
+   * @public
+   * <p>Includes all client authentication information.</p>
+   */
+  ClientAuthentication?: ClientAuthentication;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>The time when the cluster was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
+   */
+  CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
+
+  /**
+   * @public
+   * <p>The current version of the MSK cluster.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>Includes all encryption-related information.</p>
+   */
+  EncryptionInfo?: EncryptionInfo;
+
+  /**
+   * @public
    * <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
+   * @public
    * <p>Settings for open monitoring using Prometheus.</p>
    */
   OpenMonitoring?: OpenMonitoring;
 
   LoggingInfo?: LoggingInfo;
   /**
+   * @public
    * <p>The number of broker nodes in the cluster.</p>
    */
   NumberOfBrokerNodes?: number;
 
   /**
+   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
 
   StateInfo?: StateInfo;
   /**
+   * @public
    * <p>Tags attached to the cluster.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
    */
   ZookeeperConnectString?: string;
 
   /**
+   * @public
    * <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
    */
   ZookeeperConnectStringTls?: string;
-}
 
-export namespace ClusterInfo {
   /**
-   * @internal
+   * @public
+   * <p>This controls storage mode for supported storage tiers.</p>
    */
-  export const filterSensitiveLog = (obj: ClusterInfo): any => ({
-    ...obj,
-  });
+  StorageMode?: StorageMode | string;
 }
 
 /**
+ * @public
  * <p>Returns information about an error state of the cluster.</p>
  */
 export interface ErrorInfo {
   /**
+   * @public
    * <p>A number describing the error programmatically.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>An optional field to provide more details about the error.</p>
    */
   ErrorString?: string;
 }
 
-export namespace ErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>State information about the operation step.</p>
  */
 export interface ClusterOperationStepInfo {
   /**
+   * @public
    * <p>The steps current status.</p>
    */
   StepStatus?: string;
 }
 
-export namespace ClusterOperationStepInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterOperationStepInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Step taken during a cluster operation.</p>
  */
 export interface ClusterOperationStep {
   /**
+   * @public
    * <p>Information about the step and its status.</p>
    */
   StepInfo?: ClusterOperationStepInfo;
 
   /**
+   * @public
    * <p>The name of the step.</p>
    */
   StepName?: string;
 }
 
-export namespace ClusterOperationStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterOperationStep): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Specifies the configuration to use for the brokers.</p>
  */
 export interface ConfigurationInfo {
   /**
+   * @public
    * <p>ARN of the configuration to use.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The revision of the configuration to use.</p>
    */
   Revision: number | undefined;
 }
 
-export namespace ConfigurationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about cluster attributes that can be updated via update APIs.</p>
  */
 export interface MutableClusterInfo {
   /**
+   * @public
    * <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>
    */
   BrokerEBSVolumeInfo?: BrokerEBSVolumeInfo[];
 
   /**
+   * @public
    * <p>Information about the changes in the configuration of the brokers.</p>
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
+   * @public
    * <p>The number of broker nodes in the cluster.</p>
    */
   NumberOfBrokerNodes?: number;
 
   /**
+   * @public
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
+   * @public
    * <p>The settings for open monitoring.</p>
    */
   OpenMonitoring?: OpenMonitoring;
 
   /**
-   * <p>The Kafka version.</p>
+   * @public
+   * <p>The Apache Kafka version.</p>
    */
   KafkaVersion?: string;
 
   /**
+   * @public
    * <p>You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.</p>
    */
   LoggingInfo?: LoggingInfo;
 
   /**
+   * @public
    * <p>Information about the Amazon MSK broker type.</p>
    */
   InstanceType?: string;
 
   /**
+   * @public
    * <p>Includes all client authentication information.</p>
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
+   * @public
    * <p>Includes all encryption-related information.</p>
    */
   EncryptionInfo?: EncryptionInfo;
-}
 
-export namespace MutableClusterInfo {
   /**
-   * @internal
+   * @public
+   * <p>Information about the broker access configuration.</p>
    */
-  export const filterSensitiveLog = (obj: MutableClusterInfo): any => ({
-    ...obj,
-  });
+  ConnectivityInfo?: ConnectivityInfo;
+
+  /**
+   * @public
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const UserIdentityType = {
+  AWSACCOUNT: "AWSACCOUNT",
+  AWSSERVICE: "AWSSERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
+
+/**
+ * @public
+ * <p>Description of the requester that calls the API operation.</p>
+ */
+export interface UserIdentity {
+  /**
+   * @public
+   * <p>The identity type of the requester that calls the API operation.</p>
+   */
+  Type?: UserIdentityType | string;
+
+  /**
+   * @public
+   * <p>A unique identifier for the requester that calls the API operation.</p>
+   */
+  PrincipalId?: string;
+}
+
+/**
+ * @public
+ * <p>Description of the VPC connection.</p>
+ */
+export interface VpcConnectionInfo {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * @public
+   * <p>The owner of the VPC Connection.</p>
+   */
+  Owner?: string;
+
+  /**
+   * @public
+   * <p>Description of the requester that calls the API operation.</p>
+   */
+  UserIdentity?: UserIdentity;
+
+  /**
+   * @public
+   * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   */
+  CreationTime?: Date;
+}
+
+/**
+ * @public
  * <p>Returns information about a cluster operation.</p>
  */
 export interface ClusterOperationInfo {
   /**
+   * @public
    * <p>The ID of the API request that triggered this operation.</p>
    */
   ClientRequestId?: string;
 
   /**
+   * @public
    * <p>ARN of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The time that the operation was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The time at which the operation finished.</p>
    */
   EndTime?: Date;
 
   /**
+   * @public
    * <p>Describes the error if the operation fails.</p>
    */
   ErrorInfo?: ErrorInfo;
 
   /**
+   * @public
    * <p>ARN of the cluster operation.</p>
    */
   OperationArn?: string;
 
   /**
+   * @public
    * <p>State of the cluster operation.</p>
    */
   OperationState?: string;
 
   /**
+   * @public
    * <p>Steps completed during the operation.</p>
    */
   OperationSteps?: ClusterOperationStep[];
 
   /**
+   * @public
    * <p>Type of the cluster operation.</p>
    */
   OperationType?: string;
 
   /**
+   * @public
    * <p>Information about cluster attributes before a cluster is updated.</p>
    */
   SourceClusterInfo?: MutableClusterInfo;
 
   /**
+   * @public
    * <p>Information about cluster attributes after a cluster is updated.</p>
    */
   TargetClusterInfo?: MutableClusterInfo;
-}
 
-export namespace ClusterOperationInfo {
   /**
-   * @internal
+   * @public
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
    */
-  export const filterSensitiveLog = (obj: ClusterOperationInfo): any => ({
-    ...obj,
-  });
+  VpcConnectionInfo?: VpcConnectionInfo;
 }
 
 /**
- * <p>Contains source Kafka versions and compatible target Kafka versions.</p>
+ * @public
+ * <p>Returns information about a cluster operation.</p>
+ */
+export interface ClusterOperationV2Summary {
+  /**
+   * @public
+   * <p>ARN of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>Type of the backend cluster.</p>
+   */
+  ClusterType?: ClusterType | string;
+
+  /**
+   * @public
+   * <p>The time at which operation was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The time at which the operation finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>ARN of the cluster operation.</p>
+   */
+  OperationArn?: string;
+
+  /**
+   * @public
+   * <p>State of the cluster operation.</p>
+   */
+  OperationState?: string;
+
+  /**
+   * @public
+   * <p>Type of the cluster operation.</p>
+   */
+  OperationType?: string;
+}
+
+/**
+ * @public
+ * <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>
  */
 export interface CompatibleKafkaVersion {
   /**
-   * <p>A Kafka version.</p>
+   * @public
+   * <p>An Apache Kafka version.</p>
    */
   SourceVersion?: string;
 
   /**
-   * <p>A list of Kafka versions.</p>
+   * @public
+   * <p>A list of Apache Kafka versions.</p>
    */
   TargetVersions?: string[];
 }
 
-export namespace CompatibleKafkaVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompatibleKafkaVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a configuration revision.</p>
  */
 export interface ConfigurationRevision {
   /**
+   * @public
    * <p>The time when the configuration revision was created.</p>
    */
   CreationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The description of the configuration revision.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The revision number.</p>
    */
   Revision: number | undefined;
 }
 
-export namespace ConfigurationRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationRevision): any => ({
-    ...obj,
-  });
-}
-
-export enum ConfigurationState {
-  ACTIVE = "ACTIVE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationState = {
+  ACTIVE: "ACTIVE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
 
 /**
+ * @public
+ */
+export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
+
+/**
+ * @public
  * <p>Represents an MSK Configuration.</p>
  */
 export interface Configuration {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The time when the configuration was created.</p>
    */
   CreationTime: Date | undefined;
 
   /**
+   * @public
    * <p>The description of the configuration.</p>
    */
   Description: string | undefined;
 
   /**
+   * @public
    * <p>An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.</p>
    */
   KafkaVersions: string[] | undefined;
 
   /**
+   * @public
    * <p>Latest revision of the configuration.</p>
    */
   LatestRevision: ConfigurationRevision | undefined;
 
   /**
+   * @public
    * <p>The name of the configuration.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
   State: ConfigurationState | string | undefined;
 }
 
-export namespace Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const KafkaVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+} as const;
 
-export enum KafkaVersionStatus {
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-}
+/**
+ * @public
+ */
+export type KafkaVersionStatus = (typeof KafkaVersionStatus)[keyof typeof KafkaVersionStatus];
 
+/**
+ * @public
+ */
 export interface KafkaVersion {
   Version?: string;
   Status?: KafkaVersionStatus | string;
 }
 
-export namespace KafkaVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>BrokerNodeInfo</p>
  */
 export interface BrokerNodeInfo {
   /**
+   * @public
    * <p>The attached elastic network interface of the broker.</p>
    */
   AttachedENIId?: string;
 
   /**
+   * @public
    * <p>The ID of the broker.</p>
    */
   BrokerId?: number;
 
   /**
+   * @public
    * <p>The client subnet to which this broker node belongs.</p>
    */
   ClientSubnet?: string;
 
   /**
+   * @public
    * <p>The virtual private cloud (VPC) of the client.</p>
    */
   ClientVpcIpAddress?: string;
 
   /**
-   * <p>Information about the version of software currently deployed on the Kafka brokers in the cluster.</p>
+   * @public
+   * <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
    */
   CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
   /**
+   * @public
    * <p>Endpoints for accessing the broker.</p>
    */
   Endpoints?: string[];
 }
 
-export namespace BrokerNodeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerNodeInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum NodeType {
-  BROKER = "BROKER",
-}
+/**
+ * @public
+ * @enum
+ */
+export const NodeType = {
+  BROKER: "BROKER",
+} as const;
 
 /**
+ * @public
+ */
+export type NodeType = (typeof NodeType)[keyof typeof NodeType];
+
+/**
+ * @public
  * <p>Zookeeper node information.</p>
  */
 export interface ZookeeperNodeInfo {
   /**
+   * @public
    * <p>The attached elastic network interface of the broker.</p>
    */
   AttachedENIId?: string;
 
   /**
+   * @public
    * <p>The virtual private cloud (VPC) IP address of the client.</p>
    */
   ClientVpcIpAddress?: string;
 
   /**
+   * @public
    * <p>Endpoints for accessing the ZooKeeper.</p>
    */
   Endpoints?: string[];
 
   /**
+   * @public
    * <p>The role-specific ID for Zookeeper.</p>
    */
   ZookeeperId?: number;
 
   /**
+   * @public
    * <p>The version of Zookeeper.</p>
    */
   ZookeeperVersion?: string;
 }
 
-export namespace ZookeeperNodeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZookeeperNodeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The node information object.</p>
  */
 export interface NodeInfo {
   /**
+   * @public
    * <p>The start time.</p>
    */
   AddedToClusterTime?: string;
 
   /**
+   * @public
    * <p>The broker node info.</p>
    */
   BrokerNodeInfo?: BrokerNodeInfo;
 
   /**
+   * @public
    * <p>The instance type.</p>
    */
   InstanceType?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the node.</p>
    */
   NodeARN?: string;
 
   /**
+   * @public
    * <p>The node type.</p>
    */
   NodeType?: NodeType | string;
 
   /**
+   * @public
    * <p>The ZookeeperNodeInfo.</p>
    */
   ZookeeperNodeInfo?: ZookeeperNodeInfo;
 }
 
-export namespace NodeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Error info for scram secret associate/disassociate failure.</p>
  */
 export interface UnprocessedScramSecret {
   /**
+   * @public
    * <p>Error code for associate/disassociate failure.</p>
    */
   ErrorCode?: string;
 
   /**
+   * @public
    * <p>Error message for associate/disassociate failure.</p>
    */
   ErrorMessage?: string;
 
   /**
+   * @public
    * <p>AWS Secrets Manager secret ARN.</p>
    */
   SecretArn?: string;
 }
 
-export namespace UnprocessedScramSecret {
+/**
+ * @public
+ * <p>The VPC connection object.</p>
+ */
+export interface VpcConnection {
   /**
-   * @internal
+   * @public
+   * <p>The ARN that identifies the Vpc Connection.</p>
    */
-  export const filterSensitiveLog = (obj: UnprocessedScramSecret): any => ({
-    ...obj,
-  });
+  VpcConnectionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN that identifies the Cluster which the Vpc Connection belongs to.</p>
+   */
+  TargetClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Creation time of the Vpc Connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Information about the auth scheme of Vpc Connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * @public
+   * <p>The vpcId that belongs to the Vpc Connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>State of the Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace BadRequestException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Associates sasl scram secrets to cluster.</p>
  */
 export interface BatchAssociateScramSecretRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>List of AWS Secrets Manager secret ARNs.</p>
    */
   SecretArnList: string[] | undefined;
 }
 
-export namespace BatchAssociateScramSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateScramSecretRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchAssociateScramSecretResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>List of errors when associating secrets to cluster.</p>
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[];
 }
 
-export namespace BatchAssociateScramSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateScramSecretResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace ForbiddenException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace NotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace UnauthorizedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Disassociates sasl scram secrets to cluster.</p>
  */
 export interface BatchDisassociateScramSecretRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>List of AWS Secrets Manager secret ARNs.</p>
    */
   SecretArnList: string[] | undefined;
 }
 
-export namespace BatchDisassociateScramSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateScramSecretRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchDisassociateScramSecretResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>List of errors when disassociating secrets to cluster.</p>
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[];
 }
 
-export namespace BatchDisassociateScramSecretResponse {
+/**
+ * @public
+ * <p>Returns information about a provisioned cluster operation.</p>
+ */
+export interface ClusterOperationV2Provisioned {
   /**
-   * @internal
+   * @public
+   * <p>Steps completed during the operation.</p>
    */
-  export const filterSensitiveLog = (obj: BatchDisassociateScramSecretResponse): any => ({
-    ...obj,
-  });
+  OperationSteps?: ClusterOperationStep[];
+
+  /**
+   * @public
+   * <p>Information about cluster attributes before a cluster is updated.</p>
+   */
+  SourceClusterInfo?: MutableClusterInfo;
+
+  /**
+   * @public
+   * <p>Information about cluster attributes after a cluster is updated.</p>
+   */
+  TargetClusterInfo?: MutableClusterInfo;
+
+  /**
+   * @public
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   */
+  VpcConnectionInfo?: VpcConnectionInfo;
 }
 
 /**
+ * @public
+ * Description of the VPC connection.
+ */
+export interface VpcConnectionInfoServerless {
+  /**
+   * @public
+   * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The owner of the VPC Connection.</p>
+   */
+  Owner?: string;
+
+  /**
+   * @public
+   * <p>Description of the requester that calls the API operation.</p>
+   */
+  UserIdentity?: UserIdentity;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+}
+
+/**
+ * @public
+ * <p>Returns information about a serverless cluster operation.</p>
+ */
+export interface ClusterOperationV2Serverless {
+  /**
+   * @public
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   */
+  VpcConnectionInfo?: VpcConnectionInfoServerless;
+}
+
+/**
+ * @public
+ * <p>Returns information about a cluster operation.</p>
+ */
+export interface ClusterOperationV2 {
+  /**
+   * @public
+   * <p>ARN of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>Type of the backend cluster.</p>
+   */
+  ClusterType?: ClusterType | string;
+
+  /**
+   * @public
+   * <p>The time at which operation was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The time at which the operation finished.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>If cluster operation failed from an error, it describes the error.</p>
+   */
+  ErrorInfo?: ErrorInfo;
+
+  /**
+   * @public
+   * <p>ARN of the cluster operation.</p>
+   */
+  OperationArn?: string;
+
+  /**
+   * @public
+   * <p>State of the cluster operation.</p>
+   */
+  OperationState?: string;
+
+  /**
+   * @public
+   * <p>Type of the cluster operation.</p>
+   */
+  OperationType?: string;
+
+  /**
+   * @public
+   * <p>Properties of a provisioned cluster.</p>
+   */
+  Provisioned?: ClusterOperationV2Provisioned;
+
+  /**
+   * @public
+   * <p>Properties of a serverless cluster.</p>
+   */
+  Serverless?: ClusterOperationV2Serverless;
+}
+
+/**
+ * @public
  * <p>Returns information about an error.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>The parameter that caused the error.</p>
    */
   InvalidParameter?: string;
 
   /**
+   * @public
    * <p>The description of the error.</p>
    */
   Message?: string;
-}
-
-export namespace ConflictException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
- * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
+ * @public
  */
-export interface JmxExporterInfo {
-  /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
-   */
-  EnabledInBroker: boolean | undefined;
-}
-
-export namespace JmxExporterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JmxExporterInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
- */
-export interface NodeExporterInfo {
-  /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
-   */
-  EnabledInBroker: boolean | undefined;
-}
-
-export namespace NodeExporterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeExporterInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Prometheus settings.</p>
- */
-export interface PrometheusInfo {
-  /**
-   * <p>Indicates whether you want to enable or disable the JMX Exporter.</p>
-   */
-  JmxExporter?: JmxExporterInfo;
-
-  /**
-   * <p>Indicates whether you want to enable or disable the Node Exporter.</p>
-   */
-  NodeExporter?: NodeExporterInfo;
-}
-
-export namespace PrometheusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrometheusInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>JMX and Node monitoring for the MSK cluster.</p>
- */
-export interface OpenMonitoringInfo {
-  /**
-   * <p>Prometheus settings.</p>
-   */
-  Prometheus: PrometheusInfo | undefined;
-}
-
-export namespace OpenMonitoringInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenMonitoringInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterRequest {
   /**
+   * @public
    * <p>Information about the broker nodes in the cluster.</p>
    */
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
 
   /**
+   * @public
    * <p>Includes all client authentication related information.</p>
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
+   * @public
    * <p>The name of the cluster.</p>
    */
   ClusterName: string | undefined;
 
   /**
+   * @public
    * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
+   * @public
    * <p>Includes all encryption-related information.</p>
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
+   * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
+   * @public
    * <p>The settings for open monitoring.</p>
    */
   OpenMonitoring?: OpenMonitoringInfo;
 
   /**
+   * @public
    * <p>The version of Apache Kafka.</p>
    */
   KafkaVersion: string | undefined;
 
   LoggingInfo?: LoggingInfo;
   /**
+   * @public
    * <p>The number of broker nodes in the cluster.</p>
    */
   NumberOfBrokerNodes: number | undefined;
 
   /**
+   * @public
    * <p>Create tags when creating the cluster.</p>
    */
-  Tags?: { [key: string]: string };
-}
+  Tags?: Record<string, string>;
 
-export namespace CreateClusterRequest {
   /**
-   * @internal
+   * @public
+   * <p>This controls storage mode for supported storage tiers.</p>
    */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
+  StorageMode?: StorageMode | string;
 }
 
+/**
+ * @public
+ */
 export interface CreateClusterResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The name of the MSK cluster.</p>
    */
   ClusterName?: string;
 
   /**
+   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
 }
 
-export namespace CreateClusterResponse {
+/**
+ * @public
+ * <p>Provisioned cluster request.</p>
+ */
+export interface ProvisionedRequest {
   /**
-   * @internal
+   * @public
+   * <p>Information about the brokers.</p>
    */
-  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-  });
+  BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
+
+  /**
+   * @public
+   * <p>Includes all client authentication information.</p>
+   */
+  ClientAuthentication?: ClientAuthentication;
+
+  /**
+   * @public
+   * <p>Represents the configuration that you want Amazon MSK to use for the brokers in a cluster.</p>
+   */
+  ConfigurationInfo?: ConfigurationInfo;
+
+  /**
+   * @public
+   * <p>Includes all encryption-related information.</p>
+   */
+  EncryptionInfo?: EncryptionInfo;
+
+  /**
+   * @public
+   * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
+   */
+  EnhancedMonitoring?: EnhancedMonitoring | string;
+
+  /**
+   * @public
+   * <p>The settings for open monitoring.</p>
+   */
+  OpenMonitoring?: OpenMonitoringInfo;
+
+  /**
+   * @public
+   * <p>The Apache Kafka version that you want for the cluster.</p>
+   */
+  KafkaVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>Log delivery information for the cluster.</p>
+   */
+  LoggingInfo?: LoggingInfo;
+
+  /**
+   * @public
+   * <p>The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes: number | undefined;
+
+  /**
+   * @public
+   * <p>This controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
 }
 
+/**
+ * @public
+ * <p>Serverless cluster request.</p>
+ */
+export interface ServerlessRequest {
+  /**
+   * @public
+   * <p>The configuration of the Amazon VPCs for the cluster.</p>
+   */
+  VpcConfigs: VpcConfig[] | undefined;
+
+  /**
+   * @public
+   * <p>Includes all client authentication information.</p>
+   */
+  ClientAuthentication?: ServerlessClientAuthentication;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterV2Request {
+  /**
+   * @public
+   * <p>The name of the cluster.</p>
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>A map of tags that you want the cluster to have.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Information about the provisioned cluster.</p>
+   */
+  Provisioned?: ProvisionedRequest;
+
+  /**
+   * @public
+   * <p>Information about the serverless cluster.</p>
+   */
+  Serverless?: ServerlessRequest;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterV2Response {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the MSK cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   */
+  State?: ClusterState | string;
+
+  /**
+   * @public
+   * <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>
+   */
+  ClusterType?: ClusterType | string;
+}
+
+/**
+ * @public
+ */
 export interface CreateConfigurationRequest {
   /**
+   * @public
    * <p>The description of the configuration.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
    */
   KafkaVersions?: string[];
 
   /**
+   * @public
    * <p>The name of the configuration.</p>
    */
   Name: string | undefined;
 
   /**
+   * @public
    * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
    */
   ServerProperties: Uint8Array | undefined;
 }
 
-export namespace CreateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The time when the configuration was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>Latest revision of the configuration.</p>
    */
   LatestRevision?: ConfigurationRevision;
 
   /**
+   * @public
    * <p>The name of the configuration.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
   State?: ConfigurationState | string;
 }
 
-export namespace CreateConfigurationResponse {
+/**
+ * @public
+ */
+export interface CreateVpcConnectionRequest {
   /**
-   * @internal
+   * @public
+   * <p>The cluster Amazon Resource Name (ARN) for the VPC connection.</p>
    */
-  export const filterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
-    ...obj,
-  });
+  TargetClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication: string | undefined;
+
+  /**
+   * @public
+   * <p>The VPC ID of VPC connection.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * @public
+   * <p>The list of client subnets.</p>
+   */
+  ClientSubnets: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The list of security groups.</p>
+   */
+  SecurityGroups: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
+/**
+ * @public
+ */
+export interface CreateVpcConnectionResponse {
+  /**
+   * @public
+   * <p>The VPC connection ARN.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * @public
+   * <p>The State of Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * @public
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * @public
+   * <p>The VPC ID of the VPC connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The list of client subnets.</p>
+   */
+  ClientSubnets?: string[];
+
+  /**
+   * @public
+   * <p>The list of security groups.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * @public
+   * <p>The creation time of VPC connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The current version of the MSK cluster.</p>
    */
   CurrentVersion?: string;
 }
 
-export namespace DeleteClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteClusterResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
 }
 
-export namespace DeleteClusterResponse {
+/**
+ * @public
+ */
+export interface DeleteClusterPolicyRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
-  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-  });
+  ClusterArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteClusterPolicyResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
    */
   Arn: string | undefined;
 }
 
-export namespace DeleteConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
   State?: ConfigurationState | string;
 }
 
-export namespace DeleteConfigurationResponse {
+/**
+ * @public
+ */
+export interface DeleteVpcConnectionRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
    */
-  export const filterSensitiveLog = (obj: DeleteConfigurationResponse): any => ({
-    ...obj,
-  });
+  Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DeleteVpcConnectionResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the VPC connection.</p>
+   */
+  State?: VpcConnectionState | string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeClusterRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 }
 
-export namespace DescribeClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeClusterResponse {
   /**
+   * @public
    * <p>The cluster information.</p>
    */
   ClusterInfo?: ClusterInfo;
 }
 
-export namespace DescribeClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeClusterOperationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>
    */
   ClusterOperationArn: string | undefined;
 }
 
-export namespace DescribeClusterOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterOperationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeClusterOperationResponse {
   /**
+   * @public
    * <p>Cluster operation information</p>
    */
   ClusterOperationInfo?: ClusterOperationInfo;
 }
 
-export namespace DescribeClusterOperationResponse {
+/**
+ * @public
+ */
+export interface DescribeClusterOperationV2Request {
   /**
-   * @internal
+   * @public
+   * ARN of the cluster operation to describe.
    */
-  export const filterSensitiveLog = (obj: DescribeClusterOperationResponse): any => ({
-    ...obj,
-  });
+  ClusterOperationArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DescribeClusterOperationV2Response {
+  /**
+   * @public
+   * <p>Cluster operation information</p>
+   */
+  ClusterOperationInfo?: ClusterOperationV2;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterV2Request {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterV2Response {
+  /**
+   * @public
+   * <p>The cluster information.</p>
+   */
+  ClusterInfo?: Cluster;
+}
+
+/**
+ * @public
+ */
 export interface DescribeConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
    */
   Arn: string | undefined;
 }
 
-export namespace DescribeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The time when the configuration was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The description of the configuration.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
    */
   KafkaVersions?: string[];
 
   /**
+   * @public
    * <p>Latest revision of the configuration.</p>
    */
   LatestRevision?: ConfigurationRevision;
 
   /**
+   * @public
    * <p>The name of the configuration.</p>
    */
   Name?: string;
 
   /**
+   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
   State?: ConfigurationState | string;
 }
 
-export namespace DescribeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>A string that uniquely identifies a revision of an MSK configuration.</p>
    */
   Revision: number | undefined;
 }
 
-export namespace DescribeConfigurationRevisionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeConfigurationRevisionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>The time when the configuration was created.</p>
    */
   CreationTime?: Date;
 
   /**
+   * @public
    * <p>The description of the configuration.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>The revision number.</p>
    */
   Revision?: number;
 
   /**
+   * @public
    * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
    */
   ServerProperties?: Uint8Array;
 }
 
-export namespace DescribeConfigurationRevisionResponse {
+/**
+ * @public
+ */
+export interface DescribeVpcConnectionRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
    */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionResponse): any => ({
-    ...obj,
-  });
+  Arn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface DescribeVpcConnectionResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK cluster.</p>
+   */
+  TargetClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The state of VPC connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * @public
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * @public
+   * <p>The VPC Id for the VPC connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The list of subnets for the VPC connection.</p>
+   */
+  Subnets?: string[];
+
+  /**
+   * @public
+   * <p>The list of security groups for the VPC connection.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * @public
+   * <p>The creation time of the VPC connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface GetBootstrapBrokersRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 }
 
-export namespace GetBootstrapBrokersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBootstrapBrokersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetBootstrapBrokersResponse {
   /**
+   * @public
    * <p>A string containing one or more hostname:port pairs.</p>
    */
   BootstrapBrokerString?: string;
 
   /**
+   * @public
    * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
    */
   BootstrapBrokerStringTls?: string;
 
   /**
+   * @public
    * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
    */
   BootstrapBrokerStringSaslScram?: string;
 
   /**
+   * @public
    * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
    */
   BootstrapBrokerStringSaslIam?: string;
-}
 
-export namespace GetBootstrapBrokersResponse {
   /**
-   * @internal
+   * @public
+   * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
    */
-  export const filterSensitiveLog = (obj: GetBootstrapBrokersResponse): any => ({
-    ...obj,
-  });
+  BootstrapBrokerStringPublicTls?: string;
+
+  /**
+   * @public
+   * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
+   */
+  BootstrapBrokerStringPublicSaslScram?: string;
+
+  /**
+   * @public
+   * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
+   */
+  BootstrapBrokerStringPublicSaslIam?: string;
+
+  /**
+   * @public
+   * <p>A string containing one or more DNS names (or IP) and TLS port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivityTls?: string;
+
+  /**
+   * @public
+   * <p>A string containing one or more DNS names (or IP) and SASL/SCRAM port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivitySaslScram?: string;
+
+  /**
+   * @public
+   * <p>A string containing one or more DNS names (or IP) and SASL/IAM port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivitySaslIam?: string;
 }
 
+/**
+ * @public
+ */
+export interface GetClusterPolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterPolicyResponse {
+  /**
+   * @public
+   * <p>The version of cluster policy.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>The cluster policy.</p>
+   */
+  Policy?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetCompatibleKafkaVersionsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster check.</p>
    */
   ClusterArn?: string;
 }
 
-export namespace GetCompatibleKafkaVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCompatibleKafkaVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetCompatibleKafkaVersionsResponse {
   /**
+   * @public
    * <p>A list of CompatibleKafkaVersion objects.</p>
    */
   CompatibleKafkaVersions?: CompatibleKafkaVersion[];
 }
 
-export namespace GetCompatibleKafkaVersionsResponse {
+/**
+ * @public
+ */
+export interface ListClientVpcConnectionsRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
-  export const filterSensitiveLog = (obj: GetCompatibleKafkaVersionsResponse): any => ({
-    ...obj,
-  });
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface ListClientVpcConnectionsResponse {
+  /**
+   * @public
+   * <p>List of client VPC connections.</p>
+   */
+  ClientVpcConnections?: ClientVpcConnection[];
+
+  /**
+   * @public
+   * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListClusterOperationsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListClusterOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClusterOperationsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListClusterOperationsResponse {
   /**
+   * @public
    * <p>An array of cluster operation information objects.</p>
    */
   ClusterOperationInfoList?: ClusterOperationInfo[];
 
   /**
+   * @public
    * <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListClusterOperationsResponse {
+/**
+ * @public
+ */
+export interface ListClusterOperationsV2Request {
   /**
-   * @internal
+   * @public
+   * The arn of the cluster whose operations are being requested.
    */
-  export const filterSensitiveLog = (obj: ListClusterOperationsResponse): any => ({
-    ...obj,
-  });
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * The maxResults of the query.
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * The nextToken of the query.
+   */
+  NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface ListClusterOperationsV2Response {
+  /**
+   * @public
+   * <p>An array of cluster operation information objects.</p>
+   */
+  ClusterOperationInfoList?: ClusterOperationV2Summary[];
+
+  /**
+   * @public
+   * <p>If the response of ListClusterOperationsV2 is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListClusterOperationsV2.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListClustersRequest {
   /**
+   * @public
    * <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
    */
   ClusterNameFilter?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListClustersResponse {
   /**
+   * @public
    * <p>Information on each of the MSK clusters in the response.</p>
    */
   ClusterInfoList?: ClusterInfo[];
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response.
    *                To get another batch of clusters, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListClustersResponse {
+/**
+ * @public
+ */
+export interface ListClustersV2Request {
   /**
-   * @internal
+   * @public
+   * <p>Specify a prefix of the names of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
    */
-  export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
-    ...obj,
-  });
+  ClusterNameFilter?: string;
+
+  /**
+   * @public
+   * <p>Specify either PROVISIONED or SERVERLESS.</p>
+   */
+  ClusterTypeFilter?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
 }
 
+/**
+ * @public
+ */
+export interface ListClustersV2Response {
+  /**
+   * @public
+   * <p>Information on each of the MSK clusters in the response.</p>
+   */
+  ClusterInfoList?: Cluster[];
+
+  /**
+   * @public
+   * <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of clusters, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListConfigurationRevisionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListConfigurationRevisionsResponse {
   /**
+   * @public
    * <p>Paginated results marker.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>List of ConfigurationRevision objects.</p>
    */
   Revisions?: ConfigurationRevision[];
 }
 
-export namespace ListConfigurationRevisionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListConfigurationsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListConfigurationsResponse {
   /**
+   * @public
    * <p>An array of MSK configurations.</p>
    */
   Configurations?: Configuration[];
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response.
    *                To get another batch of configurations, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListKafkaVersionsRequest {
   /**
+   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListKafkaVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKafkaVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListKafkaVersionsResponse {
   KafkaVersions?: KafkaVersion[];
   NextToken?: string;
 }
 
-export namespace ListKafkaVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKafkaVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListNodesRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListNodesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListNodesResponse {
   /**
+   * @public
    * <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
    *                To get another batch of nodes, provide this token in your next request.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>List containing a NodeInfo object.</p>
    */
   NodeInfoList?: NodeInfo[];
 }
 
-export namespace ListNodesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListScramSecretsRequest {
   /**
+   * @public
    * <p>The arn of the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The maxResults of the query.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The nextToken of the query.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListScramSecretsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScramSecretsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListScramSecretsResponse {
   /**
+   * @public
    * <p>Paginated results marker.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The list of scram secrets associated with the cluster.</p>
    */
   SecretArnList?: string[];
 }
 
-export namespace ListScramSecretsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScramSecretsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
    */
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The key-value pair for the resource tag.</p>
    */
-  Tags?: { [key: string]: string };
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
+  Tags?: Record<string, string>;
 }
 
 /**
+ * @public
+ */
+export interface ListVpcConnectionsRequest {
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcConnectionsResponse {
+  /**
+   * @public
+   * <p>List of VPC connections.</p>
+   */
+  VpcConnections?: VpcConnection[];
+
+  /**
+   * @public
+   * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The policy version.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>The policy.</p>
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyResponse {
+  /**
+   * @public
+   * <p>The policy version.</p>
+   */
+  CurrentVersion?: string;
+}
+
+/**
+ * @public
  * Reboots a node.
  */
 export interface RebootBrokerRequest {
   /**
+   * @public
    * <p>The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting one broker at a time.</p>
    */
   BrokerIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
    */
   ClusterArn: string | undefined;
 }
 
-export namespace RebootBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootBrokerRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RebootBrokerResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace RebootBrokerResponse {
+/**
+ * @public
+ */
+export interface RejectClientVpcConnectionRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
-  export const filterSensitiveLog = (obj: RebootBrokerResponse): any => ({
-    ...obj,
-  });
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The VPC connection ARN.</p>
+   */
+  VpcConnectionArn: string | undefined;
 }
 
+/**
+ * @public
+ */
+export interface RejectClientVpcConnectionResponse {}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The key-value pair for the resource tag.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Tag keys must be unique for a given cluster. In addition, the following restrictions apply:</p>
    *             <ul>
    *                <li>
@@ -2465,323 +3659,319 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrokerCountRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
    */
   CurrentVersion: string | undefined;
 
   /**
+   * @public
    * <p>The number of broker nodes that you want the cluster to have after this operation completes successfully.</p>
    */
   TargetNumberOfBrokerNodes: number | undefined;
 }
 
-export namespace UpdateBrokerCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerCountRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrokerCountResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateBrokerCountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerCountResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrokerStorageRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
    */
   CurrentVersion: string | undefined;
 
   /**
+   * @public
    * <p>Describes the target volume size and the ID of the broker to apply the update to.</p>
    */
   TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
 }
 
-export namespace UpdateBrokerStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerStorageRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrokerStorageResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateBrokerStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerStorageResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrokerTypeRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version.</p>
    */
   CurrentVersion: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</p>
    */
   TargetInstanceType: string | undefined;
 }
 
-export namespace UpdateBrokerTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerTypeRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateBrokerTypeResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateBrokerTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerTypeResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateClusterConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
    */
   ConfigurationInfo: ConfigurationInfo | undefined;
 
   /**
+   * @public
    * <p>The version of the cluster that needs to be updated.</p>
    */
   CurrentVersion: string | undefined;
 }
 
-export namespace UpdateClusterConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateClusterConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateClusterConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateClusterKafkaVersionRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The custom configuration that should be applied on the new version of cluster.</p>
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
+   * @public
    * <p>Current cluster version.</p>
    */
   CurrentVersion: string | undefined;
 
   /**
+   * @public
    * <p>Target Kafka version.</p>
    */
   TargetKafkaVersion: string | undefined;
 }
 
-export namespace UpdateClusterKafkaVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterKafkaVersionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateClusterKafkaVersionResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateClusterKafkaVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterKafkaVersionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateConfigurationRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn: string | undefined;
 
   /**
+   * @public
    * <p>The description of the configuration revision.</p>
    */
   Description?: string;
 
   /**
+   * @public
    * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
    */
   ServerProperties: Uint8Array | undefined;
 }
 
-export namespace UpdateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateConfigurationResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>Latest revision of the configuration.</p>
    */
   LatestRevision?: ConfigurationRevision;
 }
 
-export namespace UpdateConfigurationResponse {
+/**
+ * @public
+ * Request body for UpdateConnectivity.
+ */
+export interface UpdateConnectivityRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-    ...obj,
-  });
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Information about the broker access configuration.</p>
+   */
+  ConnectivityInfo: ConnectivityInfo | undefined;
+
+  /**
+   * @public
+   * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   */
+  CurrentVersion: string | undefined;
 }
 
 /**
+ * @public
+ */
+export interface UpdateConnectivityResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+}
+
+/**
+ * @public
  * Request body for UpdateMonitoring.
  */
 export interface UpdateMonitoringRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
    */
   CurrentVersion: string | undefined;
 
   /**
+   * @public
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
+   * @public
    * <p>The settings for open monitoring.</p>
    */
   OpenMonitoring?: OpenMonitoringInfo;
@@ -2789,84 +3979,118 @@ export interface UpdateMonitoringRequest {
   LoggingInfo?: LoggingInfo;
 }
 
-export namespace UpdateMonitoringRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMonitoringRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateMonitoringResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateMonitoringResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMonitoringResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSecurityRequest {
   /**
+   * @public
    * <p>Includes all client authentication related information.</p>
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
 
   /**
+   * @public
    * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
    */
   CurrentVersion: string | undefined;
 
   /**
+   * @public
    * <p>Includes all encryption-related information.</p>
    */
   EncryptionInfo?: EncryptionInfo;
 }
 
-export namespace UpdateSecurityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateSecurityResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateSecurityResponse {
+/**
+ * @public
+ * <p>Request object for UpdateStorage api. Its used to update the storage attributes for the cluster.</p>
+ */
+export interface UpdateStorageRequest {
   /**
-   * @internal
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
    */
-  export const filterSensitiveLog = (obj: UpdateSecurityResponse): any => ({
-    ...obj,
-  });
+  ClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>EBS volume provisioned throughput information.</p>
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
+   * @public
+   * <p>Controls storage mode for supported storage tiers.</p>
+   */
+  StorageMode?: StorageMode | string;
+
+  /**
+   * @public
+   * <p>size of the EBS volume to update.</p>
+   */
+  VolumeSizeGB?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStorageResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
 }

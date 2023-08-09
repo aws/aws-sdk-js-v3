@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { CreateAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateAliasCommand,
-  serializeAws_json1_1CreateAliasCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandInput extends CreateAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateAliasCommand}.
+ */
 export interface CreateAliasCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a friendly name for a KMS key. </p>
  *          <note>
- *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
  *          <p>You can use an alias to identify a KMS key in the KMS console, in the <a>DescribeKey</a> operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>, such as <a>Encrypt</a> and
  *         <a>GenerateDataKey</a>. You can also change the KMS key that's associated with
@@ -39,10 +53,9 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *          <p>This operation does not return a response. To get the alias that you created, use the
  *         <a>ListAliases</a> operation.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on an alias in a different Amazon Web Services account.</p>
- *
  *          <p>
  *             <b>Required permissions</b>
  *          </p>
@@ -86,13 +99,79 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * import { KMSClient, CreateAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = { // CreateAliasRequest
+ *   AliasName: "STRING_VALUE", // required
+ *   TargetKeyId: "STRING_VALUE", // required
+ * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateAliasCommandInput - {@link CreateAliasCommandInput}
+ * @returns {@link CreateAliasCommandOutput}
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
+ *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link InvalidAliasNameException} (client fault)
+ *  <p>The request was rejected because the specified alias name is not valid.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
+ *           represents a general failure with many possible causes. To identify the cause, see the
+ *           error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link KMSServiceException}
+ * <p>Base exception class for all service exceptions from KMS service.</p>
+ *
+ * @example To create an alias
+ * ```javascript
+ * // The following example creates an alias for the specified KMS key.
+ * const input = {
+ *   "AliasName": "alias/ExampleAlias",
+ *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ * };
+ * const command = new CreateAliasCommand(input);
+ * await client.send(command);
+ * // example id: to-create-an-alias-1477505685119
+ * ```
  *
  */
 export class CreateAliasCommand extends $Command<
@@ -103,6 +182,18 @@ export class CreateAliasCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -118,6 +209,7 @@ export class CreateAliasCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAliasCommandInput, CreateAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateAliasCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -128,8 +220,8 @@ export class CreateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -139,12 +231,18 @@ export class CreateAliasCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAliasCommand(input, context);
+    return se_CreateAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAliasCommandOutput> {
-    return deserializeAws_json1_1CreateAliasCommand(output, context);
+    return de_CreateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

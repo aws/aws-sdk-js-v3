@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +10,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FlattenedXmlMapWithXmlNameOutput } from "../models/models_0";
-import {
-  deserializeAws_queryFlattenedXmlMapWithXmlNameCommand,
-  serializeAws_queryFlattenedXmlMapWithXmlNameCommand,
-} from "../protocols/Aws_query";
+import { de_FlattenedXmlMapWithXmlNameCommand, se_FlattenedXmlMapWithXmlNameCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link FlattenedXmlMapWithXmlNameCommand}.
+ */
 export interface FlattenedXmlMapWithXmlNameCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link FlattenedXmlMapWithXmlNameCommand}.
+ */
 export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMapWithXmlNameOutput, __MetadataBearer {}
 
 /**
+ * @public
  * Flattened maps with @xmlName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +42,25 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * import { QueryProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // FlattenedXmlMapWithXmlNameOutput
+ * //   myMap: { // FlattenedXmlMapWithXmlNameOutputMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param FlattenedXmlMapWithXmlNameCommandInput - {@link FlattenedXmlMapWithXmlNameCommandInput}
+ * @returns {@link FlattenedXmlMapWithXmlNameCommandOutput}
  * @see {@link FlattenedXmlMapWithXmlNameCommandInput} for command's `input` shape.
  * @see {@link FlattenedXmlMapWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
+ *
+ * @throws {@link QueryProtocolServiceException}
+ * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command<
@@ -46,6 +71,9 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: FlattenedXmlMapWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,8 +99,8 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: FlattenedXmlMapWithXmlNameOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +110,21 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FlattenedXmlMapWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryFlattenedXmlMapWithXmlNameCommand(input, context);
+    return se_FlattenedXmlMapWithXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> {
-    return deserializeAws_queryFlattenedXmlMapWithXmlNameCommand(output, context);
+    return de_FlattenedXmlMapWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

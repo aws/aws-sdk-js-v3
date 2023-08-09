@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateApplicationInstanceCommand";
 export * from "./CreateJobForDevicesCommand";
 export * from "./CreateNodeFromTemplateJobCommand";
@@ -28,6 +29,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ProvisionDeviceCommand";
 export * from "./RegisterPackageVersionCommand";
 export * from "./RemoveApplicationInstanceCommand";
+export * from "./SignalApplicationInstanceNodeInstancesCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDeviceMetadataCommand";

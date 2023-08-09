@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { DeviceFarm } from "../DeviceFarm";
 import { DeviceFarmClient } from "../DeviceFarmClient";
 
+/**
+ * @public
+ */
 export interface DeviceFarmPaginationConfiguration extends PaginationConfiguration {
-  client: DeviceFarm | DeviceFarmClient;
+  client: DeviceFarmClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachNetworkInterfaceRequest, AttachNetworkInterfaceResult } from "../models/models_0";
-import {
-  deserializeAws_ec2AttachNetworkInterfaceCommand,
-  serializeAws_ec2AttachNetworkInterfaceCommand,
-} from "../protocols/Aws_ec2";
+import { de_AttachNetworkInterfaceCommand, se_AttachNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AttachNetworkInterfaceCommand}.
+ */
 export interface AttachNetworkInterfaceCommandInput extends AttachNetworkInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachNetworkInterfaceCommand}.
+ */
 export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterfaceResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches a network interface to an instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,54 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * import { EC2Client, AttachNetworkInterfaceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AttachNetworkInterfaceRequest
+ *   DeviceIndex: Number("int"), // required
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   NetworkCardIndex: Number("int"),
+ *   EnaSrdSpecification: { // EnaSrdSpecification
+ *     EnaSrdEnabled: true || false,
+ *     EnaSrdUdpSpecification: { // EnaSrdUdpSpecification
+ *       EnaSrdUdpEnabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new AttachNetworkInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // AttachNetworkInterfaceResult
+ * //   AttachmentId: "STRING_VALUE",
+ * //   NetworkCardIndex: Number("int"),
+ * // };
+ *
  * ```
  *
+ * @param AttachNetworkInterfaceCommandInput - {@link AttachNetworkInterfaceCommandInput}
+ * @returns {@link AttachNetworkInterfaceCommandOutput}
  * @see {@link AttachNetworkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To attach a network interface to an instance
+ * ```javascript
+ * // This example attaches the specified network interface to the specified instance.
+ * const input = {
+ *   "DeviceIndex": 1,
+ *   "InstanceId": "i-1234567890abcdef0",
+ *   "NetworkInterfaceId": "eni-e5aa89a3"
+ * };
+ * const command = new AttachNetworkInterfaceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachmentId": "eni-attach-66c4350a"
+ * }
+ * *\/
+ * // example id: ec2-attach-network-interface-1
+ * ```
  *
  */
 export class AttachNetworkInterfaceCommand extends $Command<
@@ -46,6 +101,18 @@ export class AttachNetworkInterfaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AttachNetworkInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +128,9 @@ export class AttachNetworkInterfaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachNetworkInterfaceCommandInput, AttachNetworkInterfaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachNetworkInterfaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +141,8 @@ export class AttachNetworkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachNetworkInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachNetworkInterfaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +152,18 @@ export class AttachNetworkInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachNetworkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachNetworkInterfaceCommand(input, context);
+    return se_AttachNetworkInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachNetworkInterfaceCommandOutput> {
-    return deserializeAws_ec2AttachNetworkInterfaceCommand(output, context);
+    return de_AttachNetworkInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

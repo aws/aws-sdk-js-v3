@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,30 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MalformedTimestampPathHttpDateInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedTimestampPathHttpDateCommand,
-  serializeAws_restJson1MalformedTimestampPathHttpDateCommand,
+  de_MalformedTimestampPathHttpDateCommand,
+  se_MalformedTimestampPathHttpDateCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link MalformedTimestampPathHttpDateCommand}.
+ */
 export interface MalformedTimestampPathHttpDateCommandInput extends MalformedTimestampPathHttpDateInput {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedTimestampPathHttpDateCommand}.
+ */
 export interface MalformedTimestampPathHttpDateCommandOutput extends __MetadataBearer {}
 
 export class MalformedTimestampPathHttpDateCommand extends $Command<
@@ -29,6 +44,9 @@ export class MalformedTimestampPathHttpDateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampPathHttpDateCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +72,8 @@ export class MalformedTimestampPathHttpDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampPathHttpDateInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,18 +83,24 @@ export class MalformedTimestampPathHttpDateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: MalformedTimestampPathHttpDateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedTimestampPathHttpDateCommand(input, context);
+    return se_MalformedTimestampPathHttpDateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedTimestampPathHttpDateCommandOutput> {
-    return deserializeAws_restJson1MalformedTimestampPathHttpDateCommand(output, context);
+    return de_MalformedTimestampPathHttpDateCommand(output, context);
   }
 
   // Start section: command_body_extra

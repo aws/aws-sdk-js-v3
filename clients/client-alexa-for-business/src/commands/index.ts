@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ApproveSkillCommand";
 export * from "./AssociateContactWithAddressBookCommand";
 export * from "./AssociateDeviceWithNetworkProfileCommand";

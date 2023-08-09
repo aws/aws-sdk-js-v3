@@ -63,7 +63,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         if (hasClientEndpointDiscovery(service)) {
             // Add import for endpoint discovery command here, as getClientPlugins doesn't have access to writer.
             addEndpointDiscoveryCommandImport(model, symbolProvider, service, writer);
-            writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+            writer.addImport("Provider", "__Provider", TypeScriptDependency.SMITHY_TYPES);
             writer.writeDocs("The provider which populates default for endpointDiscoveryEnabled configuration,"
                 + " if it's\nnot passed during client creation.\n@internal")
                 .write("endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;\n");

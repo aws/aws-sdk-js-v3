@@ -1,7 +1,6 @@
-# @aws-sdk/client-resource-groups-tagging-api
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-resource-groups-tagging-api/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-groups-tagging-api)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-resource-groups-tagging-api.svg)](https://www.npmjs.com/package/@aws-sdk/client-resource-groups-tagging-api)
+# @aws-sdk/client-resource-groups-tagging-api
 
 ## Description
 
@@ -121,7 +120,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -155,7 +154,7 @@ client
 
 // callbacks.
 client.describeReportCreation(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -169,7 +168,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -207,3 +206,70 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DescribeReportCreation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/describereportcreationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/describereportcreationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/describereportcreationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetComplianceSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/getcompliancesummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/getcompliancesummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/getcompliancesummarycommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/getresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/getresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/getresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetTagKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/gettagkeyscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/gettagkeyscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/gettagkeyscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetTagValues
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/gettagvaluescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/gettagvaluescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/gettagvaluescommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartReportCreation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/startreportcreationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/startreportcreationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/startreportcreationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/tagresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/tagresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/tagresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/classes/untagresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/untagresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-groups-tagging-api/interfaces/untagresourcescommandoutput.html)
+
+</details>

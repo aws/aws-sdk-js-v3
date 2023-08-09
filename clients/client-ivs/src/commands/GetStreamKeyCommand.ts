@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { GetStreamKeyRequest, GetStreamKeyResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetStreamKeyCommand,
-  serializeAws_restJson1GetStreamKeyCommand,
-} from "../protocols/Aws_restJson1";
+import { GetStreamKeyRequest, GetStreamKeyResponse, GetStreamKeyResponseFilterSensitiveLog } from "../models/models_0";
+import { de_GetStreamKeyCommand, se_GetStreamKeyCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetStreamKeyCommand}.
+ */
 export interface GetStreamKeyCommandInput extends GetStreamKeyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetStreamKeyCommand}.
+ */
 export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets stream-key information for a specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,41 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * import { IvsClient, GetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = { // GetStreamKeyRequest
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamKeyCommand(input);
  * const response = await client.send(command);
+ * // { // GetStreamKeyResponse
+ * //   streamKey: { // StreamKey
+ * //     arn: "STRING_VALUE",
+ * //     value: "STRING_VALUE",
+ * //     channelArn: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetStreamKeyCommandInput - {@link GetStreamKeyCommandInput}
+ * @returns {@link GetStreamKeyCommandOutput}
  * @see {@link GetStreamKeyCommandInput} for command's `input` shape.
  * @see {@link GetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link IvsServiceException}
+ * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
  */
 export class GetStreamKeyCommand extends $Command<
@@ -46,6 +88,18 @@ export class GetStreamKeyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetStreamKeyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +115,7 @@ export class GetStreamKeyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetStreamKeyCommandInput, GetStreamKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetStreamKeyCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +126,8 @@ export class GetStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStreamKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +137,18 @@ export class GetStreamKeyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetStreamKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStreamKeyCommand(input, context);
+    return se_GetStreamKeyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStreamKeyCommandOutput> {
-    return deserializeAws_restJson1GetStreamKeyCommand(output, context);
+    return de_GetStreamKeyCommand(output, context);
   }
 
   // Start section: command_body_extra

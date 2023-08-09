@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeSessionsRequest, DescribeSessionsResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1DescribeSessionsCommand,
-  serializeAws_json1_1DescribeSessionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeSessionsCommand, se_DescribeSessionsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSessionsCommand}.
+ */
 export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSessionsCommand}.
+ */
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
  *    sessions from the past 30 days.</p>
  * @example
@@ -30,13 +44,60 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * import { SSMClient, DescribeSessionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeSessionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DescribeSessionsRequest
+ *   State: "Active" || "History", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [ // SessionFilterList
+ *     { // SessionFilter
+ *       key: "InvokedAfter" || "InvokedBefore" || "Target" || "Owner" || "Status" || "SessionId", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSessionsResponse
+ * //   Sessions: [ // SessionList
+ * //     { // Session
+ * //       SessionId: "STRING_VALUE",
+ * //       Target: "STRING_VALUE",
+ * //       Status: "Connected" || "Connecting" || "Disconnected" || "Terminated" || "Terminating" || "Failed",
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       DocumentName: "STRING_VALUE",
+ * //       Owner: "STRING_VALUE",
+ * //       Reason: "STRING_VALUE",
+ * //       Details: "STRING_VALUE",
+ * //       OutputUrl: { // SessionManagerOutputUrl
+ * //         S3OutputUrl: "STRING_VALUE",
+ * //         CloudWatchOutputUrl: "STRING_VALUE",
+ * //       },
+ * //       MaxSessionDuration: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeSessionsCommandInput - {@link DescribeSessionsCommandInput}
+ * @returns {@link DescribeSessionsCommandOutput}
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilterKey} (client fault)
+ *  <p>The specified key isn't valid.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DescribeSessionsCommand extends $Command<
@@ -47,6 +108,18 @@ export class DescribeSessionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSessionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +135,9 @@ export class DescribeSessionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSessionsCommandInput, DescribeSessionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSessionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +148,8 @@ export class DescribeSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSessionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSessionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +159,18 @@ export class DescribeSessionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSessionsCommand(input, context);
+    return se_DescribeSessionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSessionsCommandOutput> {
-    return deserializeAws_json1_1DescribeSessionsCommand(output, context);
+    return de_DescribeSessionsCommand(output, context);
   }
 
   // Start section: command_body_extra

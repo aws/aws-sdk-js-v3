@@ -1,4 +1,5 @@
 import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
+import { AbortController } from "@smithy/abort-controller";
 
 export interface Progress {
   loaded?: number;
@@ -11,6 +12,9 @@ export interface Progress {
 // string | Uint8Array | Buffer | Readable | ReadableStream | Blob.
 export type BodyDataTypes = PutObjectCommandInput["Body"];
 
+/**
+ * @deprecated redundant, use {@link S3Client} directly.
+ */
 export type ServiceClients = S3Client;
 
 export interface Configuration {
@@ -37,6 +41,11 @@ export interface Configuration {
    * The tags to apply to the object.
    */
   tags: Tag[];
+
+  /**
+   * Optional abort controller for controlling this upload's abort signal externally.
+   */
+  abortController?: AbortController;
 }
 
 export interface Options extends Partial<Configuration> {
@@ -49,5 +58,5 @@ export interface Options extends Partial<Configuration> {
    * A service client.
    * This the target where we upload data.
    */
-  client: ServiceClients;
+  client: S3Client;
 }

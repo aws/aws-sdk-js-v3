@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateContainerCommand";
 export * from "./DeleteContainerCommand";
 export * from "./DeleteContainerPolicyCommand";

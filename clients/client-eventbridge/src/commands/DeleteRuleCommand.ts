@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,29 +11,38 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DeleteRuleRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteRuleCommand,
-  serializeAws_json1_1DeleteRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteRuleCommand, se_DeleteRuleCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteRuleCommand}.
+ */
 export interface DeleteRuleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified rule.</p>
  *          <p>Before you can delete the rule, you must remove all targets, using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html">RemoveTargets</a>.</p>
- *
  *          <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow
  *       a short period of time for changes to take effect.</p>
- *
  *          <p>If you call delete rule multiple times for the same rule, all calls will succeed. When you
  *       call delete rule for a non-existent custom eventbus, <code>ResourceNotFoundException</code> is
  *       returned.</p>
- *
  *          <p>Managed rules are rules created and managed by another Amazon Web Services service on your behalf. These
  *       rules are created by those other Amazon Web Services services to support functionality in those services. You
  *       can delete these rules using the <code>Force</code> option, but you should do so only if you
@@ -42,13 +53,42 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, DeleteRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DeleteRuleRequest
+ *   Name: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   Force: true || false,
+ * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ManagedRuleException} (client fault)
+ *  <p>This rule was created by an Amazon Web Services service on behalf of your account. It is managed by that
+ *       service. If you see this error in response to <code>DeleteRule</code> or
+ *         <code>RemoveTargets</code>, you can use the <code>Force</code> parameter in those calls to
+ *       delete the rule or remove targets from the rule. You cannot modify these managed rules by
+ *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
+ *         <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DeleteRuleCommand extends $Command<
@@ -59,6 +99,18 @@ export class DeleteRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +126,7 @@ export class DeleteRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteRuleCommandInput, DeleteRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteRuleCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +137,8 @@ export class DeleteRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +148,18 @@ export class DeleteRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteRuleCommand(input, context);
+    return se_DeleteRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRuleCommandOutput> {
-    return deserializeAws_json1_1DeleteRuleCommand(output, context);
+    return de_DeleteRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "../commands/ListEnabledProductsForImportCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEnabledProductsForImportCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: ListEnabledProductsForImportCommandInput,
-  ...args: any
-): Promise<ListEnabledProductsForImportCommandOutput> => {
-  // @ts-ignore
-  return await client.listEnabledProductsForImport(input, ...args);
-};
 export async function* paginateListEnabledProductsForImport(
   config: SecurityHubPaginationConfiguration,
   input: ListEnabledProductsForImportCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListEnabledProductsForImport(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

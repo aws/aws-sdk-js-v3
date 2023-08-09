@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { VerifyEmailAddressRequest } from "../models/models_0";
-import {
-  deserializeAws_queryVerifyEmailAddressCommand,
-  serializeAws_queryVerifyEmailAddressCommand,
-} from "../protocols/Aws_query";
+import { de_VerifyEmailAddressCommand, se_VerifyEmailAddressCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link VerifyEmailAddressCommand}.
+ */
 export interface VerifyEmailAddressCommandInput extends VerifyEmailAddressRequest {}
+/**
+ * @public
+ *
+ * The output of {@link VerifyEmailAddressCommand}.
+ */
 export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
  *             address.</p>
  * @example
@@ -30,13 +44,34 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * import { SESClient, VerifyEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, VerifyEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // VerifyEmailAddressRequest
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new VerifyEmailAddressCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param VerifyEmailAddressCommandInput - {@link VerifyEmailAddressCommandInput}
+ * @returns {@link VerifyEmailAddressCommandOutput}
  * @see {@link VerifyEmailAddressCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example VerifyEmailAddress
+ * ```javascript
+ * // The following example starts the email address verification process with Amazon SES:
+ * const input = {
+ *   "EmailAddress": "user@example.com"
+ * };
+ * const command = new VerifyEmailAddressCommand(input);
+ * await client.send(command);
+ * // example id: verifyemailaddress-1469048849187
+ * ```
  *
  */
 export class VerifyEmailAddressCommand extends $Command<
@@ -47,6 +82,18 @@ export class VerifyEmailAddressCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: VerifyEmailAddressCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +109,9 @@ export class VerifyEmailAddressCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<VerifyEmailAddressCommandInput, VerifyEmailAddressCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, VerifyEmailAddressCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +122,8 @@ export class VerifyEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyEmailAddressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +133,18 @@ export class VerifyEmailAddressCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: VerifyEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryVerifyEmailAddressCommand(input, context);
+    return se_VerifyEmailAddressCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VerifyEmailAddressCommandOutput> {
-    return deserializeAws_queryVerifyEmailAddressCommand(output, context);
+    return de_VerifyEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

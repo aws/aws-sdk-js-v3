@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableVgwRoutePropagationRequest } from "../models/models_4";
-import {
-  deserializeAws_ec2DisableVgwRoutePropagationCommand,
-  serializeAws_ec2DisableVgwRoutePropagationCommand,
-} from "../protocols/Aws_ec2";
+import { DisableVgwRoutePropagationRequest } from "../models/models_5";
+import { de_DisableVgwRoutePropagationCommand, se_DisableVgwRoutePropagationCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableVgwRoutePropagationCommand}.
+ */
 export interface DisableVgwRoutePropagationCommandInput extends DisableVgwRoutePropagationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisableVgwRoutePropagationCommand}.
+ */
 export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route
  *             table of a VPC.</p>
  * @example
@@ -30,13 +44,37 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * import { EC2Client, DisableVgwRoutePropagationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVgwRoutePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DisableVgwRoutePropagationRequest
+ *   GatewayId: "STRING_VALUE", // required
+ *   RouteTableId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisableVgwRoutePropagationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisableVgwRoutePropagationCommandInput - {@link DisableVgwRoutePropagationCommandInput}
+ * @returns {@link DisableVgwRoutePropagationCommandOutput}
  * @see {@link DisableVgwRoutePropagationCommandInput} for command's `input` shape.
  * @see {@link DisableVgwRoutePropagationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To disable route propagation
+ * ```javascript
+ * // This example disables the specified virtual private gateway from propagating static routes to the specified route table.
+ * const input = {
+ *   "GatewayId": "vgw-9a4cacf3",
+ *   "RouteTableId": "rtb-22574640"
+ * };
+ * const command = new DisableVgwRoutePropagationCommand(input);
+ * await client.send(command);
+ * // example id: ec2-disable-vgw-route-propagation-1
+ * ```
  *
  */
 export class DisableVgwRoutePropagationCommand extends $Command<
@@ -47,6 +85,18 @@ export class DisableVgwRoutePropagationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableVgwRoutePropagationCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +112,9 @@ export class DisableVgwRoutePropagationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableVgwRoutePropagationCommandInput, DisableVgwRoutePropagationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableVgwRoutePropagationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +125,8 @@ export class DisableVgwRoutePropagationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableVgwRoutePropagationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +136,21 @@ export class DisableVgwRoutePropagationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableVgwRoutePropagationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DisableVgwRoutePropagationCommand(input, context);
+    return se_DisableVgwRoutePropagationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableVgwRoutePropagationCommandOutput> {
-    return deserializeAws_ec2DisableVgwRoutePropagationCommand(output, context);
+    return de_DisableVgwRoutePropagationCommand(output, context);
   }
 
   // Start section: command_body_extra

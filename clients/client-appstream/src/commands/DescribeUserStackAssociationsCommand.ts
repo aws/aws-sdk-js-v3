@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,43 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeUserStackAssociationsCommand,
-  serializeAws_json1_1DescribeUserStackAssociationsCommand,
+  DescribeUserStackAssociationsRequest,
+  DescribeUserStackAssociationsRequestFilterSensitiveLog,
+  DescribeUserStackAssociationsResult,
+  DescribeUserStackAssociationsResultFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  de_DescribeUserStackAssociationsCommand,
+  se_DescribeUserStackAssociationsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserStackAssociationsCommand}.
+ */
 export interface DescribeUserStackAssociationsCommandInput extends DescribeUserStackAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserStackAssociationsCommand}.
+ */
 export interface DescribeUserStackAssociationsCommandOutput
   extends DescribeUserStackAssociationsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>The stack name</p>
  *             </li>
@@ -39,13 +61,43 @@ export interface DescribeUserStackAssociationsCommandOutput
  * import { AppStreamClient, DescribeUserStackAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // DescribeUserStackAssociationsRequest
+ *   StackName: "STRING_VALUE",
+ *   UserName: "STRING_VALUE",
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeUserStackAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserStackAssociationsResult
+ * //   UserStackAssociations: [ // UserStackAssociationList
+ * //     { // UserStackAssociation
+ * //       StackName: "STRING_VALUE", // required
+ * //       UserName: "STRING_VALUE", // required
+ * //       AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * //       SendEmailNotification: true || false,
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeUserStackAssociationsCommandInput - {@link DescribeUserStackAssociationsCommandInput}
+ * @returns {@link DescribeUserStackAssociationsCommandOutput}
  * @see {@link DescribeUserStackAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class DescribeUserStackAssociationsCommand extends $Command<
@@ -56,6 +108,18 @@ export class DescribeUserStackAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserStackAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +135,9 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUserStackAssociationsCommandInput, DescribeUserStackAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeUserStackAssociationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +148,8 @@ export class DescribeUserStackAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserStackAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserStackAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserStackAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserStackAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,15 +159,21 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserStackAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserStackAssociationsCommand(input, context);
+    return se_DescribeUserStackAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeUserStackAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeUserStackAssociationsCommand(output, context);
+    return de_DescribeUserStackAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

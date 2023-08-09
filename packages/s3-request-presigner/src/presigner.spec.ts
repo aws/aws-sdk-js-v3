@@ -1,5 +1,5 @@
-import { Hash } from "@aws-sdk/hash-node";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { Hash } from "@smithy/hash-node";
+import { HttpRequest } from "@smithy/protocol-http";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -114,6 +114,36 @@ describe("s3 presigner", () => {
     const signed = await signer.presign({ ...minimalRequest, headers: {}, port });
     expect(signed.headers).toMatchObject({
       host: `${minimalRequest.hostname}:${port}`,
+    });
+  });
+
+  it("should inject host header with port if current host header missing port", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const port = 12345;
+    const signed = await signer.presign({
+      ...minimalRequest,
+      headers: {
+        host: minimalRequest.hostname,
+      },
+      port,
+    });
+    expect(signed.headers).toMatchObject({
+      host: `${minimalRequest.hostname}:${port}`,
+    });
+  });
+
+  it("should NOT overwrite host header if different host header is already set", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const port = 12345;
+    const signed = await signer.presign({
+      ...minimalRequest,
+      headers: {
+        host: "proxy." + minimalRequest.hostname,
+      },
+      port,
+    });
+    expect(signed.headers).toMatchObject({
+      host: "proxy." + minimalRequest.hostname,
     });
   });
 });

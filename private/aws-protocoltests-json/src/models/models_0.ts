@@ -1,195 +1,190 @@
-import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
 import {
-  DocumentType as __DocumentType,
-  MetadataBearer as $MetadataBearer,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@smithy/smithy-client";
+import { DocumentType as __DocumentType } from "@smithy/types";
 
+import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
+
+/**
+ * @public
+ */
+export interface GreetingStruct {
+  hi?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+} as const;
+/**
+ * @public
+ */
+export type FooEnum = (typeof FooEnum)[keyof typeof FooEnum];
+
+/**
+ * @public
+ */
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
 
-export namespace ComplexNestedErrorData {
+/**
+ * @public
+ * This error is thrown when a request is invalid.
+ */
+export class ComplexError extends __BaseException {
+  readonly name: "ComplexError" = "ComplexError";
+  readonly $fault: "client" = "client";
+  TopLevel?: string;
+  Nested?: ComplexNestedErrorData;
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
+    super({
+      name: "ComplexError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ComplexError.prototype);
+    this.TopLevel = opts.TopLevel;
+    this.Nested = opts.Nested;
+  }
 }
 
 /**
- * This error is thrown when a request is invalid.
+ * @public
  */
-export interface ComplexError extends __SmithyException, $MetadataBearer {
-  name: "ComplexError";
-  $fault: "client";
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+export interface DatetimeOffsetsOutput {
+  datetime?: Date;
 }
 
-export namespace ComplexError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplexError): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface EmptyStruct {}
 
-export namespace EmptyStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyStruct): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface HostLabelInput {
   label: string | undefined;
 }
 
-export namespace HostLabelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SimpleStruct {
   Value?: string;
 }
 
-export namespace SimpleStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleStruct): any => ({
-    ...obj,
-  });
-}
-
-export interface StructWithLocationName {
+/**
+ * @public
+ */
+export interface StructWithJsonName {
   Value?: string;
 }
 
-export namespace StructWithLocationName {
+/**
+ * @public
+ */
+export class ErrorWithoutMembers extends __BaseException {
+  readonly name: "ErrorWithoutMembers" = "ErrorWithoutMembers";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StructWithLocationName): any => ({
-    ...obj,
-  });
-}
-
-export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer {
-  name: "ErrorWithoutMembers";
-  $fault: "server";
-}
-
-export namespace ErrorWithoutMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorWithoutMembers): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ErrorWithoutMembers, __BaseException>) {
+    super({
+      name: "ErrorWithoutMembers",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ErrorWithoutMembers.prototype);
+  }
 }
 
 /**
+ * @public
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  */
-export interface FooError extends __SmithyException, $MetadataBearer {
-  name: "FooError";
-  $fault: "server";
-}
-
-export namespace FooError {
+export class FooError extends __BaseException {
+  readonly name: "FooError" = "FooError";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FooError): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<FooError, __BaseException>) {
+    super({
+      name: "FooError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FooError.prototype);
+  }
 }
 
+/**
+ * @public
+ */
+export interface FractionalSecondsOutput {
+  datetime?: Date;
+  httpdate?: Date;
+}
+
+/**
+ * @public
+ */
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
 
-export namespace GreetingWithErrorsOutput {
+/**
+ * @public
+ * This error is thrown when an invalid greeting value is provided.
+ */
+export class InvalidGreeting extends __BaseException {
+  readonly name: "InvalidGreeting" = "InvalidGreeting";
+  readonly $fault: "client" = "client";
+  Message?: string;
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
+    super({
+      name: "InvalidGreeting",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGreeting.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
- * This error is thrown when an invalid greeting value is provided.
+ * @public
  */
-export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
-  name: "InvalidGreeting";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidGreeting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
-    ...obj,
-  });
-}
-
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
-
 export interface JsonEnumsInputOutput {
   fooEnum1?: FooEnum | string;
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
   fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: { [key: string]: FooEnum | string };
-}
-
-export namespace JsonEnumsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface GreetingStruct {
-  hi?: string;
-}
-
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
-    ...obj,
-  });
+  fooEnumMap?: Record<string, FooEnum | string>;
 }
 
 /**
+ * @public
  * A union with a representative set of types for members.
  */
 export type MyUnion =
@@ -204,6 +199,9 @@ export type MyUnion =
   | MyUnion.TimestampValueMember
   | MyUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MyUnion {
   export interface StringValueMember {
     stringValue: string;
@@ -304,7 +302,7 @@ export namespace MyUnion {
     timestampValue?: never;
     enumValue?: never;
     listValue?: never;
-    mapValue: { [key: string]: string };
+    mapValue: Record<string, string>;
     structureValue?: never;
     $unknown?: never;
   }
@@ -322,6 +320,9 @@ export namespace MyUnion {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     stringValue?: never;
     booleanValue?: never;
@@ -343,7 +344,7 @@ export namespace MyUnion {
     timestampValue: (value: Date) => T;
     enumValue: (value: FooEnum | string) => T;
     listValue: (value: string[]) => T;
-    mapValue: (value: { [key: string]: string }) => T;
+    mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
     _: (name: string, value: any) => T;
   }
@@ -360,87 +361,69 @@ export namespace MyUnion {
     if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MyUnion): any => {
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-    if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
-    if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
-    if (obj.listValue !== undefined) return { listValue: obj.listValue };
-    if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
-    if (obj.structureValue !== undefined)
-      return { structureValue: GreetingStruct.filterSensitiveLog(obj.structureValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
+ * @public
  * A shared structure that contains a single union member.
  */
 export interface UnionInputOutput {
   /**
+   * @public
    * A union with a representative set of types for members.
    */
   contents?: MyUnion;
 }
 
-export namespace UnionInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnionInputOutput): any => ({
-    ...obj,
-    ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface NullOperationInputOutput {
   string?: string;
   sparseStringList?: string[];
-  sparseStringMap?: { [key: string]: string };
+  sparseStringMap?: Record<string, string>;
 }
 
-export namespace NullOperationInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NullOperationInputOutput): any => ({
-    ...obj,
-  });
+/**
+ * @public
+ */
+export interface OperationWithOptionalInputOutputInput {
+  Value?: string;
 }
 
+/**
+ * @public
+ */
+export interface OperationWithOptionalInputOutputOutput {
+  Value?: string;
+}
+
+/**
+ * @public
+ */
 export interface PutAndGetInlineDocumentsInputOutput {
   inlineDocument?: __DocumentType;
 }
 
-export namespace PutAndGetInlineDocumentsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAndGetInlineDocumentsInputOutput): any => ({
-    ...obj,
-  });
+/**
+ * @public
+ */
+export interface PutWithContentEncodingInput {
+  encoding?: string;
+  data?: string;
 }
 
+/**
+ * @public
+ */
 export interface SimpleScalarPropertiesInputOutput {
   floatValue?: number;
   doubleValue?: number;
 }
 
-export namespace SimpleScalarPropertiesInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface KitchenSink {
   Blob?: Uint8Array;
   Boolean?: boolean;
@@ -452,53 +435,57 @@ export interface KitchenSink {
   Iso8601Timestamp?: Date;
   JsonValue?: __LazyJsonString | string;
   ListOfLists?: string[][];
-  ListOfMapsOfStrings?: { [key: string]: string }[];
+  ListOfMapsOfStrings?: Record<string, string>[];
   ListOfStrings?: string[];
   ListOfStructs?: SimpleStruct[];
   Long?: number;
-  MapOfListsOfStrings?: { [key: string]: string[] };
-  MapOfMaps?: { [key: string]: { [key: string]: string } };
-  MapOfStrings?: { [key: string]: string };
-  MapOfStructs?: { [key: string]: SimpleStruct };
+  MapOfListsOfStrings?: Record<string, string[]>;
+  MapOfMaps?: Record<string, Record<string, string>>;
+  MapOfStrings?: Record<string, string>;
+  MapOfStructs?: Record<string, SimpleStruct>;
   RecursiveList?: KitchenSink[];
-  RecursiveMap?: { [key: string]: KitchenSink };
+  RecursiveMap?: Record<string, KitchenSink>;
   RecursiveStruct?: KitchenSink;
   SimpleStruct?: SimpleStruct;
   String?: string;
-  StructWithLocationName?: StructWithLocationName;
+  StructWithJsonName?: StructWithJsonName;
   Timestamp?: Date;
   UnixTimestamp?: Date;
 }
 
-export namespace KitchenSink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KitchenSink): any => ({
-    ...obj,
-  });
-}
-
-export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
-  name: "ErrorWithMembers";
-  $fault: "client";
+/**
+ * @public
+ */
+export class ErrorWithMembers extends __BaseException {
+  readonly name: "ErrorWithMembers" = "ErrorWithMembers";
+  readonly $fault: "client" = "client";
   Code?: string;
   ComplexData?: KitchenSink;
   IntegerField?: number;
   ListField?: string[];
-  MapField?: { [key: string]: string };
+  MapField?: Record<string, string>;
   Message?: string;
   /**
+   * @public
    * abc
    */
   StringField?: string;
-}
-
-export namespace ErrorWithMembers {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ErrorWithMembers): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ErrorWithMembers, __BaseException>) {
+    super({
+      name: "ErrorWithMembers",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ErrorWithMembers.prototype);
+    this.Code = opts.Code;
+    this.ComplexData = opts.ComplexData;
+    this.IntegerField = opts.IntegerField;
+    this.ListField = opts.ListField;
+    this.MapField = opts.MapField;
+    this.Message = opts.Message;
+    this.StringField = opts.StringField;
+  }
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { PutPermissionRequest, PutPermissionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutPermissionCommand,
-  serializeAws_restJson1PutPermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutPermissionCommand, se_PutPermissionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutPermissionCommand}.
+ */
 export interface PutPermissionCommandInput extends PutPermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutPermissionCommand}.
+ */
 export interface PutPermissionCommandOutput extends PutPermissionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             Adds permissions to a profiling group's resource-based policy
  *             that are provided using an action group. If a profiling group doesn't have
@@ -54,13 +68,49 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * import { CodeGuruProfilerClient, PutPermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, PutPermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // PutPermissionRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   actionGroup: "STRING_VALUE", // required
+ *   principals: [ // Principals // required
+ *     "STRING_VALUE",
+ *   ],
+ *   revisionId: "STRING_VALUE",
+ * };
  * const command = new PutPermissionCommand(input);
  * const response = await client.send(command);
+ * // { // PutPermissionResponse
+ * //   policy: "STRING_VALUE", // required
+ * //   revisionId: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param PutPermissionCommandInput - {@link PutPermissionCommandInput}
+ * @returns {@link PutPermissionCommandOutput}
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state
+ *         of a service resource associated with the request. Resolve the conflict
+ *         before retrying this request.
+ *       </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class PutPermissionCommand extends $Command<
@@ -71,6 +121,18 @@ export class PutPermissionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +148,7 @@ export class PutPermissionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutPermissionCommandInput, PutPermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutPermissionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,8 +159,8 @@ export class PutPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +170,18 @@ export class PutPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutPermissionCommand(input, context);
+    return se_PutPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPermissionCommandOutput> {
-    return deserializeAws_restJson1PutPermissionCommand(output, context);
+    return de_PutPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

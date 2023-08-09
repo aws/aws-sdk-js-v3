@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { DisassociateSkillFromUsersRequest, DisassociateSkillFromUsersResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateSkillFromUsersCommand,
-  serializeAws_json1_1DisassociateSkillFromUsersCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateSkillFromUsersCommand, se_DisassociateSkillFromUsersCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateSkillFromUsersCommand}.
+ */
 export interface DisassociateSkillFromUsersCommandInput extends DisassociateSkillFromUsersRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateSkillFromUsersCommand}.
+ */
 export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSkillFromUsersResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
  * @example
@@ -30,13 +46,29 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * import { AlexaForBusinessClient, DisassociateSkillFromUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateSkillFromUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // DisassociateSkillFromUsersRequest
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateSkillFromUsersCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisassociateSkillFromUsersCommandInput - {@link DisassociateSkillFromUsersCommandInput}
+ * @returns {@link DisassociateSkillFromUsersCommandOutput}
  * @see {@link DisassociateSkillFromUsersCommandInput} for command's `input` shape.
  * @see {@link DisassociateSkillFromUsersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class DisassociateSkillFromUsersCommand extends $Command<
@@ -47,6 +79,18 @@ export class DisassociateSkillFromUsersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateSkillFromUsersCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +106,9 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateSkillFromUsersCommandInput, DisassociateSkillFromUsersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateSkillFromUsersCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +119,8 @@ export class DisassociateSkillFromUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSkillFromUsersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSkillFromUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +130,21 @@ export class DisassociateSkillFromUsersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateSkillFromUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateSkillFromUsersCommand(input, context);
+    return se_DisassociateSkillFromUsersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSkillFromUsersCommandOutput> {
-    return deserializeAws_json1_1DisassociateSkillFromUsersCommand(output, context);
+    return de_DisassociateSkillFromUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

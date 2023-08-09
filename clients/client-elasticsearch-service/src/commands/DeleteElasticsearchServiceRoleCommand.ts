@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticsearchServiceClientResolvedConfig,
@@ -17,14 +19,29 @@ import {
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import {
-  deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand,
-  serializeAws_restJson1DeleteElasticsearchServiceRoleCommand,
+  de_DeleteElasticsearchServiceRoleCommand,
+  se_DeleteElasticsearchServiceRoleCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteElasticsearchServiceRoleCommand}.
+ */
 export interface DeleteElasticsearchServiceRoleCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteElasticsearchServiceRoleCommand}.
+ */
 export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +49,30 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * import { ElasticsearchServiceClient, DeleteElasticsearchServiceRoleCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeleteElasticsearchServiceRoleCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {};
  * const command = new DeleteElasticsearchServiceRoleCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteElasticsearchServiceRoleCommandInput - {@link DeleteElasticsearchServiceRoleCommandInput}
+ * @returns {@link DeleteElasticsearchServiceRoleCommandOutput}
  * @see {@link DeleteElasticsearchServiceRoleCommandInput} for command's `input` shape.
  * @see {@link DeleteElasticsearchServiceRoleCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
+ *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ * @throws {@link ElasticsearchServiceServiceException}
+ * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
  */
 export class DeleteElasticsearchServiceRoleCommand extends $Command<
@@ -49,6 +83,18 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteElasticsearchServiceRoleCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +110,9 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteElasticsearchServiceRoleCommandInput, DeleteElasticsearchServiceRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteElasticsearchServiceRoleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +123,8 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +134,24 @@ export class DeleteElasticsearchServiceRoleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteElasticsearchServiceRoleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteElasticsearchServiceRoleCommand(input, context);
+    return se_DeleteElasticsearchServiceRoleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput> {
-    return deserializeAws_restJson1DeleteElasticsearchServiceRoleCommand(output, context);
+    return de_DeleteElasticsearchServiceRoleCommand(output, context);
   }
 
   // Start section: command_body_extra

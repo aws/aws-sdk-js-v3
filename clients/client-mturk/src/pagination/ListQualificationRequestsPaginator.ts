@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListQualificationRequestsCommand,
   ListQualificationRequestsCommandInput,
   ListQualificationRequestsCommandOutput,
 } from "../commands/ListQualificationRequestsCommand";
-import { MTurk } from "../MTurk";
 import { MTurkClient } from "../MTurkClient";
 import { MTurkPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MTurkClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListQualificationRequestsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MTurk,
-  input: ListQualificationRequestsCommandInput,
-  ...args: any
-): Promise<ListQualificationRequestsCommandOutput> => {
-  // @ts-ignore
-  return await client.listQualificationRequests(input, ...args);
-};
 export async function* paginateListQualificationRequests(
   config: MTurkPaginationConfiguration,
   input: ListQualificationRequestsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListQualificationRequests(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MTurk) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MTurkClient) {
+    if (config.client instanceof MTurkClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MTurk | MTurkClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

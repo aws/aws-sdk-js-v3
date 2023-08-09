@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateByteMatchSetCommand";
 export * from "./CreateGeoMatchSetCommand";
 export * from "./CreateIPSetCommand";

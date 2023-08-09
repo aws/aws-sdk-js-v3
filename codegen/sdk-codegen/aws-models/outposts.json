@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -45,12 +45,138 @@
     "com.amazonaws.outposts#AccountId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "<p>The ID of the AWS account.</p>",
+        "smithy.api#documentation": "<p>The ID of the Amazon Web Services account.</p>",
         "smithy.api#length": {
           "min": 12,
           "max": 12
         },
         "smithy.api#pattern": "^\\d{12}$"
+      }
+    },
+    "com.amazonaws.outposts#Address": {
+      "type": "structure",
+      "members": {
+        "ContactName": {
+          "target": "com.amazonaws.outposts#ContactName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the contact.</p>"
+          }
+        },
+        "ContactPhoneNumber": {
+          "target": "com.amazonaws.outposts#ContactPhoneNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The phone number of the contact.</p>"
+          }
+        },
+        "AddressLine1": {
+          "target": "com.amazonaws.outposts#AddressLine1",
+          "traits": {
+            "smithy.api#documentation": "<p>The first line of the address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AddressLine2": {
+          "target": "com.amazonaws.outposts#AddressLine2",
+          "traits": {
+            "smithy.api#documentation": "<p>The second line of the address.</p>"
+          }
+        },
+        "AddressLine3": {
+          "target": "com.amazonaws.outposts#AddressLine3",
+          "traits": {
+            "smithy.api#documentation": "<p>The third line of the address.</p>"
+          }
+        },
+        "City": {
+          "target": "com.amazonaws.outposts#City",
+          "traits": {
+            "smithy.api#documentation": "<p>The city for the address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StateOrRegion": {
+          "target": "com.amazonaws.outposts#StateOrRegion",
+          "traits": {
+            "smithy.api#documentation": "<p>The state for the address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DistrictOrCounty": {
+          "target": "com.amazonaws.outposts#DistrictOrCounty",
+          "traits": {
+            "smithy.api#documentation": "<p>The district or county for the address.</p>"
+          }
+        },
+        "PostalCode": {
+          "target": "com.amazonaws.outposts#PostalCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The postal code for the address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CountryCode": {
+          "target": "com.amazonaws.outposts#CountryCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The ISO-3166 two-letter country code for the address.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Municipality": {
+          "target": "com.amazonaws.outposts#Municipality",
+          "traits": {
+            "smithy.api#documentation": "<p>The municipality for the address.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about an address.\n    </p>"
+      }
+    },
+    "com.amazonaws.outposts#AddressLine1": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 180
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#AddressLine2": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 60
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#AddressLine3": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 60
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#AddressType": {
+      "type": "enum",
+      "members": {
+        "SHIPPING_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHIPPING_ADDRESS"
+          }
+        },
+        "OPERATING_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATING_ADDRESS"
+          }
+        }
       }
     },
     "com.amazonaws.outposts#Arn": {
@@ -61,6 +187,108 @@
           "max": 1011
         },
         "smithy.api#pattern": "^(arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:([a-z\\d-]+)/)[a-z]{2,8}-[a-f0-9]{17}$"
+      }
+    },
+    "com.amazonaws.outposts#AssetId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": "^(\\w+)$"
+      }
+    },
+    "com.amazonaws.outposts#AssetInfo": {
+      "type": "structure",
+      "members": {
+        "AssetId": {
+          "target": "com.amazonaws.outposts#AssetId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the asset.\n    </p>"
+          }
+        },
+        "RackId": {
+          "target": "com.amazonaws.outposts#RackId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The rack ID of the asset. \n    </p>"
+          }
+        },
+        "AssetType": {
+          "target": "com.amazonaws.outposts#AssetType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of the asset.\n    </p>"
+          }
+        },
+        "ComputeAttributes": {
+          "target": "com.amazonaws.outposts#ComputeAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about compute hardware assets. \n    </p>"
+          }
+        },
+        "AssetLocation": {
+          "target": "com.amazonaws.outposts#AssetLocation",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The position of an asset in a rack. \n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about hardware assets.\n    </p>"
+      }
+    },
+    "com.amazonaws.outposts#AssetListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#AssetInfo"
+      }
+    },
+    "com.amazonaws.outposts#AssetLocation": {
+      "type": "structure",
+      "members": {
+        "RackElevation": {
+          "target": "com.amazonaws.outposts#RackElevation",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The position of an asset in a rack measured in rack units.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about the position of the asset in a rack. \n    </p>"
+      }
+    },
+    "com.amazonaws.outposts#AssetState": {
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "RETIRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RETIRING"
+          }
+        },
+        "ISOLATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ISOLATED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#AssetType": {
+      "type": "enum",
+      "members": {
+        "COMPUTE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPUTE"
+          }
+        }
       }
     },
     "com.amazonaws.outposts#AvailabilityZone": {
@@ -109,6 +337,240 @@
         }
       }
     },
+    "com.amazonaws.outposts#CIDR": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 9,
+          "max": 18
+        },
+        "smithy.api#pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}/[0-9]{1,2}$"
+      }
+    },
+    "com.amazonaws.outposts#CIDRList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#CIDR"
+      }
+    },
+    "com.amazonaws.outposts#CancelOrder": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#CancelOrderInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#CancelOrderOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Cancels the specified order for an Outpost.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/orders/{OrderId}/cancel",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#CancelOrderInput": {
+      "type": "structure",
+      "members": {
+        "OrderId": {
+          "target": "com.amazonaws.outposts#OrderId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the order.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#CancelOrderOutput": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#CatalogItem": {
+      "type": "structure",
+      "members": {
+        "CatalogItemId": {
+          "target": "com.amazonaws.outposts#SkuCode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the catalog item.\n    </p>"
+          }
+        },
+        "ItemStatus": {
+          "target": "com.amazonaws.outposts#CatalogItemStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The status of a catalog item.\n    </p>"
+          }
+        },
+        "EC2Capacities": {
+          "target": "com.amazonaws.outposts#EC2CapacityListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about the EC2 capacity of an item.\n    </p>"
+          }
+        },
+        "PowerKva": {
+          "target": "com.amazonaws.outposts#CatalogItemPowerKva",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about the power draw of an item.\n    </p>"
+          }
+        },
+        "WeightLbs": {
+          "target": "com.amazonaws.outposts#CatalogItemWeightLbs",
+          "traits": {
+            "smithy.api#documentation": "<p> The weight of the item in pounds. </p>"
+          }
+        },
+        "SupportedUplinkGbps": {
+          "target": "com.amazonaws.outposts#SupportedUplinkGbpsListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The uplink speed this catalog item requires for the \n      connection to the Region.\n    </p>"
+          }
+        },
+        "SupportedStorage": {
+          "target": "com.amazonaws.outposts#SupportedStorageList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The supported storage options for the catalog item.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Information about a catalog item. </p>"
+      }
+    },
+    "com.amazonaws.outposts#CatalogItemClass": {
+      "type": "enum",
+      "members": {
+        "RACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RACK"
+          }
+        },
+        "SERVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SERVER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#CatalogItemClassList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#CatalogItemClass"
+      }
+    },
+    "com.amazonaws.outposts#CatalogItemListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#CatalogItem"
+      }
+    },
+    "com.amazonaws.outposts#CatalogItemPowerKva": {
+      "type": "float"
+    },
+    "com.amazonaws.outposts#CatalogItemStatus": {
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
+          }
+        },
+        "DISCONTINUED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISCONTINUED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#CatalogItemWeightLbs": {
+      "type": "integer"
+    },
+    "com.amazonaws.outposts#City": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#CityList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#City"
+      }
+    },
+    "com.amazonaws.outposts#ComputeAssetState": {
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "ISOLATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ISOLATED"
+          }
+        },
+        "RETIRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RETIRING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#ComputeAttributes": {
+      "type": "structure",
+      "members": {
+        "HostId": {
+          "target": "com.amazonaws.outposts#HostId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The host ID of the Dedicated Host on the asset.\n    </p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.outposts#ComputeAssetState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state.</p>\n         <ul>\n            <li>\n               <p>ACTIVE - The asset is available and can provide capacity for new compute resources.</p>\n            </li>\n            <li>\n               <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new compute resources.\n            Existing compute resources on the asset are not affected.</p>\n            </li>\n            <li>\n               <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute resources is reduced.\n            Amazon Web Services sends notifications for resources that must be stopped before the asset can be replaced.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about compute hardware assets.\n    </p>"
+      }
+    },
     "com.amazonaws.outposts#ConflictException": {
       "type": "structure",
       "members": {
@@ -132,6 +594,96 @@
         "smithy.api#documentation": "<p>Updating or deleting this resource can cause an inconsistent state.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
+      }
+    },
+    "com.amazonaws.outposts#ConnectionDetails": {
+      "type": "structure",
+      "members": {
+        "ClientPublicKey": {
+          "target": "com.amazonaws.outposts#WireGuardPublicKey",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The public key of the client.\n    </p>"
+          }
+        },
+        "ServerPublicKey": {
+          "target": "com.amazonaws.outposts#WireGuardPublicKey",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The public key of the server.\n    </p>"
+          }
+        },
+        "ServerEndpoint": {
+          "target": "com.amazonaws.outposts#ServerEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The endpoint for the server.\n    </p>"
+          }
+        },
+        "ClientTunnelAddress": {
+          "target": "com.amazonaws.outposts#CIDR",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The client tunnel address. \n    </p>"
+          }
+        },
+        "ServerTunnelAddress": {
+          "target": "com.amazonaws.outposts#CIDR",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The server tunnel address.\n    </p>"
+          }
+        },
+        "AllowedIps": {
+          "target": "com.amazonaws.outposts#CIDRList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The allowed IP addresses.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n    Information about a connection. \n    </p>"
+      }
+    },
+    "com.amazonaws.outposts#ConnectionId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9+/=]{1,1024}$"
+      }
+    },
+    "com.amazonaws.outposts#ContactName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#ContactPhoneNumber": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        },
+        "smithy.api#pattern": "^[\\S ]+$"
+      }
+    },
+    "com.amazonaws.outposts#CountryCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 2,
+          "max": 2
+        },
+        "smithy.api#pattern": "^[A-Z]{2}$"
+      }
+    },
+    "com.amazonaws.outposts#CountryCodeList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#CountryCode"
       }
     },
     "com.amazonaws.outposts#CreateOrder": {
@@ -191,16 +743,19 @@
         "PaymentOption": {
           "target": "com.amazonaws.outposts#PaymentOption",
           "traits": {
-            "smithy.api#documentation": "<p>The payment option for the order.</p>",
+            "smithy.api#documentation": "<p>The payment option.</p>",
             "smithy.api#required": {}
           }
         },
         "PaymentTerm": {
           "target": "com.amazonaws.outposts#PaymentTerm",
           "traits": {
-            "smithy.api#documentation": "<p>The payment terms for the order.</p>"
+            "smithy.api#documentation": "<p>The payment terms.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#CreateOrderOutput": {
@@ -212,6 +767,9 @@
             "smithy.api#documentation": "<p>Information about this order.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#CreateOutpost": {
@@ -243,7 +801,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an Outpost.</p>\n         <p>You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>",
+        "smithy.api#documentation": "<p>Creates an Outpost.</p>\n         <p>You can specify either an Availability one or an AZ ID.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/outposts",
@@ -266,6 +824,7 @@
         "SiteId": {
           "target": "com.amazonaws.outposts#SiteId",
           "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
             "smithy.api#required": {}
           }
         },
@@ -280,7 +839,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the Outpost.</p>"
           }
+        },
+        "SupportedHardwareType": {
+          "target": "com.amazonaws.outposts#SupportedHardwareType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of hardware for this Outpost.\n    </p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#CreateOutpostOutput": {
@@ -289,6 +857,101 @@
         "Outpost": {
           "target": "com.amazonaws.outposts#Outpost"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#CreateSite": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#CreateSiteInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#CreateSiteOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Creates a site for an Outpost.\n    </p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/sites",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#CreateSiteInput": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.outposts#SiteName",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.outposts#SiteDescription"
+        },
+        "Notes": {
+          "target": "com.amazonaws.outposts#SiteNotes",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information that you provide about site access requirements, electrician\n      scheduling, personal protective equipment, or regulation of equipment materials that could\n      affect your installation process. </p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.outposts#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The tags to apply to a site.\n    </p>"
+          }
+        },
+        "OperatingAddress": {
+          "target": "com.amazonaws.outposts#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The location to install and power on the hardware. This address might be \n      different from the shipping address.\n    </p>"
+          }
+        },
+        "ShippingAddress": {
+          "target": "com.amazonaws.outposts#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The location to ship the hardware. This address might be different \n      from the operating address.\n    </p>"
+          }
+        },
+        "RackPhysicalProperties": {
+          "target": "com.amazonaws.outposts#RackPhysicalProperties",
+          "traits": {
+            "smithy.api#documentation": "<p> Information about the physical and logistical details for the rack at this site.\n      For more information\n      about hardware requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist\">Network \n        readiness checklist</a> in the Amazon Web Services Outposts User Guide.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#CreateSiteOutput": {
+      "type": "structure",
+      "members": {
+        "Site": {
+          "target": "com.amazonaws.outposts#Site"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#DeleteOutpost": {
@@ -317,7 +980,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the Outpost.</p>",
+        "smithy.api#documentation": "<p>Deletes the specified Outpost.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/outposts/{OutpostId}",
@@ -331,16 +994,22 @@
         "OutpostId": {
           "target": "com.amazonaws.outposts#OutpostId",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The ID of the Outpost.\n    </p>",
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the Outpost.\n    </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#DeleteOutpostOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.outposts#DeleteSite": {
       "type": "operation",
@@ -368,7 +1037,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the site.</p>",
+        "smithy.api#documentation": "<p>Deletes the specified site.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/sites/{SiteId}",
@@ -382,15 +1051,80 @@
         "SiteId": {
           "target": "com.amazonaws.outposts#SiteId",
           "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#DeleteSiteOutput": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#DeviceSerialNumber": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        },
+        "smithy.api#pattern": "^(\\w+)$"
+      }
+    },
+    "com.amazonaws.outposts#DistrictOrCounty": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 60
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#EC2Capacity": {
+      "type": "structure",
+      "members": {
+        "Family": {
+          "target": "com.amazonaws.outposts#Family",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The family of the EC2 capacity.\n    </p>"
+          }
+        },
+        "MaxSize": {
+          "target": "com.amazonaws.outposts#MaxSize",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The maximum size of the EC2 capacity.\n    </p>"
+          }
+        },
+        "Quantity": {
+          "target": "com.amazonaws.outposts#Quantity",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The quantity of the EC2 capacity.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Information about EC2 capacity. </p>"
+      }
+    },
+    "com.amazonaws.outposts#EC2CapacityListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#EC2Capacity"
+      }
+    },
+    "com.amazonaws.outposts#EC2FamilyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#Family"
+      }
     },
     "com.amazonaws.outposts#ErrorMessage": {
       "type": "string",
@@ -400,6 +1134,213 @@
           "max": 1000
         },
         "smithy.api#pattern": "^[\\S \\n]+$"
+      }
+    },
+    "com.amazonaws.outposts#Family": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10
+        },
+        "smithy.api#pattern": "^[a-z0-9]+$"
+      }
+    },
+    "com.amazonaws.outposts#FiberOpticCableType": {
+      "type": "enum",
+      "members": {
+        "SINGLE_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SINGLE_MODE"
+          }
+        },
+        "MULTI_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MULTI_MODE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetCatalogItem": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#GetCatalogItemInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#GetCatalogItemOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified catalog item.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/catalog/item/{CatalogItemId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetCatalogItemInput": {
+      "type": "structure",
+      "members": {
+        "CatalogItemId": {
+          "target": "com.amazonaws.outposts#SkuCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the catalog item.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#GetCatalogItemOutput": {
+      "type": "structure",
+      "members": {
+        "CatalogItem": {
+          "target": "com.amazonaws.outposts#CatalogItem",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about this catalog item.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#GetConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#GetConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#GetConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<note>\n            <p>\n      Amazon Web Services uses this action to install Outpost servers.</p>\n         </note>\n         <p>\n      Gets information about the specified connection.\n    </p>\n         <p>\n      Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For \n      more information, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html\">\n      Amazon Web Services managed policies for Amazon Web Services Outposts</a> and <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html\">\n      Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Outposts User Guide</i>.\n      </p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/connections/{ConnectionId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "ConnectionId": {
+          "target": "com.amazonaws.outposts#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the connection.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#GetConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "ConnectionId": {
+          "target": "com.amazonaws.outposts#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the connection.\n    </p>"
+          }
+        },
+        "ConnectionDetails": {
+          "target": "com.amazonaws.outposts#ConnectionDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>\n     Information about the connection.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#GetOrder": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#GetOrderInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#GetOrderOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified order.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/orders/{OrderId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetOrderInput": {
+      "type": "structure",
+      "members": {
+        "OrderId": {
+          "target": "com.amazonaws.outposts#OrderId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the order.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#GetOrderOutput": {
+      "type": "structure",
+      "members": {
+        "Order": {
+          "target": "com.amazonaws.outposts#Order"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#GetOutpost": {
@@ -439,11 +1380,14 @@
         "OutpostId": {
           "target": "com.amazonaws.outposts#OutpostId",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The ID of the Outpost.\n    </p>",
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the Outpost.\n    </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#GetOutpostInstanceTypes": {
@@ -469,11 +1413,17 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the instance types for the specified Outpost.</p>",
+        "smithy.api#documentation": "<p>Gets the instance types for the specified Outpost.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/outposts/{OutpostId}/instanceTypes",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "InstanceTypes",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -483,7 +1433,7 @@
         "OutpostId": {
           "target": "com.amazonaws.outposts#OutpostId",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The ID of the Outpost.\n    </p>",
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the Outpost.\n    </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -500,6 +1450,9 @@
             "smithy.api#httpQuery": "MaxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#GetOutpostInstanceTypesOutput": {
@@ -520,6 +1473,9 @@
         "OutpostArn": {
           "target": "com.amazonaws.outposts#OutpostArn"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#GetOutpostOutput": {
@@ -528,6 +1484,161 @@
         "Outpost": {
           "target": "com.amazonaws.outposts#Outpost"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#GetSite": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#GetSiteInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#GetSiteOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the specified Outpost site.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/sites/{SiteId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetSiteAddress": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#GetSiteAddressInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#GetSiteAddressOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Gets the site address of the specified site.\n    </p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/sites/{SiteId}/address",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#GetSiteAddressInput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AddressType": {
+          "target": "com.amazonaws.outposts#AddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the address you request. </p>",
+            "smithy.api#httpQuery": "AddressType",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#GetSiteAddressOutput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId"
+        },
+        "AddressType": {
+          "target": "com.amazonaws.outposts#AddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the address you receive. </p>"
+          }
+        },
+        "Address": {
+          "target": "com.amazonaws.outposts#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about the address.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#GetSiteInput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#GetSiteOutput": {
+      "type": "structure",
+      "members": {
+        "Site": {
+          "target": "com.amazonaws.outposts#Site"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#HostId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9-]*$"
+      }
+    },
+    "com.amazonaws.outposts#HostIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#HostId"
       }
     },
     "com.amazonaws.outposts#ISO8601Timestamp": {
@@ -613,18 +1724,69 @@
         "Quantity": {
           "target": "com.amazonaws.outposts#LineItemQuantity",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The quantity of the line item.</p>"
           }
         },
         "Status": {
-          "target": "com.amazonaws.outposts#Status",
+          "target": "com.amazonaws.outposts#LineItemStatus",
           "traits": {
             "smithy.api#documentation": "<p>The status of the line item.</p>"
+          }
+        },
+        "ShipmentInformation": {
+          "target": "com.amazonaws.outposts#ShipmentInformation",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about a line item shipment.\n    </p>"
+          }
+        },
+        "AssetInformationList": {
+          "target": "com.amazonaws.outposts#LineItemAssetInformationList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about assets.\n    </p>"
+          }
+        },
+        "PreviousLineItemId": {
+          "target": "com.amazonaws.outposts#LineItemId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the previous line item.</p>"
+          }
+        },
+        "PreviousOrderId": {
+          "target": "com.amazonaws.outposts#OrderId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the previous order item.</p>"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a line item.</p>"
+      }
+    },
+    "com.amazonaws.outposts#LineItemAssetInformation": {
+      "type": "structure",
+      "members": {
+        "AssetId": {
+          "target": "com.amazonaws.outposts#AssetId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the asset.\n    </p>"
+          }
+        },
+        "MacAddressList": {
+          "target": "com.amazonaws.outposts#MacAddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The MAC addresses of the asset.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about a line item asset.\n    </p>"
+      }
+    },
+    "com.amazonaws.outposts#LineItemAssetInformationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#LineItemAssetInformation"
       }
     },
     "com.amazonaws.outposts#LineItemId": {
@@ -642,6 +1804,7 @@
     "com.amazonaws.outposts#LineItemQuantity": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -660,6 +1823,7 @@
         "Quantity": {
           "target": "com.amazonaws.outposts#LineItemQuantity",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The quantity of a line item request.</p>"
           }
         }
@@ -678,6 +1842,343 @@
           "min": 1,
           "max": 20
         }
+      }
+    },
+    "com.amazonaws.outposts#LineItemStatus": {
+      "type": "enum",
+      "members": {
+        "PREPARING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREPARING"
+          }
+        },
+        "BUILDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BUILDING"
+          }
+        },
+        "SHIPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHIPPED"
+          }
+        },
+        "DELIVERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELIVERED"
+          }
+        },
+        "INSTALLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTALLING"
+          }
+        },
+        "INSTALLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTALLED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLED"
+          }
+        },
+        "REPLACED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPLACED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#LineItemStatusCounts": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.outposts#LineItemStatus"
+      },
+      "value": {
+        "target": "com.amazonaws.outposts#LineItemQuantity"
+      }
+    },
+    "com.amazonaws.outposts#ListAssets": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#ListAssetsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#ListAssetsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the hardware assets for the specified Outpost.</p>\n         <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match \n all of the specified filters. For a filter where you can specify multiple values, the results include \n items that match any of the values that you specify for the filter.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/outposts/{OutpostIdentifier}/assets",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Assets",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.outposts#ListAssetsInput": {
+      "type": "structure",
+      "members": {
+        "OutpostIdentifier": {
+          "target": "com.amazonaws.outposts#OutpostIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the Outpost.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "HostIdFilter": {
+          "target": "com.amazonaws.outposts#HostIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by the host ID of a Dedicated Host.</p>",
+            "smithy.api#httpQuery": "HostIdFilter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.outposts#MaxResults1000",
+          "traits": {
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token",
+          "traits": {
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "StatusFilter": {
+          "target": "com.amazonaws.outposts#StatusList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by state.</p>",
+            "smithy.api#httpQuery": "StatusFilter"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#ListAssetsOutput": {
+      "type": "structure",
+      "members": {
+        "Assets": {
+          "target": "com.amazonaws.outposts#AssetListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the hardware assets.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#ListCatalogItems": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#ListCatalogItemsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#ListCatalogItemsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the items in the catalog.</p>\n         <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match \n all of the specified filters. For a filter where you can specify multiple values, the results include \n items that match any of the values that you specify for the filter.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/catalog/items",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "CatalogItems",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.outposts#ListCatalogItemsInput": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token",
+          "traits": {
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.outposts#MaxResults1000",
+          "traits": {
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        },
+        "ItemClassFilter": {
+          "target": "com.amazonaws.outposts#CatalogItemClassList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by item class.</p>",
+            "smithy.api#httpQuery": "ItemClassFilter"
+          }
+        },
+        "SupportedStorageFilter": {
+          "target": "com.amazonaws.outposts#SupportedStorageList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by storage option.</p>",
+            "smithy.api#httpQuery": "SupportedStorageFilter"
+          }
+        },
+        "EC2FamilyFilter": {
+          "target": "com.amazonaws.outposts#EC2FamilyList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by EC2 family (for example, M5).</p>",
+            "smithy.api#httpQuery": "EC2FamilyFilter"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#ListCatalogItemsOutput": {
+      "type": "structure",
+      "members": {
+        "CatalogItems": {
+          "target": "com.amazonaws.outposts#CatalogItemListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the catalog items.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#ListOrders": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#ListOrdersInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#ListOrdersOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the Outpost orders for your Amazon Web Services account.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/list-orders",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Orders",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.outposts#ListOrdersInput": {
+      "type": "structure",
+      "members": {
+        "OutpostIdentifierFilter": {
+          "target": "com.amazonaws.outposts#OutpostIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the Outpost.\n    </p>",
+            "smithy.api#httpQuery": "OutpostIdentifierFilter"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token",
+          "traits": {
+            "smithy.api#httpQuery": "NextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.outposts#MaxResults1000",
+          "traits": {
+            "smithy.api#httpQuery": "MaxResults"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#ListOrdersOutput": {
+      "type": "structure",
+      "members": {
+        "Orders": {
+          "target": "com.amazonaws.outposts#OrderSummaryListDefinition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about the orders. \n    </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.outposts#Token"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#ListOutposts": {
@@ -700,7 +2201,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Create a list of the Outposts for your AWS account. Add filters to your request to return\n      a more specific list of results. Use filters to match an Outpost lifecycle status,\n      Availibility Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>). </p>\n    \n         <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only \n      results that match all of the specified filters.</p>",
+        "smithy.api#documentation": "<p>Lists the Outposts for your Amazon Web Services account.</p>\n         <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match \n all of the specified filters. For a filter where you can specify multiple values, the results include \n items that match any of the values that you specify for the filter.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/outposts",
@@ -709,6 +2210,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "Outposts",
           "pageSize": "MaxResults"
         }
       }
@@ -731,24 +2233,27 @@
         "LifeCycleStatusFilter": {
           "target": "com.amazonaws.outposts#LifeCycleStatusList",
           "traits": {
-            "smithy.api#documentation": "<p>\n      A filter for the lifecycle status of the Outpost. \n    </p>\n         <p> Filter values are case sensitive. If you specify multiple values for a filter, the values\n      are joined with an <code>OR</code>, and the request returns all results that match any of the\n      specified values. </p>",
+            "smithy.api#documentation": "<p>Filters the results by the lifecycle status.</p>",
             "smithy.api#httpQuery": "LifeCycleStatusFilter"
           }
         },
         "AvailabilityZoneFilter": {
           "target": "com.amazonaws.outposts#AvailabilityZoneList",
           "traits": {
-            "smithy.api#documentation": "<p> A filter for the Availibility Zone (<code>us-east-1a</code>) of the Outpost. </p>\n    \n         <p> Filter values are case sensitive. If you specify multiple values for a filter, the values\n      are joined with an <code>OR</code>, and the request returns all results that match any of the\n      specified values. </p>",
+            "smithy.api#documentation": "<p>Filters the results by Availability Zone (for example, <code>us-east-1a</code>).</p>",
             "smithy.api#httpQuery": "AvailabilityZoneFilter"
           }
         },
         "AvailabilityZoneIdFilter": {
           "target": "com.amazonaws.outposts#AvailabilityZoneIdList",
           "traits": {
-            "smithy.api#documentation": "<p>\n      A filter for the AZ IDs (<code>use1-az1</code>) of the Outpost.\n    </p>\n    \n         <p> Filter values are case sensitive. If you specify multiple values for a filter, the values\n      are joined with an <code>OR</code>, and the request returns all results that match any of the\n      specified values. </p>",
+            "smithy.api#documentation": "<p>Filters the results by AZ ID (for example, <code>use1-az1</code>).</p>",
             "smithy.api#httpQuery": "AvailabilityZoneIdFilter"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#ListOutpostsOutput": {
@@ -760,6 +2265,9 @@
         "NextToken": {
           "target": "com.amazonaws.outposts#Token"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#ListSites": {
@@ -782,7 +2290,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the sites for the specified AWS account.</p>",
+        "smithy.api#documentation": "<p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results.</p>\n         <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match \n all of the specified filters. For a filter where you can specify multiple values, the results include \n items that match any of the values that you specify for the filter.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/sites",
@@ -791,6 +2299,7 @@
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
+          "items": "Sites",
           "pageSize": "MaxResults"
         }
       }
@@ -809,7 +2318,31 @@
           "traits": {
             "smithy.api#httpQuery": "MaxResults"
           }
+        },
+        "OperatingAddressCountryCodeFilter": {
+          "target": "com.amazonaws.outposts#CountryCodeList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by country code.</p>",
+            "smithy.api#httpQuery": "OperatingAddressCountryCodeFilter"
+          }
+        },
+        "OperatingAddressStateOrRegionFilter": {
+          "target": "com.amazonaws.outposts#StateOrRegionList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by state or region.</p>",
+            "smithy.api#httpQuery": "OperatingAddressStateOrRegionFilter"
+          }
+        },
+        "OperatingAddressCityFilter": {
+          "target": "com.amazonaws.outposts#CityList",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by city.</p>",
+            "smithy.api#httpQuery": "OperatingAddressCityFilter"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#ListSitesOutput": {
@@ -821,6 +2354,9 @@
         "NextToken": {
           "target": "com.amazonaws.outposts#Token"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.outposts#ListTagsForResource": {
@@ -862,6 +2398,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#ListTagsForResourceResponse": {
@@ -873,16 +2412,92 @@
             "smithy.api#documentation": "<p>The resource tags.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#MacAddress": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 17,
+          "max": 17
+        },
+        "smithy.api#pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+      }
+    },
+    "com.amazonaws.outposts#MacAddressList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#MacAddress"
       }
     },
     "com.amazonaws.outposts#MaxResults1000": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#documentation": "<p>The maximum page size.</p>",
         "smithy.api#range": {
           "min": 1,
           "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.outposts#MaxSize": {
+      "type": "string"
+    },
+    "com.amazonaws.outposts#MaximumSupportedWeightLbs": {
+      "type": "enum",
+      "members": {
+        "NO_LIMIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_LIMIT"
+          }
+        },
+        "MAX_1400_LBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_1400_LBS"
+          }
+        },
+        "MAX_1600_LBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_1600_LBS"
+          }
+        },
+        "MAX_1800_LBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_1800_LBS"
+          }
+        },
+        "MAX_2000_LBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAX_2000_LBS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#Municipality": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 180
+        },
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#NetworkInterfaceDeviceIndex": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 1
         }
       }
     },
@@ -899,13 +2514,96 @@
         "smithy.api#httpError": 404
       }
     },
+    "com.amazonaws.outposts#OpticalStandard": {
+      "type": "enum",
+      "members": {
+        "OPTIC_10GBASE_SR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_10GBASE_SR"
+          }
+        },
+        "OPTIC_10GBASE_IR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_10GBASE_IR"
+          }
+        },
+        "OPTIC_10GBASE_LR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_10GBASE_LR"
+          }
+        },
+        "OPTIC_40GBASE_SR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_40GBASE_SR"
+          }
+        },
+        "OPTIC_40GBASE_ESR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_40GBASE_ESR"
+          }
+        },
+        "OPTIC_40GBASE_IR4_LR4L": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_40GBASE_IR4_LR4L"
+          }
+        },
+        "OPTIC_40GBASE_LR4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_40GBASE_LR4"
+          }
+        },
+        "OPTIC_100GBASE_SR4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_100GBASE_SR4"
+          }
+        },
+        "OPTIC_100GBASE_CWDM4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_100GBASE_CWDM4"
+          }
+        },
+        "OPTIC_100GBASE_LR4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_100GBASE_LR4"
+          }
+        },
+        "OPTIC_100G_PSM4_MSA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_100G_PSM4_MSA"
+          }
+        },
+        "OPTIC_1000BASE_LX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_1000BASE_LX"
+          }
+        },
+        "OPTIC_1000BASE_SX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPTIC_1000BASE_SX"
+          }
+        }
+      }
+    },
     "com.amazonaws.outposts#Order": {
       "type": "structure",
       "members": {
         "OutpostId": {
           "target": "com.amazonaws.outposts#OutpostIdOnly",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The ID of the Outpost.\n    </p>"
+            "smithy.api#documentation": "<p>\n      The ID of the Outpost in the order.\n    </p>"
           }
         },
         "OrderId": {
@@ -917,7 +2615,7 @@
         "Status": {
           "target": "com.amazonaws.outposts#OrderStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the order</p>"
+            "smithy.api#documentation": "<p>The status of the order.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PREPARING</code> - Order is received and being prepared.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. To get more\n          details, see the line item status.</p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code> - Order is complete.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCELLED</code> - Order is cancelled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ERROR</code> - Customer should contact support.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The following status are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,\n          <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>\n         </note>"
           }
         },
         "LineItems": {
@@ -943,6 +2641,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The fulfillment date of the order.</p>"
           }
+        },
+        "PaymentTerm": {
+          "target": "com.amazonaws.outposts#PaymentTerm",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment term.</p>"
+          }
+        },
+        "OrderType": {
+          "target": "com.amazonaws.outposts#OrderType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of order.</p>"
+          }
         }
       },
       "traits": {
@@ -960,34 +2670,141 @@
       }
     },
     "com.amazonaws.outposts#OrderStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "RECEIVED",
-            "name": "RECEIVED"
-          },
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "PROCESSING",
-            "name": "PROCESSING"
-          },
-          {
-            "value": "INSTALLING",
-            "name": "INSTALLING"
-          },
-          {
-            "value": "FULFILLED",
-            "name": "FULFILLED"
-          },
-          {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
+      "type": "enum",
+      "members": {
+        "RECEIVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECEIVED"
           }
-        ]
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
+          }
+        },
+        "PROCESSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROCESSING"
+          }
+        },
+        "INSTALLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSTALLING"
+          }
+        },
+        "FULFILLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FULFILLED"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CANCELLED"
+          }
+        },
+        "PREPARING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREPARING"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#OrderSummary": {
+      "type": "structure",
+      "members": {
+        "OutpostId": {
+          "target": "com.amazonaws.outposts#OutpostIdOnly",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the Outpost.\n    </p>"
+          }
+        },
+        "OrderId": {
+          "target": "com.amazonaws.outposts#OrderId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the order.\n    </p>"
+          }
+        },
+        "OrderType": {
+          "target": "com.amazonaws.outposts#OrderType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of order. \n    </p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.outposts#OrderStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the order.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PREPARING</code> - Order is received and is being prepared.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more\n          information, see the <code>LineItem</code> status.</p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code> - Order is complete.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCELLED</code> - Order is cancelled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ERROR</code> - Customer should contact support.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,\n          <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>\n         </note>"
+          }
+        },
+        "LineItemCountsByStatus": {
+          "target": "com.amazonaws.outposts#LineItemStatusCounts",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The status of all line items in the order. \n    </p>"
+          }
+        },
+        "OrderSubmissionDate": {
+          "target": "com.amazonaws.outposts#ISO8601Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The submission date for the order. \n    </p>"
+          }
+        },
+        "OrderFulfilledDate": {
+          "target": "com.amazonaws.outposts#ISO8601Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The fulfilment date for the order.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      A summary of line items in your order.\n    </p>"
+      }
+    },
+    "com.amazonaws.outposts#OrderSummaryListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#OrderSummary"
+      }
+    },
+    "com.amazonaws.outposts#OrderType": {
+      "type": "enum",
+      "members": {
+        "OUTPOST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OUTPOST"
+          }
+        },
+        "REPLACEMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPLACEMENT"
+          }
+        }
       }
     },
     "com.amazonaws.outposts#Outpost": {
@@ -1031,6 +2848,12 @@
         },
         "SiteArn": {
           "target": "com.amazonaws.outposts#SiteArn"
+        },
+        "SupportedHardwareType": {
+          "target": "com.amazonaws.outposts#SupportedHardwareType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The hardware type. \n    </p>"
+          }
         }
       },
       "traits": {
@@ -1105,10 +2928,16 @@
       "version": "2019-12-03",
       "operations": [
         {
+          "target": "com.amazonaws.outposts#CancelOrder"
+        },
+        {
           "target": "com.amazonaws.outposts#CreateOrder"
         },
         {
           "target": "com.amazonaws.outposts#CreateOutpost"
+        },
+        {
+          "target": "com.amazonaws.outposts#CreateSite"
         },
         {
           "target": "com.amazonaws.outposts#DeleteOutpost"
@@ -1117,10 +2946,34 @@
           "target": "com.amazonaws.outposts#DeleteSite"
         },
         {
+          "target": "com.amazonaws.outposts#GetCatalogItem"
+        },
+        {
+          "target": "com.amazonaws.outposts#GetConnection"
+        },
+        {
+          "target": "com.amazonaws.outposts#GetOrder"
+        },
+        {
           "target": "com.amazonaws.outposts#GetOutpost"
         },
         {
           "target": "com.amazonaws.outposts#GetOutpostInstanceTypes"
+        },
+        {
+          "target": "com.amazonaws.outposts#GetSite"
+        },
+        {
+          "target": "com.amazonaws.outposts#GetSiteAddress"
+        },
+        {
+          "target": "com.amazonaws.outposts#ListAssets"
+        },
+        {
+          "target": "com.amazonaws.outposts#ListCatalogItems"
+        },
+        {
+          "target": "com.amazonaws.outposts#ListOrders"
         },
         {
           "target": "com.amazonaws.outposts#ListOutposts"
@@ -1132,10 +2985,25 @@
           "target": "com.amazonaws.outposts#ListTagsForResource"
         },
         {
+          "target": "com.amazonaws.outposts#StartConnection"
+        },
+        {
           "target": "com.amazonaws.outposts#TagResource"
         },
         {
           "target": "com.amazonaws.outposts#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.outposts#UpdateOutpost"
+        },
+        {
+          "target": "com.amazonaws.outposts#UpdateSite"
+        },
+        {
+          "target": "com.amazonaws.outposts#UpdateSiteAddress"
+        },
+        {
+          "target": "com.amazonaws.outposts#UpdateSiteRackPhysicalProperties"
         }
       ],
       "traits": {
@@ -1150,14 +3018,1041 @@
           "name": "outposts"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AWS Outposts is a fully managed service that extends AWS infrastructure, APIs, and tools\n      to customer premises. By providing local access to AWS managed infrastructure, AWS Outposts\n      enables customers to build and run applications on premises using the same programming\n      interfaces as in AWS Regions, while using local compute and storage resources for lower\n      latency and local data processing needs.</p>",
-        "smithy.api#title": "AWS Outposts"
+        "smithy.api#documentation": "<p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools\n      to customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts\n      enables customers to build and run applications on premises using the same programming\n      interfaces as in Amazon Web Services Regions, while using local compute and storage resources for lower\n      latency and local data processing needs.</p>",
+        "smithy.api#title": "AWS Outposts",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://outposts-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            "aws-us-gov",
+                                            {
+                                              "fn": "getAttr",
+                                              "argv": [
+                                                {
+                                                  "ref": "PartitionResult"
+                                                },
+                                                "name"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://outposts.{Region}.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://outposts-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://outposts.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://outposts.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://outposts.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
     "com.amazonaws.outposts#OwnerId": {
       "type": "string",
       "traits": {
-        "smithy.api#documentation": "<p>The AWS account ID of the Outpost owner.</p>",
+        "smithy.api#documentation": "<p>The Amazon Web Services account ID of the Outpost owner.</p>",
         "smithy.api#length": {
           "min": 12,
           "max": 12
@@ -1166,44 +4061,256 @@
       }
     },
     "com.amazonaws.outposts#PaymentOption": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALL_UPFRONT",
-            "name": "ALL_UPFRONT"
-          },
-          {
-            "value": "NO_UPFRONT",
-            "name": "NO_UPFRONT"
-          },
-          {
-            "value": "PARTIAL_UPFRONT",
-            "name": "PARTIAL_UPFRONT"
+      "type": "enum",
+      "members": {
+        "ALL_UPFRONT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL_UPFRONT"
           }
-        ]
+        },
+        "NO_UPFRONT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_UPFRONT"
+          }
+        },
+        "PARTIAL_UPFRONT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTIAL_UPFRONT"
+          }
+        }
       }
     },
     "com.amazonaws.outposts#PaymentTerm": {
+      "type": "enum",
+      "members": {
+        "THREE_YEARS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THREE_YEARS"
+          }
+        },
+        "ONE_YEAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ONE_YEAR"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#PostalCode": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "THREE_YEARS",
-            "name": "THREE_YEARS"
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9 -]+$"
+      }
+    },
+    "com.amazonaws.outposts#PowerConnector": {
+      "type": "enum",
+      "members": {
+        "L6_30P": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "L6_30P"
           }
-        ]
+        },
+        "IEC309": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IEC309"
+          }
+        },
+        "AH530P7W": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AH530P7W"
+          }
+        },
+        "AH532P6W": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AH532P6W"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#PowerDrawKva": {
+      "type": "enum",
+      "members": {
+        "POWER_5_KVA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWER_5_KVA"
+          }
+        },
+        "POWER_10_KVA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWER_10_KVA"
+          }
+        },
+        "POWER_15_KVA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWER_15_KVA"
+          }
+        },
+        "POWER_30_KVA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POWER_30_KVA"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#PowerFeedDrop": {
+      "type": "enum",
+      "members": {
+        "ABOVE_RACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ABOVE_RACK"
+          }
+        },
+        "BELOW_RACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BELOW_RACK"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#PowerPhase": {
+      "type": "enum",
+      "members": {
+        "SINGLE_PHASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SINGLE_PHASE"
+          }
+        },
+        "THREE_PHASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THREE_PHASE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#Quantity": {
+      "type": "string"
+    },
+    "com.amazonaws.outposts#RackElevation": {
+      "type": "float",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 99
+        }
+      }
+    },
+    "com.amazonaws.outposts#RackId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 5,
+          "max": 20
+        },
+        "smithy.api#pattern": "^[\\S \\n]+$"
+      }
+    },
+    "com.amazonaws.outposts#RackPhysicalProperties": {
+      "type": "structure",
+      "members": {
+        "PowerDrawKva": {
+          "target": "com.amazonaws.outposts#PowerDrawKva",
+          "traits": {
+            "smithy.api#documentation": "<p>The power draw available at the hardware placement position for the rack. </p>"
+          }
+        },
+        "PowerPhase": {
+          "target": "com.amazonaws.outposts#PowerPhase",
+          "traits": {
+            "smithy.api#documentation": "<p>The power option that you can provide for hardware.</p>"
+          }
+        },
+        "PowerConnector": {
+          "target": "com.amazonaws.outposts#PowerConnector",
+          "traits": {
+            "smithy.api#documentation": "<p>The power connector for the hardware. </p>"
+          }
+        },
+        "PowerFeedDrop": {
+          "target": "com.amazonaws.outposts#PowerFeedDrop",
+          "traits": {
+            "smithy.api#documentation": "<p>The position of the power feed.</p>"
+          }
+        },
+        "UplinkGbps": {
+          "target": "com.amazonaws.outposts#UplinkGbps",
+          "traits": {
+            "smithy.api#documentation": "<p>The uplink speed the rack supports for the connection to the Region. </p>"
+          }
+        },
+        "UplinkCount": {
+          "target": "com.amazonaws.outposts#UplinkCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of uplinks each Outpost network device.</p>"
+          }
+        },
+        "FiberOpticCableType": {
+          "target": "com.amazonaws.outposts#FiberOpticCableType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of fiber used to attach the Outpost to the network. </p>"
+          }
+        },
+        "OpticalStandard": {
+          "target": "com.amazonaws.outposts#OpticalStandard",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of optical standard used to attach the Outpost to the network. This field is\n      dependent on uplink speed, fiber type, and distance to the upstream device. For more information\n      about networking requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking\">Network</a> \n        in the Amazon Web Services Outposts User Guide.\n        </p>"
+          }
+        },
+        "MaximumSupportedWeightLbs": {
+          "target": "com.amazonaws.outposts#MaximumSupportedWeightLbs",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000 lbs\n      (907 kg). </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p> Information about the physical and logistical details for racks at sites.\n      For more information\n      about hardware requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist\">Network \n        readiness checklist</a> in the Amazon Web Services Outposts User Guide.\n        </p>"
       }
     },
     "com.amazonaws.outposts#ResourceType": {
+      "type": "enum",
+      "members": {
+        "OUTPOST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OUTPOST"
+          }
+        },
+        "ORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORDER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#ServerEndpoint": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OUTPOST",
-            "name": "OUTPOST"
-          }
-        ]
+        "smithy.api#length": {
+          "min": 9,
+          "max": 21
+        },
+        "smithy.api#pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}:[0-9]{1,5}$"
       }
     },
     "com.amazonaws.outposts#ServiceQuotaExceededException": {
@@ -1217,6 +4324,55 @@
         "smithy.api#documentation": "<p>You have exceeded a service quota.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 402
+      }
+    },
+    "com.amazonaws.outposts#ShipmentCarrier": {
+      "type": "enum",
+      "members": {
+        "DHL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DHL"
+          }
+        },
+        "DBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DBS"
+          }
+        },
+        "FEDEX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FEDEX"
+          }
+        },
+        "UPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#ShipmentInformation": {
+      "type": "structure",
+      "members": {
+        "ShipmentTrackingNumber": {
+          "target": "com.amazonaws.outposts#TrackingId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The tracking number of the shipment.\n    </p>"
+          }
+        },
+        "ShipmentCarrier": {
+          "target": "com.amazonaws.outposts#ShipmentCarrier",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The carrier of the shipment. \n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Information about a line item shipment.\n    </p>"
       }
     },
     "com.amazonaws.outposts#Site": {
@@ -1242,6 +4398,36 @@
         },
         "SiteArn": {
           "target": "com.amazonaws.outposts#SiteArn"
+        },
+        "Notes": {
+          "target": "com.amazonaws.outposts#SiteNotes",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Notes about a site. \n    </p>"
+          }
+        },
+        "OperatingAddressCountryCode": {
+          "target": "com.amazonaws.outposts#CountryCode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ISO-3166 two-letter country code where the hardware is installed and powered on.\n    </p>"
+          }
+        },
+        "OperatingAddressStateOrRegion": {
+          "target": "com.amazonaws.outposts#StateOrRegion",
+          "traits": {
+            "smithy.api#documentation": "<p> State or region where the hardware is installed and powered on. </p>"
+          }
+        },
+        "OperatingAddressCity": {
+          "target": "com.amazonaws.outposts#City",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      City where the hardware is installed and powered on.\n    </p>"
+          }
+        },
+        "RackPhysicalProperties": {
+          "target": "com.amazonaws.outposts#RackPhysicalProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about the physical and logistical details for a rack at the site.\n    </p>"
+          }
         }
       },
       "traits": {
@@ -1292,6 +4478,16 @@
         "smithy.api#pattern": "^[\\S ]+$"
       }
     },
+    "com.amazonaws.outposts#SiteNotes": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2000
+        },
+        "smithy.api#pattern": "^[\\S \\n]+$"
+      }
+    },
     "com.amazonaws.outposts#SkuCode": {
       "type": "string",
       "traits": {
@@ -1302,14 +4498,120 @@
         "smithy.api#pattern": "^OR-[A-Z0-9]{7}$"
       }
     },
-    "com.amazonaws.outposts#Status": {
+    "com.amazonaws.outposts#StartConnection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#StartConnectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#StartConnectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<note>\n            <p>\n      Amazon Web Services uses this action to install Outpost servers.</p>\n         </note>\n         <p>\n      Starts the connection required for Outpost server installation. \n    </p>\n         <p>\n      Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon Web Services Outposts to secure it. For \n      more information, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html\">\n      Amazon Web Services managed policies for Amazon Web Services Outposts</a> and <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html\">\n      Logging Amazon Web Services Outposts API calls with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Outposts User Guide</i>.\n      </p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/connections",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#StartConnectionRequest": {
+      "type": "structure",
+      "members": {
+        "DeviceSerialNumber": {
+          "target": "com.amazonaws.outposts#DeviceSerialNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The serial number of the dongle. \n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AssetId": {
+          "target": "com.amazonaws.outposts#AssetId",
+          "traits": {
+            "smithy.api#documentation": "<p> \n      The ID of the Outpost server. \n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ClientPublicKey": {
+          "target": "com.amazonaws.outposts#WireGuardPublicKey",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The public key of the client.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NetworkInterfaceDeviceIndex": {
+          "target": "com.amazonaws.outposts#NetworkInterfaceDeviceIndex",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n      The device index of the network interface on the Outpost server.\n    </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#StartConnectionResponse": {
+      "type": "structure",
+      "members": {
+        "ConnectionId": {
+          "target": "com.amazonaws.outposts#ConnectionId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID of the connection.\n    </p>"
+          }
+        },
+        "UnderlayIpAddress": {
+          "target": "com.amazonaws.outposts#UnderlayIpAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The underlay IP address. \n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#StateOrRegion": {
       "type": "string",
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 1000
+          "max": 50
         },
-        "smithy.api#pattern": "^[\\S ]+$"
+        "smithy.api#pattern": "^\\S[\\S ]*$"
+      }
+    },
+    "com.amazonaws.outposts#StateOrRegionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#StateOrRegion"
+      }
+    },
+    "com.amazonaws.outposts#StatusList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#AssetState"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 3
+        }
       }
     },
     "com.amazonaws.outposts#String": {
@@ -1320,6 +4622,58 @@
           "max": 1000
         },
         "smithy.api#pattern": "^[\\S \\n]+$"
+      }
+    },
+    "com.amazonaws.outposts#SupportedHardwareType": {
+      "type": "enum",
+      "members": {
+        "RACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RACK"
+          }
+        },
+        "SERVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SERVER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#SupportedStorageEnum": {
+      "type": "enum",
+      "members": {
+        "EBS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBS"
+          }
+        },
+        "S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#SupportedStorageList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#SupportedStorageEnum"
+      }
+    },
+    "com.amazonaws.outposts#SupportedUplinkGbps": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.outposts#SupportedUplinkGbpsListDefinition": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.outposts#SupportedUplinkGbps"
       }
     },
     "com.amazonaws.outposts#TagKey": {
@@ -1405,11 +4759,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.outposts#TagValue": {
       "type": "string",
@@ -1427,9 +4787,29 @@
         "smithy.api#documentation": "<p>The pagination token.</p>",
         "smithy.api#length": {
           "min": 1,
-          "max": 1005
+          "max": 2048
         },
         "smithy.api#pattern": "^(\\d+)##(\\S+)$"
+      }
+    },
+    "com.amazonaws.outposts#TrackingId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 6,
+          "max": 42
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9]+$"
+      }
+    },
+    "com.amazonaws.outposts#UnderlayIpAddress": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 7,
+          "max": 15
+        },
+        "smithy.api#pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}$"
       }
     },
     "com.amazonaws.outposts#UntagResource": {
@@ -1479,11 +4859,456 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.outposts#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateOutpost": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#UpdateOutpostInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#UpdateOutpostOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Updates an Outpost.\n    </p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/outposts/{OutpostId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#UpdateOutpostInput": {
+      "type": "structure",
+      "members": {
+        "OutpostId": {
+          "target": "com.amazonaws.outposts#OutpostId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the Outpost.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.outposts#OutpostName"
+        },
+        "Description": {
+          "target": "com.amazonaws.outposts#OutpostDescription"
+        },
+        "SupportedHardwareType": {
+          "target": "com.amazonaws.outposts#SupportedHardwareType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of hardware for this Outpost.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateOutpostOutput": {
+      "type": "structure",
+      "members": {
+        "Outpost": {
+          "target": "com.amazonaws.outposts#Outpost"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateSite": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#UpdateSiteInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#UpdateSiteOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the specified site.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/sites/{SiteId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteAddress": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#UpdateSiteAddressInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#UpdateSiteAddressOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the address of the specified site.</p>\n         <p>You can't update a site address if there is an order in progress. You must wait for the order \n      to complete or cancel the order.</p>\n         <p>You can update the operating address before you place an order at the \n      site, or after all Outposts that belong to the site have been deactivated.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/sites/{SiteId}/address",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteAddressInput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AddressType": {
+          "target": "com.amazonaws.outposts#AddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of the address.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Address": {
+          "target": "com.amazonaws.outposts#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The address for the site.\n    </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteAddressOutput": {
+      "type": "structure",
+      "members": {
+        "AddressType": {
+          "target": "com.amazonaws.outposts#AddressType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of the address.\n    </p>"
+          }
+        },
+        "Address": {
+          "target": "com.amazonaws.outposts#Address",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Information about an address. \n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteInput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.outposts#SiteName"
+        },
+        "Description": {
+          "target": "com.amazonaws.outposts#SiteDescription"
+        },
+        "Notes": {
+          "target": "com.amazonaws.outposts#SiteNotes",
+          "traits": {
+            "smithy.api#documentation": "<p>Notes about a site.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteOutput": {
+      "type": "structure",
+      "members": {
+        "Site": {
+          "target": "com.amazonaws.outposts#Site"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteRackPhysicalProperties": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.outposts#UpdateSiteRackPhysicalPropertiesInput"
+      },
+      "output": {
+        "target": "com.amazonaws.outposts#UpdateSiteRackPhysicalPropertiesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.outposts#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.outposts#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.outposts#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.outposts#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update the physical and logistical details for a rack at a site. For more information\n      about hardware requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist\">Network \n        readiness checklist</a> in the Amazon Web Services Outposts User Guide.\n         </p>\n         <p>To update a rack at a site with an order of <code>IN_PROGRESS</code>, you must wait for\n      the order to complete or cancel the order.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/sites/{SiteId}/rackPhysicalProperties",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteRackPhysicalPropertiesInput": {
+      "type": "structure",
+      "members": {
+        "SiteId": {
+          "target": "com.amazonaws.outposts#SiteId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The ID or the Amazon Resource Name (ARN) of the site.\n    </p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "PowerDrawKva": {
+          "target": "com.amazonaws.outposts#PowerDrawKva",
+          "traits": {
+            "smithy.api#documentation": "<p>The power draw, in kVA, available at the hardware placement position for the\n      rack.</p>"
+          }
+        },
+        "PowerPhase": {
+          "target": "com.amazonaws.outposts#PowerPhase",
+          "traits": {
+            "smithy.api#documentation": "<p>The power option that you can provide for hardware. </p>\n         <ul>\n            <li>\n               <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p>\n            </li>\n            <li>\n               <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p>\n            </li>\n         </ul>"
+          }
+        },
+        "PowerConnector": {
+          "target": "com.amazonaws.outposts#PowerConnector",
+          "traits": {
+            "smithy.api#documentation": "<p>The power connector that Amazon Web Services should plan to provide for connections to the\n      hardware. Note the correlation between <code>PowerPhase</code> and\n      <code>PowerConnector</code>. </p>\n         <ul>\n            <li>\n               <p>Single-phase AC feed</p>\n               <ul>\n                  <li>\n                     <p>\n                        <b>L6-30P</b> – (common in US); 30A; single phase</p>\n                  </li>\n                  <li>\n                     <p>\n                        <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single\n              phase</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Three-phase AC feed</p>\n               <ul>\n                  <li>\n                     <p>\n                        <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three\n              phase</p>\n                  </li>\n                  <li>\n                     <p>\n                        <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three\n              phase</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
+          }
+        },
+        "PowerFeedDrop": {
+          "target": "com.amazonaws.outposts#PowerFeedDrop",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the power feed comes above or below the rack. </p>"
+          }
+        },
+        "UplinkGbps": {
+          "target": "com.amazonaws.outposts#UplinkGbps",
+          "traits": {
+            "smithy.api#documentation": "<p>The uplink speed the rack should support for the connection to the Region.\n    </p>"
+          }
+        },
+        "UplinkCount": {
+          "target": "com.amazonaws.outposts#UplinkCount",
+          "traits": {
+            "smithy.api#documentation": "<p>Racks come with two Outpost network devices. Depending on the supported uplink speed at\n      the site, the Outpost network devices provide a variable number of uplinks. Specify the number\n      of uplinks for each Outpost network device that you intend to use to connect the rack to your\n      network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>\n         <ul>\n            <li>\n               <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p>\n            </li>\n            <li>\n               <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p>\n            </li>\n            <li>\n               <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p>\n            </li>\n         </ul>"
+          }
+        },
+        "FiberOpticCableType": {
+          "target": "com.amazonaws.outposts#FiberOpticCableType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of fiber that you will use to attach the Outpost to your network.\n    </p>"
+          }
+        },
+        "OpticalStandard": {
+          "target": "com.amazonaws.outposts#OpticalStandard",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of optical standard that you will use to attach the Outpost to your\n      network. This field is dependent on uplink speed, fiber type, and distance to the upstream\n      device. For more information\n      about networking requirements for racks, see <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking\">Network</a> \n        in the Amazon Web Services Outposts User Guide.\n        </p>\n         <ul>\n            <li>\n               <p>\n                  <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p>\n            </li>\n            <li>\n               <p>\n                  <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p>\n            </li>\n         </ul>"
+          }
+        },
+        "MaximumSupportedWeightLbs": {
+          "target": "com.amazonaws.outposts#MaximumSupportedWeightLbs",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over\n      2000lbs. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.outposts#UpdateSiteRackPhysicalPropertiesOutput": {
+      "type": "structure",
+      "members": {
+        "Site": {
+          "target": "com.amazonaws.outposts#Site"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.outposts#UplinkCount": {
+      "type": "enum",
+      "members": {
+        "UPLINK_COUNT_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_1"
+          }
+        },
+        "UPLINK_COUNT_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_2"
+          }
+        },
+        "UPLINK_COUNT_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_3"
+          }
+        },
+        "UPLINK_COUNT_4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_4"
+          }
+        },
+        "UPLINK_COUNT_5": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_5"
+          }
+        },
+        "UPLINK_COUNT_6": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_6"
+          }
+        },
+        "UPLINK_COUNT_7": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_7"
+          }
+        },
+        "UPLINK_COUNT_8": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_8"
+          }
+        },
+        "UPLINK_COUNT_12": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_12"
+          }
+        },
+        "UPLINK_COUNT_16": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_COUNT_16"
+          }
+        }
+      }
+    },
+    "com.amazonaws.outposts#UplinkGbps": {
+      "type": "enum",
+      "members": {
+        "UPLINK_1G": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_1G"
+          }
+        },
+        "UPLINK_10G": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_10G"
+          }
+        },
+        "UPLINK_40G": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_40G"
+          }
+        },
+        "UPLINK_100G": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPLINK_100G"
+          }
+        }
+      }
     },
     "com.amazonaws.outposts#ValidationException": {
       "type": "structure",
@@ -1496,6 +5321,16 @@
         "smithy.api#documentation": "<p>A parameter is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.outposts#WireGuardPublicKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 44,
+          "max": 44
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9/+]{43}=$"
       }
     },
     "com.amazonaws.outposts#outpostListDefinition": {

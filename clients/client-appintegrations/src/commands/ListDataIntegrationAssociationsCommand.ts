@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
 import { ListDataIntegrationAssociationsRequest, ListDataIntegrationAssociationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListDataIntegrationAssociationsCommand,
-  serializeAws_restJson1ListDataIntegrationAssociationsCommand,
+  de_ListDataIntegrationAssociationsCommand,
+  se_ListDataIntegrationAssociationsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDataIntegrationAssociationsCommand}.
+ */
 export interface ListDataIntegrationAssociationsCommandInput extends ListDataIntegrationAssociationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDataIntegrationAssociationsCommand}.
+ */
 export interface ListDataIntegrationAssociationsCommandOutput
   extends ListDataIntegrationAssociationsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a paginated list of DataIntegration associations in the account.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -36,13 +53,49 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * import { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListDataIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = { // ListDataIntegrationAssociationsRequest
+ *   DataIntegrationIdentifier: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDataIntegrationAssociationsResponse
+ * //   DataIntegrationAssociations: [ // DataIntegrationAssociationsList
+ * //     { // DataIntegrationAssociationSummary
+ * //       DataIntegrationAssociationArn: "STRING_VALUE",
+ * //       DataIntegrationArn: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListDataIntegrationAssociationsCommandInput - {@link ListDataIntegrationAssociationsCommandInput}
+ * @returns {@link ListDataIntegrationAssociationsCommandOutput}
  * @see {@link ListDataIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link AppIntegrationsServiceException}
+ * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
  */
 export class ListDataIntegrationAssociationsCommand extends $Command<
@@ -53,6 +106,18 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDataIntegrationAssociationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +133,9 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDataIntegrationAssociationsCommandInput, ListDataIntegrationAssociationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDataIntegrationAssociationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +146,8 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataIntegrationAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDataIntegrationAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,18 +157,24 @@ export class ListDataIntegrationAssociationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListDataIntegrationAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDataIntegrationAssociationsCommand(input, context);
+    return se_ListDataIntegrationAssociationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDataIntegrationAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListDataIntegrationAssociationsCommand(output, context);
+    return de_ListDataIntegrationAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

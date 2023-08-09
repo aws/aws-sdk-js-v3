@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeServiceErrorsRequest, DescribeServiceErrorsResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeServiceErrorsCommand,
-  serializeAws_json1_1DescribeServiceErrorsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeServiceErrorsCommand, se_DescribeServiceErrorsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeServiceErrorsCommand}.
+ */
 export interface DescribeServiceErrorsCommandInput extends DescribeServiceErrorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeServiceErrorsCommand}.
+ */
 export interface DescribeServiceErrorsCommandOutput extends DescribeServiceErrorsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes AWS OpsWorks Stacks service errors.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -35,13 +49,44 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  * import { OpsWorksClient, DescribeServiceErrorsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeServiceErrorsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeServiceErrorsRequest
+ *   StackId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   ServiceErrorIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeServiceErrorsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeServiceErrorsResult
+ * //   ServiceErrors: [ // ServiceErrors
+ * //     { // ServiceError
+ * //       ServiceErrorId: "STRING_VALUE",
+ * //       StackId: "STRING_VALUE",
+ * //       InstanceId: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //       CreatedAt: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeServiceErrorsCommandInput - {@link DescribeServiceErrorsCommandInput}
+ * @returns {@link DescribeServiceErrorsCommandOutput}
  * @see {@link DescribeServiceErrorsCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceErrorsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeServiceErrorsCommand extends $Command<
@@ -52,6 +97,18 @@ export class DescribeServiceErrorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceErrorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +124,9 @@ export class DescribeServiceErrorsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeServiceErrorsCommandInput, DescribeServiceErrorsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeServiceErrorsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +137,8 @@ export class DescribeServiceErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceErrorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServiceErrorsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +148,18 @@ export class DescribeServiceErrorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeServiceErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServiceErrorsCommand(input, context);
+    return se_DescribeServiceErrorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceErrorsCommandOutput> {
-    return deserializeAws_json1_1DescribeServiceErrorsCommand(output, context);
+    return de_DescribeServiceErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

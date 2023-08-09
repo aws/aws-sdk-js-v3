@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DeregisterTaskFromMaintenanceWindowRequest,
   DeregisterTaskFromMaintenanceWindowResult,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand,
-  serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand,
+  de_DeregisterTaskFromMaintenanceWindowCommand,
+  se_DeregisterTaskFromMaintenanceWindowCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeregisterTaskFromMaintenanceWindowCommand}.
+ */
 export interface DeregisterTaskFromMaintenanceWindowCommandInput extends DeregisterTaskFromMaintenanceWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterTaskFromMaintenanceWindowCommand}.
+ */
 export interface DeregisterTaskFromMaintenanceWindowCommandOutput
   extends DeregisterTaskFromMaintenanceWindowResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes a task from a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -34,13 +51,36 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * import { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // DeregisterTaskFromMaintenanceWindowRequest
+ *   WindowId: "STRING_VALUE", // required
+ *   WindowTaskId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterTaskFromMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * // { // DeregisterTaskFromMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * //   WindowTaskId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeregisterTaskFromMaintenanceWindowCommandInput - {@link DeregisterTaskFromMaintenanceWindowCommandInput}
+ * @returns {@link DeregisterTaskFromMaintenanceWindowCommandOutput}
  * @see {@link DeregisterTaskFromMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskFromMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link DoesNotExistException} (client fault)
+ *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
+ *    baseline, doesn't exist.</p>
+ *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
@@ -51,6 +91,18 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterTaskFromMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +118,9 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterTaskFromMaintenanceWindowCommandInput, DeregisterTaskFromMaintenanceWindowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterTaskFromMaintenanceWindowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +131,8 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTaskFromMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTaskFromMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +142,24 @@ export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeregisterTaskFromMaintenanceWindowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand(input, context);
+    return se_DeregisterTaskFromMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand(output, context);
+    return de_DeregisterTaskFromMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import { ListDeviceDefinitionVersionsRequest, ListDeviceDefinitionVersionsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListDeviceDefinitionVersionsCommand,
-  serializeAws_restJson1ListDeviceDefinitionVersionsCommand,
+  de_ListDeviceDefinitionVersionsCommand,
+  se_ListDeviceDefinitionVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDeviceDefinitionVersionsCommand}.
+ */
 export interface ListDeviceDefinitionVersionsCommandInput extends ListDeviceDefinitionVersionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeviceDefinitionVersionsCommand}.
+ */
 export interface ListDeviceDefinitionVersionsCommandOutput
   extends ListDeviceDefinitionVersionsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * Lists the versions of a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,38 @@ export interface ListDeviceDefinitionVersionsCommandOutput
  * import { GreengrassClient, ListDeviceDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListDeviceDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = { // ListDeviceDefinitionVersionsRequest
+ *   DeviceDefinitionId: "STRING_VALUE", // required
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeviceDefinitionVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeviceDefinitionVersionsResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   Versions: [ // __listOfVersionInformation
+ * //     { // VersionInformation
+ * //       Arn: "STRING_VALUE",
+ * //       CreationTimestamp: "STRING_VALUE",
+ * //       Id: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListDeviceDefinitionVersionsCommandInput - {@link ListDeviceDefinitionVersionsCommandInput}
+ * @returns {@link ListDeviceDefinitionVersionsCommandOutput}
  * @see {@link ListDeviceDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link GreengrassServiceException}
+ * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
  */
 export class ListDeviceDefinitionVersionsCommand extends $Command<
@@ -48,6 +90,18 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeviceDefinitionVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +117,9 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDeviceDefinitionVersionsCommandInput, ListDeviceDefinitionVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDeviceDefinitionVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +130,8 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceDefinitionVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceDefinitionVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +141,21 @@ export class ListDeviceDefinitionVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeviceDefinitionVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListDeviceDefinitionVersionsCommand(input, context);
+    return se_ListDeviceDefinitionVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeviceDefinitionVersionsCommandOutput> {
-    return deserializeAws_restJson1ListDeviceDefinitionVersionsCommand(output, context);
+    return de_ListDeviceDefinitionVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

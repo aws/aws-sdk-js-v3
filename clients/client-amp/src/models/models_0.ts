@@ -1,1347 +1,1417 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { AmpServiceException as __BaseException } from "./AmpServiceException";
 
 /**
+ * @public
  * User does not have sufficient access to perform this action.
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  /**
-   * Description of the error.
-   */
-  message: string | undefined;
-}
-
-export namespace AccessDeniedException {
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 /**
+ * @public
  * Updating or deleting a resource can cause an inconsistent state.
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
+   * @public
    * Identifier of the resource affected.
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource affected.
    */
   resourceType: string | undefined;
-}
 
-export namespace ConflictException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
+ * @public
  * Represents the input of a CreateAlertManagerDefinition operation.
  */
 export interface CreateAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace in which to create the alert manager definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The alert manager definition data.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 }
 
-export namespace CreateAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum AlertManagerDefinitionStatusCode {
+/**
+ * @public
+ * @enum
+ */
+export const AlertManagerDefinitionStatusCode = {
   /**
    * Definition has been created/updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Definition is being created. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Definition creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Definition is being deleting. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Definition update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Definition is being updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type AlertManagerDefinitionStatusCode =
+  (typeof AlertManagerDefinitionStatusCode)[keyof typeof AlertManagerDefinitionStatusCode];
+
+/**
+ * @public
  * Represents the status of a definition.
  */
 export interface AlertManagerDefinitionStatus {
   /**
+   * @public
    * Status code of this definition.
    */
   statusCode: AlertManagerDefinitionStatusCode | string | undefined;
 
   /**
+   * @public
    * The reason for failure if any.
    */
   statusReason?: string;
 }
 
-export namespace AlertManagerDefinitionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertManagerDefinitionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the output of a CreateAlertManagerDefinition operation.
  */
 export interface CreateAlertManagerDefinitionResponse {
   /**
+   * @public
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
 }
 
-export namespace CreateAlertManagerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlertManagerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Unexpected error during processing of request.
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  $retryable: {};
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
   /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
+   * @public
    * Advice to clients on when the call can be safely retried.
    */
   retryAfterSeconds?: number;
-}
 
-export namespace InternalServerException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
+ * @public
  * Request references a resource which does not exist.
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
+   * @public
    * Identifier of the resource affected.
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource affected.
    */
   resourceType: string | undefined;
-}
 
-export namespace ResourceNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
+ * @public
  * Request would cause a service quota to be exceeded.
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
+   * @public
    * Identifier of the resource affected.
    */
   resourceId: string | undefined;
 
   /**
+   * @public
    * Type of the resource affected.
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * Service Quotas requirement to identify originating service.
    */
   serviceCode: string | undefined;
 
   /**
+   * @public
    * Service Quotas requirement to identify originating quota.
    */
   quotaCode: string | undefined;
-}
 
-export namespace ServiceQuotaExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
 }
 
 /**
+ * @public
  * Request was denied due to request throttling.
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  $retryable: {};
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
   /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
+   * @public
    * Service Quotas requirement to identify originating service.
    */
   serviceCode?: string;
 
   /**
+   * @public
    * Service Quotas requirement to identify originating quota.
    */
   quotaCode?: string;
 
   /**
+   * @public
    * Advice to clients on when the call can be safely retried.
    */
   retryAfterSeconds?: number;
-}
 
-export namespace ThrottlingException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
+ * @public
  * Stores information about a field passed inside a request that resulted in an exception.
  */
 export interface ValidationExceptionField {
   /**
+   * @public
    * The field name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * Message describing why the field failed validation.
    */
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+} as const;
 
 /**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
  * The input fails to satisfy the constraints specified by an AWS service.
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * Description of the error.
-   */
-  message: string | undefined;
-
-  /**
+   * @public
    * Reason the request failed validation.
    */
   reason: ValidationExceptionReason | string | undefined;
 
   /**
+   * @public
    * The field that caused the error, if applicable. If more than one field caused the error, pick one and elaborate in the message.
    */
   fieldList?: ValidationExceptionField[];
-}
 
-export namespace ValidationException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
 }
 
 /**
+ * @public
  * Represents the input of a DeleteAlertManagerDefinition operation.
  */
 export interface DeleteAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace in which to delete the alert manager definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 }
 
-export namespace DeleteAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the input of a DescribeAlertManagerDefinition operation.
  */
 export interface DescribeAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
 }
 
-export namespace DescribeAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the properties of an alert manager definition.
  */
 export interface AlertManagerDefinitionDescription {
   /**
+   * @public
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
 
   /**
+   * @public
    * The alert manager definition.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * The time when the alert manager definition was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The time when the alert manager definition was modified.
    */
   modifiedAt: Date | undefined;
 }
 
-export namespace AlertManagerDefinitionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertManagerDefinitionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the output of a DescribeAlertManagerDefinition operation.
  */
 export interface DescribeAlertManagerDefinitionResponse {
   /**
+   * @public
    * The properties of the selected workspace's alert manager definition.
    */
   alertManagerDefinition: AlertManagerDefinitionDescription | undefined;
 }
 
-export namespace DescribeAlertManagerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlertManagerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the input of a PutAlertManagerDefinition operation.
  */
 export interface PutAlertManagerDefinitionRequest {
   /**
+   * @public
    * The ID of the workspace in which to update the alert manager definition.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The alert manager definition data.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 }
 
-export namespace PutAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the output of a PutAlertManagerDefinition operation.
  */
 export interface PutAlertManagerDefinitionResponse {
   /**
+   * @public
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
 }
 
-export namespace PutAlertManagerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlertManagerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * The ARN of the resource.
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * The list of tags assigned to the resource.
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * The ARN of the resource.
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * The list of tags assigned to the resource.
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * The ARN of the resource.
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * One or more tag keys
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the input of a CreateWorkspace operation.
  */
 export interface CreateWorkspaceRequest {
   /**
+   * @public
    * An optional user-assigned alias for this workspace. This alias is for user reference and does not need to be unique.
    */
   alias?: string;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 
   /**
+   * @public
    * Optional, user-provided tags for this workspace.
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum WorkspaceStatusCode {
-  /**
-   * Workspace has been created and is usable.
-   */
-  ACTIVE = "ACTIVE",
-  /**
-   * Workspace is being created. Deletion is disallowed until status is ACTIVE.
-   */
-  CREATING = "CREATING",
-  /**
-   * Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details.
-   */
-  CREATION_FAILED = "CREATION_FAILED",
-  /**
-   * Workspace is being deleted. Deletions are allowed only when status is ACTIVE.
-   */
-  DELETING = "DELETING",
-  /**
-   * Workspace is being updated. Updates are allowed only when status is ACTIVE.
-   */
-  UPDATING = "UPDATING",
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WorkspaceStatusCode = {
+  /**
+   * Workspace has been created and is usable.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Workspace is being created. Deletion is disallowed until status is ACTIVE.
+   */
+  CREATING: "CREATING",
+  /**
+   * Workspace creation failed. Refer to WorkspaceStatus.failureReason for more details.
+   */
+  CREATION_FAILED: "CREATION_FAILED",
+  /**
+   * Workspace is being deleted. Deletions are allowed only when status is ACTIVE.
+   */
+  DELETING: "DELETING",
+  /**
+   * Workspace is being updated. Updates are allowed only when status is ACTIVE.
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceStatusCode = (typeof WorkspaceStatusCode)[keyof typeof WorkspaceStatusCode];
+
+/**
+ * @public
  * Represents the status of a workspace.
  */
 export interface WorkspaceStatus {
   /**
+   * @public
    * Status code of this workspace.
    */
   statusCode: WorkspaceStatusCode | string | undefined;
 }
 
-export namespace WorkspaceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the output of a CreateWorkspace operation.
  */
 export interface CreateWorkspaceResponse {
   /**
+   * @public
    * The generated ID of the workspace that was just created.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * The ARN of the workspace that was just created.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of the workspace that was just created (usually CREATING).
    */
   status: WorkspaceStatus | undefined;
 
   /**
+   * @public
    * The tags of this workspace.
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * Represents the input of a DeleteWorkspace operation.
  */
 export interface DeleteWorkspaceRequest {
   /**
+   * @public
    * The ID of the workspace to delete.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 }
 
-export namespace DeleteWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the input of a DescribeWorkspace operation.
  */
 export interface DescribeWorkspaceRequest {
   /**
+   * @public
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
 }
 
-export namespace DescribeWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the properties of a workspace.
  */
 export interface WorkspaceDescription {
   /**
+   * @public
    * Unique string identifying this workspace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Alias of this workspace.
    */
   alias?: string;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this workspace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of this workspace.
    */
   status: WorkspaceStatus | undefined;
 
   /**
+   * @public
    * Prometheus endpoint URI.
    */
   prometheusEndpoint?: string;
 
   /**
+   * @public
    * The time when the workspace was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The tags of this workspace.
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace WorkspaceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceDescription): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * Represents the output of a DescribeWorkspace operation.
  */
 export interface DescribeWorkspaceResponse {
   /**
+   * @public
    * The properties of the selected workspace.
    */
   workspace: WorkspaceDescription | undefined;
 }
 
-export namespace DescribeWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents the input of a ListWorkspaces operation.
  */
 export interface ListWorkspacesRequest {
   /**
+   * @public
    * Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListWorkspaces request.
    */
   nextToken?: string;
 
   /**
+   * @public
    * Optional filter for workspace alias. Only the workspaces with aliases that begin with this value will be returned.
    */
   alias?: string;
 
   /**
+   * @public
    * Maximum results to return in response (default=100, maximum=1000).
    */
   maxResults?: number;
 }
 
-export namespace ListWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * Represents a summary of the properties of a workspace.
  */
 export interface WorkspaceSummary {
   /**
+   * @public
    * Unique string identifying this workspace.
    */
   workspaceId: string | undefined;
 
   /**
+   * @public
    * Alias of this workspace.
    */
   alias?: string;
 
   /**
+   * @public
    * The AmazonResourceName of this workspace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of this workspace.
    */
   status: WorkspaceStatus | undefined;
 
   /**
+   * @public
    * The time when the workspace was created.
    */
   createdAt: Date | undefined;
 
   /**
+   * @public
    * The tags of this workspace.
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace WorkspaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceSummary): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * Represents the output of a ListWorkspaces operation.
  */
 export interface ListWorkspacesResponse {
   /**
+   * @public
    * The list of existing workspaces, including those undergoing creation or deletion.
    */
   workspaces: WorkspaceSummary[] | undefined;
 
   /**
+   * @public
    * Pagination token to use when requesting the next page in this list.
    */
   nextToken?: string;
 }
 
-export namespace ListWorkspacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * Represents the input of a CreateRuleGroupsNamespace operation.
+ * @public
+ * Represents the input of a CreateLoggingConfiguration operation.
  */
-export interface CreateRuleGroupsNamespaceRequest {
+export interface CreateLoggingConfigurationRequest {
   /**
-   * The ID of the workspace in which to create the rule group namespace.
+   * @public
+   * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
 
   /**
-   * The rule groups namespace name.
+   * @public
+   * The ARN of the CW log group to which the vended log data will be published.
    */
-  name: string | undefined;
+  logGroupArn: string | undefined;
 
   /**
-   * The namespace data that define the rule groups.
-   */
-  data: Uint8Array | undefined;
-
-  /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
-
-  /**
-   * Optional, user-provided tags for this rule groups namespace.
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum RuleGroupsNamespaceStatusCode {
-  /**
-   * Namespace has been created/updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
-   */
-  ACTIVE = "ACTIVE",
-  /**
-   * Namespace is being created. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
-   */
-  CREATING = "CREATING",
-  /**
-   * Namespace creation failed.
-   */
-  CREATION_FAILED = "CREATION_FAILED",
-  /**
-   * Namespace is being deleting. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
-   */
-  DELETING = "DELETING",
-  /**
-   * Namespace update failed.
-   */
-  UPDATE_FAILED = "UPDATE_FAILED",
-  /**
-   * Namespace is being updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
-   */
-  UPDATING = "UPDATING",
 }
 
 /**
- * Represents the status of a namespace.
+ * @public
+ * @enum
  */
-export interface RuleGroupsNamespaceStatus {
+export const LoggingConfigurationStatusCode = {
   /**
-   * Status code of this namespace.
+   * Logging configuration has been created/updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
    */
-  statusCode: RuleGroupsNamespaceStatusCode | string | undefined;
+  ACTIVE: "ACTIVE",
+  /**
+   * Logging configuration is being created. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  CREATING: "CREATING",
+  /**
+   * Logging configuration creation failed.
+   */
+  CREATION_FAILED: "CREATION_FAILED",
+  /**
+   * Logging configuration is being deleting. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  DELETING: "DELETING",
+  /**
+   * Logging configuration update failed.
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * Logging configuration is being updated. Update/Deletion is disallowed until logging configuration is ACTIVE and workspace status is ACTIVE.
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type LoggingConfigurationStatusCode =
+  (typeof LoggingConfigurationStatusCode)[keyof typeof LoggingConfigurationStatusCode];
+
+/**
+ * @public
+ * Represents the status of a logging configuration.
+ */
+export interface LoggingConfigurationStatus {
+  /**
+   * @public
+   * Status code of the logging configuration.
+   */
+  statusCode: LoggingConfigurationStatusCode | string | undefined;
 
   /**
+   * @public
    * The reason for failure if any.
    */
   statusReason?: string;
 }
 
-export namespace RuleGroupsNamespaceStatus {
+/**
+ * @public
+ * Represents the output of a CreateLoggingConfiguration operation.
+ */
+export interface CreateLoggingConfigurationResponse {
   /**
-   * @internal
+   * @public
+   * The status of the logging configuration.
    */
-  export const filterSensitiveLog = (obj: RuleGroupsNamespaceStatus): any => ({
-    ...obj,
-  });
+  status: LoggingConfigurationStatus | undefined;
 }
 
 /**
- * Represents the output of a CreateRuleGroupsNamespace operation.
+ * @public
+ * Represents the input of a DeleteLoggingConfiguration operation.
  */
-export interface CreateRuleGroupsNamespaceResponse {
+export interface DeleteLoggingConfigurationRequest {
   /**
-   * The rule groups namespace name.
-   */
-  name: string | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) of this rule groups namespace.
-   */
-  arn: string | undefined;
-
-  /**
-   * The status of rule groups namespace.
-   */
-  status: RuleGroupsNamespaceStatus | undefined;
-
-  /**
-   * The tags of this rule groups namespace.
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateRuleGroupsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupsNamespaceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Represents the input of a DeleteRuleGroupsNamespace operation.
- */
-export interface DeleteRuleGroupsNamespaceRequest {
-  /**
-   * The ID of the workspace to delete rule group definition.
+   * @public
+   * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
 
   /**
-   * The rule groups namespace name.
-   */
-  name: string | undefined;
-
-  /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 }
 
-export namespace DeleteRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
- * Represents the input of a DescribeRuleGroupsNamespace operation.
+ * @public
+ * Represents the input of a DescribeLoggingConfiguration operation.
  */
-export interface DescribeRuleGroupsNamespaceRequest {
+export interface DescribeLoggingConfigurationRequest {
   /**
-   * The ID of the workspace to describe.
+   * @public
+   * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
-
-  /**
-   * The rule groups namespace.
-   */
-  name: string | undefined;
-}
-
-export namespace DescribeRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
- * Represents a description of the rule groups namespace.
+ * @public
+ * Represents the properties of a logging configuration metadata.
  */
-export interface RuleGroupsNamespaceDescription {
+export interface LoggingConfigurationMetadata {
   /**
-   * The Amazon Resource Name (ARN) of this rule groups namespace.
+   * @public
+   * The status of the logging configuration.
    */
-  arn: string | undefined;
+  status: LoggingConfigurationStatus | undefined;
 
   /**
-   * The rule groups namespace name.
+   * @public
+   * The workspace where the logging configuration exists.
    */
-  name: string | undefined;
+  workspace: string | undefined;
 
   /**
-   * The status of rule groups namespace.
+   * @public
+   * The ARN of the CW log group to which the vended log data will be published.
    */
-  status: RuleGroupsNamespaceStatus | undefined;
+  logGroupArn: string | undefined;
 
   /**
-   * The rule groups namespace data.
-   */
-  data: Uint8Array | undefined;
-
-  /**
-   * The time when the rule groups namespace was created.
+   * @public
+   * The time when the logging configuration was created.
    */
   createdAt: Date | undefined;
 
   /**
-   * The time when the rule groups namespace was modified.
+   * @public
+   * The time when the logging configuration was modified.
    */
   modifiedAt: Date | undefined;
-
-  /**
-   * The tags of this rule groups namespace.
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace RuleGroupsNamespaceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupsNamespaceDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
- * Represents the output of a DescribeRuleGroupsNamespace operation.
+ * @public
+ * Represents the output of a DescribeLoggingConfiguration operation.
  */
-export interface DescribeRuleGroupsNamespaceResponse {
+export interface DescribeLoggingConfigurationResponse {
   /**
-   * The selected rule groups namespace.
+   * @public
+   * Metadata object containing information about the logging configuration of a workspace.
    */
-  ruleGroupsNamespace: RuleGroupsNamespaceDescription | undefined;
-}
-
-export namespace DescribeRuleGroupsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupsNamespaceResponse): any => ({
-    ...obj,
-  });
+  loggingConfiguration: LoggingConfigurationMetadata | undefined;
 }
 
 /**
- * Represents the input of a ListRuleGroupsNamespaces operation.
+ * @public
+ * Represents the input of an UpdateLoggingConfiguration operation.
  */
-export interface ListRuleGroupsNamespacesRequest {
+export interface UpdateLoggingConfigurationRequest {
   /**
-   * The ID of the workspace.
+   * @public
+   * The ID of the workspace to vend logs to.
    */
   workspaceId: string | undefined;
 
   /**
-   * Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
+   * @public
+   * The ARN of the CW log group to which the vended log data will be published.
    */
-  name?: string;
+  logGroupArn: string | undefined;
 
   /**
-   * Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.
+   * @public
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
-  nextToken?: string;
-
-  /**
-   * Maximum results to return in response (default=100, maximum=1000).
-   */
-  maxResults?: number;
-}
-
-export namespace ListRuleGroupsNamespacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsNamespacesRequest): any => ({
-    ...obj,
-  });
+  clientToken?: string;
 }
 
 /**
- * Represents a summary of the rule groups namespace.
+ * @public
+ * Represents the output of an UpdateLoggingConfiguration operation.
  */
-export interface RuleGroupsNamespaceSummary {
+export interface UpdateLoggingConfigurationResponse {
   /**
-   * The Amazon Resource Name (ARN) of this rule groups namespace.
+   * @public
+   * The status of the logging configuration.
    */
-  arn: string | undefined;
+  status: LoggingConfigurationStatus | undefined;
+}
+
+/**
+ * @public
+ * Represents the input of a CreateRuleGroupsNamespace operation.
+ */
+export interface CreateRuleGroupsNamespaceRequest {
+  /**
+   * @public
+   * The ID of the workspace in which to create the rule group namespace.
+   */
+  workspaceId: string | undefined;
 
   /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
-   * The status of rule groups namespace.
-   */
-  status: RuleGroupsNamespaceStatus | undefined;
-
-  /**
-   * The time when the rule groups namespace was created.
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * The time when the rule groups namespace was modified.
-   */
-  modifiedAt: Date | undefined;
-
-  /**
-   * The tags of this rule groups namespace.
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace RuleGroupsNamespaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupsNamespaceSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Represents the output of a ListRuleGroupsNamespaces operation.
- */
-export interface ListRuleGroupsNamespacesResponse {
-  /**
-   * The list of the selected rule groups namespaces.
-   */
-  ruleGroupsNamespaces: RuleGroupsNamespaceSummary[] | undefined;
-
-  /**
-   * Pagination token to use when requesting the next page in this list.
-   */
-  nextToken?: string;
-}
-
-export namespace ListRuleGroupsNamespacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsNamespacesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Represents the input of a PutRuleGroupsNamespace operation.
- */
-export interface PutRuleGroupsNamespaceRequest {
-  /**
-   * The ID of the workspace in which to update the rule group namespace.
-   */
-  workspaceId: string | undefined;
-
-  /**
-   * The rule groups namespace name.
-   */
-  name: string | undefined;
-
-  /**
+   * @public
    * The namespace data that define the rule groups.
    */
   data: Uint8Array | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
-}
 
-export namespace PutRuleGroupsNamespaceRequest {
   /**
-   * @internal
+   * @public
+   * Optional, user-provided tags for this rule groups namespace.
    */
-  export const filterSensitiveLog = (obj: PutRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
- * Represents the output of a PutRuleGroupsNamespace operation.
+ * @public
+ * @enum
  */
-export interface PutRuleGroupsNamespaceResponse {
+export const RuleGroupsNamespaceStatusCode = {
   /**
+   * Namespace has been created/updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Namespace is being created. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
+   */
+  CREATING: "CREATING",
+  /**
+   * Namespace creation failed.
+   */
+  CREATION_FAILED: "CREATION_FAILED",
+  /**
+   * Namespace is being deleting. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
+   */
+  DELETING: "DELETING",
+  /**
+   * Namespace update failed.
+   */
+  UPDATE_FAILED: "UPDATE_FAILED",
+  /**
+   * Namespace is being updated. Update/Deletion is disallowed until namespace is ACTIVE and workspace status is ACTIVE.
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleGroupsNamespaceStatusCode =
+  (typeof RuleGroupsNamespaceStatusCode)[keyof typeof RuleGroupsNamespaceStatusCode];
+
+/**
+ * @public
+ * Represents the status of a namespace.
+ */
+export interface RuleGroupsNamespaceStatus {
+  /**
+   * @public
+   * Status code of this namespace.
+   */
+  statusCode: RuleGroupsNamespaceStatusCode | string | undefined;
+
+  /**
+   * @public
+   * The reason for failure if any.
+   */
+  statusReason?: string;
+}
+
+/**
+ * @public
+ * Represents the output of a CreateRuleGroupsNamespace operation.
+ */
+export interface CreateRuleGroupsNamespaceResponse {
+  /**
+   * @public
    * The rule groups namespace name.
    */
   name: string | undefined;
 
   /**
+   * @public
    * The Amazon Resource Name (ARN) of this rule groups namespace.
    */
   arn: string | undefined;
 
   /**
+   * @public
    * The status of rule groups namespace.
    */
   status: RuleGroupsNamespaceStatus | undefined;
 
   /**
+   * @public
    * The tags of this rule groups namespace.
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace PutRuleGroupsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRuleGroupsNamespaceResponse): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
- * Represents the input of an UpdateWorkspaceAlias operation.
+ * @public
+ * Represents the input of a DeleteRuleGroupsNamespace operation.
  */
-export interface UpdateWorkspaceAliasRequest {
+export interface DeleteRuleGroupsNamespaceRequest {
   /**
-   * The ID of the workspace being updated.
+   * @public
+   * The ID of the workspace to delete rule group definition.
    */
   workspaceId: string | undefined;
 
   /**
-   * The new alias of the workspace.
+   * @public
+   * The rule groups namespace name.
    */
-  alias?: string;
+  name: string | undefined;
 
   /**
+   * @public
    * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
    */
   clientToken?: string;
 }
 
-export namespace UpdateWorkspaceAliasRequest {
+/**
+ * @public
+ * Represents the input of a DescribeRuleGroupsNamespace operation.
+ */
+export interface DescribeRuleGroupsNamespaceRequest {
   /**
-   * @internal
+   * @public
+   * The ID of the workspace to describe.
    */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceAliasRequest): any => ({
-    ...obj,
-  });
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * The rule groups namespace.
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ * Represents a description of the rule groups namespace.
+ */
+export interface RuleGroupsNamespaceDescription {
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of this rule groups namespace.
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * The rule groups namespace name.
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * The status of rule groups namespace.
+   */
+  status: RuleGroupsNamespaceStatus | undefined;
+
+  /**
+   * @public
+   * The rule groups namespace data.
+   */
+  data: Uint8Array | undefined;
+
+  /**
+   * @public
+   * The time when the rule groups namespace was created.
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * The time when the rule groups namespace was modified.
+   */
+  modifiedAt: Date | undefined;
+
+  /**
+   * @public
+   * The tags of this rule groups namespace.
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * Represents the output of a DescribeRuleGroupsNamespace operation.
+ */
+export interface DescribeRuleGroupsNamespaceResponse {
+  /**
+   * @public
+   * The selected rule groups namespace.
+   */
+  ruleGroupsNamespace: RuleGroupsNamespaceDescription | undefined;
+}
+
+/**
+ * @public
+ * Represents the input of a ListRuleGroupsNamespaces operation.
+ */
+export interface ListRuleGroupsNamespacesRequest {
+  /**
+   * @public
+   * The ID of the workspace.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * Optional filter for rule groups namespace name. Only the rule groups namespace that begin with this value will be returned.
+   */
+  name?: string;
+
+  /**
+   * @public
+   * Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListRuleGroupsNamespaces request.
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * Maximum results to return in response (default=100, maximum=1000).
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * Represents a summary of the rule groups namespace.
+ */
+export interface RuleGroupsNamespaceSummary {
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of this rule groups namespace.
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * The rule groups namespace name.
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * The status of rule groups namespace.
+   */
+  status: RuleGroupsNamespaceStatus | undefined;
+
+  /**
+   * @public
+   * The time when the rule groups namespace was created.
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * The time when the rule groups namespace was modified.
+   */
+  modifiedAt: Date | undefined;
+
+  /**
+   * @public
+   * The tags of this rule groups namespace.
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * Represents the output of a ListRuleGroupsNamespaces operation.
+ */
+export interface ListRuleGroupsNamespacesResponse {
+  /**
+   * @public
+   * The list of the selected rule groups namespaces.
+   */
+  ruleGroupsNamespaces: RuleGroupsNamespaceSummary[] | undefined;
+
+  /**
+   * @public
+   * Pagination token to use when requesting the next page in this list.
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * Represents the input of a PutRuleGroupsNamespace operation.
+ */
+export interface PutRuleGroupsNamespaceRequest {
+  /**
+   * @public
+   * The ID of the workspace in which to update the rule group namespace.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * The rule groups namespace name.
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * The namespace data that define the rule groups.
+   */
+  data: Uint8Array | undefined;
+
+  /**
+   * @public
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * Represents the output of a PutRuleGroupsNamespace operation.
+ */
+export interface PutRuleGroupsNamespaceResponse {
+  /**
+   * @public
+   * The rule groups namespace name.
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of this rule groups namespace.
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * The status of rule groups namespace.
+   */
+  status: RuleGroupsNamespaceStatus | undefined;
+
+  /**
+   * @public
+   * The tags of this rule groups namespace.
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * Represents the input of an UpdateWorkspaceAlias operation.
+ */
+export interface UpdateWorkspaceAliasRequest {
+  /**
+   * @public
+   * The ID of the workspace being updated.
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * @public
+   * The new alias of the workspace.
+   */
+  alias?: string;
+
+  /**
+   * @public
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
 }

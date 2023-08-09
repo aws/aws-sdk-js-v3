@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListDeliveryStreamsCommand,
-  serializeAws_json1_1ListDeliveryStreamsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListDeliveryStreamsCommand, se_ListDeliveryStreamsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListDeliveryStreamsCommand}.
+ */
 export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListDeliveryStreamsCommand}.
+ */
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists your delivery streams in alphabetical order of their names.</p>
  *          <p>The number of delivery streams might be too large to return using a single call to
  *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
@@ -36,13 +50,30 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // ListDeliveryStreamsInput
+ *   Limit: Number("int"),
+ *   DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource",
+ *   ExclusiveStartDeliveryStreamName: "STRING_VALUE",
+ * };
  * const command = new ListDeliveryStreamsCommand(input);
  * const response = await client.send(command);
+ * // { // ListDeliveryStreamsOutput
+ * //   DeliveryStreamNames: [ // DeliveryStreamNameList // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   HasMoreDeliveryStreams: true || false, // required
+ * // };
+ *
  * ```
  *
+ * @param ListDeliveryStreamsCommandInput - {@link ListDeliveryStreamsCommandInput}
+ * @returns {@link ListDeliveryStreamsCommandOutput}
  * @see {@link ListDeliveryStreamsCommandInput} for command's `input` shape.
  * @see {@link ListDeliveryStreamsCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
+ *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class ListDeliveryStreamsCommand extends $Command<
@@ -53,6 +84,18 @@ export class ListDeliveryStreamsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListDeliveryStreamsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +111,9 @@ export class ListDeliveryStreamsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListDeliveryStreamsCommandInput, ListDeliveryStreamsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDeliveryStreamsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +124,8 @@ export class ListDeliveryStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeliveryStreamsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeliveryStreamsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +135,18 @@ export class ListDeliveryStreamsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListDeliveryStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDeliveryStreamsCommand(input, context);
+    return se_ListDeliveryStreamsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeliveryStreamsCommandOutput> {
-    return deserializeAws_json1_1ListDeliveryStreamsCommand(output, context);
+    return de_ListDeliveryStreamsCommand(output, context);
   }
 
   // Start section: command_body_extra

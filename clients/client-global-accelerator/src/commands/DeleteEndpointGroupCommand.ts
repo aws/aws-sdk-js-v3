@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   GlobalAcceleratorClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
 import { DeleteEndpointGroupRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEndpointGroupCommand,
-  serializeAws_json1_1DeleteEndpointGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEndpointGroupCommand, se_DeleteEndpointGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteEndpointGroupCommand}.
+ */
 export interface DeleteEndpointGroupCommandInput extends DeleteEndpointGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEndpointGroupCommand}.
+ */
 export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an endpoint group from a listener.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,32 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
  * import { GlobalAcceleratorClient, DeleteEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = { // DeleteEndpointGroupRequest
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointGroupCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteEndpointGroupCommandInput - {@link DeleteEndpointGroupCommandInput}
+ * @returns {@link DeleteEndpointGroupCommandOutput}
  * @see {@link DeleteEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
+ *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link GlobalAcceleratorServiceException}
+ * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
  */
 export class DeleteEndpointGroupCommand extends $Command<
@@ -50,6 +83,18 @@ export class DeleteEndpointGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEndpointGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +110,9 @@ export class DeleteEndpointGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEndpointGroupCommandInput, DeleteEndpointGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEndpointGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +123,8 @@ export class DeleteEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +134,18 @@ export class DeleteEndpointGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEndpointGroupCommand(input, context);
+    return se_DeleteEndpointGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEndpointGroupCommandOutput> {
-    return deserializeAws_json1_1DeleteEndpointGroupCommand(output, context);
+    return de_DeleteEndpointGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

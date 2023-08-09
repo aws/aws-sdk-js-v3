@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { OpsWorks } from "../OpsWorks";
 import { OpsWorksClient } from "../OpsWorksClient";
 
+/**
+ * @public
+ */
 export interface OpsWorksPaginationConfiguration extends PaginationConfiguration {
-  client: OpsWorks | OpsWorksClient;
+  client: OpsWorksClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   IoT1ClickProjectsClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
 import { DescribeProjectRequest, DescribeProjectResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeProjectCommand,
-  serializeAws_restJson1DescribeProjectCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeProjectCommand, se_DescribeProjectCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeProjectCommand}.
+ */
 export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeProjectCommand}.
+ */
 export interface DescribeProjectCommandOutput extends DescribeProjectResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns an object describing a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,56 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * import { IoT1ClickProjectsClient, DescribeProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, DescribeProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = { // DescribeProjectRequest
+ *   projectName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeProjectResponse
+ * //   project: { // ProjectDescription
+ * //     arn: "STRING_VALUE",
+ * //     projectName: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     createdDate: new Date("TIMESTAMP"), // required
+ * //     updatedDate: new Date("TIMESTAMP"), // required
+ * //     placementTemplate: { // PlacementTemplate
+ * //       defaultAttributes: { // DefaultPlacementAttributeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       deviceTemplates: { // DeviceTemplateMap
+ * //         "<keys>": { // DeviceTemplate
+ * //           deviceType: "STRING_VALUE",
+ * //           callbackOverrides: { // DeviceCallbackOverrideMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeProjectCommandInput - {@link DescribeProjectCommandInput}
+ * @returns {@link DescribeProjectCommandOutput}
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link IoT1ClickProjectsServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
  */
 export class DescribeProjectCommand extends $Command<
@@ -50,6 +107,18 @@ export class DescribeProjectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeProjectCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +134,9 @@ export class DescribeProjectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeProjectCommandInput, DescribeProjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeProjectCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +147,8 @@ export class DescribeProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +158,18 @@ export class DescribeProjectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeProjectCommand(input, context);
+    return se_DescribeProjectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectCommandOutput> {
-    return deserializeAws_restJson1DescribeProjectCommand(output, context);
+    return de_DescribeProjectCommand(output, context);
   }
 
   // Start section: command_body_extra

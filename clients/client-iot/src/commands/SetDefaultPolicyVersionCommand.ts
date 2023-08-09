@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { SetDefaultPolicyVersionRequest } from "../models/models_2";
-import {
-  deserializeAws_restJson1SetDefaultPolicyVersionCommand,
-  serializeAws_restJson1SetDefaultPolicyVersionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SetDefaultPolicyVersionCommand, se_SetDefaultPolicyVersionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SetDefaultPolicyVersionCommand}.
+ */
 export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetDefaultPolicyVersionCommand}.
+ */
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the specified version of the specified policy as the policy's default
  *          (operative) version. This action affects all certificates to which the policy is attached.
  *          To list the principals the policy is attached to, use the <a>ListPrincipalPolicies</a>
@@ -33,13 +47,42 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * import { IoTClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // SetDefaultPolicyVersionRequest
+ *   policyName: "STRING_VALUE", // required
+ *   policyVersionId: "STRING_VALUE", // required
+ * };
  * const command = new SetDefaultPolicyVersionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SetDefaultPolicyVersionCommandInput - {@link SetDefaultPolicyVersionCommandInput}
+ * @returns {@link SetDefaultPolicyVersionCommandOutput}
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class SetDefaultPolicyVersionCommand extends $Command<
@@ -50,6 +93,18 @@ export class SetDefaultPolicyVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SetDefaultPolicyVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +120,9 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SetDefaultPolicyVersionCommandInput, SetDefaultPolicyVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SetDefaultPolicyVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +133,8 @@ export class SetDefaultPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDefaultPolicyVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +144,18 @@ export class SetDefaultPolicyVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SetDefaultPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SetDefaultPolicyVersionCommand(input, context);
+    return se_SetDefaultPolicyVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetDefaultPolicyVersionCommandOutput> {
-    return deserializeAws_restJson1SetDefaultPolicyVersionCommand(output, context);
+    return de_SetDefaultPolicyVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

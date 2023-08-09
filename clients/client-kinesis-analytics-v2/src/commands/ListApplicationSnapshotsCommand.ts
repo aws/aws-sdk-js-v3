@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   KinesisAnalyticsV2ClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
 import { ListApplicationSnapshotsRequest, ListApplicationSnapshotsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListApplicationSnapshotsCommand,
-  serializeAws_json1_1ListApplicationSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListApplicationSnapshotsCommand, se_ListApplicationSnapshotsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListApplicationSnapshotsCommand}.
+ */
 export interface ListApplicationSnapshotsCommandInput extends ListApplicationSnapshotsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListApplicationSnapshotsCommand}.
+ */
 export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSnapshotsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists information about the current application snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,42 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * import { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListApplicationSnapshotsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = { // ListApplicationSnapshotsRequest
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationSnapshotsCommand(input);
  * const response = await client.send(command);
+ * // { // ListApplicationSnapshotsResponse
+ * //   SnapshotSummaries: [ // SnapshotSummaries
+ * //     { // SnapshotDetails
+ * //       SnapshotName: "STRING_VALUE", // required
+ * //       SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
+ * //       ApplicationVersionId: Number("long"), // required
+ * //       SnapshotCreationTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListApplicationSnapshotsCommandInput - {@link ListApplicationSnapshotsCommandInput}
+ * @returns {@link ListApplicationSnapshotsCommandOutput}
  * @see {@link ListApplicationSnapshotsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
+ * @throws {@link KinesisAnalyticsV2ServiceException}
+ * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
  */
 export class ListApplicationSnapshotsCommand extends $Command<
@@ -50,6 +93,18 @@ export class ListApplicationSnapshotsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListApplicationSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +120,9 @@ export class ListApplicationSnapshotsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListApplicationSnapshotsCommandInput, ListApplicationSnapshotsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListApplicationSnapshotsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +133,8 @@ export class ListApplicationSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationSnapshotsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListApplicationSnapshotsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +144,18 @@ export class ListApplicationSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListApplicationSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListApplicationSnapshotsCommand(input, context);
+    return se_ListApplicationSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationSnapshotsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationSnapshotsCommand(output, context);
+    return de_ListApplicationSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

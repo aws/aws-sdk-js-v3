@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeJournalS3ExportRequest, DescribeJournalS3ExportResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJournalS3ExportCommand,
-  serializeAws_restJson1DescribeJournalS3ExportCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJournalS3ExportCommand, se_DescribeJournalS3ExportCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeJournalS3ExportCommand}.
+ */
 export interface DescribeJournalS3ExportCommandInput extends DescribeJournalS3ExportRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJournalS3ExportCommand}.
+ */
 export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3ExportResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about a journal export job, including the ledger name, export ID,
  *          creation time, current status, and the parameters of the original export creation
  *          request.</p>
@@ -37,13 +51,46 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * import { QLDBClient, DescribeJournalS3ExportCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeJournalS3ExportCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // DescribeJournalS3ExportRequest
+ *   Name: "STRING_VALUE", // required
+ *   ExportId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJournalS3ExportCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJournalS3ExportResponse
+ * //   ExportDescription: { // JournalS3ExportDescription
+ * //     LedgerName: "STRING_VALUE", // required
+ * //     ExportId: "STRING_VALUE", // required
+ * //     ExportCreationTime: new Date("TIMESTAMP"), // required
+ * //     Status: "IN_PROGRESS" || "COMPLETED" || "CANCELLED", // required
+ * //     InclusiveStartTime: new Date("TIMESTAMP"), // required
+ * //     ExclusiveEndTime: new Date("TIMESTAMP"), // required
+ * //     S3ExportConfiguration: { // S3ExportConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE", // required
+ * //       EncryptionConfiguration: { // S3EncryptionConfiguration
+ * //         ObjectEncryptionType: "SSE_KMS" || "SSE_S3" || "NO_ENCRYPTION", // required
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     RoleArn: "STRING_VALUE", // required
+ * //     OutputFormat: "ION_BINARY" || "ION_TEXT" || "JSON",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeJournalS3ExportCommandInput - {@link DescribeJournalS3ExportCommandInput}
+ * @returns {@link DescribeJournalS3ExportCommandOutput}
  * @see {@link DescribeJournalS3ExportCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class DescribeJournalS3ExportCommand extends $Command<
@@ -54,6 +101,18 @@ export class DescribeJournalS3ExportCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJournalS3ExportCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +128,9 @@ export class DescribeJournalS3ExportCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeJournalS3ExportCommandInput, DescribeJournalS3ExportCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeJournalS3ExportCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +141,8 @@ export class DescribeJournalS3ExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJournalS3ExportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJournalS3ExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +152,18 @@ export class DescribeJournalS3ExportCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJournalS3ExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJournalS3ExportCommand(input, context);
+    return se_DescribeJournalS3ExportCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJournalS3ExportCommandOutput> {
-    return deserializeAws_restJson1DescribeJournalS3ExportCommand(output, context);
+    return de_DescribeJournalS3ExportCommand(output, context);
   }
 
   // Start section: command_body_extra

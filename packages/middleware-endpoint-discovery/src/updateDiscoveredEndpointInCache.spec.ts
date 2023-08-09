@@ -49,7 +49,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
       expect(mockGet).toHaveBeenCalledTimes(1);
 
       expect(options.endpointDiscoveryCommandCtor).toHaveBeenCalledWith({
-        Operation: options.commandName.substr(0, options.commandName.length - 7),
+        Operation: options.commandName.slice(0, -7),
         Identifiers: options.identifiers,
       });
       expect(mockHandler).toHaveBeenCalledTimes(1);
@@ -88,7 +88,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
       expect(mockGet).toHaveBeenCalledTimes(3);
 
       expect(options.endpointDiscoveryCommandCtor).toHaveBeenCalledWith({
-        Operation: options.commandName.substr(0, options.commandName.length - 7),
+        Operation: options.commandName.slice(0, -7),
         Identifiers: options.identifiers,
       });
       expect(mockHandler).toHaveBeenCalledTimes(1);
@@ -120,7 +120,8 @@ describe(updateDiscoveredEndpointInCache.name, () => {
           );
         }
         verifyCallsOnCacheUndefined();
-        expect(mockDelete).not.toHaveBeenCalled();
+        expect(mockDelete).toHaveBeenCalledTimes(1);
+        expect(mockDelete).toHaveBeenCalledWith(cacheKey);
         expect(mockSet).toHaveBeenCalledTimes(1);
         expect(mockSet).toHaveBeenCalledWith(cacheKey, placeholderEndpoints);
       });
@@ -133,7 +134,8 @@ describe(updateDiscoveredEndpointInCache.name, () => {
         await updateDiscoveredEndpointInCache(config, options);
 
         verifyCallsOnCacheUndefined();
-        expect(mockDelete).not.toHaveBeenCalled();
+        expect(mockDelete).toHaveBeenCalledTimes(1);
+        expect(mockDelete).toHaveBeenCalledWith(cacheKey);
         expect(mockSet).toHaveBeenCalledTimes(2);
         expect(mockSet).toHaveBeenNthCalledWith(1, cacheKey, placeholderEndpoints);
         expect(mockSet).toHaveBeenNthCalledWith(2, cacheKey, placeholderEndpoints);

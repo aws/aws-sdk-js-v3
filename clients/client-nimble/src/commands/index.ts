@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptEulasCommand";
 export * from "./CreateLaunchProfileCommand";
 export * from "./CreateStreamingImageCommand";
@@ -18,6 +19,7 @@ export * from "./GetLaunchProfileDetailsCommand";
 export * from "./GetLaunchProfileInitializationCommand";
 export * from "./GetLaunchProfileMemberCommand";
 export * from "./GetStreamingImageCommand";
+export * from "./GetStreamingSessionBackupCommand";
 export * from "./GetStreamingSessionCommand";
 export * from "./GetStreamingSessionStreamCommand";
 export * from "./GetStudioCommand";
@@ -28,6 +30,7 @@ export * from "./ListEulasCommand";
 export * from "./ListLaunchProfileMembersCommand";
 export * from "./ListLaunchProfilesCommand";
 export * from "./ListStreamingImagesCommand";
+export * from "./ListStreamingSessionBackupsCommand";
 export * from "./ListStreamingSessionsCommand";
 export * from "./ListStudioComponentsCommand";
 export * from "./ListStudioMembersCommand";

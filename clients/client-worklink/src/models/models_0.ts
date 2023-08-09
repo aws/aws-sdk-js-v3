@@ -1,1662 +1,1440 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { WorkLinkServiceException as __BaseException } from "./WorkLinkServiceException";
+
+/**
+ * @public
+ */
 export interface AssociateDomainRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The fully qualified domain name (FQDN).</p>
    */
   DomainName: string | undefined;
 
   /**
+   * @public
    * <p>The name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
    */
   AcmCertificateArn: string | undefined;
 }
 
-export namespace AssociateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateDomainResponse {}
 
-export namespace AssociateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The service is temporarily unavailable.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidRequestException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The requested resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>The number of requests exceeds the limit.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>You are not authorized to perform this action.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace UnauthorizedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
-export enum AuthorizationProviderType {
-  SAML = "SAML",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AuthorizationProviderType = {
+  SAML: "SAML",
+} as const;
 
+/**
+ * @public
+ */
+export type AuthorizationProviderType = (typeof AuthorizationProviderType)[keyof typeof AuthorizationProviderType];
+
+/**
+ * @public
+ */
 export interface AssociateWebsiteAuthorizationProviderRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The authorization provider type.</p>
    */
   AuthorizationProviderType: AuthorizationProviderType | string | undefined;
 
   /**
+   * @public
    * <p>The domain name of the authorization provider. This applies only to SAML-based
    *             authorization providers.</p>
    */
   DomainName?: string;
 }
 
-export namespace AssociateWebsiteAuthorizationProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteAuthorizationProviderRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateWebsiteAuthorizationProviderResponse {
   /**
+   * @public
    * <p>A unique identifier for the authorization provider.</p>
    */
   AuthorizationProviderId?: string;
 }
 
-export namespace AssociateWebsiteAuthorizationProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteAuthorizationProviderResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateWebsiteCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The root certificate of the CA.</p>
    */
   Certificate: string | undefined;
 
   /**
+   * @public
    * <p>The certificate name to display.</p>
    */
   DisplayName?: string;
 }
 
-export namespace AssociateWebsiteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateWebsiteCertificateAuthorityResponse {
   /**
+   * @public
    * <p>A unique identifier for the CA.</p>
    */
   WebsiteCaId?: string;
 }
 
-export namespace AssociateWebsiteCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateFleetRequest {
   /**
+   * @public
    * <p>A unique name for the fleet.</p>
    */
   FleetName: string | undefined;
 
   /**
+   * @public
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The option to optimize for better performance by routing traffic through the closest
    *             AWS Region to users, which may be outside of your home Region.</p>
    */
   OptimizeForEndUserLocation?: boolean;
 
   /**
+   * @public
    * <p> The tags to add to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace CreateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateFleetResponse {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   FleetArn?: string;
 }
 
-export namespace CreateFleetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteFleetRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 }
 
-export namespace DeleteFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteFleetResponse {}
 
-export namespace DeleteFleetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAuditStreamConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 }
 
-export namespace DescribeAuditStreamConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditStreamConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAuditStreamConfigurationResponse {
   /**
+   * @public
    * <p>The ARN of the Amazon Kinesis data stream that will receive the audit events.</p>
    */
   AuditStreamArn?: string;
 }
 
-export namespace DescribeAuditStreamConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditStreamConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCompanyNetworkConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 }
 
-export namespace DescribeCompanyNetworkConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCompanyNetworkConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeCompanyNetworkConfigurationResponse {
   /**
+   * @public
    * <p>The VPC with connectivity to associated websites.</p>
    */
   VpcId?: string;
 
   /**
+   * @public
    * <p>The subnets used for X-ENI connections from Amazon WorkLink rendering containers.</p>
    */
   SubnetIds?: string[];
 
   /**
+   * @public
    * <p>The security groups associated with access to the provided subnets.</p>
    */
   SecurityGroupIds?: string[];
 }
 
-export namespace DescribeCompanyNetworkConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCompanyNetworkConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for a registered user's device.</p>
    */
   DeviceId: string | undefined;
 }
 
-export namespace DescribeDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const DeviceStatus = {
+  ACTIVE: "ACTIVE",
+  SIGNED_OUT: "SIGNED_OUT",
+} as const;
 
-export enum DeviceStatus {
-  ACTIVE = "ACTIVE",
-  SIGNED_OUT = "SIGNED_OUT",
-}
+/**
+ * @public
+ */
+export type DeviceStatus = (typeof DeviceStatus)[keyof typeof DeviceStatus];
 
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
+   * @public
    * <p>The current state of the device.</p>
    */
   Status?: DeviceStatus | string;
 
   /**
+   * @public
    * <p>The model of the device.</p>
    */
   Model?: string;
 
   /**
+   * @public
    * <p>The manufacturer of the device.</p>
    */
   Manufacturer?: string;
 
   /**
+   * @public
    * <p>The operating system of the device.</p>
    */
   OperatingSystem?: string;
 
   /**
+   * @public
    * <p>The operating system version of the device.</p>
    */
   OperatingSystemVersion?: string;
 
   /**
+   * @public
    * <p>The operating system patch level of the device.</p>
    */
   PatchLevel?: string;
 
   /**
+   * @public
    * <p>The date that the device first signed in to Amazon WorkLink.</p>
    */
   FirstAccessedTime?: Date;
 
   /**
+   * @public
    * <p>The date that the device last accessed Amazon WorkLink.</p>
    */
   LastAccessedTime?: Date;
 
   /**
+   * @public
    * <p>The user name associated with the device.</p>
    */
   Username?: string;
 }
 
-export namespace DescribeDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDevicePolicyConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 }
 
-export namespace DescribeDevicePolicyConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDevicePolicyConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDevicePolicyConfigurationResponse {
   /**
+   * @public
    * <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>
    */
   DeviceCaCertificate?: string;
 }
 
-export namespace DescribeDevicePolicyConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDevicePolicyConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDomainRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
 }
 
-export namespace DescribeDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const DomainStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED_TO_ASSOCIATE: "FAILED_TO_ASSOCIATE",
+  FAILED_TO_DISASSOCIATE: "FAILED_TO_DISASSOCIATE",
+  INACTIVE: "INACTIVE",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+} as const;
 
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED_TO_ASSOCIATE = "FAILED_TO_ASSOCIATE",
-  FAILED_TO_DISASSOCIATE = "FAILED_TO_DISASSOCIATE",
-  INACTIVE = "INACTIVE",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-}
+/**
+ * @public
+ */
+export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
+/**
+ * @public
+ */
 export interface DescribeDomainResponse {
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName?: string;
 
   /**
+   * @public
    * <p>The name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The time that the domain was added.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The current state for the domain.</p>
    */
   DomainStatus?: DomainStatus | string;
 
   /**
+   * @public
    * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
    */
   AcmCertificateArn?: string;
 }
 
-export namespace DescribeDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeFleetMetadataRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   FleetArn: string | undefined;
 }
 
-export namespace DescribeFleetMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetMetadataRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const FleetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED_TO_CREATE: "FAILED_TO_CREATE",
+  FAILED_TO_DELETE: "FAILED_TO_DELETE",
+} as const;
 
-export enum FleetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED_TO_CREATE = "FAILED_TO_CREATE",
-  FAILED_TO_DELETE = "FAILED_TO_DELETE",
-}
+/**
+ * @public
+ */
+export type FleetStatus = (typeof FleetStatus)[keyof typeof FleetStatus];
 
+/**
+ * @public
+ */
 export interface DescribeFleetMetadataResponse {
   /**
+   * @public
    * <p>The time that the fleet was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The time that the fleet was last updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName?: string;
 
   /**
+   * @public
    * <p>The name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The option to optimize for better performance by routing traffic through the closest
    *             AWS Region to users, which may be outside of your home Region.</p>
    */
   OptimizeForEndUserLocation?: boolean;
 
   /**
+   * @public
    * <p>The identifier used by users to sign in to the Amazon WorkLink app.</p>
    */
   CompanyCode?: string;
 
   /**
+   * @public
    * <p>The current state of the fleet.</p>
    */
   FleetStatus?: FleetStatus | string;
 
   /**
+   * @public
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace DescribeFleetMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 }
 
-export namespace DescribeIdentityProviderConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigurationRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const IdentityProviderType = {
+  SAML: "SAML",
+} as const;
 
-export enum IdentityProviderType {
-  SAML = "SAML",
-}
+/**
+ * @public
+ */
+export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof IdentityProviderType];
 
+/**
+ * @public
+ */
 export interface DescribeIdentityProviderConfigurationResponse {
   /**
+   * @public
    * <p>The type of identity provider.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
   /**
+   * @public
    * <p>The SAML metadata document uploaded to the user’s identity provider.</p>
    */
   ServiceProviderSamlMetadata?: string;
 
   /**
+   * @public
    * <p>The SAML metadata document provided by the user’s identity provider.</p>
    */
   IdentityProviderSamlMetadata?: string;
 }
 
-export namespace DescribeIdentityProviderConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeWebsiteCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the certificate authority.</p>
    */
   WebsiteCaId: string | undefined;
 }
 
-export namespace DescribeWebsiteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWebsiteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeWebsiteCertificateAuthorityResponse {
   /**
+   * @public
    * <p>The root certificate of the certificate authority.</p>
    */
   Certificate?: string;
 
   /**
+   * @public
    * <p>The time that the certificate authority was added.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The certificate name to display.</p>
    */
   DisplayName?: string;
 }
 
-export namespace DescribeWebsiteCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWebsiteCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of devices.</p>
  */
 export interface DeviceSummary {
   /**
+   * @public
    * <p>The ID of the device.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The status of the device.</p>
    */
   DeviceStatus?: DeviceStatus | string;
 }
 
-export namespace DeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateDomainRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
 }
 
-export namespace DisassociateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateDomainResponse {}
 
-export namespace DisassociateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDomainResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateWebsiteAuthorizationProviderRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the authorization provider.</p>
    */
   AuthorizationProviderId: string | undefined;
 }
 
-export namespace DisassociateWebsiteAuthorizationProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteAuthorizationProviderRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateWebsiteAuthorizationProviderResponse {}
 
-export namespace DisassociateWebsiteAuthorizationProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteAuthorizationProviderResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateWebsiteCertificateAuthorityRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>A unique identifier for the CA.</p>
    */
   WebsiteCaId: string | undefined;
 }
 
-export namespace DisassociateWebsiteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateWebsiteCertificateAuthorityResponse {}
 
-export namespace DisassociateWebsiteCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the domain.</p>
  */
 export interface DomainSummary {
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
 
   /**
+   * @public
    * <p>The name to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The time that the domain was created.</p>
    */
   CreatedTime: Date | undefined;
 
   /**
+   * @public
    * <p>The status of the domain.</p>
    */
   DomainStatus: DomainStatus | string | undefined;
 }
 
-export namespace DomainSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the fleet.</p>
  */
 export interface FleetSummary {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   FleetArn?: string;
 
   /**
+   * @public
    * <p>The time when the fleet was created.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The time when the fleet was last updated.</p>
    */
   LastUpdatedTime?: Date;
 
   /**
+   * @public
    * <p>The name of the fleet.</p>
    */
   FleetName?: string;
 
   /**
+   * @public
    * <p>The name of the fleet to display.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The identifier used by users to sign into the Amazon WorkLink app.</p>
    */
   CompanyCode?: string;
 
   /**
+   * @public
    * <p>The status of the fleet.</p>
    */
   FleetStatus?: FleetStatus | string;
 
   /**
+   * @public
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace FleetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
 }
 
-export namespace ListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
+   * @public
    * <p>Information about the devices.</p>
    */
   Devices?: DeviceSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
 }
 
-export namespace ListDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDomainsResponse {
   /**
+   * @public
    * <p>Information about the domains.</p>
    */
   Domains?: DomainSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListFleetsRequest {
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
 }
 
-export namespace ListFleetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListFleetsResponse {
   /**
+   * @public
    * <p>The summary list of the fleets.</p>
    */
   FleetSummaryList?: FleetSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListFleetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListWebsiteAuthorizationProvidersRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
 }
 
-export namespace ListWebsiteAuthorizationProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteAuthorizationProvidersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the website authorization provider.</p>
  */
 export interface WebsiteAuthorizationProviderSummary {
   /**
+   * @public
    * <p>A unique identifier for the authorization provider.</p>
    */
   AuthorizationProviderId?: string;
 
   /**
+   * @public
    * <p>The authorization provider type.</p>
    */
   AuthorizationProviderType: AuthorizationProviderType | string | undefined;
 
   /**
+   * @public
    * <p>The domain name of the authorization provider. This applies only to SAML-based
    *             authorization providers.</p>
    */
   DomainName?: string;
 
   /**
+   * @public
    * <p>The time of creation.</p>
    */
   CreatedTime?: Date;
 }
 
-export namespace WebsiteAuthorizationProviderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebsiteAuthorizationProviderSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListWebsiteAuthorizationProvidersResponse {
   /**
+   * @public
    * <p>The website authorization providers.</p>
    */
   WebsiteAuthorizationProviders?: WebsiteAuthorizationProviderSummary[];
 
   /**
+   * @public
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListWebsiteAuthorizationProvidersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteAuthorizationProvidersResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListWebsiteCertificateAuthoritiesRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListWebsiteCertificateAuthoritiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteCertificateAuthoritiesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of the certificate authority (CA).</p>
  */
 export interface WebsiteCaSummary {
   /**
+   * @public
    * <p>A unique identifier for the CA.</p>
    */
   WebsiteCaId?: string;
 
   /**
+   * @public
    * <p>The time when the CA was added.</p>
    */
   CreatedTime?: Date;
 
   /**
+   * @public
    * <p>The name to display.</p>
    */
   DisplayName?: string;
 }
 
-export namespace WebsiteCaSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebsiteCaSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListWebsiteCertificateAuthoritiesResponse {
   /**
+   * @public
    * <p>Information about the certificates.</p>
    */
   WebsiteCertificateAuthorities?: WebsiteCaSummary[];
 
   /**
+   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListWebsiteCertificateAuthoritiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteCertificateAuthoritiesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RestoreDomainAccessRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
 }
 
-export namespace RestoreDomainAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDomainAccessRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RestoreDomainAccessResponse {}
 
-export namespace RestoreDomainAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDomainAccessResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RevokeDomainAccessRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
 }
 
-export namespace RevokeDomainAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeDomainAccessRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RevokeDomainAccessResponse {}
 
-export namespace RevokeDomainAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeDomainAccessResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SignOutUserRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the user.</p>
    */
   Username: string | undefined;
 }
 
-export namespace SignOutUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignOutUserRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface SignOutUserResponse {}
 
-export namespace SignOutUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignOutUserResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags to add to the resource. A tag is a key-value pair.</p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   ResourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The list of tag keys to remove from the resource.</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAuditStreamConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>
    */
   AuditStreamArn?: string;
 }
 
-export namespace UpdateAuditStreamConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuditStreamConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAuditStreamConfigurationResponse {}
 
-export namespace UpdateAuditStreamConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuditStreamConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCompanyNetworkConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The VPC with connectivity to associated websites.</p>
    */
   VpcId: string | undefined;
 
   /**
+   * @public
    * <p>The subnets used for X-ENI connections from Amazon WorkLink rendering containers.</p>
    */
   SubnetIds: string[] | undefined;
 
   /**
+   * @public
    * <p>The security groups associated with access to the provided subnets.</p>
    */
   SecurityGroupIds: string[] | undefined;
 }
 
-export namespace UpdateCompanyNetworkConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCompanyNetworkConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCompanyNetworkConfigurationResponse {}
 
-export namespace UpdateCompanyNetworkConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCompanyNetworkConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDevicePolicyConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>
    */
   DeviceCaCertificate?: string;
 }
 
-export namespace UpdateDevicePolicyConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevicePolicyConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDevicePolicyConfigurationResponse {}
 
-export namespace UpdateDevicePolicyConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevicePolicyConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDomainMetadataRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
 
   /**
+   * @public
    * <p>The name to display.</p>
    */
   DisplayName?: string;
 }
 
-export namespace UpdateDomainMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDomainMetadataResponse {}
 
-export namespace UpdateDomainMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateFleetMetadataRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>
    */
   DisplayName?: string;
 
   /**
+   * @public
    * <p>The option to optimize for better performance by routing traffic through the closest
    *             AWS Region to users, which may be outside of your home Region.</p>
    */
   OptimizeForEndUserLocation?: boolean;
 }
 
-export namespace UpdateFleetMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateFleetMetadataResponse {}
 
-export namespace UpdateFleetMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderConfigurationRequest {
   /**
+   * @public
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
 
   /**
+   * @public
    * <p>The type of identity provider.</p>
    */
   IdentityProviderType: IdentityProviderType | string | undefined;
 
   /**
+   * @public
    * <p>The SAML metadata document provided by the customer’s identity provider. The existing
    *             IdentityProviderSamlMetadata is unset if null is passed.</p>
    */
   IdentityProviderSamlMetadata?: string;
 }
 
-export namespace UpdateIdentityProviderConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIdentityProviderConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateIdentityProviderConfigurationResponse {}
-
-export namespace UpdateIdentityProviderConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIdentityProviderConfigurationResponse): any => ({
-    ...obj,
-  });
-}

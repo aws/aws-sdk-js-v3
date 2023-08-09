@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeActivityInput, DescribeActivityOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeActivityCommand,
-  serializeAws_json1_0DescribeActivityCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeActivityCommand, se_DescribeActivityCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeActivityCommand}.
+ */
 export interface DescribeActivityCommandInput extends DescribeActivityInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeActivityCommand}.
+ */
 export interface DescribeActivityCommandOutput extends DescribeActivityOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes an activity.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -32,13 +46,33 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * import { SFNClient, DescribeActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = { // DescribeActivityInput
+ *   activityArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeActivityCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeActivityOutput
+ * //   activityArn: "STRING_VALUE", // required
+ * //   name: "STRING_VALUE", // required
+ * //   creationDate: new Date("TIMESTAMP"), // required
+ * // };
+ *
  * ```
  *
+ * @param DescribeActivityCommandInput - {@link DescribeActivityCommandInput}
+ * @returns {@link DescribeActivityCommandOutput}
  * @see {@link DescribeActivityCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
+ *
+ * @throws {@link ActivityDoesNotExist} (client fault)
+ *  <p>The specified activity does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link SFNServiceException}
+ * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
 export class DescribeActivityCommand extends $Command<
@@ -49,6 +83,18 @@ export class DescribeActivityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActivityCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +110,9 @@ export class DescribeActivityCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeActivityCommandInput, DescribeActivityCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeActivityCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +123,8 @@ export class DescribeActivityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActivityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActivityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +134,18 @@ export class DescribeActivityCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeActivityCommand(input, context);
+    return se_DescribeActivityCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeActivityCommandOutput> {
-    return deserializeAws_json1_0DescribeActivityCommand(output, context);
+    return de_DescribeActivityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -36,18 +36,29 @@ public class AddAwsRuntimeConfigTest {
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
-                   containsString(AwsDependency.NODE_CONFIG_PROVIDER.packageName));
+                   containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
         // Check config interface fields
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("serviceId?:"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("region?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("useDualstackEndpoint?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("useFipsEndpoint?:"));
+
 
         // Check config files
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), containsString("serviceId: config?.serviceId ?? \"Not Same\""));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString(
+                "useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT))"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString(
+                "useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString(
+                "useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT))"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString(
+                "useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),"));
     }
 
     @Test
@@ -72,18 +83,24 @@ public class AddAwsRuntimeConfigTest {
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
-                containsString(AwsDependency.NODE_CONFIG_PROVIDER.packageName));
+                containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
         // Check config interface fields
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), not(containsString("serviceId?:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), containsString("region?:"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), not(containsString("useDualstackEndpoint?:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleSigV4Client.ts").get(), not(containsString("useFipsEndpoint?:")));
 
         // Check config files
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("region: config?.region ?? invalidProvider"));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("region: config?.region ?? loadNodeConfig"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("useDualstackEndpoint:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("useDualstackEndpoint:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("useFipsEndpoint:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("useFipsEndpoint:")));
     }
 
     @Test
@@ -108,17 +125,23 @@ public class AddAwsRuntimeConfigTest {
 
         // Check dependencies
         assertThat(manifest.getFileString("package.json").get(),
-                containsString(AwsDependency.NODE_CONFIG_PROVIDER.packageName));
+                containsString(TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
 
         // Check config interface fields
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("serviceId?:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("region?:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("useDualstackEndpoint?:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/SsdkExampleClient.ts").get(), not(containsString("useFipsEndpoint?:")));
 
         // Check config files
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.shared.ts").get(), not(containsString("serviceId:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("region:")));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("region:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("useDualstackEndpoint:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("useDualstackEndpoint:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("useFipsEndpoint:")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("useFipsEndpoint:")));
     }
 }

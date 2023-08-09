@@ -2,10 +2,16 @@ import LRUCache from "mnemonist/lru-cache";
 
 import { Endpoint } from "./Endpoint";
 
+/**
+ * @internal
+ */
 export interface EndpointWithExpiry extends Pick<Endpoint, "Address"> {
   Expires: number;
 }
 
+/**
+ * @internal
+ */
 export class EndpointCache {
   private readonly cache: LRUCache<string, EndpointWithExpiry[]>;
 

@@ -1,153 +1,129 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { IoTEventsDataServiceException as __BaseException } from "./IoTEventsDataServiceException";
 
 /**
+ * @public
  * <p>Contains the configuration information of an acknowledge action.</p>
  */
 export interface AcknowledgeActionConfiguration {
   /**
+   * @public
    * <p>The note that you can leave when you acknowledge the alarm.</p>
    */
   note?: string;
 }
 
-export namespace AcknowledgeActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to acknowledge the alarm.</p>
  */
 export interface AcknowledgeAlarmActionRequest {
   /**
+   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
    */
   requestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The note that you can leave when you acknowledge the alarm.</p>
    */
   note?: string;
 }
 
-export namespace AcknowledgeAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum CustomerActionName {
-  ACKNOWLEDGE = "ACKNOWLEDGE",
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  RESET = "RESET",
-  SNOOZE = "SNOOZE",
-}
+/**
+ * @public
+ * @enum
+ */
+export const CustomerActionName = {
+  ACKNOWLEDGE: "ACKNOWLEDGE",
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  RESET: "RESET",
+  SNOOZE: "SNOOZE",
+} as const;
 
 /**
+ * @public
+ */
+export type CustomerActionName = (typeof CustomerActionName)[keyof typeof CustomerActionName];
+
+/**
+ * @public
  * <p>Contains the configuration information of a disable action.</p>
  */
 export interface DisableActionConfiguration {
   /**
+   * @public
    * <p>The note that you can leave when you disable the alarm.</p>
    */
   note?: string;
 }
 
-export namespace DisableActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the configuration information of an enable action.</p>
  */
 export interface EnableActionConfiguration {
   /**
+   * @public
    * <p>The note that you can leave when you enable the alarm.</p>
    */
   note?: string;
 }
 
-export namespace EnableActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the configuration information of a reset action.</p>
  */
 export interface ResetActionConfiguration {
   /**
+   * @public
    * <p>The note that you can leave when you reset the alarm.</p>
    */
   note?: string;
 }
 
-export namespace ResetActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains the configuration information of a snooze action.</p>
  */
 export interface SnoozeActionConfiguration {
   /**
+   * @public
    * <p>The snooze time in seconds. The alarm automatically changes to the <code>NORMAL</code> state after this duration.</p>
    */
   snoozeDuration?: number;
 
   /**
+   * @public
    * <p>The note that you can leave when you snooze the alarm.</p>
    */
   note?: string;
 }
 
-export namespace SnoozeActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnoozeActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about the action that you can take to respond to the alarm.</p>
  */
 export interface CustomerAction {
   /**
+   * @public
    * <p>The name of the action. The action name can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -176,164 +152,173 @@ export interface CustomerAction {
   actionName?: CustomerActionName | string;
 
   /**
+   * @public
    * <p>Contains the configuration information of a snooze action.</p>
    */
   snoozeActionConfiguration?: SnoozeActionConfiguration;
 
   /**
+   * @public
    * <p>Contains the configuration information of an enable action.</p>
    */
   enableActionConfiguration?: EnableActionConfiguration;
 
   /**
+   * @public
    * <p>Contains the configuration information of a disable action.</p>
    */
   disableActionConfiguration?: DisableActionConfiguration;
 
   /**
+   * @public
    * <p>Contains the configuration information of an acknowledge action.</p>
    */
   acknowledgeActionConfiguration?: AcknowledgeActionConfiguration;
 
   /**
+   * @public
    * <p>Contains the configuration information of a reset action.</p>
    */
   resetActionConfiguration?: ResetActionConfiguration;
 }
 
-export namespace CustomerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerAction): any => ({
-    ...obj,
-  });
-}
-
-export enum ComparisonOperator {
-  EQUAL = "EQUAL",
-  GREATER = "GREATER",
-  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
-  LESS = "LESS",
-  LESS_OR_EQUAL = "LESS_OR_EQUAL",
-  NOT_EQUAL = "NOT_EQUAL",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ComparisonOperator = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESS: "LESS",
+  LESS_OR_EQUAL: "LESS_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
 
 /**
+ * @public
+ */
+export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
  * <p>Information needed to compare two values with a comparison operator.</p>
  */
 export interface SimpleRuleEvaluation {
   /**
+   * @public
    * <p>The value of the input property, on the left side of the comparison operator.</p>
    */
   inputPropertyValue?: string;
 
   /**
+   * @public
    * <p>The comparison operator.</p>
    */
   operator?: ComparisonOperator | string;
 
   /**
+   * @public
    * <p>The threshold value, on the right side of the comparison operator.</p>
    */
   thresholdValue?: string;
 }
 
-export namespace SimpleRuleEvaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleRuleEvaluation): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to evaluate data.</p>
  */
 export interface RuleEvaluation {
   /**
+   * @public
    * <p>Information needed to compare two values with a comparison operator.</p>
    */
   simpleRuleEvaluation?: SimpleRuleEvaluation;
 }
 
-export namespace RuleEvaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleEvaluation): any => ({
-    ...obj,
-  });
-}
-
-export enum AlarmStateName {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  LATCHED = "LATCHED",
-  NORMAL = "NORMAL",
-  SNOOZE_DISABLED = "SNOOZE_DISABLED",
-}
-
-export enum EventType {
-  STATE_CHANGE = "STATE_CHANGE",
-}
-
-export enum TriggerType {
-  SNOOZE_TIMEOUT = "SNOOZE_TIMEOUT",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AlarmStateName = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  LATCHED: "LATCHED",
+  NORMAL: "NORMAL",
+  SNOOZE_DISABLED: "SNOOZE_DISABLED",
+} as const;
 
 /**
+ * @public
+ */
+export type AlarmStateName = (typeof AlarmStateName)[keyof typeof AlarmStateName];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  STATE_CHANGE: "STATE_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerType = {
+  SNOOZE_TIMEOUT: "SNOOZE_TIMEOUT",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
+
+/**
+ * @public
  * <p>Contains the configuration information of alarm state changes.</p>
  */
 export interface StateChangeConfiguration {
   /**
+   * @public
    * <p>The trigger type. If the value is <code>SNOOZE_TIMEOUT</code>, the snooze duration ends
    *       and the alarm automatically changes to the <code>NORMAL</code> state.</p>
    */
   triggerType?: TriggerType | string;
 }
 
-export namespace StateChangeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateChangeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about alarm state changes.</p>
  */
 export interface SystemEvent {
   /**
+   * @public
    * <p>The event type. If the value is <code>STATE_CHANGE</code>, the event contains information
    *       about alarm state changes.</p>
    */
   eventType?: EventType | string;
 
   /**
+   * @public
    * <p>Contains the configuration information of alarm state changes.</p>
    */
   stateChangeConfiguration?: StateChangeConfiguration;
 }
 
-export namespace SystemEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about the current state of the alarm.</p>
  */
 export interface AlarmState {
   /**
+   * @public
    * <p>The name of the alarm state. The state name can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -374,101 +359,99 @@ export interface AlarmState {
   stateName?: AlarmStateName | string;
 
   /**
+   * @public
    * <p>Information needed to evaluate data.</p>
    */
   ruleEvaluation?: RuleEvaluation;
 
   /**
+   * @public
    * <p>Contains information about the action that you can take to respond to the alarm.</p>
    */
   customerAction?: CustomerAction;
 
   /**
+   * @public
    * <p>Contains information about alarm state changes.</p>
    */
   systemEvent?: SystemEvent;
 }
 
-export namespace AlarmState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmState): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about an alarm.</p>
  */
 export interface Alarm {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName?: string;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>Contains information about the current state of the alarm.</p>
    */
   alarmState?: AlarmState;
 
   /**
+   * @public
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    */
   severity?: number;
 
   /**
+   * @public
    * <p>The time the alarm was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the alarm was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
 }
 
-export namespace Alarm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alarm): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains a summary of an alarm.</p>
  */
 export interface AlarmSummary {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName?: string;
 
   /**
+   * @public
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The name of the alarm state. The state name can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -509,50 +492,48 @@ export interface AlarmSummary {
   stateName?: AlarmStateName | string;
 
   /**
+   * @public
    * <p>The time the alarm was created, in the Unix epoch format.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the alarm was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
 }
 
-export namespace AlarmSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchAcknowledgeAlarmRequest {
   /**
+   * @public
    * <p>The list of acknowledge action requests. You can specify up to 10 requests per operation.</p>
    */
   acknowledgeActionRequests: AcknowledgeAlarmActionRequest[] | undefined;
 }
 
-export namespace BatchAcknowledgeAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAcknowledgeAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ErrorCode {
-  InternalFailureException = "InternalFailureException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ServiceUnavailableException = "ServiceUnavailableException",
-  ThrottlingException = "ThrottlingException",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  InternalFailureException: "InternalFailureException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ServiceUnavailableException: "ServiceUnavailableException",
+  ThrottlingException: "ThrottlingException",
+} as const;
 
 /**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
  * <p>Contains error messages associated with one of the following requests:</p>
  *          <ul>
  *             <li>
@@ -584,1086 +565,964 @@ export enum ErrorCode {
  */
 export interface BatchAlarmActionErrorEntry {
   /**
+   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
    */
   requestId?: string;
 
   /**
+   * @public
    * <p>The error code.</p>
    */
   errorCode?: ErrorCode | string;
 
   /**
+   * @public
    * <p>A message that describes the error.</p>
    */
   errorMessage?: string;
 }
 
-export namespace BatchAlarmActionErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAlarmActionErrorEntry): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchAcknowledgeAlarmResponse {
   /**
+   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
-export namespace BatchAcknowledgeAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAcknowledgeAlarmResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An internal failure occurred.</p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request was invalid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The service is currently unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request could not be completed due to throttling.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ThrottlingException {
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
+ * @public
+ * <p>Information used to delete the detector model.</p>
+ */
+export interface DeleteDetectorRequest {
+  /**
+   * @public
+   * <p>The ID to assign to the <code>DeleteDetectorRequest</code>. Each <code>"messageId"</code> must be unique within each batch sent.</p>
+   */
+  messageId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the detector model that was used to create the detector instance.</p>
+   */
+  detectorModelName: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html#iotevents-CreateDetectorModel-request-key">key</a> used to identify the detector. </p>
+   */
+  keyValue?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteDetectorRequest {
+  /**
+   * @public
+   * <p>The list of one or more detectors to be deleted.</p>
+   */
+  detectors: DeleteDetectorRequest[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains error messages associated with the deletion request.</p>
+ */
+export interface BatchDeleteDetectorErrorEntry {
+  /**
+   * @public
+   * <p>The ID of the message that caused the error. (See the value of the <code>"messageId"</code> in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>
+   */
+  messageId?: string;
+
+  /**
+   * @public
+   * <p>The error code.</p>
+   */
+  errorCode?: ErrorCode | string;
+
+  /**
+   * @public
+   * <p>A message that describes the error.</p>
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteDetectorResponse {
+  /**
+   * @public
+   * <p>A list of errors associated with the request, or an empty array (<code>[]</code>) if there are no errors. Each error entry contains a <code>messageId</code> that helps you identify the entry that failed.</p>
+   */
+  batchDeleteDetectorErrorEntries?: BatchDeleteDetectorErrorEntry[];
+}
+
+/**
+ * @public
  * <p>Information used to disable the alarm.</p>
  */
 export interface DisableAlarmActionRequest {
   /**
+   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
    */
   requestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The note that you can leave when you disable the alarm.</p>
    */
   note?: string;
 }
 
-export namespace DisableAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchDisableAlarmRequest {
   /**
+   * @public
    * <p>The list of disable action requests. You can specify up to 10 requests per operation.</p>
    */
   disableActionRequests: DisableAlarmActionRequest[] | undefined;
 }
 
-export namespace BatchDisableAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchDisableAlarmResponse {
   /**
+   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
-export namespace BatchDisableAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableAlarmResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to enable the alarm.</p>
  */
 export interface EnableAlarmActionRequest {
   /**
+   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
    */
   requestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The note that you can leave when you enable the alarm.</p>
    */
   note?: string;
 }
 
-export namespace EnableAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchEnableAlarmRequest {
   /**
+   * @public
    * <p>The list of enable action requests. You can specify up to 10 requests per operation.</p>
    */
   enableActionRequests: EnableAlarmActionRequest[] | undefined;
 }
 
-export namespace BatchEnableAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchEnableAlarmResponse {
   /**
+   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
-export namespace BatchEnableAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableAlarmResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about a timestamp.</p>
  */
 export interface TimestampValue {
   /**
+   * @public
    * <p>The value of the timestamp, in the Unix epoch format.</p>
    */
   timeInMillis?: number;
 }
 
-export namespace TimestampValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampValue): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a message.</p>
  */
 export interface Message {
   /**
+   * @public
    * <p>The ID to assign to the message. Within each batch sent, each <code>"messageId"</code>
    *       must be unique.</p>
    */
   messageId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the input into which the message payload is transformed.</p>
    */
   inputName: string | undefined;
 
   /**
+   * @public
    * <p>The payload of the message. This can be a JSON string or a Base-64-encoded string
    *       representing binary data (in which case you must decode it).</p>
    */
   payload: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The timestamp associated with the message.</p>
    */
   timestamp?: TimestampValue;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchPutMessageRequest {
   /**
-   * <p>The list of messages to send. Each message has the following format: <code>'{ "messageId":
-   *         "string", "inputName": "string", "payload": "string"}'</code>
+   * @public
+   * <p>The list of messages to send. Each message has the following format: <code>'\{ "messageId":
+   *         "string", "inputName": "string", "payload": "string"\}'</code>
    *          </p>
    */
   messages: Message[] | undefined;
 }
 
-export namespace BatchPutMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Contains information about the errors encountered.</p>
  */
 export interface BatchPutMessageErrorEntry {
   /**
+   * @public
    * <p>The ID of the message that caused the error. (See the value corresponding to the
    *         <code>"messageId"</code> key in the <code>"message"</code> object.)</p>
    */
   messageId?: string;
 
   /**
+   * @public
    * <p>The error code.</p>
    */
   errorCode?: ErrorCode | string;
 
   /**
+   * @public
    * <p>A message that describes the error.</p>
    */
   errorMessage?: string;
 }
 
-export namespace BatchPutMessageErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchPutMessageResponse {
   /**
+   * @public
    * <p>A list of any errors encountered when sending the messages.</p>
    */
   BatchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
 }
 
-export namespace BatchPutMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to reset the alarm.</p>
  */
 export interface ResetAlarmActionRequest {
   /**
+   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
    */
   requestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The note that you can leave when you reset the alarm.</p>
    */
   note?: string;
 }
 
-export namespace ResetAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchResetAlarmRequest {
   /**
+   * @public
    * <p>The list of reset action requests. You can specify up to 10 requests per operation.</p>
    */
   resetActionRequests: ResetAlarmActionRequest[] | undefined;
 }
 
-export namespace BatchResetAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchResetAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchResetAlarmResponse {
   /**
+   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
-export namespace BatchResetAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchResetAlarmResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information needed to snooze the alarm.</p>
  */
 export interface SnoozeAlarmActionRequest {
   /**
+   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
    */
   requestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The note that you can leave when you snooze the alarm.</p>
    */
   note?: string;
 
   /**
+   * @public
    * <p>The snooze time in seconds. The alarm automatically changes to the <code>NORMAL</code> state after this duration.</p>
    */
   snoozeDuration: number | undefined;
 }
 
-export namespace SnoozeAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnoozeAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchSnoozeAlarmRequest {
   /**
+   * @public
    * <p>The list of snooze action requests. You can specify up to 10 requests per operation.</p>
    */
   snoozeActionRequests: SnoozeAlarmActionRequest[] | undefined;
 }
 
-export namespace BatchSnoozeAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchSnoozeAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchSnoozeAlarmResponse {
   /**
+   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
-export namespace BatchSnoozeAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchSnoozeAlarmResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The new setting of a timer.</p>
  */
 export interface TimerDefinition {
   /**
+   * @public
    * <p>The name of the timer.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The new setting of the timer (the number of seconds before the timer elapses).</p>
    */
   seconds: number | undefined;
 }
 
-export namespace TimerDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimerDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The new value of the variable.</p>
  */
 export interface VariableDefinition {
   /**
+   * @public
    * <p>The name of the variable.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The new value of the variable.</p>
    */
   value: string | undefined;
 }
 
-export namespace VariableDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VariableDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The new state, variable values, and timer settings of the detector (instance).</p>
  */
 export interface DetectorStateDefinition {
   /**
+   * @public
    * <p>The name of the new state of the detector (instance).</p>
    */
   stateName: string | undefined;
 
   /**
+   * @public
    * <p>The new values of the detector's variables. Any variable whose value isn't specified is
    *       cleared.</p>
    */
   variables: VariableDefinition[] | undefined;
 
   /**
+   * @public
    * <p>The new values of the detector's timers. Any timer whose value isn't specified is cleared,
    *       and its timeout event won't occur.</p>
    */
   timers: TimerDefinition[] | undefined;
 }
 
-export namespace DetectorStateDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorStateDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information used to update the detector (instance).</p>
  */
 export interface UpdateDetectorRequest {
   /**
+   * @public
    * <p>The ID to assign to the detector update <code>"message"</code>. Each
    *         <code>"messageId"</code> must be unique within each batch sent.</p>
    */
   messageId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the detector model that created the detectors (instances).</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the input key attribute (identifying the device or system) that caused the
    *       creation of this detector (instance).</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The new state, variable values, and timer settings of the detector (instance).</p>
    */
   state: DetectorStateDefinition | undefined;
 }
 
-export namespace UpdateDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchUpdateDetectorRequest {
   /**
+   * @public
    * <p>The list of detectors (instances) to update, along with the values to update.</p>
    */
   detectors: UpdateDetectorRequest[] | undefined;
 }
 
-export namespace BatchUpdateDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the error that occurred when attempting to update a detector.</p>
  */
 export interface BatchUpdateDetectorErrorEntry {
   /**
+   * @public
    * <p>The <code>"messageId"</code> of the update request that caused the error. (The value of
    *       the <code>"messageId"</code> in the update request <code>"Detector"</code> object.)</p>
    */
   messageId?: string;
 
   /**
+   * @public
    * <p>The error code.</p>
    */
   errorCode?: ErrorCode | string;
 
   /**
+   * @public
    * <p>A message that describes the error.</p>
    */
   errorMessage?: string;
 }
 
-export namespace BatchUpdateDetectorErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorErrorEntry): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface BatchUpdateDetectorResponse {
   /**
+   * @public
    * <p>A list of those detector updates that resulted in errors. (If an error is listed here, the
    *       specific update did not occur.)</p>
    */
   batchUpdateDetectorErrorEntries?: BatchUpdateDetectorErrorEntry[];
 }
 
-export namespace BatchUpdateDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAlarmRequest {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
    */
   keyValue?: string;
 }
 
-export namespace DescribeAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeAlarmResponse {
   /**
+   * @public
    * <p>Contains information about an alarm.</p>
    */
   alarm?: Alarm;
 }
 
-export namespace DescribeAlarmResponse {
+/**
+ * @public
+ * <p>The resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DescribeAlarmResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
- * <p>The resource was not found.</p>
+ * @public
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDetectorRequest {
   /**
+   * @public
    * <p>The name of the detector model whose detectors (instances) you want information
    *       about.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>A filter used to limit results to detectors (instances) created because of the given key
    *       ID.</p>
    */
   keyValue?: string;
 }
 
-export namespace DescribeDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The current state of a timer.</p>
  */
 export interface Timer {
   /**
+   * @public
    * <p>The name of the timer.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The number of seconds which have elapsed on the timer.</p>
+   * @public
+   * <p>The expiration time for the timer.</p>
    */
   timestamp: Date | undefined;
 }
 
-export namespace Timer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Timer): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The current state of the variable.</p>
  */
 export interface Variable {
   /**
+   * @public
    * <p>The name of the variable.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The current value of the variable.</p>
    */
   value: string | undefined;
 }
 
-export namespace Variable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Variable): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the current state of the detector instance.</p>
  */
 export interface DetectorState {
   /**
+   * @public
    * <p>The name of the state.</p>
    */
   stateName: string | undefined;
 
   /**
+   * @public
    * <p>The current values of the detector's variables.</p>
    */
   variables: Variable[] | undefined;
 
   /**
+   * @public
    * <p>The current state of the detector's timers.</p>
    */
   timers: Timer[] | undefined;
 }
 
-export namespace DetectorState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorState): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the detector (instance).</p>
  */
 export interface Detector {
   /**
+   * @public
    * <p>The name of the detector model that created this detector (instance).</p>
    */
   detectorModelName?: string;
 
   /**
+   * @public
    * <p>The value of the key (identifying the device or system) that caused the creation of this
    *       detector (instance).</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The version of the detector model that created this detector (instance).</p>
    */
   detectorModelVersion?: string;
 
   /**
+   * @public
    * <p>The current state of the detector (instance).</p>
    */
   state?: DetectorState;
 
   /**
+   * @public
    * <p>The time the detector (instance) was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the detector (instance) was last updated.</p>
    */
   lastUpdateTime?: Date;
 }
 
-export namespace Detector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Detector): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDetectorResponse {
   /**
+   * @public
    * <p>Information about the detector (instance).</p>
    */
   detector?: Detector;
 }
 
-export namespace DescribeDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the detector state.</p>
  */
 export interface DetectorStateSummary {
   /**
+   * @public
    * <p>The name of the state.</p>
    */
   stateName?: string;
 }
 
-export namespace DetectorStateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorStateSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the detector (instance).</p>
  */
 export interface DetectorSummary {
   /**
+   * @public
    * <p>The name of the detector model that created this detector (instance).</p>
    */
   detectorModelName?: string;
 
   /**
+   * @public
    * <p>The value of the key (identifying the device or system) that caused the creation of this
    *       detector (instance).</p>
    */
   keyValue?: string;
 
   /**
+   * @public
    * <p>The version of the detector model that created this detector (instance).</p>
    */
   detectorModelVersion?: string;
 
   /**
+   * @public
    * <p>The current state of the detector (instance).</p>
    */
   state?: DetectorStateSummary;
 
   /**
+   * @public
    * <p>The time the detector (instance) was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The time the detector (instance) was last updated.</p>
    */
   lastUpdateTime?: Date;
 }
 
-export namespace DetectorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAlarmsRequest {
   /**
+   * @public
    * <p>The name of the alarm model.</p>
    */
   alarmModelName: string | undefined;
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListAlarmsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAlarmsResponse {
   /**
+   * @public
    * <p>A list that summarizes each alarm.</p>
    */
   alarmSummaries?: AlarmSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListAlarmsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDetectorsRequest {
   /**
+   * @public
    * <p>The name of the detector model whose detectors (instances) are listed.</p>
    */
   detectorModelName: string | undefined;
 
   /**
+   * @public
    * <p>A filter that limits results to those detectors (instances) in the given state.</p>
    */
   stateName?: string;
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListDetectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDetectorsResponse {
   /**
+   * @public
    * <p>A list of summary information about the detectors (instances).</p>
    */
   detectorSummaries?: DetectorSummary[];
 
   /**
+   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDetectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorsResponse): any => ({
-    ...obj,
-  });
 }

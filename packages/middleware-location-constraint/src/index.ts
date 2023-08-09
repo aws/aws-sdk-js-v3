@@ -6,7 +6,7 @@ import {
   InitializeMiddleware,
   MetadataBearer,
   Pluggable,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LocationConstraintResolvedConfig } from "./configuration";
 

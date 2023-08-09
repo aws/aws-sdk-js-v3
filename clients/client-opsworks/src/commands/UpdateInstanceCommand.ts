@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateInstanceRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UpdateInstanceCommand,
-  serializeAws_json1_1UpdateInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateInstanceCommand, se_UpdateInstanceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateInstanceCommand}.
+ */
 export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInstanceCommand}.
+ */
 export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a specified instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -34,13 +48,42 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UpdateInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   LayerIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   InstanceType: "STRING_VALUE",
+ *   AutoScalingType: "STRING_VALUE",
+ *   Hostname: "STRING_VALUE",
+ *   Os: "STRING_VALUE",
+ *   AmiId: "STRING_VALUE",
+ *   SshKeyName: "STRING_VALUE",
+ *   Architecture: "STRING_VALUE",
+ *   InstallUpdatesOnBoot: true || false,
+ *   EbsOptimized: true || false,
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateInstanceCommandInput - {@link UpdateInstanceCommandInput}
+ * @returns {@link UpdateInstanceCommandOutput}
  * @see {@link UpdateInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UpdateInstanceCommand extends $Command<
@@ -51,6 +94,18 @@ export class UpdateInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +121,9 @@ export class UpdateInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateInstanceCommandInput, UpdateInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +134,8 @@ export class UpdateInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +145,18 @@ export class UpdateInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateInstanceCommand(input, context);
+    return se_UpdateInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInstanceCommandOutput> {
-    return deserializeAws_json1_1UpdateInstanceCommand(output, context);
+    return de_UpdateInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

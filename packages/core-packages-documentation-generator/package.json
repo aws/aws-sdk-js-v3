@@ -1,12 +1,14 @@
 {
   "name": "@aws-sdk/core-packages-documentation-generator",
-  "version": "3.36.0",
+  "version": "3.310.0",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "exit 0"
   },
   "main": "./dist-cjs/index.js",
@@ -21,16 +23,19 @@
     "typedocplugin"
   ],
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.4",
-    "@types/node": "^10.0.0",
-    "jest": "^26.1.0",
-    "typedoc": "^0.19.2",
-    "typescript": "~4.3.5"
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^14.14.31",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "rimraf": "3.0.2",
+    "typescript": "~4.9.5"
   },
-  "private": true,
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  },
   "typesVersions": {
     "<4.0": {
       "dist-types/*": [
@@ -39,7 +44,7 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/core-packages-documentation-generator",
   "repository": {

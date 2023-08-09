@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteObjectCommand";
 export * from "./DescribeObjectCommand";
 export * from "./GetObjectCommand";

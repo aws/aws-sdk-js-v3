@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EnumPayloadInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpEnumPayloadCommand,
-  serializeAws_restJson1HttpEnumPayloadCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpEnumPayloadCommand, se_HttpEnumPayloadCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link HttpEnumPayloadCommand}.
+ */
 export interface HttpEnumPayloadCommandInput extends EnumPayloadInput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpEnumPayloadCommand}.
+ */
 export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __MetadataBearer {}
 
 export class HttpEnumPayloadCommand extends $Command<
@@ -29,6 +41,9 @@ export class HttpEnumPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpEnumPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class HttpEnumPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnumPayloadInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EnumPayloadInput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class HttpEnumPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpEnumPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpEnumPayloadCommand(input, context);
+    return se_HttpEnumPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpEnumPayloadCommandOutput> {
-    return deserializeAws_restJson1HttpEnumPayloadCommand(output, context);
+    return de_HttpEnumPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Sha256 } from "@aws-crypto/sha256-js";
 
 import { GreengrassV2ClientConfig } from "./GreengrassV2Client";

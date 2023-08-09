@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -90,6 +90,9 @@
             "smithy.api#documentation": "<p>A value you use to implement strong concurrency for application updates. You must\n      provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You\n      get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the\n        <code>ConditionalToken</code> parameter instead of\n      <code>CurrentApplicationVersionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationCloudWatchLoggingOptionResponse": {
@@ -113,6 +116,9 @@
             "smithy.api#documentation": "<p>The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationInput": {
@@ -207,6 +213,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationInputProcessingConfigurationResponse": {
@@ -236,6 +245,9 @@
             "smithy.api#documentation": "<p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationInputRequest": {
@@ -262,6 +274,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationInputResponse": {
@@ -285,6 +300,9 @@
             "smithy.api#documentation": "<p>Describes the application input configuration. \n       \n      \n    </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationOutput": {
@@ -340,6 +358,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationOutputResponse": {
@@ -363,6 +384,9 @@
             "smithy.api#documentation": "<p>Describes the application output configuration.\n      For more information, \n      see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. \n      \n    </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationReferenceDataSource": {
@@ -418,6 +442,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationReferenceDataSourceResponse": {
@@ -441,6 +468,9 @@
             "smithy.api#documentation": "<p>Describes reference data sources configured for the application. \n      \n      \n      \n    </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationVpcConfiguration": {
@@ -501,6 +531,9 @@
             "smithy.api#documentation": "<p>A value you use to implement strong concurrency for application updates. You must\n      provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>. You get\n      the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the\n        <code>ConditionalToken</code> parameter instead of\n      <code>CurrentApplicationVersionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AddApplicationVpcConfigurationResponse": {
@@ -524,6 +557,9 @@
             "smithy.api#documentation": "<p>The parameters of the new VPC configuration.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationCodeConfiguration": {
@@ -779,7 +815,7 @@
         "RuntimeEnvironment": {
           "target": "com.amazonaws.kinesisanalyticsv2#RuntimeEnvironment",
           "traits": {
-            "smithy.api#documentation": "<p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>",
+            "smithy.api#documentation": "<p>The runtime environment for the application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -926,18 +962,20 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STREAMING",
-            "name": "STREAMING"
-          },
-          {
-            "value": "INTERACTIVE",
-            "name": "INTERACTIVE"
+      "type": "enum",
+      "members": {
+        "STREAMING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STREAMING"
           }
-        ]
+        },
+        "INTERACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationName": {
@@ -972,22 +1010,26 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationRestoreType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SKIP_RESTORE_FROM_SNAPSHOT",
-            "name": "SKIP_RESTORE_FROM_SNAPSHOT"
-          },
-          {
-            "value": "RESTORE_FROM_LATEST_SNAPSHOT",
-            "name": "RESTORE_FROM_LATEST_SNAPSHOT"
-          },
-          {
-            "value": "RESTORE_FROM_CUSTOM_SNAPSHOT",
-            "name": "RESTORE_FROM_CUSTOM_SNAPSHOT"
+      "type": "enum",
+      "members": {
+        "SKIP_RESTORE_FROM_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SKIP_RESTORE_FROM_SNAPSHOT"
           }
-        ]
+        },
+        "RESTORE_FROM_LATEST_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESTORE_FROM_LATEST_SNAPSHOT"
+          }
+        },
+        "RESTORE_FROM_CUSTOM_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESTORE_FROM_CUSTOM_SNAPSHOT"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationSnapshotConfiguration": {
@@ -1036,54 +1078,74 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "STARTING",
-            "name": "STARTING"
-          },
-          {
-            "value": "STOPPING",
-            "name": "STOPPING"
-          },
-          {
-            "value": "READY",
-            "name": "READY"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "UPDATING",
-            "name": "UPDATING"
-          },
-          {
-            "value": "AUTOSCALING",
-            "name": "AUTOSCALING"
-          },
-          {
-            "value": "FORCE_STOPPING",
-            "name": "FORCE_STOPPING"
-          },
-          {
-            "value": "ROLLING_BACK",
-            "name": "ROLLING_BACK"
-          },
-          {
-            "value": "MAINTENANCE",
-            "name": "MAINTENANCE"
-          },
-          {
-            "value": "ROLLED_BACK",
-            "name": "ROLLED_BACK"
+      "type": "enum",
+      "members": {
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
           }
-        ]
+        },
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPING"
+          }
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        },
+        "AUTOSCALING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTOSCALING"
+          }
+        },
+        "FORCE_STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FORCE_STOPPING"
+          }
+        },
+        "ROLLING_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLING_BACK"
+          }
+        },
+        "MAINTENANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MAINTENANCE"
+          }
+        },
+        "ROLLED_BACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLED_BACK"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ApplicationSummaries": {
@@ -1144,7 +1206,6 @@
     "com.amazonaws.kinesisanalyticsv2#ApplicationVersionId": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 999999999
@@ -1180,18 +1241,20 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ArtifactType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UDF",
-            "name": "UDF"
-          },
-          {
-            "value": "DEPENDENCY_JAR",
-            "name": "DEPENDENCY_JAR"
+      "type": "enum",
+      "members": {
+        "UDF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UDF"
           }
-        ]
+        },
+        "DEPENDENCY_JAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPENDENCY_JAR"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#AuthorizedUrl": {
@@ -1214,10 +1277,7 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#BooleanObject": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#box": {}
-      }
+      "type": "boolean"
     },
     "com.amazonaws.kinesisanalyticsv2#BucketARN": {
       "type": "string",
@@ -1396,7 +1456,6 @@
     "com.amazonaws.kinesisanalyticsv2#CheckpointInterval": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -1542,18 +1601,20 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CodeContentType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PLAINTEXT",
-            "name": "PLAINTEXT"
-          },
-          {
-            "value": "ZIPFILE",
-            "name": "ZIPFILE"
+      "type": "enum",
+      "members": {
+        "PLAINTEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PLAINTEXT"
           }
-        ]
+        },
+        "ZIPFILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZIPFILE"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CodeContentUpdate": {
@@ -1594,7 +1655,6 @@
     "com.amazonaws.kinesisanalyticsv2#CodeSize": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 52428800
@@ -1637,18 +1697,20 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ConfigurationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "CUSTOM",
-            "name": "CUSTOM"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOM"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplication": {
@@ -1709,7 +1771,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates and returns a URL that you can use to connect to \n            an application's extension. Currently, the only\n            available extension is the Apache Flink dashboard.</p>\n        <p>The IAM role or user used to call this API defines the permissions to access the\n      extension. After the presigned URL is created, no additional permission is required to access\n      this URL. IAM authorization policies for this API are also enforced for every HTTP request\n      that attempts to connect to the extension. </p>\n        <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>\n        parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p>\n        <note>\n            <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes\n            to be valid. \n            If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Creates and returns a URL that you can use to connect to \n            an application's extension.</p>\n        <p>The IAM role or user used to call this API defines the permissions to access the\n      extension. After the presigned URL is created, no additional permission is required to access\n      this URL. IAM authorization policies for this API are also enforced for every HTTP request\n      that attempts to connect to the extension. </p>\n        <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>\n        parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p>\n        <note>\n            <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes\n            to be valid. \n            If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p>\n         </note>"
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplicationPresignedUrlRequest": {
@@ -1735,6 +1797,9 @@
             "smithy.api#documentation": "<p>The duration in seconds for which the returned URL will be valid.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplicationPresignedUrlResponse": {
@@ -1746,6 +1811,9 @@
             "smithy.api#documentation": "<p>The URL of the extension.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplicationRequest": {
@@ -1767,7 +1835,7 @@
         "RuntimeEnvironment": {
           "target": "com.amazonaws.kinesisanalyticsv2#RuntimeEnvironment",
           "traits": {
-            "smithy.api#documentation": "<p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>",
+            "smithy.api#documentation": "<p>The runtime environment for the application.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1799,9 +1867,12 @@
         "ApplicationMode": {
           "target": "com.amazonaws.kinesisanalyticsv2#ApplicationMode",
           "traits": {
-            "smithy.api#documentation": "<p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics Studio notebook. To create a Kinesis Data Analytics Studio notebook, use the \n    <code>INTERACTIVE</code> mode.</p>"
+            "smithy.api#documentation": "<p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application. To create a Kinesis Data Analytics Studio notebook, use the \n    <code>INTERACTIVE</code> mode.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplicationResponse": {
@@ -1814,6 +1885,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplicationSnapshot": {
@@ -1868,11 +1942,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#CreateApplicationSnapshotResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#CustomArtifactConfiguration": {
       "type": "structure",
@@ -2048,6 +2128,9 @@
             "smithy.api#documentation": "<p>A value you use to implement strong concurrency for application updates. You must provide\n      the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the\n      application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of\n        <code>CurrentApplicationVersionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationCloudWatchLoggingOptionResponse": {
@@ -2071,6 +2154,9 @@
             "smithy.api#documentation": "<p>The descriptions of the remaining CloudWatch logging options for the application.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationInputProcessingConfiguration": {
@@ -2126,6 +2212,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationInputProcessingConfigurationResponse": {
@@ -2143,6 +2232,9 @@
             "smithy.api#documentation": "<p>The current application version ID.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationOutput": {
@@ -2198,6 +2290,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationOutputResponse": {
@@ -2215,6 +2310,9 @@
             "smithy.api#documentation": "<p>The current application version ID.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationReferenceDataSource": {
@@ -2270,6 +2368,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationReferenceDataSourceResponse": {
@@ -2287,6 +2388,9 @@
             "smithy.api#documentation": "<p>The updated version ID of the application.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationRequest": {
@@ -2306,11 +2410,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationSnapshot": {
       "type": "operation",
@@ -2321,6 +2431,9 @@
         "target": "com.amazonaws.kinesisanalyticsv2#DeleteApplicationSnapshotResponse"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException"
+        },
         {
           "target": "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException"
         },
@@ -2365,11 +2478,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationSnapshotResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationVpcConfiguration": {
       "type": "operation",
@@ -2429,6 +2548,9 @@
             "smithy.api#documentation": "<p>A value you use to implement strong concurrency for application updates. You must provide\n      the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the\n      application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of\n        <code>CurrentApplicationVersionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeleteApplicationVpcConfigurationResponse": {
@@ -2446,6 +2568,9 @@
             "smithy.api#documentation": "<p>The updated version ID of the application.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DeployAsApplicationConfiguration": {
@@ -2531,6 +2656,9 @@
             "smithy.api#documentation": "<p>Displays verbose information about a Kinesis Data Analytics application, including the application's job plan.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DescribeApplicationResponse": {
@@ -2543,6 +2671,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DescribeApplicationSnapshot": {
@@ -2585,6 +2716,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DescribeApplicationSnapshotResponse": {
@@ -2597,6 +2731,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DescribeApplicationVersion": {
@@ -2639,6 +2776,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DescribeApplicationVersionResponse": {
@@ -2647,6 +2787,9 @@
         "ApplicationVersionDetail": {
           "target": "com.amazonaws.kinesisanalyticsv2#ApplicationDetail"
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DestinationSchema": {
@@ -2730,6 +2873,9 @@
             "smithy.api#documentation": "<p>The <a>InputProcessingConfiguration</a> to use to preprocess the records \n      before discovering the schema of the records.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#DiscoverInputSchemaResponse": {
@@ -2759,6 +2905,9 @@
             "smithy.api#documentation": "<p>The raw stream data that was sampled to infer the schema.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#EnvironmentProperties": {
@@ -3177,7 +3326,6 @@
     "com.amazonaws.kinesisanalyticsv2#InputParallelismCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 64
@@ -3270,22 +3418,26 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#InputStartingPosition": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NOW",
-            "name": "NOW"
-          },
-          {
-            "value": "TRIM_HORIZON",
-            "name": "TRIM_HORIZON"
-          },
-          {
-            "value": "LAST_STOPPED_POINT",
-            "name": "LAST_STOPPED_POINT"
+      "type": "enum",
+      "members": {
+        "NOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOW"
           }
-        ]
+        },
+        "TRIM_HORIZON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRIM_HORIZON"
+          }
+        },
+        "LAST_STOPPED_POINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAST_STOPPED_POINT"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#InputStartingPositionConfiguration": {
@@ -3543,6 +3695,956 @@
         "smithy.api#title": "Amazon Kinesis Analytics",
         "smithy.api#xmlNamespace": {
           "uri": "http://analytics.kinesis.amazonaws.com/doc/2018-05-23"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://kinesisanalytics-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://kinesisanalytics-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://kinesisanalytics.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://kinesisanalytics.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://kinesisanalytics.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
         }
       }
     },
@@ -3855,6 +4957,9 @@
             "smithy.api#documentation": "<p>Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more \n      output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should \n      continue from. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListApplicationSnapshotsResponse": {
@@ -3872,6 +4977,9 @@
             "smithy.api#documentation": "<p>The token for the next set of results, or <code>null</code> if there are no additional results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListApplicationVersions": {
@@ -3900,7 +5008,6 @@
     "com.amazonaws.kinesisanalyticsv2#ListApplicationVersionsInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -3929,6 +5036,9 @@
             "smithy.api#documentation": "<p>If a previous invocation of this operation returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see \n      <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListApplicationVersionsResponse": {
@@ -3946,6 +5056,9 @@
             "smithy.api#documentation": "<p>The pagination token for the next set of results, or <code>null</code> if there are no additional results. \n      To retrieve the next set of items, pass this token into a subsequent invocation of this operation. For more information about pagination, see \n      <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListApplications": {
@@ -3968,7 +5081,6 @@
     "com.amazonaws.kinesisanalyticsv2#ListApplicationsInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -3990,6 +5102,9 @@
             "smithy.api#documentation": "<p>If a previous command returned a pagination token, \n      pass it into this value to retrieve the next set of results.\n      For more information about pagination, see \n      <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListApplicationsResponse": {
@@ -4008,12 +5123,14 @@
             "smithy.api#documentation": "<p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.\n      Pass this token into a subsequent command to retrieve the next set of items\n      For more information about pagination, see \n      <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListSnapshotsInputLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -4053,6 +5170,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#ListTagsForResourceResponse": {
@@ -4064,29 +5184,38 @@
             "smithy.api#documentation": "<p>The key-value tags assigned to the application.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#LogLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INFO",
-            "name": "INFO"
-          },
-          {
-            "value": "WARN",
-            "name": "WARN"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "DEBUG",
-            "name": "DEBUG"
+      "type": "enum",
+      "members": {
+        "INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INFO"
           }
-        ]
+        },
+        "WARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WARN"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "DEBUG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEBUG"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#LogStreamARN": {
@@ -4179,32 +5308,37 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#MetricsLevel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "APPLICATION",
-            "name": "APPLICATION"
-          },
-          {
-            "value": "TASK",
-            "name": "TASK"
-          },
-          {
-            "value": "OPERATOR",
-            "name": "OPERATOR"
-          },
-          {
-            "value": "PARALLELISM",
-            "name": "PARALLELISM"
+      "type": "enum",
+      "members": {
+        "APPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPLICATION"
           }
-        ]
+        },
+        "TASK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TASK"
+          }
+        },
+        "OPERATOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OPERATOR"
+          }
+        },
+        "PARALLELISM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARALLELISM"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#MinPauseBetweenCheckpoints": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -4457,7 +5591,6 @@
     "com.amazonaws.kinesisanalyticsv2#Parallelism": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -4569,7 +5702,6 @@
     "com.amazonaws.kinesisanalyticsv2#ParallelismPerKPU": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1
         }
@@ -4784,18 +5916,20 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#RecordFormatType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "JSON",
-            "name": "JSON"
-          },
-          {
-            "value": "CSV",
-            "name": "CSV"
+      "type": "enum",
+      "members": {
+        "JSON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JSON"
           }
-        ]
+        },
+        "CSV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CSV"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#RecordRowDelimiter": {
@@ -5036,6 +6170,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#RollbackApplicationResponse": {
@@ -5047,6 +6184,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#RunConfiguration": {
@@ -5113,38 +6253,62 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#RuntimeEnvironment": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SQL-1_0",
-            "name": "SQL_1_0"
-          },
-          {
-            "value": "FLINK-1_6",
-            "name": "FLINK_1_6"
-          },
-          {
-            "value": "FLINK-1_8",
-            "name": "FLINK_1_8"
-          },
-          {
-            "value": "ZEPPELIN-FLINK-1_0",
-            "name": "ZEPPELIN_FLINK_1_0"
-          },
-          {
-            "value": "FLINK-1_11",
-            "name": "FLINK_1_11"
-          },
-          {
-            "value": "FLINK-1_13",
-            "name": "FLINK_1_13"
-          },
-          {
-            "value": "ZEPPELIN-FLINK-2_0",
-            "name": "ZEPPELIN_FLINK_2_0"
+      "type": "enum",
+      "members": {
+        "SQL_1_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SQL-1_0"
           }
-        ]
+        },
+        "FLINK_1_6": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLINK-1_6"
+          }
+        },
+        "FLINK_1_8": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLINK-1_8"
+          }
+        },
+        "ZEPPELIN_FLINK_1_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZEPPELIN-FLINK-1_0"
+          }
+        },
+        "FLINK_1_11": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLINK-1_11"
+          }
+        },
+        "FLINK_1_13": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLINK-1_13"
+          }
+        },
+        "ZEPPELIN_FLINK_2_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZEPPELIN-FLINK-2_0"
+          }
+        },
+        "FLINK_1_15": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLINK-1_15"
+          }
+        },
+        "ZEPPELIN_FLINK_3_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZEPPELIN-FLINK-3_0"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#S3ApplicationCodeLocationDescription": {
@@ -5412,7 +6576,6 @@
     "com.amazonaws.kinesisanalyticsv2#SessionExpirationDurationInSeconds": {
       "type": "long",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1800,
           "max": 43200
@@ -5465,26 +6628,32 @@
       }
     },
     "com.amazonaws.kinesisanalyticsv2#SnapshotStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "READY",
-            "name": "READY"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
           }
-        ]
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#SnapshotSummaries": {
@@ -5672,11 +6841,17 @@
             "smithy.api#documentation": "<p>Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#StartApplicationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#StopApplication": {
       "type": "operation",
@@ -5726,11 +6901,17 @@
             "smithy.api#documentation": "<p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>\n          to <code>true</code>, Kinesis Data Analytics stops the application without taking a snapshot. \n      </p>\n          <note>\n            <p>Force-stopping your application may lead to data loss or duplication.\n              To prevent data loss or duplicate processing of data during application restarts, \n              we recommend you to take frequent snapshots of your application.</p>\n         </note>\n         <p>You can only force stop a Flink-based Kinesis Data Analytics application. You can't force stop a SQL-based Kinesis Data Analytics application.</p>\n         <p>The application must be in the\n          <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>, <code>AUTOSCALING</code>, or\n          <code>RUNNING</code> status. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#StopApplicationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#SubnetId": {
       "type": "string"
@@ -5835,11 +7016,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#TagValue": {
       "type": "string",
@@ -5968,11 +7155,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#UntagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.kinesisanalyticsv2#UpdateApplication": {
       "type": "operation",
@@ -6058,6 +7251,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#UpdateApplicationMaintenanceConfigurationResponse": {
@@ -6075,6 +7271,9 @@
             "smithy.api#documentation": "<p>The application maintenance configuration description after the update.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#UpdateApplicationRequest": {
@@ -6123,6 +7322,9 @@
             "smithy.api#documentation": "<p>A value you use to implement strong concurrency for application updates. You must\n      provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You\n      get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the\n        <code>ConditionalToken</code> parameter instead of\n      <code>CurrentApplicationVersionId</code>.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#UpdateApplicationResponse": {
@@ -6135,21 +7337,26 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.kinesisanalyticsv2#UrlType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FLINK_DASHBOARD_URL",
-            "name": "FLINK_DASHBOARD_URL"
-          },
-          {
-            "value": "ZEPPELIN_UI_URL",
-            "name": "ZEPPELIN_UI_URL"
+      "type": "enum",
+      "members": {
+        "FLINK_DASHBOARD_URL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FLINK_DASHBOARD_URL"
           }
-        ]
+        },
+        "ZEPPELIN_UI_URL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZEPPELIN_UI_URL"
+          }
+        }
       }
     },
     "com.amazonaws.kinesisanalyticsv2#VpcConfiguration": {

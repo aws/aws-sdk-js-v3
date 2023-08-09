@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   KinesisVideoSignalingClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
 import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1SendAlexaOfferToMasterCommand,
-  serializeAws_restJson1SendAlexaOfferToMasterCommand,
-} from "../protocols/Aws_restJson1";
+import { de_SendAlexaOfferToMasterCommand, se_SendAlexaOfferToMasterCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SendAlexaOfferToMasterCommand}.
+ */
 export interface SendAlexaOfferToMasterCommandInput extends SendAlexaOfferToMasterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SendAlexaOfferToMasterCommand}.
+ */
 export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMasterResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When
  *             invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer.
  *             The offer is delivered as soon as the master is connected to the specified signaling
@@ -38,13 +52,40 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * import { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
  * // const { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
+ * const input = { // SendAlexaOfferToMasterRequest
+ *   ChannelARN: "STRING_VALUE", // required
+ *   SenderClientId: "STRING_VALUE", // required
+ *   MessagePayload: "STRING_VALUE", // required
+ * };
  * const command = new SendAlexaOfferToMasterCommand(input);
  * const response = await client.send(command);
+ * // { // SendAlexaOfferToMasterResponse
+ * //   Answer: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param SendAlexaOfferToMasterCommandInput - {@link SendAlexaOfferToMasterCommandInput}
+ * @returns {@link SendAlexaOfferToMasterCommandOutput}
  * @see {@link SendAlexaOfferToMasterCommandInput} for command's `input` shape.
  * @see {@link SendAlexaOfferToMasterCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Your request was throttled because you have exceeded the limit of allowed client
+ *             calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource is not found.</p>
+ *
+ * @throws {@link KinesisVideoSignalingServiceException}
+ * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
  */
 export class SendAlexaOfferToMasterCommand extends $Command<
@@ -55,6 +96,18 @@ export class SendAlexaOfferToMasterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SendAlexaOfferToMasterCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +123,9 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<SendAlexaOfferToMasterCommandInput, SendAlexaOfferToMasterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, SendAlexaOfferToMasterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +136,8 @@ export class SendAlexaOfferToMasterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendAlexaOfferToMasterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendAlexaOfferToMasterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +147,18 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SendAlexaOfferToMasterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SendAlexaOfferToMasterCommand(input, context);
+    return se_SendAlexaOfferToMasterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendAlexaOfferToMasterCommandOutput> {
-    return deserializeAws_restJson1SendAlexaOfferToMasterCommand(output, context);
+    return de_SendAlexaOfferToMasterCommand(output, context);
   }
 
   // Start section: command_body_extra

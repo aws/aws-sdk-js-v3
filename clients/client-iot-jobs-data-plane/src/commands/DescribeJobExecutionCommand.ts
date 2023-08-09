@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
 import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeJobExecutionCommand,
-  serializeAws_restJson1DescribeJobExecutionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeJobExecutionCommand, se_DescribeJobExecutionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeJobExecutionCommand}.
+ */
 export interface DescribeJobExecutionCommandInput extends DescribeJobExecutionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeJobExecutionCommand}.
+ */
 export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets details of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,60 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = { // DescribeJobExecutionRequest
+ *   jobId: "STRING_VALUE", // required
+ *   thingName: "STRING_VALUE", // required
+ *   includeJobDocument: true || false,
+ *   executionNumber: Number("long"),
+ * };
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeJobExecutionResponse
+ * //   execution: { // JobExecution
+ * //     jobId: "STRING_VALUE",
+ * //     thingName: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     statusDetails: { // DetailsMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     queuedAt: Number("long"),
+ * //     startedAt: Number("long"),
+ * //     lastUpdatedAt: Number("long"),
+ * //     approximateSecondsBeforeTimedOut: Number("long"),
+ * //     versionNumber: Number("long"),
+ * //     executionNumber: Number("long"),
+ * //     jobDocument: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeJobExecutionCommandInput - {@link DescribeJobExecutionCommandInput}
+ * @returns {@link DescribeJobExecutionCommandOutput}
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
+ *
+ * @throws {@link CertificateValidationException} (client fault)
+ *  <p>The certificate is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link TerminalStateException} (client fault)
+ *  <p>The job is in a terminal state.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link IoTJobsDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
  */
 export class DescribeJobExecutionCommand extends $Command<
@@ -46,6 +107,18 @@ export class DescribeJobExecutionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeJobExecutionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +134,9 @@ export class DescribeJobExecutionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeJobExecutionCommandInput, DescribeJobExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeJobExecutionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +147,8 @@ export class DescribeJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +158,18 @@ export class DescribeJobExecutionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeJobExecutionCommand(input, context);
+    return se_DescribeJobExecutionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobExecutionCommandOutput> {
-    return deserializeAws_restJson1DescribeJobExecutionCommand(output, context);
+    return de_DescribeJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import {
-  deserializeAws_json1_0ListClosedWorkflowExecutionsCommand,
-  serializeAws_json1_0ListClosedWorkflowExecutionsCommand,
+  de_ListClosedWorkflowExecutionsCommand,
+  se_ListClosedWorkflowExecutionsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListClosedWorkflowExecutionsCommand}.
+ */
 export interface ListClosedWorkflowExecutionsCommandInput extends ListClosedWorkflowExecutionsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListClosedWorkflowExecutionsCommand}.
+ */
 export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a list of closed workflow executions in the specified domain that meet the
  *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -76,13 +93,79 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * import { SWFClient, ListClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // ListClosedWorkflowExecutionsInput
+ *   domain: "STRING_VALUE", // required
+ *   startTimeFilter: { // ExecutionTimeFilter
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   closeTimeFilter: {
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   executionFilter: { // WorkflowExecutionFilter
+ *     workflowId: "STRING_VALUE", // required
+ *   },
+ *   closeStatusFilter: { // CloseStatusFilter
+ *     status: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT", // required
+ *   },
+ *   typeFilter: { // WorkflowTypeFilter
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE",
+ *   },
+ *   tagFilter: { // TagFilter
+ *     tag: "STRING_VALUE", // required
+ *   },
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new ListClosedWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
+ * // { // WorkflowExecutionInfos
+ * //   executionInfos: [ // WorkflowExecutionInfoList // required
+ * //     { // WorkflowExecutionInfo
+ * //       execution: { // WorkflowExecution
+ * //         workflowId: "STRING_VALUE", // required
+ * //         runId: "STRING_VALUE", // required
+ * //       },
+ * //       workflowType: { // WorkflowType
+ * //         name: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       startTimestamp: new Date("TIMESTAMP"), // required
+ * //       closeTimestamp: new Date("TIMESTAMP"),
+ * //       executionStatus: "OPEN" || "CLOSED", // required
+ * //       closeStatus: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT",
+ * //       parent: {
+ * //         workflowId: "STRING_VALUE", // required
+ * //         runId: "STRING_VALUE", // required
+ * //       },
+ * //       tagList: [ // TagList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       cancelRequested: true || false,
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListClosedWorkflowExecutionsCommandInput - {@link ListClosedWorkflowExecutionsCommandInput}
+ * @returns {@link ListClosedWorkflowExecutionsCommandOutput}
  * @see {@link ListClosedWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListClosedWorkflowExecutionsCommand extends $Command<
@@ -93,6 +176,18 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListClosedWorkflowExecutionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -108,6 +203,9 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListClosedWorkflowExecutionsCommandInput, ListClosedWorkflowExecutionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListClosedWorkflowExecutionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -118,8 +216,8 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClosedWorkflowExecutionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionInfos.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -129,15 +227,21 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListClosedWorkflowExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(input, context);
+    return se_ListClosedWorkflowExecutionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(output, context);
+    return de_ListClosedWorkflowExecutionsCommand(output, context);
   }
 
   // Start section: command_body_extra

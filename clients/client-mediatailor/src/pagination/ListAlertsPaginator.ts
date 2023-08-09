@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
-import { MediaTailor } from "../MediaTailor";
 import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaTailorClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAlertsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaTailor,
-  input: ListAlertsCommandInput,
-  ...args: any
-): Promise<ListAlertsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAlerts(input, ...args);
-};
 export async function* paginateListAlerts(
   config: MediaTailorPaginationConfiguration,
   input: ListAlertsCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListAlerts(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaTailor) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaTailorClient) {
+    if (config.client instanceof MediaTailorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaTailor | MediaTailorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

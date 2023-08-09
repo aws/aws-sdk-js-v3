@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { StopNotebookInstanceInput } from "../models/models_3";
-import {
-  deserializeAws_json1_1StopNotebookInstanceCommand,
-  serializeAws_json1_1StopNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { StopNotebookInstanceInput } from "../models/models_4";
+import { de_StopNotebookInstanceCommand, se_StopNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopNotebookInstanceCommand}.
+ */
 export interface StopNotebookInstanceCommandInput extends StopNotebookInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link StopNotebookInstanceCommand}.
+ */
 export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker
- *             disconnects the ML storage volume from it. Amazon SageMaker preserves the ML storage volume. Amazon SageMaker
+ * @public
+ * <p>Terminates the ML compute instance. Before terminating the instance, SageMaker
+ *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
  *             stops charging you for the ML compute instance when you call
  *                 <code>StopNotebookInstance</code>.</p>
- *         <p>To access data on the ML storage volume for a notebook instance that has been
+ *          <p>To access data on the ML storage volume for a notebook instance that has been
  *             terminated, call the <code>StartNotebookInstance</code> API.
  *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
  *             it, and attaches the preserved ML storage volume so you can continue your work.
@@ -37,13 +51,23 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StopNotebookInstanceInput
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ * };
  * const command = new StopNotebookInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StopNotebookInstanceCommandInput - {@link StopNotebookInstanceCommandInput}
+ * @returns {@link StopNotebookInstanceCommandOutput}
  * @see {@link StopNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StopNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StopNotebookInstanceCommand extends $Command<
@@ -54,6 +78,18 @@ export class StopNotebookInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +105,9 @@ export class StopNotebookInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopNotebookInstanceCommandInput, StopNotebookInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopNotebookInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +118,8 @@ export class StopNotebookInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopNotebookInstanceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +129,18 @@ export class StopNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopNotebookInstanceCommand(input, context);
+    return se_StopNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1StopNotebookInstanceCommand(output, context);
+    return de_StopNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

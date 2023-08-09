@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -68,6 +68,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#AcceptSharedDirectoryResult": {
@@ -160,9 +163,13 @@
         "UpdateSecurityGroupForDirectoryControllers": {
           "target": "com.amazonaws.directoryservice#UpdateSecurityGroupForDirectoryControllers",
           "traits": {
-            "smithy.api#documentation": "<p>If set to true, updates the inbound and outbound rules of the security group that has\n         the description: \"Amazon Web Services created security group for <i>directory ID</i>\n         directory controllers.\" Following are the new rules: </p>\n         <p>Inbound:</p>\n         <ul>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source:\n               0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source:\n               0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</p>\n            </li>\n         </ul>\n\n         <p></p>\n         <p>Outbound:</p>\n         <ul>\n            <li>\n               <p>Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0</p>\n            </li>\n         </ul>\n         <p>These security rules impact an internal network interface that is not exposed\n         publicly.</p>"
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>If set to true, updates the inbound and outbound rules of the security group that has\n         the description: \"Amazon Web Services created security group for <i>directory ID</i>\n         directory controllers.\" Following are the new rules: </p>\n         <p>Inbound:</p>\n         <ul>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source:\n               0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source:\n               0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0</p>\n            </li>\n            <li>\n               <p>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</p>\n            </li>\n         </ul>\n         <p></p>\n         <p>Outbound:</p>\n         <ul>\n            <li>\n               <p>Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0</p>\n            </li>\n         </ul>\n         <p>These security rules impact an internal network interface that is not exposed\n         publicly.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#AddIpRoutesResult": {
@@ -236,6 +243,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#AddRegionResult": {
@@ -288,6 +298,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#AddTagsToResourceResult": {
@@ -420,6 +433,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CancelSchemaExtensionResult": {
@@ -605,52 +621,64 @@
       "type": "timestamp"
     },
     "com.amazonaws.directoryservice#CertificateState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Registering",
-            "name": "REGISTERING"
-          },
-          {
-            "value": "Registered",
-            "name": "REGISTERED"
-          },
-          {
-            "value": "RegisterFailed",
-            "name": "REGISTER_FAILED"
-          },
-          {
-            "value": "Deregistering",
-            "name": "DEREGISTERING"
-          },
-          {
-            "value": "Deregistered",
-            "name": "DEREGISTERED"
-          },
-          {
-            "value": "DeregisterFailed",
-            "name": "DEREGISTER_FAILED"
+      "type": "enum",
+      "members": {
+        "REGISTERING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Registering"
           }
-        ]
+        },
+        "REGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Registered"
+          }
+        },
+        "REGISTER_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RegisterFailed"
+          }
+        },
+        "DEREGISTERING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deregistering"
+          }
+        },
+        "DEREGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deregistered"
+          }
+        },
+        "DEREGISTER_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeregisterFailed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#CertificateStateReason": {
       "type": "string"
     },
     "com.amazonaws.directoryservice#CertificateType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ClientCertAuth",
-            "name": "CLIENT_CERT_AUTH"
-          },
-          {
-            "value": "ClientLDAPS",
-            "name": "CLIENT_LDAPS"
+      "type": "enum",
+      "members": {
+        "CLIENT_CERT_AUTH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ClientCertAuth"
           }
-        ]
+        },
+        "CLIENT_LDAPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ClientLDAPS"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#CertificatesInfo": {
@@ -704,29 +732,37 @@
       }
     },
     "com.amazonaws.directoryservice#ClientAuthenticationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Enabled",
-            "name": "ENABLED"
-          },
-          {
-            "value": "Disabled",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enabled"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Disabled"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#ClientAuthenticationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SmartCard",
-            "name": "SMART_CARD"
+      "type": "enum",
+      "members": {
+        "SMART_CARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SmartCard"
           }
-        ]
+        },
+        "SMART_CARD_OR_PASSWORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SmartCardOrPassword"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#ClientCertAuthSettings": {
@@ -759,7 +795,10 @@
       }
     },
     "com.amazonaws.directoryservice#CloudOnlyDirectoriesLimitReached": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#Computer": {
       "type": "structure",
@@ -916,7 +955,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>ConnectDirectory</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>ConnectDirectory</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ConnectDirectoryResult": {
@@ -944,7 +984,10 @@
       }
     },
     "com.amazonaws.directoryservice#ConnectedDirectoriesLimitReached": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#CreateAlias": {
       "type": "operation",
@@ -994,7 +1037,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateAlias</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateAlias</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateAliasResult": {
@@ -1093,7 +1137,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateComputer</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateComputer</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateComputerResult": {
@@ -1171,7 +1216,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Initiates the creation of a conditional forwarder for your Directory Service for Microsoft Active\n      Directory. Conditional forwarders are required in order to set up a trust relationship with\n      another domain.</p>"
+        "smithy.api#documentation": "<p>Initiates the creation of a conditional forwarder for your Directory Service for Microsoft Active\n      Directory. Conditional forwarders are required in order to set up a trust relationship with\n      another domain.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateConditionalForwarderResult": {
@@ -1257,7 +1303,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateDirectory</a> operation. </p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateDirectory</a> operation. </p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateDirectoryResult": {
@@ -1323,6 +1370,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateLogSubscriptionResult": {
@@ -1408,7 +1458,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates an Managed Microsoft AD directory.</p>"
+        "smithy.api#documentation": "<p>Creates an Managed Microsoft AD directory.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateMicrosoftADResult": {
@@ -1455,7 +1506,16 @@
       }
     },
     "com.amazonaws.directoryservice#CreateSnapshotBeforeSchemaExtension": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.directoryservice#CreateSnapshotBeforeUpdate": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#CreateSnapshotRequest": {
       "type": "structure",
@@ -1475,7 +1535,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateSnapshot</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>CreateSnapshot</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateSnapshotResult": {
@@ -1575,7 +1636,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For\n      example, you can establish a trust between your Managed Microsoft AD directory, and your existing\n      self-managed Microsoft Active Directory. This would allow you to provide users and groups\n      access to resources in either domain, with a single set of credentials.</p>\n         <p>This action initiates the creation of the Amazon Web Services side of a trust relationship between an\n      Managed Microsoft AD directory and an external domain.</p>"
+        "smithy.api#documentation": "<p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For\n      example, you can establish a trust between your Managed Microsoft AD directory, and your existing\n      self-managed Microsoft Active Directory. This would allow you to provide users and groups\n      access to resources in either domain, with a single set of credentials.</p>\n         <p>This action initiates the creation of the Amazon Web Services side of a trust relationship between an\n      Managed Microsoft AD directory and an external domain.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#CreateTrustResult": {
@@ -1612,7 +1674,10 @@
       }
     },
     "com.amazonaws.directoryservice#DeleteAssociatedConditionalForwarder": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#DeleteConditionalForwarder": {
       "type": "operation",
@@ -1665,7 +1730,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a conditional forwarder.</p>"
+        "smithy.api#documentation": "<p>Deletes a conditional forwarder.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeleteConditionalForwarderResult": {
@@ -1710,7 +1776,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>DeleteDirectory</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>DeleteDirectory</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeleteDirectoryResult": {
@@ -1763,6 +1830,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeleteLogSubscriptionResult": {
@@ -1807,7 +1877,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>DeleteSnapshot</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>DeleteSnapshot</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeleteSnapshotResult": {
@@ -1866,12 +1937,14 @@
         "DeleteAssociatedConditionalForwarder": {
           "target": "com.amazonaws.directoryservice#DeleteAssociatedConditionalForwarder",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Delete a conditional forwarder as part of a DeleteTrustRequest.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the local side of an existing trust relationship between the Managed Microsoft AD\n      directory and the external domain.</p>"
+        "smithy.api#documentation": "<p>Deletes the local side of an existing trust relationship between the Managed Microsoft AD\n      directory and the external domain.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeleteTrustResult": {
@@ -1943,6 +2016,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeregisterCertificateResult": {
@@ -1994,7 +2070,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>"
+        "smithy.api#documentation": "<p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DeregisterEventTopicResult": {
@@ -2053,6 +2130,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeCertificateResult": {
@@ -2095,7 +2175,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only <code>SmartCard</code> is supported.\n    </p>"
+        "smithy.api#documentation": "<p>Retrieves information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only <code>SmartCard</code> is supported.\n    </p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ClientAuthenticationSettingsInfo",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeClientAuthenticationSettingsRequest": {
@@ -2126,6 +2212,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeClientAuthenticationSettingsResult": {
@@ -2195,7 +2284,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a conditional forwarder.</p>"
+        "smithy.api#documentation": "<p>Describes a conditional forwarder.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeConditionalForwardersResult": {
@@ -2238,7 +2328,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Obtains information about the directories that belong to this account.</p>\n         <p>You can retrieve information about specific directories by passing the directory\n      identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong\n      to the current account are returned.</p>\n         <p>This operation supports pagination with the use of the <code>NextToken</code> request and\n      response parameters. If more results are available, the\n        <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in\n      the next call to <a>DescribeDirectories</a> to retrieve the next set of\n      items.</p>\n         <p>You can also specify a maximum number of return results with the <code>Limit</code>\n      parameter.</p>"
+        "smithy.api#documentation": "<p>Obtains information about the directories that belong to this account.</p>\n         <p>You can retrieve information about specific directories by passing the directory\n      identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong\n      to the current account are returned.</p>\n         <p>This operation supports pagination with the use of the <code>NextToken</code> request and\n      response parameters. If more results are available, the\n        <code>DescribeDirectoriesResult.NextToken</code> member contains a token that you pass in\n      the next call to <a>DescribeDirectories</a> to retrieve the next set of\n      items.</p>\n         <p>You can also specify a maximum number of return results with the <code>Limit</code>\n      parameter.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "DirectoryDescriptions",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeDirectoriesRequest": {
@@ -2264,7 +2360,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>DescribeDirectories</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>DescribeDirectories</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeDirectoriesResult": {
@@ -2352,6 +2449,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeDomainControllersResult": {
@@ -2414,7 +2514,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes event topics.</p>"
+        "smithy.api#documentation": "<p>Describes event topics.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeEventTopicsResult": {
@@ -2460,7 +2561,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the status of LDAP security for the specified directory.</p>"
+        "smithy.api#documentation": "<p>Describes the status of LDAP security for the specified directory.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "LDAPSSettingsInfo",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeLDAPSSettingsRequest": {
@@ -2491,6 +2598,9 @@
             "smithy.api#documentation": "<p>Specifies the number of items that should be displayed on one page.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeLDAPSSettingsResult": {
@@ -2542,7 +2652,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Provides information about the Regions that are configured for multi-Region\n      replication.</p>"
+        "smithy.api#documentation": "<p>Provides information about the Regions that are configured for multi-Region\n      replication.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "RegionsDescription"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeRegionsRequest": {
@@ -2567,6 +2682,9 @@
             "smithy.api#documentation": "<p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>. Pass null if this is the first call.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeRegionsResult": {
@@ -2582,6 +2700,88 @@
           "target": "com.amazonaws.directoryservice#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>If not null, more results are available. Pass this value for the <code>NextToken</code>\n      parameter in a subsequent call to <a>DescribeRegions</a> to retrieve the next set\n      of items.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#DescribeSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directoryservice#DescribeSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directoryservice#DescribeSettingsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directoryservice#ClientException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryDoesNotExistException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves information about the configurable settings for the specified directory.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#DescribeSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for which to retrieve information.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the directory settings for which to retrieve information.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>. Pass null if this is the first call.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.directoryservice#DescribeSettingsResult": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>"
+          }
+        },
+        "SettingEntries": {
+          "target": "com.amazonaws.directoryservice#SettingEntries",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of <a>SettingEntry</a> objects that were retrieved.</p>\n         <p>It is possible that this list contains less than the number of items specified in the\n      <code>Limit</code> member of the request. This occurs if there are less than the requested\n      number of items left to retrieve, or if the limitations of the operation have been\n      exceeded.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If not null, token that indicates that more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to retrieve the next set of items. </p>"
           }
         }
       }
@@ -2615,7 +2815,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the shared directories in your account. </p>"
+        "smithy.api#documentation": "<p>Returns the shared directories in your account. </p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "SharedDirectories",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeSharedDirectoriesRequest": {
@@ -2646,6 +2852,9 @@
             "smithy.api#documentation": "<p>The number of shared directories to return in the response object.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeSharedDirectoriesResult": {
@@ -2691,7 +2900,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Obtains information about the directory snapshots that belong to this account.</p>\n         <p>This operation supports pagination with the use of the <i>NextToken</i> request and\n         response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>\n         member contains a token that you pass in the next call to <a>DescribeSnapshots</a> to\n         retrieve the next set of items.</p>\n         <p>You can also specify a maximum number of return results with the <i>Limit</i>\n         parameter.</p>"
+        "smithy.api#documentation": "<p>Obtains information about the directory snapshots that belong to this account.</p>\n         <p>This operation supports pagination with the use of the <i>NextToken</i> request and\n         response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>\n         member contains a token that you pass in the next call to <a>DescribeSnapshots</a> to\n         retrieve the next set of items.</p>\n         <p>You can also specify a maximum number of return results with the <i>Limit</i>\n         parameter.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Snapshots",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeSnapshotsRequest": {
@@ -2723,7 +2938,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>DescribeSnapshots</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>DescribeSnapshots</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeSnapshotsResult": {
@@ -2775,7 +2991,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Obtains information about the trust relationships for this account.</p>\n         <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request\n      describes all the trust relationships belonging to the account.</p>"
+        "smithy.api#documentation": "<p>Obtains information about the trust relationships for this account.</p>\n         <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request\n      describes all the trust relationships belonging to the account.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Trusts",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#DescribeTrustsRequest": {
@@ -2807,7 +3029,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the trust relationships for a particular Managed Microsoft AD directory. If no input\n      parameters are provided, such as directory ID or trust ID, this request describes all the\n      trust relationships.</p>"
+        "smithy.api#documentation": "<p>Describes the trust relationships for a particular Managed Microsoft AD directory. If no input\n      parameters are provided, such as directory ID or trust ID, this request describes all the\n      trust relationships.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DescribeTrustsResult": {
@@ -2830,6 +3053,94 @@
         "smithy.api#documentation": "<p>The result of a DescribeTrust request.</p>"
       }
     },
+    "com.amazonaws.directoryservice#DescribeUpdateDirectory": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directoryservice#DescribeUpdateDirectoryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directoryservice#DescribeUpdateDirectoryResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directoryservice#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ClientException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryDoesNotExistException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidNextTokenException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Describes the updates of a directory for a particular update type.\n    </p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "UpdateActivities"
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#DescribeUpdateDirectoryRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The unique identifier of the directory.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UpdateType": {
+          "target": "com.amazonaws.directoryservice#UpdateType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of updates you want to describe for the directory.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RegionName": {
+          "target": "com.amazonaws.directoryservice#RegionName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The name of the Region.\n    </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to <a>DescribeUpdateDirectory</a>. Pass null if this is the first call.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.directoryservice#DescribeUpdateDirectoryResult": {
+      "type": "structure",
+      "members": {
+        "UpdateActivities": {
+          "target": "com.amazonaws.directoryservice#UpdateActivities",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The list of update activities on a directory for the requested update type.\n    </p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.directoryservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      If not null, more results are available. Pass this value for the <code>NextToken</code> parameter.\n    </p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.directoryservice#Description": {
       "type": "string",
       "traits": {
@@ -2843,6 +3154,7 @@
     "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 2
         }
@@ -2876,6 +3188,88 @@
       "traits": {
         "smithy.api#documentation": "<p>The specified directory has already been shared with this Amazon Web Services account.</p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingAllowedValues": {
+      "type": "string"
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingDataType": {
+      "type": "string"
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingLastRequestedDateTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingLastUpdatedDateTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9-/. _]*$"
+      }
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingRequestDetailedStatus": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.directoryservice#RegionName"
+      },
+      "value": {
+        "target": "com.amazonaws.directoryservice#DirectoryConfigurationStatus"
+      }
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingRequestStatusMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingType": {
+      "type": "string"
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationSettingValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_]*$"
+      }
+    },
+    "com.amazonaws.directoryservice#DirectoryConfigurationStatus": {
+      "type": "enum",
+      "members": {
+        "REQUESTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Requested"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Updating"
+          }
+        },
+        "UPDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Updated"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Default"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#DirectoryConnectSettings": {
@@ -3090,12 +3484,14 @@
         "SsoEnabled": {
           "target": "com.amazonaws.directoryservice#SsoEnabled",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates if single sign-on is enabled for the directory. For more information, see <a>EnableSso</a> and <a>DisableSso</a>.</p>"
           }
         },
         "DesiredNumberOfDomainControllers": {
           "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The desired number of domain controllers in the directory if the directory is Microsoft\n      AD.</p>"
           }
         },
@@ -3109,6 +3505,12 @@
           "target": "com.amazonaws.directoryservice#RegionsInfo",
           "traits": {
             "smithy.api#documentation": "<p>Lists the Regions where the directory has replicated.</p>"
+          }
+        },
+        "OsVersion": {
+          "target": "com.amazonaws.directoryservice#OSVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The operating system (OS) version of the directory.</p>"
           }
         }
       },
@@ -3141,18 +3543,20 @@
       }
     },
     "com.amazonaws.directoryservice#DirectoryEdition": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Enterprise",
-            "name": "ENTERPRISE"
-          },
-          {
-            "value": "Standard",
-            "name": "STANDARD"
+      "type": "enum",
+      "members": {
+        "ENTERPRISE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enterprise"
           }
-        ]
+        },
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standard"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#DirectoryId": {
@@ -3168,6 +3572,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A list of directory identifiers.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#DirectoryInDesiredStateException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      The directory is already updated to desired update type settings.\n    </p>",
+        "smithy.api#error": "client"
       }
     },
     "com.amazonaws.directoryservice#DirectoryLimitExceededException": {
@@ -3203,6 +3622,7 @@
         "CloudOnlyDirectoriesLimitReached": {
           "target": "com.amazonaws.directoryservice#CloudOnlyDirectoriesLimitReached",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates if the cloud directory limit has been reached.</p>"
           }
         },
@@ -3221,6 +3641,7 @@
         "CloudOnlyMicrosoftADLimitReached": {
           "target": "com.amazonaws.directoryservice#CloudOnlyDirectoriesLimitReached",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates if the Managed Microsoft AD directory limit has been reached.</p>"
           }
         },
@@ -3239,6 +3660,7 @@
         "ConnectedDirectoriesLimitReached": {
           "target": "com.amazonaws.directoryservice#ConnectedDirectoriesLimitReached",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates if the connected directory limit has been reached.</p>"
           }
         }
@@ -3360,6 +3782,9 @@
           "target": "com.amazonaws.directoryservice#DescribeRegions"
         },
         {
+          "target": "com.amazonaws.directoryservice#DescribeSettings"
+        },
+        {
           "target": "com.amazonaws.directoryservice#DescribeSharedDirectories"
         },
         {
@@ -3367,6 +3792,9 @@
         },
         {
           "target": "com.amazonaws.directoryservice#DescribeTrusts"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DescribeUpdateDirectory"
         },
         {
           "target": "com.amazonaws.directoryservice#DisableClientAuthentication"
@@ -3450,10 +3878,16 @@
           "target": "com.amazonaws.directoryservice#UpdateConditionalForwarder"
         },
         {
+          "target": "com.amazonaws.directoryservice#UpdateDirectorySetup"
+        },
+        {
           "target": "com.amazonaws.directoryservice#UpdateNumberOfDomainControllers"
         },
         {
           "target": "com.amazonaws.directoryservice#UpdateRadius"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UpdateSettings"
         },
         {
           "target": "com.amazonaws.directoryservice#UpdateTrust"
@@ -3478,6 +3912,1021 @@
         "smithy.api#title": "AWS Directory Service",
         "smithy.api#xmlNamespace": {
           "uri": "http://directoryservice.amazonaws.com/doc/2015-04-16/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://ds-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://ds-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://ds.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ds.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ds-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
         }
       }
     },
@@ -3488,92 +4937,120 @@
       }
     },
     "com.amazonaws.directoryservice#DirectorySize": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Small",
-            "name": "SMALL"
-          },
-          {
-            "value": "Large",
-            "name": "LARGE"
+      "type": "enum",
+      "members": {
+        "SMALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Small"
           }
-        ]
+        },
+        "LARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Large"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#DirectoryStage": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Requested",
-            "name": "REQUESTED"
-          },
-          {
-            "value": "Creating",
-            "name": "CREATING"
-          },
-          {
-            "value": "Created",
-            "name": "CREATED"
-          },
-          {
-            "value": "Active",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "Inoperable",
-            "name": "INOPERABLE"
-          },
-          {
-            "value": "Impaired",
-            "name": "IMPAIRED"
-          },
-          {
-            "value": "Restoring",
-            "name": "RESTORING"
-          },
-          {
-            "value": "RestoreFailed",
-            "name": "RESTOREFAILED"
-          },
-          {
-            "value": "Deleting",
-            "name": "DELETING"
-          },
-          {
-            "value": "Deleted",
-            "name": "DELETED"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "REQUESTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Requested"
           }
-        ]
+        },
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Creating"
+          }
+        },
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Created"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
+          }
+        },
+        "INOPERABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Inoperable"
+          }
+        },
+        "IMPAIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Impaired"
+          }
+        },
+        "RESTORING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Restoring"
+          }
+        },
+        "RESTOREFAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RestoreFailed"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleting"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleted"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#DirectoryType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SimpleAD",
-            "name": "SIMPLE_AD"
-          },
-          {
-            "value": "ADConnector",
-            "name": "AD_CONNECTOR"
-          },
-          {
-            "value": "MicrosoftAD",
-            "name": "MICROSOFT_AD"
-          },
-          {
-            "value": "SharedMicrosoftAD",
-            "name": "SHARED_MICROSOFT_AD"
+      "type": "enum",
+      "members": {
+        "SIMPLE_AD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SimpleAD"
           }
-        ]
+        },
+        "AD_CONNECTOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADConnector"
+          }
+        },
+        "MICROSOFT_AD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MicrosoftAD"
+          }
+        },
+        "SHARED_MICROSOFT_AD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SharedMicrosoftAD"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#DirectoryUnavailableException": {
@@ -3694,6 +5171,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DisableClientAuthenticationResult": {
@@ -3752,6 +5232,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DisableLDAPSResult": {
@@ -3793,7 +5276,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>DisableRadius</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>DisableRadius</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DisableRadiusResult": {
@@ -3856,7 +5340,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>DisableSso</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>DisableSso</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#DisableSsoResult": {
@@ -3968,38 +5453,50 @@
       }
     },
     "com.amazonaws.directoryservice#DomainControllerStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Creating",
-            "name": "CREATING"
-          },
-          {
-            "value": "Active",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "Impaired",
-            "name": "IMPAIRED"
-          },
-          {
-            "value": "Restoring",
-            "name": "RESTORING"
-          },
-          {
-            "value": "Deleting",
-            "name": "DELETING"
-          },
-          {
-            "value": "Deleted",
-            "name": "DELETED"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Creating"
           }
-        ]
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
+          }
+        },
+        "IMPAIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Impaired"
+          }
+        },
+        "RESTORING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Restoring"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleting"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleted"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#DomainControllerStatusReason": {
@@ -4063,6 +5560,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#EnableClientAuthenticationResult": {
@@ -4124,6 +5624,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#EnableLDAPSResult": {
@@ -4178,7 +5681,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>EnableRadius</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>EnableRadius</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#EnableRadiusResult": {
@@ -4241,7 +5745,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>EnableSso</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>EnableSso</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#EnableSsoResult": {
@@ -4361,7 +5866,8 @@
       "type": "structure",
       "members": {},
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>GetDirectoryLimits</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>GetDirectoryLimits</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#GetDirectoryLimitsResult": {
@@ -4413,7 +5919,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>GetSnapshotLimits</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>GetSnapshotLimits</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#GetSnapshotLimitsResult": {
@@ -4429,6 +5936,24 @@
       "traits": {
         "smithy.api#documentation": "<p>Contains the results of the <a>GetSnapshotLimits</a> operation.</p>"
       }
+    },
+    "com.amazonaws.directoryservice#IncompatibleSettingsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified directory setting is not compatible with other settings.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.directoryservice#InitiatedBy": {
+      "type": "string"
     },
     "com.amazonaws.directoryservice#InsufficientPermissionsException": {
       "type": "structure",
@@ -4642,34 +6167,44 @@
       }
     },
     "com.amazonaws.directoryservice#IpRouteStatusMsg": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Adding",
-            "name": "ADDING"
-          },
-          {
-            "value": "Added",
-            "name": "ADDED"
-          },
-          {
-            "value": "Removing",
-            "name": "REMOVING"
-          },
-          {
-            "value": "Removed",
-            "name": "REMOVED"
-          },
-          {
-            "value": "AddFailed",
-            "name": "ADD_FAILED"
-          },
-          {
-            "value": "RemoveFailed",
-            "name": "REMOVE_FAILED"
+      "type": "enum",
+      "members": {
+        "ADDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Adding"
           }
-        ]
+        },
+        "ADDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Added"
+          }
+        },
+        "REMOVING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Removing"
+          }
+        },
+        "REMOVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Removed"
+          }
+        },
+        "ADD_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AddFailed"
+          }
+        },
+        "REMOVE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RemoveFailed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#IpRouteStatusReason": {
@@ -4720,40 +6255,46 @@
       }
     },
     "com.amazonaws.directoryservice#LDAPSStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Enabling",
-            "name": "ENABLING"
-          },
-          {
-            "value": "Enabled",
-            "name": "ENABLED"
-          },
-          {
-            "value": "EnableFailed",
-            "name": "ENABLE_FAILED"
-          },
-          {
-            "value": "Disabled",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enabling"
           }
-        ]
+        },
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enabled"
+          }
+        },
+        "ENABLE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EnableFailed"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Disabled"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#LDAPSStatusReason": {
       "type": "string"
     },
     "com.amazonaws.directoryservice#LDAPSType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Client",
-            "name": "CLIENT"
+      "type": "enum",
+      "members": {
+        "CLIENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Client"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.directoryservice#LastUpdatedDateTime": {
@@ -4774,7 +6315,6 @@
     "com.amazonaws.directoryservice#Limit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0
         }
@@ -4809,7 +6349,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>"
+        "smithy.api#documentation": "<p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "CertificatesInfo",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#ListCertificatesRequest": {
@@ -4834,6 +6380,9 @@
             "smithy.api#documentation": "<p>The number of items that should show up on one page</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ListCertificatesResult": {
@@ -4879,7 +6428,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the address blocks that you have added to a directory.</p>"
+        "smithy.api#documentation": "<p>Lists the address blocks that you have added to a directory.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "IpRoutesInfo",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#ListIpRoutesRequest": {
@@ -4904,6 +6459,9 @@
             "smithy.api#documentation": "<p>Maximum number of items to return. If this value is zero, the maximum number of items\n         is specified by the limitations of the operation.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ListIpRoutesResult": {
@@ -4946,7 +6504,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the active log subscriptions for the Amazon Web Services account.</p>"
+        "smithy.api#documentation": "<p>Lists the active log subscriptions for the Amazon Web Services account.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "LogSubscriptions",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#ListLogSubscriptionsRequest": {
@@ -4970,6 +6534,9 @@
             "smithy.api#documentation": "<p>The maximum number of items returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ListLogSubscriptionsResult": {
@@ -5012,7 +6579,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all schema extensions applied to a Microsoft AD Directory.</p>"
+        "smithy.api#documentation": "<p>Lists all schema extensions applied to a Microsoft AD Directory.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "SchemaExtensionsInfo",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#ListSchemaExtensionsRequest": {
@@ -5037,6 +6610,9 @@
             "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ListSchemaExtensionsResult": {
@@ -5082,7 +6658,13 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all tags on a directory.</p>"
+        "smithy.api#documentation": "<p>Lists all tags on a directory.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Tags",
+          "pageSize": "Limit"
+        }
       }
     },
     "com.amazonaws.directoryservice#ListTagsForResourceRequest": {
@@ -5107,6 +6689,9 @@
             "smithy.api#documentation": "<p>Reserved for future use.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ListTagsForResourceResult": {
@@ -5169,7 +6754,10 @@
       }
     },
     "com.amazonaws.directoryservice#ManualSnapshotsLimitReached": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#NextToken": {
       "type": "string"
@@ -5207,6 +6795,37 @@
           "max": 1024
         },
         "smithy.api#pattern": "^(https?|ftp|file|ldaps?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;()]*[-a-zA-Z0-9+&@#/%=~_|()]$"
+      }
+    },
+    "com.amazonaws.directoryservice#OSUpdateSettings": {
+      "type": "structure",
+      "members": {
+        "OSVersion": {
+          "target": "com.amazonaws.directoryservice#OSVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      OS version that the directory needs to be updated to.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      OS version that the directory needs to be updated to.\n    </p>"
+      }
+    },
+    "com.amazonaws.directoryservice#OSVersion": {
+      "type": "enum",
+      "members": {
+        "VERSION_2012": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SERVER_2012"
+          }
+        },
+        "VERSION_2019": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SERVER_2019"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#OrganizationalUnitDN": {
@@ -5280,7 +6899,6 @@
     "com.amazonaws.directoryservice#PageLimit": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -5297,6 +6915,7 @@
     "com.amazonaws.directoryservice#PortNumber": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1025,
           "max": 65535
@@ -5304,26 +6923,32 @@
       }
     },
     "com.amazonaws.directoryservice#RadiusAuthenticationProtocol": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PAP",
-            "name": "PAP"
-          },
-          {
-            "value": "CHAP",
-            "name": "CHAP"
-          },
-          {
-            "value": "MS-CHAPv1",
-            "name": "MSCHAPV1"
-          },
-          {
-            "value": "MS-CHAPv2",
-            "name": "MSCHAPV2"
+      "type": "enum",
+      "members": {
+        "PAP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PAP"
           }
-        ]
+        },
+        "CHAP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHAP"
+          }
+        },
+        "MSCHAPV1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MS-CHAPv1"
+          }
+        },
+        "MSCHAPV2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MS-CHAPv2"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#RadiusDisplayLabel": {
@@ -5338,6 +6963,7 @@
     "com.amazonaws.directoryservice#RadiusRetries": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 10
@@ -5356,18 +6982,21 @@
         "RadiusPort": {
           "target": "com.amazonaws.directoryservice#PortNumber",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The port that your RADIUS server is using for communications. Your self-managed\n         network must allow inbound traffic over this port from the Directory Service servers.</p>"
           }
         },
         "RadiusTimeout": {
           "target": "com.amazonaws.directoryservice#RadiusTimeout",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The amount of time, in seconds, to wait for the RADIUS server to respond.</p>"
           }
         },
         "RadiusRetries": {
           "target": "com.amazonaws.directoryservice#RadiusRetries",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of times that communication with the RADIUS server is\n         attempted.</p>"
           }
         },
@@ -5392,6 +7021,7 @@
         "UseSameUsername": {
           "target": "com.amazonaws.directoryservice#UseSameUsername",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Not currently used.</p>"
           }
         }
@@ -5412,27 +7042,32 @@
       }
     },
     "com.amazonaws.directoryservice#RadiusStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Creating",
-            "name": "CREATING"
-          },
-          {
-            "value": "Completed",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Creating"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#RadiusTimeout": {
       "type": "integer",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 20
@@ -5472,6 +7107,7 @@
         "DesiredNumberOfDomainControllers": {
           "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The desired number of domain controllers in the specified Region for the specified\n      directory.</p>"
           }
         },
@@ -5523,18 +7159,20 @@
       }
     },
     "com.amazonaws.directoryservice#RegionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Primary",
-            "name": "PRIMARY"
-          },
-          {
-            "value": "Additional",
-            "name": "ADDITIONAL"
+      "type": "enum",
+      "members": {
+        "PRIMARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Primary"
           }
-        ]
+        },
+        "ADDITIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Additional"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#RegionsDescription": {
@@ -5633,6 +7271,9 @@
             "smithy.api#documentation": "<p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RegisterCertificateResult": {
@@ -5691,7 +7332,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Registers a new event topic.</p>"
+        "smithy.api#documentation": "<p>Registers a new event topic.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RegisterEventTopicResult": {
@@ -5740,6 +7382,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RejectSharedDirectoryResult": {
@@ -5756,6 +7401,10 @@
     "com.amazonaws.directoryservice#RemoteDomainName": {
       "type": "string",
       "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        },
         "smithy.api#pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+[.]?$"
       }
     },
@@ -5811,6 +7460,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RemoveIpRoutesResult": {
@@ -5859,6 +7511,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RemoveRegionResult": {
@@ -5908,6 +7563,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RemoveTagsFromResourceResult": {
@@ -5915,14 +7573,14 @@
       "members": {}
     },
     "com.amazonaws.directoryservice#ReplicationScope": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Domain",
-            "name": "Domain"
+      "type": "enum",
+      "members": {
+        "Domain": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Domain"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.directoryservice#RequestId": {
@@ -5991,6 +7649,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ResetUserPasswordResult": {
@@ -6041,7 +7702,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.</p>"
+        "smithy.api#documentation": "<p>An object representing the inputs for the <a>RestoreFromSnapshot</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#RestoreFromSnapshotResult": {
@@ -6118,46 +7780,62 @@
       }
     },
     "com.amazonaws.directoryservice#SchemaExtensionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Initializing",
-            "name": "INITIALIZING"
-          },
-          {
-            "value": "CreatingSnapshot",
-            "name": "CREATING_SNAPSHOT"
-          },
-          {
-            "value": "UpdatingSchema",
-            "name": "UPDATING_SCHEMA"
-          },
-          {
-            "value": "Replicating",
-            "name": "REPLICATING"
-          },
-          {
-            "value": "CancelInProgress",
-            "name": "CANCEL_IN_PROGRESS"
-          },
-          {
-            "value": "RollbackInProgress",
-            "name": "ROLLBACK_IN_PROGRESS"
-          },
-          {
-            "value": "Cancelled",
-            "name": "CANCELLED"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
-          },
-          {
-            "value": "Completed",
-            "name": "COMPLETED"
+      "type": "enum",
+      "members": {
+        "INITIALIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Initializing"
           }
-        ]
+        },
+        "CREATING_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreatingSnapshot"
+          }
+        },
+        "UPDATING_SCHEMA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UpdatingSchema"
+          }
+        },
+        "REPLICATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Replicating"
+          }
+        },
+        "CANCEL_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CancelInProgress"
+          }
+        },
+        "ROLLBACK_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RollbackInProgress"
+          }
+        },
+        "CANCELLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cancelled"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#SchemaExtensionStatusReason": {
@@ -6176,18 +7854,20 @@
       }
     },
     "com.amazonaws.directoryservice#SelectiveAuth": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Enabled",
-            "name": "ENABLED"
-          },
-          {
-            "value": "Disabled",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enabled"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Disabled"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#Server": {
@@ -6218,6 +7898,114 @@
       "traits": {
         "smithy.api#documentation": "<p>An exception has occurred in Directory Service.</p>",
         "smithy.api#error": "server"
+      }
+    },
+    "com.amazonaws.directoryservice#Setting": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the directory setting. For example:</p>\n         <p>\n            <code>TLS_1_0</code>\n         </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the directory setting for which to retrieve information. For example, for <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and <code>Disable</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about the configurable settings for a directory.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#SettingEntries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.directoryservice#SettingEntry"
+      }
+    },
+    "com.amazonaws.directoryservice#SettingEntry": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type, or category, of a directory setting. Similar settings have the same type. For example, <code>Protocol</code>, <code>Cipher</code>, \n      or <code>Certificate-Based Authentication</code>.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the directory setting. For example:</p>\n         <p>\n            <code>TLS_1_0</code>\n         </p>"
+          }
+        },
+        "AllowedValues": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingAllowedValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The valid range of values for the directory setting. These values depend on the <code>DataType</code> of your directory.</p>"
+          }
+        },
+        "AppliedValue": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the directory setting that is applied to the directory.</p>"
+          }
+        },
+        "RequestedValue": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value that was last requested for the directory setting.</p>"
+          }
+        },
+        "RequestStatus": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The overall status of the request to update the directory setting request. If the directory setting is deployed in more than one region, and the request fails in any region, the overall status is <code>Failed</code>.</p>"
+          }
+        },
+        "RequestDetailedStatus": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingRequestDetailedStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the status of the request to update the directory setting. If the directory setting is deployed in more than one region, status is returned for the request in each region where the setting is deployed.</p>"
+          }
+        },
+        "RequestStatusMessage": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingRequestStatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The last status message for the directory status request.</p>"
+          }
+        },
+        "LastUpdatedDateTime": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingLastUpdatedDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the directory setting was last updated.</p>"
+          }
+        },
+        "LastRequestedDateTime": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingLastRequestedDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the request to update a directory setting was last submitted.</p>"
+          }
+        },
+        "DataType": {
+          "target": "com.amazonaws.directoryservice#DirectoryConfigurationSettingDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of a directory setting. This is used to define the <code>AllowedValues</code> of a setting.\n      For example a data type can be <code>Boolean</code>, <code>DurationInSeconds</code>, or <code>Enum</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about the specified configurable setting for a directory.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#Settings": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.directoryservice#Setting"
       }
     },
     "com.amazonaws.directoryservice#ShareDirectory": {
@@ -6294,6 +8082,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#ShareDirectoryResult": {
@@ -6323,61 +8114,79 @@
       }
     },
     "com.amazonaws.directoryservice#ShareMethod": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ORGANIZATIONS",
-            "name": "ORGANIZATIONS"
-          },
-          {
-            "value": "HANDSHAKE",
-            "name": "HANDSHAKE"
+      "type": "enum",
+      "members": {
+        "ORGANIZATIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATIONS"
           }
-        ]
+        },
+        "HANDSHAKE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HANDSHAKE"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#ShareStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Shared",
-            "name": "SHARED"
-          },
-          {
-            "value": "PendingAcceptance",
-            "name": "PENDING_ACCEPTANCE"
-          },
-          {
-            "value": "Rejected",
-            "name": "REJECTED"
-          },
-          {
-            "value": "Rejecting",
-            "name": "REJECTING"
-          },
-          {
-            "value": "RejectFailed",
-            "name": "REJECT_FAILED"
-          },
-          {
-            "value": "Sharing",
-            "name": "SHARING"
-          },
-          {
-            "value": "ShareFailed",
-            "name": "SHARE_FAILED"
-          },
-          {
-            "value": "Deleted",
-            "name": "DELETED"
-          },
-          {
-            "value": "Deleting",
-            "name": "DELETING"
+      "type": "enum",
+      "members": {
+        "SHARED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Shared"
           }
-        ]
+        },
+        "PENDING_ACCEPTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PendingAcceptance"
+          }
+        },
+        "REJECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Rejected"
+          }
+        },
+        "REJECTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Rejecting"
+          }
+        },
+        "REJECT_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RejectFailed"
+          }
+        },
+        "SHARING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Sharing"
+          }
+        },
+        "SHARE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ShareFailed"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleted"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleting"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#ShareTarget": {
@@ -6562,6 +8371,7 @@
         "ManualSnapshotsLimitReached": {
           "target": "com.amazonaws.directoryservice#ManualSnapshotsLimitReached",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates if the manual snapshot limit has been reached.</p>"
           }
         }
@@ -6581,37 +8391,43 @@
       }
     },
     "com.amazonaws.directoryservice#SnapshotStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Creating",
-            "name": "CREATING"
-          },
-          {
-            "value": "Completed",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Creating"
           }
-        ]
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#SnapshotType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Auto",
-            "name": "AUTO"
-          },
-          {
-            "value": "Manual",
-            "name": "MANUAL"
+      "type": "enum",
+      "members": {
+        "AUTO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Auto"
           }
-        ]
+        },
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Manual"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#Snapshots": {
@@ -6624,7 +8440,10 @@
       }
     },
     "com.amazonaws.directoryservice#SsoEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#StageReason": {
       "type": "string"
@@ -6677,6 +8496,7 @@
         "CreateSnapshotBeforeSchemaExtension": {
           "target": "com.amazonaws.directoryservice#CreateSnapshotBeforeSchemaExtension",
           "traits": {
+            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, creates a snapshot of the directory before applying the schema\n      extension.</p>",
             "smithy.api#required": {}
           }
@@ -6695,6 +8515,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#StartSchemaExtensionResult": {
@@ -6808,14 +8631,14 @@
       }
     },
     "com.amazonaws.directoryservice#TargetType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACCOUNT",
-            "name": "ACCOUNT"
+      "type": "enum",
+      "members": {
+        "ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.directoryservice#TopicArn": {
@@ -6838,26 +8661,32 @@
       }
     },
     "com.amazonaws.directoryservice#TopicStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Registered",
-            "name": "REGISTERED"
-          },
-          {
-            "value": "Topic not found",
-            "name": "TOPIC_NOT_FOUND"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
-          },
-          {
-            "value": "Deleted",
-            "name": "DELETED"
+      "type": "enum",
+      "members": {
+        "REGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Registered"
           }
-        ]
+        },
+        "TOPIC_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Topic not found"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleted"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#Trust": {
@@ -6935,22 +8764,26 @@
       }
     },
     "com.amazonaws.directoryservice#TrustDirection": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "One-Way: Outgoing",
-            "name": "ONE_WAY_OUTGOING"
-          },
-          {
-            "value": "One-Way: Incoming",
-            "name": "ONE_WAY_INCOMING"
-          },
-          {
-            "value": "Two-Way",
-            "name": "TWO_WAY"
+      "type": "enum",
+      "members": {
+        "ONE_WAY_OUTGOING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "One-Way: Outgoing"
           }
-        ]
+        },
+        "ONE_WAY_INCOMING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "One-Way: Incoming"
+          }
+        },
+        "TWO_WAY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Two-Way"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#TrustId": {
@@ -6972,77 +8805,99 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "^(.|\\s)*\\S(.|\\s)*$",
+        "smithy.api#pattern": "^(\\p{LD}|\\p{Punct}| )+$",
         "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.directoryservice#TrustState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Creating",
-            "name": "CREATING"
-          },
-          {
-            "value": "Created",
-            "name": "CREATED"
-          },
-          {
-            "value": "Verifying",
-            "name": "VERIFYING"
-          },
-          {
-            "value": "VerifyFailed",
-            "name": "VERIFY_FAILED"
-          },
-          {
-            "value": "Verified",
-            "name": "VERIFIED"
-          },
-          {
-            "value": "Updating",
-            "name": "UPDATING"
-          },
-          {
-            "value": "UpdateFailed",
-            "name": "UPDATE_FAILED"
-          },
-          {
-            "value": "Updated",
-            "name": "UPDATED"
-          },
-          {
-            "value": "Deleting",
-            "name": "DELETING"
-          },
-          {
-            "value": "Deleted",
-            "name": "DELETED"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Creating"
           }
-        ]
+        },
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Created"
+          }
+        },
+        "VERIFYING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Verifying"
+          }
+        },
+        "VERIFY_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VerifyFailed"
+          }
+        },
+        "VERIFIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Verified"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Updating"
+          }
+        },
+        "UPDATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UpdateFailed"
+          }
+        },
+        "UPDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Updated"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleting"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Deleted"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#TrustStateReason": {
       "type": "string"
     },
     "com.amazonaws.directoryservice#TrustType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Forest",
-            "name": "FOREST"
-          },
-          {
-            "value": "External",
-            "name": "EXTERNAL"
+      "type": "enum",
+      "members": {
+        "FOREST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Forest"
           }
-        ]
+        },
+        "EXTERNAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "External"
+          }
+        }
       }
     },
     "com.amazonaws.directoryservice#Trusts": {
@@ -7097,6 +8952,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#UnshareDirectoryResult": {
@@ -7145,6 +9003,27 @@
       "traits": {
         "smithy.api#documentation": "<p>The operation is not supported.</p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.directoryservice#UnsupportedSettingsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.directoryservice#ExceptionMessage"
+        },
+        "RequestId": {
+          "target": "com.amazonaws.directoryservice#RequestId"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified directory setting is not supported.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateActivities": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.directoryservice#UpdateInfoEntry"
       }
     },
     "com.amazonaws.directoryservice#UpdateConditionalForwarder": {
@@ -7205,7 +9084,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Updates a conditional forwarder.</p>"
+        "smithy.api#documentation": "<p>Updates a conditional forwarder.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#UpdateConditionalForwarderResult": {
@@ -7213,6 +9093,142 @@
       "members": {},
       "traits": {
         "smithy.api#documentation": "<p>The result of an UpdateConditionalForwarder request.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateDirectorySetup": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directoryservice#UpdateDirectorySetupRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directoryservice#UpdateDirectorySetupResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directoryservice#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ClientException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryDoesNotExistException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryInDesiredStateException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#SnapshotLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Updates the directory for a particular update type.\n    </p>"
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateDirectorySetupRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The identifier of the directory on which you want to perform the update.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UpdateType": {
+          "target": "com.amazonaws.directoryservice#UpdateType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The type of update that needs to be performed on the directory. For example, OS.\n    </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "OSUpdateSettings": {
+          "target": "com.amazonaws.directoryservice#OSUpdateSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The settings for the OS update that needs to be performed on the directory.\n    </p>"
+          }
+        },
+        "CreateSnapshotBeforeUpdate": {
+          "target": "com.amazonaws.directoryservice#CreateSnapshotBeforeUpdate",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>\n      The boolean that specifies if a snapshot for the directory needs to be taken before updating the directory.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateDirectorySetupResult": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.directoryservice#UpdateInfoEntry": {
+      "type": "structure",
+      "members": {
+        "Region": {
+          "target": "com.amazonaws.directoryservice#RegionName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The name of the Region.\n    </p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.directoryservice#UpdateStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The status of the update performed on the directory.\n    </p>"
+          }
+        },
+        "StatusReason": {
+          "target": "com.amazonaws.directoryservice#UpdateStatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The reason for the current status of the update type activity.\n    </p>"
+          }
+        },
+        "InitiatedBy": {
+          "target": "com.amazonaws.directoryservice#InitiatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      This specifies if the update was initiated by the customer or by the service team.\n    </p>"
+          }
+        },
+        "NewValue": {
+          "target": "com.amazonaws.directoryservice#UpdateValue",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The new value of the target setting.\n    </p>"
+          }
+        },
+        "PreviousValue": {
+          "target": "com.amazonaws.directoryservice#UpdateValue",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The old value of the target setting.\n    </p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.directoryservice#StartDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The start time of the <code>UpdateDirectorySetup</code> for the particular type.\n    </p>"
+          }
+        },
+        "LastUpdatedDateTime": {
+          "target": "com.amazonaws.directoryservice#LastUpdatedDateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The last updated date and time of a particular directory setting.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      An entry of update information related to a requested update type.\n    </p>"
       }
     },
     "com.amazonaws.directoryservice#UpdateNumberOfDomainControllers": {
@@ -7263,10 +9279,14 @@
         "DesiredNumber": {
           "target": "com.amazonaws.directoryservice#DesiredNumberOfDomainControllers",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of domain controllers desired in the directory.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#UpdateNumberOfDomainControllersResult": {
@@ -7318,7 +9338,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the inputs for the <a>UpdateRadius</a> operation.</p>"
+        "smithy.api#documentation": "<p>Contains the inputs for the <a>UpdateRadius</a> operation.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#UpdateRadiusResult": {
@@ -7329,7 +9350,107 @@
       }
     },
     "com.amazonaws.directoryservice#UpdateSecurityGroupForDirectoryControllers": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.directoryservice#UpdateSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.directoryservice#UpdateSettingsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.directoryservice#ClientException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryDoesNotExistException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#DirectoryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#IncompatibleSettingsException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UnsupportedOperationException"
+        },
+        {
+          "target": "com.amazonaws.directoryservice#UnsupportedSettingsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the configurable settings for the specified directory.</p>"
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for which to update settings.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Settings": {
+          "target": "com.amazonaws.directoryservice#Settings",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of <a>Setting</a> objects.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateSettingsResult": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.directoryservice#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateStatus": {
+      "type": "enum",
+      "members": {
+        "UPDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Updated"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Updating"
+          }
+        },
+        "UPDATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UpdateFailed"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateStatusReason": {
+      "type": "string"
     },
     "com.amazonaws.directoryservice#UpdateTrust": {
       "type": "operation",
@@ -7373,6 +9494,9 @@
             "smithy.api#documentation": "<p>Updates selective authentication for the trust.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#UpdateTrustResult": {
@@ -7389,8 +9513,36 @@
         }
       }
     },
+    "com.amazonaws.directoryservice#UpdateType": {
+      "type": "enum",
+      "members": {
+        "OS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.directoryservice#UpdateValue": {
+      "type": "structure",
+      "members": {
+        "OSUpdateSettings": {
+          "target": "com.amazonaws.directoryservice#OSUpdateSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The OS update related settings.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      The value for a given type of <code>UpdateSettings</code>.\n    </p>"
+      }
+    },
     "com.amazonaws.directoryservice#UseSameUsername": {
-      "type": "boolean"
+      "type": "boolean",
+      "traits": {
+        "smithy.api#default": false
+      }
     },
     "com.amazonaws.directoryservice#UserDoesNotExistException": {
       "type": "structure",
@@ -7467,7 +9619,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Initiates the verification of an existing trust relationship between an Managed Microsoft AD\n      directory and an external domain.</p>"
+        "smithy.api#documentation": "<p>Initiates the verification of an existing trust relationship between an Managed Microsoft AD\n      directory and an external domain.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.directoryservice#VerifyTrustResult": {

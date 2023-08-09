@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListTableColumnsCommand,
   ListTableColumnsCommandInput,
   ListTableColumnsCommandOutput,
 } from "../commands/ListTableColumnsCommand";
-import { Honeycode } from "../Honeycode";
 import { HoneycodeClient } from "../HoneycodeClient";
 import { HoneycodePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HoneycodeClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTableColumnsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Honeycode,
-  input: ListTableColumnsCommandInput,
-  ...args: any
-): Promise<ListTableColumnsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTableColumns(input, ...args);
-};
 export async function* paginateListTableColumns(
   config: HoneycodePaginationConfiguration,
   input: ListTableColumnsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListTableColumns(
   let page: ListTableColumnsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Honeycode) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HoneycodeClient) {
+    if (config.client instanceof HoneycodeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Honeycode | HoneycodeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

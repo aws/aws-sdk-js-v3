@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { NullOperationInputOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1NullOperationCommand,
-  serializeAws_json1_1NullOperationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_NullOperationCommand, se_NullOperationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link NullOperationCommand}.
+ */
 export interface NullOperationCommandInput extends NullOperationInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link NullOperationCommand}.
+ */
 export interface NullOperationCommandOutput extends NullOperationInputOutput, __MetadataBearer {}
 
 export class NullOperationCommand extends $Command<
@@ -29,6 +41,9 @@ export class NullOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NullOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class NullOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NullOperationInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: NullOperationInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class NullOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NullOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1NullOperationCommand(input, context);
+    return se_NullOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NullOperationCommandOutput> {
-    return deserializeAws_json1_1NullOperationCommand(output, context);
+    return de_NullOperationCommand(output, context);
   }
 
   // Start section: command_body_extra

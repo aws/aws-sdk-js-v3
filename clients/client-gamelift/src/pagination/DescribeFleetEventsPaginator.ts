@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeFleetEventsCommand,
   DescribeFleetEventsCommandInput,
   DescribeFleetEventsCommandOutput,
 } from "../commands/DescribeFleetEventsCommand";
-import { GameLift } from "../GameLift";
 import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeFleetEventsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GameLift,
-  input: DescribeFleetEventsCommandInput,
-  ...args: any
-): Promise<DescribeFleetEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFleetEvents(input, ...args);
-};
 export async function* paginateDescribeFleetEvents(
   config: GameLiftPaginationConfiguration,
   input: DescribeFleetEventsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeFleetEvents(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof GameLift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameLiftClient) {
+    if (config.client instanceof GameLiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameLift | GameLiftClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

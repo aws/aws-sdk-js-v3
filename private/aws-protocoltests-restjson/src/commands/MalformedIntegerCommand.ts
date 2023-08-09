@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MalformedIntegerInput } from "../models/models_0";
-import {
-  deserializeAws_restJson1MalformedIntegerCommand,
-  serializeAws_restJson1MalformedIntegerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_MalformedIntegerCommand, se_MalformedIntegerCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link MalformedIntegerCommand}.
+ */
 export interface MalformedIntegerCommandInput extends MalformedIntegerInput {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedIntegerCommand}.
+ */
 export interface MalformedIntegerCommandOutput extends __MetadataBearer {}
 
 export class MalformedIntegerCommand extends $Command<
@@ -29,6 +41,9 @@ export class MalformedIntegerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedIntegerCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class MalformedIntegerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedIntegerInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class MalformedIntegerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedIntegerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedIntegerCommand(input, context);
+    return se_MalformedIntegerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedIntegerCommandOutput> {
-    return deserializeAws_restJson1MalformedIntegerCommand(output, context);
+    return de_MalformedIntegerCommand(output, context);
   }
 
   // Start section: command_body_extra

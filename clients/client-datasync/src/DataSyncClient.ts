@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,34 +19,60 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
-  Credentials as __Credentials,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
+import { AddStorageSystemCommandInput, AddStorageSystemCommandOutput } from "./commands/AddStorageSystemCommand";
 import {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand";
 import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
+import {
+  CreateLocationAzureBlobCommandInput,
+  CreateLocationAzureBlobCommandOutput,
+} from "./commands/CreateLocationAzureBlobCommand";
 import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
+import {
+  CreateLocationFsxLustreCommandInput,
+  CreateLocationFsxLustreCommandOutput,
+} from "./commands/CreateLocationFsxLustreCommand";
+import {
+  CreateLocationFsxOntapCommandInput,
+  CreateLocationFsxOntapCommandOutput,
+} from "./commands/CreateLocationFsxOntapCommand";
+import {
+  CreateLocationFsxOpenZfsCommandInput,
+  CreateLocationFsxOpenZfsCommandOutput,
+} from "./commands/CreateLocationFsxOpenZfsCommand";
 import {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
@@ -73,9 +91,29 @@ import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./comma
 import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
 import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
 import {
+  DescribeDiscoveryJobCommandInput,
+  DescribeDiscoveryJobCommandOutput,
+} from "./commands/DescribeDiscoveryJobCommand";
+import {
+  DescribeLocationAzureBlobCommandInput,
+  DescribeLocationAzureBlobCommandOutput,
+} from "./commands/DescribeLocationAzureBlobCommand";
+import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
+import {
+  DescribeLocationFsxLustreCommandInput,
+  DescribeLocationFsxLustreCommandOutput,
+} from "./commands/DescribeLocationFsxLustreCommand";
+import {
+  DescribeLocationFsxOntapCommandInput,
+  DescribeLocationFsxOntapCommandOutput,
+} from "./commands/DescribeLocationFsxOntapCommand";
+import {
+  DescribeLocationFsxOpenZfsCommandInput,
+  DescribeLocationFsxOpenZfsCommandOutput,
+} from "./commands/DescribeLocationFsxOpenZfsCommand";
 import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
@@ -97,23 +135,52 @@ import {
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
+import {
+  DescribeStorageSystemCommandInput,
+  DescribeStorageSystemCommandOutput,
+} from "./commands/DescribeStorageSystemCommand";
+import {
+  DescribeStorageSystemResourceMetricsCommandInput,
+  DescribeStorageSystemResourceMetricsCommandOutput,
+} from "./commands/DescribeStorageSystemResourceMetricsCommand";
+import {
+  DescribeStorageSystemResourcesCommandInput,
+  DescribeStorageSystemResourcesCommandOutput,
+} from "./commands/DescribeStorageSystemResourcesCommand";
 import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
+import {
+  GenerateRecommendationsCommandInput,
+  GenerateRecommendationsCommandOutput,
+} from "./commands/GenerateRecommendationsCommand";
 import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
+import { ListDiscoveryJobsCommandInput, ListDiscoveryJobsCommandOutput } from "./commands/ListDiscoveryJobsCommand";
 import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
+import { ListStorageSystemsCommandInput, ListStorageSystemsCommandOutput } from "./commands/ListStorageSystemsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput } from "./commands/ListTaskExecutionsCommand";
 import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import {
+  RemoveStorageSystemCommandInput,
+  RemoveStorageSystemCommandOutput,
+} from "./commands/RemoveStorageSystemCommand";
+import { StartDiscoveryJobCommandInput, StartDiscoveryJobCommandOutput } from "./commands/StartDiscoveryJobCommand";
 import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from "./commands/StartTaskExecutionCommand";
+import { StopDiscoveryJobCommandInput, StopDiscoveryJobCommandOutput } from "./commands/StopDiscoveryJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import { UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput } from "./commands/UpdateDiscoveryJobCommand";
+import {
+  UpdateLocationAzureBlobCommandInput,
+  UpdateLocationAzureBlobCommandOutput,
+} from "./commands/UpdateLocationAzureBlobCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
 import {
@@ -121,17 +188,37 @@ import {
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
 import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "./commands/UpdateLocationSmbCommand";
+import {
+  UpdateStorageSystemCommandInput,
+  UpdateStorageSystemCommandOutput,
+} from "./commands/UpdateStorageSystemCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommandInput,
   UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
+  | AddStorageSystemCommandInput
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
+  | CreateLocationAzureBlobCommandInput
   | CreateLocationEfsCommandInput
+  | CreateLocationFsxLustreCommandInput
+  | CreateLocationFsxOntapCommandInput
+  | CreateLocationFsxOpenZfsCommandInput
   | CreateLocationFsxWindowsCommandInput
   | CreateLocationHdfsCommandInput
   | CreateLocationNfsCommandInput
@@ -143,35 +230,60 @@ export type ServiceInputTypes =
   | DeleteLocationCommandInput
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
+  | DescribeDiscoveryJobCommandInput
+  | DescribeLocationAzureBlobCommandInput
   | DescribeLocationEfsCommandInput
+  | DescribeLocationFsxLustreCommandInput
+  | DescribeLocationFsxOntapCommandInput
+  | DescribeLocationFsxOpenZfsCommandInput
   | DescribeLocationFsxWindowsCommandInput
   | DescribeLocationHdfsCommandInput
   | DescribeLocationNfsCommandInput
   | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
   | DescribeLocationSmbCommandInput
+  | DescribeStorageSystemCommandInput
+  | DescribeStorageSystemResourceMetricsCommandInput
+  | DescribeStorageSystemResourcesCommandInput
   | DescribeTaskCommandInput
   | DescribeTaskExecutionCommandInput
+  | GenerateRecommendationsCommandInput
   | ListAgentsCommandInput
+  | ListDiscoveryJobsCommandInput
   | ListLocationsCommandInput
+  | ListStorageSystemsCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskExecutionsCommandInput
   | ListTasksCommandInput
+  | RemoveStorageSystemCommandInput
+  | StartDiscoveryJobCommandInput
   | StartTaskExecutionCommandInput
+  | StopDiscoveryJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
+  | UpdateDiscoveryJobCommandInput
+  | UpdateLocationAzureBlobCommandInput
   | UpdateLocationHdfsCommandInput
   | UpdateLocationNfsCommandInput
   | UpdateLocationObjectStorageCommandInput
   | UpdateLocationSmbCommandInput
+  | UpdateStorageSystemCommandInput
   | UpdateTaskCommandInput
   | UpdateTaskExecutionCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
+  | AddStorageSystemCommandOutput
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
+  | CreateLocationAzureBlobCommandOutput
   | CreateLocationEfsCommandOutput
+  | CreateLocationFsxLustreCommandOutput
+  | CreateLocationFsxOntapCommandOutput
+  | CreateLocationFsxOpenZfsCommandOutput
   | CreateLocationFsxWindowsCommandOutput
   | CreateLocationHdfsCommandOutput
   | CreateLocationNfsCommandOutput
@@ -183,31 +295,51 @@ export type ServiceOutputTypes =
   | DeleteLocationCommandOutput
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
+  | DescribeDiscoveryJobCommandOutput
+  | DescribeLocationAzureBlobCommandOutput
   | DescribeLocationEfsCommandOutput
+  | DescribeLocationFsxLustreCommandOutput
+  | DescribeLocationFsxOntapCommandOutput
+  | DescribeLocationFsxOpenZfsCommandOutput
   | DescribeLocationFsxWindowsCommandOutput
   | DescribeLocationHdfsCommandOutput
   | DescribeLocationNfsCommandOutput
   | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
   | DescribeLocationSmbCommandOutput
+  | DescribeStorageSystemCommandOutput
+  | DescribeStorageSystemResourceMetricsCommandOutput
+  | DescribeStorageSystemResourcesCommandOutput
   | DescribeTaskCommandOutput
   | DescribeTaskExecutionCommandOutput
+  | GenerateRecommendationsCommandOutput
   | ListAgentsCommandOutput
+  | ListDiscoveryJobsCommandOutput
   | ListLocationsCommandOutput
+  | ListStorageSystemsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskExecutionsCommandOutput
   | ListTasksCommandOutput
+  | RemoveStorageSystemCommandOutput
+  | StartDiscoveryJobCommandOutput
   | StartTaskExecutionCommandOutput
+  | StopDiscoveryJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
+  | UpdateDiscoveryJobCommandOutput
+  | UpdateLocationAzureBlobCommandOutput
   | UpdateLocationHdfsCommandOutput
   | UpdateLocationNfsCommandOutput
   | UpdateLocationObjectStorageCommandOutput
   | UpdateLocationSmbCommandOutput
+  | UpdateStorageSystemCommandOutput
   | UpdateTaskCommandOutput
   | UpdateTaskExecutionCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -215,11 +347,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -231,7 +363,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * A function that can calculate the length of a request body.
    * @internal
    */
-  bodyLengthChecker?: (body: any) => number | undefined;
+  bodyLengthChecker?: __BodyLengthCalculator;
 
   /**
    * A function that converts a stream into an array of bytes.
@@ -270,10 +402,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -291,79 +456,60 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type DataSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type DataSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of DataSyncClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of DataSyncClient class constructor that set the region, credentials and other options.
  */
 export interface DataSyncClientConfig extends DataSyncClientConfigType {}
 
-type DataSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type DataSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of DataSyncClient class. This is resolved and normalized from the {@link DataSyncClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of DataSyncClient class. This is resolved and normalized from the {@link DataSyncClientConfig | constructor configuration interface}.
  */
 export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>DataSync</fullname>
- *
- *          <p>DataSync is a managed data transfer service that makes it simpler for you to
- *       automate moving data between on-premises storage and Amazon Simple Storage Service (Amazon S3)
- *       or Amazon Elastic File System (Amazon EFS). </p>
- *          <p>This API interface reference for DataSync contains documentation for a
- *       programming interface that you can use to manage DataSync.</p>
+ *          <p>DataSync is an online data movement and discovery service that simplifies data migration
+ *       and helps you quickly, easily, and securely transfer your file or object data to, from, and
+ *       between Amazon Web Services storage services.</p>
+ *          <p>This API interface reference includes documentation for using DataSync
+ *       programmatically. For complete information, see the <i>
+ *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
+ *           Guide</a>
+ *             </i>.</p>
  */
 export class DataSyncClient extends __Client<
   __HttpHandlerOptions,
@@ -376,20 +522,22 @@ export class DataSyncClient extends __Client<
    */
   readonly config: DataSyncClientResolvedConfig;
 
-  constructor(configuration: DataSyncClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<DataSyncClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

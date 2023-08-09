@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -8,31 +9,49 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
+} from "@smithy/types";
 
-import { StreamingTraitsWithMediaTypeInputOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
-  serializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
+  StreamingTraitsWithMediaTypeInputOutput,
+  StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  de_StreamingTraitsWithMediaTypeCommand,
+  se_StreamingTraitsWithMediaTypeCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
-  /**
-   * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
-   */
-  blob?: StreamingTraitsWithMediaTypeInputOutput["blob"] | string | Uint8Array | Buffer;
-};
 /**
- * This interface extends from `StreamingTraitsWithMediaTypeInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsWithMediaTypeInputOutput}
+ * @public
  */
-export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
-export interface StreamingTraitsWithMediaTypeCommandOutput
-  extends StreamingTraitsWithMediaTypeInputOutput,
-    __MetadataBearer {}
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StreamingTraitsWithMediaTypeCommand}.
+ */
+export interface StreamingTraitsWithMediaTypeCommandInput
+  extends Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> {
+  blob?: StreamingBlobPayloadInputTypes;
+}
 
 /**
+ * @public
+ *
+ * The output of {@link StreamingTraitsWithMediaTypeCommand}.
+ */
+export interface StreamingTraitsWithMediaTypeCommandOutput
+  extends Omit<StreamingTraitsWithMediaTypeInputOutput, "blob">,
+    __MetadataBearer {
+  blob?: StreamingBlobPayloadOutputTypes;
+}
+
+/**
+ * @public
  * This examples serializes a streaming media-typed blob shape in the request body.
  *
  * This examples uses a `@mediaType` trait on the payload to force a custom
@@ -43,13 +62,27 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * import { RestJsonProtocolClient, StreamingTraitsWithMediaTypeCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // StreamingTraitsWithMediaTypeInputOutput
+ *   foo: "STRING_VALUE",
+ *   blob: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new StreamingTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
+ * // { // StreamingTraitsWithMediaTypeInputOutput
+ * //   foo: "STRING_VALUE",
+ * //   blob: "STREAMING_BLOB_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param StreamingTraitsWithMediaTypeCommandInput - {@link StreamingTraitsWithMediaTypeCommandInput}
+ * @returns {@link StreamingTraitsWithMediaTypeCommandOutput}
  * @see {@link StreamingTraitsWithMediaTypeCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsWithMediaTypeCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class StreamingTraitsWithMediaTypeCommand extends $Command<
@@ -60,6 +93,9 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamingTraitsWithMediaTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +121,8 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,15 +132,21 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamingTraitsWithMediaTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StreamingTraitsWithMediaTypeCommand(input, context);
+    return se_StreamingTraitsWithMediaTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
-    context: __SerdeContext
+    context: __SerdeContext & __SdkStreamSerdeContext
   ): Promise<StreamingTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand(output, context);
+    return de_StreamingTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

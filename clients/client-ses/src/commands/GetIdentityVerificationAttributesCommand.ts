@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,24 +11,39 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   GetIdentityVerificationAttributesRequest,
   GetIdentityVerificationAttributesResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_queryGetIdentityVerificationAttributesCommand,
-  serializeAws_queryGetIdentityVerificationAttributesCommand,
+  de_GetIdentityVerificationAttributesCommand,
+  se_GetIdentityVerificationAttributesCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetIdentityVerificationAttributesCommand}.
+ */
 export interface GetIdentityVerificationAttributesCommandInput extends GetIdentityVerificationAttributesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetIdentityVerificationAttributesCommand}.
+ */
 export interface GetIdentityVerificationAttributesCommandOutput
   extends GetIdentityVerificationAttributesResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a list of identities (email addresses and/or domains), returns the verification
  *             status and (for domain identities) the verification token for each identity.</p>
  *         <p>The verification status of an email address is "Pending" until the email address owner
@@ -49,13 +66,55 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * import { SESClient, GetIdentityVerificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityVerificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // GetIdentityVerificationAttributesRequest
+ *   Identities: [ // IdentityList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
+ * // { // GetIdentityVerificationAttributesResponse
+ * //   VerificationAttributes: { // VerificationAttributes // required
+ * //     "<keys>": { // IdentityVerificationAttributes
+ * //       VerificationStatus: "STRING_VALUE", // required
+ * //       VerificationToken: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetIdentityVerificationAttributesCommandInput - {@link GetIdentityVerificationAttributesCommandInput}
+ * @returns {@link GetIdentityVerificationAttributesCommandOutput}
  * @see {@link GetIdentityVerificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example GetIdentityVerificationAttributes
+ * ```javascript
+ * // The following example returns the verification status and the verification token for a domain identity:
+ * const input = {
+ *   "Identities": [
+ *     "example.com"
+ *   ]
+ * };
+ * const command = new GetIdentityVerificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VerificationAttributes": {
+ *     "example.com": {
+ *       "VerificationStatus": "Success",
+ *       "VerificationToken": "EXAMPLE3VYb9EDI2nTOQRi/Tf6MI/6bD6THIGiP1MVY="
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: getidentityverificationattributes-1469124205897
+ * ```
  *
  */
 export class GetIdentityVerificationAttributesCommand extends $Command<
@@ -66,6 +125,18 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetIdentityVerificationAttributesCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +152,9 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetIdentityVerificationAttributesCommandInput, GetIdentityVerificationAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetIdentityVerificationAttributesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -91,8 +165,8 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityVerificationAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityVerificationAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,18 +176,24 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetIdentityVerificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityVerificationAttributesCommand(input, context);
+    return se_GetIdentityVerificationAttributesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityVerificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityVerificationAttributesCommand(output, context);
+    return de_GetIdentityVerificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

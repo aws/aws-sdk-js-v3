@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DescribeServiceActionExecutionParametersInput,
   DescribeServiceActionExecutionParametersOutput,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand,
-  serializeAws_json1_1DescribeServiceActionExecutionParametersCommand,
+  de_DescribeServiceActionExecutionParametersCommand,
+  se_DescribeServiceActionExecutionParametersCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeServiceActionExecutionParametersCommand}.
+ */
 export interface DescribeServiceActionExecutionParametersCommandInput
   extends DescribeServiceActionExecutionParametersInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeServiceActionExecutionParametersCommand}.
+ */
 export interface DescribeServiceActionExecutionParametersCommandOutput
   extends DescribeServiceActionExecutionParametersOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +52,41 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * import { ServiceCatalogClient, DescribeServiceActionExecutionParametersCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeServiceActionExecutionParametersCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeServiceActionExecutionParametersInput
+ *   ProvisionedProductId: "STRING_VALUE", // required
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new DescribeServiceActionExecutionParametersCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeServiceActionExecutionParametersOutput
+ * //   ServiceActionParameters: [ // ExecutionParameters
+ * //     { // ExecutionParameter
+ * //       Name: "STRING_VALUE",
+ * //       Type: "STRING_VALUE",
+ * //       DefaultValues: [ // ExecutionParameterValueList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeServiceActionExecutionParametersCommandInput - {@link DescribeServiceActionExecutionParametersCommandInput}
+ * @returns {@link DescribeServiceActionExecutionParametersCommandOutput}
  * @see {@link DescribeServiceActionExecutionParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceActionExecutionParametersCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeServiceActionExecutionParametersCommand extends $Command<
@@ -52,6 +97,18 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeServiceActionExecutionParametersCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +127,12 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     DescribeServiceActionExecutionParametersCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        DescribeServiceActionExecutionParametersCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +143,8 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceActionExecutionParametersInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServiceActionExecutionParametersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,18 +154,24 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeServiceActionExecutionParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeServiceActionExecutionParametersCommand(input, context);
+    return se_DescribeServiceActionExecutionParametersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeServiceActionExecutionParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand(output, context);
+    return de_DescribeServiceActionExecutionParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

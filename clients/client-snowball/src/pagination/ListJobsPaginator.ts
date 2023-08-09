@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
-import { Snowball } from "../Snowball";
 import { SnowballClient } from "../SnowballClient";
 import { SnowballPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SnowballClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Snowball,
-  input: ListJobsCommandInput,
-  ...args: any
-): Promise<ListJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listJobs(input, ...args);
-};
 export async function* paginateListJobs(
   config: SnowballPaginationConfiguration,
   input: ListJobsCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Snowball) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SnowballClient) {
+    if (config.client instanceof SnowballClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Snowball | SnowballClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

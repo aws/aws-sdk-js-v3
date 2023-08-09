@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AbortDocumentVersionUploadCommand";
 export * from "./ActivateUserCommand";
 export * from "./AddResourcePermissionsCommand";
@@ -11,6 +12,7 @@ export * from "./DeactivateUserCommand";
 export * from "./DeleteCommentCommand";
 export * from "./DeleteCustomMetadataCommand";
 export * from "./DeleteDocumentCommand";
+export * from "./DeleteDocumentVersionCommand";
 export * from "./DeleteFolderCommand";
 export * from "./DeleteFolderContentsCommand";
 export * from "./DeleteLabelsCommand";
@@ -35,6 +37,8 @@ export * from "./GetResourcesCommand";
 export * from "./InitiateDocumentVersionUploadCommand";
 export * from "./RemoveAllResourcePermissionsCommand";
 export * from "./RemoveResourcePermissionCommand";
+export * from "./RestoreDocumentVersionsCommand";
+export * from "./SearchResourcesCommand";
 export * from "./UpdateDocumentCommand";
 export * from "./UpdateDocumentVersionCommand";
 export * from "./UpdateFolderCommand";

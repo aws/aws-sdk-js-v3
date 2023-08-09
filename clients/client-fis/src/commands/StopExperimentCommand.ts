@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
 import { StopExperimentRequest, StopExperimentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1StopExperimentCommand,
-  serializeAws_restJson1StopExperimentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_StopExperimentCommand, se_StopExperimentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StopExperimentCommand}.
+ */
 export interface StopExperimentCommandInput extends StopExperimentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StopExperimentCommand}.
+ */
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Stops the specified experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,105 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * import { FisClient, StopExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, StopExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = { // StopExperimentRequest
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new StopExperimentCommand(input);
  * const response = await client.send(command);
+ * // { // StopExperimentResponse
+ * //   experiment: { // Experiment
+ * //     id: "STRING_VALUE",
+ * //     experimentTemplateId: "STRING_VALUE",
+ * //     roleArn: "STRING_VALUE",
+ * //     state: { // ExperimentState
+ * //       status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
+ * //       reason: "STRING_VALUE",
+ * //     },
+ * //     targets: { // ExperimentTargetMap
+ * //       "<keys>": { // ExperimentTarget
+ * //         resourceType: "STRING_VALUE",
+ * //         resourceArns: [ // ResourceArnList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         resourceTags: { // TagMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         filters: [ // ExperimentTargetFilterList
+ * //           { // ExperimentTargetFilter
+ * //             path: "STRING_VALUE",
+ * //             values: [ // ExperimentTargetFilterValues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         selectionMode: "STRING_VALUE",
+ * //         parameters: { // ExperimentTargetParameterMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     actions: { // ExperimentActionMap
+ * //       "<keys>": { // ExperimentAction
+ * //         actionId: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         parameters: { // ExperimentActionParameterMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         targets: { // ExperimentActionTargetMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         startAfter: [ // ExperimentActionStartAfterList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         state: { // ExperimentActionState
+ * //           status: "pending" || "initiating" || "running" || "completed" || "cancelled" || "stopping" || "stopped" || "failed",
+ * //           reason: "STRING_VALUE",
+ * //         },
+ * //         startTime: new Date("TIMESTAMP"),
+ * //         endTime: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //     stopConditions: [ // ExperimentStopConditionList
+ * //       { // ExperimentStopCondition
+ * //         source: "STRING_VALUE",
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     startTime: new Date("TIMESTAMP"),
+ * //     endTime: new Date("TIMESTAMP"),
+ * //     tags: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     logConfiguration: { // ExperimentLogConfiguration
+ * //       cloudWatchLogsConfiguration: { // ExperimentCloudWatchLogsLogConfiguration
+ * //         logGroupArn: "STRING_VALUE",
+ * //       },
+ * //       s3Configuration: { // ExperimentS3LogConfiguration
+ * //         bucketName: "STRING_VALUE",
+ * //         prefix: "STRING_VALUE",
+ * //       },
+ * //       logSchemaVersion: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param StopExperimentCommandInput - {@link StopExperimentCommandInput}
+ * @returns {@link StopExperimentCommandOutput}
  * @see {@link StopExperimentCommandInput} for command's `input` shape.
  * @see {@link StopExperimentCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * @throws {@link FisServiceException}
+ * <p>Base exception class for all service exceptions from Fis service.</p>
  *
  */
 export class StopExperimentCommand extends $Command<
@@ -46,6 +152,18 @@ export class StopExperimentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StopExperimentCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +179,9 @@ export class StopExperimentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StopExperimentCommandInput, StopExperimentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StopExperimentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +192,8 @@ export class StopExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopExperimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopExperimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +203,18 @@ export class StopExperimentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StopExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopExperimentCommand(input, context);
+    return se_StopExperimentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopExperimentCommandOutput> {
-    return deserializeAws_restJson1StopExperimentCommand(output, context);
+    return de_StopExperimentCommand(output, context);
   }
 
   // Start section: command_body_extra

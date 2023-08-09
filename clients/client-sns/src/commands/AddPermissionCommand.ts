@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,81 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AddPermissionInput } from "../models/models_0";
-import {
-  deserializeAws_queryAddPermissionCommand,
-  serializeAws_queryAddPermissionCommand,
-} from "../protocols/Aws_query";
+import { de_AddPermissionCommand, se_AddPermissionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandInput extends AddPermissionInput {}
+/**
+ * @public
+ *
+ * The output of {@link AddPermissionCommand}.
+ */
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
  *             Amazon Web Services accounts to the specified actions.</p>
+ *          <note>
+ *             <p>To remove the ability to change topic permissions, you must deny permissions to
+ *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
+ *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, AddPermissionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, AddPermissionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = { // AddPermissionInput
+ *   TopicArn: "STRING_VALUE", // required
+ *   Label: "STRING_VALUE", // required
+ *   AWSAccountId: [ // DelegatesList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionName: [ // ActionsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AddPermissionCommandInput - {@link AddPermissionCommandInput}
+ * @returns {@link AddPermissionCommandOutput}
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
+ *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * @throws {@link SNSServiceException}
+ * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
 export class AddPermissionCommand extends $Command<
@@ -47,6 +96,18 @@ export class AddPermissionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddPermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +123,7 @@ export class AddPermissionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddPermissionCommandInput, AddPermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AddPermissionCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +134,8 @@ export class AddPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddPermissionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +145,18 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddPermissionCommand(input, context);
+    return se_AddPermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
-    return deserializeAws_queryAddPermissionCommand(output, context);
+    return de_AddPermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

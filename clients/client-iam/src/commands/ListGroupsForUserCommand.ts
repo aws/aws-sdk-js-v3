@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListGroupsForUserRequest, ListGroupsForUserResponse } from "../models/models_0";
-import {
-  deserializeAws_queryListGroupsForUserCommand,
-  serializeAws_queryListGroupsForUserCommand,
-} from "../protocols/Aws_query";
+import { de_ListGroupsForUserCommand, se_ListGroupsForUserCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListGroupsForUserCommand}.
+ */
 export interface ListGroupsForUserCommandInput extends ListGroupsForUserRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListGroupsForUserCommand}.
+ */
 export interface ListGroupsForUserCommandOutput extends ListGroupsForUserResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
- *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +45,76 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * import { IAMClient, ListGroupsForUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListGroupsForUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListGroupsForUserRequest
+ *   UserName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListGroupsForUserCommand(input);
  * const response = await client.send(command);
+ * // { // ListGroupsForUserResponse
+ * //   Groups: [ // groupListType // required
+ * //     { // Group
+ * //       Path: "STRING_VALUE", // required
+ * //       GroupName: "STRING_VALUE", // required
+ * //       GroupId: "STRING_VALUE", // required
+ * //       Arn: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //     },
+ * //   ],
+ * //   IsTruncated: true || false,
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListGroupsForUserCommandInput - {@link ListGroupsForUserCommandInput}
+ * @returns {@link ListGroupsForUserCommandOutput}
  * @see {@link ListGroupsForUserCommandInput} for command's `input` shape.
  * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
+ *
+ * @example To list the groups that an IAM user belongs to
+ * ```javascript
+ * // The following command displays the groups that the IAM user named Bob belongs to.
+ * const input = {
+ *   "UserName": "Bob"
+ * };
+ * const command = new ListGroupsForUserCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Groups": [
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
+ *       "CreateDate": "2016-11-30T14:10:01.156Z",
+ *       "GroupId": "AGP2111111111EXAMPLE",
+ *       "GroupName": "Test",
+ *       "Path": "/division_abc/subdivision_xyz/product_1234/engineering/"
+ *     },
+ *     {
+ *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
+ *       "CreateDate": "2016-06-12T20:14:52.032Z",
+ *       "GroupId": "AGPI222222222SEXAMPLE",
+ *       "GroupName": "Managers",
+ *       "Path": "/division_abc/subdivision_xyz/product_1234/"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: 278ec2ee-fc28-4136-83fb-433af0ae46a2
+ * ```
  *
  */
 export class ListGroupsForUserCommand extends $Command<
@@ -48,6 +125,18 @@ export class ListGroupsForUserCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListGroupsForUserCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +152,9 @@ export class ListGroupsForUserCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListGroupsForUserCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +165,8 @@ export class ListGroupsForUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsForUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsForUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +176,18 @@ export class ListGroupsForUserCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGroupsForUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListGroupsForUserCommand(input, context);
+    return se_ListGroupsForUserCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupsForUserCommandOutput> {
-    return deserializeAws_queryListGroupsForUserCommand(output, context);
+    return de_ListGroupsForUserCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,165 +1,171 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecureTunnelingServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientMode = {
+  ALL: "ALL",
+  DESTINATION: "DESTINATION",
+  SOURCE: "SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientMode = (typeof ClientMode)[keyof typeof ClientMode];
+
+/**
+ * @public
+ */
 export interface CloseTunnelRequest {
   /**
+   * @public
    * <p>The ID of the tunnel to close.</p>
    */
   tunnelId: string | undefined;
 
   /**
-   * <p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+   * @public
+   * <p>When set to true, IoT Secure Tunneling deletes the tunnel data
    * 			immediately.</p>
    */
   delete?: boolean;
 }
 
-export namespace CloseTunnelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseTunnelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CloseTunnelResponse {}
 
-export namespace CloseTunnelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseTunnelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-export enum ConnectionStatus {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+
+/**
+ * @public
  * <p>The state of a connection.</p>
  */
 export interface ConnectionState {
   /**
+   * @public
    * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
    * 				<code>DISCONNECTED</code>.</p>
    */
   status?: ConnectionStatus | string;
 
   /**
+   * @public
    * <p>The last time the connection status was updated.</p>
    */
   lastUpdatedAt?: Date;
 }
 
-export namespace ConnectionState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionState): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTunnelRequest {
   /**
+   * @public
    * <p>The tunnel to describe.</p>
    */
   tunnelId: string | undefined;
 }
 
-export namespace DescribeTunnelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The destination configuration.</p>
  */
 export interface DestinationConfig {
   /**
+   * @public
    * <p>The name of the IoT thing to which you want to connect.</p>
    */
   thingName?: string;
 
   /**
-   * <p>A list of service names that identity the target application. The AWS IoT client running on the destination device reads
-   * 			this value and uses it to look up a port or an IP address and a port. The AWS IoT client
-   * 			instantiates the local proxy which uses this information to connect to the destination
-   * 			application.</p>
+   * @public
+   * <p>A list of service names that identify the target application. The IoT client
+   * 			running on the destination device reads this value and uses it to look up a port or an
+   * 			IP address and a port. The IoT client instantiates the local proxy, which uses this
+   * 			information to connect to the destination application.</p>
    */
   services: string[] | undefined;
 }
 
-export namespace DestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum TunnelStatus {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+/**
+ * @public
+ * @enum
+ */
+export const TunnelStatus = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
 
 /**
+ * @public
+ */
+export type TunnelStatus = (typeof TunnelStatus)[keyof typeof TunnelStatus];
+
+/**
+ * @public
  * <p>An arbitary key/value pair used to add searchable metadata to secure tunnel
  * 			resources.</p>
  */
 export interface Tag {
   /**
+   * @public
    * <p>The key of the tag.</p>
    */
   key: string | undefined;
 
   /**
+   * @public
    * <p>The value of the tag.</p>
    */
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Tunnel timeout configuration.</p>
  */
 export interface TimeoutConfig {
   /**
+   * @public
    * <p>The maximum amount of time (in minutes) a tunnel can remain open. If not specified,
    * 			maxLifetimeTimeoutMinutes defaults to 720 minutes. Valid values are from 1 minute to 12
    * 			hours (720 minutes) </p>
@@ -167,52 +173,49 @@ export interface TimeoutConfig {
   maxLifetimeTimeoutMinutes?: number;
 }
 
-export namespace TimeoutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A connection between a source computer and a destination device.</p>
  */
 export interface Tunnel {
   /**
+   * @public
    * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
    */
   tunnelId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a tunnel.</p>
    */
   tunnelArn?: string;
 
   /**
+   * @public
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
   status?: TunnelStatus | string;
 
   /**
+   * @public
    * <p>The connection state of the source application.</p>
    */
   sourceConnectionState?: ConnectionState;
 
   /**
+   * @public
    * <p>The connection state of the destination application.</p>
    */
   destinationConnectionState?: ConnectionState;
 
   /**
+   * @public
    * <p>A description of the tunnel.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The destination configuration that specifies the thing name of the destination
    * 			device and a service name that the local proxy uses to connect to the destination
    * 			application.</p>
@@ -220,322 +223,334 @@ export interface Tunnel {
   destinationConfig?: DestinationConfig;
 
   /**
+   * @public
    * <p>Timeout configuration for the tunnel.</p>
    */
   timeoutConfig?: TimeoutConfig;
 
   /**
+   * @public
    * <p>A list of tag metadata associated with the secure tunnel.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The time when the tunnel was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The last time the tunnel was updated.</p>
    */
   lastUpdatedAt?: Date;
 }
 
-export namespace Tunnel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tunnel): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTunnelResponse {
   /**
+   * @public
    * <p>The tunnel being described.</p>
    */
   tunnel?: Tunnel;
 }
 
-export namespace DescribeTunnelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The resource ARN.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags for the specified resource.</p>
    */
   tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTunnelsRequest {
   /**
+   * @public
    * <p>The name of the IoT thing associated with the destination device.</p>
    */
   thingName?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return at once.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>A token to retrieve the next set of results.</p>
+   * @public
+   * <p>To retrieve the next set of results, the nextToken value from a previous response;
+   * 			otherwise null to receive the first set of results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTunnelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTunnelsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the tunnel.</p>
  */
 export interface TunnelSummary {
   /**
+   * @public
    * <p>The unique alpha-numeric identifier for the tunnel.</p>
    */
   tunnelId?: string;
 
   /**
-   * <p>The Amazon Resource Name of the tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * @public
+   * <p>The Amazon Resource Name of the tunnel. </p>
    */
   tunnelArn?: string;
 
   /**
+   * @public
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
   status?: TunnelStatus | string;
 
   /**
+   * @public
    * <p>A description of the tunnel.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The time the tunnel was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>The time the tunnel was last updated.</p>
    */
   lastUpdatedAt?: Date;
 }
 
-export namespace TunnelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TunnelSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTunnelsResponse {
   /**
-   * <p>A short description of the tunnels in an AWS account.</p>
+   * @public
+   * <p>A short description of the tunnels in an Amazon Web Services account.</p>
    */
   tunnelSummaries?: TunnelSummary[];
 
   /**
-   * <p>A token to used to retrieve the next set of results.</p>
+   * @public
+   * <p>The token to use to get the next set of results, or null if there are no additional
+   * 			results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTunnelsResponse {
+/**
+ * @public
+ * <p>Thrown when a tunnel limit is exceeded.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
- * <p>Thrown when a tunnel limit is exceeded.</p>
+ * @public
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface OpenTunnelRequest {
   /**
+   * @public
    * <p>A short text description of the tunnel. </p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A collection of tag metadata.</p>
    */
   tags?: Tag[];
 
   /**
+   * @public
    * <p>The destination configuration for the OpenTunnel request.</p>
    */
   destinationConfig?: DestinationConfig;
 
   /**
+   * @public
    * <p>Timeout configuration for a tunnel.</p>
    */
   timeoutConfig?: TimeoutConfig;
 }
 
-export namespace OpenTunnelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface OpenTunnelResponse {
   /**
+   * @public
    * <p>A unique alpha-numeric tunnel ID.</p>
    */
   tunnelId?: string;
 
   /**
-   * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * @public
+   * <p>The Amazon Resource Name for the tunnel.</p>
    */
   tunnelArn?: string;
 
   /**
-   * <p>The access token the source local proxy uses to connect to AWS IoT Secure
+   * @public
+   * <p>The access token the source local proxy uses to connect to IoT Secure
    * 			Tunneling.</p>
    */
   sourceAccessToken?: string;
 
   /**
-   * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
+   * @public
+   * <p>The access token the destination local proxy uses to connect to IoT Secure
    * 			Tunneling.</p>
    */
   destinationAccessToken?: string;
 }
 
-export namespace OpenTunnelResponse {
+/**
+ * @public
+ */
+export interface RotateTunnelAccessTokenRequest {
   /**
-   * @internal
+   * @public
+   * <p>The tunnel for which you want to rotate the access tokens.</p>
    */
-  export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
-    ...obj,
-    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
-    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
-  });
+  tunnelId: string | undefined;
+
+  /**
+   * @public
+   * <p>The mode of the client that will use the client token, which can be either the source
+   * 			or destination, or both source and destination.</p>
+   */
+  clientMode: ClientMode | string | undefined;
+
+  /**
+   * @public
+   * <p>The destination configuration.</p>
+   */
+  destinationConfig?: DestinationConfig;
 }
 
+/**
+ * @public
+ */
+export interface RotateTunnelAccessTokenResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name for the tunnel.</p>
+   */
+  tunnelArn?: string;
+
+  /**
+   * @public
+   * <p>The client access token that the source local proxy uses to connect to IoT Secure
+   * 			Tunneling.</p>
+   */
+  sourceAccessToken?: string;
+
+  /**
+   * @public
+   * <p>The client access token that the destination local proxy uses to connect to IoT
+   * 			Secure Tunneling.</p>
+   */
+  destinationAccessToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tags for the resource.</p>
    */
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The resource ARN.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The keys of the tags to remove.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const OpenTunnelResponseFilterSensitiveLog = (obj: OpenTunnelResponse): any => ({
+  ...obj,
+  ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+  ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RotateTunnelAccessTokenResponseFilterSensitiveLog = (obj: RotateTunnelAccessTokenResponse): any => ({
+  ...obj,
+  ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+  ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
+});

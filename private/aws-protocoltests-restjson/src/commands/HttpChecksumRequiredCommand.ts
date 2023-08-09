@@ -1,7 +1,8 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HttpChecksumRequiredInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1HttpChecksumRequiredCommand,
-  serializeAws_restJson1HttpChecksumRequiredCommand,
-} from "../protocols/Aws_restJson1";
+import { de_HttpChecksumRequiredCommand, se_HttpChecksumRequiredCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link HttpChecksumRequiredCommand}.
+ */
 export interface HttpChecksumRequiredCommandInput extends HttpChecksumRequiredInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link HttpChecksumRequiredCommand}.
+ */
 export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example tests httpChecksumRequired trait
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -30,13 +43,25 @@ export interface HttpChecksumRequiredCommandOutput extends HttpChecksumRequiredI
  * import { RestJsonProtocolClient, HttpChecksumRequiredCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpChecksumRequiredCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // HttpChecksumRequiredInputOutput
+ *   foo: "STRING_VALUE",
+ * };
  * const command = new HttpChecksumRequiredCommand(input);
  * const response = await client.send(command);
+ * // { // HttpChecksumRequiredInputOutput
+ * //   foo: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param HttpChecksumRequiredCommandInput - {@link HttpChecksumRequiredCommandInput}
+ * @returns {@link HttpChecksumRequiredCommandOutput}
  * @see {@link HttpChecksumRequiredCommandInput} for command's `input` shape.
  * @see {@link HttpChecksumRequiredCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class HttpChecksumRequiredCommand extends $Command<
@@ -47,6 +72,9 @@ export class HttpChecksumRequiredCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpChecksumRequiredCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,8 +101,8 @@ export class HttpChecksumRequiredCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpChecksumRequiredInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: HttpChecksumRequiredInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +112,18 @@ export class HttpChecksumRequiredCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpChecksumRequiredCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpChecksumRequiredCommand(input, context);
+    return se_HttpChecksumRequiredCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpChecksumRequiredCommandOutput> {
-    return deserializeAws_restJson1HttpChecksumRequiredCommand(output, context);
+    return de_HttpChecksumRequiredCommand(output, context);
   }
 
   // Start section: command_body_extra

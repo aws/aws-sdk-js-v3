@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListWorldExportJobsRequest, ListWorldExportJobsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListWorldExportJobsCommand,
-  serializeAws_restJson1ListWorldExportJobsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListWorldExportJobsCommand, se_ListWorldExportJobsCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListWorldExportJobsCommand}.
+ */
 export interface ListWorldExportJobsCommandInput extends ListWorldExportJobsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListWorldExportJobsCommand}.
+ */
 export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists world export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,58 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * import { RoboMakerClient, ListWorldExportJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListWorldExportJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = { // ListWorldExportJobsRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [ // Filters
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListWorldExportJobsCommand(input);
  * const response = await client.send(command);
+ * // { // ListWorldExportJobsResponse
+ * //   worldExportJobSummaries: [ // WorldExportJobSummaries // required
+ * //     { // WorldExportJobSummary
+ * //       arn: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       worlds: [ // Arns
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       outputLocation: { // OutputLocation
+ * //         s3Bucket: "STRING_VALUE",
+ * //         s3Prefix: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListWorldExportJobsCommandInput - {@link ListWorldExportJobsCommandInput}
+ * @returns {@link ListWorldExportJobsCommandOutput}
  * @see {@link ListWorldExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldExportJobsCommandOutput} for command's `response` shape.
  * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter specified in a request is not valid, is unsupported, or cannot be used. The
+ *          returned message provides an explanation of the error value.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RoboMakerServiceException}
+ * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
 export class ListWorldExportJobsCommand extends $Command<
@@ -46,6 +105,18 @@ export class ListWorldExportJobsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListWorldExportJobsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +132,9 @@ export class ListWorldExportJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListWorldExportJobsCommandInput, ListWorldExportJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListWorldExportJobsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +145,8 @@ export class ListWorldExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorldExportJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListWorldExportJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +156,18 @@ export class ListWorldExportJobsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListWorldExportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListWorldExportJobsCommand(input, context);
+    return se_ListWorldExportJobsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorldExportJobsCommandOutput> {
-    return deserializeAws_restJson1ListWorldExportJobsCommand(output, context);
+    return de_ListWorldExportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

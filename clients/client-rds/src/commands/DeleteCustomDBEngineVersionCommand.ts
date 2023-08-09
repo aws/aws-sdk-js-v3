@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DBEngineVersion, DeleteCustomDBEngineVersionMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteCustomDBEngineVersionCommand,
-  serializeAws_queryDeleteCustomDBEngineVersionCommand,
-} from "../protocols/Aws_query";
+import { de_DeleteCustomDBEngineVersionCommand, se_DeleteCustomDBEngineVersionCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteCustomDBEngineVersionCommand}.
+ */
 export interface DeleteCustomDBEngineVersionCommandInput extends DeleteCustomDBEngineVersionMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCustomDBEngineVersionCommand}.
+ */
 export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>The CEV must not be the default for RDS Custom. If it is, change the default
  *                 before running this command.</p>
@@ -33,29 +47,127 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *                 or automated backup of your RDS Custom instance.</p>
  *             </li>
  *          </ul>
- *         <p>Typically, deletion takes a few minutes.</p>
- *         <note>
+ *          <p>Typically, deletion takes a few minutes.</p>
+ *          <note>
  *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
  *             Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
  *             <code>DeleteCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
  *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
  *             the <code>DeleteCustomDbEngineVersion</code> event.</p>
  *          </note>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">
- *             Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting a
+ *                 CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DeleteCustomDBEngineVersionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteCustomDBEngineVersionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = { // DeleteCustomDBEngineVersionMessage
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomDBEngineVersionCommand(input);
  * const response = await client.send(command);
+ * // { // DBEngineVersion
+ * //   Engine: "STRING_VALUE",
+ * //   EngineVersion: "STRING_VALUE",
+ * //   DBParameterGroupFamily: "STRING_VALUE",
+ * //   DBEngineDescription: "STRING_VALUE",
+ * //   DBEngineVersionDescription: "STRING_VALUE",
+ * //   DefaultCharacterSet: { // CharacterSet
+ * //     CharacterSetName: "STRING_VALUE",
+ * //     CharacterSetDescription: "STRING_VALUE",
+ * //   },
+ * //   Image: { // CustomDBEngineVersionAMI
+ * //     ImageId: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //   },
+ * //   DBEngineMediaType: "STRING_VALUE",
+ * //   SupportedCharacterSets: [ // SupportedCharacterSetsList
+ * //     {
+ * //       CharacterSetName: "STRING_VALUE",
+ * //       CharacterSetDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   SupportedNcharCharacterSets: [
+ * //     {
+ * //       CharacterSetName: "STRING_VALUE",
+ * //       CharacterSetDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ValidUpgradeTarget: [ // ValidUpgradeTargetList
+ * //     { // UpgradeTarget
+ * //       Engine: "STRING_VALUE",
+ * //       EngineVersion: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       AutoUpgrade: true || false,
+ * //       IsMajorVersionUpgrade: true || false,
+ * //       SupportedEngineModes: [ // EngineModeList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       SupportsParallelQuery: true || false,
+ * //       SupportsGlobalDatabases: true || false,
+ * //       SupportsBabelfish: true || false,
+ * //       SupportsLocalWriteForwarding: true || false,
+ * //     },
+ * //   ],
+ * //   SupportedTimezones: [ // SupportedTimezonesList
+ * //     { // Timezone
+ * //       TimezoneName: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   ExportableLogTypes: [ // LogTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SupportsLogExportsToCloudwatchLogs: true || false,
+ * //   SupportsReadReplica: true || false,
+ * //   SupportedEngineModes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SupportedFeatureNames: [ // FeatureNameList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   Status: "STRING_VALUE",
+ * //   SupportsParallelQuery: true || false,
+ * //   SupportsGlobalDatabases: true || false,
+ * //   MajorEngineVersion: "STRING_VALUE",
+ * //   DatabaseInstallationFilesS3BucketName: "STRING_VALUE",
+ * //   DatabaseInstallationFilesS3Prefix: "STRING_VALUE",
+ * //   DBEngineVersionArn: "STRING_VALUE",
+ * //   KMSKeyId: "STRING_VALUE",
+ * //   CreateTime: new Date("TIMESTAMP"),
+ * //   TagList: [ // TagList
+ * //     { // Tag
+ * //       Key: "STRING_VALUE",
+ * //       Value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   SupportsBabelfish: true || false,
+ * //   CustomDBEngineVersionManifest: "STRING_VALUE",
+ * //   SupportsCertificateRotationWithoutRestart: true || false,
+ * //   SupportedCACertificateIdentifiers: [ // CACertificateIdentifiersList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   SupportsLocalWriteForwarding: true || false,
+ * // };
+ *
  * ```
  *
+ * @param DeleteCustomDBEngineVersionCommandInput - {@link DeleteCustomDBEngineVersionCommandInput}
+ * @returns {@link DeleteCustomDBEngineVersionCommandOutput}
  * @see {@link DeleteCustomDBEngineVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
+ *
+ * @throws {@link CustomDBEngineVersionNotFoundFault} (client fault)
+ *  <p>The specified CEV was not found.</p>
+ *
+ * @throws {@link InvalidCustomDBEngineVersionStateFault} (client fault)
+ *  <p>You can't delete the CEV.</p>
+ *
+ * @throws {@link RDSServiceException}
+ * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  */
 export class DeleteCustomDBEngineVersionCommand extends $Command<
@@ -66,6 +178,18 @@ export class DeleteCustomDBEngineVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomDBEngineVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,6 +205,9 @@ export class DeleteCustomDBEngineVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCustomDBEngineVersionCommandInput, DeleteCustomDBEngineVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCustomDBEngineVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -91,8 +218,8 @@ export class DeleteCustomDBEngineVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomDBEngineVersionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersion.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,15 +229,21 @@ export class DeleteCustomDBEngineVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomDBEngineVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteCustomDBEngineVersionCommand(input, context);
+    return se_DeleteCustomDBEngineVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteCustomDBEngineVersionCommandOutput> {
-    return deserializeAws_queryDeleteCustomDBEngineVersionCommand(output, context);
+    return de_DeleteCustomDBEngineVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

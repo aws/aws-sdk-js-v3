@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListSimulationApplicationsCommand,
   ListSimulationApplicationsCommandInput,
   ListSimulationApplicationsCommandOutput,
 } from "../commands/ListSimulationApplicationsCommand";
-import { RoboMaker } from "../RoboMaker";
 import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RoboMakerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListSimulationApplicationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RoboMaker,
-  input: ListSimulationApplicationsCommandInput,
-  ...args: any
-): Promise<ListSimulationApplicationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listSimulationApplications(input, ...args);
-};
 export async function* paginateListSimulationApplications(
   config: RoboMakerPaginationConfiguration,
   input: ListSimulationApplicationsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListSimulationApplications(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RoboMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RoboMakerClient) {
+    if (config.client instanceof RoboMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RoboMaker | RoboMakerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

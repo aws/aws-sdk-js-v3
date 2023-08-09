@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
-import { WorkMail } from "../WorkMail";
 import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkMailClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAliasesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WorkMail,
-  input: ListAliasesCommandInput,
-  ...args: any
-): Promise<ListAliasesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAliases(input, ...args);
-};
 export async function* paginateListAliases(
   config: WorkMailPaginationConfiguration,
   input: ListAliasesCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListAliases(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WorkMail) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkMailClient) {
+    if (config.client instanceof WorkMailClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { DeleteCustomMetricRequest, DeleteCustomMetricResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteCustomMetricCommand,
-  serializeAws_restJson1DeleteCustomMetricCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteCustomMetricCommand, se_DeleteCustomMetricCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteCustomMetricCommand}.
+ */
 export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCustomMetricCommand}.
+ */
 export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Deletes a Device Defender detect custom metric.
  *     </p>
@@ -40,13 +54,32 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * import { IoTClient, DeleteCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteCustomMetricRequest
+ *   metricName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomMetricCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteCustomMetricCommandInput - {@link DeleteCustomMetricCommandInput}
+ * @returns {@link DeleteCustomMetricCommandOutput}
  * @see {@link DeleteCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetricCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteCustomMetricCommand extends $Command<
@@ -57,6 +90,18 @@ export class DeleteCustomMetricCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCustomMetricCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +117,9 @@ export class DeleteCustomMetricCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCustomMetricCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +130,8 @@ export class DeleteCustomMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomMetricRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomMetricResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +141,18 @@ export class DeleteCustomMetricCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCustomMetricCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteCustomMetricCommand(input, context);
+    return se_DeleteCustomMetricCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCustomMetricCommandOutput> {
-    return deserializeAws_restJson1DeleteCustomMetricCommand(output, context);
+    return de_DeleteCustomMetricCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeBatchPredictionsCommand,
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput,
 } from "../commands/DescribeBatchPredictionsCommand";
-import { MachineLearning } from "../MachineLearning";
 import { MachineLearningClient } from "../MachineLearningClient";
 import { MachineLearningPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MachineLearningClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeBatchPredictionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MachineLearning,
-  input: DescribeBatchPredictionsCommandInput,
-  ...args: any
-): Promise<DescribeBatchPredictionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeBatchPredictions(input, ...args);
-};
 export async function* paginateDescribeBatchPredictions(
   config: MachineLearningPaginationConfiguration,
   input: DescribeBatchPredictionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeBatchPredictions(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof MachineLearning) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MachineLearningClient) {
+    if (config.client instanceof MachineLearningClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MachineLearning | MachineLearningClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

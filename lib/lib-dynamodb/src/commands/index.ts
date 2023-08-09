@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchExecuteStatementCommand";
 export * from "./BatchGetCommand";
 export * from "./BatchWriteCommand";

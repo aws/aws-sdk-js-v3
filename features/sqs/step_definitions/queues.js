@@ -1,11 +1,10 @@
-const { Given, Then } = require("cucumber");
+const { Given, Then } = require("@cucumber/cucumber");
 
-Given("I create a queue with the prefix name {string}", function (prefix, callback) {
+Given("I create a queue with the prefix name {string}", async function (prefix) {
   const name = this.uniqueName(prefix);
-  this.request(null, "createQueue", { QueueName: name }, callback, function () {
-    this.queueUrl = this.data.QueueUrl;
-    this.createdQueues.push(this.queueUrl);
-  });
+  const response = await this.service.createQueue({ QueueName: name });
+  this.queueUrl = response.QueueUrl;
+  this.createdQueues.push(this.queueUrl);
 });
 
 Then("list queues should eventually return the queue urls", function (callback) {
@@ -23,13 +22,9 @@ Then("list queues should eventually return the queue urls", function (callback) 
         }
         return matchingCount == this.createdQueues.length;
       };
+
       this.request(null, "listQueues", {}, next);
     },
     { maxTime: 60 }
   );
-});
-
-Then("I delete the SQS queue", function (callback) {
-  const url = this.createdQueues.pop();
-  this.request(null, "deleteQueue", { QueueUrl: url }, callback);
 });

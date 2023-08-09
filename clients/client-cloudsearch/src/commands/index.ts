@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BuildSuggestersCommand";
 export * from "./CreateDomainCommand";
 export * from "./DefineAnalysisSchemeCommand";

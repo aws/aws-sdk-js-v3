@@ -1,16 +1,14 @@
-import { parseQueryString } from "@aws-sdk/querystring-parser";
+import { parseQueryString } from "@smithy/querystring-parser";
 import {
   getCanonicalQuery,
   getPayloadHash,
   moveHeadersToQuery,
-  normalizeCredentialsProvider,
-  normalizeRegionProvider,
   prepareRequest,
   SignatureV4CryptoInit,
   SignatureV4Init,
-} from "@aws-sdk/signature-v4";
+} from "@smithy/signature-v4";
 import {
-  Credentials,
+  AwsCredentialIdentity,
   HttpRequest,
   Provider,
   QueryParameterBag,
@@ -18,7 +16,8 @@ import {
   RequestPresigningArguments,
   RequestSigner,
   RequestSigningArguments,
-} from "@aws-sdk/types";
+} from "@smithy/types";
+import { normalizeProvider } from "@smithy/util-middleware";
 import { auth as crtAuth, http as crtHttp, io as crtIO } from "aws-crt";
 
 import { MAX_PRESIGNED_TTL, SHA256_HEADER } from "./constants";
@@ -62,7 +61,7 @@ export interface CrtSignerV4Init extends SignatureV4Init {
 export class CrtSignerV4 implements RequestPresigner, RequestSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
-  private readonly credentialProvider: Provider<Credentials>;
+  private readonly credentialProvider: Provider<AwsCredentialIdentity>;
   private readonly sha256: any;
   private readonly uriEscapePath: boolean;
   private readonly applyChecksum: boolean;
@@ -82,8 +81,8 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
     this.uriEscapePath = uriEscapePath;
     this.signingAlgorithm = signingAlgorithm;
     this.applyChecksum = applyChecksum;
-    this.regionProvider = normalizeRegionProvider(region);
-    this.credentialProvider = normalizeCredentialsProvider(credentials);
+    this.regionProvider = normalizeProvider(region);
+    this.credentialProvider = normalizeProvider(credentials);
     crtIO.enable_logging(crtIO.LogLevel.ERROR);
   }
 
@@ -254,7 +253,7 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
   }
 }
 
-function sdk2crtCredentialsProvider(credentials: Credentials): crtAuth.AwsCredentialsProvider {
+function sdk2crtCredentialsProvider(credentials: AwsCredentialIdentity): crtAuth.AwsCredentialsProvider {
   return crtAuth.AwsCredentialsProvider.newStatic(
     credentials.accessKeyId,
     credentials.secretAccessKey,

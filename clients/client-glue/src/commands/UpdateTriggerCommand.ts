@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1UpdateTriggerCommand,
-  serializeAws_json1_1UpdateTriggerCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_2";
+import { de_UpdateTriggerCommand, se_UpdateTriggerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateTriggerCommand}.
+ */
 export interface UpdateTriggerCommandInput extends UpdateTriggerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTriggerCommand}.
+ */
 export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates a trigger definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,113 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * import { GlueClient, UpdateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = { // UpdateTriggerRequest
+ *   Name: "STRING_VALUE", // required
+ *   TriggerUpdate: { // TriggerUpdate
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Schedule: "STRING_VALUE",
+ *     Actions: [ // ActionList
+ *       { // Action
+ *         JobName: "STRING_VALUE",
+ *         Arguments: { // GenericMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         Timeout: Number("int"),
+ *         SecurityConfiguration: "STRING_VALUE",
+ *         NotificationProperty: { // NotificationProperty
+ *           NotifyDelayAfter: Number("int"),
+ *         },
+ *         CrawlerName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Predicate: { // Predicate
+ *       Logical: "AND" || "ANY",
+ *       Conditions: [ // ConditionList
+ *         { // Condition
+ *           LogicalOperator: "EQUALS",
+ *           JobName: "STRING_VALUE",
+ *           State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ *           CrawlerName: "STRING_VALUE",
+ *           CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
+ *         },
+ *       ],
+ *     },
+ *     EventBatchingCondition: { // EventBatchingCondition
+ *       BatchSize: Number("int"), // required
+ *       BatchWindow: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateTriggerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateTriggerResponse
+ * //   Trigger: { // Trigger
+ * //     Name: "STRING_VALUE",
+ * //     WorkflowName: "STRING_VALUE",
+ * //     Id: "STRING_VALUE",
+ * //     Type: "SCHEDULED" || "CONDITIONAL" || "ON_DEMAND" || "EVENT",
+ * //     State: "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVATED" || "DEACTIVATING" || "DEACTIVATED" || "DELETING" || "UPDATING",
+ * //     Description: "STRING_VALUE",
+ * //     Schedule: "STRING_VALUE",
+ * //     Actions: [ // ActionList
+ * //       { // Action
+ * //         JobName: "STRING_VALUE",
+ * //         Arguments: { // GenericMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         Timeout: Number("int"),
+ * //         SecurityConfiguration: "STRING_VALUE",
+ * //         NotificationProperty: { // NotificationProperty
+ * //           NotifyDelayAfter: Number("int"),
+ * //         },
+ * //         CrawlerName: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Predicate: { // Predicate
+ * //       Logical: "AND" || "ANY",
+ * //       Conditions: [ // ConditionList
+ * //         { // Condition
+ * //           LogicalOperator: "EQUALS",
+ * //           JobName: "STRING_VALUE",
+ * //           State: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT" || "ERROR" || "WAITING",
+ * //           CrawlerName: "STRING_VALUE",
+ * //           CrawlState: "RUNNING" || "CANCELLING" || "CANCELLED" || "SUCCEEDED" || "FAILED" || "ERROR",
+ * //         },
+ * //       ],
+ * //     },
+ * //     EventBatchingCondition: { // EventBatchingCondition
+ * //       BatchSize: Number("int"), // required
+ * //       BatchWindow: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateTriggerCommandInput - {@link UpdateTriggerCommandInput}
+ * @returns {@link UpdateTriggerCommandOutput}
  * @see {@link UpdateTriggerCommandInput} for command's `input` shape.
  * @see {@link UpdateTriggerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link GlueServiceException}
+ * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
 export class UpdateTriggerCommand extends $Command<
@@ -46,6 +160,18 @@ export class UpdateTriggerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTriggerCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +187,7 @@ export class UpdateTriggerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateTriggerCommandInput, UpdateTriggerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateTriggerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +198,8 @@ export class UpdateTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTriggerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTriggerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +209,18 @@ export class UpdateTriggerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTriggerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateTriggerCommand(input, context);
+    return se_UpdateTriggerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTriggerCommandOutput> {
-    return deserializeAws_json1_1UpdateTriggerCommand(output, context);
+    return de_UpdateTriggerCommand(output, context);
   }
 
   // Start section: command_body_extra

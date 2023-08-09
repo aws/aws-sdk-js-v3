@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateInstanceStorageConfigRequest } from "../models/models_0";
+import { UpdateInstanceStorageConfigRequest } from "../models/models_1";
 import {
-  deserializeAws_restJson1UpdateInstanceStorageConfigCommand,
-  serializeAws_restJson1UpdateInstanceStorageConfigCommand,
+  de_UpdateInstanceStorageConfigCommand,
+  se_UpdateInstanceStorageConfigCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateInstanceStorageConfigCommand}.
+ */
 export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceStorageConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInstanceStorageConfigCommand}.
+ */
 export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  * @example
@@ -30,13 +47,66 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * import { ConnectClient, UpdateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // UpdateInstanceStorageConfigRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   AssociationId: "STRING_VALUE", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS" || "SCREEN_RECORDINGS", // required
+ *   StorageConfig: { // InstanceStorageConfig
+ *     AssociationId: "STRING_VALUE",
+ *     StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE", // required
+ *     S3Config: { // S3Config
+ *       BucketName: "STRING_VALUE", // required
+ *       BucketPrefix: "STRING_VALUE", // required
+ *       EncryptionConfig: { // EncryptionConfig
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisVideoStreamConfig: { // KinesisVideoStreamConfig
+ *       Prefix: "STRING_VALUE", // required
+ *       RetentionPeriodHours: Number("int"), // required
+ *       EncryptionConfig: {
+ *         EncryptionType: "KMS", // required
+ *         KeyId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     KinesisStreamConfig: { // KinesisStreamConfig
+ *       StreamArn: "STRING_VALUE", // required
+ *     },
+ *     KinesisFirehoseConfig: { // KinesisFirehoseConfig
+ *       FirehoseArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateInstanceStorageConfigCommandInput - {@link UpdateInstanceStorageConfigCommandInput}
+ * @returns {@link UpdateInstanceStorageConfigCommandOutput}
  * @see {@link UpdateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceStorageConfigCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class UpdateInstanceStorageConfigCommand extends $Command<
@@ -47,6 +117,18 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInstanceStorageConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +144,9 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateInstanceStorageConfigCommandInput, UpdateInstanceStorageConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateInstanceStorageConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +157,8 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceStorageConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +168,21 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateInstanceStorageConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInstanceStorageConfigCommand(input, context);
+    return se_UpdateInstanceStorageConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInstanceStorageConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateInstanceStorageConfigCommand(output, context);
+    return de_UpdateInstanceStorageConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

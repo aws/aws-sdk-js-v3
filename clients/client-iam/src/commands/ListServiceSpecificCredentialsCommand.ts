@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse } from "../models/models_0";
 import {
-  deserializeAws_queryListServiceSpecificCredentialsCommand,
-  serializeAws_queryListServiceSpecificCredentialsCommand,
+  de_ListServiceSpecificCredentialsCommand,
+  se_ListServiceSpecificCredentialsCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListServiceSpecificCredentialsCommand}.
+ */
 export interface ListServiceSpecificCredentialsCommandInput extends ListServiceSpecificCredentialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListServiceSpecificCredentialsCommand}.
+ */
 export interface ListServiceSpecificCredentialsCommandOutput
   extends ListServiceSpecificCredentialsResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the service-specific credentials associated with the
  *             specified IAM user. If none exists, the operation returns an empty list. The
  *             service-specific credentials returned by this operation are used only for authenticating
@@ -36,13 +53,42 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * import { IAMClient, ListServiceSpecificCredentialsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListServiceSpecificCredentialsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // ListServiceSpecificCredentialsRequest
+ *   UserName: "STRING_VALUE",
+ *   ServiceName: "STRING_VALUE",
+ * };
  * const command = new ListServiceSpecificCredentialsCommand(input);
  * const response = await client.send(command);
+ * // { // ListServiceSpecificCredentialsResponse
+ * //   ServiceSpecificCredentials: [ // ServiceSpecificCredentialsListType
+ * //     { // ServiceSpecificCredentialMetadata
+ * //       UserName: "STRING_VALUE", // required
+ * //       Status: "Active" || "Inactive", // required
+ * //       ServiceUserName: "STRING_VALUE", // required
+ * //       CreateDate: new Date("TIMESTAMP"), // required
+ * //       ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * //       ServiceName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListServiceSpecificCredentialsCommandInput - {@link ListServiceSpecificCredentialsCommandInput}
+ * @returns {@link ListServiceSpecificCredentialsCommandOutput}
  * @see {@link ListServiceSpecificCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListServiceSpecificCredentialsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceNotSupportedException} (client fault)
+ *  <p>The specified service does not support service-specific credentials.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class ListServiceSpecificCredentialsCommand extends $Command<
@@ -53,6 +99,18 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListServiceSpecificCredentialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +126,9 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListServiceSpecificCredentialsCommandInput, ListServiceSpecificCredentialsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListServiceSpecificCredentialsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +139,8 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceSpecificCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceSpecificCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,18 +150,24 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListServiceSpecificCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryListServiceSpecificCredentialsCommand(input, context);
+    return se_ListServiceSpecificCredentialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceSpecificCredentialsCommandOutput> {
-    return deserializeAws_queryListServiceSpecificCredentialsCommand(output, context);
+    return de_ListServiceSpecificCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

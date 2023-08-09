@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ECS } from "../ECS";
 import { ECSClient } from "../ECSClient";
 
+/**
+ * @public
+ */
 export interface ECSPaginationConfiguration extends PaginationConfiguration {
-  client: ECS | ECSClient;
+  client: ECSClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
-import {
-  deserializeAws_restJson1DeleteBrokerCommand,
-  serializeAws_restJson1DeleteBrokerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteBrokerCommand, se_DeleteBrokerCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteBrokerCommand}.
+ */
 export interface DeleteBrokerCommandInput extends DeleteBrokerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBrokerCommand}.
+ */
 export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a broker. Note: This API is asynchronous.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,37 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * import { MqClient, DeleteBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = { // DeleteBrokerRequest
+ *   BrokerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBrokerCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteBrokerResponse
+ * //   BrokerId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DeleteBrokerCommandInput - {@link DeleteBrokerCommandInput}
+ * @returns {@link DeleteBrokerCommandOutput}
  * @see {@link DeleteBrokerCommandInput} for command's `input` shape.
  * @see {@link DeleteBrokerCommandOutput} for command's `response` shape.
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Returns information about an error.</p>
+ *
+ * @throws {@link MqServiceException}
+ * <p>Base exception class for all service exceptions from Mq service.</p>
  *
  */
 export class DeleteBrokerCommand extends $Command<
@@ -46,6 +84,18 @@ export class DeleteBrokerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBrokerCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +111,7 @@ export class DeleteBrokerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBrokerCommandInput, DeleteBrokerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteBrokerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +122,8 @@ export class DeleteBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBrokerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +133,18 @@ export class DeleteBrokerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBrokerCommand(input, context);
+    return se_DeleteBrokerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteBrokerCommandOutput> {
-    return deserializeAws_restJson1DeleteBrokerCommand(output, context);
+    return de_DeleteBrokerCommand(output, context);
   }
 
   // Start section: command_body_extra

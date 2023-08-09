@@ -1,4 +1,5 @@
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+// smithy-typescript generated code
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import { GetStreamingSessionCommand, GetStreamingSessionCommandInput } from "../commands/GetStreamingSessionCommand";
 import { NimbleClient } from "../NimbleClient";
@@ -30,7 +31,7 @@ const checkState = async (client: NimbleClient, input: GetStreamingSessionComman
   return { state: WaiterState.RETRY, reason };
 };
 /**
- * Wait until a StreamingSessionDeleted. Use this after invoking Deletesession
+ * Wait until a StreamingSessionDeleted. Use this after invoking DeleteStreamingSession
  *  @deprecated Use waitUntilStreamingSessionDeleted instead. waitForStreamingSessionDeleted does not throw error in non-success cases.
  */
 export const waitForStreamingSessionDeleted = async (
@@ -41,7 +42,7 @@ export const waitForStreamingSessionDeleted = async (
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
- * Wait until a StreamingSessionDeleted. Use this after invoking Deletesession
+ * Wait until a StreamingSessionDeleted. Use this after invoking DeleteStreamingSession
  *  @param params - Waiter configuration options.
  *  @param input - The input to GetStreamingSessionCommand for polling.
  */

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateArtifactRequest, CreateArtifactResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateArtifactCommand,
-  serializeAws_json1_1CreateArtifactCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateArtifactCommand, se_CreateArtifactCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateArtifactCommand}.
+ */
 export interface CreateArtifactCommandInput extends CreateArtifactRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateArtifactCommand}.
+ */
 export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that
  *         represents a URI addressable object or data. Some examples are the S3 URI of a dataset and
  *         the ECR registry path of an image. For more information, see
@@ -33,13 +47,54 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * import { SageMakerClient, CreateArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateArtifactRequest
+ *   ArtifactName: "STRING_VALUE",
+ *   Source: { // ArtifactSource
+ *     SourceUri: "STRING_VALUE", // required
+ *     SourceTypes: [ // ArtifactSourceTypes
+ *       { // ArtifactSourceType
+ *         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   ArtifactType: "STRING_VALUE", // required
+ *   Properties: { // LineageEntityParameters
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   MetadataProperties: { // MetadataProperties
+ *     CommitId: "STRING_VALUE",
+ *     Repository: "STRING_VALUE",
+ *     GeneratedBy: "STRING_VALUE",
+ *     ProjectId: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateArtifactCommand(input);
  * const response = await client.send(command);
+ * // { // CreateArtifactResponse
+ * //   ArtifactArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateArtifactCommandInput - {@link CreateArtifactCommandInput}
+ * @returns {@link CreateArtifactCommandOutput}
  * @see {@link CreateArtifactCommandInput} for command's `input` shape.
  * @see {@link CreateArtifactCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateArtifactCommand extends $Command<
@@ -50,6 +105,18 @@ export class CreateArtifactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateArtifactCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +132,9 @@ export class CreateArtifactCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateArtifactCommandInput, CreateArtifactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateArtifactCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +145,8 @@ export class CreateArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateArtifactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateArtifactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +156,18 @@ export class CreateArtifactCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateArtifactCommand(input, context);
+    return se_CreateArtifactCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateArtifactCommandOutput> {
-    return deserializeAws_json1_1CreateArtifactCommand(output, context);
+    return de_CreateArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

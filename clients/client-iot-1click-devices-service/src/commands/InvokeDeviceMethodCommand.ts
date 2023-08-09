@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   IoT1ClickDevicesServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
 import { InvokeDeviceMethodRequest, InvokeDeviceMethodResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1InvokeDeviceMethodCommand,
-  serializeAws_restJson1InvokeDeviceMethodCommand,
-} from "../protocols/Aws_restJson1";
+import { de_InvokeDeviceMethodCommand, se_InvokeDeviceMethodCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link InvokeDeviceMethodCommand}.
+ */
 export interface InvokeDeviceMethodCommandInput extends InvokeDeviceMethodRequest {}
+/**
+ * @public
+ *
+ * The output of {@link InvokeDeviceMethodCommand}.
+ */
 export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given a device ID, issues a request to invoke a named device method (with possible
  *  parameters). See the "Example POST" code snippet below.</p>
  * @example
@@ -34,13 +48,42 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * import { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = { // InvokeDeviceMethodRequest
+ *   DeviceId: "STRING_VALUE", // required
+ *   DeviceMethod: { // DeviceMethod
+ *     DeviceType: "STRING_VALUE",
+ *     MethodName: "STRING_VALUE",
+ *   },
+ *   DeviceMethodParameters: "STRING_VALUE",
+ * };
  * const command = new InvokeDeviceMethodCommand(input);
  * const response = await client.send(command);
+ * // { // InvokeDeviceMethodResponse
+ * //   DeviceMethodResponse: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param InvokeDeviceMethodCommandInput - {@link InvokeDeviceMethodCommandInput}
+ * @returns {@link InvokeDeviceMethodCommandOutput}
  * @see {@link InvokeDeviceMethodCommandInput} for command's `input` shape.
  * @see {@link InvokeDeviceMethodCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *
+ * @throws {@link RangeNotSatisfiableException} (client fault)
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
+ * @throws {@link IoT1ClickDevicesServiceServiceException}
+ * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
  */
 export class InvokeDeviceMethodCommand extends $Command<
@@ -51,6 +94,18 @@ export class InvokeDeviceMethodCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: InvokeDeviceMethodCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +121,9 @@ export class InvokeDeviceMethodCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, InvokeDeviceMethodCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +134,8 @@ export class InvokeDeviceMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvokeDeviceMethodRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InvokeDeviceMethodResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +145,18 @@ export class InvokeDeviceMethodCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InvokeDeviceMethodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1InvokeDeviceMethodCommand(input, context);
+    return se_InvokeDeviceMethodCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeDeviceMethodCommandOutput> {
-    return deserializeAws_restJson1InvokeDeviceMethodCommand(output, context);
+    return de_InvokeDeviceMethodCommand(output, context);
   }
 
   // Start section: command_body_extra

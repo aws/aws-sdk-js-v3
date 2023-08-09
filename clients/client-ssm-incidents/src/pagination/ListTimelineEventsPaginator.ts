@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListTimelineEventsCommand,
   ListTimelineEventsCommandInput,
   ListTimelineEventsCommandOutput,
 } from "../commands/ListTimelineEventsCommand";
-import { SSMIncidents } from "../SSMIncidents";
 import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMIncidentsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTimelineEventsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSMIncidents,
-  input: ListTimelineEventsCommandInput,
-  ...args: any
-): Promise<ListTimelineEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTimelineEvents(input, ...args);
-};
 export async function* paginateListTimelineEvents(
   config: SSMIncidentsPaginationConfiguration,
   input: ListTimelineEventsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListTimelineEvents(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SSMIncidents) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMIncidentsClient) {
+    if (config.client instanceof SSMIncidentsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSMIncidents | SSMIncidentsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

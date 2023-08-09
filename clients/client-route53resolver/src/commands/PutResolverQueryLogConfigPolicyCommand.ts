@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutResolverQueryLogConfigPolicyRequest, PutResolverQueryLogConfigPolicyResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand,
-  serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand,
+  de_PutResolverQueryLogConfigPolicyCommand,
+  se_PutResolverQueryLogConfigPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutResolverQueryLogConfigPolicyCommand}.
+ */
 export interface PutResolverQueryLogConfigPolicyCommandInput extends PutResolverQueryLogConfigPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutResolverQueryLogConfigPolicyCommand}.
+ */
 export interface PutResolverQueryLogConfigPolicyCommandOutput
   extends PutResolverQueryLogConfigPolicyResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
  * 			and the operations that you want the account to be able to perform on the configuration.</p>
  * @example
@@ -32,13 +49,44 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * import { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // PutResolverQueryLogConfigPolicyRequest
+ *   Arn: "STRING_VALUE", // required
+ *   ResolverQueryLogConfigPolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutResolverQueryLogConfigPolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResolverQueryLogConfigPolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
+ *
  * ```
  *
+ * @param PutResolverQueryLogConfigPolicyCommandInput - {@link PutResolverQueryLogConfigPolicyCommandInput}
+ * @returns {@link PutResolverQueryLogConfigPolicyCommandOutput}
  * @see {@link PutResolverQueryLogConfigPolicyCommandInput} for command's `input` shape.
  * @see {@link PutResolverQueryLogConfigPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidPolicyDocument} (client fault)
+ *  <p>The specified Resolver rule policy is invalid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutResolverQueryLogConfigPolicyCommand extends $Command<
@@ -49,6 +97,18 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutResolverQueryLogConfigPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +124,9 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutResolverQueryLogConfigPolicyCommandInput, PutResolverQueryLogConfigPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutResolverQueryLogConfigPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +137,8 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResolverQueryLogConfigPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResolverQueryLogConfigPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +148,24 @@ export class PutResolverQueryLogConfigPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: PutResolverQueryLogConfigPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResolverQueryLogConfigPolicyCommand(input, context);
+    return se_PutResolverQueryLogConfigPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutResolverQueryLogConfigPolicyCommandOutput> {
-    return deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand(output, context);
+    return de_PutResolverQueryLogConfigPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

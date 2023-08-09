@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -8,29 +10,47 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
+  SdkStreamSerdeContext as __SdkStreamSerdeContext,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+  StreamingBlobPayloadInputTypes,
+  StreamingBlobPayloadOutputTypes,
+} from "@smithy/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { RecognizeUtteranceRequest, RecognizeUtteranceResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1RecognizeUtteranceCommand,
-  serializeAws_restJson1RecognizeUtteranceCommand,
-} from "../protocols/Aws_restJson1";
+  RecognizeUtteranceRequest,
+  RecognizeUtteranceRequestFilterSensitiveLog,
+  RecognizeUtteranceResponse,
+  RecognizeUtteranceResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../protocols/Aws_restJson1";
 
-type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
-  /**
-   * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
-   */
-  inputStream?: RecognizeUtteranceRequest["inputStream"] | string | Uint8Array | Buffer;
-};
 /**
- * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
+ * @public
  */
-export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
-export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceResponse, __MetadataBearer {}
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RecognizeUtteranceCommand}.
+ */
+export interface RecognizeUtteranceCommandInput extends Omit<RecognizeUtteranceRequest, "inputStream"> {
+  inputStream?: StreamingBlobPayloadInputTypes;
+}
 
 /**
+ * @public
+ *
+ * The output of {@link RecognizeUtteranceCommand}.
+ */
+export interface RecognizeUtteranceCommandOutput
+  extends Omit<RecognizeUtteranceResponse, "audioStream">,
+    __MetadataBearer {
+  audioStream?: StreamingBlobPayloadOutputTypes;
+}
+
+/**
+ * @public
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
  *          this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
  *          interprets the user input using the machine learning model built for
@@ -100,13 +120,66 @@ export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceRespo
  * import { LexRuntimeV2Client, RecognizeUtteranceCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
  * // const { LexRuntimeV2Client, RecognizeUtteranceCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
+ * const input = { // RecognizeUtteranceRequest
+ *   botId: "STRING_VALUE", // required
+ *   botAliasId: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   sessionState: "STRING_VALUE",
+ *   requestAttributes: "STRING_VALUE",
+ *   requestContentType: "STRING_VALUE", // required
+ *   responseContentType: "STRING_VALUE",
+ *   inputStream: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
+ * // { // RecognizeUtteranceResponse
+ * //   inputMode: "STRING_VALUE",
+ * //   contentType: "STRING_VALUE",
+ * //   messages: "STRING_VALUE",
+ * //   interpretations: "STRING_VALUE",
+ * //   sessionState: "STRING_VALUE",
+ * //   requestAttributes: "STRING_VALUE",
+ * //   sessionId: "STRING_VALUE",
+ * //   inputTranscript: "STRING_VALUE",
+ * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   recognizedBotMember: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param RecognizeUtteranceCommandInput - {@link RecognizeUtteranceCommandInput}
+ * @returns {@link RecognizeUtteranceCommandOutput}
  * @see {@link RecognizeUtteranceCommandInput} for command's `input` shape.
  * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link BadGatewayException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link DependencyFailedException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link LexRuntimeV2ServiceException}
+ * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
 export class RecognizeUtteranceCommand extends $Command<
@@ -117,6 +190,18 @@ export class RecognizeUtteranceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RecognizeUtteranceCommandInput) {
     // Start section: command_constructor
     super();
@@ -132,6 +217,9 @@ export class RecognizeUtteranceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RecognizeUtteranceCommandInput, RecognizeUtteranceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RecognizeUtteranceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -142,8 +230,8 @@ export class RecognizeUtteranceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecognizeUtteranceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RecognizeUtteranceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RecognizeUtteranceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RecognizeUtteranceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -153,12 +241,21 @@ export class RecognizeUtteranceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RecognizeUtteranceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RecognizeUtteranceCommand(input, context);
+    return se_RecognizeUtteranceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecognizeUtteranceCommandOutput> {
-    return deserializeAws_restJson1RecognizeUtteranceCommand(output, context);
+  /**
+   * @internal
+   */
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext & __SdkStreamSerdeContext
+  ): Promise<RecognizeUtteranceCommandOutput> {
+    return de_RecognizeUtteranceCommand(output, context);
   }
 
   // Start section: command_body_extra

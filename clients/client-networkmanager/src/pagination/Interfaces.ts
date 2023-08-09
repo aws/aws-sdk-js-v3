@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { NetworkManager } from "../NetworkManager";
 import { NetworkManagerClient } from "../NetworkManagerClient";
 
+/**
+ * @public
+ */
 export interface NetworkManagerPaginationConfiguration extends PaginationConfiguration {
-  client: NetworkManager | NetworkManagerClient;
+  client: NetworkManagerClient;
 }

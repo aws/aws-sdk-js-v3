@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ServerlessApplicationRepository } from "../ServerlessApplicationRepository";
 import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
 
+/**
+ * @public
+ */
 export interface ServerlessApplicationRepositoryPaginationConfiguration extends PaginationConfiguration {
-  client: ServerlessApplicationRepository | ServerlessApplicationRepositoryClient;
+  client: ServerlessApplicationRepositoryClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UndeprecateActivityTypeInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0UndeprecateActivityTypeCommand,
-  serializeAws_json1_0UndeprecateActivityTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_UndeprecateActivityTypeCommand, se_UndeprecateActivityTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UndeprecateActivityTypeCommand}.
+ */
 export interface UndeprecateActivityTypeCommandInput extends UndeprecateActivityTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link UndeprecateActivityTypeCommand}.
+ */
 export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Undeprecates a previously deprecated <i>activity type</i>. After an activity type has
  *       been undeprecated, you can create new tasks of that activity type.</p>
  *          <note>
@@ -70,13 +84,36 @@ export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {
  * import { SWFClient, UndeprecateActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, UndeprecateActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // UndeprecateActivityTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   activityType: { // ActivityType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UndeprecateActivityTypeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UndeprecateActivityTypeCommandInput - {@link UndeprecateActivityTypeCommandInput}
+ * @returns {@link UndeprecateActivityTypeCommandOutput}
  * @see {@link UndeprecateActivityTypeCommandInput} for command's `input` shape.
  * @see {@link UndeprecateActivityTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TypeAlreadyExistsFault} (client fault)
+ *  <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class UndeprecateActivityTypeCommand extends $Command<
@@ -87,6 +124,18 @@ export class UndeprecateActivityTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UndeprecateActivityTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -102,6 +151,9 @@ export class UndeprecateActivityTypeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UndeprecateActivityTypeCommandInput, UndeprecateActivityTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UndeprecateActivityTypeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -112,8 +164,8 @@ export class UndeprecateActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeprecateActivityTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -123,12 +175,18 @@ export class UndeprecateActivityTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UndeprecateActivityTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0UndeprecateActivityTypeCommand(input, context);
+    return se_UndeprecateActivityTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateActivityTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateActivityTypeCommand(output, context);
+    return de_UndeprecateActivityTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

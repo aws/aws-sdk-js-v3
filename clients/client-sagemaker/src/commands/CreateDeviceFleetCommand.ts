@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateDeviceFleetRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDeviceFleetCommand,
-  serializeAws_json1_1CreateDeviceFleetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDeviceFleetCommand, se_CreateDeviceFleetCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDeviceFleetCommand}.
+ */
 export interface CreateDeviceFleetCommandInput extends CreateDeviceFleetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDeviceFleetCommand}.
+ */
 export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a device fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,45 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, CreateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // CreateDeviceFleetRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   OutputConfig: { // EdgeOutputConfig
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   EnableIotRoleAlias: true || false,
+ * };
  * const command = new CreateDeviceFleetCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateDeviceFleetCommandInput - {@link CreateDeviceFleetCommandInput}
+ * @returns {@link CreateDeviceFleetCommandOutput}
  * @see {@link CreateDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class CreateDeviceFleetCommand extends $Command<
@@ -46,6 +92,18 @@ export class CreateDeviceFleetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDeviceFleetCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +119,9 @@ export class CreateDeviceFleetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDeviceFleetCommandInput, CreateDeviceFleetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDeviceFleetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +132,8 @@ export class CreateDeviceFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeviceFleetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +143,18 @@ export class CreateDeviceFleetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDeviceFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDeviceFleetCommand(input, context);
+    return se_CreateDeviceFleetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeviceFleetCommandOutput> {
-    return deserializeAws_json1_1CreateDeviceFleetCommand(output, context);
+    return de_CreateDeviceFleetCommand(output, context);
   }
 
   // Start section: command_body_extra

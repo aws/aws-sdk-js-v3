@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCertificateCommand,
-  serializeAws_json1_1DeleteCertificateCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandInput extends DeleteCertificateMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCertificateCommand}.
+ */
 export interface DeleteCertificateCommandOutput extends DeleteCertificateResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified certificate. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,58 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * import { DatabaseMigrationServiceClient, DeleteCertificateCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteCertificateCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = { // DeleteCertificateMessage
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteCertificateResponse
+ * //   Certificate: { // Certificate
+ * //     CertificateIdentifier: "STRING_VALUE",
+ * //     CertificateCreationDate: new Date("TIMESTAMP"),
+ * //     CertificatePem: "STRING_VALUE",
+ * //     CertificateWallet: "BLOB_VALUE",
+ * //     CertificateArn: "STRING_VALUE",
+ * //     CertificateOwner: "STRING_VALUE",
+ * //     ValidFromDate: new Date("TIMESTAMP"),
+ * //     ValidToDate: new Date("TIMESTAMP"),
+ * //     SigningAlgorithm: "STRING_VALUE",
+ * //     KeyLength: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteCertificateCommandInput - {@link DeleteCertificateCommandInput}
+ * @returns {@link DeleteCertificateCommandOutput}
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link DatabaseMigrationServiceServiceException}
+ * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
+ *
+ * @example Delete Certificate
+ * ```javascript
+ * // Deletes the specified certificate.
+ * const input = {
+ *   "CertificateArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUSM457DE6XFJCJQ"
+ * };
+ * const command = new DeleteCertificateCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Certificate": {}
+ * }
+ * *\/
+ * // example id: delete-certificate-1481751957981
+ * ```
  *
  */
 export class DeleteCertificateCommand extends $Command<
@@ -50,6 +109,18 @@ export class DeleteCertificateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCertificateCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +136,9 @@ export class DeleteCertificateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCertificateCommandInput, DeleteCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCertificateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +149,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +160,18 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCertificateCommand(input, context);
+    return se_DeleteCertificateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteCertificateCommand(output, context);
+    return de_DeleteCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

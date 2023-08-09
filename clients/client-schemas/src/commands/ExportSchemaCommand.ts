@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ExportSchemaRequest, ExportSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ExportSchemaCommand,
-  serializeAws_restJson1ExportSchemaCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ExportSchemaCommand, se_ExportSchemaCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ExportSchemaCommand}.
+ */
 export interface ExportSchemaCommandInput extends ExportSchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ExportSchemaCommand}.
+ */
 export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __MetadataBearer {}
 
 export class ExportSchemaCommand extends $Command<
@@ -29,6 +42,18 @@ export class ExportSchemaCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ExportSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -44,6 +69,7 @@ export class ExportSchemaCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExportSchemaCommandInput, ExportSchemaCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ExportSchemaCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -54,8 +80,8 @@ export class ExportSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportSchemaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +91,18 @@ export class ExportSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ExportSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ExportSchemaCommand(input, context);
+    return se_ExportSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportSchemaCommandOutput> {
-    return deserializeAws_restJson1ExportSchemaCommand(output, context);
+    return de_ExportSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

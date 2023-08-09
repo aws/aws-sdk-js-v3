@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { CreateForecastRequest, CreateForecastResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateForecastCommand,
-  serializeAws_json1_1CreateForecastCommand,
-} from "../protocols/Aws_json1_1";
+  CreateForecastRequest,
+  CreateForecastRequestFilterSensitiveLog,
+  CreateForecastResponse,
+} from "../models/models_0";
+import { de_CreateForecastCommand, se_CreateForecastCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateForecastCommand}.
+ */
 export interface CreateForecastCommandInput extends CreateForecastRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateForecastCommand}.
+ */
 export interface CreateForecastCommandOutput extends CreateForecastResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
  *       used to train the predictor. This is known as inference. To retrieve the forecast for a single
  *       item at low latency, use the  operation. To
@@ -41,19 +59,80 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *         or export the forecast. Use the <a>DescribeForecast</a> operation to get the
  *         status.</p>
  *          </note>
+ *          <p>By default, a forecast includes predictions for every item (<code>item_id</code>) in the dataset group that was used to train the predictor.
+ *       However, you can use the <code>TimeSeriesSelector</code> object to generate a forecast on a subset of time series. Forecast creation is skipped for any time series that you specify that are not in the input dataset. The forecast export file will not contain these time series or their forecasted values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = { // CreateForecastRequest
+ *   ForecastName: "STRING_VALUE", // required
+ *   PredictorArn: "STRING_VALUE", // required
+ *   ForecastTypes: [ // ForecastTypes
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // Tags
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TimeSeriesSelector: { // TimeSeriesSelector
+ *     TimeSeriesIdentifiers: { // TimeSeriesIdentifiers
+ *       DataSource: { // DataSource
+ *         S3Config: { // S3Config
+ *           Path: "STRING_VALUE", // required
+ *           RoleArn: "STRING_VALUE", // required
+ *           KMSKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       Schema: { // Schema
+ *         Attributes: [ // SchemaAttributes
+ *           { // SchemaAttribute
+ *             AttributeName: "STRING_VALUE",
+ *             AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *           },
+ *         ],
+ *       },
+ *       Format: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateForecastCommand(input);
  * const response = await client.send(command);
+ * // { // CreateForecastResponse
+ * //   ForecastArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateForecastCommandInput - {@link CreateForecastCommandInput}
+ * @returns {@link CreateForecastCommandOutput}
  * @see {@link CreateForecastCommandInput} for command's `input` shape.
  * @see {@link CreateForecastCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
+ * @throws {@link ForecastServiceException}
+ * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
  */
 export class CreateForecastCommand extends $Command<
@@ -64,6 +143,18 @@ export class CreateForecastCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateForecastCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,6 +170,9 @@ export class CreateForecastCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateForecastCommandInput, CreateForecastCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateForecastCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -89,8 +183,8 @@ export class CreateForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateForecastRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateForecastResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateForecastRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +194,18 @@ export class CreateForecastCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateForecastCommand(input, context);
+    return se_CreateForecastCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateForecastCommandOutput> {
-    return deserializeAws_json1_1CreateForecastCommand(output, context);
+    return de_CreateForecastCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,9 @@
-import { Provider, RegionInfoProvider } from "@aws-sdk/types";
+import { Provider, RegionInfoProvider } from "@smithy/types";
 export { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
 
+/**
+ * @public
+ */
 export interface S3ControlInputConfig {
   /**
    * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false
@@ -9,9 +12,9 @@ export interface S3ControlInputConfig {
 }
 
 interface PreviouslyResolved {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   region: Provider<string>;
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
@@ -21,7 +24,7 @@ export interface S3ControlResolvedConfig {
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   /**
    * Enables FIPS compatible endpoints.
    */
@@ -42,7 +45,7 @@ export interface S3ControlResolvedConfig {
    * Fetch related hostname, signing name or signing region with given region.
    * @internal
    */
-  regionInfoProvider: RegionInfoProvider;
+  regionInfoProvider?: RegionInfoProvider;
 }
 
 export function resolveS3ControlConfig<T>(

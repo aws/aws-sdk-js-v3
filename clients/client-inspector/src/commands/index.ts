@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddAttributesToFindingsCommand";
 export * from "./CreateAssessmentTargetCommand";
 export * from "./CreateAssessmentTemplateCommand";

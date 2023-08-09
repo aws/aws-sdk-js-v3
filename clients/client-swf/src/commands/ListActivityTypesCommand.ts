@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ActivityTypeInfos, ListActivityTypesInput } from "../models/models_0";
-import {
-  deserializeAws_json1_0ListActivityTypesCommand,
-  serializeAws_json1_0ListActivityTypesCommand,
-} from "../protocols/Aws_json1_0";
+import { de_ListActivityTypesCommand, se_ListActivityTypesCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListActivityTypesCommand}.
+ */
 export interface ListActivityTypesCommandInput extends ListActivityTypesInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListActivityTypesCommand}.
+ */
 export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about all activities registered in the specified domain that match
  *       the specified name and registration status. The result includes information like creation
  *       date, current status of the activity, etc. The results may be split into multiple pages. To
@@ -56,13 +70,48 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  * import { SWFClient, ListActivityTypesCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, ListActivityTypesCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // ListActivityTypesInput
+ *   domain: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   registrationStatus: "REGISTERED" || "DEPRECATED", // required
+ *   nextPageToken: "STRING_VALUE",
+ *   maximumPageSize: Number("int"),
+ *   reverseOrder: true || false,
+ * };
  * const command = new ListActivityTypesCommand(input);
  * const response = await client.send(command);
+ * // { // ActivityTypeInfos
+ * //   typeInfos: [ // ActivityTypeInfoList // required
+ * //     { // ActivityTypeInfo
+ * //       activityType: { // ActivityType
+ * //         name: "STRING_VALUE", // required
+ * //         version: "STRING_VALUE", // required
+ * //       },
+ * //       status: "REGISTERED" || "DEPRECATED", // required
+ * //       description: "STRING_VALUE",
+ * //       creationDate: new Date("TIMESTAMP"), // required
+ * //       deprecationDate: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextPageToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListActivityTypesCommandInput - {@link ListActivityTypesCommandInput}
+ * @returns {@link ListActivityTypesCommandOutput}
  * @see {@link ListActivityTypesCommandInput} for command's `input` shape.
  * @see {@link ListActivityTypesCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class ListActivityTypesCommand extends $Command<
@@ -73,6 +122,18 @@ export class ListActivityTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListActivityTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +149,9 @@ export class ListActivityTypesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListActivityTypesCommandInput, ListActivityTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListActivityTypesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -98,8 +162,8 @@ export class ListActivityTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActivityTypesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ActivityTypeInfos.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +173,18 @@ export class ListActivityTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListActivityTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListActivityTypesCommand(input, context);
+    return se_ListActivityTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListActivityTypesCommandOutput> {
-    return deserializeAws_json1_0ListActivityTypesCommand(output, context);
+    return de_ListActivityTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

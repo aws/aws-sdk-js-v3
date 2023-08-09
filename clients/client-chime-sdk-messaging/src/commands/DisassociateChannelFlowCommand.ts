@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ChimeSDKMessagingClientResolvedConfig,
@@ -17,20 +19,34 @@ import {
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
 import { DisassociateChannelFlowRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateChannelFlowCommand,
-  serializeAws_restJson1DisassociateChannelFlowCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateChannelFlowCommand, se_DisassociateChannelFlowCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateChannelFlowCommand}.
+ */
 export interface DisassociateChannelFlowCommandInput extends DisassociateChannelFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateChannelFlowCommand}.
+ */
 export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
  *          that channel stop going through the channel flow processor.</p>
  *          <note>
- *             <p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
- *            of the user that makes the API call as the value in the header.</p>
+ *             <p>Only administrators or channel moderators can disassociate a channel flow.</p>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
+ *              ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
+ *              the header.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -38,13 +54,50 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  * import { ChimeSDKMessagingClient, DisassociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DisassociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // DisassociateChannelFlowRequest
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateChannelFlowCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisassociateChannelFlowCommandInput - {@link DisassociateChannelFlowCommandInput}
+ * @returns {@link DisassociateChannelFlowCommandOutput}
  * @see {@link DisassociateChannelFlowCommandInput} for command's `input` shape.
  * @see {@link DisassociateChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class DisassociateChannelFlowCommand extends $Command<
@@ -55,6 +108,18 @@ export class DisassociateChannelFlowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +135,9 @@ export class DisassociateChannelFlowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateChannelFlowCommandInput, DisassociateChannelFlowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateChannelFlowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +148,8 @@ export class DisassociateChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateChannelFlowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +159,18 @@ export class DisassociateChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateChannelFlowCommand(input, context);
+    return se_DisassociateChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateChannelFlowCommandOutput> {
-    return deserializeAws_restJson1DisassociateChannelFlowCommand(output, context);
+    return de_DisassociateChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

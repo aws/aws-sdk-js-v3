@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListPageReceiptsCommand,
   ListPageReceiptsCommandInput,
   ListPageReceiptsCommandOutput,
 } from "../commands/ListPageReceiptsCommand";
-import { SSMContacts } from "../SSMContacts";
 import { SSMContactsClient } from "../SSMContactsClient";
 import { SSMContactsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SSMContactsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListPageReceiptsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SSMContacts,
-  input: ListPageReceiptsCommandInput,
-  ...args: any
-): Promise<ListPageReceiptsCommandOutput> => {
-  // @ts-ignore
-  return await client.listPageReceipts(input, ...args);
-};
 export async function* paginateListPageReceipts(
   config: SSMContactsPaginationConfiguration,
   input: ListPageReceiptsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListPageReceipts(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSMContacts) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SSMContactsClient) {
+    if (config.client instanceof SSMContactsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SSMContacts | SSMContactsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

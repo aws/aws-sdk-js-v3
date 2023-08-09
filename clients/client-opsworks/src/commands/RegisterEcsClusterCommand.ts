@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { RegisterEcsClusterRequest, RegisterEcsClusterResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1RegisterEcsClusterCommand,
-  serializeAws_json1_1RegisterEcsClusterCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RegisterEcsClusterCommand, se_RegisterEcsClusterCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RegisterEcsClusterCommand}.
+ */
 export interface RegisterEcsClusterCommandInput extends RegisterEcsClusterRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RegisterEcsClusterCommand}.
+ */
 export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
  *       cluster with a stack. A cluster can be registered with only one stack.
  *       For more information, see
@@ -39,13 +53,32 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * import { OpsWorksClient, RegisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // RegisterEcsClusterRequest
+ *   EcsClusterArn: "STRING_VALUE", // required
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterEcsClusterCommand(input);
  * const response = await client.send(command);
+ * // { // RegisterEcsClusterResult
+ * //   EcsClusterArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param RegisterEcsClusterCommandInput - {@link RegisterEcsClusterCommandInput}
+ * @returns {@link RegisterEcsClusterCommandOutput}
  * @see {@link RegisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link RegisterEcsClusterCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class RegisterEcsClusterCommand extends $Command<
@@ -56,6 +89,18 @@ export class RegisterEcsClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RegisterEcsClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +116,9 @@ export class RegisterEcsClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RegisterEcsClusterCommandInput, RegisterEcsClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RegisterEcsClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +129,8 @@ export class RegisterEcsClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterEcsClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterEcsClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +140,18 @@ export class RegisterEcsClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RegisterEcsClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RegisterEcsClusterCommand(input, context);
+    return se_RegisterEcsClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterEcsClusterCommandOutput> {
-    return deserializeAws_json1_1RegisterEcsClusterCommand(output, context);
+    return de_RegisterEcsClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

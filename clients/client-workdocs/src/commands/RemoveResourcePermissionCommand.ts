@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { RemoveResourcePermissionRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1RemoveResourcePermissionCommand,
-  serializeAws_restJson1RemoveResourcePermissionCommand,
-} from "../protocols/Aws_restJson1";
+import { RemoveResourcePermissionRequest, RemoveResourcePermissionRequestFilterSensitiveLog } from "../models/models_0";
+import { de_RemoveResourcePermissionCommand, se_RemoveResourcePermissionCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RemoveResourcePermissionCommand}.
+ */
 export interface RemoveResourcePermissionCommandInput extends RemoveResourcePermissionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link RemoveResourcePermissionCommand}.
+ */
 export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the permission for the specified principal from the specified
  *             resource.</p>
  * @example
@@ -30,13 +44,40 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * import { WorkDocsClient, RemoveResourcePermissionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RemoveResourcePermissionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // RemoveResourcePermissionRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   PrincipalId: "STRING_VALUE", // required
+ *   PrincipalType: "USER" || "GROUP" || "INVITE" || "ANONYMOUS" || "ORGANIZATION",
+ * };
  * const command = new RemoveResourcePermissionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param RemoveResourcePermissionCommandInput - {@link RemoveResourcePermissionCommandInput}
+ * @returns {@link RemoveResourcePermissionCommandOutput}
  * @see {@link RemoveResourcePermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveResourcePermissionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class RemoveResourcePermissionCommand extends $Command<
@@ -47,6 +88,18 @@ export class RemoveResourcePermissionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RemoveResourcePermissionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +115,9 @@ export class RemoveResourcePermissionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RemoveResourcePermissionCommandInput, RemoveResourcePermissionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RemoveResourcePermissionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +128,8 @@ export class RemoveResourcePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveResourcePermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: RemoveResourcePermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +139,18 @@ export class RemoveResourcePermissionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RemoveResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RemoveResourcePermissionCommand(input, context);
+    return se_RemoveResourcePermissionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1RemoveResourcePermissionCommand(output, context);
+    return de_RemoveResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

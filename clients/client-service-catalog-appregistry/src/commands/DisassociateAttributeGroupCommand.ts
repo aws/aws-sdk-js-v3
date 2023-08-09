@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DisassociateAttributeGroupRequest, DisassociateAttributeGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DisassociateAttributeGroupCommand,
-  serializeAws_restJson1DisassociateAttributeGroupCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DisassociateAttributeGroupCommand, se_DisassociateAttributeGroupCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateAttributeGroupCommand}.
+ */
 export interface DisassociateAttributeGroupCommandInput extends DisassociateAttributeGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateAttributeGroupCommand}.
+ */
 export interface DisassociateAttributeGroupCommandOutput extends DisassociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,36 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * import { ServiceCatalogAppRegistryClient, DisassociateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DisassociateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // DisassociateAttributeGroupRequest
+ *   application: "STRING_VALUE", // required
+ *   attributeGroup: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateAttributeGroupCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateAttributeGroupResponse
+ * //   applicationArn: "STRING_VALUE",
+ * //   attributeGroupArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DisassociateAttributeGroupCommandInput - {@link DisassociateAttributeGroupCommandInput}
+ * @returns {@link DisassociateAttributeGroupCommandOutput}
  * @see {@link DisassociateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateAttributeGroupCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class DisassociateAttributeGroupCommand extends $Command<
@@ -50,6 +87,18 @@ export class DisassociateAttributeGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateAttributeGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +114,9 @@ export class DisassociateAttributeGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateAttributeGroupCommandInput, DisassociateAttributeGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateAttributeGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +127,8 @@ export class DisassociateAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAttributeGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateAttributeGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +138,21 @@ export class DisassociateAttributeGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateAttributeGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DisassociateAttributeGroupCommand(input, context);
+    return se_DisassociateAttributeGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateAttributeGroupCommandOutput> {
-    return deserializeAws_restJson1DisassociateAttributeGroupCommand(output, context);
+    return de_DisassociateAttributeGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

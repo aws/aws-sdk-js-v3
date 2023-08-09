@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DescribeInstanceEventWindowsRequest, DescribeInstanceEventWindowsResult } from "../models/models_3";
-import {
-  deserializeAws_ec2DescribeInstanceEventWindowsCommand,
-  serializeAws_ec2DescribeInstanceEventWindowsCommand,
-} from "../protocols/Aws_ec2";
+import { de_DescribeInstanceEventWindowsCommand, se_DescribeInstanceEventWindowsCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceEventWindowsCommand}.
+ */
 export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstanceEventWindowsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceEventWindowsCommand}.
+ */
 export interface DescribeInstanceEventWindowsCommandOutput
   extends DescribeInstanceEventWindowsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the specified event windows or all event windows.</p>
  *          <p>If you specify event window IDs, the output includes information for only the specified
  *          event windows. If you specify filters, the output includes information for only those event
@@ -39,13 +53,74 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * import { EC2Client, DescribeInstanceEventWindowsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceEventWindowsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DescribeInstanceEventWindowsRequest
+ *   DryRun: true || false,
+ *   InstanceEventWindowIds: [ // InstanceEventWindowIdSet
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // ValueStringList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInstanceEventWindowsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstanceEventWindowsResult
+ * //   InstanceEventWindows: [ // InstanceEventWindowSet
+ * //     { // InstanceEventWindow
+ * //       InstanceEventWindowId: "STRING_VALUE",
+ * //       TimeRanges: [ // InstanceEventWindowTimeRangeList
+ * //         { // InstanceEventWindowTimeRange
+ * //           StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //           StartHour: Number("int"),
+ * //           EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //           EndHour: Number("int"),
+ * //         },
+ * //       ],
+ * //       Name: "STRING_VALUE",
+ * //       CronExpression: "STRING_VALUE",
+ * //       AssociationTarget: { // InstanceEventWindowAssociationTarget
+ * //         InstanceIds: [ // InstanceIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         DedicatedHostIds: [ // DedicatedHostIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       State: "creating" || "deleting" || "active" || "deleted",
+ * //       Tags: [
+ * //         {
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeInstanceEventWindowsCommandInput - {@link DescribeInstanceEventWindowsCommandInput}
+ * @returns {@link DescribeInstanceEventWindowsCommandOutput}
  * @see {@link DescribeInstanceEventWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceEventWindowsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class DescribeInstanceEventWindowsCommand extends $Command<
@@ -56,6 +131,18 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceEventWindowsCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +158,9 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInstanceEventWindowsCommandInput, DescribeInstanceEventWindowsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInstanceEventWindowsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +171,8 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceEventWindowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceEventWindowsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,15 +182,21 @@ export class DescribeInstanceEventWindowsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceEventWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeInstanceEventWindowsCommand(input, context);
+    return se_DescribeInstanceEventWindowsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeInstanceEventWindowsCommandOutput> {
-    return deserializeAws_ec2DescribeInstanceEventWindowsCommand(output, context);
+    return de_DescribeInstanceEventWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,34 +11,99 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateOutpostInput, CreateOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
-import {
-  deserializeAws_restJson1CreateOutpostCommand,
-  serializeAws_restJson1CreateOutpostCommand,
-} from "../protocols/Aws_restJson1";
+import { de_CreateOutpostCommand, se_CreateOutpostCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateOutpostCommand}.
+ */
 export interface CreateOutpostCommandInput extends CreateOutpostInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateOutpostCommand}.
+ */
 export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Outpost.</p>
- *          <p>You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+ *          <p>You can specify either an Availability one or an AZ ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OutpostsClient, CreateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = { // CreateOutpostInput
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   SiteId: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
+ *   AvailabilityZoneId: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SupportedHardwareType: "RACK" || "SERVER",
+ * };
  * const command = new CreateOutpostCommand(input);
  * const response = await client.send(command);
+ * // { // CreateOutpostOutput
+ * //   Outpost: { // Outpost
+ * //     OutpostId: "STRING_VALUE",
+ * //     OwnerId: "STRING_VALUE",
+ * //     OutpostArn: "STRING_VALUE",
+ * //     SiteId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     LifeCycleStatus: "STRING_VALUE",
+ * //     AvailabilityZone: "STRING_VALUE",
+ * //     AvailabilityZoneId: "STRING_VALUE",
+ * //     Tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     SiteArn: "STRING_VALUE",
+ * //     SupportedHardwareType: "RACK" || "SERVER",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateOutpostCommandInput - {@link CreateOutpostCommandInput}
+ * @returns {@link CreateOutpostCommandOutput}
  * @see {@link CreateOutpostCommandInput} for command's `input` shape.
  * @see {@link CreateOutpostCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have permission to perform this operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified request is not valid.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded a service quota.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link OutpostsServiceException}
+ * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
  */
 export class CreateOutpostCommand extends $Command<
@@ -47,6 +114,18 @@ export class CreateOutpostCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateOutpostCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +141,7 @@ export class CreateOutpostCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateOutpostCommandInput, CreateOutpostCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateOutpostCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +152,8 @@ export class CreateOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOutpostInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateOutpostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +163,18 @@ export class CreateOutpostCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateOutpostCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateOutpostCommand(input, context);
+    return se_CreateOutpostCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOutpostCommandOutput> {
-    return deserializeAws_restJson1CreateOutpostCommand(output, context);
+    return de_CreateOutpostCommand(output, context);
   }
 
   // Start section: command_body_extra

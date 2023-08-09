@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CodeGuruReviewer } from "../CodeGuruReviewer";
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import {
   ListRecommendationsCommand,
@@ -10,7 +10,7 @@ import {
 import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeGuruReviewerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRecommendationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeGuruReviewer,
-  input: ListRecommendationsCommandInput,
-  ...args: any
-): Promise<ListRecommendationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listRecommendations(input, ...args);
-};
 export async function* paginateListRecommendations(
   config: CodeGuruReviewerPaginationConfiguration,
   input: ListRecommendationsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListRecommendations(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CodeGuruReviewer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeGuruReviewerClient) {
+    if (config.client instanceof CodeGuruReviewerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeGuruReviewer | CodeGuruReviewerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

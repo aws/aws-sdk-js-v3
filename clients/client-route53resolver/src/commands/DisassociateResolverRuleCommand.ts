@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,37 +11,81 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisassociateResolverRuleCommand,
-  serializeAws_json1_1DisassociateResolverRuleCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisassociateResolverRuleCommand, se_DisassociateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisassociateResolverRuleCommand}.
+ */
 export interface DisassociateResolverRuleCommandInput extends DisassociateResolverRuleRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DisassociateResolverRuleCommand}.
+ */
 export interface DisassociateResolverRuleCommandOutput extends DisassociateResolverRuleResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
- * 		       <important>
- * 			         <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
+ *          <important>
+ *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
  * 				domain name that you specified in the Resolver rule. </p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, DisassociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // DisassociateResolverRuleRequest
+ *   VPCId: "STRING_VALUE", // required
+ *   ResolverRuleId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateResolverRuleCommand(input);
  * const response = await client.send(command);
+ * // { // DisassociateResolverRuleResponse
+ * //   ResolverRuleAssociation: { // ResolverRuleAssociation
+ * //     Id: "STRING_VALUE",
+ * //     ResolverRuleId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     VPCId: "STRING_VALUE",
+ * //     Status: "CREATING" || "COMPLETE" || "DELETING" || "FAILED" || "OVERRIDDEN",
+ * //     StatusMessage: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DisassociateResolverRuleCommandInput - {@link DisassociateResolverRuleCommandInput}
+ * @returns {@link DisassociateResolverRuleCommandOutput}
  * @see {@link DisassociateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class DisassociateResolverRuleCommand extends $Command<
@@ -50,6 +96,18 @@ export class DisassociateResolverRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisassociateResolverRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +123,9 @@ export class DisassociateResolverRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisassociateResolverRuleCommandInput, DisassociateResolverRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateResolverRuleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +136,8 @@ export class DisassociateResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResolverRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResolverRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +147,18 @@ export class DisassociateResolverRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisassociateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateResolverRuleCommand(input, context);
+    return se_DisassociateResolverRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverRuleCommand(output, context);
+    return de_DisassociateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

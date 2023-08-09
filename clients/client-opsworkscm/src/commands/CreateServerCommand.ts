@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateServerRequest, CreateServerResponse } from "../models/models_0";
-import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
-  deserializeAws_json1_1CreateServerCommand,
-  serializeAws_json1_1CreateServerCommand,
-} from "../protocols/Aws_json1_1";
+  CreateServerRequest,
+  CreateServerRequestFilterSensitiveLog,
+  CreateServerResponse,
+  CreateServerResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
+import { de_CreateServerCommand, se_CreateServerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateServerCommand}.
+ */
 export interface CreateServerCommandInput extends CreateServerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateServerCommand}.
+ */
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *       Creates and immedately starts a new server. The server is ready to use when it is in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
  *     </p>
@@ -56,13 +75,109 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * import { OpsWorksCMClient, CreateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, CreateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = { // CreateServerRequest
+ *   AssociatePublicIpAddress: true || false,
+ *   CustomDomain: "STRING_VALUE",
+ *   CustomCertificate: "STRING_VALUE",
+ *   CustomPrivateKey: "STRING_VALUE",
+ *   DisableAutomatedBackup: true || false,
+ *   Engine: "STRING_VALUE", // required
+ *   EngineModel: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   EngineAttributes: [ // EngineAttributes
+ *     { // EngineAttribute
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   BackupRetentionCount: Number("int"),
+ *   ServerName: "STRING_VALUE", // required
+ *   InstanceProfileArn: "STRING_VALUE", // required
+ *   InstanceType: "STRING_VALUE", // required
+ *   KeyPair: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   SecurityGroupIds: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceRoleArn: "STRING_VALUE", // required
+ *   SubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   BackupId: "STRING_VALUE",
+ * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
+ * // { // CreateServerResponse
+ * //   Server: { // Server
+ * //     AssociatePublicIpAddress: true || false,
+ * //     BackupRetentionCount: Number("int"),
+ * //     ServerName: "STRING_VALUE",
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     CloudFormationStackArn: "STRING_VALUE",
+ * //     CustomDomain: "STRING_VALUE",
+ * //     DisableAutomatedBackup: true || false,
+ * //     Endpoint: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
+ * //     EngineModel: "STRING_VALUE",
+ * //     EngineAttributes: [ // EngineAttributes
+ * //       { // EngineAttribute
+ * //         Name: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     EngineVersion: "STRING_VALUE",
+ * //     InstanceProfileArn: "STRING_VALUE",
+ * //     InstanceType: "STRING_VALUE",
+ * //     KeyPair: "STRING_VALUE",
+ * //     MaintenanceStatus: "STRING_VALUE",
+ * //     PreferredMaintenanceWindow: "STRING_VALUE",
+ * //     PreferredBackupWindow: "STRING_VALUE",
+ * //     SecurityGroupIds: [ // Strings
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceRoleArn: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     StatusReason: "STRING_VALUE",
+ * //     SubnetIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServerArn: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateServerCommandInput - {@link CreateServerCommandInput}
+ * @returns {@link CreateServerCommandOutput}
  * @see {@link CreateServerCommandInput} for command's `input` shape.
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit of servers or backups has been reached.
+ *     </p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The requested resource cannot be created because it already exists.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
+ * @throws {@link OpsWorksCMServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
 export class CreateServerCommand extends $Command<
@@ -73,6 +188,18 @@ export class CreateServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +215,7 @@ export class CreateServerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateServerCommandInput, CreateServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateServerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -98,8 +226,8 @@ export class CreateServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateServerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +237,18 @@ export class CreateServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateServerCommand(input, context);
+    return se_CreateServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServerCommandOutput> {
-    return deserializeAws_json1_1CreateServerCommand(output, context);
+    return de_CreateServerCommand(output, context);
   }
 
   // Start section: command_body_extra

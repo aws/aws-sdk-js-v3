@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListAppAssessmentsCommand,
   ListAppAssessmentsCommandInput,
   ListAppAssessmentsCommandOutput,
 } from "../commands/ListAppAssessmentsCommand";
-import { Resiliencehub } from "../Resiliencehub";
 import { ResiliencehubClient } from "../ResiliencehubClient";
 import { ResiliencehubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ResiliencehubClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAppAssessmentsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Resiliencehub,
-  input: ListAppAssessmentsCommandInput,
-  ...args: any
-): Promise<ListAppAssessmentsCommandOutput> => {
-  // @ts-ignore
-  return await client.listAppAssessments(input, ...args);
-};
 export async function* paginateListAppAssessments(
   config: ResiliencehubPaginationConfiguration,
   input: ListAppAssessmentsCommandInput,
@@ -42,16 +34,16 @@ export async function* paginateListAppAssessments(
   let page: ListAppAssessmentsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Resiliencehub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ResiliencehubClient) {
+    input["maxResults"] = config.pageSize;
+    if (config.client instanceof ResiliencehubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Resiliencehub | ResiliencehubClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

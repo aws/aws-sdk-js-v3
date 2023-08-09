@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeDocumentVersionsCommand,
   DescribeDocumentVersionsCommandInput,
   DescribeDocumentVersionsCommandOutput,
 } from "../commands/DescribeDocumentVersionsCommand";
-import { WorkDocs } from "../WorkDocs";
 import { WorkDocsClient } from "../WorkDocsClient";
 import { WorkDocsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: WorkDocsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeDocumentVersionsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: WorkDocs,
-  input: DescribeDocumentVersionsCommandInput,
-  ...args: any
-): Promise<DescribeDocumentVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDocumentVersions(input, ...args);
-};
 export async function* paginateDescribeDocumentVersions(
   config: WorkDocsPaginationConfiguration,
   input: DescribeDocumentVersionsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeDocumentVersions(
   while (hasNext) {
     input.Marker = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof WorkDocs) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof WorkDocsClient) {
+    if (config.client instanceof WorkDocsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected WorkDocs | WorkDocsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

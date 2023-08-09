@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetUserEndpointsRequest, GetUserEndpointsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import {
-  deserializeAws_restJson1GetUserEndpointsCommand,
-  serializeAws_restJson1GetUserEndpointsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUserEndpointsCommand, se_GetUserEndpointsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetUserEndpointsCommand}.
+ */
 export interface GetUserEndpointsCommandInput extends GetUserEndpointsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUserEndpointsCommand}.
+ */
 export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,96 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * import { PinpointClient, GetUserEndpointsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetUserEndpointsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = { // GetUserEndpointsRequest
+ *   ApplicationId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ * };
  * const command = new GetUserEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // GetUserEndpointsResponse
+ * //   EndpointsResponse: { // EndpointsResponse
+ * //     Item: [ // ListOfEndpointResponse // required
+ * //       { // EndpointResponse
+ * //         Address: "STRING_VALUE",
+ * //         ApplicationId: "STRING_VALUE",
+ * //         Attributes: { // MapOfListOf__string
+ * //           "<keys>": [ // ListOf__string
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
+ * //         CohortId: "STRING_VALUE",
+ * //         CreationDate: "STRING_VALUE",
+ * //         Demographic: { // EndpointDemographic
+ * //           AppVersion: "STRING_VALUE",
+ * //           Locale: "STRING_VALUE",
+ * //           Make: "STRING_VALUE",
+ * //           Model: "STRING_VALUE",
+ * //           ModelVersion: "STRING_VALUE",
+ * //           Platform: "STRING_VALUE",
+ * //           PlatformVersion: "STRING_VALUE",
+ * //           Timezone: "STRING_VALUE",
+ * //         },
+ * //         EffectiveDate: "STRING_VALUE",
+ * //         EndpointStatus: "STRING_VALUE",
+ * //         Id: "STRING_VALUE",
+ * //         Location: { // EndpointLocation
+ * //           City: "STRING_VALUE",
+ * //           Country: "STRING_VALUE",
+ * //           Latitude: Number("double"),
+ * //           Longitude: Number("double"),
+ * //           PostalCode: "STRING_VALUE",
+ * //           Region: "STRING_VALUE",
+ * //         },
+ * //         Metrics: { // MapOf__double
+ * //           "<keys>": Number("double"),
+ * //         },
+ * //         OptOut: "STRING_VALUE",
+ * //         RequestId: "STRING_VALUE",
+ * //         User: { // EndpointUser
+ * //           UserAttributes: {
+ * //             "<keys>": [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           UserId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetUserEndpointsCommandInput - {@link GetUserEndpointsCommandInput}
+ * @returns {@link GetUserEndpointsCommandOutput}
  * @see {@link GetUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetUserEndpointsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Provides information about an API request or response.</p>
+ *
+ * @throws {@link PinpointServiceException}
+ * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
  */
 export class GetUserEndpointsCommand extends $Command<
@@ -46,6 +143,18 @@ export class GetUserEndpointsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetUserEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +170,9 @@ export class GetUserEndpointsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetUserEndpointsCommandInput, GetUserEndpointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetUserEndpointsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +183,8 @@ export class GetUserEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserEndpointsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUserEndpointsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +194,18 @@ export class GetUserEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUserEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUserEndpointsCommand(input, context);
+    return se_GetUserEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserEndpointsCommandOutput> {
-    return deserializeAws_restJson1GetUserEndpointsCommand(output, context);
+    return de_GetUserEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

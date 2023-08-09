@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
-import { IoTFleetHub } from "../IoTFleetHub";
 import { IoTFleetHubClient } from "../IoTFleetHubClient";
 import { IoTFleetHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTFleetHubClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListApplicationsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTFleetHub,
-  input: ListApplicationsCommandInput,
-  ...args: any
-): Promise<ListApplicationsCommandOutput> => {
-  // @ts-ignore
-  return await client.listApplications(input, ...args);
-};
 export async function* paginateListApplications(
   config: IoTFleetHubPaginationConfiguration,
   input: ListApplicationsCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListApplications(
   let page: ListApplicationsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof IoTFleetHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTFleetHubClient) {
+    if (config.client instanceof IoTFleetHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTFleetHub | IoTFleetHubClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

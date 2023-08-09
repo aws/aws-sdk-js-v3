@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetBackupPlanFromJSONCommand,
-  serializeAws_restJson1GetBackupPlanFromJSONCommand,
-} from "../protocols/Aws_restJson1";
+  GetBackupPlanFromJSONInput,
+  GetBackupPlanFromJSONOutput,
+  GetBackupPlanFromJSONOutputFilterSensitiveLog,
+} from "../models/models_0";
+import { de_GetBackupPlanFromJSONCommand, se_GetBackupPlanFromJSONCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetBackupPlanFromJSONCommand}.
+ */
 export interface GetBackupPlanFromJSONCommandInput extends GetBackupPlanFromJSONInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetBackupPlanFromJSONCommand}.
+ */
 export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSONOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns a valid JSON document specifying a backup plan or an error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,80 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * import { BackupClient, GetBackupPlanFromJSONCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupPlanFromJSONCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // GetBackupPlanFromJSONInput
+ *   BackupPlanTemplateJson: "STRING_VALUE", // required
+ * };
  * const command = new GetBackupPlanFromJSONCommand(input);
  * const response = await client.send(command);
+ * // { // GetBackupPlanFromJSONOutput
+ * //   BackupPlan: { // BackupPlan
+ * //     BackupPlanName: "STRING_VALUE", // required
+ * //     Rules: [ // BackupRules // required
+ * //       { // BackupRule
+ * //         RuleName: "STRING_VALUE", // required
+ * //         TargetBackupVaultName: "STRING_VALUE", // required
+ * //         ScheduleExpression: "STRING_VALUE",
+ * //         StartWindowMinutes: Number("long"),
+ * //         CompletionWindowMinutes: Number("long"),
+ * //         Lifecycle: { // Lifecycle
+ * //           MoveToColdStorageAfterDays: Number("long"),
+ * //           DeleteAfterDays: Number("long"),
+ * //         },
+ * //         RecoveryPointTags: { // Tags
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         RuleId: "STRING_VALUE",
+ * //         CopyActions: [ // CopyActions
+ * //           { // CopyAction
+ * //             Lifecycle: {
+ * //               MoveToColdStorageAfterDays: Number("long"),
+ * //               DeleteAfterDays: Number("long"),
+ * //             },
+ * //             DestinationBackupVaultArn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         EnableContinuousBackup: true || false,
+ * //       },
+ * //     ],
+ * //     AdvancedBackupSettings: [ // AdvancedBackupSettings
+ * //       { // AdvancedBackupSetting
+ * //         ResourceType: "STRING_VALUE",
+ * //         BackupOptions: { // BackupOptions
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetBackupPlanFromJSONCommandInput - {@link GetBackupPlanFromJSONCommandInput}
+ * @returns {@link GetBackupPlanFromJSONCommandOutput}
  * @see {@link GetBackupPlanFromJSONCommandInput} for command's `input` shape.
  * @see {@link GetBackupPlanFromJSONCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *          parameter is of the wrong type.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
+ *          in a request.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class GetBackupPlanFromJSONCommand extends $Command<
@@ -46,6 +131,18 @@ export class GetBackupPlanFromJSONCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetBackupPlanFromJSONCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +158,9 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetBackupPlanFromJSONCommandInput, GetBackupPlanFromJSONCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetBackupPlanFromJSONCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +171,8 @@ export class GetBackupPlanFromJSONCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupPlanFromJSONInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBackupPlanFromJSONOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: GetBackupPlanFromJSONOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +182,18 @@ export class GetBackupPlanFromJSONCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetBackupPlanFromJSONCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetBackupPlanFromJSONCommand(input, context);
+    return se_GetBackupPlanFromJSONCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBackupPlanFromJSONCommandOutput> {
-    return deserializeAws_restJson1GetBackupPlanFromJSONCommand(output, context);
+    return de_GetBackupPlanFromJSONCommand(output, context);
   }
 
   // Start section: command_body_extra

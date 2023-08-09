@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { RejectPortfolioShareInput, RejectPortfolioShareOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1RejectPortfolioShareCommand,
-  serializeAws_json1_1RejectPortfolioShareCommand,
-} from "../protocols/Aws_json1_1";
+import { de_RejectPortfolioShareCommand, se_RejectPortfolioShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link RejectPortfolioShareCommand}.
+ */
 export interface RejectPortfolioShareCommandInput extends RejectPortfolioShareInput {}
+/**
+ * @public
+ *
+ * The output of {@link RejectPortfolioShareCommand}.
+ */
 export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Rejects an offer to share the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,28 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * import { ServiceCatalogClient, RejectPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, RejectPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // RejectPortfolioShareInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ * };
  * const command = new RejectPortfolioShareCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param RejectPortfolioShareCommandInput - {@link RejectPortfolioShareCommandInput}
+ * @returns {@link RejectPortfolioShareCommandOutput}
  * @see {@link RejectPortfolioShareCommandInput} for command's `input` shape.
  * @see {@link RejectPortfolioShareCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class RejectPortfolioShareCommand extends $Command<
@@ -46,6 +75,18 @@ export class RejectPortfolioShareCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: RejectPortfolioShareCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +102,9 @@ export class RejectPortfolioShareCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<RejectPortfolioShareCommandInput, RejectPortfolioShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, RejectPortfolioShareCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +115,8 @@ export class RejectPortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectPortfolioShareInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RejectPortfolioShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +126,18 @@ export class RejectPortfolioShareCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: RejectPortfolioShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1RejectPortfolioShareCommand(input, context);
+    return se_RejectPortfolioShareCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RejectPortfolioShareCommandOutput> {
-    return deserializeAws_json1_1RejectPortfolioShareCommand(output, context);
+    return de_RejectPortfolioShareCommand(output, context);
   }
 
   // Start section: command_body_extra

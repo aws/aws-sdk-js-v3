@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { DisableStageTransitionInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DisableStageTransitionCommand,
-  serializeAws_json1_1DisableStageTransitionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DisableStageTransitionCommand, se_DisableStageTransitionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableStageTransitionCommand}.
+ */
 export interface DisableStageTransitionCommandInput extends DisableStageTransitionInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisableStageTransitionCommand}.
+ */
 export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
  *             pipeline.</p>
  * @example
@@ -30,13 +44,35 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * import { CodePipelineClient, DisableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DisableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = { // DisableStageTransitionInput
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   transitionType: "Inbound" || "Outbound", // required
+ *   reason: "STRING_VALUE", // required
+ * };
  * const command = new DisableStageTransitionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DisableStageTransitionCommandInput - {@link DisableStageTransitionCommandInput}
+ * @returns {@link DisableStageTransitionCommandOutput}
  * @see {@link DisableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link DisableStageTransitionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link StageNotFoundException} (client fault)
+ *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ * @throws {@link CodePipelineServiceException}
+ * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
  */
 export class DisableStageTransitionCommand extends $Command<
@@ -47,6 +83,18 @@ export class DisableStageTransitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableStageTransitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +110,9 @@ export class DisableStageTransitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableStageTransitionCommandInput, DisableStageTransitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableStageTransitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +123,8 @@ export class DisableStageTransitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableStageTransitionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +134,18 @@ export class DisableStageTransitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisableStageTransitionCommand(input, context);
+    return se_DisableStageTransitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableStageTransitionCommandOutput> {
-    return deserializeAws_json1_1DisableStageTransitionCommand(output, context);
+    return de_DisableStageTransitionCommand(output, context);
   }
 
   // Start section: command_body_extra

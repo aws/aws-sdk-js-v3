@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import { ListTableColumnsRequest, ListTableColumnsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListTableColumnsCommand,
-  serializeAws_restJson1ListTableColumnsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListTableColumnsCommand, se_ListTableColumnsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTableColumnsCommand}.
+ */
 export interface ListTableColumnsCommandInput extends ListTableColumnsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTableColumnsCommand}.
+ */
 export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.
  *         </p>
@@ -31,13 +45,61 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * import { HoneycodeClient, ListTableColumnsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, ListTableColumnsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = { // ListTableColumnsRequest
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTableColumnsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTableColumnsResult
+ * //   tableColumns: [ // TableColumns // required
+ * //     { // TableColumn
+ * //       tableColumnId: "STRING_VALUE",
+ * //       tableColumnName: "STRING_VALUE",
+ * //       format: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * //   workbookCursor: Number("long"),
+ * // };
+ *
  * ```
  *
+ * @param ListTableColumnsCommandInput - {@link ListTableColumnsCommandInput}
+ * @returns {@link ListTableColumnsCommandOutput}
  * @see {@link ListTableColumnsCommandInput} for command's `input` shape.
  * @see {@link ListTableColumnsCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
+ *             IAM policy allows access to the resource in the request.
+ *         </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There were unexpected errors from the server.</p>
+ *
+ * @throws {@link RequestTimeoutException} (server fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Remote service is unreachable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Tps(transactions per second) rate reached.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *             Request is invalid. The message in the response contains details on why the request is invalid.
+ *         </p>
+ *
+ * @throws {@link HoneycodeServiceException}
+ * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
 export class ListTableColumnsCommand extends $Command<
@@ -48,6 +110,18 @@ export class ListTableColumnsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTableColumnsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +137,9 @@ export class ListTableColumnsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTableColumnsCommandInput, ListTableColumnsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTableColumnsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +150,8 @@ export class ListTableColumnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableColumnsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTableColumnsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +161,18 @@ export class ListTableColumnsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTableColumnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTableColumnsCommand(input, context);
+    return se_ListTableColumnsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableColumnsCommandOutput> {
-    return deserializeAws_restJson1ListTableColumnsCommand(output, context);
+    return de_ListTableColumnsCommand(output, context);
   }
 
   // Start section: command_body_extra

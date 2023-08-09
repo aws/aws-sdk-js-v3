@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1StartDeliveryStreamEncryptionCommand,
-  serializeAws_json1_1StartDeliveryStreamEncryptionCommand,
+  de_StartDeliveryStreamEncryptionCommand,
+  se_StartDeliveryStreamEncryptionCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartDeliveryStreamEncryptionCommand}.
+ */
 export interface StartDeliveryStreamEncryptionCommandInput extends StartDeliveryStreamEncryptionInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartDeliveryStreamEncryptionCommand}.
+ */
 export interface StartDeliveryStreamEncryptionCommandOutput
   extends StartDeliveryStreamEncryptionOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Enables server-side encryption (SSE) for the delivery stream. </p>
  *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Data
  *          Firehose first sets the encryption status of the stream to <code>ENABLING</code>, and then
@@ -66,13 +83,46 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * import { FirehoseClient, StartDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, StartDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // StartDeliveryStreamEncryptionInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   DeliveryStreamEncryptionConfigurationInput: { // DeliveryStreamEncryptionConfigurationInput
+ *     KeyARN: "STRING_VALUE",
+ *     KeyType: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK", // required
+ *   },
+ * };
  * const command = new StartDeliveryStreamEncryptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StartDeliveryStreamEncryptionCommandInput - {@link StartDeliveryStreamEncryptionCommandInput}
+ * @returns {@link StartDeliveryStreamEncryptionCommandOutput}
  * @see {@link StartDeliveryStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StartDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link InvalidKMSResourceException} (client fault)
+ *  <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
+ *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
+ *          the following exception types: <code>AccessDeniedException</code>,
+ *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
+ *             <code>NotFoundException</code>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is already in use and not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class StartDeliveryStreamEncryptionCommand extends $Command<
@@ -83,6 +133,18 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartDeliveryStreamEncryptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -98,6 +160,9 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartDeliveryStreamEncryptionCommandInput, StartDeliveryStreamEncryptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartDeliveryStreamEncryptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -108,8 +173,8 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeliveryStreamEncryptionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDeliveryStreamEncryptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -119,15 +184,21 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartDeliveryStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDeliveryStreamEncryptionCommand(input, context);
+    return se_StartDeliveryStreamEncryptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartDeliveryStreamEncryptionCommandOutput> {
-    return deserializeAws_json1_1StartDeliveryStreamEncryptionCommand(output, context);
+    return de_StartDeliveryStreamEncryptionCommand(output, context);
   }
 
   // Start section: command_body_extra

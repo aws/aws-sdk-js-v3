@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,39 +11,97 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { AliasConfiguration, GetAliasRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAliasCommand,
-  serializeAws_restJson1GetAliasCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAliasCommand, se_GetAliasCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAliasCommand}.
+ */
 export interface GetAliasCommandInput extends GetAliasRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAliasCommand}.
+ */
 export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * @public
+ * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, GetAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetAliasRequest
+ *   FunctionName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetAliasCommand(input);
  * const response = await client.send(command);
+ * // { // AliasConfiguration
+ * //   AliasArn: "STRING_VALUE",
+ * //   Name: "STRING_VALUE",
+ * //   FunctionVersion: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   RoutingConfig: { // AliasRoutingConfiguration
+ * //     AdditionalVersionWeights: { // AdditionalVersionWeights
+ * //       "<keys>": Number("double"),
+ * //     },
+ * //   },
+ * //   RevisionId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetAliasCommandInput - {@link GetAliasCommandInput}
+ * @returns {@link GetAliasCommandOutput}
  * @see {@link GetAliasCommandInput} for command's `input` shape.
  * @see {@link GetAliasCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAliasCommandInput) {
     // Start section: command_constructor
     super();
@@ -57,6 +117,7 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     options?: __HttpHandlerOptions
   ): Handler<GetAliasCommandInput, GetAliasCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetAliasCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,8 +128,8 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AliasConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -78,12 +139,18 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAliasCommand(input, context);
+    return se_GetAliasCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAliasCommandOutput> {
-    return deserializeAws_restJson1GetAliasCommand(output, context);
+    return de_GetAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

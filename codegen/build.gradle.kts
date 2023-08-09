@@ -28,10 +28,8 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.8.0"
+    version = "0.17.1"
 }
-
-extra["smithyVersion"] = "[1.14.0,1.15.0["
 
 // The root project doesn't produce a JAR.
 tasks["jar"].enabled = false
@@ -77,8 +75,8 @@ subprojects {
         apply(plugin = "java-library")
 
         java {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
         }
 
         tasks.withType<JavaCompile> {
@@ -107,7 +105,7 @@ subprojects {
         // Set up tasks that build source and javadoc jars.
         tasks.register<Jar>("sourcesJar") {
             metaInf.with(licenseSpec)
-            from(sourceSets.main.get().allJava)
+            from(sourceSets.main.get().allSource)
             archiveClassifier.set("sources")
         }
 

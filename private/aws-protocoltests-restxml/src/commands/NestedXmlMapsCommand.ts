@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +10,27 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { NestedXmlMapsInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlNestedXmlMapsCommand,
-  serializeAws_restXmlNestedXmlMapsCommand,
-} from "../protocols/Aws_restXml";
+import { de_NestedXmlMapsCommand, se_NestedXmlMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link NestedXmlMapsCommand}.
+ */
 export interface NestedXmlMapsCommandInput extends NestedXmlMapsInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link NestedXmlMapsCommand}.
+ */
 export interface NestedXmlMapsCommandOutput extends NestedXmlMapsInputOutput, __MetadataBearer {}
 
 export class NestedXmlMapsCommand extends $Command<
@@ -29,6 +41,9 @@ export class NestedXmlMapsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NestedXmlMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +69,8 @@ export class NestedXmlMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NestedXmlMapsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: NestedXmlMapsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,12 +80,18 @@ export class NestedXmlMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NestedXmlMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlNestedXmlMapsCommand(input, context);
+    return se_NestedXmlMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NestedXmlMapsCommandOutput> {
-    return deserializeAws_restXmlNestedXmlMapsCommand(output, context);
+    return de_NestedXmlMapsCommand(output, context);
   }
 
   // Start section: command_body_extra

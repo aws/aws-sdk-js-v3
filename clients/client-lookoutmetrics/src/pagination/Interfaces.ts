@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { LookoutMetrics } from "../LookoutMetrics";
 import { LookoutMetricsClient } from "../LookoutMetricsClient";
 
+/**
+ * @public
+ */
 export interface LookoutMetricsPaginationConfiguration extends PaginationConfiguration {
-  client: LookoutMetrics | LookoutMetricsClient;
+  client: LookoutMetricsClient;
 }

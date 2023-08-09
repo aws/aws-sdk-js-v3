@@ -1,8 +1,17 @@
-import { Provider, RegionInfoProvider } from "@aws-sdk/types";
+import { Provider, RegionInfoProvider } from "@smithy/types";
 
 export interface BucketEndpointInputConfig {
   /**
-   * Whether the provided endpoint addresses an individual bucket.
+   * Whether to use the bucket name as the endpoint for this request. The bucket
+   * name must be a domain name with a CNAME record alias to an appropriate virtual
+   * hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
+   * record of:
+   *
+   * ```
+   * images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
+   * ```
+   *
+   * @see https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#VirtualHostingCustomURLs
    */
   bucketEndpoint?: boolean;
   /**
@@ -25,7 +34,7 @@ export interface BucketEndpointInputConfig {
 }
 
 interface PreviouslyResolved {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   region: Provider<string>;
   regionInfoProvider: RegionInfoProvider;
   useFipsEndpoint: Provider<boolean>;
@@ -37,7 +46,7 @@ export interface BucketEndpointResolvedConfig {
    * Whether the endpoint is specified by caller.
    * @internal
    */
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   /**
    * Resolved value for input config {@link BucketEndpointInputConfig.bucketEndpoint}
    */

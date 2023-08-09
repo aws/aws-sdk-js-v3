@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
-import { IoTAnalytics } from "../IoTAnalytics";
 import { IoTAnalyticsClient } from "../IoTAnalyticsClient";
 import { IoTAnalyticsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: IoTAnalyticsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListChannelsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: IoTAnalytics,
-  input: ListChannelsCommandInput,
-  ...args: any
-): Promise<ListChannelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listChannels(input, ...args);
-};
 export async function* paginateListChannels(
   config: IoTAnalyticsPaginationConfiguration,
   input: ListChannelsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListChannels(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTAnalytics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof IoTAnalyticsClient) {
+    if (config.client instanceof IoTAnalyticsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected IoTAnalytics | IoTAnalyticsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

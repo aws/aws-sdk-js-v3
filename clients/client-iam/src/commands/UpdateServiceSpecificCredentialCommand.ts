@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { UpdateServiceSpecificCredentialRequest } from "../models/models_1";
 import {
-  deserializeAws_queryUpdateServiceSpecificCredentialCommand,
-  serializeAws_queryUpdateServiceSpecificCredentialCommand,
+  de_UpdateServiceSpecificCredentialCommand,
+  se_UpdateServiceSpecificCredentialCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateServiceSpecificCredentialCommand}.
+ */
 export interface UpdateServiceSpecificCredentialCommandInput extends UpdateServiceSpecificCredentialRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServiceSpecificCredentialCommand}.
+ */
 export interface UpdateServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Sets the status of a service-specific credential to <code>Active</code> or
  *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
  *             for authentication to the service. This operation can be used to disable a user's
@@ -32,13 +49,29 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * import { IAMClient, UpdateServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // UpdateServiceSpecificCredentialRequest
+ *   UserName: "STRING_VALUE",
+ *   ServiceSpecificCredentialId: "STRING_VALUE", // required
+ *   Status: "Active" || "Inactive", // required
+ * };
  * const command = new UpdateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateServiceSpecificCredentialCommandInput - {@link UpdateServiceSpecificCredentialCommandInput}
+ * @returns {@link UpdateServiceSpecificCredentialCommandOutput}
  * @see {@link UpdateServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command<
@@ -49,6 +82,18 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServiceSpecificCredentialCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +109,9 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServiceSpecificCredentialCommandInput, UpdateServiceSpecificCredentialCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateServiceSpecificCredentialCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +122,8 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceSpecificCredentialRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +133,24 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateServiceSpecificCredentialCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateServiceSpecificCredentialCommand(input, context);
+    return se_UpdateServiceSpecificCredentialCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceSpecificCredentialCommandOutput> {
-    return deserializeAws_queryUpdateServiceSpecificCredentialCommand(output, context);
+    return de_UpdateServiceSpecificCredentialCommand(output, context);
   }
 
   // Start section: command_body_extra

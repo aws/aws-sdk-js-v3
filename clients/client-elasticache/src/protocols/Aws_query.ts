@@ -1,25 +1,26 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
+} from "@smithy/types";
+import { XMLParser } from "fast-xml-parser";
 
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand";
 import {
@@ -218,11 +219,14 @@ import {
 } from "../commands/RevokeCacheSecurityGroupIngressCommand";
 import { StartMigrationCommandInput, StartMigrationCommandOutput } from "../commands/StartMigrationCommand";
 import { TestFailoverCommandInput, TestFailoverCommandOutput } from "../commands/TestFailoverCommand";
+import { TestMigrationCommandInput, TestMigrationCommandOutput } from "../commands/TestMigrationCommand";
+import { ElastiCacheServiceException as __BaseException } from "../models/ElastiCacheServiceException";
 import {
   AddTagsToResourceMessage,
   AllowedNodeTypeModificationsMessage,
   APICallRateForCustomerExceededFault,
   Authentication,
+  AuthenticationMode,
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizeCacheSecurityGroupIngressMessage,
@@ -381,6 +385,7 @@ import {
   ModifyReplicationGroupShardConfigurationResult,
   ModifyUserGroupMessage,
   ModifyUserMessage,
+  NetworkType,
   NodeGroup,
   NodeGroupConfiguration,
   NodeGroupMember,
@@ -452,6 +457,8 @@ import {
   TestFailoverMessage,
   TestFailoverNotAvailableFault,
   TestFailoverResult,
+  TestMigrationMessage,
+  TestMigrationResponse,
   TimeRangeFilter,
   UnprocessedUpdateAction,
   UpdateAction,
@@ -470,2621 +477,2119 @@ import {
   UserQuotaExceededFault,
 } from "../models/models_0";
 
-export const serializeAws_queryAddTagsToResourceCommand = async (
+/**
+ * serializeAws_queryAddTagsToResourceCommand
+ */
+export const se_AddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAddTagsToResourceMessage(input, context),
+    ...se_AddTagsToResourceMessage(input, context),
     Action: "AddTagsToResource",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async (
+/**
+ * serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand
+ */
+export const se_AuthorizeCacheSecurityGroupIngressCommand = async (
   input: AuthorizeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage(input, context),
+    ...se_AuthorizeCacheSecurityGroupIngressMessage(input, context),
     Action: "AuthorizeCacheSecurityGroupIngress",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryBatchApplyUpdateActionCommand = async (
+/**
+ * serializeAws_queryBatchApplyUpdateActionCommand
+ */
+export const se_BatchApplyUpdateActionCommand = async (
   input: BatchApplyUpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryBatchApplyUpdateActionMessage(input, context),
+    ...se_BatchApplyUpdateActionMessage(input, context),
     Action: "BatchApplyUpdateAction",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryBatchStopUpdateActionCommand = async (
+/**
+ * serializeAws_queryBatchStopUpdateActionCommand
+ */
+export const se_BatchStopUpdateActionCommand = async (
   input: BatchStopUpdateActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryBatchStopUpdateActionMessage(input, context),
+    ...se_BatchStopUpdateActionMessage(input, context),
     Action: "BatchStopUpdateAction",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCompleteMigrationCommand = async (
+/**
+ * serializeAws_queryCompleteMigrationCommand
+ */
+export const se_CompleteMigrationCommand = async (
   input: CompleteMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCompleteMigrationMessage(input, context),
+    ...se_CompleteMigrationMessage(input, context),
     Action: "CompleteMigration",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCopySnapshotCommand = async (
+/**
+ * serializeAws_queryCopySnapshotCommand
+ */
+export const se_CopySnapshotCommand = async (
   input: CopySnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCopySnapshotMessage(input, context),
+    ...se_CopySnapshotMessage(input, context),
     Action: "CopySnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateCacheClusterCommand = async (
+/**
+ * serializeAws_queryCreateCacheClusterCommand
+ */
+export const se_CreateCacheClusterCommand = async (
   input: CreateCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateCacheClusterMessage(input, context),
+    ...se_CreateCacheClusterMessage(input, context),
     Action: "CreateCacheCluster",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateCacheParameterGroupCommand = async (
+/**
+ * serializeAws_queryCreateCacheParameterGroupCommand
+ */
+export const se_CreateCacheParameterGroupCommand = async (
   input: CreateCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateCacheParameterGroupMessage(input, context),
+    ...se_CreateCacheParameterGroupMessage(input, context),
     Action: "CreateCacheParameterGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateCacheSecurityGroupCommand = async (
+/**
+ * serializeAws_queryCreateCacheSecurityGroupCommand
+ */
+export const se_CreateCacheSecurityGroupCommand = async (
   input: CreateCacheSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateCacheSecurityGroupMessage(input, context),
+    ...se_CreateCacheSecurityGroupMessage(input, context),
     Action: "CreateCacheSecurityGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateCacheSubnetGroupCommand = async (
+/**
+ * serializeAws_queryCreateCacheSubnetGroupCommand
+ */
+export const se_CreateCacheSubnetGroupCommand = async (
   input: CreateCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateCacheSubnetGroupMessage(input, context),
+    ...se_CreateCacheSubnetGroupMessage(input, context),
     Action: "CreateCacheSubnetGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryCreateGlobalReplicationGroupCommand
+ */
+export const se_CreateGlobalReplicationGroupCommand = async (
   input: CreateGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateGlobalReplicationGroupMessage(input, context),
+    ...se_CreateGlobalReplicationGroupMessage(input, context),
     Action: "CreateGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateReplicationGroupCommand = async (
+/**
+ * serializeAws_queryCreateReplicationGroupCommand
+ */
+export const se_CreateReplicationGroupCommand = async (
   input: CreateReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateReplicationGroupMessage(input, context),
+    ...se_CreateReplicationGroupMessage(input, context),
     Action: "CreateReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateSnapshotCommand = async (
+/**
+ * serializeAws_queryCreateSnapshotCommand
+ */
+export const se_CreateSnapshotCommand = async (
   input: CreateSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateSnapshotMessage(input, context),
+    ...se_CreateSnapshotMessage(input, context),
     Action: "CreateSnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateUserCommand = async (
+/**
+ * serializeAws_queryCreateUserCommand
+ */
+export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateUserMessage(input, context),
+    ...se_CreateUserMessage(input, context),
     Action: "CreateUser",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryCreateUserGroupCommand = async (
+/**
+ * serializeAws_queryCreateUserGroupCommand
+ */
+export const se_CreateUserGroupCommand = async (
   input: CreateUserGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryCreateUserGroupMessage(input, context),
+    ...se_CreateUserGroupMessage(input, context),
     Action: "CreateUserGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand
+ */
+export const se_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
+    ...se_DecreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
     Action: "DecreaseNodeGroupsInGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDecreaseReplicaCountCommand = async (
+/**
+ * serializeAws_queryDecreaseReplicaCountCommand
+ */
+export const se_DecreaseReplicaCountCommand = async (
   input: DecreaseReplicaCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDecreaseReplicaCountMessage(input, context),
+    ...se_DecreaseReplicaCountMessage(input, context),
     Action: "DecreaseReplicaCount",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteCacheClusterCommand = async (
+/**
+ * serializeAws_queryDeleteCacheClusterCommand
+ */
+export const se_DeleteCacheClusterCommand = async (
   input: DeleteCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteCacheClusterMessage(input, context),
+    ...se_DeleteCacheClusterMessage(input, context),
     Action: "DeleteCacheCluster",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteCacheParameterGroupCommand = async (
+/**
+ * serializeAws_queryDeleteCacheParameterGroupCommand
+ */
+export const se_DeleteCacheParameterGroupCommand = async (
   input: DeleteCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteCacheParameterGroupMessage(input, context),
+    ...se_DeleteCacheParameterGroupMessage(input, context),
     Action: "DeleteCacheParameterGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteCacheSecurityGroupCommand = async (
+/**
+ * serializeAws_queryDeleteCacheSecurityGroupCommand
+ */
+export const se_DeleteCacheSecurityGroupCommand = async (
   input: DeleteCacheSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteCacheSecurityGroupMessage(input, context),
+    ...se_DeleteCacheSecurityGroupMessage(input, context),
     Action: "DeleteCacheSecurityGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteCacheSubnetGroupCommand = async (
+/**
+ * serializeAws_queryDeleteCacheSubnetGroupCommand
+ */
+export const se_DeleteCacheSubnetGroupCommand = async (
   input: DeleteCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteCacheSubnetGroupMessage(input, context),
+    ...se_DeleteCacheSubnetGroupMessage(input, context),
     Action: "DeleteCacheSubnetGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryDeleteGlobalReplicationGroupCommand
+ */
+export const se_DeleteGlobalReplicationGroupCommand = async (
   input: DeleteGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteGlobalReplicationGroupMessage(input, context),
+    ...se_DeleteGlobalReplicationGroupMessage(input, context),
     Action: "DeleteGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteReplicationGroupCommand = async (
+/**
+ * serializeAws_queryDeleteReplicationGroupCommand
+ */
+export const se_DeleteReplicationGroupCommand = async (
   input: DeleteReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteReplicationGroupMessage(input, context),
+    ...se_DeleteReplicationGroupMessage(input, context),
     Action: "DeleteReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteSnapshotCommand = async (
+/**
+ * serializeAws_queryDeleteSnapshotCommand
+ */
+export const se_DeleteSnapshotCommand = async (
   input: DeleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteSnapshotMessage(input, context),
+    ...se_DeleteSnapshotMessage(input, context),
     Action: "DeleteSnapshot",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteUserCommand = async (
+/**
+ * serializeAws_queryDeleteUserCommand
+ */
+export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteUserMessage(input, context),
+    ...se_DeleteUserMessage(input, context),
     Action: "DeleteUser",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDeleteUserGroupCommand = async (
+/**
+ * serializeAws_queryDeleteUserGroupCommand
+ */
+export const se_DeleteUserGroupCommand = async (
   input: DeleteUserGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDeleteUserGroupMessage(input, context),
+    ...se_DeleteUserGroupMessage(input, context),
     Action: "DeleteUserGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeCacheClustersCommand = async (
+/**
+ * serializeAws_queryDescribeCacheClustersCommand
+ */
+export const se_DescribeCacheClustersCommand = async (
   input: DescribeCacheClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCacheClustersMessage(input, context),
+    ...se_DescribeCacheClustersMessage(input, context),
     Action: "DescribeCacheClusters",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeCacheEngineVersionsCommand = async (
+/**
+ * serializeAws_queryDescribeCacheEngineVersionsCommand
+ */
+export const se_DescribeCacheEngineVersionsCommand = async (
   input: DescribeCacheEngineVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCacheEngineVersionsMessage(input, context),
+    ...se_DescribeCacheEngineVersionsMessage(input, context),
     Action: "DescribeCacheEngineVersions",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeCacheParameterGroupsCommand = async (
+/**
+ * serializeAws_queryDescribeCacheParameterGroupsCommand
+ */
+export const se_DescribeCacheParameterGroupsCommand = async (
   input: DescribeCacheParameterGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCacheParameterGroupsMessage(input, context),
+    ...se_DescribeCacheParameterGroupsMessage(input, context),
     Action: "DescribeCacheParameterGroups",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeCacheParametersCommand = async (
+/**
+ * serializeAws_queryDescribeCacheParametersCommand
+ */
+export const se_DescribeCacheParametersCommand = async (
   input: DescribeCacheParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCacheParametersMessage(input, context),
+    ...se_DescribeCacheParametersMessage(input, context),
     Action: "DescribeCacheParameters",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeCacheSecurityGroupsCommand = async (
+/**
+ * serializeAws_queryDescribeCacheSecurityGroupsCommand
+ */
+export const se_DescribeCacheSecurityGroupsCommand = async (
   input: DescribeCacheSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCacheSecurityGroupsMessage(input, context),
+    ...se_DescribeCacheSecurityGroupsMessage(input, context),
     Action: "DescribeCacheSecurityGroups",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeCacheSubnetGroupsCommand = async (
+/**
+ * serializeAws_queryDescribeCacheSubnetGroupsCommand
+ */
+export const se_DescribeCacheSubnetGroupsCommand = async (
   input: DescribeCacheSubnetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeCacheSubnetGroupsMessage(input, context),
+    ...se_DescribeCacheSubnetGroupsMessage(input, context),
     Action: "DescribeCacheSubnetGroups",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeEngineDefaultParametersCommand = async (
+/**
+ * serializeAws_queryDescribeEngineDefaultParametersCommand
+ */
+export const se_DescribeEngineDefaultParametersCommand = async (
   input: DescribeEngineDefaultParametersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeEngineDefaultParametersMessage(input, context),
+    ...se_DescribeEngineDefaultParametersMessage(input, context),
     Action: "DescribeEngineDefaultParameters",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeEventsCommand = async (
+/**
+ * serializeAws_queryDescribeEventsCommand
+ */
+export const se_DescribeEventsCommand = async (
   input: DescribeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeEventsMessage(input, context),
+    ...se_DescribeEventsMessage(input, context),
     Action: "DescribeEvents",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeGlobalReplicationGroupsCommand = async (
+/**
+ * serializeAws_queryDescribeGlobalReplicationGroupsCommand
+ */
+export const se_DescribeGlobalReplicationGroupsCommand = async (
   input: DescribeGlobalReplicationGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeGlobalReplicationGroupsMessage(input, context),
+    ...se_DescribeGlobalReplicationGroupsMessage(input, context),
     Action: "DescribeGlobalReplicationGroups",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeReplicationGroupsCommand = async (
+/**
+ * serializeAws_queryDescribeReplicationGroupsCommand
+ */
+export const se_DescribeReplicationGroupsCommand = async (
   input: DescribeReplicationGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeReplicationGroupsMessage(input, context),
+    ...se_DescribeReplicationGroupsMessage(input, context),
     Action: "DescribeReplicationGroups",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeReservedCacheNodesCommand = async (
+/**
+ * serializeAws_queryDescribeReservedCacheNodesCommand
+ */
+export const se_DescribeReservedCacheNodesCommand = async (
   input: DescribeReservedCacheNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeReservedCacheNodesMessage(input, context),
+    ...se_DescribeReservedCacheNodesMessage(input, context),
     Action: "DescribeReservedCacheNodes",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeReservedCacheNodesOfferingsCommand = async (
+/**
+ * serializeAws_queryDescribeReservedCacheNodesOfferingsCommand
+ */
+export const se_DescribeReservedCacheNodesOfferingsCommand = async (
   input: DescribeReservedCacheNodesOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeReservedCacheNodesOfferingsMessage(input, context),
+    ...se_DescribeReservedCacheNodesOfferingsMessage(input, context),
     Action: "DescribeReservedCacheNodesOfferings",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeServiceUpdatesCommand = async (
+/**
+ * serializeAws_queryDescribeServiceUpdatesCommand
+ */
+export const se_DescribeServiceUpdatesCommand = async (
   input: DescribeServiceUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeServiceUpdatesMessage(input, context),
+    ...se_DescribeServiceUpdatesMessage(input, context),
     Action: "DescribeServiceUpdates",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeSnapshotsCommand = async (
+/**
+ * serializeAws_queryDescribeSnapshotsCommand
+ */
+export const se_DescribeSnapshotsCommand = async (
   input: DescribeSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeSnapshotsMessage(input, context),
+    ...se_DescribeSnapshotsMessage(input, context),
     Action: "DescribeSnapshots",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeUpdateActionsCommand = async (
+/**
+ * serializeAws_queryDescribeUpdateActionsCommand
+ */
+export const se_DescribeUpdateActionsCommand = async (
   input: DescribeUpdateActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeUpdateActionsMessage(input, context),
+    ...se_DescribeUpdateActionsMessage(input, context),
     Action: "DescribeUpdateActions",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeUserGroupsCommand = async (
+/**
+ * serializeAws_queryDescribeUserGroupsCommand
+ */
+export const se_DescribeUserGroupsCommand = async (
   input: DescribeUserGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeUserGroupsMessage(input, context),
+    ...se_DescribeUserGroupsMessage(input, context),
     Action: "DescribeUserGroups",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDescribeUsersCommand = async (
+/**
+ * serializeAws_queryDescribeUsersCommand
+ */
+export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDescribeUsersMessage(input, context),
+    ...se_DescribeUsersMessage(input, context),
     Action: "DescribeUsers",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryDisassociateGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryDisassociateGlobalReplicationGroupCommand
+ */
+export const se_DisassociateGlobalReplicationGroupCommand = async (
   input: DisassociateGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryDisassociateGlobalReplicationGroupMessage(input, context),
+    ...se_DisassociateGlobalReplicationGroupMessage(input, context),
     Action: "DisassociateGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryFailoverGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryFailoverGlobalReplicationGroupCommand
+ */
+export const se_FailoverGlobalReplicationGroupCommand = async (
   input: FailoverGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryFailoverGlobalReplicationGroupMessage(input, context),
+    ...se_FailoverGlobalReplicationGroupMessage(input, context),
     Action: "FailoverGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand
+ */
+export const se_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   input: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
+    ...se_IncreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
     Action: "IncreaseNodeGroupsInGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryIncreaseReplicaCountCommand = async (
+/**
+ * serializeAws_queryIncreaseReplicaCountCommand
+ */
+export const se_IncreaseReplicaCountCommand = async (
   input: IncreaseReplicaCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryIncreaseReplicaCountMessage(input, context),
+    ...se_IncreaseReplicaCountMessage(input, context),
     Action: "IncreaseReplicaCount",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListAllowedNodeTypeModificationsCommand = async (
+/**
+ * serializeAws_queryListAllowedNodeTypeModificationsCommand
+ */
+export const se_ListAllowedNodeTypeModificationsCommand = async (
   input: ListAllowedNodeTypeModificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListAllowedNodeTypeModificationsMessage(input, context),
+    ...se_ListAllowedNodeTypeModificationsMessage(input, context),
     Action: "ListAllowedNodeTypeModifications",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryListTagsForResourceCommand = async (
+/**
+ * serializeAws_queryListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryListTagsForResourceMessage(input, context),
+    ...se_ListTagsForResourceMessage(input, context),
     Action: "ListTagsForResource",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyCacheClusterCommand = async (
+/**
+ * serializeAws_queryModifyCacheClusterCommand
+ */
+export const se_ModifyCacheClusterCommand = async (
   input: ModifyCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyCacheClusterMessage(input, context),
+    ...se_ModifyCacheClusterMessage(input, context),
     Action: "ModifyCacheCluster",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyCacheParameterGroupCommand = async (
+/**
+ * serializeAws_queryModifyCacheParameterGroupCommand
+ */
+export const se_ModifyCacheParameterGroupCommand = async (
   input: ModifyCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyCacheParameterGroupMessage(input, context),
+    ...se_ModifyCacheParameterGroupMessage(input, context),
     Action: "ModifyCacheParameterGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyCacheSubnetGroupCommand = async (
+/**
+ * serializeAws_queryModifyCacheSubnetGroupCommand
+ */
+export const se_ModifyCacheSubnetGroupCommand = async (
   input: ModifyCacheSubnetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyCacheSubnetGroupMessage(input, context),
+    ...se_ModifyCacheSubnetGroupMessage(input, context),
     Action: "ModifyCacheSubnetGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryModifyGlobalReplicationGroupCommand
+ */
+export const se_ModifyGlobalReplicationGroupCommand = async (
   input: ModifyGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyGlobalReplicationGroupMessage(input, context),
+    ...se_ModifyGlobalReplicationGroupMessage(input, context),
     Action: "ModifyGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyReplicationGroupCommand = async (
+/**
+ * serializeAws_queryModifyReplicationGroupCommand
+ */
+export const se_ModifyReplicationGroupCommand = async (
   input: ModifyReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyReplicationGroupMessage(input, context),
+    ...se_ModifyReplicationGroupMessage(input, context),
     Action: "ModifyReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyReplicationGroupShardConfigurationCommand = async (
+/**
+ * serializeAws_queryModifyReplicationGroupShardConfigurationCommand
+ */
+export const se_ModifyReplicationGroupShardConfigurationCommand = async (
   input: ModifyReplicationGroupShardConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyReplicationGroupShardConfigurationMessage(input, context),
+    ...se_ModifyReplicationGroupShardConfigurationMessage(input, context),
     Action: "ModifyReplicationGroupShardConfiguration",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyUserCommand = async (
+/**
+ * serializeAws_queryModifyUserCommand
+ */
+export const se_ModifyUserCommand = async (
   input: ModifyUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyUserMessage(input, context),
+    ...se_ModifyUserMessage(input, context),
     Action: "ModifyUser",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryModifyUserGroupCommand = async (
+/**
+ * serializeAws_queryModifyUserGroupCommand
+ */
+export const se_ModifyUserGroupCommand = async (
   input: ModifyUserGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryModifyUserGroupMessage(input, context),
+    ...se_ModifyUserGroupMessage(input, context),
     Action: "ModifyUserGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
+/**
+ * serializeAws_queryPurchaseReservedCacheNodesOfferingCommand
+ */
+export const se_PurchaseReservedCacheNodesOfferingCommand = async (
   input: PurchaseReservedCacheNodesOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryPurchaseReservedCacheNodesOfferingMessage(input, context),
+    ...se_PurchaseReservedCacheNodesOfferingMessage(input, context),
     Action: "PurchaseReservedCacheNodesOffering",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand = async (
+/**
+ * serializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand
+ */
+export const se_RebalanceSlotsInGlobalReplicationGroupCommand = async (
   input: RebalanceSlotsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRebalanceSlotsInGlobalReplicationGroupMessage(input, context),
+    ...se_RebalanceSlotsInGlobalReplicationGroupMessage(input, context),
     Action: "RebalanceSlotsInGlobalReplicationGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRebootCacheClusterCommand = async (
+/**
+ * serializeAws_queryRebootCacheClusterCommand
+ */
+export const se_RebootCacheClusterCommand = async (
   input: RebootCacheClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRebootCacheClusterMessage(input, context),
+    ...se_RebootCacheClusterMessage(input, context),
     Action: "RebootCacheCluster",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRemoveTagsFromResourceCommand = async (
+/**
+ * serializeAws_queryRemoveTagsFromResourceCommand
+ */
+export const se_RemoveTagsFromResourceCommand = async (
   input: RemoveTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRemoveTagsFromResourceMessage(input, context),
+    ...se_RemoveTagsFromResourceMessage(input, context),
     Action: "RemoveTagsFromResource",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryResetCacheParameterGroupCommand = async (
+/**
+ * serializeAws_queryResetCacheParameterGroupCommand
+ */
+export const se_ResetCacheParameterGroupCommand = async (
   input: ResetCacheParameterGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryResetCacheParameterGroupMessage(input, context),
+    ...se_ResetCacheParameterGroupMessage(input, context),
     Action: "ResetCacheParameterGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
+/**
+ * serializeAws_queryRevokeCacheSecurityGroupIngressCommand
+ */
+export const se_RevokeCacheSecurityGroupIngressCommand = async (
   input: RevokeCacheSecurityGroupIngressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryRevokeCacheSecurityGroupIngressMessage(input, context),
+    ...se_RevokeCacheSecurityGroupIngressMessage(input, context),
     Action: "RevokeCacheSecurityGroupIngress",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryStartMigrationCommand = async (
+/**
+ * serializeAws_queryStartMigrationCommand
+ */
+export const se_StartMigrationCommand = async (
   input: StartMigrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryStartMigrationMessage(input, context),
+    ...se_StartMigrationMessage(input, context),
     Action: "StartMigration",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_queryTestFailoverCommand = async (
+/**
+ * serializeAws_queryTestFailoverCommand
+ */
+export const se_TestFailoverCommand = async (
   input: TestFailoverCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers: __HeaderBag = SHARED_HEADERS;
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryTestFailoverMessage(input, context),
+    ...se_TestFailoverMessage(input, context),
     Action: "TestFailover",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_queryAddTagsToResourceCommand = async (
+/**
+ * serializeAws_queryTestMigrationCommand
+ */
+export const se_TestMigrationCommand = async (
+  input: TestMigrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_TestMigrationMessage(input, context),
+    Action: "TestMigration",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_queryAddTagsToResourceCommand
+ */
+export const de_AddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAddTagsToResourceCommandError(output, context);
+    return de_AddTagsToResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTagListMessage(data.AddTagsToResourceResult, context);
+  contents = de_TagListMessage(data.AddTagsToResourceResult, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAddTagsToResourceCommandError = async (
+/**
+ * deserializeAws_queryAddTagsToResourceCommandError
+ */
+const de_AddTagsToResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidARNFault":
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidARN":
     case "com.amazonaws.elasticache#InvalidARNFault":
-      response = {
-        ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidARNFaultRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodeNotFoundFault":
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async (
+/**
+ * deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand
+ */
+export const de_AuthorizeCacheSecurityGroupIngressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError(output, context);
+    return de_AuthorizeCacheSecurityGroupIngressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult(
-    data.AuthorizeCacheSecurityGroupIngressResult,
-    context
-  );
+  contents = de_AuthorizeCacheSecurityGroupIngressResult(data.AuthorizeCacheSecurityGroupIngressResult, context);
   const response: AuthorizeCacheSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError = async (
+/**
+ * deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError
+ */
+const de_AuthorizeCacheSecurityGroupIngressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationAlreadyExistsFault":
+    case "AuthorizationAlreadyExists":
     case "com.amazonaws.elasticache#AuthorizationAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_AuthorizationAlreadyExistsFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheSecurityGroupStateFault":
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryBatchApplyUpdateActionCommand = async (
+/**
+ * deserializeAws_queryBatchApplyUpdateActionCommand
+ */
+export const de_BatchApplyUpdateActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchApplyUpdateActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryBatchApplyUpdateActionCommandError(output, context);
+    return de_BatchApplyUpdateActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateActionResultsMessage(data.BatchApplyUpdateActionResult, context);
+  contents = de_UpdateActionResultsMessage(data.BatchApplyUpdateActionResult, context);
   const response: BatchApplyUpdateActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryBatchApplyUpdateActionCommandError = async (
+/**
+ * deserializeAws_queryBatchApplyUpdateActionCommandError
+ */
+const de_BatchApplyUpdateActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchApplyUpdateActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
     case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryBatchStopUpdateActionCommand = async (
+/**
+ * deserializeAws_queryBatchStopUpdateActionCommand
+ */
+export const de_BatchStopUpdateActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchStopUpdateActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryBatchStopUpdateActionCommandError(output, context);
+    return de_BatchStopUpdateActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateActionResultsMessage(data.BatchStopUpdateActionResult, context);
+  contents = de_UpdateActionResultsMessage(data.BatchStopUpdateActionResult, context);
   const response: BatchStopUpdateActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryBatchStopUpdateActionCommandError = async (
+/**
+ * deserializeAws_queryBatchStopUpdateActionCommandError
+ */
+const de_BatchStopUpdateActionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchStopUpdateActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
     case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCompleteMigrationCommand = async (
+/**
+ * deserializeAws_queryCompleteMigrationCommand
+ */
+export const de_CompleteMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMigrationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCompleteMigrationCommandError(output, context);
+    return de_CompleteMigrationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCompleteMigrationResponse(data.CompleteMigrationResult, context);
+  contents = de_CompleteMigrationResponse(data.CompleteMigrationResult, context);
   const response: CompleteMigrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCompleteMigrationCommandError = async (
+/**
+ * deserializeAws_queryCompleteMigrationCommandError
+ */
+const de_CompleteMigrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMigrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidReplicationGroupStateFault":
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "ReplicationGroupNotUnderMigrationFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotUnderMigrationFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotUnderMigrationFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCopySnapshotCommand = async (
+/**
+ * deserializeAws_queryCopySnapshotCommand
+ */
+export const de_CopySnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCopySnapshotCommandError(output, context);
+    return de_CopySnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCopySnapshotResult(data.CopySnapshotResult, context);
+  contents = de_CopySnapshotResult(data.CopySnapshotResult, context);
   const response: CopySnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCopySnapshotCommandError = async (
+/**
+ * deserializeAws_queryCopySnapshotCommandError
+ */
+const de_CopySnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSnapshotStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidSnapshotState":
     case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateCacheClusterCommand = async (
+/**
+ * deserializeAws_queryCreateCacheClusterCommand
+ */
+export const de_CreateCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateCacheClusterCommandError(output, context);
+    return de_CreateCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateCacheClusterResult(data.CreateCacheClusterResult, context);
+  contents = de_CreateCacheClusterResult(data.CreateCacheClusterResult, context);
   const response: CreateCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateCacheClusterCommandError = async (
+/**
+ * deserializeAws_queryCreateCacheClusterCommandError
+ */
+const de_CreateCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterAlreadyExistsFault":
+    case "CacheClusterAlreadyExists":
     case "com.amazonaws.elasticache#CacheClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterAlreadyExistsFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ClusterQuotaForCustomerExceededFault":
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InsufficientCacheClusterCapacityFault":
+      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForClusterExceededFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateCacheParameterGroupCommand = async (
+/**
+ * deserializeAws_queryCreateCacheParameterGroupCommand
+ */
+export const de_CreateCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateCacheParameterGroupCommandError(output, context);
+    return de_CreateCacheParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateCacheParameterGroupResult(data.CreateCacheParameterGroupResult, context);
+  contents = de_CreateCacheParameterGroupResult(data.CreateCacheParameterGroupResult, context);
   const response: CreateCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateCacheParameterGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateCacheParameterGroupCommandError
+ */
+const de_CreateCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupAlreadyExistsFault":
+    case "CacheParameterGroupAlreadyExists":
     case "com.amazonaws.elasticache#CacheParameterGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupQuotaExceededFault":
+      throw await de_CacheParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "CacheParameterGroupQuotaExceeded":
     case "com.amazonaws.elasticache#CacheParameterGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheParameterGroupStateFault":
+      throw await de_CacheParameterGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateCacheSecurityGroupCommand = async (
+/**
+ * deserializeAws_queryCreateCacheSecurityGroupCommand
+ */
+export const de_CreateCacheSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheSecurityGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateCacheSecurityGroupCommandError(output, context);
+    return de_CreateCacheSecurityGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateCacheSecurityGroupResult(data.CreateCacheSecurityGroupResult, context);
+  contents = de_CreateCacheSecurityGroupResult(data.CreateCacheSecurityGroupResult, context);
   const response: CreateCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateCacheSecurityGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateCacheSecurityGroupCommandError
+ */
+const de_CreateCacheSecurityGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSecurityGroupAlreadyExistsFault":
+    case "CacheSecurityGroupAlreadyExists":
     case "com.amazonaws.elasticache#CacheSecurityGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupQuotaExceededFault":
-    case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheSecurityGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "QuotaExceeded.CacheSecurityGroup":
+    case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
+      throw await de_CacheSecurityGroupQuotaExceededFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateCacheSubnetGroupCommand = async (
+/**
+ * deserializeAws_queryCreateCacheSubnetGroupCommand
+ */
+export const de_CreateCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateCacheSubnetGroupCommandError(output, context);
+    return de_CreateCacheSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateCacheSubnetGroupResult(data.CreateCacheSubnetGroupResult, context);
+  contents = de_CreateCacheSubnetGroupResult(data.CreateCacheSubnetGroupResult, context);
   const response: CreateCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateCacheSubnetGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateCacheSubnetGroupCommandError
+ */
+const de_CreateCacheSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSubnetGroupAlreadyExistsFault":
+    case "CacheSubnetGroupAlreadyExists":
     case "com.amazonaws.elasticache#CacheSubnetGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSubnetGroupQuotaExceededFault":
+      throw await de_CacheSubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "CacheSubnetGroupQuotaExceeded":
     case "com.amazonaws.elasticache#CacheSubnetGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetGroupQuotaExceededFaultRes(parsedOutput, context);
     case "CacheSubnetQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetQuotaExceededFaultRes(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.elasticache#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "SubnetNotAllowedFault":
     case "com.amazonaws.elasticache#SubnetNotAllowedFault":
-      response = {
-        ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryCreateGlobalReplicationGroupCommand
+ */
+export const de_CreateGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateGlobalReplicationGroupCommandError(output, context);
+    return de_CreateGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateGlobalReplicationGroupResult(data.CreateGlobalReplicationGroupResult, context);
+  contents = de_CreateGlobalReplicationGroupResult(data.CreateGlobalReplicationGroupResult, context);
   const response: CreateGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateGlobalReplicationGroupCommandError
+ */
+const de_CreateGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_GlobalReplicationGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryCreateReplicationGroupCommand
+ */
+export const de_CreateReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateReplicationGroupCommandError(output, context);
+    return de_CreateReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateReplicationGroupResult(data.CreateReplicationGroupResult, context);
+  contents = de_CreateReplicationGroupResult(data.CreateReplicationGroupResult, context);
   const response: CreateReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateReplicationGroupCommandError
+ */
+const de_CreateReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ClusterQuotaForCustomerExceededFault":
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InsufficientCacheClusterCapacityFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidUserGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForClusterExceededFault":
+      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReplicationGroupAlreadyExistsFault":
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "ReplicationGroupAlreadyExists":
     case "com.amazonaws.elasticache#ReplicationGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupAlreadyExistsFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateSnapshotCommand = async (
+/**
+ * deserializeAws_queryCreateSnapshotCommand
+ */
+export const de_CreateSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateSnapshotCommandError(output, context);
+    return de_CreateSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCreateSnapshotResult(data.CreateSnapshotResult, context);
+  contents = de_CreateSnapshotResult(data.CreateSnapshotResult, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateSnapshotCommandError = async (
+/**
+ * deserializeAws_queryCreateSnapshotCommandError
+ */
+const de_CreateSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
     case "SnapshotFeatureNotSupportedFault":
     case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      response = {
-        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateUserCommand = async (
+/**
+ * deserializeAws_queryCreateUserCommand
+ */
+export const de_CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateUserCommandError(output, context);
+    return de_CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUser(data.CreateUserResult, context);
+  contents = de_User(data.CreateUserResult, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateUserCommandError = async (
+/**
+ * deserializeAws_queryCreateUserCommandError
+ */
+const de_CreateUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateUserNameFault":
+    case "DuplicateUserName":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      response = {
-        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserAlreadyExistsFault":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
+    case "UserAlreadyExists":
     case "com.amazonaws.elasticache#UserAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryUserAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserQuotaExceededFault":
+      throw await de_UserAlreadyExistsFaultRes(parsedOutput, context);
+    case "UserQuotaExceeded":
     case "com.amazonaws.elasticache#UserQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryUserQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryCreateUserGroupCommand = async (
+/**
+ * deserializeAws_queryCreateUserGroupCommand
+ */
+export const de_CreateUserGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryCreateUserGroupCommandError(output, context);
+    return de_CreateUserGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUserGroup(data.CreateUserGroupResult, context);
+  contents = de_UserGroup(data.CreateUserGroupResult, context);
   const response: CreateUserGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryCreateUserGroupCommandError = async (
+/**
+ * deserializeAws_queryCreateUserGroupCommandError
+ */
+const de_CreateUserGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DefaultUserRequired":
     case "com.amazonaws.elasticache#DefaultUserRequired":
-      response = {
-        ...(await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicateUserNameFault":
+      throw await de_DefaultUserRequiredRes(parsedOutput, context);
+    case "DuplicateUserName":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      response = {
-        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupAlreadyExistsFault":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
+    case "UserGroupAlreadyExists":
     case "com.amazonaws.elasticache#UserGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupQuotaExceededFault":
+      throw await de_UserGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "UserGroupQuotaExceeded":
     case "com.amazonaws.elasticache#UserGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_UserGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand
+ */
+export const de_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
+    return de_DecreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupResult(
+  contents = de_DecreaseNodeGroupsInGlobalReplicationGroupResult(
     data.DecreaseNodeGroupsInGlobalReplicationGroupResult,
     context
   );
@@ -3092,2220 +2597,1604 @@ export const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupComma
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError
+ */
+const de_DecreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDecreaseReplicaCountCommand = async (
+/**
+ * deserializeAws_queryDecreaseReplicaCountCommand
+ */
+export const de_DecreaseReplicaCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseReplicaCountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDecreaseReplicaCountCommandError(output, context);
+    return de_DecreaseReplicaCountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDecreaseReplicaCountResult(data.DecreaseReplicaCountResult, context);
+  contents = de_DecreaseReplicaCountResult(data.DecreaseReplicaCountResult, context);
   const response: DecreaseReplicaCountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDecreaseReplicaCountCommandError = async (
+/**
+ * deserializeAws_queryDecreaseReplicaCountCommandError
+ */
+const de_DecreaseReplicaCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseReplicaCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterQuotaForCustomerExceededFault":
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InsufficientCacheClusterCapacityFault":
+      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.elasticache#NoOperationFault":
-      response = {
-        ...(await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NoOperationFaultRes(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
+    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteCacheClusterCommand = async (
+/**
+ * deserializeAws_queryDeleteCacheClusterCommand
+ */
+export const de_DeleteCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteCacheClusterCommandError(output, context);
+    return de_DeleteCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteCacheClusterResult(data.DeleteCacheClusterResult, context);
+  contents = de_DeleteCacheClusterResult(data.DeleteCacheClusterResult, context);
   const response: DeleteCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteCacheClusterCommandError = async (
+/**
+ * deserializeAws_queryDeleteCacheClusterCommandError
+ */
+const de_DeleteCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
     case "SnapshotFeatureNotSupportedFault":
     case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      response = {
-        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteCacheParameterGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteCacheParameterGroupCommand
+ */
+export const de_DeleteCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteCacheParameterGroupCommandError(output, context);
+    return de_DeleteCacheParameterGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteCacheParameterGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteCacheParameterGroupCommandError
+ */
+const de_DeleteCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheParameterGroupStateFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteCacheSecurityGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteCacheSecurityGroupCommand
+ */
+export const de_DeleteCacheSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheSecurityGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteCacheSecurityGroupCommandError(output, context);
+    return de_DeleteCacheSecurityGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteCacheSecurityGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteCacheSecurityGroupCommandError
+ */
+const de_DeleteCacheSecurityGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheSecurityGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheSecurityGroupStateFault":
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteCacheSubnetGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteCacheSubnetGroupCommand
+ */
+export const de_DeleteCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteCacheSubnetGroupCommandError(output, context);
+    return de_DeleteCacheSubnetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteCacheSubnetGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteCacheSubnetGroupCommandError
+ */
+const de_DeleteCacheSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupInUse":
     case "com.amazonaws.elasticache#CacheSubnetGroupInUse":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetGroupInUseRes(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteGlobalReplicationGroupCommand
+ */
+export const de_DeleteGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteGlobalReplicationGroupCommandError(output, context);
+    return de_DeleteGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteGlobalReplicationGroupResult(data.DeleteGlobalReplicationGroupResult, context);
+  contents = de_DeleteGlobalReplicationGroupResult(data.DeleteGlobalReplicationGroupResult, context);
   const response: DeleteGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteGlobalReplicationGroupCommandError
+ */
+const de_DeleteGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteReplicationGroupCommand
+ */
+export const de_DeleteReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteReplicationGroupCommandError(output, context);
+    return de_DeleteReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteReplicationGroupResult(data.DeleteReplicationGroupResult, context);
+  contents = de_DeleteReplicationGroupResult(data.DeleteReplicationGroupResult, context);
   const response: DeleteReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteReplicationGroupCommandError
+ */
+const de_DeleteReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
     case "SnapshotFeatureNotSupportedFault":
     case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      response = {
-        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteSnapshotCommand = async (
+/**
+ * deserializeAws_queryDeleteSnapshotCommand
+ */
+export const de_DeleteSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteSnapshotCommandError(output, context);
+    return de_DeleteSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDeleteSnapshotResult(data.DeleteSnapshotResult, context);
+  contents = de_DeleteSnapshotResult(data.DeleteSnapshotResult, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteSnapshotCommandError = async (
+/**
+ * deserializeAws_queryDeleteSnapshotCommandError
+ */
+const de_DeleteSnapshotCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidSnapshotStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidSnapshotState":
     case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteUserCommand = async (
+/**
+ * deserializeAws_queryDeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteUserCommandError(output, context);
+    return de_DeleteUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUser(data.DeleteUserResult, context);
+  contents = de_User(data.DeleteUserResult, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteUserCommandError = async (
+/**
+ * deserializeAws_queryDeleteUserCommandError
+ */
+const de_DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DefaultUserAssociatedToUserGroupFault":
+    case "DefaultUserAssociatedToUserGroup":
     case "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault":
-      response = {
-        ...(await deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_DefaultUserAssociatedToUserGroupFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidUserStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidUserState":
     case "com.amazonaws.elasticache#InvalidUserStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_InvalidUserStateFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDeleteUserGroupCommand = async (
+/**
+ * deserializeAws_queryDeleteUserGroupCommand
+ */
+export const de_DeleteUserGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDeleteUserGroupCommandError(output, context);
+    return de_DeleteUserGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUserGroup(data.DeleteUserGroupResult, context);
+  contents = de_UserGroup(data.DeleteUserGroupResult, context);
   const response: DeleteUserGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDeleteUserGroupCommandError = async (
+/**
+ * deserializeAws_queryDeleteUserGroupCommandError
+ */
+const de_DeleteUserGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidUserGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeCacheClustersCommand = async (
+/**
+ * deserializeAws_queryDescribeCacheClustersCommand
+ */
+export const de_DescribeCacheClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCacheClustersCommandError(output, context);
+    return de_DescribeCacheClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheClusterMessage(data.DescribeCacheClustersResult, context);
+  contents = de_CacheClusterMessage(data.DescribeCacheClustersResult, context);
   const response: DescribeCacheClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeCacheClustersCommandError = async (
+/**
+ * deserializeAws_queryDescribeCacheClustersCommandError
+ */
+const de_DescribeCacheClustersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheClustersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeCacheEngineVersionsCommand = async (
+/**
+ * deserializeAws_queryDescribeCacheEngineVersionsCommand
+ */
+export const de_DescribeCacheEngineVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheEngineVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCacheEngineVersionsCommandError(output, context);
+    return de_DescribeCacheEngineVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheEngineVersionMessage(data.DescribeCacheEngineVersionsResult, context);
+  contents = de_CacheEngineVersionMessage(data.DescribeCacheEngineVersionsResult, context);
   const response: DescribeCacheEngineVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeCacheEngineVersionsCommandError = async (
+/**
+ * deserializeAws_queryDescribeCacheEngineVersionsCommandError
+ */
+const de_DescribeCacheEngineVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheEngineVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
 };
 
-export const deserializeAws_queryDescribeCacheParameterGroupsCommand = async (
+/**
+ * deserializeAws_queryDescribeCacheParameterGroupsCommand
+ */
+export const de_DescribeCacheParameterGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheParameterGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCacheParameterGroupsCommandError(output, context);
+    return de_DescribeCacheParameterGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheParameterGroupsMessage(data.DescribeCacheParameterGroupsResult, context);
+  contents = de_CacheParameterGroupsMessage(data.DescribeCacheParameterGroupsResult, context);
   const response: DescribeCacheParameterGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeCacheParameterGroupsCommandError = async (
+/**
+ * deserializeAws_queryDescribeCacheParameterGroupsCommandError
+ */
+const de_DescribeCacheParameterGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheParameterGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeCacheParametersCommand = async (
+/**
+ * deserializeAws_queryDescribeCacheParametersCommand
+ */
+export const de_DescribeCacheParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCacheParametersCommandError(output, context);
+    return de_DescribeCacheParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheParameterGroupDetails(data.DescribeCacheParametersResult, context);
+  contents = de_CacheParameterGroupDetails(data.DescribeCacheParametersResult, context);
   const response: DescribeCacheParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeCacheParametersCommandError = async (
+/**
+ * deserializeAws_queryDescribeCacheParametersCommandError
+ */
+const de_DescribeCacheParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeCacheSecurityGroupsCommand = async (
+/**
+ * deserializeAws_queryDescribeCacheSecurityGroupsCommand
+ */
+export const de_DescribeCacheSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCacheSecurityGroupsCommandError(output, context);
+    return de_DescribeCacheSecurityGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSecurityGroupMessage(data.DescribeCacheSecurityGroupsResult, context);
+  contents = de_CacheSecurityGroupMessage(data.DescribeCacheSecurityGroupsResult, context);
   const response: DescribeCacheSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeCacheSecurityGroupsCommandError = async (
+/**
+ * deserializeAws_queryDescribeCacheSecurityGroupsCommandError
+ */
+const de_DescribeCacheSecurityGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheSecurityGroupNotFoundFault":
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeCacheSubnetGroupsCommand = async (
+/**
+ * deserializeAws_queryDescribeCacheSubnetGroupsCommand
+ */
+export const de_DescribeCacheSubnetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeCacheSubnetGroupsCommandError(output, context);
+    return de_DescribeCacheSubnetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheSubnetGroupMessage(data.DescribeCacheSubnetGroupsResult, context);
+  contents = de_CacheSubnetGroupMessage(data.DescribeCacheSubnetGroupsResult, context);
   const response: DescribeCacheSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeCacheSubnetGroupsCommandError = async (
+/**
+ * deserializeAws_queryDescribeCacheSubnetGroupsCommandError
+ */
+const de_DescribeCacheSubnetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async (
+/**
+ * deserializeAws_queryDescribeEngineDefaultParametersCommand
+ */
+export const de_DescribeEngineDefaultParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeEngineDefaultParametersCommandError(output, context);
+    return de_DescribeEngineDefaultParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeEngineDefaultParametersResult(
-    data.DescribeEngineDefaultParametersResult,
-    context
-  );
+  contents = de_DescribeEngineDefaultParametersResult(data.DescribeEngineDefaultParametersResult, context);
   const response: DescribeEngineDefaultParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeEngineDefaultParametersCommandError = async (
+/**
+ * deserializeAws_queryDescribeEngineDefaultParametersCommandError
+ */
+const de_DescribeEngineDefaultParametersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeEventsCommand = async (
+/**
+ * deserializeAws_queryDescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeEventsCommandError(output, context);
+    return de_DescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryEventsMessage(data.DescribeEventsResult, context);
+  contents = de_EventsMessage(data.DescribeEventsResult, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeEventsCommandError = async (
+/**
+ * deserializeAws_queryDescribeEventsCommandError
+ */
+const de_DescribeEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeGlobalReplicationGroupsCommand = async (
+/**
+ * deserializeAws_queryDescribeGlobalReplicationGroupsCommand
+ */
+export const de_DescribeGlobalReplicationGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalReplicationGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeGlobalReplicationGroupsCommandError(output, context);
+    return de_DescribeGlobalReplicationGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeGlobalReplicationGroupsResult(
-    data.DescribeGlobalReplicationGroupsResult,
-    context
-  );
+  contents = de_DescribeGlobalReplicationGroupsResult(data.DescribeGlobalReplicationGroupsResult, context);
   const response: DescribeGlobalReplicationGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeGlobalReplicationGroupsCommandError = async (
+/**
+ * deserializeAws_queryDescribeGlobalReplicationGroupsCommandError
+ */
+const de_DescribeGlobalReplicationGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalReplicationGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeReplicationGroupsCommand = async (
+/**
+ * deserializeAws_queryDescribeReplicationGroupsCommand
+ */
+export const de_DescribeReplicationGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReplicationGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeReplicationGroupsCommandError(output, context);
+    return de_DescribeReplicationGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReplicationGroupMessage(data.DescribeReplicationGroupsResult, context);
+  contents = de_ReplicationGroupMessage(data.DescribeReplicationGroupsResult, context);
   const response: DescribeReplicationGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeReplicationGroupsCommandError = async (
+/**
+ * deserializeAws_queryDescribeReplicationGroupsCommandError
+ */
+const de_DescribeReplicationGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReplicationGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeReservedCacheNodesCommand = async (
+/**
+ * deserializeAws_queryDescribeReservedCacheNodesCommand
+ */
+export const de_DescribeReservedCacheNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeReservedCacheNodesCommandError(output, context);
+    return de_DescribeReservedCacheNodesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReservedCacheNodeMessage(data.DescribeReservedCacheNodesResult, context);
+  contents = de_ReservedCacheNodeMessage(data.DescribeReservedCacheNodesResult, context);
   const response: DescribeReservedCacheNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeReservedCacheNodesCommandError = async (
+/**
+ * deserializeAws_queryDescribeReservedCacheNodesCommandError
+ */
+const de_DescribeReservedCacheNodesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodeNotFoundFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand = async (
+/**
+ * deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand
+ */
+export const de_DescribeReservedCacheNodesOfferingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError(output, context);
+    return de_DescribeReservedCacheNodesOfferingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryReservedCacheNodesOfferingMessage(
-    data.DescribeReservedCacheNodesOfferingsResult,
-    context
-  );
+  contents = de_ReservedCacheNodesOfferingMessage(data.DescribeReservedCacheNodesOfferingsResult, context);
   const response: DescribeReservedCacheNodesOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError = async (
+/**
+ * deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError
+ */
+const de_DescribeReservedCacheNodesOfferingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodesOfferingNotFoundFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ReservedCacheNodesOfferingNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReservedCacheNodesOfferingNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeServiceUpdatesCommand = async (
+/**
+ * deserializeAws_queryDescribeServiceUpdatesCommand
+ */
+export const de_DescribeServiceUpdatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceUpdatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeServiceUpdatesCommandError(output, context);
+    return de_DescribeServiceUpdatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryServiceUpdatesMessage(data.DescribeServiceUpdatesResult, context);
+  contents = de_ServiceUpdatesMessage(data.DescribeServiceUpdatesResult, context);
   const response: DescribeServiceUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeServiceUpdatesCommandError = async (
+/**
+ * deserializeAws_queryDescribeServiceUpdatesCommandError
+ */
+const de_DescribeServiceUpdatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceUpdatesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
     case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeSnapshotsCommand = async (
+/**
+ * deserializeAws_queryDescribeSnapshotsCommand
+ */
+export const de_DescribeSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeSnapshotsCommandError(output, context);
+    return de_DescribeSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeSnapshotsListMessage(data.DescribeSnapshotsResult, context);
+  contents = de_DescribeSnapshotsListMessage(data.DescribeSnapshotsResult, context);
   const response: DescribeSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeSnapshotsCommandError = async (
+/**
+ * deserializeAws_queryDescribeSnapshotsCommandError
+ */
+const de_DescribeSnapshotsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSnapshotsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeUpdateActionsCommand = async (
+/**
+ * deserializeAws_queryDescribeUpdateActionsCommand
+ */
+export const de_DescribeUpdateActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUpdateActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeUpdateActionsCommandError(output, context);
+    return de_DescribeUpdateActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUpdateActionsMessage(data.DescribeUpdateActionsResult, context);
+  contents = de_UpdateActionsMessage(data.DescribeUpdateActionsResult, context);
   const response: DescribeUpdateActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeUpdateActionsCommandError = async (
+/**
+ * deserializeAws_queryDescribeUpdateActionsCommandError
+ */
+const de_DescribeUpdateActionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUpdateActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeUserGroupsCommand = async (
+/**
+ * deserializeAws_queryDescribeUserGroupsCommand
+ */
+export const de_DescribeUserGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeUserGroupsCommandError(output, context);
+    return de_DescribeUserGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeUserGroupsResult(data.DescribeUserGroupsResult, context);
+  contents = de_DescribeUserGroupsResult(data.DescribeUserGroupsResult, context);
   const response: DescribeUserGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeUserGroupsCommandError = async (
+/**
+ * deserializeAws_queryDescribeUserGroupsCommandError
+ */
+const de_DescribeUserGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDescribeUsersCommand = async (
+/**
+ * deserializeAws_queryDescribeUsersCommand
+ */
+export const de_DescribeUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDescribeUsersCommandError(output, context);
+    return de_DescribeUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDescribeUsersResult(data.DescribeUsersResult, context);
+  contents = de_DescribeUsersResult(data.DescribeUsersResult, context);
   const response: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDescribeUsersCommandError = async (
+/**
+ * deserializeAws_queryDescribeUsersCommandError
+ */
+const de_DescribeUsersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryDisassociateGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryDisassociateGlobalReplicationGroupCommand
+ */
+export const de_DisassociateGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryDisassociateGlobalReplicationGroupCommandError(output, context);
+    return de_DisassociateGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryDisassociateGlobalReplicationGroupResult(
-    data.DisassociateGlobalReplicationGroupResult,
-    context
-  );
+  contents = de_DisassociateGlobalReplicationGroupResult(data.DisassociateGlobalReplicationGroupResult, context);
   const response: DisassociateGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryDisassociateGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryDisassociateGlobalReplicationGroupCommandError
+ */
+const de_DisassociateGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryFailoverGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryFailoverGlobalReplicationGroupCommand
+ */
+export const de_FailoverGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FailoverGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryFailoverGlobalReplicationGroupCommandError(output, context);
+    return de_FailoverGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryFailoverGlobalReplicationGroupResult(
-    data.FailoverGlobalReplicationGroupResult,
-    context
-  );
+  contents = de_FailoverGlobalReplicationGroupResult(data.FailoverGlobalReplicationGroupResult, context);
   const response: FailoverGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryFailoverGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryFailoverGlobalReplicationGroupCommandError
+ */
+const de_FailoverGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FailoverGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand
+ */
+export const de_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
+    return de_IncreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupResult(
+  contents = de_IncreaseNodeGroupsInGlobalReplicationGroupResult(
     data.IncreaseNodeGroupsInGlobalReplicationGroupResult,
     context
   );
@@ -5313,979 +4202,599 @@ export const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupComma
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError
+ */
+const de_IncreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryIncreaseReplicaCountCommand = async (
+/**
+ * deserializeAws_queryIncreaseReplicaCountCommand
+ */
+export const de_IncreaseReplicaCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseReplicaCountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryIncreaseReplicaCountCommandError(output, context);
+    return de_IncreaseReplicaCountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryIncreaseReplicaCountResult(data.IncreaseReplicaCountResult, context);
+  contents = de_IncreaseReplicaCountResult(data.IncreaseReplicaCountResult, context);
   const response: IncreaseReplicaCountCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryIncreaseReplicaCountCommandError = async (
+/**
+ * deserializeAws_queryIncreaseReplicaCountCommandError
+ */
+const de_IncreaseReplicaCountCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseReplicaCountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ClusterQuotaForCustomerExceededFault":
+    case "ClusterQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InsufficientCacheClusterCapacityFault":
+      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.elasticache#NoOperationFault":
-      response = {
-        ...(await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NoOperationFaultRes(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
+    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryListAllowedNodeTypeModificationsCommand = async (
+/**
+ * deserializeAws_queryListAllowedNodeTypeModificationsCommand
+ */
+export const de_ListAllowedNodeTypeModificationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListAllowedNodeTypeModificationsCommandError(output, context);
+    return de_ListAllowedNodeTypeModificationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryAllowedNodeTypeModificationsMessage(
-    data.ListAllowedNodeTypeModificationsResult,
-    context
-  );
+  contents = de_AllowedNodeTypeModificationsMessage(data.ListAllowedNodeTypeModificationsResult, context);
   const response: ListAllowedNodeTypeModificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListAllowedNodeTypeModificationsCommandError = async (
+/**
+ * deserializeAws_queryListAllowedNodeTypeModificationsCommandError
+ */
+const de_ListAllowedNodeTypeModificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryListTagsForResourceCommand = async (
+/**
+ * deserializeAws_queryListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTagListMessage(data.ListTagsForResourceResult, context);
+  contents = de_TagListMessage(data.ListTagsForResourceResult, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_queryListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidARNFault":
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidARN":
     case "com.amazonaws.elasticache#InvalidARNFault":
-      response = {
-        ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidARNFaultRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodeNotFoundFault":
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyCacheClusterCommand = async (
+/**
+ * deserializeAws_queryModifyCacheClusterCommand
+ */
+export const de_ModifyCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyCacheClusterCommandError(output, context);
+    return de_ModifyCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryModifyCacheClusterResult(data.ModifyCacheClusterResult, context);
+  contents = de_ModifyCacheClusterResult(data.ModifyCacheClusterResult, context);
   const response: ModifyCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyCacheClusterCommandError = async (
+/**
+ * deserializeAws_queryModifyCacheClusterCommandError
+ */
+const de_ModifyCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InsufficientCacheClusterCapacityFault":
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheSecurityGroupStateFault":
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForClusterExceededFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyCacheParameterGroupCommand = async (
+/**
+ * deserializeAws_queryModifyCacheParameterGroupCommand
+ */
+export const de_ModifyCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyCacheParameterGroupCommandError(output, context);
+    return de_ModifyCacheParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheParameterGroupNameMessage(data.ModifyCacheParameterGroupResult, context);
+  contents = de_CacheParameterGroupNameMessage(data.ModifyCacheParameterGroupResult, context);
   const response: ModifyCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyCacheParameterGroupCommandError = async (
+/**
+ * deserializeAws_queryModifyCacheParameterGroupCommandError
+ */
+const de_ModifyCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheParameterGroupStateFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyCacheSubnetGroupCommand = async (
+/**
+ * deserializeAws_queryModifyCacheSubnetGroupCommand
+ */
+export const de_ModifyCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyCacheSubnetGroupCommandError(output, context);
+    return de_ModifyCacheSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryModifyCacheSubnetGroupResult(data.ModifyCacheSubnetGroupResult, context);
+  contents = de_ModifyCacheSubnetGroupResult(data.ModifyCacheSubnetGroupResult, context);
   const response: ModifyCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyCacheSubnetGroupCommandError = async (
+/**
+ * deserializeAws_queryModifyCacheSubnetGroupCommandError
+ */
+const de_ModifyCacheSubnetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheSubnetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "CacheSubnetQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSubnetQuotaExceededFaultRes(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.elasticache#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "SubnetInUse":
     case "com.amazonaws.elasticache#SubnetInUse":
-      response = {
-        ...(await deserializeAws_querySubnetInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SubnetInUseRes(parsedOutput, context);
     case "SubnetNotAllowedFault":
     case "com.amazonaws.elasticache#SubnetNotAllowedFault":
-      response = {
-        ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryModifyGlobalReplicationGroupCommand
+ */
+export const de_ModifyGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyGlobalReplicationGroupCommandError(output, context);
+    return de_ModifyGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryModifyGlobalReplicationGroupResult(data.ModifyGlobalReplicationGroupResult, context);
+  contents = de_ModifyGlobalReplicationGroupResult(data.ModifyGlobalReplicationGroupResult, context);
   const response: ModifyGlobalReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryModifyGlobalReplicationGroupCommandError
+ */
+const de_ModifyGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryModifyReplicationGroupCommand
+ */
+export const de_ModifyReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyReplicationGroupCommandError(output, context);
+    return de_ModifyReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryModifyReplicationGroupResult(data.ModifyReplicationGroupResult, context);
+  contents = de_ModifyReplicationGroupResult(data.ModifyReplicationGroupResult, context);
   const response: ModifyReplicationGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryModifyReplicationGroupCommandError
+ */
+const de_ModifyReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InsufficientCacheClusterCapacityFault":
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheSecurityGroupStateFault":
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidUserGroupStateFault":
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForClusterExceededFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NodeQuotaForClusterExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyReplicationGroupShardConfigurationCommand = async (
+/**
+ * deserializeAws_queryModifyReplicationGroupShardConfigurationCommand
+ */
+export const de_ModifyReplicationGroupShardConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError(output, context);
+    return de_ModifyReplicationGroupShardConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryModifyReplicationGroupShardConfigurationResult(
+  contents = de_ModifyReplicationGroupShardConfigurationResult(
     data.ModifyReplicationGroupShardConfigurationResult,
     context
   );
@@ -6293,405 +4802,261 @@ export const deserializeAws_queryModifyReplicationGroupShardConfigurationCommand
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError = async (
+/**
+ * deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError
+ */
+const de_ModifyReplicationGroupShardConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InsufficientCacheClusterCapacityFault":
+    case "InsufficientCacheClusterCapacity":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NodeQuotaForCustomerExceededFault":
+      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyUserCommand = async (
+/**
+ * deserializeAws_queryModifyUserCommand
+ */
+export const de_ModifyUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyUserCommandError(output, context);
+    return de_ModifyUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUser(data.ModifyUserResult, context);
+  contents = de_User(data.ModifyUserResult, context);
   const response: ModifyUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyUserCommandError = async (
+/**
+ * deserializeAws_queryModifyUserCommandError
+ */
+const de_ModifyUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyUserCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidUserStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidUserState":
     case "com.amazonaws.elasticache#InvalidUserStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_InvalidUserStateFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryModifyUserGroupCommand = async (
+/**
+ * deserializeAws_queryModifyUserGroupCommand
+ */
+export const de_ModifyUserGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyUserGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryModifyUserGroupCommandError(output, context);
+    return de_ModifyUserGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryUserGroup(data.ModifyUserGroupResult, context);
+  contents = de_UserGroup(data.ModifyUserGroupResult, context);
   const response: ModifyUserGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryModifyUserGroupCommandError = async (
+/**
+ * deserializeAws_queryModifyUserGroupCommandError
+ */
+const de_ModifyUserGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyUserGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DefaultUserRequired":
     case "com.amazonaws.elasticache#DefaultUserRequired":
-      response = {
-        ...(await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DuplicateUserNameFault":
+      throw await de_DefaultUserRequiredRes(parsedOutput, context);
+    case "DuplicateUserName":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      response = {
-        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidUserGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidUserGroupState":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
+/**
+ * deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand
+ */
+export const de_PurchaseReservedCacheNodesOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError(output, context);
+    return de_PurchaseReservedCacheNodesOfferingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryPurchaseReservedCacheNodesOfferingResult(
-    data.PurchaseReservedCacheNodesOfferingResult,
-    context
-  );
+  contents = de_PurchaseReservedCacheNodesOfferingResult(data.PurchaseReservedCacheNodesOfferingResult, context);
   const response: PurchaseReservedCacheNodesOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError = async (
+/**
+ * deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError
+ */
+const de_PurchaseReservedCacheNodesOfferingCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodeAlreadyExistsFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ReservedCacheNodeAlreadyExists":
     case "com.amazonaws.elasticache#ReservedCacheNodeAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodeQuotaExceededFault":
+      throw await de_ReservedCacheNodeAlreadyExistsFaultRes(parsedOutput, context);
+    case "ReservedCacheNodeQuotaExceeded":
     case "com.amazonaws.elasticache#ReservedCacheNodeQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodesOfferingNotFoundFault":
+      throw await de_ReservedCacheNodeQuotaExceededFaultRes(parsedOutput, context);
+    case "ReservedCacheNodesOfferingNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReservedCacheNodesOfferingNotFoundFaultRes(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand = async (
+/**
+ * deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand
+ */
+export const de_RebalanceSlotsInGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError(output, context);
+    return de_RebalanceSlotsInGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupResult(
+  contents = de_RebalanceSlotsInGlobalReplicationGroupResult(
     data.RebalanceSlotsInGlobalReplicationGroupResult,
     context
   );
@@ -6699,1649 +5064,1526 @@ export const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand =
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError = async (
+/**
+ * deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError
+ */
+const de_RebalanceSlotsInGlobalReplicationGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryRebootCacheClusterCommand = async (
+/**
+ * deserializeAws_queryRebootCacheClusterCommand
+ */
+export const de_RebootCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRebootCacheClusterCommandError(output, context);
+    return de_RebootCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRebootCacheClusterResult(data.RebootCacheClusterResult, context);
+  contents = de_RebootCacheClusterResult(data.RebootCacheClusterResult, context);
   const response: RebootCacheClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRebootCacheClusterCommandError = async (
+/**
+ * deserializeAws_queryRebootCacheClusterCommandError
+ */
+const de_RebootCacheClusterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootCacheClusterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
+/**
+ * deserializeAws_queryRemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRemoveTagsFromResourceCommandError(output, context);
+    return de_RemoveTagsFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTagListMessage(data.RemoveTagsFromResourceResult, context);
+  contents = de_TagListMessage(data.RemoveTagsFromResourceResult, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
+/**
+ * deserializeAws_queryRemoveTagsFromResourceCommandError
+ */
+const de_RemoveTagsFromResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheClusterNotFoundFault":
+    case "CacheClusterNotFound":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheParameterGroupNotFoundFault":
+      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidARNFault":
+      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidARN":
     case "com.amazonaws.elasticache#InvalidARNFault":
-      response = {
-        ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidARNFaultRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ReservedCacheNodeNotFoundFault":
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    case "ReservedCacheNodeNotFound":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TagNotFoundFault":
+      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
+    case "TagNotFound":
     case "com.amazonaws.elasticache#TagNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryTagNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserGroupNotFoundFault":
+      throw await de_TagNotFoundFaultRes(parsedOutput, context);
+    case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "UserNotFoundFault":
+      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
+    case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_UserNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryResetCacheParameterGroupCommand = async (
+/**
+ * deserializeAws_queryResetCacheParameterGroupCommand
+ */
+export const de_ResetCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryResetCacheParameterGroupCommandError(output, context);
+    return de_ResetCacheParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryCacheParameterGroupNameMessage(data.ResetCacheParameterGroupResult, context);
+  contents = de_CacheParameterGroupNameMessage(data.ResetCacheParameterGroupResult, context);
   const response: ResetCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryResetCacheParameterGroupCommandError = async (
+/**
+ * deserializeAws_queryResetCacheParameterGroupCommandError
+ */
+const de_ResetCacheParameterGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetCacheParameterGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "CacheParameterGroupNotFoundFault":
+    case "CacheParameterGroupNotFound":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheParameterGroupStateFault":
+      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheParameterGroupState":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidGlobalReplicationGroupStateFault":
+      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
+/**
+ * deserializeAws_queryRevokeCacheSecurityGroupIngressCommand
+ */
+export const de_RevokeCacheSecurityGroupIngressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(output, context);
+    return de_RevokeCacheSecurityGroupIngressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryRevokeCacheSecurityGroupIngressResult(
-    data.RevokeCacheSecurityGroupIngressResult,
-    context
-  );
+  contents = de_RevokeCacheSecurityGroupIngressResult(data.RevokeCacheSecurityGroupIngressResult, context);
   const response: RevokeCacheSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError = async (
+/**
+ * deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError
+ */
+const de_RevokeCacheSecurityGroupIngressCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AuthorizationNotFoundFault":
+    case "AuthorizationNotFound":
     case "com.amazonaws.elasticache#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "CacheSecurityGroupNotFoundFault":
+      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupNotFound":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheSecurityGroupStateFault":
+      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryStartMigrationCommand = async (
+/**
+ * deserializeAws_queryStartMigrationCommand
+ */
+export const de_StartMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMigrationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryStartMigrationCommandError(output, context);
+    return de_StartMigrationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryStartMigrationResponse(data.StartMigrationResult, context);
+  contents = de_StartMigrationResponse(data.StartMigrationResult, context);
   const response: StartMigrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryStartMigrationCommandError = async (
+/**
+ * deserializeAws_queryStartMigrationCommandError
+ */
+const de_StartMigrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMigrationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterValueException":
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "ReplicationGroupAlreadyUnderMigrationFault":
     case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupAlreadyUnderMigrationFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_queryTestFailoverCommand = async (
+/**
+ * deserializeAws_queryTestFailoverCommand
+ */
+export const de_TestFailoverCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestFailoverCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_queryTestFailoverCommandError(output, context);
+    return de_TestFailoverCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_queryTestFailoverResult(data.TestFailoverResult, context);
+  contents = de_TestFailoverResult(data.TestFailoverResult, context);
   const response: TestFailoverCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_queryTestFailoverCommandError = async (
+/**
+ * deserializeAws_queryTestFailoverCommandError
+ */
+const de_TestFailoverCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestFailoverCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "APICallRateForCustomerExceededFault":
+    case "APICallRateForCustomerExceeded":
     case "com.amazonaws.elasticache#APICallRateForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryAPICallRateForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidCacheClusterStateFault":
+      throw await de_APICallRateForCustomerExceededFaultRes(parsedOutput, context);
+    case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterCombinationException":
+      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterValueException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidReplicationGroupStateFault":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
     case "NodeGroupNotFoundFault":
     case "com.amazonaws.elasticache#NodeGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NodeGroupNotFoundFaultRes(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "TestFailoverNotAvailableFault":
     case "com.amazonaws.elasticache#TestFailoverNotAvailableFault":
-      response = {
-        ...(await deserializeAws_queryTestFailoverNotAvailableFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TestFailoverNotAvailableFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_queryAPICallRateForCustomerExceededFaultResponse = async (
+/**
+ * deserializeAws_queryTestMigrationCommand
+ */
+export const de_TestMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TestMigrationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TestMigrationResponse(data.TestMigrationResult, context);
+  const response: TestMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryTestMigrationCommandError
+ */
+const de_TestMigrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestMigrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValue":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidReplicationGroupState":
+    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
+      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "ReplicationGroupAlreadyUnderMigrationFault":
+    case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
+      throw await de_ReplicationGroupAlreadyUnderMigrationFaultRes(parsedOutput, context);
+    case "ReplicationGroupNotFoundFault":
+    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
+      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryAPICallRateForCustomerExceededFaultRes
+ */
+const de_APICallRateForCustomerExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<APICallRateForCustomerExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAPICallRateForCustomerExceededFault(body.Error, context);
-  const contents: APICallRateForCustomerExceededFault = {
-    name: "APICallRateForCustomerExceededFault",
-    $fault: "client",
+  const deserialized: any = de_APICallRateForCustomerExceededFault(body.Error, context);
+  const exception = new APICallRateForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryAuthorizationAlreadyExistsFaultRes
+ */
+const de_AuthorizationAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AuthorizationAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAuthorizationAlreadyExistsFault(body.Error, context);
-  const contents: AuthorizationAlreadyExistsFault = {
-    name: "AuthorizationAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_AuthorizationAlreadyExistsFault(body.Error, context);
+  const exception = new AuthorizationAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryAuthorizationNotFoundFaultRes
+ */
+const de_AuthorizationNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AuthorizationNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryAuthorizationNotFoundFault(body.Error, context);
-  const contents: AuthorizationNotFoundFault = {
-    name: "AuthorizationNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_AuthorizationNotFoundFault(body.Error, context);
+  const exception = new AuthorizationNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheClusterAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryCacheClusterAlreadyExistsFaultRes
+ */
+const de_CacheClusterAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheClusterAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheClusterAlreadyExistsFault(body.Error, context);
-  const contents: CacheClusterAlreadyExistsFault = {
-    name: "CacheClusterAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_CacheClusterAlreadyExistsFault(body.Error, context);
+  const exception = new CacheClusterAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheClusterNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryCacheClusterNotFoundFaultRes
+ */
+const de_CacheClusterNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheClusterNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheClusterNotFoundFault(body.Error, context);
-  const contents: CacheClusterNotFoundFault = {
-    name: "CacheClusterNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_CacheClusterNotFoundFault(body.Error, context);
+  const exception = new CacheClusterNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryCacheParameterGroupAlreadyExistsFaultRes
+ */
+const de_CacheParameterGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheParameterGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheParameterGroupAlreadyExistsFault(body.Error, context);
-  const contents: CacheParameterGroupAlreadyExistsFault = {
-    name: "CacheParameterGroupAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_CacheParameterGroupAlreadyExistsFault(body.Error, context);
+  const exception = new CacheParameterGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheParameterGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryCacheParameterGroupNotFoundFaultRes
+ */
+const de_CacheParameterGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheParameterGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheParameterGroupNotFoundFault(body.Error, context);
-  const contents: CacheParameterGroupNotFoundFault = {
-    name: "CacheParameterGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_CacheParameterGroupNotFoundFault(body.Error, context);
+  const exception = new CacheParameterGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryCacheParameterGroupQuotaExceededFaultRes
+ */
+const de_CacheParameterGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheParameterGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheParameterGroupQuotaExceededFault(body.Error, context);
-  const contents: CacheParameterGroupQuotaExceededFault = {
-    name: "CacheParameterGroupQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_CacheParameterGroupQuotaExceededFault(body.Error, context);
+  const exception = new CacheParameterGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultRes
+ */
+const de_CacheSecurityGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSecurityGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSecurityGroupAlreadyExistsFault(body.Error, context);
-  const contents: CacheSecurityGroupAlreadyExistsFault = {
-    name: "CacheSecurityGroupAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSecurityGroupAlreadyExistsFault(body.Error, context);
+  const exception = new CacheSecurityGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSecurityGroupNotFoundFaultRes
+ */
+const de_CacheSecurityGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSecurityGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSecurityGroupNotFoundFault(body.Error, context);
-  const contents: CacheSecurityGroupNotFoundFault = {
-    name: "CacheSecurityGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSecurityGroupNotFoundFault(body.Error, context);
+  const exception = new CacheSecurityGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSecurityGroupQuotaExceededFaultRes
+ */
+const de_CacheSecurityGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSecurityGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSecurityGroupQuotaExceededFault(body.Error, context);
-  const contents: CacheSecurityGroupQuotaExceededFault = {
-    name: "CacheSecurityGroupQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSecurityGroupQuotaExceededFault(body.Error, context);
+  const exception = new CacheSecurityGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultRes
+ */
+const de_CacheSubnetGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSubnetGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSubnetGroupAlreadyExistsFault(body.Error, context);
-  const contents: CacheSubnetGroupAlreadyExistsFault = {
-    name: "CacheSubnetGroupAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSubnetGroupAlreadyExistsFault(body.Error, context);
+  const exception = new CacheSubnetGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSubnetGroupInUseResponse = async (
+/**
+ * deserializeAws_queryCacheSubnetGroupInUseRes
+ */
+const de_CacheSubnetGroupInUseRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSubnetGroupInUse> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSubnetGroupInUse(body.Error, context);
-  const contents: CacheSubnetGroupInUse = {
-    name: "CacheSubnetGroupInUse",
-    $fault: "client",
+  const deserialized: any = de_CacheSubnetGroupInUse(body.Error, context);
+  const exception = new CacheSubnetGroupInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSubnetGroupNotFoundFaultRes
+ */
+const de_CacheSubnetGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSubnetGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSubnetGroupNotFoundFault(body.Error, context);
-  const contents: CacheSubnetGroupNotFoundFault = {
-    name: "CacheSubnetGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSubnetGroupNotFoundFault(body.Error, context);
+  const exception = new CacheSubnetGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSubnetGroupQuotaExceededFaultRes
+ */
+const de_CacheSubnetGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSubnetGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSubnetGroupQuotaExceededFault(body.Error, context);
-  const contents: CacheSubnetGroupQuotaExceededFault = {
-    name: "CacheSubnetGroupQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSubnetGroupQuotaExceededFault(body.Error, context);
+  const exception = new CacheSubnetGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryCacheSubnetQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryCacheSubnetQuotaExceededFaultRes
+ */
+const de_CacheSubnetQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CacheSubnetQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryCacheSubnetQuotaExceededFault(body.Error, context);
-  const contents: CacheSubnetQuotaExceededFault = {
-    name: "CacheSubnetQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_CacheSubnetQuotaExceededFault(body.Error, context);
+  const exception = new CacheSubnetQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse = async (
+/**
+ * deserializeAws_queryClusterQuotaForCustomerExceededFaultRes
+ */
+const de_ClusterQuotaForCustomerExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterQuotaForCustomerExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryClusterQuotaForCustomerExceededFault(body.Error, context);
-  const contents: ClusterQuotaForCustomerExceededFault = {
-    name: "ClusterQuotaForCustomerExceededFault",
-    $fault: "client",
+  const deserialized: any = de_ClusterQuotaForCustomerExceededFault(body.Error, context);
+  const exception = new ClusterQuotaForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse = async (
+/**
+ * deserializeAws_queryDefaultUserAssociatedToUserGroupFaultRes
+ */
+const de_DefaultUserAssociatedToUserGroupFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DefaultUserAssociatedToUserGroupFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDefaultUserAssociatedToUserGroupFault(body.Error, context);
-  const contents: DefaultUserAssociatedToUserGroupFault = {
-    name: "DefaultUserAssociatedToUserGroupFault",
-    $fault: "client",
+  const deserialized: any = de_DefaultUserAssociatedToUserGroupFault(body.Error, context);
+  const exception = new DefaultUserAssociatedToUserGroupFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDefaultUserRequiredResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DefaultUserRequired> => {
+/**
+ * deserializeAws_queryDefaultUserRequiredRes
+ */
+const de_DefaultUserRequiredRes = async (parsedOutput: any, context: __SerdeContext): Promise<DefaultUserRequired> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDefaultUserRequired(body.Error, context);
-  const contents: DefaultUserRequired = {
-    name: "DefaultUserRequired",
-    $fault: "client",
+  const deserialized: any = de_DefaultUserRequired(body.Error, context);
+  const exception = new DefaultUserRequired({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryDuplicateUserNameFaultResponse = async (
+/**
+ * deserializeAws_queryDuplicateUserNameFaultRes
+ */
+const de_DuplicateUserNameFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateUserNameFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryDuplicateUserNameFault(body.Error, context);
-  const contents: DuplicateUserNameFault = {
-    name: "DuplicateUserNameFault",
-    $fault: "client",
+  const deserialized: any = de_DuplicateUserNameFault(body.Error, context);
+  const exception = new DuplicateUserNameFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultRes
+ */
+const de_GlobalReplicationGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GlobalReplicationGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryGlobalReplicationGroupAlreadyExistsFault(body.Error, context);
-  const contents: GlobalReplicationGroupAlreadyExistsFault = {
-    name: "GlobalReplicationGroupAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_GlobalReplicationGroupAlreadyExistsFault(body.Error, context);
+  const exception = new GlobalReplicationGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryGlobalReplicationGroupNotFoundFaultRes
+ */
+const de_GlobalReplicationGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GlobalReplicationGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryGlobalReplicationGroupNotFoundFault(body.Error, context);
-  const contents: GlobalReplicationGroupNotFoundFault = {
-    name: "GlobalReplicationGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_GlobalReplicationGroupNotFoundFault(body.Error, context);
+  const exception = new GlobalReplicationGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse = async (
+/**
+ * deserializeAws_queryInsufficientCacheClusterCapacityFaultRes
+ */
+const de_InsufficientCacheClusterCapacityFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientCacheClusterCapacityFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInsufficientCacheClusterCapacityFault(body.Error, context);
-  const contents: InsufficientCacheClusterCapacityFault = {
-    name: "InsufficientCacheClusterCapacityFault",
-    $fault: "client",
+  const deserialized: any = de_InsufficientCacheClusterCapacityFault(body.Error, context);
+  const exception = new InsufficientCacheClusterCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidARNFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidARNFault> => {
+/**
+ * deserializeAws_queryInvalidARNFaultRes
+ */
+const de_InvalidARNFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidARNFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidARNFault(body.Error, context);
-  const contents: InvalidARNFault = {
-    name: "InvalidARNFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidARNFault(body.Error, context);
+  const exception = new InvalidARNFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidCacheClusterStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidCacheClusterStateFaultRes
+ */
+const de_InvalidCacheClusterStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCacheClusterStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidCacheClusterStateFault(body.Error, context);
-  const contents: InvalidCacheClusterStateFault = {
-    name: "InvalidCacheClusterStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidCacheClusterStateFault(body.Error, context);
+  const exception = new InvalidCacheClusterStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidCacheParameterGroupStateFaultRes
+ */
+const de_InvalidCacheParameterGroupStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCacheParameterGroupStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidCacheParameterGroupStateFault(body.Error, context);
-  const contents: InvalidCacheParameterGroupStateFault = {
-    name: "InvalidCacheParameterGroupStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidCacheParameterGroupStateFault(body.Error, context);
+  const exception = new InvalidCacheParameterGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidCacheSecurityGroupStateFaultRes
+ */
+const de_InvalidCacheSecurityGroupStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCacheSecurityGroupStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidCacheSecurityGroupStateFault(body.Error, context);
-  const contents: InvalidCacheSecurityGroupStateFault = {
-    name: "InvalidCacheSecurityGroupStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidCacheSecurityGroupStateFault(body.Error, context);
+  const exception = new InvalidCacheSecurityGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidGlobalReplicationGroupStateFaultRes
+ */
+const de_InvalidGlobalReplicationGroupStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGlobalReplicationGroupStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidGlobalReplicationGroupStateFault(body.Error, context);
-  const contents: InvalidGlobalReplicationGroupStateFault = {
-    name: "InvalidGlobalReplicationGroupStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidGlobalReplicationGroupStateFault(body.Error, context);
+  const exception = new InvalidGlobalReplicationGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidKMSKeyFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidKMSKeyFault> => {
+/**
+ * deserializeAws_queryInvalidKMSKeyFaultRes
+ */
+const de_InvalidKMSKeyFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidKMSKeyFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidKMSKeyFault(body.Error, context);
-  const contents: InvalidKMSKeyFault = {
-    name: "InvalidKMSKeyFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidKMSKeyFault(body.Error, context);
+  const exception = new InvalidKMSKeyFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidParameterCombinationExceptionRes
+ */
+const de_InvalidParameterCombinationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterCombinationException(body.Error, context);
-  const contents: InvalidParameterCombinationException = {
-    name: "InvalidParameterCombinationException",
-    $fault: "client",
+  const deserialized: any = de_InvalidParameterCombinationException(body.Error, context);
+  const exception = new InvalidParameterCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
+/**
+ * deserializeAws_queryInvalidParameterValueExceptionRes
+ */
+const de_InvalidParameterValueExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidParameterValueException(body.Error, context);
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
+  const deserialized: any = de_InvalidParameterValueException(body.Error, context);
+  const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidReplicationGroupStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidReplicationGroupStateFaultRes
+ */
+const de_InvalidReplicationGroupStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidReplicationGroupStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidReplicationGroupStateFault(body.Error, context);
-  const contents: InvalidReplicationGroupStateFault = {
-    name: "InvalidReplicationGroupStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidReplicationGroupStateFault(body.Error, context);
+  const exception = new InvalidReplicationGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidSnapshotStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidSnapshotStateFaultRes
+ */
+const de_InvalidSnapshotStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSnapshotStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSnapshotStateFault(body.Error, context);
-  const contents: InvalidSnapshotStateFault = {
-    name: "InvalidSnapshotStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidSnapshotStateFault(body.Error, context);
+  const exception = new InvalidSnapshotStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidSubnetResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InvalidSubnet> => {
+/**
+ * deserializeAws_queryInvalidSubnetRes
+ */
+const de_InvalidSubnetRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidSubnet> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidSubnet(body.Error, context);
-  const contents: InvalidSubnet = {
-    name: "InvalidSubnet",
-    $fault: "client",
+  const deserialized: any = de_InvalidSubnet(body.Error, context);
+  const exception = new InvalidSubnet({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidUserGroupStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidUserGroupStateFaultRes
+ */
+const de_InvalidUserGroupStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidUserGroupStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidUserGroupStateFault(body.Error, context);
-  const contents: InvalidUserGroupStateFault = {
-    name: "InvalidUserGroupStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidUserGroupStateFault(body.Error, context);
+  const exception = new InvalidUserGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidUserStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidUserStateFaultRes
+ */
+const de_InvalidUserStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidUserStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidUserStateFault(body.Error, context);
-  const contents: InvalidUserStateFault = {
-    name: "InvalidUserStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidUserStateFault(body.Error, context);
+  const exception = new InvalidUserStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
+/**
+ * deserializeAws_queryInvalidVPCNetworkStateFaultRes
+ */
+const de_InvalidVPCNetworkStateFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidVPCNetworkStateFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryInvalidVPCNetworkStateFault(body.Error, context);
-  const contents: InvalidVPCNetworkStateFault = {
-    name: "InvalidVPCNetworkStateFault",
-    $fault: "client",
+  const deserialized: any = de_InvalidVPCNetworkStateFault(body.Error, context);
+  const exception = new InvalidVPCNetworkStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNodeGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryNodeGroupNotFoundFaultRes
+ */
+const de_NodeGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNodeGroupNotFoundFault(body.Error, context);
-  const contents: NodeGroupNotFoundFault = {
-    name: "NodeGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_NodeGroupNotFoundFault(body.Error, context);
+  const exception = new NodeGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultRes
+ */
+const de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeGroupsPerReplicationGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault(body.Error, context);
-  const contents: NodeGroupsPerReplicationGroupQuotaExceededFault = {
-    name: "NodeGroupsPerReplicationGroupQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_NodeGroupsPerReplicationGroupQuotaExceededFault(body.Error, context);
+  const exception = new NodeGroupsPerReplicationGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNodeQuotaForClusterExceededFaultResponse = async (
+/**
+ * deserializeAws_queryNodeQuotaForClusterExceededFaultRes
+ */
+const de_NodeQuotaForClusterExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeQuotaForClusterExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNodeQuotaForClusterExceededFault(body.Error, context);
-  const contents: NodeQuotaForClusterExceededFault = {
-    name: "NodeQuotaForClusterExceededFault",
-    $fault: "client",
+  const deserialized: any = de_NodeQuotaForClusterExceededFault(body.Error, context);
+  const exception = new NodeQuotaForClusterExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse = async (
+/**
+ * deserializeAws_queryNodeQuotaForCustomerExceededFaultRes
+ */
+const de_NodeQuotaForCustomerExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeQuotaForCustomerExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNodeQuotaForCustomerExceededFault(body.Error, context);
-  const contents: NodeQuotaForCustomerExceededFault = {
-    name: "NodeQuotaForCustomerExceededFault",
-    $fault: "client",
+  const deserialized: any = de_NodeQuotaForCustomerExceededFault(body.Error, context);
+  const exception = new NodeQuotaForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryNoOperationFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NoOperationFault> => {
+/**
+ * deserializeAws_queryNoOperationFaultRes
+ */
+const de_NoOperationFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoOperationFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryNoOperationFault(body.Error, context);
-  const contents: NoOperationFault = {
-    name: "NoOperationFault",
-    $fault: "client",
+  const deserialized: any = de_NoOperationFault(body.Error, context);
+  const exception = new NoOperationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryReplicationGroupAlreadyExistsFaultRes
+ */
+const de_ReplicationGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplicationGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReplicationGroupAlreadyExistsFault(body.Error, context);
-  const contents: ReplicationGroupAlreadyExistsFault = {
-    name: "ReplicationGroupAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_ReplicationGroupAlreadyExistsFault(body.Error, context);
+  const exception = new ReplicationGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse = async (
+/**
+ * deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultRes
+ */
+const de_ReplicationGroupAlreadyUnderMigrationFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplicationGroupAlreadyUnderMigrationFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReplicationGroupAlreadyUnderMigrationFault(body.Error, context);
-  const contents: ReplicationGroupAlreadyUnderMigrationFault = {
-    name: "ReplicationGroupAlreadyUnderMigrationFault",
-    $fault: "client",
+  const deserialized: any = de_ReplicationGroupAlreadyUnderMigrationFault(body.Error, context);
+  const exception = new ReplicationGroupAlreadyUnderMigrationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReplicationGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryReplicationGroupNotFoundFaultRes
+ */
+const de_ReplicationGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplicationGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReplicationGroupNotFoundFault(body.Error, context);
-  const contents: ReplicationGroupNotFoundFault = {
-    name: "ReplicationGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_ReplicationGroupNotFoundFault(body.Error, context);
+  const exception = new ReplicationGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse = async (
+/**
+ * deserializeAws_queryReplicationGroupNotUnderMigrationFaultRes
+ */
+const de_ReplicationGroupNotUnderMigrationFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplicationGroupNotUnderMigrationFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReplicationGroupNotUnderMigrationFault(body.Error, context);
-  const contents: ReplicationGroupNotUnderMigrationFault = {
-    name: "ReplicationGroupNotUnderMigrationFault",
-    $fault: "client",
+  const deserialized: any = de_ReplicationGroupNotUnderMigrationFault(body.Error, context);
+  const exception = new ReplicationGroupNotUnderMigrationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryReservedCacheNodeAlreadyExistsFaultRes
+ */
+const de_ReservedCacheNodeAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReservedCacheNodeAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReservedCacheNodeAlreadyExistsFault(body.Error, context);
-  const contents: ReservedCacheNodeAlreadyExistsFault = {
-    name: "ReservedCacheNodeAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_ReservedCacheNodeAlreadyExistsFault(body.Error, context);
+  const exception = new ReservedCacheNodeAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReservedCacheNodeNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryReservedCacheNodeNotFoundFaultRes
+ */
+const de_ReservedCacheNodeNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReservedCacheNodeNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReservedCacheNodeNotFoundFault(body.Error, context);
-  const contents: ReservedCacheNodeNotFoundFault = {
-    name: "ReservedCacheNodeNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_ReservedCacheNodeNotFoundFault(body.Error, context);
+  const exception = new ReservedCacheNodeNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryReservedCacheNodeQuotaExceededFaultRes
+ */
+const de_ReservedCacheNodeQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReservedCacheNodeQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReservedCacheNodeQuotaExceededFault(body.Error, context);
-  const contents: ReservedCacheNodeQuotaExceededFault = {
-    name: "ReservedCacheNodeQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_ReservedCacheNodeQuotaExceededFault(body.Error, context);
+  const exception = new ReservedCacheNodeQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultRes
+ */
+const de_ReservedCacheNodesOfferingNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReservedCacheNodesOfferingNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryReservedCacheNodesOfferingNotFoundFault(body.Error, context);
-  const contents: ReservedCacheNodesOfferingNotFoundFault = {
-    name: "ReservedCacheNodesOfferingNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_ReservedCacheNodesOfferingNotFoundFault(body.Error, context);
+  const exception = new ReservedCacheNodesOfferingNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryServiceLinkedRoleNotFoundFaultRes
+ */
+const de_ServiceLinkedRoleNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceLinkedRoleNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryServiceLinkedRoleNotFoundFault(body.Error, context);
-  const contents: ServiceLinkedRoleNotFoundFault = {
-    name: "ServiceLinkedRoleNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_ServiceLinkedRoleNotFoundFault(body.Error, context);
+  const exception = new ServiceLinkedRoleNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryServiceUpdateNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryServiceUpdateNotFoundFaultRes
+ */
+const de_ServiceUpdateNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUpdateNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryServiceUpdateNotFoundFault(body.Error, context);
-  const contents: ServiceUpdateNotFoundFault = {
-    name: "ServiceUpdateNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_ServiceUpdateNotFoundFault(body.Error, context);
+  const exception = new ServiceUpdateNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySnapshotAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_querySnapshotAlreadyExistsFaultRes
+ */
+const de_SnapshotAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SnapshotAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySnapshotAlreadyExistsFault(body.Error, context);
-  const contents: SnapshotAlreadyExistsFault = {
-    name: "SnapshotAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_SnapshotAlreadyExistsFault(body.Error, context);
+  const exception = new SnapshotAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySnapshotFeatureNotSupportedFaultResponse = async (
+/**
+ * deserializeAws_querySnapshotFeatureNotSupportedFaultRes
+ */
+const de_SnapshotFeatureNotSupportedFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SnapshotFeatureNotSupportedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySnapshotFeatureNotSupportedFault(body.Error, context);
-  const contents: SnapshotFeatureNotSupportedFault = {
-    name: "SnapshotFeatureNotSupportedFault",
-    $fault: "client",
+  const deserialized: any = de_SnapshotFeatureNotSupportedFault(body.Error, context);
+  const exception = new SnapshotFeatureNotSupportedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySnapshotNotFoundFaultResponse = async (
+/**
+ * deserializeAws_querySnapshotNotFoundFaultRes
+ */
+const de_SnapshotNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SnapshotNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySnapshotNotFoundFault(body.Error, context);
-  const contents: SnapshotNotFoundFault = {
-    name: "SnapshotNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_SnapshotNotFoundFault(body.Error, context);
+  const exception = new SnapshotNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_querySnapshotQuotaExceededFaultRes
+ */
+const de_SnapshotQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SnapshotQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySnapshotQuotaExceededFault(body.Error, context);
-  const contents: SnapshotQuotaExceededFault = {
-    name: "SnapshotQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_SnapshotQuotaExceededFault(body.Error, context);
+  const exception = new SnapshotQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySubnetInUseResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<SubnetInUse> => {
+/**
+ * deserializeAws_querySubnetInUseRes
+ */
+const de_SubnetInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<SubnetInUse> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySubnetInUse(body.Error, context);
-  const contents: SubnetInUse = {
-    name: "SubnetInUse",
-    $fault: "client",
+  const deserialized: any = de_SubnetInUse(body.Error, context);
+  const exception = new SubnetInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_querySubnetNotAllowedFaultResponse = async (
+/**
+ * deserializeAws_querySubnetNotAllowedFaultRes
+ */
+const de_SubnetNotAllowedFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetNotAllowedFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_querySubnetNotAllowedFault(body.Error, context);
-  const contents: SubnetNotAllowedFault = {
-    name: "SubnetNotAllowedFault",
-    $fault: "client",
+  const deserialized: any = de_SubnetNotAllowedFault(body.Error, context);
+  const exception = new SubnetNotAllowedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTagNotFoundFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TagNotFoundFault> => {
+/**
+ * deserializeAws_queryTagNotFoundFaultRes
+ */
+const de_TagNotFoundFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<TagNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTagNotFoundFault(body.Error, context);
-  const contents: TagNotFoundFault = {
-    name: "TagNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_TagNotFoundFault(body.Error, context);
+  const exception = new TagNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTagQuotaPerResourceExceededResponse = async (
+/**
+ * deserializeAws_queryTagQuotaPerResourceExceededRes
+ */
+const de_TagQuotaPerResourceExceededRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagQuotaPerResourceExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTagQuotaPerResourceExceeded(body.Error, context);
-  const contents: TagQuotaPerResourceExceeded = {
-    name: "TagQuotaPerResourceExceeded",
-    $fault: "client",
+  const deserialized: any = de_TagQuotaPerResourceExceeded(body.Error, context);
+  const exception = new TagQuotaPerResourceExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryTestFailoverNotAvailableFaultResponse = async (
+/**
+ * deserializeAws_queryTestFailoverNotAvailableFaultRes
+ */
+const de_TestFailoverNotAvailableFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TestFailoverNotAvailableFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryTestFailoverNotAvailableFault(body.Error, context);
-  const contents: TestFailoverNotAvailableFault = {
-    name: "TestFailoverNotAvailableFault",
-    $fault: "client",
+  const deserialized: any = de_TestFailoverNotAvailableFault(body.Error, context);
+  const exception = new TestFailoverNotAvailableFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryUserAlreadyExistsFaultRes
+ */
+const de_UserAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserAlreadyExistsFault(body.Error, context);
-  const contents: UserAlreadyExistsFault = {
-    name: "UserAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_UserAlreadyExistsFault(body.Error, context);
+  const exception = new UserAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserGroupAlreadyExistsFaultResponse = async (
+/**
+ * deserializeAws_queryUserGroupAlreadyExistsFaultRes
+ */
+const de_UserGroupAlreadyExistsFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserGroupAlreadyExistsFault(body.Error, context);
-  const contents: UserGroupAlreadyExistsFault = {
-    name: "UserGroupAlreadyExistsFault",
-    $fault: "client",
+  const deserialized: any = de_UserGroupAlreadyExistsFault(body.Error, context);
+  const exception = new UserGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserGroupNotFoundFaultResponse = async (
+/**
+ * deserializeAws_queryUserGroupNotFoundFaultRes
+ */
+const de_UserGroupNotFoundFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserGroupNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserGroupNotFoundFault(body.Error, context);
-  const contents: UserGroupNotFoundFault = {
-    name: "UserGroupNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_UserGroupNotFoundFault(body.Error, context);
+  const exception = new UserGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserGroupQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryUserGroupQuotaExceededFaultRes
+ */
+const de_UserGroupQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserGroupQuotaExceededFault(body.Error, context);
-  const contents: UserGroupQuotaExceededFault = {
-    name: "UserGroupQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_UserGroupQuotaExceededFault(body.Error, context);
+  const exception = new UserGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserNotFoundFaultResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<UserNotFoundFault> => {
+/**
+ * deserializeAws_queryUserNotFoundFaultRes
+ */
+const de_UserNotFoundFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<UserNotFoundFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserNotFoundFault(body.Error, context);
-  const contents: UserNotFoundFault = {
-    name: "UserNotFoundFault",
-    $fault: "client",
+  const deserialized: any = de_UserNotFoundFault(body.Error, context);
+  const exception = new UserNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_queryUserQuotaExceededFaultResponse = async (
+/**
+ * deserializeAws_queryUserQuotaExceededFaultRes
+ */
+const de_UserQuotaExceededFaultRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UserQuotaExceededFault> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_queryUserQuotaExceededFault(body.Error, context);
-  const contents: UserQuotaExceededFault = {
-    name: "UserQuotaExceededFault",
-    $fault: "client",
+  const deserialized: any = de_UserQuotaExceededFault(body.Error, context);
+  const exception = new UserQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAddTagsToResourceMessage
+ */
+const se_AddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName !== undefined && input.ResourceName !== null) {
+  if (input.ResourceName != null) {
     entries["ResourceName"] = input.ResourceName;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8350,24 +6592,51 @@ const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMess
   return entries;
 };
 
-const serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage = (
+/**
+ * serializeAws_queryAuthenticationMode
+ */
+const se_AuthenticationMode = (input: AuthenticationMode, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Type != null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.Passwords != null) {
+    const memberEntries = se_PasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Passwords.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage
+ */
+const se_AuthorizeCacheSecurityGroupIngressMessage = (
   input: AuthorizeCacheSecurityGroupIngressMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName !== undefined && input.CacheSecurityGroupName !== null) {
+  if (input.CacheSecurityGroupName != null) {
     entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
-  if (input.EC2SecurityGroupName !== undefined && input.EC2SecurityGroupName !== null) {
+  if (input.EC2SecurityGroupName != null) {
     entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
   }
-  if (input.EC2SecurityGroupOwnerId !== undefined && input.EC2SecurityGroupOwnerId !== null) {
+  if (input.EC2SecurityGroupOwnerId != null) {
     entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
   }
   return entries;
 };
 
-const serializeAws_queryAvailabilityZonesList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryAvailabilityZonesList
+ */
+const se_AvailabilityZonesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -8380,57 +6649,72 @@ const serializeAws_queryAvailabilityZonesList = (input: string[], context: __Ser
   return entries;
 };
 
-const serializeAws_queryBatchApplyUpdateActionMessage = (
-  input: BatchApplyUpdateActionMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryBatchApplyUpdateActionMessage
+ */
+const se_BatchApplyUpdateActionMessage = (input: BatchApplyUpdateActionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupIds !== undefined && input.ReplicationGroupIds !== null) {
-    const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
+  if (input.ReplicationGroupIds != null) {
+    const memberEntries = se_ReplicationGroupIdList(input.ReplicationGroupIds, context);
+    if (input.ReplicationGroupIds?.length === 0) {
+      entries.ReplicationGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CacheClusterIds !== undefined && input.CacheClusterIds !== null) {
-    const memberEntries = serializeAws_queryCacheClusterIdList(input.CacheClusterIds, context);
+  if (input.CacheClusterIds != null) {
+    const memberEntries = se_CacheClusterIdList(input.CacheClusterIds, context);
+    if (input.CacheClusterIds?.length === 0) {
+      entries.CacheClusterIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheClusterIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ServiceUpdateName !== undefined && input.ServiceUpdateName !== null) {
+  if (input.ServiceUpdateName != null) {
     entries["ServiceUpdateName"] = input.ServiceUpdateName;
   }
   return entries;
 };
 
-const serializeAws_queryBatchStopUpdateActionMessage = (
-  input: BatchStopUpdateActionMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryBatchStopUpdateActionMessage
+ */
+const se_BatchStopUpdateActionMessage = (input: BatchStopUpdateActionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupIds !== undefined && input.ReplicationGroupIds !== null) {
-    const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
+  if (input.ReplicationGroupIds != null) {
+    const memberEntries = se_ReplicationGroupIdList(input.ReplicationGroupIds, context);
+    if (input.ReplicationGroupIds?.length === 0) {
+      entries.ReplicationGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CacheClusterIds !== undefined && input.CacheClusterIds !== null) {
-    const memberEntries = serializeAws_queryCacheClusterIdList(input.CacheClusterIds, context);
+  if (input.CacheClusterIds != null) {
+    const memberEntries = se_CacheClusterIdList(input.CacheClusterIds, context);
+    if (input.CacheClusterIds?.length === 0) {
+      entries.CacheClusterIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheClusterIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ServiceUpdateName !== undefined && input.ServiceUpdateName !== null) {
+  if (input.ServiceUpdateName != null) {
     entries["ServiceUpdateName"] = input.ServiceUpdateName;
   }
   return entries;
 };
 
-const serializeAws_queryCacheClusterIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCacheClusterIdList
+ */
+const se_CacheClusterIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -8443,7 +6727,10 @@ const serializeAws_queryCacheClusterIdList = (input: string[], context: __SerdeC
   return entries;
 };
 
-const serializeAws_queryCacheNodeIdsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCacheNodeIdsList
+ */
+const se_CacheNodeIdsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -8456,7 +6743,10 @@ const serializeAws_queryCacheNodeIdsList = (input: string[], context: __SerdeCon
   return entries;
 };
 
-const serializeAws_queryCacheSecurityGroupNameList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCacheSecurityGroupNameList
+ */
+const se_CacheSecurityGroupNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -8469,45 +6759,57 @@ const serializeAws_queryCacheSecurityGroupNameList = (input: string[], context: 
   return entries;
 };
 
-const serializeAws_queryCloudWatchLogsDestinationDetails = (
-  input: CloudWatchLogsDestinationDetails,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCloudWatchLogsDestinationDetails
+ */
+const se_CloudWatchLogsDestinationDetails = (input: CloudWatchLogsDestinationDetails, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogGroup !== undefined && input.LogGroup !== null) {
+  if (input.LogGroup != null) {
     entries["LogGroup"] = input.LogGroup;
   }
   return entries;
 };
 
-const serializeAws_queryCompleteMigrationMessage = (input: CompleteMigrationMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCompleteMigrationMessage
+ */
+const se_CompleteMigrationMessage = (input: CompleteMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.Force !== undefined && input.Force !== null) {
+  if (input.Force != null) {
     entries["Force"] = input.Force;
   }
   return entries;
 };
 
-const serializeAws_queryConfigureShard = (input: ConfigureShard, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryConfigureShard
+ */
+const se_ConfigureShard = (input: ConfigureShard, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId !== undefined && input.NodeGroupId !== null) {
+  if (input.NodeGroupId != null) {
     entries["NodeGroupId"] = input.NodeGroupId;
   }
-  if (input.NewReplicaCount !== undefined && input.NewReplicaCount !== null) {
+  if (input.NewReplicaCount != null) {
     entries["NewReplicaCount"] = input.NewReplicaCount;
   }
-  if (input.PreferredAvailabilityZones !== undefined && input.PreferredAvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
+  if (input.PreferredAvailabilityZones != null) {
+    const memberEntries = se_PreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
+    if (input.PreferredAvailabilityZones?.length === 0) {
+      entries.PreferredAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PreferredOutpostArns !== undefined && input.PreferredOutpostArns !== null) {
-    const memberEntries = serializeAws_queryPreferredOutpostArnList(input.PreferredOutpostArns, context);
+  if (input.PreferredOutpostArns != null) {
+    const memberEntries = se_PreferredOutpostArnList(input.PreferredOutpostArns, context);
+    if (input.PreferredOutpostArns?.length === 0) {
+      entries.PreferredOutpostArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredOutpostArns.${key}`;
       entries[loc] = value;
@@ -8516,22 +6818,28 @@ const serializeAws_queryConfigureShard = (input: ConfigureShard, context: __Serd
   return entries;
 };
 
-const serializeAws_queryCopySnapshotMessage = (input: CopySnapshotMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCopySnapshotMessage
+ */
+const se_CopySnapshotMessage = (input: CopySnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceSnapshotName !== undefined && input.SourceSnapshotName !== null) {
+  if (input.SourceSnapshotName != null) {
     entries["SourceSnapshotName"] = input.SourceSnapshotName;
   }
-  if (input.TargetSnapshotName !== undefined && input.TargetSnapshotName !== null) {
+  if (input.TargetSnapshotName != null) {
     entries["TargetSnapshotName"] = input.TargetSnapshotName;
   }
-  if (input.TargetBucket !== undefined && input.TargetBucket !== null) {
+  if (input.TargetBucket != null) {
     entries["TargetBucket"] = input.TargetBucket;
   }
-  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
+  if (input.KmsKeyId != null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8540,142 +6848,172 @@ const serializeAws_queryCopySnapshotMessage = (input: CopySnapshotMessage, conte
   return entries;
 };
 
-const serializeAws_queryCreateCacheClusterMessage = (
-  input: CreateCacheClusterMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateCacheClusterMessage
+ */
+const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.AZMode !== undefined && input.AZMode !== null) {
+  if (input.AZMode != null) {
     entries["AZMode"] = input.AZMode;
   }
-  if (input.PreferredAvailabilityZone !== undefined && input.PreferredAvailabilityZone !== null) {
+  if (input.PreferredAvailabilityZone != null) {
     entries["PreferredAvailabilityZone"] = input.PreferredAvailabilityZone;
   }
-  if (input.PreferredAvailabilityZones !== undefined && input.PreferredAvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
+  if (input.PreferredAvailabilityZones != null) {
+    const memberEntries = se_PreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
+    if (input.PreferredAvailabilityZones?.length === 0) {
+      entries.PreferredAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NumCacheNodes !== undefined && input.NumCacheNodes !== null) {
+  if (input.NumCacheNodes != null) {
     entries["NumCacheNodes"] = input.NumCacheNodes;
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+  if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.CacheSubnetGroupName !== undefined && input.CacheSubnetGroupName !== null) {
+  if (input.CacheSubnetGroupName != null) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
-  if (input.CacheSecurityGroupNames !== undefined && input.CacheSecurityGroupNames !== null) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+  if (input.CacheSecurityGroupNames != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds !== undefined && input.SecurityGroupIds !== null) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SnapshotArns !== undefined && input.SnapshotArns !== null) {
-    const memberEntries = serializeAws_querySnapshotArnsList(input.SnapshotArns, context);
+  if (input.SnapshotArns != null) {
+    const memberEntries = se_SnapshotArnsList(input.SnapshotArns, context);
+    if (input.SnapshotArns?.length === 0) {
+      entries.SnapshotArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SnapshotName !== undefined && input.SnapshotName !== null) {
+  if (input.SnapshotName != null) {
     entries["SnapshotName"] = input.SnapshotName;
   }
-  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
+  if (input.PreferredMaintenanceWindow != null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.Port !== undefined && input.Port !== null) {
+  if (input.Port != null) {
     entries["Port"] = input.Port;
   }
-  if (input.NotificationTopicArn !== undefined && input.NotificationTopicArn !== null) {
+  if (input.NotificationTopicArn != null) {
     entries["NotificationTopicArn"] = input.NotificationTopicArn;
   }
-  if (input.AutoMinorVersionUpgrade !== undefined && input.AutoMinorVersionUpgrade !== null) {
+  if (input.AutoMinorVersionUpgrade != null) {
     entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
   }
-  if (input.SnapshotRetentionLimit !== undefined && input.SnapshotRetentionLimit !== null) {
+  if (input.SnapshotRetentionLimit != null) {
     entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
   }
-  if (input.SnapshotWindow !== undefined && input.SnapshotWindow !== null) {
+  if (input.SnapshotWindow != null) {
     entries["SnapshotWindow"] = input.SnapshotWindow;
   }
-  if (input.AuthToken !== undefined && input.AuthToken !== null) {
+  if (input.AuthToken != null) {
     entries["AuthToken"] = input.AuthToken;
   }
-  if (input.OutpostMode !== undefined && input.OutpostMode !== null) {
+  if (input.OutpostMode != null) {
     entries["OutpostMode"] = input.OutpostMode;
   }
-  if (input.PreferredOutpostArn !== undefined && input.PreferredOutpostArn !== null) {
+  if (input.PreferredOutpostArn != null) {
     entries["PreferredOutpostArn"] = input.PreferredOutpostArn;
   }
-  if (input.PreferredOutpostArns !== undefined && input.PreferredOutpostArns !== null) {
-    const memberEntries = serializeAws_queryPreferredOutpostArnList(input.PreferredOutpostArns, context);
+  if (input.PreferredOutpostArns != null) {
+    const memberEntries = se_PreferredOutpostArnList(input.PreferredOutpostArns, context);
+    if (input.PreferredOutpostArns?.length === 0) {
+      entries.PreferredOutpostArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredOutpostArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LogDeliveryConfigurations !== undefined && input.LogDeliveryConfigurations !== null) {
-    const memberEntries = serializeAws_queryLogDeliveryConfigurationRequestList(
-      input.LogDeliveryConfigurations,
-      context
-    );
+  if (input.LogDeliveryConfigurations != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
   }
+  if (input.TransitEncryptionEnabled != null) {
+    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
+  }
   return entries;
 };
 
-const serializeAws_queryCreateCacheParameterGroupMessage = (
-  input: CreateCacheParameterGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateCacheParameterGroupMessage
+ */
+const se_CreateCacheParameterGroupMessage = (input: CreateCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.CacheParameterGroupFamily !== undefined && input.CacheParameterGroupFamily !== null) {
+  if (input.CacheParameterGroupFamily != null) {
     entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8684,19 +7022,22 @@ const serializeAws_queryCreateCacheParameterGroupMessage = (
   return entries;
 };
 
-const serializeAws_queryCreateCacheSecurityGroupMessage = (
-  input: CreateCacheSecurityGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateCacheSecurityGroupMessage
+ */
+const se_CreateCacheSecurityGroupMessage = (input: CreateCacheSecurityGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName !== undefined && input.CacheSecurityGroupName !== null) {
+  if (input.CacheSecurityGroupName != null) {
     entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8705,26 +7046,32 @@ const serializeAws_queryCreateCacheSecurityGroupMessage = (
   return entries;
 };
 
-const serializeAws_queryCreateCacheSubnetGroupMessage = (
-  input: CreateCacheSubnetGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateCacheSubnetGroupMessage
+ */
+const se_CreateCacheSubnetGroupMessage = (input: CreateCacheSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName !== undefined && input.CacheSubnetGroupName !== null) {
+  if (input.CacheSubnetGroupName != null) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
-  if (input.CacheSubnetGroupDescription !== undefined && input.CacheSubnetGroupDescription !== null) {
+  if (input.CacheSubnetGroupDescription != null) {
     entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
   }
-  if (input.SubnetIds !== undefined && input.SubnetIds !== null) {
-    const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+  if (input.SubnetIds != null) {
+    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8733,181 +7080,226 @@ const serializeAws_queryCreateCacheSubnetGroupMessage = (
   return entries;
 };
 
-const serializeAws_queryCreateGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryCreateGlobalReplicationGroupMessage
+ */
+const se_CreateGlobalReplicationGroupMessage = (
   input: CreateGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupIdSuffix !== undefined && input.GlobalReplicationGroupIdSuffix !== null) {
+  if (input.GlobalReplicationGroupIdSuffix != null) {
     entries["GlobalReplicationGroupIdSuffix"] = input.GlobalReplicationGroupIdSuffix;
   }
-  if (input.GlobalReplicationGroupDescription !== undefined && input.GlobalReplicationGroupDescription !== null) {
+  if (input.GlobalReplicationGroupDescription != null) {
     entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
   }
-  if (input.PrimaryReplicationGroupId !== undefined && input.PrimaryReplicationGroupId !== null) {
+  if (input.PrimaryReplicationGroupId != null) {
     entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
   }
   return entries;
 };
 
-const serializeAws_queryCreateReplicationGroupMessage = (
-  input: CreateReplicationGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryCreateReplicationGroupMessage
+ */
+const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.ReplicationGroupDescription !== undefined && input.ReplicationGroupDescription !== null) {
+  if (input.ReplicationGroupDescription != null) {
     entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
   }
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.PrimaryClusterId !== undefined && input.PrimaryClusterId !== null) {
+  if (input.PrimaryClusterId != null) {
     entries["PrimaryClusterId"] = input.PrimaryClusterId;
   }
-  if (input.AutomaticFailoverEnabled !== undefined && input.AutomaticFailoverEnabled !== null) {
+  if (input.AutomaticFailoverEnabled != null) {
     entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
   }
-  if (input.MultiAZEnabled !== undefined && input.MultiAZEnabled !== null) {
+  if (input.MultiAZEnabled != null) {
     entries["MultiAZEnabled"] = input.MultiAZEnabled;
   }
-  if (input.NumCacheClusters !== undefined && input.NumCacheClusters !== null) {
+  if (input.NumCacheClusters != null) {
     entries["NumCacheClusters"] = input.NumCacheClusters;
   }
-  if (input.PreferredCacheClusterAZs !== undefined && input.PreferredCacheClusterAZs !== null) {
-    const memberEntries = serializeAws_queryAvailabilityZonesList(input.PreferredCacheClusterAZs, context);
+  if (input.PreferredCacheClusterAZs != null) {
+    const memberEntries = se_AvailabilityZonesList(input.PreferredCacheClusterAZs, context);
+    if (input.PreferredCacheClusterAZs?.length === 0) {
+      entries.PreferredCacheClusterAZs = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredCacheClusterAZs.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NumNodeGroups !== undefined && input.NumNodeGroups !== null) {
+  if (input.NumNodeGroups != null) {
     entries["NumNodeGroups"] = input.NumNodeGroups;
   }
-  if (input.ReplicasPerNodeGroup !== undefined && input.ReplicasPerNodeGroup !== null) {
+  if (input.ReplicasPerNodeGroup != null) {
     entries["ReplicasPerNodeGroup"] = input.ReplicasPerNodeGroup;
   }
-  if (input.NodeGroupConfiguration !== undefined && input.NodeGroupConfiguration !== null) {
-    const memberEntries = serializeAws_queryNodeGroupConfigurationList(input.NodeGroupConfiguration, context);
+  if (input.NodeGroupConfiguration != null) {
+    const memberEntries = se_NodeGroupConfigurationList(input.NodeGroupConfiguration, context);
+    if (input.NodeGroupConfiguration?.length === 0) {
+      entries.NodeGroupConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NodeGroupConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+  if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.CacheSubnetGroupName !== undefined && input.CacheSubnetGroupName !== null) {
+  if (input.CacheSubnetGroupName != null) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
-  if (input.CacheSecurityGroupNames !== undefined && input.CacheSecurityGroupNames !== null) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+  if (input.CacheSecurityGroupNames != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds !== undefined && input.SecurityGroupIds !== null) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SnapshotArns !== undefined && input.SnapshotArns !== null) {
-    const memberEntries = serializeAws_querySnapshotArnsList(input.SnapshotArns, context);
+  if (input.SnapshotArns != null) {
+    const memberEntries = se_SnapshotArnsList(input.SnapshotArns, context);
+    if (input.SnapshotArns?.length === 0) {
+      entries.SnapshotArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SnapshotArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SnapshotName !== undefined && input.SnapshotName !== null) {
+  if (input.SnapshotName != null) {
     entries["SnapshotName"] = input.SnapshotName;
   }
-  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
+  if (input.PreferredMaintenanceWindow != null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.Port !== undefined && input.Port !== null) {
+  if (input.Port != null) {
     entries["Port"] = input.Port;
   }
-  if (input.NotificationTopicArn !== undefined && input.NotificationTopicArn !== null) {
+  if (input.NotificationTopicArn != null) {
     entries["NotificationTopicArn"] = input.NotificationTopicArn;
   }
-  if (input.AutoMinorVersionUpgrade !== undefined && input.AutoMinorVersionUpgrade !== null) {
+  if (input.AutoMinorVersionUpgrade != null) {
     entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
   }
-  if (input.SnapshotRetentionLimit !== undefined && input.SnapshotRetentionLimit !== null) {
+  if (input.SnapshotRetentionLimit != null) {
     entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
   }
-  if (input.SnapshotWindow !== undefined && input.SnapshotWindow !== null) {
+  if (input.SnapshotWindow != null) {
     entries["SnapshotWindow"] = input.SnapshotWindow;
   }
-  if (input.AuthToken !== undefined && input.AuthToken !== null) {
+  if (input.AuthToken != null) {
     entries["AuthToken"] = input.AuthToken;
   }
-  if (input.TransitEncryptionEnabled !== undefined && input.TransitEncryptionEnabled !== null) {
+  if (input.TransitEncryptionEnabled != null) {
     entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
   }
-  if (input.AtRestEncryptionEnabled !== undefined && input.AtRestEncryptionEnabled !== null) {
+  if (input.AtRestEncryptionEnabled != null) {
     entries["AtRestEncryptionEnabled"] = input.AtRestEncryptionEnabled;
   }
-  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
+  if (input.KmsKeyId != null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.UserGroupIds !== undefined && input.UserGroupIds !== null) {
-    const memberEntries = serializeAws_queryUserGroupIdListInput(input.UserGroupIds, context);
+  if (input.UserGroupIds != null) {
+    const memberEntries = se_UserGroupIdListInput(input.UserGroupIds, context);
+    if (input.UserGroupIds?.length === 0) {
+      entries.UserGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LogDeliveryConfigurations !== undefined && input.LogDeliveryConfigurations !== null) {
-    const memberEntries = serializeAws_queryLogDeliveryConfigurationRequestList(
-      input.LogDeliveryConfigurations,
-      context
-    );
+  if (input.LogDeliveryConfigurations != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
   }
+  if (input.DataTieringEnabled != null) {
+    entries["DataTieringEnabled"] = input.DataTieringEnabled;
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
+  }
+  if (input.TransitEncryptionMode != null) {
+    entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  }
+  if (input.ClusterMode != null) {
+    entries["ClusterMode"] = input.ClusterMode;
+  }
   return entries;
 };
 
-const serializeAws_queryCreateSnapshotMessage = (input: CreateSnapshotMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateSnapshotMessage
+ */
+const se_CreateSnapshotMessage = (input: CreateSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.SnapshotName !== undefined && input.SnapshotName !== null) {
+  if (input.SnapshotName != null) {
     entries["SnapshotName"] = input.SnapshotName;
   }
-  if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
+  if (input.KmsKeyId != null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8916,23 +7308,32 @@ const serializeAws_queryCreateSnapshotMessage = (input: CreateSnapshotMessage, c
   return entries;
 };
 
-const serializeAws_queryCreateUserGroupMessage = (input: CreateUserGroupMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateUserGroupMessage
+ */
+const se_CreateUserGroupMessage = (input: CreateUserGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId !== undefined && input.UserGroupId !== null) {
+  if (input.UserGroupId != null) {
     entries["UserGroupId"] = input.UserGroupId;
   }
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.UserIds !== undefined && input.UserIds !== null) {
-    const memberEntries = serializeAws_queryUserIdListInput(input.UserIds, context);
+  if (input.UserIds != null) {
+    const memberEntries = se_UserIdListInput(input.UserIds, context);
+    if (input.UserIds?.length === 0) {
+      entries.UserIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -8941,59 +7342,81 @@ const serializeAws_queryCreateUserGroupMessage = (input: CreateUserGroupMessage,
   return entries;
 };
 
-const serializeAws_queryCreateUserMessage = (input: CreateUserMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCreateUserMessage
+ */
+const se_CreateUserMessage = (input: CreateUserMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserId !== undefined && input.UserId !== null) {
+  if (input.UserId != null) {
     entries["UserId"] = input.UserId;
   }
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.Passwords !== undefined && input.Passwords !== null) {
-    const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+  if (input.Passwords != null) {
+    const memberEntries = se_PasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Passwords.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AccessString !== undefined && input.AccessString !== null) {
+  if (input.AccessString != null) {
     entries["AccessString"] = input.AccessString;
   }
-  if (input.NoPasswordRequired !== undefined && input.NoPasswordRequired !== null) {
+  if (input.NoPasswordRequired != null) {
     entries["NoPasswordRequired"] = input.NoPasswordRequired;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AuthenticationMode != null) {
+    const memberEntries = se_AuthenticationMode(input.AuthenticationMode, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
     });
   }
   return entries;
 };
 
-const serializeAws_queryCustomerNodeEndpoint = (input: CustomerNodeEndpoint, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCustomerNodeEndpoint
+ */
+const se_CustomerNodeEndpoint = (input: CustomerNodeEndpoint, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Address !== undefined && input.Address !== null) {
+  if (input.Address != null) {
     entries["Address"] = input.Address;
   }
-  if (input.Port !== undefined && input.Port !== null) {
+  if (input.Port != null) {
     entries["Port"] = input.Port;
   }
   return entries;
 };
 
-const serializeAws_queryCustomerNodeEndpointList = (input: CustomerNodeEndpoint[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryCustomerNodeEndpointList
+ */
+const se_CustomerNodeEndpointList = (input: CustomerNodeEndpoint[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryCustomerNodeEndpoint(entry, context);
+    const memberEntries = se_CustomerNodeEndpoint(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -9002,594 +7425,669 @@ const serializeAws_queryCustomerNodeEndpointList = (input: CustomerNodeEndpoint[
   return entries;
 };
 
-const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage
+ */
+const se_DecreaseNodeGroupsInGlobalReplicationGroupMessage = (
   input: DecreaseNodeGroupsInGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.NodeGroupCount !== undefined && input.NodeGroupCount !== null) {
+  if (input.NodeGroupCount != null) {
     entries["NodeGroupCount"] = input.NodeGroupCount;
   }
-  if (input.GlobalNodeGroupsToRemove !== undefined && input.GlobalNodeGroupsToRemove !== null) {
-    const memberEntries = serializeAws_queryGlobalNodeGroupIdList(input.GlobalNodeGroupsToRemove, context);
+  if (input.GlobalNodeGroupsToRemove != null) {
+    const memberEntries = se_GlobalNodeGroupIdList(input.GlobalNodeGroupsToRemove, context);
+    if (input.GlobalNodeGroupsToRemove?.length === 0) {
+      entries.GlobalNodeGroupsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GlobalNodeGroupsToRemove.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.GlobalNodeGroupsToRetain !== undefined && input.GlobalNodeGroupsToRetain !== null) {
-    const memberEntries = serializeAws_queryGlobalNodeGroupIdList(input.GlobalNodeGroupsToRetain, context);
+  if (input.GlobalNodeGroupsToRetain != null) {
+    const memberEntries = se_GlobalNodeGroupIdList(input.GlobalNodeGroupsToRetain, context);
+    if (input.GlobalNodeGroupsToRetain?.length === 0) {
+      entries.GlobalNodeGroupsToRetain = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GlobalNodeGroupsToRetain.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
 
-const serializeAws_queryDecreaseReplicaCountMessage = (
-  input: DecreaseReplicaCountMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDecreaseReplicaCountMessage
+ */
+const se_DecreaseReplicaCountMessage = (input: DecreaseReplicaCountMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.NewReplicaCount !== undefined && input.NewReplicaCount !== null) {
+  if (input.NewReplicaCount != null) {
     entries["NewReplicaCount"] = input.NewReplicaCount;
   }
-  if (input.ReplicaConfiguration !== undefined && input.ReplicaConfiguration !== null) {
-    const memberEntries = serializeAws_queryReplicaConfigurationList(input.ReplicaConfiguration, context);
+  if (input.ReplicaConfiguration != null) {
+    const memberEntries = se_ReplicaConfigurationList(input.ReplicaConfiguration, context);
+    if (input.ReplicaConfiguration?.length === 0) {
+      entries.ReplicaConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReplicasToRemove !== undefined && input.ReplicasToRemove !== null) {
-    const memberEntries = serializeAws_queryRemoveReplicasList(input.ReplicasToRemove, context);
+  if (input.ReplicasToRemove != null) {
+    const memberEntries = se_RemoveReplicasList(input.ReplicasToRemove, context);
+    if (input.ReplicasToRemove?.length === 0) {
+      entries.ReplicasToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicasToRemove.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteCacheClusterMessage = (
-  input: DeleteCacheClusterMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteCacheClusterMessage
+ */
+const se_DeleteCacheClusterMessage = (input: DeleteCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.FinalSnapshotIdentifier !== undefined && input.FinalSnapshotIdentifier !== null) {
+  if (input.FinalSnapshotIdentifier != null) {
     entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteCacheParameterGroupMessage = (
-  input: DeleteCacheParameterGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteCacheParameterGroupMessage
+ */
+const se_DeleteCacheParameterGroupMessage = (input: DeleteCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteCacheSecurityGroupMessage = (
-  input: DeleteCacheSecurityGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteCacheSecurityGroupMessage
+ */
+const se_DeleteCacheSecurityGroupMessage = (input: DeleteCacheSecurityGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName !== undefined && input.CacheSecurityGroupName !== null) {
+  if (input.CacheSecurityGroupName != null) {
     entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteCacheSubnetGroupMessage = (
-  input: DeleteCacheSubnetGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteCacheSubnetGroupMessage
+ */
+const se_DeleteCacheSubnetGroupMessage = (input: DeleteCacheSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName !== undefined && input.CacheSubnetGroupName !== null) {
+  if (input.CacheSubnetGroupName != null) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryDeleteGlobalReplicationGroupMessage
+ */
+const se_DeleteGlobalReplicationGroupMessage = (
   input: DeleteGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.RetainPrimaryReplicationGroup !== undefined && input.RetainPrimaryReplicationGroup !== null) {
+  if (input.RetainPrimaryReplicationGroup != null) {
     entries["RetainPrimaryReplicationGroup"] = input.RetainPrimaryReplicationGroup;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteReplicationGroupMessage = (
-  input: DeleteReplicationGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDeleteReplicationGroupMessage
+ */
+const se_DeleteReplicationGroupMessage = (input: DeleteReplicationGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.RetainPrimaryCluster !== undefined && input.RetainPrimaryCluster !== null) {
+  if (input.RetainPrimaryCluster != null) {
     entries["RetainPrimaryCluster"] = input.RetainPrimaryCluster;
   }
-  if (input.FinalSnapshotIdentifier !== undefined && input.FinalSnapshotIdentifier !== null) {
+  if (input.FinalSnapshotIdentifier != null) {
     entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteSnapshotMessage = (input: DeleteSnapshotMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteSnapshotMessage
+ */
+const se_DeleteSnapshotMessage = (input: DeleteSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SnapshotName !== undefined && input.SnapshotName !== null) {
+  if (input.SnapshotName != null) {
     entries["SnapshotName"] = input.SnapshotName;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteUserGroupMessage = (input: DeleteUserGroupMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteUserGroupMessage
+ */
+const se_DeleteUserGroupMessage = (input: DeleteUserGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId !== undefined && input.UserGroupId !== null) {
+  if (input.UserGroupId != null) {
     entries["UserGroupId"] = input.UserGroupId;
   }
   return entries;
 };
 
-const serializeAws_queryDeleteUserMessage = (input: DeleteUserMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDeleteUserMessage
+ */
+const se_DeleteUserMessage = (input: DeleteUserMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserId !== undefined && input.UserId !== null) {
+  if (input.UserId != null) {
     entries["UserId"] = input.UserId;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeCacheClustersMessage = (
-  input: DescribeCacheClustersMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeCacheClustersMessage
+ */
+const se_DescribeCacheClustersMessage = (input: DescribeCacheClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.ShowCacheNodeInfo !== undefined && input.ShowCacheNodeInfo !== null) {
+  if (input.ShowCacheNodeInfo != null) {
     entries["ShowCacheNodeInfo"] = input.ShowCacheNodeInfo;
   }
-  if (
-    input.ShowCacheClustersNotInReplicationGroups !== undefined &&
-    input.ShowCacheClustersNotInReplicationGroups !== null
-  ) {
+  if (input.ShowCacheClustersNotInReplicationGroups != null) {
     entries["ShowCacheClustersNotInReplicationGroups"] = input.ShowCacheClustersNotInReplicationGroups;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeCacheEngineVersionsMessage = (
+/**
+ * serializeAws_queryDescribeCacheEngineVersionsMessage
+ */
+const se_DescribeCacheEngineVersionsMessage = (
   input: DescribeCacheEngineVersionsMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+  if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.CacheParameterGroupFamily !== undefined && input.CacheParameterGroupFamily !== null) {
+  if (input.CacheParameterGroupFamily != null) {
     entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.DefaultOnly !== undefined && input.DefaultOnly !== null) {
+  if (input.DefaultOnly != null) {
     entries["DefaultOnly"] = input.DefaultOnly;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeCacheParameterGroupsMessage = (
+/**
+ * serializeAws_queryDescribeCacheParameterGroupsMessage
+ */
+const se_DescribeCacheParameterGroupsMessage = (
   input: DescribeCacheParameterGroupsMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeCacheParametersMessage = (
-  input: DescribeCacheParametersMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeCacheParametersMessage
+ */
+const se_DescribeCacheParametersMessage = (input: DescribeCacheParametersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.Source !== undefined && input.Source !== null) {
+  if (input.Source != null) {
     entries["Source"] = input.Source;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeCacheSecurityGroupsMessage = (
+/**
+ * serializeAws_queryDescribeCacheSecurityGroupsMessage
+ */
+const se_DescribeCacheSecurityGroupsMessage = (
   input: DescribeCacheSecurityGroupsMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName !== undefined && input.CacheSecurityGroupName !== null) {
+  if (input.CacheSecurityGroupName != null) {
     entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeCacheSubnetGroupsMessage = (
-  input: DescribeCacheSubnetGroupsMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeCacheSubnetGroupsMessage
+ */
+const se_DescribeCacheSubnetGroupsMessage = (input: DescribeCacheSubnetGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName !== undefined && input.CacheSubnetGroupName !== null) {
+  if (input.CacheSubnetGroupName != null) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeEngineDefaultParametersMessage = (
+/**
+ * serializeAws_queryDescribeEngineDefaultParametersMessage
+ */
+const se_DescribeEngineDefaultParametersMessage = (
   input: DescribeEngineDefaultParametersMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupFamily !== undefined && input.CacheParameterGroupFamily !== null) {
+  if (input.CacheParameterGroupFamily != null) {
     entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDescribeEventsMessage
+ */
+const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceIdentifier !== undefined && input.SourceIdentifier !== null) {
+  if (input.SourceIdentifier != null) {
     entries["SourceIdentifier"] = input.SourceIdentifier;
   }
-  if (input.SourceType !== undefined && input.SourceType !== null) {
+  if (input.SourceType != null) {
     entries["SourceType"] = input.SourceType;
   }
-  if (input.StartTime !== undefined && input.StartTime !== null) {
+  if (input.StartTime != null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined && input.EndTime !== null) {
+  if (input.EndTime != null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.Duration !== undefined && input.Duration !== null) {
+  if (input.Duration != null) {
     entries["Duration"] = input.Duration;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeGlobalReplicationGroupsMessage = (
+/**
+ * serializeAws_queryDescribeGlobalReplicationGroupsMessage
+ */
+const se_DescribeGlobalReplicationGroupsMessage = (
   input: DescribeGlobalReplicationGroupsMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.ShowMemberInfo !== undefined && input.ShowMemberInfo !== null) {
+  if (input.ShowMemberInfo != null) {
     entries["ShowMemberInfo"] = input.ShowMemberInfo;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeReplicationGroupsMessage = (
-  input: DescribeReplicationGroupsMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeReplicationGroupsMessage
+ */
+const se_DescribeReplicationGroupsMessage = (input: DescribeReplicationGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeReservedCacheNodesMessage = (
+/**
+ * serializeAws_queryDescribeReservedCacheNodesMessage
+ */
+const se_DescribeReservedCacheNodesMessage = (
   input: DescribeReservedCacheNodesMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedCacheNodeId !== undefined && input.ReservedCacheNodeId !== null) {
+  if (input.ReservedCacheNodeId != null) {
     entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
   }
-  if (input.ReservedCacheNodesOfferingId !== undefined && input.ReservedCacheNodesOfferingId !== null) {
+  if (input.ReservedCacheNodesOfferingId != null) {
     entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.Duration !== undefined && input.Duration !== null) {
+  if (input.Duration != null) {
     entries["Duration"] = input.Duration;
   }
-  if (input.ProductDescription !== undefined && input.ProductDescription !== null) {
+  if (input.ProductDescription != null) {
     entries["ProductDescription"] = input.ProductDescription;
   }
-  if (input.OfferingType !== undefined && input.OfferingType !== null) {
+  if (input.OfferingType != null) {
     entries["OfferingType"] = input.OfferingType;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeReservedCacheNodesOfferingsMessage = (
+/**
+ * serializeAws_queryDescribeReservedCacheNodesOfferingsMessage
+ */
+const se_DescribeReservedCacheNodesOfferingsMessage = (
   input: DescribeReservedCacheNodesOfferingsMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedCacheNodesOfferingId !== undefined && input.ReservedCacheNodesOfferingId !== null) {
+  if (input.ReservedCacheNodesOfferingId != null) {
     entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.Duration !== undefined && input.Duration !== null) {
+  if (input.Duration != null) {
     entries["Duration"] = input.Duration;
   }
-  if (input.ProductDescription !== undefined && input.ProductDescription !== null) {
+  if (input.ProductDescription != null) {
     entries["ProductDescription"] = input.ProductDescription;
   }
-  if (input.OfferingType !== undefined && input.OfferingType !== null) {
+  if (input.OfferingType != null) {
     entries["OfferingType"] = input.OfferingType;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeServiceUpdatesMessage = (
-  input: DescribeServiceUpdatesMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeServiceUpdatesMessage
+ */
+const se_DescribeServiceUpdatesMessage = (input: DescribeServiceUpdatesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServiceUpdateName !== undefined && input.ServiceUpdateName !== null) {
+  if (input.ServiceUpdateName != null) {
     entries["ServiceUpdateName"] = input.ServiceUpdateName;
   }
-  if (input.ServiceUpdateStatus !== undefined && input.ServiceUpdateStatus !== null) {
-    const memberEntries = serializeAws_queryServiceUpdateStatusList(input.ServiceUpdateStatus, context);
+  if (input.ServiceUpdateStatus != null) {
+    const memberEntries = se_ServiceUpdateStatusList(input.ServiceUpdateStatus, context);
+    if (input.ServiceUpdateStatus?.length === 0) {
+      entries.ServiceUpdateStatus = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateStatus.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeSnapshotsMessage = (input: DescribeSnapshotsMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDescribeSnapshotsMessage
+ */
+const se_DescribeSnapshotsMessage = (input: DescribeSnapshotsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.SnapshotName !== undefined && input.SnapshotName !== null) {
+  if (input.SnapshotName != null) {
     entries["SnapshotName"] = input.SnapshotName;
   }
-  if (input.SnapshotSource !== undefined && input.SnapshotSource !== null) {
+  if (input.SnapshotSource != null) {
     entries["SnapshotSource"] = input.SnapshotSource;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.ShowNodeGroupConfig !== undefined && input.ShowNodeGroupConfig !== null) {
+  if (input.ShowNodeGroupConfig != null) {
     entries["ShowNodeGroupConfig"] = input.ShowNodeGroupConfig;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeUpdateActionsMessage = (
-  input: DescribeUpdateActionsMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeUpdateActionsMessage
+ */
+const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServiceUpdateName !== undefined && input.ServiceUpdateName !== null) {
+  if (input.ServiceUpdateName != null) {
     entries["ServiceUpdateName"] = input.ServiceUpdateName;
   }
-  if (input.ReplicationGroupIds !== undefined && input.ReplicationGroupIds !== null) {
-    const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
+  if (input.ReplicationGroupIds != null) {
+    const memberEntries = se_ReplicationGroupIdList(input.ReplicationGroupIds, context);
+    if (input.ReplicationGroupIds?.length === 0) {
+      entries.ReplicationGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CacheClusterIds !== undefined && input.CacheClusterIds !== null) {
-    const memberEntries = serializeAws_queryCacheClusterIdList(input.CacheClusterIds, context);
+  if (input.CacheClusterIds != null) {
+    const memberEntries = se_CacheClusterIdList(input.CacheClusterIds, context);
+    if (input.CacheClusterIds?.length === 0) {
+      entries.CacheClusterIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheClusterIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.ServiceUpdateStatus !== undefined && input.ServiceUpdateStatus !== null) {
-    const memberEntries = serializeAws_queryServiceUpdateStatusList(input.ServiceUpdateStatus, context);
+  if (input.ServiceUpdateStatus != null) {
+    const memberEntries = se_ServiceUpdateStatusList(input.ServiceUpdateStatus, context);
+    if (input.ServiceUpdateStatus?.length === 0) {
+      entries.ServiceUpdateStatus = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateStatus.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ServiceUpdateTimeRange !== undefined && input.ServiceUpdateTimeRange !== null) {
-    const memberEntries = serializeAws_queryTimeRangeFilter(input.ServiceUpdateTimeRange, context);
+  if (input.ServiceUpdateTimeRange != null) {
+    const memberEntries = se_TimeRangeFilter(input.ServiceUpdateTimeRange, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateTimeRange.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.UpdateActionStatus !== undefined && input.UpdateActionStatus !== null) {
-    const memberEntries = serializeAws_queryUpdateActionStatusList(input.UpdateActionStatus, context);
+  if (input.UpdateActionStatus != null) {
+    const memberEntries = se_UpdateActionStatusList(input.UpdateActionStatus, context);
+    if (input.UpdateActionStatus?.length === 0) {
+      entries.UpdateActionStatus = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UpdateActionStatus.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ShowNodeLevelUpdateStatus !== undefined && input.ShowNodeLevelUpdateStatus !== null) {
+  if (input.ShowNodeLevelUpdateStatus != null) {
     entries["ShowNodeLevelUpdateStatus"] = input.ShowNodeLevelUpdateStatus;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeUserGroupsMessage = (
-  input: DescribeUserGroupsMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryDescribeUserGroupsMessage
+ */
+const se_DescribeUserGroupsMessage = (input: DescribeUserGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId !== undefined && input.UserGroupId !== null) {
+  if (input.UserGroupId != null) {
     entries["UserGroupId"] = input.UserGroupId;
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDescribeUsersMessage = (input: DescribeUsersMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDescribeUsersMessage
+ */
+const se_DescribeUsersMessage = (input: DescribeUsersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Engine !== undefined && input.Engine !== null) {
+  if (input.Engine != null) {
     entries["Engine"] = input.Engine;
   }
-  if (input.UserId !== undefined && input.UserId !== null) {
+  if (input.UserId != null) {
     entries["UserId"] = input.UserId;
   }
-  if (input.Filters !== undefined && input.Filters !== null) {
-    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+  if (input.Filters != null) {
+    const memberEntries = se_FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+  if (input.MaxRecords != null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
-const serializeAws_queryDestinationDetails = (input: DestinationDetails, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryDestinationDetails
+ */
+const se_DestinationDetails = (input: DestinationDetails, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CloudWatchLogsDetails !== undefined && input.CloudWatchLogsDetails !== null) {
-    const memberEntries = serializeAws_queryCloudWatchLogsDestinationDetails(input.CloudWatchLogsDetails, context);
+  if (input.CloudWatchLogsDetails != null) {
+    const memberEntries = se_CloudWatchLogsDestinationDetails(input.CloudWatchLogsDetails, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudWatchLogsDetails.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.KinesisFirehoseDetails !== undefined && input.KinesisFirehoseDetails !== null) {
-    const memberEntries = serializeAws_queryKinesisFirehoseDestinationDetails(input.KinesisFirehoseDetails, context);
+  if (input.KinesisFirehoseDetails != null) {
+    const memberEntries = se_KinesisFirehoseDestinationDetails(input.KinesisFirehoseDetails, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KinesisFirehoseDetails.${key}`;
       entries[loc] = value;
@@ -9598,47 +8096,59 @@ const serializeAws_queryDestinationDetails = (input: DestinationDetails, context
   return entries;
 };
 
-const serializeAws_queryDisassociateGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryDisassociateGlobalReplicationGroupMessage
+ */
+const se_DisassociateGlobalReplicationGroupMessage = (
   input: DisassociateGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.ReplicationGroupRegion !== undefined && input.ReplicationGroupRegion !== null) {
+  if (input.ReplicationGroupRegion != null) {
     entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
   }
   return entries;
 };
 
-const serializeAws_queryFailoverGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryFailoverGlobalReplicationGroupMessage
+ */
+const se_FailoverGlobalReplicationGroupMessage = (
   input: FailoverGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.PrimaryRegion !== undefined && input.PrimaryRegion !== null) {
+  if (input.PrimaryRegion != null) {
     entries["PrimaryRegion"] = input.PrimaryRegion;
   }
-  if (input.PrimaryReplicationGroupId !== undefined && input.PrimaryReplicationGroupId !== null) {
+  if (input.PrimaryReplicationGroupId != null) {
     entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
   }
   return entries;
 };
 
-const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryFilter
+ */
+const se_Filter = (input: Filter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined && input.Name !== null) {
+  if (input.Name != null) {
     entries["Name"] = input.Name;
   }
-  if (input.Values !== undefined && input.Values !== null) {
-    const memberEntries = serializeAws_queryFilterValueList(input.Values, context);
+  if (input.Values != null) {
+    const memberEntries = se_FilterValueList(input.Values, context);
+    if (input.Values?.length === 0) {
+      entries.Values = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
       entries[loc] = value;
@@ -9647,14 +8157,17 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
   return entries;
 };
 
-const serializeAws_queryFilterList = (input: Filter[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryFilterList
+ */
+const se_FilterList = (input: Filter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryFilter(entry, context);
+    const memberEntries = se_Filter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -9663,7 +8176,10 @@ const serializeAws_queryFilterList = (input: Filter[], context: __SerdeContext):
   return entries;
 };
 
-const serializeAws_queryFilterValueList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryFilterValueList
+ */
+const se_FilterValueList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -9676,7 +8192,10 @@ const serializeAws_queryFilterValueList = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const serializeAws_queryGlobalNodeGroupIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryGlobalNodeGroupIdList
+ */
+const se_GlobalNodeGroupIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -9689,55 +8208,67 @@ const serializeAws_queryGlobalNodeGroupIdList = (input: string[], context: __Ser
   return entries;
 };
 
-const serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupMessage
+ */
+const se_IncreaseNodeGroupsInGlobalReplicationGroupMessage = (
   input: IncreaseNodeGroupsInGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.NodeGroupCount !== undefined && input.NodeGroupCount !== null) {
+  if (input.NodeGroupCount != null) {
     entries["NodeGroupCount"] = input.NodeGroupCount;
   }
-  if (input.RegionalConfigurations !== undefined && input.RegionalConfigurations !== null) {
-    const memberEntries = serializeAws_queryRegionalConfigurationList(input.RegionalConfigurations, context);
+  if (input.RegionalConfigurations != null) {
+    const memberEntries = se_RegionalConfigurationList(input.RegionalConfigurations, context);
+    if (input.RegionalConfigurations?.length === 0) {
+      entries.RegionalConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionalConfigurations.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
 
-const serializeAws_queryIncreaseReplicaCountMessage = (
-  input: IncreaseReplicaCountMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryIncreaseReplicaCountMessage
+ */
+const se_IncreaseReplicaCountMessage = (input: IncreaseReplicaCountMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.NewReplicaCount !== undefined && input.NewReplicaCount !== null) {
+  if (input.NewReplicaCount != null) {
     entries["NewReplicaCount"] = input.NewReplicaCount;
   }
-  if (input.ReplicaConfiguration !== undefined && input.ReplicaConfiguration !== null) {
-    const memberEntries = serializeAws_queryReplicaConfigurationList(input.ReplicaConfiguration, context);
+  if (input.ReplicaConfiguration != null) {
+    const memberEntries = se_ReplicaConfigurationList(input.ReplicaConfiguration, context);
+    if (input.ReplicaConfiguration?.length === 0) {
+      entries.ReplicaConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
 
-const serializeAws_queryKeyList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryKeyList
+ */
+const se_KeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -9750,70 +8281,79 @@ const serializeAws_queryKeyList = (input: string[], context: __SerdeContext): an
   return entries;
 };
 
-const serializeAws_queryKinesisFirehoseDestinationDetails = (
+/**
+ * serializeAws_queryKinesisFirehoseDestinationDetails
+ */
+const se_KinesisFirehoseDestinationDetails = (
   input: KinesisFirehoseDestinationDetails,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeliveryStream !== undefined && input.DeliveryStream !== null) {
+  if (input.DeliveryStream != null) {
     entries["DeliveryStream"] = input.DeliveryStream;
   }
   return entries;
 };
 
-const serializeAws_queryListAllowedNodeTypeModificationsMessage = (
+/**
+ * serializeAws_queryListAllowedNodeTypeModificationsMessage
+ */
+const se_ListAllowedNodeTypeModificationsMessage = (
   input: ListAllowedNodeTypeModificationsMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   return entries;
 };
 
-const serializeAws_queryListTagsForResourceMessage = (
-  input: ListTagsForResourceMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryListTagsForResourceMessage
+ */
+const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName !== undefined && input.ResourceName !== null) {
+  if (input.ResourceName != null) {
     entries["ResourceName"] = input.ResourceName;
   }
   return entries;
 };
 
-const serializeAws_queryLogDeliveryConfigurationRequest = (
-  input: LogDeliveryConfigurationRequest,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryLogDeliveryConfigurationRequest
+ */
+const se_LogDeliveryConfigurationRequest = (input: LogDeliveryConfigurationRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogType !== undefined && input.LogType !== null) {
+  if (input.LogType != null) {
     entries["LogType"] = input.LogType;
   }
-  if (input.DestinationType !== undefined && input.DestinationType !== null) {
+  if (input.DestinationType != null) {
     entries["DestinationType"] = input.DestinationType;
   }
-  if (input.DestinationDetails !== undefined && input.DestinationDetails !== null) {
-    const memberEntries = serializeAws_queryDestinationDetails(input.DestinationDetails, context);
+  if (input.DestinationDetails != null) {
+    const memberEntries = se_DestinationDetails(input.DestinationDetails, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationDetails.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LogFormat !== undefined && input.LogFormat !== null) {
+  if (input.LogFormat != null) {
     entries["LogFormat"] = input.LogFormat;
   }
-  if (input.Enabled !== undefined && input.Enabled !== null) {
+  if (input.Enabled != null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
 };
 
-const serializeAws_queryLogDeliveryConfigurationRequestList = (
+/**
+ * serializeAws_queryLogDeliveryConfigurationRequestList
+ */
+const se_LogDeliveryConfigurationRequestList = (
   input: LogDeliveryConfigurationRequest[],
   context: __SerdeContext
 ): any => {
@@ -9823,7 +8363,7 @@ const serializeAws_queryLogDeliveryConfigurationRequestList = (
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryLogDeliveryConfigurationRequest(entry, context);
+    const memberEntries = se_LogDeliveryConfigurationRequest(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`LogDeliveryConfigurationRequest.${counter}.${key}`] = value;
     });
@@ -9832,107 +8372,125 @@ const serializeAws_queryLogDeliveryConfigurationRequestList = (
   return entries;
 };
 
-const serializeAws_queryModifyCacheClusterMessage = (
-  input: ModifyCacheClusterMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryModifyCacheClusterMessage
+ */
+const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.NumCacheNodes !== undefined && input.NumCacheNodes !== null) {
+  if (input.NumCacheNodes != null) {
     entries["NumCacheNodes"] = input.NumCacheNodes;
   }
-  if (input.CacheNodeIdsToRemove !== undefined && input.CacheNodeIdsToRemove !== null) {
-    const memberEntries = serializeAws_queryCacheNodeIdsList(input.CacheNodeIdsToRemove, context);
+  if (input.CacheNodeIdsToRemove != null) {
+    const memberEntries = se_CacheNodeIdsList(input.CacheNodeIdsToRemove, context);
+    if (input.CacheNodeIdsToRemove?.length === 0) {
+      entries.CacheNodeIdsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheNodeIdsToRemove.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AZMode !== undefined && input.AZMode !== null) {
+  if (input.AZMode != null) {
     entries["AZMode"] = input.AZMode;
   }
-  if (input.NewAvailabilityZones !== undefined && input.NewAvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.NewAvailabilityZones, context);
+  if (input.NewAvailabilityZones != null) {
+    const memberEntries = se_PreferredAvailabilityZoneList(input.NewAvailabilityZones, context);
+    if (input.NewAvailabilityZones?.length === 0) {
+      entries.NewAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NewAvailabilityZones.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CacheSecurityGroupNames !== undefined && input.CacheSecurityGroupNames !== null) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+  if (input.CacheSecurityGroupNames != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds !== undefined && input.SecurityGroupIds !== null) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
+  if (input.PreferredMaintenanceWindow != null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.NotificationTopicArn !== undefined && input.NotificationTopicArn !== null) {
+  if (input.NotificationTopicArn != null) {
     entries["NotificationTopicArn"] = input.NotificationTopicArn;
   }
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.NotificationTopicStatus !== undefined && input.NotificationTopicStatus !== null) {
+  if (input.NotificationTopicStatus != null) {
     entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+  if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.AutoMinorVersionUpgrade !== undefined && input.AutoMinorVersionUpgrade !== null) {
+  if (input.AutoMinorVersionUpgrade != null) {
     entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
   }
-  if (input.SnapshotRetentionLimit !== undefined && input.SnapshotRetentionLimit !== null) {
+  if (input.SnapshotRetentionLimit != null) {
     entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
   }
-  if (input.SnapshotWindow !== undefined && input.SnapshotWindow !== null) {
+  if (input.SnapshotWindow != null) {
     entries["SnapshotWindow"] = input.SnapshotWindow;
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.AuthToken !== undefined && input.AuthToken !== null) {
+  if (input.AuthToken != null) {
     entries["AuthToken"] = input.AuthToken;
   }
-  if (input.AuthTokenUpdateStrategy !== undefined && input.AuthTokenUpdateStrategy !== null) {
+  if (input.AuthTokenUpdateStrategy != null) {
     entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
   }
-  if (input.LogDeliveryConfigurations !== undefined && input.LogDeliveryConfigurations !== null) {
-    const memberEntries = serializeAws_queryLogDeliveryConfigurationRequestList(
-      input.LogDeliveryConfigurations,
-      context
-    );
+  if (input.LogDeliveryConfigurations != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
   }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
+  }
   return entries;
 };
 
-const serializeAws_queryModifyCacheParameterGroupMessage = (
-  input: ModifyCacheParameterGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryModifyCacheParameterGroupMessage
+ */
+const se_ModifyCacheParameterGroupMessage = (input: ModifyCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.ParameterNameValues !== undefined && input.ParameterNameValues !== null) {
-    const memberEntries = serializeAws_queryParameterNameValueList(input.ParameterNameValues, context);
+  if (input.ParameterNameValues != null) {
+    const memberEntries = se_ParameterNameValueList(input.ParameterNameValues, context);
+    if (input.ParameterNameValues?.length === 0) {
+      entries.ParameterNameValues = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterNameValues.${key}`;
       entries[loc] = value;
@@ -9941,19 +8499,22 @@ const serializeAws_queryModifyCacheParameterGroupMessage = (
   return entries;
 };
 
-const serializeAws_queryModifyCacheSubnetGroupMessage = (
-  input: ModifyCacheSubnetGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryModifyCacheSubnetGroupMessage
+ */
+const se_ModifyCacheSubnetGroupMessage = (input: ModifyCacheSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName !== undefined && input.CacheSubnetGroupName !== null) {
+  if (input.CacheSubnetGroupName != null) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
-  if (input.CacheSubnetGroupDescription !== undefined && input.CacheSubnetGroupDescription !== null) {
+  if (input.CacheSubnetGroupDescription != null) {
     entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
   }
-  if (input.SubnetIds !== undefined && input.SubnetIds !== null) {
-    const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
+  if (input.SubnetIds != null) {
+    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
@@ -9962,171 +8523,210 @@ const serializeAws_queryModifyCacheSubnetGroupMessage = (
   return entries;
 };
 
-const serializeAws_queryModifyGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryModifyGlobalReplicationGroupMessage
+ */
+const se_ModifyGlobalReplicationGroupMessage = (
   input: ModifyGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+  if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.GlobalReplicationGroupDescription !== undefined && input.GlobalReplicationGroupDescription !== null) {
+  if (input.GlobalReplicationGroupDescription != null) {
     entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
   }
-  if (input.AutomaticFailoverEnabled !== undefined && input.AutomaticFailoverEnabled !== null) {
+  if (input.AutomaticFailoverEnabled != null) {
     entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
   }
   return entries;
 };
 
-const serializeAws_queryModifyReplicationGroupMessage = (
-  input: ModifyReplicationGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryModifyReplicationGroupMessage
+ */
+const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.ReplicationGroupDescription !== undefined && input.ReplicationGroupDescription !== null) {
+  if (input.ReplicationGroupDescription != null) {
     entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
   }
-  if (input.PrimaryClusterId !== undefined && input.PrimaryClusterId !== null) {
+  if (input.PrimaryClusterId != null) {
     entries["PrimaryClusterId"] = input.PrimaryClusterId;
   }
-  if (input.SnapshottingClusterId !== undefined && input.SnapshottingClusterId !== null) {
+  if (input.SnapshottingClusterId != null) {
     entries["SnapshottingClusterId"] = input.SnapshottingClusterId;
   }
-  if (input.AutomaticFailoverEnabled !== undefined && input.AutomaticFailoverEnabled !== null) {
+  if (input.AutomaticFailoverEnabled != null) {
     entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
   }
-  if (input.MultiAZEnabled !== undefined && input.MultiAZEnabled !== null) {
+  if (input.MultiAZEnabled != null) {
     entries["MultiAZEnabled"] = input.MultiAZEnabled;
   }
-  if (input.NodeGroupId !== undefined && input.NodeGroupId !== null) {
+  if (input.NodeGroupId != null) {
     entries["NodeGroupId"] = input.NodeGroupId;
   }
-  if (input.CacheSecurityGroupNames !== undefined && input.CacheSecurityGroupNames !== null) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+  if (input.CacheSecurityGroupNames != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    if (input.CacheSecurityGroupNames?.length === 0) {
+      entries.CacheSecurityGroupNames = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheSecurityGroupNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds !== undefined && input.SecurityGroupIds !== null) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupIds = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PreferredMaintenanceWindow !== undefined && input.PreferredMaintenanceWindow !== null) {
+  if (input.PreferredMaintenanceWindow != null) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
-  if (input.NotificationTopicArn !== undefined && input.NotificationTopicArn !== null) {
+  if (input.NotificationTopicArn != null) {
     entries["NotificationTopicArn"] = input.NotificationTopicArn;
   }
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.NotificationTopicStatus !== undefined && input.NotificationTopicStatus !== null) {
+  if (input.NotificationTopicStatus != null) {
     entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
-  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+  if (input.EngineVersion != null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.AutoMinorVersionUpgrade !== undefined && input.AutoMinorVersionUpgrade !== null) {
+  if (input.AutoMinorVersionUpgrade != null) {
     entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
   }
-  if (input.SnapshotRetentionLimit !== undefined && input.SnapshotRetentionLimit !== null) {
+  if (input.SnapshotRetentionLimit != null) {
     entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
   }
-  if (input.SnapshotWindow !== undefined && input.SnapshotWindow !== null) {
+  if (input.SnapshotWindow != null) {
     entries["SnapshotWindow"] = input.SnapshotWindow;
   }
-  if (input.CacheNodeType !== undefined && input.CacheNodeType !== null) {
+  if (input.CacheNodeType != null) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
-  if (input.AuthToken !== undefined && input.AuthToken !== null) {
+  if (input.AuthToken != null) {
     entries["AuthToken"] = input.AuthToken;
   }
-  if (input.AuthTokenUpdateStrategy !== undefined && input.AuthTokenUpdateStrategy !== null) {
+  if (input.AuthTokenUpdateStrategy != null) {
     entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
   }
-  if (input.UserGroupIdsToAdd !== undefined && input.UserGroupIdsToAdd !== null) {
-    const memberEntries = serializeAws_queryUserGroupIdList(input.UserGroupIdsToAdd, context);
+  if (input.UserGroupIdsToAdd != null) {
+    const memberEntries = se_UserGroupIdList(input.UserGroupIdsToAdd, context);
+    if (input.UserGroupIdsToAdd?.length === 0) {
+      entries.UserGroupIdsToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroupIdsToAdd.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.UserGroupIdsToRemove !== undefined && input.UserGroupIdsToRemove !== null) {
-    const memberEntries = serializeAws_queryUserGroupIdList(input.UserGroupIdsToRemove, context);
+  if (input.UserGroupIdsToRemove != null) {
+    const memberEntries = se_UserGroupIdList(input.UserGroupIdsToRemove, context);
+    if (input.UserGroupIdsToRemove?.length === 0) {
+      entries.UserGroupIdsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserGroupIdsToRemove.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RemoveUserGroups !== undefined && input.RemoveUserGroups !== null) {
+  if (input.RemoveUserGroups != null) {
     entries["RemoveUserGroups"] = input.RemoveUserGroups;
   }
-  if (input.LogDeliveryConfigurations !== undefined && input.LogDeliveryConfigurations !== null) {
-    const memberEntries = serializeAws_queryLogDeliveryConfigurationRequestList(
-      input.LogDeliveryConfigurations,
-      context
-    );
+  if (input.LogDeliveryConfigurations != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
+    if (input.LogDeliveryConfigurations?.length === 0) {
+      entries.LogDeliveryConfigurations = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
   }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
+  }
+  if (input.TransitEncryptionEnabled != null) {
+    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  }
+  if (input.TransitEncryptionMode != null) {
+    entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  }
+  if (input.ClusterMode != null) {
+    entries["ClusterMode"] = input.ClusterMode;
+  }
   return entries;
 };
 
-const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
+/**
+ * serializeAws_queryModifyReplicationGroupShardConfigurationMessage
+ */
+const se_ModifyReplicationGroupShardConfigurationMessage = (
   input: ModifyReplicationGroupShardConfigurationMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.NodeGroupCount !== undefined && input.NodeGroupCount !== null) {
+  if (input.NodeGroupCount != null) {
     entries["NodeGroupCount"] = input.NodeGroupCount;
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
-  if (input.ReshardingConfiguration !== undefined && input.ReshardingConfiguration !== null) {
-    const memberEntries = serializeAws_queryReshardingConfigurationList(input.ReshardingConfiguration, context);
+  if (input.ReshardingConfiguration != null) {
+    const memberEntries = se_ReshardingConfigurationList(input.ReshardingConfiguration, context);
+    if (input.ReshardingConfiguration?.length === 0) {
+      entries.ReshardingConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReshardingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NodeGroupsToRemove !== undefined && input.NodeGroupsToRemove !== null) {
-    const memberEntries = serializeAws_queryNodeGroupsToRemoveList(input.NodeGroupsToRemove, context);
+  if (input.NodeGroupsToRemove != null) {
+    const memberEntries = se_NodeGroupsToRemoveList(input.NodeGroupsToRemove, context);
+    if (input.NodeGroupsToRemove?.length === 0) {
+      entries.NodeGroupsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NodeGroupsToRemove.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NodeGroupsToRetain !== undefined && input.NodeGroupsToRetain !== null) {
-    const memberEntries = serializeAws_queryNodeGroupsToRetainList(input.NodeGroupsToRetain, context);
+  if (input.NodeGroupsToRetain != null) {
+    const memberEntries = se_NodeGroupsToRetainList(input.NodeGroupsToRetain, context);
+    if (input.NodeGroupsToRetain?.length === 0) {
+      entries.NodeGroupsToRetain = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NodeGroupsToRetain.${key}`;
       entries[loc] = value;
@@ -10135,20 +8735,29 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
   return entries;
 };
 
-const serializeAws_queryModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryModifyUserGroupMessage
+ */
+const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId !== undefined && input.UserGroupId !== null) {
+  if (input.UserGroupId != null) {
     entries["UserGroupId"] = input.UserGroupId;
   }
-  if (input.UserIdsToAdd !== undefined && input.UserIdsToAdd !== null) {
-    const memberEntries = serializeAws_queryUserIdListInput(input.UserIdsToAdd, context);
+  if (input.UserIdsToAdd != null) {
+    const memberEntries = se_UserIdListInput(input.UserIdsToAdd, context);
+    if (input.UserIdsToAdd?.length === 0) {
+      entries.UserIdsToAdd = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIdsToAdd.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.UserIdsToRemove !== undefined && input.UserIdsToRemove !== null) {
-    const memberEntries = serializeAws_queryUserIdListInput(input.UserIdsToRemove, context);
+  if (input.UserIdsToRemove != null) {
+    const memberEntries = se_UserIdListInput(input.UserIdsToRemove, context);
+    if (input.UserIdsToRemove?.length === 0) {
+      entries.UserIdsToRemove = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIdsToRemove.${key}`;
       entries[loc] = value;
@@ -10157,56 +8766,78 @@ const serializeAws_queryModifyUserGroupMessage = (input: ModifyUserGroupMessage,
   return entries;
 };
 
-const serializeAws_queryModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryModifyUserMessage
+ */
+const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserId !== undefined && input.UserId !== null) {
+  if (input.UserId != null) {
     entries["UserId"] = input.UserId;
   }
-  if (input.AccessString !== undefined && input.AccessString !== null) {
+  if (input.AccessString != null) {
     entries["AccessString"] = input.AccessString;
   }
-  if (input.AppendAccessString !== undefined && input.AppendAccessString !== null) {
+  if (input.AppendAccessString != null) {
     entries["AppendAccessString"] = input.AppendAccessString;
   }
-  if (input.Passwords !== undefined && input.Passwords !== null) {
-    const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+  if (input.Passwords != null) {
+    const memberEntries = se_PasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Passwords.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NoPasswordRequired !== undefined && input.NoPasswordRequired !== null) {
+  if (input.NoPasswordRequired != null) {
     entries["NoPasswordRequired"] = input.NoPasswordRequired;
+  }
+  if (input.AuthenticationMode != null) {
+    const memberEntries = se_AuthenticationMode(input.AuthenticationMode, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticationMode.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
 
-const serializeAws_queryNodeGroupConfiguration = (input: NodeGroupConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryNodeGroupConfiguration
+ */
+const se_NodeGroupConfiguration = (input: NodeGroupConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId !== undefined && input.NodeGroupId !== null) {
+  if (input.NodeGroupId != null) {
     entries["NodeGroupId"] = input.NodeGroupId;
   }
-  if (input.Slots !== undefined && input.Slots !== null) {
+  if (input.Slots != null) {
     entries["Slots"] = input.Slots;
   }
-  if (input.ReplicaCount !== undefined && input.ReplicaCount !== null) {
+  if (input.ReplicaCount != null) {
     entries["ReplicaCount"] = input.ReplicaCount;
   }
-  if (input.PrimaryAvailabilityZone !== undefined && input.PrimaryAvailabilityZone !== null) {
+  if (input.PrimaryAvailabilityZone != null) {
     entries["PrimaryAvailabilityZone"] = input.PrimaryAvailabilityZone;
   }
-  if (input.ReplicaAvailabilityZones !== undefined && input.ReplicaAvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryAvailabilityZonesList(input.ReplicaAvailabilityZones, context);
+  if (input.ReplicaAvailabilityZones != null) {
+    const memberEntries = se_AvailabilityZonesList(input.ReplicaAvailabilityZones, context);
+    if (input.ReplicaAvailabilityZones?.length === 0) {
+      entries.ReplicaAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaAvailabilityZones.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PrimaryOutpostArn !== undefined && input.PrimaryOutpostArn !== null) {
+  if (input.PrimaryOutpostArn != null) {
     entries["PrimaryOutpostArn"] = input.PrimaryOutpostArn;
   }
-  if (input.ReplicaOutpostArns !== undefined && input.ReplicaOutpostArns !== null) {
-    const memberEntries = serializeAws_queryOutpostArnsList(input.ReplicaOutpostArns, context);
+  if (input.ReplicaOutpostArns != null) {
+    const memberEntries = se_OutpostArnsList(input.ReplicaOutpostArns, context);
+    if (input.ReplicaOutpostArns?.length === 0) {
+      entries.ReplicaOutpostArns = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaOutpostArns.${key}`;
       entries[loc] = value;
@@ -10215,17 +8846,17 @@ const serializeAws_queryNodeGroupConfiguration = (input: NodeGroupConfiguration,
   return entries;
 };
 
-const serializeAws_queryNodeGroupConfigurationList = (
-  input: NodeGroupConfiguration[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryNodeGroupConfigurationList
+ */
+const se_NodeGroupConfigurationList = (input: NodeGroupConfiguration[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryNodeGroupConfiguration(entry, context);
+    const memberEntries = se_NodeGroupConfiguration(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`NodeGroupConfiguration.${counter}.${key}`] = value;
     });
@@ -10234,7 +8865,10 @@ const serializeAws_queryNodeGroupConfigurationList = (
   return entries;
 };
 
-const serializeAws_queryNodeGroupsToRemoveList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryNodeGroupsToRemoveList
+ */
+const se_NodeGroupsToRemoveList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10247,7 +8881,10 @@ const serializeAws_queryNodeGroupsToRemoveList = (input: string[], context: __Se
   return entries;
 };
 
-const serializeAws_queryNodeGroupsToRetainList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryNodeGroupsToRetainList
+ */
+const se_NodeGroupsToRetainList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10260,7 +8897,10 @@ const serializeAws_queryNodeGroupsToRetainList = (input: string[], context: __Se
   return entries;
 };
 
-const serializeAws_queryOutpostArnsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryOutpostArnsList
+ */
+const se_OutpostArnsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10273,25 +8913,31 @@ const serializeAws_queryOutpostArnsList = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const serializeAws_queryParameterNameValue = (input: ParameterNameValue, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryParameterNameValue
+ */
+const se_ParameterNameValue = (input: ParameterNameValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterName !== undefined && input.ParameterName !== null) {
+  if (input.ParameterName != null) {
     entries["ParameterName"] = input.ParameterName;
   }
-  if (input.ParameterValue !== undefined && input.ParameterValue !== null) {
+  if (input.ParameterValue != null) {
     entries["ParameterValue"] = input.ParameterValue;
   }
   return entries;
 };
 
-const serializeAws_queryParameterNameValueList = (input: ParameterNameValue[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryParameterNameValueList
+ */
+const se_ParameterNameValueList = (input: ParameterNameValue[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryParameterNameValue(entry, context);
+    const memberEntries = se_ParameterNameValue(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`ParameterNameValue.${counter}.${key}`] = value;
     });
@@ -10300,7 +8946,10 @@ const serializeAws_queryParameterNameValueList = (input: ParameterNameValue[], c
   return entries;
 };
 
-const serializeAws_queryPasswordListInput = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPasswordListInput
+ */
+const se_PasswordListInput = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10313,7 +8962,10 @@ const serializeAws_queryPasswordListInput = (input: string[], context: __SerdeCo
   return entries;
 };
 
-const serializeAws_queryPreferredAvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPreferredAvailabilityZoneList
+ */
+const se_PreferredAvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10326,7 +8978,10 @@ const serializeAws_queryPreferredAvailabilityZoneList = (input: string[], contex
   return entries;
 };
 
-const serializeAws_queryPreferredOutpostArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryPreferredOutpostArnList
+ */
+const se_PreferredOutpostArnList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10339,22 +8994,28 @@ const serializeAws_queryPreferredOutpostArnList = (input: string[], context: __S
   return entries;
 };
 
-const serializeAws_queryPurchaseReservedCacheNodesOfferingMessage = (
+/**
+ * serializeAws_queryPurchaseReservedCacheNodesOfferingMessage
+ */
+const se_PurchaseReservedCacheNodesOfferingMessage = (
   input: PurchaseReservedCacheNodesOfferingMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedCacheNodesOfferingId !== undefined && input.ReservedCacheNodesOfferingId !== null) {
+  if (input.ReservedCacheNodesOfferingId != null) {
     entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
   }
-  if (input.ReservedCacheNodeId !== undefined && input.ReservedCacheNodeId !== null) {
+  if (input.ReservedCacheNodeId != null) {
     entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
   }
-  if (input.CacheNodeCount !== undefined && input.CacheNodeCount !== null) {
+  if (input.CacheNodeCount != null) {
     entries["CacheNodeCount"] = input.CacheNodeCount;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+  if (input.Tags != null) {
+    const memberEntries = se_TagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
@@ -10363,30 +9024,36 @@ const serializeAws_queryPurchaseReservedCacheNodesOfferingMessage = (
   return entries;
 };
 
-const serializeAws_queryRebalanceSlotsInGlobalReplicationGroupMessage = (
+/**
+ * serializeAws_queryRebalanceSlotsInGlobalReplicationGroupMessage
+ */
+const se_RebalanceSlotsInGlobalReplicationGroupMessage = (
   input: RebalanceSlotsInGlobalReplicationGroupMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId !== undefined && input.GlobalReplicationGroupId !== null) {
+  if (input.GlobalReplicationGroupId != null) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
-  if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
+  if (input.ApplyImmediately != null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
 
-const serializeAws_queryRebootCacheClusterMessage = (
-  input: RebootCacheClusterMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryRebootCacheClusterMessage
+ */
+const se_RebootCacheClusterMessage = (input: RebootCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId !== undefined && input.CacheClusterId !== null) {
+  if (input.CacheClusterId != null) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.CacheNodeIdsToReboot !== undefined && input.CacheNodeIdsToReboot !== null) {
-    const memberEntries = serializeAws_queryCacheNodeIdsList(input.CacheNodeIdsToReboot, context);
+  if (input.CacheNodeIdsToReboot != null) {
+    const memberEntries = se_CacheNodeIdsList(input.CacheNodeIdsToReboot, context);
+    if (input.CacheNodeIdsToReboot?.length === 0) {
+      entries.CacheNodeIdsToReboot = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheNodeIdsToReboot.${key}`;
       entries[loc] = value;
@@ -10395,16 +9062,22 @@ const serializeAws_queryRebootCacheClusterMessage = (
   return entries;
 };
 
-const serializeAws_queryRegionalConfiguration = (input: RegionalConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryRegionalConfiguration
+ */
+const se_RegionalConfiguration = (input: RegionalConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.ReplicationGroupRegion !== undefined && input.ReplicationGroupRegion !== null) {
+  if (input.ReplicationGroupRegion != null) {
     entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
   }
-  if (input.ReshardingConfiguration !== undefined && input.ReshardingConfiguration !== null) {
-    const memberEntries = serializeAws_queryReshardingConfigurationList(input.ReshardingConfiguration, context);
+  if (input.ReshardingConfiguration != null) {
+    const memberEntries = se_ReshardingConfigurationList(input.ReshardingConfiguration, context);
+    if (input.ReshardingConfiguration?.length === 0) {
+      entries.ReshardingConfiguration = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReshardingConfiguration.${key}`;
       entries[loc] = value;
@@ -10413,14 +9086,17 @@ const serializeAws_queryRegionalConfiguration = (input: RegionalConfiguration, c
   return entries;
 };
 
-const serializeAws_queryRegionalConfigurationList = (input: RegionalConfiguration[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryRegionalConfigurationList
+ */
+const se_RegionalConfigurationList = (input: RegionalConfiguration[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryRegionalConfiguration(entry, context);
+    const memberEntries = se_RegionalConfiguration(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`RegionalConfiguration.${counter}.${key}`] = value;
     });
@@ -10429,7 +9105,10 @@ const serializeAws_queryRegionalConfigurationList = (input: RegionalConfiguratio
   return entries;
 };
 
-const serializeAws_queryRemoveReplicasList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryRemoveReplicasList
+ */
+const se_RemoveReplicasList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10442,16 +9121,19 @@ const serializeAws_queryRemoveReplicasList = (input: string[], context: __SerdeC
   return entries;
 };
 
-const serializeAws_queryRemoveTagsFromResourceMessage = (
-  input: RemoveTagsFromResourceMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryRemoveTagsFromResourceMessage
+ */
+const se_RemoveTagsFromResourceMessage = (input: RemoveTagsFromResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName !== undefined && input.ResourceName !== null) {
+  if (input.ResourceName != null) {
     entries["ResourceName"] = input.ResourceName;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
-    const memberEntries = serializeAws_queryKeyList(input.TagKeys, context);
+  if (input.TagKeys != null) {
+    const memberEntries = se_KeyList(input.TagKeys, context);
+    if (input.TagKeys?.length === 0) {
+      entries.TagKeys = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
@@ -10460,14 +9142,17 @@ const serializeAws_queryRemoveTagsFromResourceMessage = (
   return entries;
 };
 
-const serializeAws_queryReplicaConfigurationList = (input: ConfigureShard[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryReplicaConfigurationList
+ */
+const se_ReplicaConfigurationList = (input: ConfigureShard[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryConfigureShard(entry, context);
+    const memberEntries = se_ConfigureShard(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`ConfigureShard.${counter}.${key}`] = value;
     });
@@ -10476,7 +9161,10 @@ const serializeAws_queryReplicaConfigurationList = (input: ConfigureShard[], con
   return entries;
 };
 
-const serializeAws_queryReplicationGroupIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryReplicationGroupIdList
+ */
+const se_ReplicationGroupIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10489,19 +9177,22 @@ const serializeAws_queryReplicationGroupIdList = (input: string[], context: __Se
   return entries;
 };
 
-const serializeAws_queryResetCacheParameterGroupMessage = (
-  input: ResetCacheParameterGroupMessage,
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryResetCacheParameterGroupMessage
+ */
+const se_ResetCacheParameterGroupMessage = (input: ResetCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+  if (input.CacheParameterGroupName != null) {
     entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
-  if (input.ResetAllParameters !== undefined && input.ResetAllParameters !== null) {
+  if (input.ResetAllParameters != null) {
     entries["ResetAllParameters"] = input.ResetAllParameters;
   }
-  if (input.ParameterNameValues !== undefined && input.ParameterNameValues !== null) {
-    const memberEntries = serializeAws_queryParameterNameValueList(input.ParameterNameValues, context);
+  if (input.ParameterNameValues != null) {
+    const memberEntries = se_ParameterNameValueList(input.ParameterNameValues, context);
+    if (input.ParameterNameValues?.length === 0) {
+      entries.ParameterNameValues = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterNameValues.${key}`;
       entries[loc] = value;
@@ -10510,13 +9201,19 @@ const serializeAws_queryResetCacheParameterGroupMessage = (
   return entries;
 };
 
-const serializeAws_queryReshardingConfiguration = (input: ReshardingConfiguration, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryReshardingConfiguration
+ */
+const se_ReshardingConfiguration = (input: ReshardingConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId !== undefined && input.NodeGroupId !== null) {
+  if (input.NodeGroupId != null) {
     entries["NodeGroupId"] = input.NodeGroupId;
   }
-  if (input.PreferredAvailabilityZones !== undefined && input.PreferredAvailabilityZones !== null) {
-    const memberEntries = serializeAws_queryAvailabilityZonesList(input.PreferredAvailabilityZones, context);
+  if (input.PreferredAvailabilityZones != null) {
+    const memberEntries = se_AvailabilityZonesList(input.PreferredAvailabilityZones, context);
+    if (input.PreferredAvailabilityZones?.length === 0) {
+      entries.PreferredAvailabilityZones = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PreferredAvailabilityZones.${key}`;
       entries[loc] = value;
@@ -10525,17 +9222,17 @@ const serializeAws_queryReshardingConfiguration = (input: ReshardingConfiguratio
   return entries;
 };
 
-const serializeAws_queryReshardingConfigurationList = (
-  input: ReshardingConfiguration[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryReshardingConfigurationList
+ */
+const se_ReshardingConfigurationList = (input: ReshardingConfiguration[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryReshardingConfiguration(entry, context);
+    const memberEntries = se_ReshardingConfiguration(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`ReshardingConfiguration.${counter}.${key}`] = value;
     });
@@ -10544,24 +9241,30 @@ const serializeAws_queryReshardingConfigurationList = (
   return entries;
 };
 
-const serializeAws_queryRevokeCacheSecurityGroupIngressMessage = (
+/**
+ * serializeAws_queryRevokeCacheSecurityGroupIngressMessage
+ */
+const se_RevokeCacheSecurityGroupIngressMessage = (
   input: RevokeCacheSecurityGroupIngressMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName !== undefined && input.CacheSecurityGroupName !== null) {
+  if (input.CacheSecurityGroupName != null) {
     entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
-  if (input.EC2SecurityGroupName !== undefined && input.EC2SecurityGroupName !== null) {
+  if (input.EC2SecurityGroupName != null) {
     entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
   }
-  if (input.EC2SecurityGroupOwnerId !== undefined && input.EC2SecurityGroupOwnerId !== null) {
+  if (input.EC2SecurityGroupOwnerId != null) {
     entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
   }
   return entries;
 };
 
-const serializeAws_querySecurityGroupIdsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querySecurityGroupIdsList
+ */
+const se_SecurityGroupIdsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10574,10 +9277,10 @@ const serializeAws_querySecurityGroupIdsList = (input: string[], context: __Serd
   return entries;
 };
 
-const serializeAws_queryServiceUpdateStatusList = (
-  input: (ServiceUpdateStatus | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryServiceUpdateStatusList
+ */
+const se_ServiceUpdateStatusList = (input: (ServiceUpdateStatus | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10590,7 +9293,10 @@ const serializeAws_queryServiceUpdateStatusList = (
   return entries;
 };
 
-const serializeAws_querySnapshotArnsList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querySnapshotArnsList
+ */
+const se_SnapshotArnsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10603,13 +9309,19 @@ const serializeAws_querySnapshotArnsList = (input: string[], context: __SerdeCon
   return entries;
 };
 
-const serializeAws_queryStartMigrationMessage = (input: StartMigrationMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryStartMigrationMessage
+ */
+const se_StartMigrationMessage = (input: StartMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.CustomerNodeEndpointList !== undefined && input.CustomerNodeEndpointList !== null) {
-    const memberEntries = serializeAws_queryCustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
+  if (input.CustomerNodeEndpointList != null) {
+    const memberEntries = se_CustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
+    if (input.CustomerNodeEndpointList?.length === 0) {
+      entries.CustomerNodeEndpointList = [];
+    }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomerNodeEndpointList.${key}`;
       entries[loc] = value;
@@ -10618,7 +9330,10 @@ const serializeAws_queryStartMigrationMessage = (input: StartMigrationMessage, c
   return entries;
 };
 
-const serializeAws_querySubnetIdentifierList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_querySubnetIdentifierList
+ */
+const se_SubnetIdentifierList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10631,25 +9346,31 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
   return entries;
 };
 
-const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTag
+ */
+const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined && input.Value !== null) {
+  if (input.Value != null) {
     entries["Value"] = input.Value;
   }
   return entries;
 };
 
-const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTagList
+ */
+const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
     if (entry === null) {
       continue;
     }
-    const memberEntries = serializeAws_queryTag(entry, context);
+    const memberEntries = se_Tag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`Tag.${counter}.${key}`] = value;
     });
@@ -10658,32 +9379,59 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   return entries;
 };
 
-const serializeAws_queryTestFailoverMessage = (input: TestFailoverMessage, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTestFailoverMessage
+ */
+const se_TestFailoverMessage = (input: TestFailoverMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined && input.ReplicationGroupId !== null) {
+  if (input.ReplicationGroupId != null) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.NodeGroupId !== undefined && input.NodeGroupId !== null) {
+  if (input.NodeGroupId != null) {
     entries["NodeGroupId"] = input.NodeGroupId;
   }
   return entries;
 };
 
-const serializeAws_queryTimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
+/**
+ * serializeAws_queryTestMigrationMessage
+ */
+const se_TestMigrationMessage = (input: TestMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StartTime !== undefined && input.StartTime !== null) {
+  if (input.ReplicationGroupId != null) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.CustomerNodeEndpointList != null) {
+    const memberEntries = se_CustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
+    if (input.CustomerNodeEndpointList?.length === 0) {
+      entries.CustomerNodeEndpointList = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CustomerNodeEndpointList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryTimeRangeFilter
+ */
+const se_TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.StartTime != null) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime !== undefined && input.EndTime !== null) {
+  if (input.EndTime != null) {
     entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
 
-const serializeAws_queryUpdateActionStatusList = (
-  input: (UpdateActionStatus | string)[],
-  context: __SerdeContext
-): any => {
+/**
+ * serializeAws_queryUpdateActionStatusList
+ */
+const se_UpdateActionStatusList = (input: (UpdateActionStatus | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10696,7 +9444,10 @@ const serializeAws_queryUpdateActionStatusList = (
   return entries;
 };
 
-const serializeAws_queryUserGroupIdList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUserGroupIdList
+ */
+const se_UserGroupIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10709,7 +9460,10 @@ const serializeAws_queryUserGroupIdList = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const serializeAws_queryUserGroupIdListInput = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUserGroupIdListInput
+ */
+const se_UserGroupIdListInput = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10722,7 +9476,10 @@ const serializeAws_queryUserGroupIdListInput = (input: string[], context: __Serd
   return entries;
 };
 
-const serializeAws_queryUserIdListInput = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_queryUserIdListInput
+ */
+const se_UserIdListInput = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -10735,28 +9492,29 @@ const serializeAws_queryUserIdListInput = (input: string[], context: __SerdeCont
   return entries;
 };
 
-const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
+/**
+ * deserializeAws_queryAllowedNodeTypeModificationsMessage
+ */
+const de_AllowedNodeTypeModificationsMessage = (
   output: any,
   context: __SerdeContext
 ): AllowedNodeTypeModificationsMessage => {
-  const contents: any = {
-    ScaleUpModifications: undefined,
-    ScaleDownModifications: undefined,
-  };
+  const contents: any = {};
   if (output.ScaleUpModifications === "") {
     contents.ScaleUpModifications = [];
-  }
-  if (output["ScaleUpModifications"] !== undefined && output["ScaleUpModifications"]["member"] !== undefined) {
-    contents.ScaleUpModifications = deserializeAws_queryNodeTypeList(
+  } else if (output["ScaleUpModifications"] !== undefined && output["ScaleUpModifications"]["member"] !== undefined) {
+    contents.ScaleUpModifications = de_NodeTypeList(
       __getArrayIfSingleItem(output["ScaleUpModifications"]["member"]),
       context
     );
   }
   if (output.ScaleDownModifications === "") {
     contents.ScaleDownModifications = [];
-  }
-  if (output["ScaleDownModifications"] !== undefined && output["ScaleDownModifications"]["member"] !== undefined) {
-    contents.ScaleDownModifications = deserializeAws_queryNodeTypeList(
+  } else if (
+    output["ScaleDownModifications"] !== undefined &&
+    output["ScaleDownModifications"]["member"] !== undefined
+  ) {
+    contents.ScaleDownModifications = de_NodeTypeList(
       __getArrayIfSingleItem(output["ScaleDownModifications"]["member"]),
       context
     );
@@ -10764,24 +9522,25 @@ const deserializeAws_queryAllowedNodeTypeModificationsMessage = (
   return contents;
 };
 
-const deserializeAws_queryAPICallRateForCustomerExceededFault = (
+/**
+ * deserializeAws_queryAPICallRateForCustomerExceededFault
+ */
+const de_APICallRateForCustomerExceededFault = (
   output: any,
   context: __SerdeContext
 ): APICallRateForCustomerExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryAuthentication = (output: any, context: __SerdeContext): Authentication => {
-  const contents: any = {
-    Type: undefined,
-    PasswordCount: undefined,
-  };
+/**
+ * deserializeAws_queryAuthentication
+ */
+const de_Authentication = (output: any, context: __SerdeContext): Authentication => {
+  const contents: any = {};
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
   }
@@ -10791,104 +9550,74 @@ const deserializeAws_queryAuthentication = (output: any, context: __SerdeContext
   return contents;
 };
 
-const deserializeAws_queryAuthorizationAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryAuthorizationAlreadyExistsFault
+ */
+const de_AuthorizationAlreadyExistsFault = (output: any, context: __SerdeContext): AuthorizationAlreadyExistsFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryAuthorizationNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryAuthorizationNotFoundFault
+ */
+const de_AuthorizationNotFoundFault = (output: any, context: __SerdeContext): AuthorizationNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult = (
+/**
+ * deserializeAws_queryAuthorizeCacheSecurityGroupIngressResult
+ */
+const de_AuthorizeCacheSecurityGroupIngressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeCacheSecurityGroupIngressResult => {
-  const contents: any = {
-    CacheSecurityGroup: undefined,
-  };
+  const contents: any = {};
   if (output["CacheSecurityGroup"] !== undefined) {
-    contents.CacheSecurityGroup = deserializeAws_queryCacheSecurityGroup(output["CacheSecurityGroup"], context);
+    contents.CacheSecurityGroup = de_CacheSecurityGroup(output["CacheSecurityGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
-  const contents: any = {
-    Name: undefined,
-  };
+/**
+ * deserializeAws_queryAvailabilityZone
+ */
+const de_AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
   return contents;
 };
 
-const deserializeAws_queryAvailabilityZonesList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryAvailabilityZonesList
+ */
+const de_AvailabilityZonesList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext): CacheCluster => {
-  const contents: any = {
-    CacheClusterId: undefined,
-    ConfigurationEndpoint: undefined,
-    ClientDownloadLandingPage: undefined,
-    CacheNodeType: undefined,
-    Engine: undefined,
-    EngineVersion: undefined,
-    CacheClusterStatus: undefined,
-    NumCacheNodes: undefined,
-    PreferredAvailabilityZone: undefined,
-    PreferredOutpostArn: undefined,
-    CacheClusterCreateTime: undefined,
-    PreferredMaintenanceWindow: undefined,
-    PendingModifiedValues: undefined,
-    NotificationConfiguration: undefined,
-    CacheSecurityGroups: undefined,
-    CacheParameterGroup: undefined,
-    CacheSubnetGroupName: undefined,
-    CacheNodes: undefined,
-    AutoMinorVersionUpgrade: undefined,
-    SecurityGroups: undefined,
-    ReplicationGroupId: undefined,
-    SnapshotRetentionLimit: undefined,
-    SnapshotWindow: undefined,
-    AuthTokenEnabled: undefined,
-    AuthTokenLastModifiedDate: undefined,
-    TransitEncryptionEnabled: undefined,
-    AtRestEncryptionEnabled: undefined,
-    ARN: undefined,
-    ReplicationGroupLogDeliveryEnabled: undefined,
-    LogDeliveryConfigurations: undefined,
-  };
+/**
+ * deserializeAws_queryCacheCluster
+ */
+const de_CacheCluster = (output: any, context: __SerdeContext): CacheCluster => {
+  const contents: any = {};
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
   if (output["ConfigurationEndpoint"] !== undefined) {
-    contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
+    contents.ConfigurationEndpoint = de_Endpoint(output["ConfigurationEndpoint"], context);
   }
   if (output["ClientDownloadLandingPage"] !== undefined) {
     contents.ClientDownloadLandingPage = __expectString(output["ClientDownloadLandingPage"]);
@@ -10915,61 +9644,48 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheClusterCreateTime"]));
+    contents.CacheClusterCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["CacheClusterCreateTime"])
+    );
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
     contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
   }
   if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = deserializeAws_queryPendingModifiedValues(
-      output["PendingModifiedValues"],
-      context
-    );
+    contents.PendingModifiedValues = de_PendingModifiedValues(output["PendingModifiedValues"], context);
   }
   if (output["NotificationConfiguration"] !== undefined) {
-    contents.NotificationConfiguration = deserializeAws_queryNotificationConfiguration(
-      output["NotificationConfiguration"],
-      context
-    );
+    contents.NotificationConfiguration = de_NotificationConfiguration(output["NotificationConfiguration"], context);
   }
   if (output.CacheSecurityGroups === "") {
     contents.CacheSecurityGroups = [];
-  }
-  if (
+  } else if (
     output["CacheSecurityGroups"] !== undefined &&
     output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
   ) {
-    contents.CacheSecurityGroups = deserializeAws_queryCacheSecurityGroupMembershipList(
+    contents.CacheSecurityGroups = de_CacheSecurityGroupMembershipList(
       __getArrayIfSingleItem(output["CacheSecurityGroups"]["CacheSecurityGroup"]),
       context
     );
   }
   if (output["CacheParameterGroup"] !== undefined) {
-    contents.CacheParameterGroup = deserializeAws_queryCacheParameterGroupStatus(
-      output["CacheParameterGroup"],
-      context
-    );
+    contents.CacheParameterGroup = de_CacheParameterGroupStatus(output["CacheParameterGroup"], context);
   }
   if (output["CacheSubnetGroupName"] !== undefined) {
     contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
   }
   if (output.CacheNodes === "") {
     contents.CacheNodes = [];
-  }
-  if (output["CacheNodes"] !== undefined && output["CacheNodes"]["CacheNode"] !== undefined) {
-    contents.CacheNodes = deserializeAws_queryCacheNodeList(
-      __getArrayIfSingleItem(output["CacheNodes"]["CacheNode"]),
-      context
-    );
+  } else if (output["CacheNodes"] !== undefined && output["CacheNodes"]["CacheNode"] !== undefined) {
+    contents.CacheNodes = de_CacheNodeList(__getArrayIfSingleItem(output["CacheNodes"]["CacheNode"]), context);
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
     contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
-  }
-  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = deserializeAws_querySecurityGroupMembershipList(
+  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
+    contents.SecurityGroups = de_SecurityGroupMembershipList(
       __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
       context
     );
@@ -10987,7 +9703,9 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = __expectNonNull(__parseRfc3339DateTime(output["AuthTokenLastModifiedDate"]));
+    contents.AuthTokenLastModifiedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["AuthTokenLastModifiedDate"])
+    );
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
     contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
@@ -11003,56 +9721,61 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
   }
   if (output.LogDeliveryConfigurations === "") {
     contents.LogDeliveryConfigurations = [];
-  }
-  if (
+  } else if (
     output["LogDeliveryConfigurations"] !== undefined &&
     output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"] !== undefined
   ) {
-    contents.LogDeliveryConfigurations = deserializeAws_queryLogDeliveryConfigurationList(
+    contents.LogDeliveryConfigurations = de_LogDeliveryConfigurationList(
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
       context
     );
   }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["IpDiscovery"] !== undefined) {
+    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  }
   return contents;
 };
 
-const deserializeAws_queryCacheClusterAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): CacheClusterAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryCacheClusterAlreadyExistsFault
+ */
+const de_CacheClusterAlreadyExistsFault = (output: any, context: __SerdeContext): CacheClusterAlreadyExistsFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheClusterList = (output: any, context: __SerdeContext): CacheCluster[] => {
+/**
+ * deserializeAws_queryCacheClusterList
+ */
+const de_CacheClusterList = (output: any, context: __SerdeContext): CacheCluster[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheCluster(entry, context);
+      return de_CacheCluster(entry, context);
     });
 };
 
-const deserializeAws_queryCacheClusterMessage = (output: any, context: __SerdeContext): CacheClusterMessage => {
-  const contents: any = {
-    Marker: undefined,
-    CacheClusters: undefined,
-  };
+/**
+ * deserializeAws_queryCacheClusterMessage
+ */
+const de_CacheClusterMessage = (output: any, context: __SerdeContext): CacheClusterMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheClusters === "") {
     contents.CacheClusters = [];
-  }
-  if (output["CacheClusters"] !== undefined && output["CacheClusters"]["CacheCluster"] !== undefined) {
-    contents.CacheClusters = deserializeAws_queryCacheClusterList(
+  } else if (output["CacheClusters"] !== undefined && output["CacheClusters"]["CacheCluster"] !== undefined) {
+    contents.CacheClusters = de_CacheClusterList(
       __getArrayIfSingleItem(output["CacheClusters"]["CacheCluster"]),
       context
     );
@@ -11060,27 +9783,22 @@ const deserializeAws_queryCacheClusterMessage = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryCacheClusterNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): CacheClusterNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryCacheClusterNotFoundFault
+ */
+const de_CacheClusterNotFoundFault = (output: any, context: __SerdeContext): CacheClusterNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheEngineVersion = (output: any, context: __SerdeContext): CacheEngineVersion => {
-  const contents: any = {
-    Engine: undefined,
-    EngineVersion: undefined,
-    CacheParameterGroupFamily: undefined,
-    CacheEngineDescription: undefined,
-    CacheEngineVersionDescription: undefined,
-  };
+/**
+ * deserializeAws_queryCacheEngineVersion
+ */
+const de_CacheEngineVersion = (output: any, context: __SerdeContext): CacheEngineVersion => {
+  const contents: any = {};
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
   }
@@ -11099,36 +9817,32 @@ const deserializeAws_queryCacheEngineVersion = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryCacheEngineVersionList = (output: any, context: __SerdeContext): CacheEngineVersion[] => {
+/**
+ * deserializeAws_queryCacheEngineVersionList
+ */
+const de_CacheEngineVersionList = (output: any, context: __SerdeContext): CacheEngineVersion[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheEngineVersion(entry, context);
+      return de_CacheEngineVersion(entry, context);
     });
 };
 
-const deserializeAws_queryCacheEngineVersionMessage = (
-  output: any,
-  context: __SerdeContext
-): CacheEngineVersionMessage => {
-  const contents: any = {
-    Marker: undefined,
-    CacheEngineVersions: undefined,
-  };
+/**
+ * deserializeAws_queryCacheEngineVersionMessage
+ */
+const de_CacheEngineVersionMessage = (output: any, context: __SerdeContext): CacheEngineVersionMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheEngineVersions === "") {
     contents.CacheEngineVersions = [];
-  }
-  if (
+  } else if (
     output["CacheEngineVersions"] !== undefined &&
     output["CacheEngineVersions"]["CacheEngineVersion"] !== undefined
   ) {
-    contents.CacheEngineVersions = deserializeAws_queryCacheEngineVersionList(
+    contents.CacheEngineVersions = de_CacheEngineVersionList(
       __getArrayIfSingleItem(output["CacheEngineVersions"]["CacheEngineVersion"]),
       context
     );
@@ -11136,17 +9850,11 @@ const deserializeAws_queryCacheEngineVersionMessage = (
   return contents;
 };
 
-const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): CacheNode => {
-  const contents: any = {
-    CacheNodeId: undefined,
-    CacheNodeStatus: undefined,
-    CacheNodeCreateTime: undefined,
-    Endpoint: undefined,
-    ParameterGroupStatus: undefined,
-    SourceCacheNodeId: undefined,
-    CustomerAvailabilityZone: undefined,
-    CustomerOutpostArn: undefined,
-  };
+/**
+ * deserializeAws_queryCacheNode
+ */
+const de_CacheNode = (output: any, context: __SerdeContext): CacheNode => {
+  const contents: any = {};
   if (output["CacheNodeId"] !== undefined) {
     contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
@@ -11154,10 +9862,10 @@ const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): Ca
     contents.CacheNodeStatus = __expectString(output["CacheNodeStatus"]);
   }
   if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheNodeCreateTime"]));
+    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CacheNodeCreateTime"]));
   }
   if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
+    contents.Endpoint = de_Endpoint(output["Endpoint"], context);
   }
   if (output["ParameterGroupStatus"] !== undefined) {
     contents.ParameterGroupStatus = __expectString(output["ParameterGroupStatus"]);
@@ -11174,43 +9882,33 @@ const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): Ca
   return contents;
 };
 
-const deserializeAws_queryCacheNodeIdsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryCacheNodeIdsList
+ */
+const de_CacheNodeIdsList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryCacheNodeList = (output: any, context: __SerdeContext): CacheNode[] => {
+/**
+ * deserializeAws_queryCacheNodeList
+ */
+const de_CacheNodeList = (output: any, context: __SerdeContext): CacheNode[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheNode(entry, context);
+      return de_CacheNode(entry, context);
     });
 };
 
-const deserializeAws_queryCacheNodeTypeSpecificParameter = (
-  output: any,
-  context: __SerdeContext
-): CacheNodeTypeSpecificParameter => {
-  const contents: any = {
-    ParameterName: undefined,
-    Description: undefined,
-    Source: undefined,
-    DataType: undefined,
-    AllowedValues: undefined,
-    IsModifiable: undefined,
-    MinimumEngineVersion: undefined,
-    CacheNodeTypeSpecificValues: undefined,
-    ChangeType: undefined,
-  };
+/**
+ * deserializeAws_queryCacheNodeTypeSpecificParameter
+ */
+const de_CacheNodeTypeSpecificParameter = (output: any, context: __SerdeContext): CacheNodeTypeSpecificParameter => {
+  const contents: any = {};
   if (output["ParameterName"] !== undefined) {
     contents.ParameterName = __expectString(output["ParameterName"]);
   }
@@ -11234,12 +9932,11 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
   }
   if (output.CacheNodeTypeSpecificValues === "") {
     contents.CacheNodeTypeSpecificValues = [];
-  }
-  if (
+  } else if (
     output["CacheNodeTypeSpecificValues"] !== undefined &&
     output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"] !== undefined
   ) {
-    contents.CacheNodeTypeSpecificValues = deserializeAws_queryCacheNodeTypeSpecificValueList(
+    contents.CacheNodeTypeSpecificValues = de_CacheNodeTypeSpecificValueList(
       __getArrayIfSingleItem(output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"]),
       context
     );
@@ -11250,28 +9947,25 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
   return contents;
 };
 
-const deserializeAws_queryCacheNodeTypeSpecificParametersList = (
+/**
+ * deserializeAws_queryCacheNodeTypeSpecificParametersList
+ */
+const de_CacheNodeTypeSpecificParametersList = (
   output: any,
   context: __SerdeContext
 ): CacheNodeTypeSpecificParameter[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheNodeTypeSpecificParameter(entry, context);
+      return de_CacheNodeTypeSpecificParameter(entry, context);
     });
 };
 
-const deserializeAws_queryCacheNodeTypeSpecificValue = (
-  output: any,
-  context: __SerdeContext
-): CacheNodeTypeSpecificValue => {
-  const contents: any = {
-    CacheNodeType: undefined,
-    Value: undefined,
-  };
+/**
+ * deserializeAws_queryCacheNodeTypeSpecificValue
+ */
+const de_CacheNodeTypeSpecificValue = (output: any, context: __SerdeContext): CacheNodeTypeSpecificValue => {
+  const contents: any = {};
   if (output["CacheNodeType"] !== undefined) {
     contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
@@ -11281,31 +9975,22 @@ const deserializeAws_queryCacheNodeTypeSpecificValue = (
   return contents;
 };
 
-const deserializeAws_queryCacheNodeTypeSpecificValueList = (
-  output: any,
-  context: __SerdeContext
-): CacheNodeTypeSpecificValue[] => {
+/**
+ * deserializeAws_queryCacheNodeTypeSpecificValueList
+ */
+const de_CacheNodeTypeSpecificValueList = (output: any, context: __SerdeContext): CacheNodeTypeSpecificValue[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheNodeTypeSpecificValue(entry, context);
+      return de_CacheNodeTypeSpecificValue(entry, context);
     });
 };
 
-const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __SerdeContext): CacheNodeUpdateStatus => {
-  const contents: any = {
-    CacheNodeId: undefined,
-    NodeUpdateStatus: undefined,
-    NodeDeletionDate: undefined,
-    NodeUpdateStartDate: undefined,
-    NodeUpdateEndDate: undefined,
-    NodeUpdateInitiatedBy: undefined,
-    NodeUpdateInitiatedDate: undefined,
-    NodeUpdateStatusModifiedDate: undefined,
-  };
+/**
+ * deserializeAws_queryCacheNodeUpdateStatus
+ */
+const de_CacheNodeUpdateStatus = (output: any, context: __SerdeContext): CacheNodeUpdateStatus => {
+  const contents: any = {};
   if (output["CacheNodeId"] !== undefined) {
     contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
@@ -11313,50 +9998,46 @@ const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __Serde
     contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
   }
   if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTime(output["NodeDeletionDate"]));
+    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeDeletionDate"]));
   }
   if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateStartDate"]));
+    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateStartDate"]));
   }
   if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateEndDate"]));
+    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateEndDate"]));
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
     contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
   }
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateInitiatedDate"]));
+    contents.NodeUpdateInitiatedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateInitiatedDate"])
+    );
   }
   if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
     contents.NodeUpdateStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTime(output["NodeUpdateStatusModifiedDate"])
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateStatusModifiedDate"])
     );
   }
   return contents;
 };
 
-const deserializeAws_queryCacheNodeUpdateStatusList = (
-  output: any,
-  context: __SerdeContext
-): CacheNodeUpdateStatus[] => {
+/**
+ * deserializeAws_queryCacheNodeUpdateStatusList
+ */
+const de_CacheNodeUpdateStatusList = (output: any, context: __SerdeContext): CacheNodeUpdateStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheNodeUpdateStatus(entry, context);
+      return de_CacheNodeUpdateStatus(entry, context);
     });
 };
 
-const deserializeAws_queryCacheParameterGroup = (output: any, context: __SerdeContext): CacheParameterGroup => {
-  const contents: any = {
-    CacheParameterGroupName: undefined,
-    CacheParameterGroupFamily: undefined,
-    Description: undefined,
-    IsGlobal: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_queryCacheParameterGroup
+ */
+const de_CacheParameterGroup = (output: any, context: __SerdeContext): CacheParameterGroup => {
+  const contents: any = {};
   if (output["CacheParameterGroupName"] !== undefined) {
     contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
@@ -11375,48 +10056,40 @@ const deserializeAws_queryCacheParameterGroup = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupAlreadyExistsFault = (
+/**
+ * deserializeAws_queryCacheParameterGroupAlreadyExistsFault
+ */
+const de_CacheParameterGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): CacheParameterGroupAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupDetails = (
-  output: any,
-  context: __SerdeContext
-): CacheParameterGroupDetails => {
-  const contents: any = {
-    Marker: undefined,
-    Parameters: undefined,
-    CacheNodeTypeSpecificParameters: undefined,
-  };
+/**
+ * deserializeAws_queryCacheParameterGroupDetails
+ */
+const de_CacheParameterGroupDetails = (output: any, context: __SerdeContext): CacheParameterGroupDetails => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
-  }
-  if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParametersList(
-      __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
-      context
-    );
+  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
+    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
   }
   if (output.CacheNodeTypeSpecificParameters === "") {
     contents.CacheNodeTypeSpecificParameters = [];
-  }
-  if (
+  } else if (
     output["CacheNodeTypeSpecificParameters"] !== undefined &&
     output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"] !== undefined
   ) {
-    contents.CacheNodeTypeSpecificParameters = deserializeAws_queryCacheNodeTypeSpecificParametersList(
+    contents.CacheNodeTypeSpecificParameters = de_CacheNodeTypeSpecificParametersList(
       __getArrayIfSingleItem(output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"]),
       context
     );
@@ -11424,75 +10097,71 @@ const deserializeAws_queryCacheParameterGroupDetails = (
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupList = (output: any, context: __SerdeContext): CacheParameterGroup[] => {
+/**
+ * deserializeAws_queryCacheParameterGroupList
+ */
+const de_CacheParameterGroupList = (output: any, context: __SerdeContext): CacheParameterGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheParameterGroup(entry, context);
+      return de_CacheParameterGroup(entry, context);
     });
 };
 
-const deserializeAws_queryCacheParameterGroupNameMessage = (
-  output: any,
-  context: __SerdeContext
-): CacheParameterGroupNameMessage => {
-  const contents: any = {
-    CacheParameterGroupName: undefined,
-  };
+/**
+ * deserializeAws_queryCacheParameterGroupNameMessage
+ */
+const de_CacheParameterGroupNameMessage = (output: any, context: __SerdeContext): CacheParameterGroupNameMessage => {
+  const contents: any = {};
   if (output["CacheParameterGroupName"] !== undefined) {
     contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupNotFoundFault = (
+/**
+ * deserializeAws_queryCacheParameterGroupNotFoundFault
+ */
+const de_CacheParameterGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): CacheParameterGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupQuotaExceededFault = (
+/**
+ * deserializeAws_queryCacheParameterGroupQuotaExceededFault
+ */
+const de_CacheParameterGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): CacheParameterGroupQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupsMessage = (
-  output: any,
-  context: __SerdeContext
-): CacheParameterGroupsMessage => {
-  const contents: any = {
-    Marker: undefined,
-    CacheParameterGroups: undefined,
-  };
+/**
+ * deserializeAws_queryCacheParameterGroupsMessage
+ */
+const de_CacheParameterGroupsMessage = (output: any, context: __SerdeContext): CacheParameterGroupsMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheParameterGroups === "") {
     contents.CacheParameterGroups = [];
-  }
-  if (
+  } else if (
     output["CacheParameterGroups"] !== undefined &&
     output["CacheParameterGroups"]["CacheParameterGroup"] !== undefined
   ) {
-    contents.CacheParameterGroups = deserializeAws_queryCacheParameterGroupList(
+    contents.CacheParameterGroups = de_CacheParameterGroupList(
       __getArrayIfSingleItem(output["CacheParameterGroups"]["CacheParameterGroup"]),
       context
     );
@@ -11500,15 +10169,11 @@ const deserializeAws_queryCacheParameterGroupsMessage = (
   return contents;
 };
 
-const deserializeAws_queryCacheParameterGroupStatus = (
-  output: any,
-  context: __SerdeContext
-): CacheParameterGroupStatus => {
-  const contents: any = {
-    CacheParameterGroupName: undefined,
-    ParameterApplyStatus: undefined,
-    CacheNodeIdsToReboot: undefined,
-  };
+/**
+ * deserializeAws_queryCacheParameterGroupStatus
+ */
+const de_CacheParameterGroupStatus = (output: any, context: __SerdeContext): CacheParameterGroupStatus => {
+  const contents: any = {};
   if (output["CacheParameterGroupName"] !== undefined) {
     contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
   }
@@ -11517,9 +10182,11 @@ const deserializeAws_queryCacheParameterGroupStatus = (
   }
   if (output.CacheNodeIdsToReboot === "") {
     contents.CacheNodeIdsToReboot = [];
-  }
-  if (output["CacheNodeIdsToReboot"] !== undefined && output["CacheNodeIdsToReboot"]["CacheNodeId"] !== undefined) {
-    contents.CacheNodeIdsToReboot = deserializeAws_queryCacheNodeIdsList(
+  } else if (
+    output["CacheNodeIdsToReboot"] !== undefined &&
+    output["CacheNodeIdsToReboot"]["CacheNodeId"] !== undefined
+  ) {
+    contents.CacheNodeIdsToReboot = de_CacheNodeIdsList(
       __getArrayIfSingleItem(output["CacheNodeIdsToReboot"]["CacheNodeId"]),
       context
     );
@@ -11527,14 +10194,11 @@ const deserializeAws_queryCacheParameterGroupStatus = (
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeContext): CacheSecurityGroup => {
-  const contents: any = {
-    OwnerId: undefined,
-    CacheSecurityGroupName: undefined,
-    Description: undefined,
-    EC2SecurityGroups: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSecurityGroup
+ */
+const de_CacheSecurityGroup = (output: any, context: __SerdeContext): CacheSecurityGroup => {
+  const contents: any = {};
   if (output["OwnerId"] !== undefined) {
     contents.OwnerId = __expectString(output["OwnerId"]);
   }
@@ -11546,9 +10210,11 @@ const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeCon
   }
   if (output.EC2SecurityGroups === "") {
     contents.EC2SecurityGroups = [];
-  }
-  if (output["EC2SecurityGroups"] !== undefined && output["EC2SecurityGroups"]["EC2SecurityGroup"] !== undefined) {
-    contents.EC2SecurityGroups = deserializeAws_queryEC2SecurityGroupList(
+  } else if (
+    output["EC2SecurityGroups"] !== undefined &&
+    output["EC2SecurityGroups"]["EC2SecurityGroup"] !== undefined
+  ) {
+    contents.EC2SecurityGroups = de_EC2SecurityGroupList(
       __getArrayIfSingleItem(output["EC2SecurityGroups"]["EC2SecurityGroup"]),
       context
     );
@@ -11559,27 +10225,25 @@ const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeCon
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroupAlreadyExistsFault = (
+/**
+ * deserializeAws_queryCacheSecurityGroupAlreadyExistsFault
+ */
+const de_CacheSecurityGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): CacheSecurityGroupAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroupMembership = (
-  output: any,
-  context: __SerdeContext
-): CacheSecurityGroupMembership => {
-  const contents: any = {
-    CacheSecurityGroupName: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSecurityGroupMembership
+ */
+const de_CacheSecurityGroupMembership = (output: any, context: __SerdeContext): CacheSecurityGroupMembership => {
+  const contents: any = {};
   if (output["CacheSecurityGroupName"] !== undefined) {
     contents.CacheSecurityGroupName = __expectString(output["CacheSecurityGroupName"]);
   }
@@ -11589,39 +10253,32 @@ const deserializeAws_queryCacheSecurityGroupMembership = (
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroupMembershipList = (
-  output: any,
-  context: __SerdeContext
-): CacheSecurityGroupMembership[] => {
+/**
+ * deserializeAws_queryCacheSecurityGroupMembershipList
+ */
+const de_CacheSecurityGroupMembershipList = (output: any, context: __SerdeContext): CacheSecurityGroupMembership[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheSecurityGroupMembership(entry, context);
+      return de_CacheSecurityGroupMembership(entry, context);
     });
 };
 
-const deserializeAws_queryCacheSecurityGroupMessage = (
-  output: any,
-  context: __SerdeContext
-): CacheSecurityGroupMessage => {
-  const contents: any = {
-    Marker: undefined,
-    CacheSecurityGroups: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSecurityGroupMessage
+ */
+const de_CacheSecurityGroupMessage = (output: any, context: __SerdeContext): CacheSecurityGroupMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheSecurityGroups === "") {
     contents.CacheSecurityGroups = [];
-  }
-  if (
+  } else if (
     output["CacheSecurityGroups"] !== undefined &&
     output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
   ) {
-    contents.CacheSecurityGroups = deserializeAws_queryCacheSecurityGroups(
+    contents.CacheSecurityGroups = de_CacheSecurityGroups(
       __getArrayIfSingleItem(output["CacheSecurityGroups"]["CacheSecurityGroup"]),
       context
     );
@@ -11629,51 +10286,47 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): CacheSecurityGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSecurityGroupNotFoundFault
+ */
+const de_CacheSecurityGroupNotFoundFault = (output: any, context: __SerdeContext): CacheSecurityGroupNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroupQuotaExceededFault = (
+/**
+ * deserializeAws_queryCacheSecurityGroupQuotaExceededFault
+ */
+const de_CacheSecurityGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): CacheSecurityGroupQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSecurityGroups = (output: any, context: __SerdeContext): CacheSecurityGroup[] => {
+/**
+ * deserializeAws_queryCacheSecurityGroups
+ */
+const de_CacheSecurityGroups = (output: any, context: __SerdeContext): CacheSecurityGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheSecurityGroup(entry, context);
+      return de_CacheSecurityGroup(entry, context);
     });
 };
 
-const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeContext): CacheSubnetGroup => {
-  const contents: any = {
-    CacheSubnetGroupName: undefined,
-    CacheSubnetGroupDescription: undefined,
-    VpcId: undefined,
-    Subnets: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSubnetGroup
+ */
+const de_CacheSubnetGroup = (output: any, context: __SerdeContext): CacheSubnetGroup => {
+  const contents: any = {};
   if (output["CacheSubnetGroupName"] !== undefined) {
     contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
   }
@@ -11685,52 +10338,63 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
   }
   if (output.Subnets === "") {
     contents.Subnets = [];
-  }
-  if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
-    contents.Subnets = deserializeAws_querySubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
+  } else if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
+    contents.Subnets = de_SubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
   }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = de_NetworkTypeList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
+  }
   return contents;
 };
 
-const deserializeAws_queryCacheSubnetGroupAlreadyExistsFault = (
+/**
+ * deserializeAws_queryCacheSubnetGroupAlreadyExistsFault
+ */
+const de_CacheSubnetGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): CacheSubnetGroupAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSubnetGroupInUse = (output: any, context: __SerdeContext): CacheSubnetGroupInUse => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSubnetGroupInUse
+ */
+const de_CacheSubnetGroupInUse = (output: any, context: __SerdeContext): CacheSubnetGroupInUse => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSubnetGroupMessage = (output: any, context: __SerdeContext): CacheSubnetGroupMessage => {
-  const contents: any = {
-    Marker: undefined,
-    CacheSubnetGroups: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSubnetGroupMessage
+ */
+const de_CacheSubnetGroupMessage = (output: any, context: __SerdeContext): CacheSubnetGroupMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.CacheSubnetGroups === "") {
     contents.CacheSubnetGroups = [];
-  }
-  if (output["CacheSubnetGroups"] !== undefined && output["CacheSubnetGroups"]["CacheSubnetGroup"] !== undefined) {
-    contents.CacheSubnetGroups = deserializeAws_queryCacheSubnetGroups(
+  } else if (
+    output["CacheSubnetGroups"] !== undefined &&
+    output["CacheSubnetGroups"]["CacheSubnetGroup"] !== undefined
+  ) {
+    contents.CacheSubnetGroups = de_CacheSubnetGroups(
       __getArrayIfSingleItem(output["CacheSubnetGroups"]["CacheSubnetGroup"]),
       context
     );
@@ -11738,343 +10402,323 @@ const deserializeAws_queryCacheSubnetGroupMessage = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryCacheSubnetGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): CacheSubnetGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSubnetGroupNotFoundFault
+ */
+const de_CacheSubnetGroupNotFoundFault = (output: any, context: __SerdeContext): CacheSubnetGroupNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSubnetGroupQuotaExceededFault = (
+/**
+ * deserializeAws_queryCacheSubnetGroupQuotaExceededFault
+ */
+const de_CacheSubnetGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): CacheSubnetGroupQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCacheSubnetGroups = (output: any, context: __SerdeContext): CacheSubnetGroup[] => {
+/**
+ * deserializeAws_queryCacheSubnetGroups
+ */
+const de_CacheSubnetGroups = (output: any, context: __SerdeContext): CacheSubnetGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryCacheSubnetGroup(entry, context);
+      return de_CacheSubnetGroup(entry, context);
     });
 };
 
-const deserializeAws_queryCacheSubnetQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): CacheSubnetQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryCacheSubnetQuotaExceededFault
+ */
+const de_CacheSubnetQuotaExceededFault = (output: any, context: __SerdeContext): CacheSubnetQuotaExceededFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCloudWatchLogsDestinationDetails = (
+/**
+ * deserializeAws_queryCloudWatchLogsDestinationDetails
+ */
+const de_CloudWatchLogsDestinationDetails = (
   output: any,
   context: __SerdeContext
 ): CloudWatchLogsDestinationDetails => {
-  const contents: any = {
-    LogGroup: undefined,
-  };
+  const contents: any = {};
   if (output["LogGroup"] !== undefined) {
     contents.LogGroup = __expectString(output["LogGroup"]);
   }
   return contents;
 };
 
-const deserializeAws_queryClusterIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryClusterIdList
+ */
+const de_ClusterIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryClusterQuotaForCustomerExceededFault = (
+/**
+ * deserializeAws_queryClusterQuotaForCustomerExceededFault
+ */
+const de_ClusterQuotaForCustomerExceededFault = (
   output: any,
   context: __SerdeContext
 ): ClusterQuotaForCustomerExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryCompleteMigrationResponse = (
-  output: any,
-  context: __SerdeContext
-): CompleteMigrationResponse => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryCompleteMigrationResponse
+ */
+const de_CompleteMigrationResponse = (output: any, context: __SerdeContext): CompleteMigrationResponse => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
-  const contents: any = {
-    Snapshot: undefined,
-  };
+/**
+ * deserializeAws_queryCopySnapshotResult
+ */
+const de_CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
+  const contents: any = {};
   if (output["Snapshot"] !== undefined) {
-    contents.Snapshot = deserializeAws_querySnapshot(output["Snapshot"], context);
+    contents.Snapshot = de_Snapshot(output["Snapshot"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateCacheClusterResult = (
-  output: any,
-  context: __SerdeContext
-): CreateCacheClusterResult => {
-  const contents: any = {
-    CacheCluster: undefined,
-  };
+/**
+ * deserializeAws_queryCreateCacheClusterResult
+ */
+const de_CreateCacheClusterResult = (output: any, context: __SerdeContext): CreateCacheClusterResult => {
+  const contents: any = {};
   if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = deserializeAws_queryCacheCluster(output["CacheCluster"], context);
+    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateCacheParameterGroupResult = (
-  output: any,
-  context: __SerdeContext
-): CreateCacheParameterGroupResult => {
-  const contents: any = {
-    CacheParameterGroup: undefined,
-  };
+/**
+ * deserializeAws_queryCreateCacheParameterGroupResult
+ */
+const de_CreateCacheParameterGroupResult = (output: any, context: __SerdeContext): CreateCacheParameterGroupResult => {
+  const contents: any = {};
   if (output["CacheParameterGroup"] !== undefined) {
-    contents.CacheParameterGroup = deserializeAws_queryCacheParameterGroup(output["CacheParameterGroup"], context);
+    contents.CacheParameterGroup = de_CacheParameterGroup(output["CacheParameterGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateCacheSecurityGroupResult = (
-  output: any,
-  context: __SerdeContext
-): CreateCacheSecurityGroupResult => {
-  const contents: any = {
-    CacheSecurityGroup: undefined,
-  };
+/**
+ * deserializeAws_queryCreateCacheSecurityGroupResult
+ */
+const de_CreateCacheSecurityGroupResult = (output: any, context: __SerdeContext): CreateCacheSecurityGroupResult => {
+  const contents: any = {};
   if (output["CacheSecurityGroup"] !== undefined) {
-    contents.CacheSecurityGroup = deserializeAws_queryCacheSecurityGroup(output["CacheSecurityGroup"], context);
+    contents.CacheSecurityGroup = de_CacheSecurityGroup(output["CacheSecurityGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateCacheSubnetGroupResult = (
-  output: any,
-  context: __SerdeContext
-): CreateCacheSubnetGroupResult => {
-  const contents: any = {
-    CacheSubnetGroup: undefined,
-  };
+/**
+ * deserializeAws_queryCreateCacheSubnetGroupResult
+ */
+const de_CreateCacheSubnetGroupResult = (output: any, context: __SerdeContext): CreateCacheSubnetGroupResult => {
+  const contents: any = {};
   if (output["CacheSubnetGroup"] !== undefined) {
-    contents.CacheSubnetGroup = deserializeAws_queryCacheSubnetGroup(output["CacheSubnetGroup"], context);
+    contents.CacheSubnetGroup = de_CacheSubnetGroup(output["CacheSubnetGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryCreateGlobalReplicationGroupResult
+ */
+const de_CreateGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreateGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateReplicationGroupResult = (
-  output: any,
-  context: __SerdeContext
-): CreateReplicationGroupResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryCreateReplicationGroupResult
+ */
+const de_CreateReplicationGroupResult = (output: any, context: __SerdeContext): CreateReplicationGroupResult => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryCreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
-  const contents: any = {
-    Snapshot: undefined,
-  };
+/**
+ * deserializeAws_queryCreateSnapshotResult
+ */
+const de_CreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
+  const contents: any = {};
   if (output["Snapshot"] !== undefined) {
-    contents.Snapshot = deserializeAws_querySnapshot(output["Snapshot"], context);
+    contents.Snapshot = de_Snapshot(output["Snapshot"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupResult
+ */
+const de_DecreaseNodeGroupsInGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): DecreaseNodeGroupsInGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDecreaseReplicaCountResult = (
-  output: any,
-  context: __SerdeContext
-): DecreaseReplicaCountResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryDecreaseReplicaCountResult
+ */
+const de_DecreaseReplicaCountResult = (output: any, context: __SerdeContext): DecreaseReplicaCountResult => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDefaultUserAssociatedToUserGroupFault = (
+/**
+ * deserializeAws_queryDefaultUserAssociatedToUserGroupFault
+ */
+const de_DefaultUserAssociatedToUserGroupFault = (
   output: any,
   context: __SerdeContext
 ): DefaultUserAssociatedToUserGroupFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDefaultUserRequired = (output: any, context: __SerdeContext): DefaultUserRequired => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryDefaultUserRequired
+ */
+const de_DefaultUserRequired = (output: any, context: __SerdeContext): DefaultUserRequired => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteCacheClusterResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteCacheClusterResult => {
-  const contents: any = {
-    CacheCluster: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteCacheClusterResult
+ */
+const de_DeleteCacheClusterResult = (output: any, context: __SerdeContext): DeleteCacheClusterResult => {
+  const contents: any = {};
   if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = deserializeAws_queryCacheCluster(output["CacheCluster"], context);
+    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryDeleteGlobalReplicationGroupResult
+ */
+const de_DeleteGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): DeleteGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteReplicationGroupResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteReplicationGroupResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteReplicationGroupResult
+ */
+const de_DeleteReplicationGroupResult = (output: any, context: __SerdeContext): DeleteReplicationGroupResult => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
-  const contents: any = {
-    Snapshot: undefined,
-  };
+/**
+ * deserializeAws_queryDeleteSnapshotResult
+ */
+const de_DeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
+  const contents: any = {};
   if (output["Snapshot"] !== undefined) {
-    contents.Snapshot = deserializeAws_querySnapshot(output["Snapshot"], context);
+    contents.Snapshot = de_Snapshot(output["Snapshot"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeEngineDefaultParametersResult = (
+/**
+ * deserializeAws_queryDescribeEngineDefaultParametersResult
+ */
+const de_DescribeEngineDefaultParametersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEngineDefaultParametersResult => {
-  const contents: any = {
-    EngineDefaults: undefined,
-  };
+  const contents: any = {};
   if (output["EngineDefaults"] !== undefined) {
-    contents.EngineDefaults = deserializeAws_queryEngineDefaults(output["EngineDefaults"], context);
+    contents.EngineDefaults = de_EngineDefaults(output["EngineDefaults"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeGlobalReplicationGroupsResult = (
+/**
+ * deserializeAws_queryDescribeGlobalReplicationGroupsResult
+ */
+const de_DescribeGlobalReplicationGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeGlobalReplicationGroupsResult => {
-  const contents: any = {
-    Marker: undefined,
-    GlobalReplicationGroups: undefined,
-  };
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.GlobalReplicationGroups === "") {
     contents.GlobalReplicationGroups = [];
-  }
-  if (
+  } else if (
     output["GlobalReplicationGroups"] !== undefined &&
     output["GlobalReplicationGroups"]["GlobalReplicationGroup"] !== undefined
   ) {
-    contents.GlobalReplicationGroups = deserializeAws_queryGlobalReplicationGroupList(
+    contents.GlobalReplicationGroups = de_GlobalReplicationGroupList(
       __getArrayIfSingleItem(output["GlobalReplicationGroups"]["GlobalReplicationGroup"]),
       context
     );
@@ -12082,45 +10726,31 @@ const deserializeAws_queryDescribeGlobalReplicationGroupsResult = (
   return contents;
 };
 
-const deserializeAws_queryDescribeSnapshotsListMessage = (
-  output: any,
-  context: __SerdeContext
-): DescribeSnapshotsListMessage => {
-  const contents: any = {
-    Marker: undefined,
-    Snapshots: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeSnapshotsListMessage
+ */
+const de_DescribeSnapshotsListMessage = (output: any, context: __SerdeContext): DescribeSnapshotsListMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Snapshots === "") {
     contents.Snapshots = [];
-  }
-  if (output["Snapshots"] !== undefined && output["Snapshots"]["Snapshot"] !== undefined) {
-    contents.Snapshots = deserializeAws_querySnapshotList(
-      __getArrayIfSingleItem(output["Snapshots"]["Snapshot"]),
-      context
-    );
+  } else if (output["Snapshots"] !== undefined && output["Snapshots"]["Snapshot"] !== undefined) {
+    contents.Snapshots = de_SnapshotList(__getArrayIfSingleItem(output["Snapshots"]["Snapshot"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryDescribeUserGroupsResult = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserGroupsResult => {
-  const contents: any = {
-    UserGroups: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeUserGroupsResult
+ */
+const de_DescribeUserGroupsResult = (output: any, context: __SerdeContext): DescribeUserGroupsResult => {
+  const contents: any = {};
   if (output.UserGroups === "") {
     contents.UserGroups = [];
-  }
-  if (output["UserGroups"] !== undefined && output["UserGroups"]["member"] !== undefined) {
-    contents.UserGroups = deserializeAws_queryUserGroupList(
-      __getArrayIfSingleItem(output["UserGroups"]["member"]),
-      context
-    );
+  } else if (output["UserGroups"] !== undefined && output["UserGroups"]["member"] !== undefined) {
+    contents.UserGroups = de_UserGroupList(__getArrayIfSingleItem(output["UserGroups"]["member"]), context);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
@@ -12128,16 +10758,15 @@ const deserializeAws_queryDescribeUserGroupsResult = (
   return contents;
 };
 
-const deserializeAws_queryDescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
-  const contents: any = {
-    Users: undefined,
-    Marker: undefined,
-  };
+/**
+ * deserializeAws_queryDescribeUsersResult
+ */
+const de_DescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
+  const contents: any = {};
   if (output.Users === "") {
     contents.Users = [];
-  }
-  if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
-    contents.Users = deserializeAws_queryUserList(__getArrayIfSingleItem(output["Users"]["member"]), context);
+  } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
+    contents.Users = de_UserList(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
@@ -12145,58 +10774,50 @@ const deserializeAws_queryDescribeUsersResult = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_queryDestinationDetails = (output: any, context: __SerdeContext): DestinationDetails => {
-  const contents: any = {
-    CloudWatchLogsDetails: undefined,
-    KinesisFirehoseDetails: undefined,
-  };
+/**
+ * deserializeAws_queryDestinationDetails
+ */
+const de_DestinationDetails = (output: any, context: __SerdeContext): DestinationDetails => {
+  const contents: any = {};
   if (output["CloudWatchLogsDetails"] !== undefined) {
-    contents.CloudWatchLogsDetails = deserializeAws_queryCloudWatchLogsDestinationDetails(
-      output["CloudWatchLogsDetails"],
-      context
-    );
+    contents.CloudWatchLogsDetails = de_CloudWatchLogsDestinationDetails(output["CloudWatchLogsDetails"], context);
   }
   if (output["KinesisFirehoseDetails"] !== undefined) {
-    contents.KinesisFirehoseDetails = deserializeAws_queryKinesisFirehoseDestinationDetails(
-      output["KinesisFirehoseDetails"],
-      context
-    );
+    contents.KinesisFirehoseDetails = de_KinesisFirehoseDestinationDetails(output["KinesisFirehoseDetails"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDisassociateGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryDisassociateGlobalReplicationGroupResult
+ */
+const de_DisassociateGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryDuplicateUserNameFault = (output: any, context: __SerdeContext): DuplicateUserNameFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryDuplicateUserNameFault
+ */
+const de_DuplicateUserNameFault = (output: any, context: __SerdeContext): DuplicateUserNameFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
-  const contents: any = {
-    Status: undefined,
-    EC2SecurityGroupName: undefined,
-    EC2SecurityGroupOwnerId: undefined,
-  };
+/**
+ * deserializeAws_queryEC2SecurityGroup
+ */
+const de_EC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
+  const contents: any = {};
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
@@ -12209,22 +10830,22 @@ const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeConte
   return contents;
 };
 
-const deserializeAws_queryEC2SecurityGroupList = (output: any, context: __SerdeContext): EC2SecurityGroup[] => {
+/**
+ * deserializeAws_queryEC2SecurityGroupList
+ */
+const de_EC2SecurityGroupList = (output: any, context: __SerdeContext): EC2SecurityGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryEC2SecurityGroup(entry, context);
+      return de_EC2SecurityGroup(entry, context);
     });
 };
 
-const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
-  const contents: any = {
-    Address: undefined,
-    Port: undefined,
-  };
+/**
+ * deserializeAws_queryEndpoint
+ */
+const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
+  const contents: any = {};
   if (output["Address"] !== undefined) {
     contents.Address = __expectString(output["Address"]);
   }
@@ -12234,13 +10855,11 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
   return contents;
 };
 
-const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
-  const contents: any = {
-    CacheParameterGroupFamily: undefined,
-    Marker: undefined,
-    Parameters: undefined,
-    CacheNodeTypeSpecificParameters: undefined,
-  };
+/**
+ * deserializeAws_queryEngineDefaults
+ */
+const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
+  const contents: any = {};
   if (output["CacheParameterGroupFamily"] !== undefined) {
     contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
   }
@@ -12249,21 +10868,16 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
-  }
-  if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParametersList(
-      __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
-      context
-    );
+  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
+    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
   }
   if (output.CacheNodeTypeSpecificParameters === "") {
     contents.CacheNodeTypeSpecificParameters = [];
-  }
-  if (
+  } else if (
     output["CacheNodeTypeSpecificParameters"] !== undefined &&
     output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"] !== undefined
   ) {
-    contents.CacheNodeTypeSpecificParameters = deserializeAws_queryCacheNodeTypeSpecificParametersList(
+    contents.CacheNodeTypeSpecificParameters = de_CacheNodeTypeSpecificParametersList(
       __getArrayIfSingleItem(output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"]),
       context
     );
@@ -12271,13 +10885,11 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
   return contents;
 };
 
-const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event => {
-  const contents: any = {
-    SourceIdentifier: undefined,
-    SourceType: undefined,
-    Message: undefined,
-    Date: undefined,
-  };
+/**
+ * deserializeAws_queryEvent
+ */
+const de_Event = (output: any, context: __SerdeContext): Event => {
+  const contents: any = {};
   if (output["SourceIdentifier"] !== undefined) {
     contents.SourceIdentifier = __expectString(output["SourceIdentifier"]);
   }
@@ -12288,60 +10900,57 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     contents.Message = __expectString(output["Message"]);
   }
   if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTime(output["Date"]));
+    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
   }
   return contents;
 };
 
-const deserializeAws_queryEventList = (output: any, context: __SerdeContext): Event[] => {
+/**
+ * deserializeAws_queryEventList
+ */
+const de_EventList = (output: any, context: __SerdeContext): Event[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryEvent(entry, context);
+      return de_Event(entry, context);
     });
 };
 
-const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
-  const contents: any = {
-    Marker: undefined,
-    Events: undefined,
-  };
+/**
+ * deserializeAws_queryEventsMessage
+ */
+const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Events === "") {
     contents.Events = [];
-  }
-  if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
-    contents.Events = deserializeAws_queryEventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
+  } else if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
+    contents.Events = de_EventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryFailoverGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryFailoverGlobalReplicationGroupResult
+ */
+const de_FailoverGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): FailoverGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryGlobalNodeGroup = (output: any, context: __SerdeContext): GlobalNodeGroup => {
-  const contents: any = {
-    GlobalNodeGroupId: undefined,
-    Slots: undefined,
-  };
+/**
+ * deserializeAws_queryGlobalNodeGroup
+ */
+const de_GlobalNodeGroup = (output: any, context: __SerdeContext): GlobalNodeGroup => {
+  const contents: any = {};
   if (output["GlobalNodeGroupId"] !== undefined) {
     contents.GlobalNodeGroupId = __expectString(output["GlobalNodeGroupId"]);
   }
@@ -12351,33 +10960,22 @@ const deserializeAws_queryGlobalNodeGroup = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_queryGlobalNodeGroupList = (output: any, context: __SerdeContext): GlobalNodeGroup[] => {
+/**
+ * deserializeAws_queryGlobalNodeGroupList
+ */
+const de_GlobalNodeGroupList = (output: any, context: __SerdeContext): GlobalNodeGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryGlobalNodeGroup(entry, context);
+      return de_GlobalNodeGroup(entry, context);
     });
 };
 
-const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __SerdeContext): GlobalReplicationGroup => {
-  const contents: any = {
-    GlobalReplicationGroupId: undefined,
-    GlobalReplicationGroupDescription: undefined,
-    Status: undefined,
-    CacheNodeType: undefined,
-    Engine: undefined,
-    EngineVersion: undefined,
-    Members: undefined,
-    ClusterEnabled: undefined,
-    GlobalNodeGroups: undefined,
-    AuthTokenEnabled: undefined,
-    TransitEncryptionEnabled: undefined,
-    AtRestEncryptionEnabled: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_queryGlobalReplicationGroup
+ */
+const de_GlobalReplicationGroup = (output: any, context: __SerdeContext): GlobalReplicationGroup => {
+  const contents: any = {};
   if (output["GlobalReplicationGroupId"] !== undefined) {
     contents.GlobalReplicationGroupId = __expectString(output["GlobalReplicationGroupId"]);
   }
@@ -12398,9 +10996,8 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
   }
   if (output.Members === "") {
     contents.Members = [];
-  }
-  if (output["Members"] !== undefined && output["Members"]["GlobalReplicationGroupMember"] !== undefined) {
-    contents.Members = deserializeAws_queryGlobalReplicationGroupMemberList(
+  } else if (output["Members"] !== undefined && output["Members"]["GlobalReplicationGroupMember"] !== undefined) {
+    contents.Members = de_GlobalReplicationGroupMemberList(
       __getArrayIfSingleItem(output["Members"]["GlobalReplicationGroupMember"]),
       context
     );
@@ -12410,9 +11007,8 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
   }
   if (output.GlobalNodeGroups === "") {
     contents.GlobalNodeGroups = [];
-  }
-  if (output["GlobalNodeGroups"] !== undefined && output["GlobalNodeGroups"]["GlobalNodeGroup"] !== undefined) {
-    contents.GlobalNodeGroups = deserializeAws_queryGlobalNodeGroupList(
+  } else if (output["GlobalNodeGroups"] !== undefined && output["GlobalNodeGroups"]["GlobalNodeGroup"] !== undefined) {
+    contents.GlobalNodeGroups = de_GlobalNodeGroupList(
       __getArrayIfSingleItem(output["GlobalNodeGroups"]["GlobalNodeGroup"]),
       context
     );
@@ -12432,27 +11028,25 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFault = (
+/**
+ * deserializeAws_queryGlobalReplicationGroupAlreadyExistsFault
+ */
+const de_GlobalReplicationGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): GlobalReplicationGroupAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryGlobalReplicationGroupInfo = (
-  output: any,
-  context: __SerdeContext
-): GlobalReplicationGroupInfo => {
-  const contents: any = {
-    GlobalReplicationGroupId: undefined,
-    GlobalReplicationGroupMemberRole: undefined,
-  };
+/**
+ * deserializeAws_queryGlobalReplicationGroupInfo
+ */
+const de_GlobalReplicationGroupInfo = (output: any, context: __SerdeContext): GlobalReplicationGroupInfo => {
+  const contents: any = {};
   if (output["GlobalReplicationGroupId"] !== undefined) {
     contents.GlobalReplicationGroupId = __expectString(output["GlobalReplicationGroupId"]);
   }
@@ -12462,31 +11056,22 @@ const deserializeAws_queryGlobalReplicationGroupInfo = (
   return contents;
 };
 
-const deserializeAws_queryGlobalReplicationGroupList = (
-  output: any,
-  context: __SerdeContext
-): GlobalReplicationGroup[] => {
+/**
+ * deserializeAws_queryGlobalReplicationGroupList
+ */
+const de_GlobalReplicationGroupList = (output: any, context: __SerdeContext): GlobalReplicationGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryGlobalReplicationGroup(entry, context);
+      return de_GlobalReplicationGroup(entry, context);
     });
 };
 
-const deserializeAws_queryGlobalReplicationGroupMember = (
-  output: any,
-  context: __SerdeContext
-): GlobalReplicationGroupMember => {
-  const contents: any = {
-    ReplicationGroupId: undefined,
-    ReplicationGroupRegion: undefined,
-    Role: undefined,
-    AutomaticFailover: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_queryGlobalReplicationGroupMember
+ */
+const de_GlobalReplicationGroupMember = (output: any, context: __SerdeContext): GlobalReplicationGroupMember => {
+  const contents: any = {};
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
@@ -12505,270 +11090,258 @@ const deserializeAws_queryGlobalReplicationGroupMember = (
   return contents;
 };
 
-const deserializeAws_queryGlobalReplicationGroupMemberList = (
-  output: any,
-  context: __SerdeContext
-): GlobalReplicationGroupMember[] => {
+/**
+ * deserializeAws_queryGlobalReplicationGroupMemberList
+ */
+const de_GlobalReplicationGroupMemberList = (output: any, context: __SerdeContext): GlobalReplicationGroupMember[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryGlobalReplicationGroupMember(entry, context);
+      return de_GlobalReplicationGroupMember(entry, context);
     });
 };
 
-const deserializeAws_queryGlobalReplicationGroupNotFoundFault = (
+/**
+ * deserializeAws_queryGlobalReplicationGroupNotFoundFault
+ */
+const de_GlobalReplicationGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): GlobalReplicationGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupResult
+ */
+const de_IncreaseNodeGroupsInGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): IncreaseNodeGroupsInGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryIncreaseReplicaCountResult = (
-  output: any,
-  context: __SerdeContext
-): IncreaseReplicaCountResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryIncreaseReplicaCountResult
+ */
+const de_IncreaseReplicaCountResult = (output: any, context: __SerdeContext): IncreaseReplicaCountResult => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryInsufficientCacheClusterCapacityFault = (
+/**
+ * deserializeAws_queryInsufficientCacheClusterCapacityFault
+ */
+const de_InsufficientCacheClusterCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientCacheClusterCapacityFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidARNFault
+ */
+const de_InvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidCacheClusterStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidCacheClusterStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidCacheClusterStateFault
+ */
+const de_InvalidCacheClusterStateFault = (output: any, context: __SerdeContext): InvalidCacheClusterStateFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidCacheParameterGroupStateFault = (
+/**
+ * deserializeAws_queryInvalidCacheParameterGroupStateFault
+ */
+const de_InvalidCacheParameterGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidCacheParameterGroupStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidCacheSecurityGroupStateFault = (
+/**
+ * deserializeAws_queryInvalidCacheSecurityGroupStateFault
+ */
+const de_InvalidCacheSecurityGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidCacheSecurityGroupStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidGlobalReplicationGroupStateFault = (
+/**
+ * deserializeAws_queryInvalidGlobalReplicationGroupStateFault
+ */
+const de_InvalidGlobalReplicationGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidGlobalReplicationGroupStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidKMSKeyFault = (output: any, context: __SerdeContext): InvalidKMSKeyFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidKMSKeyFault
+ */
+const de_InvalidKMSKeyFault = (output: any, context: __SerdeContext): InvalidKMSKeyFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidParameterCombinationException = (
+/**
+ * deserializeAws_queryInvalidParameterCombinationException
+ */
+const de_InvalidParameterCombinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidParameterValueException = (
-  output: any,
-  context: __SerdeContext
-): InvalidParameterValueException => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidParameterValueException
+ */
+const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidReplicationGroupStateFault = (
+/**
+ * deserializeAws_queryInvalidReplicationGroupStateFault
+ */
+const de_InvalidReplicationGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidReplicationGroupStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidSnapshotStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidSnapshotStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidSnapshotStateFault
+ */
+const de_InvalidSnapshotStateFault = (output: any, context: __SerdeContext): InvalidSnapshotStateFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidSubnet
+ */
+const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidUserGroupStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidUserGroupStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidUserGroupStateFault
+ */
+const de_InvalidUserGroupStateFault = (output: any, context: __SerdeContext): InvalidUserGroupStateFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidUserStateFault = (output: any, context: __SerdeContext): InvalidUserStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidUserStateFault
+ */
+const de_InvalidUserStateFault = (output: any, context: __SerdeContext): InvalidUserStateFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryInvalidVPCNetworkStateFault = (
-  output: any,
-  context: __SerdeContext
-): InvalidVPCNetworkStateFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryInvalidVPCNetworkStateFault
+ */
+const de_InvalidVPCNetworkStateFault = (output: any, context: __SerdeContext): InvalidVPCNetworkStateFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryKinesisFirehoseDestinationDetails = (
+/**
+ * deserializeAws_queryKinesisFirehoseDestinationDetails
+ */
+const de_KinesisFirehoseDestinationDetails = (
   output: any,
   context: __SerdeContext
 ): KinesisFirehoseDestinationDetails => {
-  const contents: any = {
-    DeliveryStream: undefined,
-  };
+  const contents: any = {};
   if (output["DeliveryStream"] !== undefined) {
     contents.DeliveryStream = __expectString(output["DeliveryStream"]);
   }
   return contents;
 };
 
-const deserializeAws_queryLogDeliveryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LogDeliveryConfiguration => {
-  const contents: any = {
-    LogType: undefined,
-    DestinationType: undefined,
-    DestinationDetails: undefined,
-    LogFormat: undefined,
-    Status: undefined,
-    Message: undefined,
-  };
+/**
+ * deserializeAws_queryLogDeliveryConfiguration
+ */
+const de_LogDeliveryConfiguration = (output: any, context: __SerdeContext): LogDeliveryConfiguration => {
+  const contents: any = {};
   if (output["LogType"] !== undefined) {
     contents.LogType = __expectString(output["LogType"]);
   }
@@ -12776,7 +11349,7 @@ const deserializeAws_queryLogDeliveryConfiguration = (
     contents.DestinationType = __expectString(output["DestinationType"]);
   }
   if (output["DestinationDetails"] !== undefined) {
-    contents.DestinationDetails = deserializeAws_queryDestinationDetails(output["DestinationDetails"], context);
+    contents.DestinationDetails = de_DestinationDetails(output["DestinationDetails"], context);
   }
   if (output["LogFormat"] !== undefined) {
     contents.LogFormat = __expectString(output["LogFormat"]);
@@ -12790,97 +11363,94 @@ const deserializeAws_queryLogDeliveryConfiguration = (
   return contents;
 };
 
-const deserializeAws_queryLogDeliveryConfigurationList = (
-  output: any,
-  context: __SerdeContext
-): LogDeliveryConfiguration[] => {
+/**
+ * deserializeAws_queryLogDeliveryConfigurationList
+ */
+const de_LogDeliveryConfigurationList = (output: any, context: __SerdeContext): LogDeliveryConfiguration[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryLogDeliveryConfiguration(entry, context);
+      return de_LogDeliveryConfiguration(entry, context);
     });
 };
 
-const deserializeAws_queryModifyCacheClusterResult = (
-  output: any,
-  context: __SerdeContext
-): ModifyCacheClusterResult => {
-  const contents: any = {
-    CacheCluster: undefined,
-  };
+/**
+ * deserializeAws_queryModifyCacheClusterResult
+ */
+const de_ModifyCacheClusterResult = (output: any, context: __SerdeContext): ModifyCacheClusterResult => {
+  const contents: any = {};
   if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = deserializeAws_queryCacheCluster(output["CacheCluster"], context);
+    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryModifyCacheSubnetGroupResult = (
-  output: any,
-  context: __SerdeContext
-): ModifyCacheSubnetGroupResult => {
-  const contents: any = {
-    CacheSubnetGroup: undefined,
-  };
+/**
+ * deserializeAws_queryModifyCacheSubnetGroupResult
+ */
+const de_ModifyCacheSubnetGroupResult = (output: any, context: __SerdeContext): ModifyCacheSubnetGroupResult => {
+  const contents: any = {};
   if (output["CacheSubnetGroup"] !== undefined) {
-    contents.CacheSubnetGroup = deserializeAws_queryCacheSubnetGroup(output["CacheSubnetGroup"], context);
+    contents.CacheSubnetGroup = de_CacheSubnetGroup(output["CacheSubnetGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryModifyGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryModifyGlobalReplicationGroupResult
+ */
+const de_ModifyGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): ModifyGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryModifyReplicationGroupResult = (
-  output: any,
-  context: __SerdeContext
-): ModifyReplicationGroupResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryModifyReplicationGroupResult
+ */
+const de_ModifyReplicationGroupResult = (output: any, context: __SerdeContext): ModifyReplicationGroupResult => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
+/**
+ * deserializeAws_queryModifyReplicationGroupShardConfigurationResult
+ */
+const de_ModifyReplicationGroupShardConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyReplicationGroupShardConfigurationResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
-  const contents: any = {
-    NodeGroupId: undefined,
-    Status: undefined,
-    PrimaryEndpoint: undefined,
-    ReaderEndpoint: undefined,
-    Slots: undefined,
-    NodeGroupMembers: undefined,
-  };
+/**
+ * deserializeAws_queryNetworkTypeList
+ */
+const de_NetworkTypeList = (output: any, context: __SerdeContext): (NetworkType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_queryNodeGroup
+ */
+const de_NodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
+  const contents: any = {};
   if (output["NodeGroupId"] !== undefined) {
     contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
@@ -12888,19 +11458,18 @@ const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): No
     contents.Status = __expectString(output["Status"]);
   }
   if (output["PrimaryEndpoint"] !== undefined) {
-    contents.PrimaryEndpoint = deserializeAws_queryEndpoint(output["PrimaryEndpoint"], context);
+    contents.PrimaryEndpoint = de_Endpoint(output["PrimaryEndpoint"], context);
   }
   if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = deserializeAws_queryEndpoint(output["ReaderEndpoint"], context);
+    contents.ReaderEndpoint = de_Endpoint(output["ReaderEndpoint"], context);
   }
   if (output["Slots"] !== undefined) {
     contents.Slots = __expectString(output["Slots"]);
   }
   if (output.NodeGroupMembers === "") {
     contents.NodeGroupMembers = [];
-  }
-  if (output["NodeGroupMembers"] !== undefined && output["NodeGroupMembers"]["NodeGroupMember"] !== undefined) {
-    contents.NodeGroupMembers = deserializeAws_queryNodeGroupMemberList(
+  } else if (output["NodeGroupMembers"] !== undefined && output["NodeGroupMembers"]["NodeGroupMember"] !== undefined) {
+    contents.NodeGroupMembers = de_NodeGroupMemberList(
       __getArrayIfSingleItem(output["NodeGroupMembers"]["NodeGroupMember"]),
       context
     );
@@ -12908,16 +11477,11 @@ const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): No
   return contents;
 };
 
-const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __SerdeContext): NodeGroupConfiguration => {
-  const contents: any = {
-    NodeGroupId: undefined,
-    Slots: undefined,
-    ReplicaCount: undefined,
-    PrimaryAvailabilityZone: undefined,
-    ReplicaAvailabilityZones: undefined,
-    PrimaryOutpostArn: undefined,
-    ReplicaOutpostArns: undefined,
-  };
+/**
+ * deserializeAws_queryNodeGroupConfiguration
+ */
+const de_NodeGroupConfiguration = (output: any, context: __SerdeContext): NodeGroupConfiguration => {
+  const contents: any = {};
   if (output["NodeGroupId"] !== undefined) {
     contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
@@ -12932,12 +11496,11 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
   }
   if (output.ReplicaAvailabilityZones === "") {
     contents.ReplicaAvailabilityZones = [];
-  }
-  if (
+  } else if (
     output["ReplicaAvailabilityZones"] !== undefined &&
     output["ReplicaAvailabilityZones"]["AvailabilityZone"] !== undefined
   ) {
-    contents.ReplicaAvailabilityZones = deserializeAws_queryAvailabilityZonesList(
+    contents.ReplicaAvailabilityZones = de_AvailabilityZonesList(
       __getArrayIfSingleItem(output["ReplicaAvailabilityZones"]["AvailabilityZone"]),
       context
     );
@@ -12947,9 +11510,8 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
   }
   if (output.ReplicaOutpostArns === "") {
     contents.ReplicaOutpostArns = [];
-  }
-  if (output["ReplicaOutpostArns"] !== undefined && output["ReplicaOutpostArns"]["OutpostArn"] !== undefined) {
-    contents.ReplicaOutpostArns = deserializeAws_queryOutpostArnsList(
+  } else if (output["ReplicaOutpostArns"] !== undefined && output["ReplicaOutpostArns"]["OutpostArn"] !== undefined) {
+    contents.ReplicaOutpostArns = de_OutpostArnsList(
       __getArrayIfSingleItem(output["ReplicaOutpostArns"]["OutpostArn"]),
       context
     );
@@ -12957,26 +11519,22 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryNodeGroupList = (output: any, context: __SerdeContext): NodeGroup[] => {
+/**
+ * deserializeAws_queryNodeGroupList
+ */
+const de_NodeGroupList = (output: any, context: __SerdeContext): NodeGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryNodeGroup(entry, context);
+      return de_NodeGroup(entry, context);
     });
 };
 
-const deserializeAws_queryNodeGroupMember = (output: any, context: __SerdeContext): NodeGroupMember => {
-  const contents: any = {
-    CacheClusterId: undefined,
-    CacheNodeId: undefined,
-    ReadEndpoint: undefined,
-    PreferredAvailabilityZone: undefined,
-    PreferredOutpostArn: undefined,
-    CurrentRole: undefined,
-  };
+/**
+ * deserializeAws_queryNodeGroupMember
+ */
+const de_NodeGroupMember = (output: any, context: __SerdeContext): NodeGroupMember => {
+  const contents: any = {};
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
@@ -12984,7 +11542,7 @@ const deserializeAws_queryNodeGroupMember = (output: any, context: __SerdeContex
     contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["ReadEndpoint"] !== undefined) {
-    contents.ReadEndpoint = deserializeAws_queryEndpoint(output["ReadEndpoint"], context);
+    contents.ReadEndpoint = de_Endpoint(output["ReadEndpoint"], context);
   }
   if (output["PreferredAvailabilityZone"] !== undefined) {
     contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
@@ -12998,32 +11556,22 @@ const deserializeAws_queryNodeGroupMember = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_queryNodeGroupMemberList = (output: any, context: __SerdeContext): NodeGroupMember[] => {
+/**
+ * deserializeAws_queryNodeGroupMemberList
+ */
+const de_NodeGroupMemberList = (output: any, context: __SerdeContext): NodeGroupMember[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryNodeGroupMember(entry, context);
+      return de_NodeGroupMember(entry, context);
     });
 };
 
-const deserializeAws_queryNodeGroupMemberUpdateStatus = (
-  output: any,
-  context: __SerdeContext
-): NodeGroupMemberUpdateStatus => {
-  const contents: any = {
-    CacheClusterId: undefined,
-    CacheNodeId: undefined,
-    NodeUpdateStatus: undefined,
-    NodeDeletionDate: undefined,
-    NodeUpdateStartDate: undefined,
-    NodeUpdateEndDate: undefined,
-    NodeUpdateInitiatedBy: undefined,
-    NodeUpdateInitiatedDate: undefined,
-    NodeUpdateStatusModifiedDate: undefined,
-  };
+/**
+ * deserializeAws_queryNodeGroupMemberUpdateStatus
+ */
+const de_NodeGroupMemberUpdateStatus = (output: any, context: __SerdeContext): NodeGroupMemberUpdateStatus => {
+  const contents: any = {};
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
@@ -13034,81 +11582,81 @@ const deserializeAws_queryNodeGroupMemberUpdateStatus = (
     contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
   }
   if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTime(output["NodeDeletionDate"]));
+    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeDeletionDate"]));
   }
   if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateStartDate"]));
+    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateStartDate"]));
   }
   if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateEndDate"]));
+    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateEndDate"]));
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
     contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
   }
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = __expectNonNull(__parseRfc3339DateTime(output["NodeUpdateInitiatedDate"]));
+    contents.NodeUpdateInitiatedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateInitiatedDate"])
+    );
   }
   if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
     contents.NodeUpdateStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTime(output["NodeUpdateStatusModifiedDate"])
+      __parseRfc3339DateTimeWithOffset(output["NodeUpdateStatusModifiedDate"])
     );
   }
   return contents;
 };
 
-const deserializeAws_queryNodeGroupMemberUpdateStatusList = (
-  output: any,
-  context: __SerdeContext
-): NodeGroupMemberUpdateStatus[] => {
+/**
+ * deserializeAws_queryNodeGroupMemberUpdateStatusList
+ */
+const de_NodeGroupMemberUpdateStatusList = (output: any, context: __SerdeContext): NodeGroupMemberUpdateStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryNodeGroupMemberUpdateStatus(entry, context);
+      return de_NodeGroupMemberUpdateStatus(entry, context);
     });
 };
 
-const deserializeAws_queryNodeGroupNotFoundFault = (output: any, context: __SerdeContext): NodeGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryNodeGroupNotFoundFault
+ */
+const de_NodeGroupNotFoundFault = (output: any, context: __SerdeContext): NodeGroupNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault = (
+/**
+ * deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault
+ */
+const de_NodeGroupsPerReplicationGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): NodeGroupsPerReplicationGroupQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryNodeGroupUpdateStatus = (output: any, context: __SerdeContext): NodeGroupUpdateStatus => {
-  const contents: any = {
-    NodeGroupId: undefined,
-    NodeGroupMemberUpdateStatus: undefined,
-  };
+/**
+ * deserializeAws_queryNodeGroupUpdateStatus
+ */
+const de_NodeGroupUpdateStatus = (output: any, context: __SerdeContext): NodeGroupUpdateStatus => {
+  const contents: any = {};
   if (output["NodeGroupId"] !== undefined) {
     contents.NodeGroupId = __expectString(output["NodeGroupId"]);
   }
   if (output.NodeGroupMemberUpdateStatus === "") {
     contents.NodeGroupMemberUpdateStatus = [];
-  }
-  if (
+  } else if (
     output["NodeGroupMemberUpdateStatus"] !== undefined &&
     output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"] !== undefined
   ) {
-    contents.NodeGroupMemberUpdateStatus = deserializeAws_queryNodeGroupMemberUpdateStatusList(
+    contents.NodeGroupMemberUpdateStatus = de_NodeGroupMemberUpdateStatusList(
       __getArrayIfSingleItem(output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"]),
       context
     );
@@ -13116,56 +11664,50 @@ const deserializeAws_queryNodeGroupUpdateStatus = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryNodeGroupUpdateStatusList = (
-  output: any,
-  context: __SerdeContext
-): NodeGroupUpdateStatus[] => {
+/**
+ * deserializeAws_queryNodeGroupUpdateStatusList
+ */
+const de_NodeGroupUpdateStatusList = (output: any, context: __SerdeContext): NodeGroupUpdateStatus[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryNodeGroupUpdateStatus(entry, context);
+      return de_NodeGroupUpdateStatus(entry, context);
     });
 };
 
-const deserializeAws_queryNodeQuotaForClusterExceededFault = (
+/**
+ * deserializeAws_queryNodeQuotaForClusterExceededFault
+ */
+const de_NodeQuotaForClusterExceededFault = (
   output: any,
   context: __SerdeContext
 ): NodeQuotaForClusterExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryNodeQuotaForCustomerExceededFault = (
+/**
+ * deserializeAws_queryNodeQuotaForCustomerExceededFault
+ */
+const de_NodeQuotaForCustomerExceededFault = (
   output: any,
   context: __SerdeContext
 ): NodeQuotaForCustomerExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext): NodeSnapshot => {
-  const contents: any = {
-    CacheClusterId: undefined,
-    NodeGroupId: undefined,
-    CacheNodeId: undefined,
-    NodeGroupConfiguration: undefined,
-    CacheSize: undefined,
-    CacheNodeCreateTime: undefined,
-    SnapshotCreateTime: undefined,
-  };
+/**
+ * deserializeAws_queryNodeSnapshot
+ */
+const de_NodeSnapshot = (output: any, context: __SerdeContext): NodeSnapshot => {
+  const contents: any = {};
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
   }
@@ -13176,63 +11718,58 @@ const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext):
     contents.CacheNodeId = __expectString(output["CacheNodeId"]);
   }
   if (output["NodeGroupConfiguration"] !== undefined) {
-    contents.NodeGroupConfiguration = deserializeAws_queryNodeGroupConfiguration(
-      output["NodeGroupConfiguration"],
-      context
-    );
+    contents.NodeGroupConfiguration = de_NodeGroupConfiguration(output["NodeGroupConfiguration"], context);
   }
   if (output["CacheSize"] !== undefined) {
     contents.CacheSize = __expectString(output["CacheSize"]);
   }
   if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheNodeCreateTime"]));
+    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CacheNodeCreateTime"]));
   }
   if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTime(output["SnapshotCreateTime"]));
+    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
   }
   return contents;
 };
 
-const deserializeAws_queryNodeSnapshotList = (output: any, context: __SerdeContext): NodeSnapshot[] => {
+/**
+ * deserializeAws_queryNodeSnapshotList
+ */
+const de_NodeSnapshotList = (output: any, context: __SerdeContext): NodeSnapshot[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryNodeSnapshot(entry, context);
+      return de_NodeSnapshot(entry, context);
     });
 };
 
-const deserializeAws_queryNodeTypeList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryNodeTypeList
+ */
+const de_NodeTypeList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryNoOperationFault = (output: any, context: __SerdeContext): NoOperationFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryNoOperationFault
+ */
+const de_NoOperationFault = (output: any, context: __SerdeContext): NoOperationFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryNotificationConfiguration = (
-  output: any,
-  context: __SerdeContext
-): NotificationConfiguration => {
-  const contents: any = {
-    TopicArn: undefined,
-    TopicStatus: undefined,
-  };
+/**
+ * deserializeAws_queryNotificationConfiguration
+ */
+const de_NotificationConfiguration = (output: any, context: __SerdeContext): NotificationConfiguration => {
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -13242,29 +11779,22 @@ const deserializeAws_queryNotificationConfiguration = (
   return contents;
 };
 
-const deserializeAws_queryOutpostArnsList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryOutpostArnsList
+ */
+const de_OutpostArnsList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
-  const contents: any = {
-    ParameterName: undefined,
-    ParameterValue: undefined,
-    Description: undefined,
-    Source: undefined,
-    DataType: undefined,
-    AllowedValues: undefined,
-    IsModifiable: undefined,
-    MinimumEngineVersion: undefined,
-    ChangeType: undefined,
-  };
+/**
+ * deserializeAws_queryParameter
+ */
+const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
+  const contents: any = {};
   if (output["ParameterName"] !== undefined) {
     contents.ParameterName = __expectString(output["ParameterName"]);
   }
@@ -13295,27 +11825,22 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
   return contents;
 };
 
-const deserializeAws_queryParametersList = (output: any, context: __SerdeContext): Parameter[] => {
+/**
+ * deserializeAws_queryParametersList
+ */
+const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryParameter(entry, context);
+      return de_Parameter(entry, context);
     });
 };
 
-const deserializeAws_queryPendingLogDeliveryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): PendingLogDeliveryConfiguration => {
-  const contents: any = {
-    LogType: undefined,
-    DestinationType: undefined,
-    DestinationDetails: undefined,
-    LogFormat: undefined,
-  };
+/**
+ * deserializeAws_queryPendingLogDeliveryConfiguration
+ */
+const de_PendingLogDeliveryConfiguration = (output: any, context: __SerdeContext): PendingLogDeliveryConfiguration => {
+  const contents: any = {};
   if (output["LogType"] !== undefined) {
     contents.LogType = __expectString(output["LogType"]);
   }
@@ -13323,7 +11848,7 @@ const deserializeAws_queryPendingLogDeliveryConfiguration = (
     contents.DestinationType = __expectString(output["DestinationType"]);
   }
   if (output["DestinationDetails"] !== undefined) {
-    contents.DestinationDetails = deserializeAws_queryDestinationDetails(output["DestinationDetails"], context);
+    contents.DestinationDetails = de_DestinationDetails(output["DestinationDetails"], context);
   }
   if (output["LogFormat"] !== undefined) {
     contents.LogFormat = __expectString(output["LogFormat"]);
@@ -13331,37 +11856,35 @@ const deserializeAws_queryPendingLogDeliveryConfiguration = (
   return contents;
 };
 
-const deserializeAws_queryPendingLogDeliveryConfigurationList = (
+/**
+ * deserializeAws_queryPendingLogDeliveryConfigurationList
+ */
+const de_PendingLogDeliveryConfigurationList = (
   output: any,
   context: __SerdeContext
 ): PendingLogDeliveryConfiguration[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryPendingLogDeliveryConfiguration(entry, context);
+      return de_PendingLogDeliveryConfiguration(entry, context);
     });
 };
 
-const deserializeAws_queryPendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
-  const contents: any = {
-    NumCacheNodes: undefined,
-    CacheNodeIdsToRemove: undefined,
-    EngineVersion: undefined,
-    CacheNodeType: undefined,
-    AuthTokenStatus: undefined,
-    LogDeliveryConfigurations: undefined,
-  };
+/**
+ * deserializeAws_queryPendingModifiedValues
+ */
+const de_PendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
+  const contents: any = {};
   if (output["NumCacheNodes"] !== undefined) {
     contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
   }
   if (output.CacheNodeIdsToRemove === "") {
     contents.CacheNodeIdsToRemove = [];
-  }
-  if (output["CacheNodeIdsToRemove"] !== undefined && output["CacheNodeIdsToRemove"]["CacheNodeId"] !== undefined) {
-    contents.CacheNodeIdsToRemove = deserializeAws_queryCacheNodeIdsList(
+  } else if (
+    output["CacheNodeIdsToRemove"] !== undefined &&
+    output["CacheNodeIdsToRemove"]["CacheNodeId"] !== undefined
+  ) {
+    contents.CacheNodeIdsToRemove = de_CacheNodeIdsList(
       __getArrayIfSingleItem(output["CacheNodeIdsToRemove"]["CacheNodeId"]),
       context
     );
@@ -13377,26 +11900,29 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
   }
   if (output.LogDeliveryConfigurations === "") {
     contents.LogDeliveryConfigurations = [];
-  }
-  if (
+  } else if (
     output["LogDeliveryConfigurations"] !== undefined &&
     output["LogDeliveryConfigurations"]["member"] !== undefined
   ) {
-    contents.LogDeliveryConfigurations = deserializeAws_queryPendingLogDeliveryConfigurationList(
+    contents.LogDeliveryConfigurations = de_PendingLogDeliveryConfigurationList(
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["member"]),
       context
     );
   }
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  }
   return contents;
 };
 
-const deserializeAws_queryProcessedUpdateAction = (output: any, context: __SerdeContext): ProcessedUpdateAction => {
-  const contents: any = {
-    ReplicationGroupId: undefined,
-    CacheClusterId: undefined,
-    ServiceUpdateName: undefined,
-    UpdateActionStatus: undefined,
-  };
+/**
+ * deserializeAws_queryProcessedUpdateAction
+ */
+const de_ProcessedUpdateAction = (output: any, context: __SerdeContext): ProcessedUpdateAction => {
+  const contents: any = {};
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
@@ -13412,67 +11938,61 @@ const deserializeAws_queryProcessedUpdateAction = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_queryProcessedUpdateActionList = (
-  output: any,
-  context: __SerdeContext
-): ProcessedUpdateAction[] => {
+/**
+ * deserializeAws_queryProcessedUpdateActionList
+ */
+const de_ProcessedUpdateActionList = (output: any, context: __SerdeContext): ProcessedUpdateAction[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryProcessedUpdateAction(entry, context);
+      return de_ProcessedUpdateAction(entry, context);
     });
 };
 
-const deserializeAws_queryPurchaseReservedCacheNodesOfferingResult = (
+/**
+ * deserializeAws_queryPurchaseReservedCacheNodesOfferingResult
+ */
+const de_PurchaseReservedCacheNodesOfferingResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseReservedCacheNodesOfferingResult => {
-  const contents: any = {
-    ReservedCacheNode: undefined,
-  };
+  const contents: any = {};
   if (output["ReservedCacheNode"] !== undefined) {
-    contents.ReservedCacheNode = deserializeAws_queryReservedCacheNode(output["ReservedCacheNode"], context);
+    contents.ReservedCacheNode = de_ReservedCacheNode(output["ReservedCacheNode"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupResult = (
+/**
+ * deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupResult
+ */
+const de_RebalanceSlotsInGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
 ): RebalanceSlotsInGlobalReplicationGroupResult => {
-  const contents: any = {
-    GlobalReplicationGroup: undefined,
-  };
+  const contents: any = {};
   if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = deserializeAws_queryGlobalReplicationGroup(
-      output["GlobalReplicationGroup"],
-      context
-    );
+    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryRebootCacheClusterResult = (
-  output: any,
-  context: __SerdeContext
-): RebootCacheClusterResult => {
-  const contents: any = {
-    CacheCluster: undefined,
-  };
+/**
+ * deserializeAws_queryRebootCacheClusterResult
+ */
+const de_RebootCacheClusterResult = (output: any, context: __SerdeContext): RebootCacheClusterResult => {
+  const contents: any = {};
   if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = deserializeAws_queryCacheCluster(output["CacheCluster"], context);
+    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
-  const contents: any = {
-    RecurringChargeAmount: undefined,
-    RecurringChargeFrequency: undefined,
-  };
+/**
+ * deserializeAws_queryRecurringCharge
+ */
+const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
+  const contents: any = {};
   if (output["RecurringChargeAmount"] !== undefined) {
     contents.RecurringChargeAmount = __strictParseFloat(output["RecurringChargeAmount"]) as number;
   }
@@ -13482,45 +12002,22 @@ const deserializeAws_queryRecurringCharge = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_queryRecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
+/**
+ * deserializeAws_queryRecurringChargeList
+ */
+const de_RecurringChargeList = (output: any, context: __SerdeContext): RecurringCharge[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryRecurringCharge(entry, context);
+      return de_RecurringCharge(entry, context);
     });
 };
 
-const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeContext): ReplicationGroup => {
-  const contents: any = {
-    ReplicationGroupId: undefined,
-    Description: undefined,
-    GlobalReplicationGroupInfo: undefined,
-    Status: undefined,
-    PendingModifiedValues: undefined,
-    MemberClusters: undefined,
-    NodeGroups: undefined,
-    SnapshottingClusterId: undefined,
-    AutomaticFailover: undefined,
-    MultiAZ: undefined,
-    ConfigurationEndpoint: undefined,
-    SnapshotRetentionLimit: undefined,
-    SnapshotWindow: undefined,
-    ClusterEnabled: undefined,
-    CacheNodeType: undefined,
-    AuthTokenEnabled: undefined,
-    AuthTokenLastModifiedDate: undefined,
-    TransitEncryptionEnabled: undefined,
-    AtRestEncryptionEnabled: undefined,
-    MemberClustersOutpostArns: undefined,
-    KmsKeyId: undefined,
-    ARN: undefined,
-    UserGroupIds: undefined,
-    LogDeliveryConfigurations: undefined,
-    ReplicationGroupCreateTime: undefined,
-  };
+/**
+ * deserializeAws_queryReplicationGroup
+ */
+const de_ReplicationGroup = (output: any, context: __SerdeContext): ReplicationGroup => {
+  const contents: any = {};
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
@@ -13528,37 +12025,23 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.Description = __expectString(output["Description"]);
   }
   if (output["GlobalReplicationGroupInfo"] !== undefined) {
-    contents.GlobalReplicationGroupInfo = deserializeAws_queryGlobalReplicationGroupInfo(
-      output["GlobalReplicationGroupInfo"],
-      context
-    );
+    contents.GlobalReplicationGroupInfo = de_GlobalReplicationGroupInfo(output["GlobalReplicationGroupInfo"], context);
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
   if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = deserializeAws_queryReplicationGroupPendingModifiedValues(
-      output["PendingModifiedValues"],
-      context
-    );
+    contents.PendingModifiedValues = de_ReplicationGroupPendingModifiedValues(output["PendingModifiedValues"], context);
   }
   if (output.MemberClusters === "") {
     contents.MemberClusters = [];
-  }
-  if (output["MemberClusters"] !== undefined && output["MemberClusters"]["ClusterId"] !== undefined) {
-    contents.MemberClusters = deserializeAws_queryClusterIdList(
-      __getArrayIfSingleItem(output["MemberClusters"]["ClusterId"]),
-      context
-    );
+  } else if (output["MemberClusters"] !== undefined && output["MemberClusters"]["ClusterId"] !== undefined) {
+    contents.MemberClusters = de_ClusterIdList(__getArrayIfSingleItem(output["MemberClusters"]["ClusterId"]), context);
   }
   if (output.NodeGroups === "") {
     contents.NodeGroups = [];
-  }
-  if (output["NodeGroups"] !== undefined && output["NodeGroups"]["NodeGroup"] !== undefined) {
-    contents.NodeGroups = deserializeAws_queryNodeGroupList(
-      __getArrayIfSingleItem(output["NodeGroups"]["NodeGroup"]),
-      context
-    );
+  } else if (output["NodeGroups"] !== undefined && output["NodeGroups"]["NodeGroup"] !== undefined) {
+    contents.NodeGroups = de_NodeGroupList(__getArrayIfSingleItem(output["NodeGroups"]["NodeGroup"]), context);
   }
   if (output["SnapshottingClusterId"] !== undefined) {
     contents.SnapshottingClusterId = __expectString(output["SnapshottingClusterId"]);
@@ -13570,7 +12053,7 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.MultiAZ = __expectString(output["MultiAZ"]);
   }
   if (output["ConfigurationEndpoint"] !== undefined) {
-    contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
+    contents.ConfigurationEndpoint = de_Endpoint(output["ConfigurationEndpoint"], context);
   }
   if (output["SnapshotRetentionLimit"] !== undefined) {
     contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
@@ -13588,7 +12071,9 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = __expectNonNull(__parseRfc3339DateTime(output["AuthTokenLastModifiedDate"]));
+    contents.AuthTokenLastModifiedDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["AuthTokenLastModifiedDate"])
+    );
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
     contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
@@ -13598,12 +12083,11 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   }
   if (output.MemberClustersOutpostArns === "") {
     contents.MemberClustersOutpostArns = [];
-  }
-  if (
+  } else if (
     output["MemberClustersOutpostArns"] !== undefined &&
     output["MemberClustersOutpostArns"]["ReplicationGroupOutpostArn"] !== undefined
   ) {
-    contents.MemberClustersOutpostArns = deserializeAws_queryReplicationGroupOutpostArnList(
+    contents.MemberClustersOutpostArns = de_ReplicationGroupOutpostArnList(
       __getArrayIfSingleItem(output["MemberClustersOutpostArns"]["ReplicationGroupOutpostArn"]),
       context
     );
@@ -13616,81 +12100,100 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   }
   if (output.UserGroupIds === "") {
     contents.UserGroupIds = [];
-  }
-  if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
-    contents.UserGroupIds = deserializeAws_queryUserGroupIdList(
-      __getArrayIfSingleItem(output["UserGroupIds"]["member"]),
-      context
-    );
+  } else if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
+    contents.UserGroupIds = de_UserGroupIdList(__getArrayIfSingleItem(output["UserGroupIds"]["member"]), context);
   }
   if (output.LogDeliveryConfigurations === "") {
     contents.LogDeliveryConfigurations = [];
-  }
-  if (
+  } else if (
     output["LogDeliveryConfigurations"] !== undefined &&
     output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"] !== undefined
   ) {
-    contents.LogDeliveryConfigurations = deserializeAws_queryLogDeliveryConfigurationList(
+    contents.LogDeliveryConfigurations = de_LogDeliveryConfigurationList(
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
       context
     );
   }
   if (output["ReplicationGroupCreateTime"] !== undefined) {
-    contents.ReplicationGroupCreateTime = __expectNonNull(__parseRfc3339DateTime(output["ReplicationGroupCreateTime"]));
+    contents.ReplicationGroupCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ReplicationGroupCreateTime"])
+    );
+  }
+  if (output["DataTiering"] !== undefined) {
+    contents.DataTiering = __expectString(output["DataTiering"]);
+  }
+  if (output["AutoMinorVersionUpgrade"] !== undefined) {
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["IpDiscovery"] !== undefined) {
+    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  }
+  if (output["ClusterMode"] !== undefined) {
+    contents.ClusterMode = __expectString(output["ClusterMode"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReplicationGroupAlreadyExistsFault = (
+/**
+ * deserializeAws_queryReplicationGroupAlreadyExistsFault
+ */
+const de_ReplicationGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): ReplicationGroupAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFault = (
+/**
+ * deserializeAws_queryReplicationGroupAlreadyUnderMigrationFault
+ */
+const de_ReplicationGroupAlreadyUnderMigrationFault = (
   output: any,
   context: __SerdeContext
 ): ReplicationGroupAlreadyUnderMigrationFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReplicationGroupList = (output: any, context: __SerdeContext): ReplicationGroup[] => {
+/**
+ * deserializeAws_queryReplicationGroupList
+ */
+const de_ReplicationGroupList = (output: any, context: __SerdeContext): ReplicationGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryReplicationGroup(entry, context);
+      return de_ReplicationGroup(entry, context);
     });
 };
 
-const deserializeAws_queryReplicationGroupMessage = (output: any, context: __SerdeContext): ReplicationGroupMessage => {
-  const contents: any = {
-    Marker: undefined,
-    ReplicationGroups: undefined,
-  };
+/**
+ * deserializeAws_queryReplicationGroupMessage
+ */
+const de_ReplicationGroupMessage = (output: any, context: __SerdeContext): ReplicationGroupMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ReplicationGroups === "") {
     contents.ReplicationGroups = [];
-  }
-  if (output["ReplicationGroups"] !== undefined && output["ReplicationGroups"]["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroups = deserializeAws_queryReplicationGroupList(
+  } else if (
+    output["ReplicationGroups"] !== undefined &&
+    output["ReplicationGroups"]["ReplicationGroup"] !== undefined
+  ) {
+    contents.ReplicationGroups = de_ReplicationGroupList(
       __getArrayIfSingleItem(output["ReplicationGroups"]["ReplicationGroup"]),
       context
     );
@@ -13698,55 +12201,50 @@ const deserializeAws_queryReplicationGroupMessage = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryReplicationGroupNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ReplicationGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryReplicationGroupNotFoundFault
+ */
+const de_ReplicationGroupNotFoundFault = (output: any, context: __SerdeContext): ReplicationGroupNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReplicationGroupNotUnderMigrationFault = (
+/**
+ * deserializeAws_queryReplicationGroupNotUnderMigrationFault
+ */
+const de_ReplicationGroupNotUnderMigrationFault = (
   output: any,
   context: __SerdeContext
 ): ReplicationGroupNotUnderMigrationFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReplicationGroupOutpostArnList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryReplicationGroupOutpostArnList
+ */
+const de_ReplicationGroupOutpostArnList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryReplicationGroupPendingModifiedValues = (
+/**
+ * deserializeAws_queryReplicationGroupPendingModifiedValues
+ */
+const de_ReplicationGroupPendingModifiedValues = (
   output: any,
   context: __SerdeContext
 ): ReplicationGroupPendingModifiedValues => {
-  const contents: any = {
-    PrimaryClusterId: undefined,
-    AutomaticFailoverStatus: undefined,
-    Resharding: undefined,
-    AuthTokenStatus: undefined,
-    UserGroups: undefined,
-    LogDeliveryConfigurations: undefined,
-  };
+  const contents: any = {};
   if (output["PrimaryClusterId"] !== undefined) {
     contents.PrimaryClusterId = __expectString(output["PrimaryClusterId"]);
   }
@@ -13754,45 +12252,42 @@ const deserializeAws_queryReplicationGroupPendingModifiedValues = (
     contents.AutomaticFailoverStatus = __expectString(output["AutomaticFailoverStatus"]);
   }
   if (output["Resharding"] !== undefined) {
-    contents.Resharding = deserializeAws_queryReshardingStatus(output["Resharding"], context);
+    contents.Resharding = de_ReshardingStatus(output["Resharding"], context);
   }
   if (output["AuthTokenStatus"] !== undefined) {
     contents.AuthTokenStatus = __expectString(output["AuthTokenStatus"]);
   }
   if (output["UserGroups"] !== undefined) {
-    contents.UserGroups = deserializeAws_queryUserGroupsUpdateStatus(output["UserGroups"], context);
+    contents.UserGroups = de_UserGroupsUpdateStatus(output["UserGroups"], context);
   }
   if (output.LogDeliveryConfigurations === "") {
     contents.LogDeliveryConfigurations = [];
-  }
-  if (
+  } else if (
     output["LogDeliveryConfigurations"] !== undefined &&
     output["LogDeliveryConfigurations"]["member"] !== undefined
   ) {
-    contents.LogDeliveryConfigurations = deserializeAws_queryPendingLogDeliveryConfigurationList(
+    contents.LogDeliveryConfigurations = de_PendingLogDeliveryConfigurationList(
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["member"]),
       context
     );
   }
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  }
+  if (output["TransitEncryptionMode"] !== undefined) {
+    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  }
+  if (output["ClusterMode"] !== undefined) {
+    contents.ClusterMode = __expectString(output["ClusterMode"]);
+  }
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeContext): ReservedCacheNode => {
-  const contents: any = {
-    ReservedCacheNodeId: undefined,
-    ReservedCacheNodesOfferingId: undefined,
-    CacheNodeType: undefined,
-    StartTime: undefined,
-    Duration: undefined,
-    FixedPrice: undefined,
-    UsagePrice: undefined,
-    CacheNodeCount: undefined,
-    ProductDescription: undefined,
-    OfferingType: undefined,
-    State: undefined,
-    RecurringCharges: undefined,
-    ReservationARN: undefined,
-  };
+/**
+ * deserializeAws_queryReservedCacheNode
+ */
+const de_ReservedCacheNode = (output: any, context: __SerdeContext): ReservedCacheNode => {
+  const contents: any = {};
   if (output["ReservedCacheNodeId"] !== undefined) {
     contents.ReservedCacheNodeId = __expectString(output["ReservedCacheNodeId"]);
   }
@@ -13803,7 +12298,7 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
     contents.CacheNodeType = __expectString(output["CacheNodeType"]);
   }
   if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTime(output["StartTime"]));
+    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = __strictParseInt32(output["Duration"]) as number;
@@ -13828,9 +12323,8 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
-  }
-  if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
-    contents.RecurringCharges = deserializeAws_queryRecurringChargeList(
+  } else if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
+    contents.RecurringCharges = de_RecurringChargeList(
       __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
       context
     );
@@ -13841,46 +12335,46 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodeAlreadyExistsFault = (
+/**
+ * deserializeAws_queryReservedCacheNodeAlreadyExistsFault
+ */
+const de_ReservedCacheNodeAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): ReservedCacheNodeAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodeList = (output: any, context: __SerdeContext): ReservedCacheNode[] => {
+/**
+ * deserializeAws_queryReservedCacheNodeList
+ */
+const de_ReservedCacheNodeList = (output: any, context: __SerdeContext): ReservedCacheNode[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryReservedCacheNode(entry, context);
+      return de_ReservedCacheNode(entry, context);
     });
 };
 
-const deserializeAws_queryReservedCacheNodeMessage = (
-  output: any,
-  context: __SerdeContext
-): ReservedCacheNodeMessage => {
-  const contents: any = {
-    Marker: undefined,
-    ReservedCacheNodes: undefined,
-  };
+/**
+ * deserializeAws_queryReservedCacheNodeMessage
+ */
+const de_ReservedCacheNodeMessage = (output: any, context: __SerdeContext): ReservedCacheNodeMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ReservedCacheNodes === "") {
     contents.ReservedCacheNodes = [];
-  }
-  if (output["ReservedCacheNodes"] !== undefined && output["ReservedCacheNodes"]["ReservedCacheNode"] !== undefined) {
-    contents.ReservedCacheNodes = deserializeAws_queryReservedCacheNodeList(
+  } else if (
+    output["ReservedCacheNodes"] !== undefined &&
+    output["ReservedCacheNodes"]["ReservedCacheNode"] !== undefined
+  ) {
+    contents.ReservedCacheNodes = de_ReservedCacheNodeList(
       __getArrayIfSingleItem(output["ReservedCacheNodes"]["ReservedCacheNode"]),
       context
     );
@@ -13888,46 +12382,36 @@ const deserializeAws_queryReservedCacheNodeMessage = (
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodeNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ReservedCacheNodeNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryReservedCacheNodeNotFoundFault
+ */
+const de_ReservedCacheNodeNotFoundFault = (output: any, context: __SerdeContext): ReservedCacheNodeNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodeQuotaExceededFault = (
+/**
+ * deserializeAws_queryReservedCacheNodeQuotaExceededFault
+ */
+const de_ReservedCacheNodeQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): ReservedCacheNodeQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodesOffering = (
-  output: any,
-  context: __SerdeContext
-): ReservedCacheNodesOffering => {
-  const contents: any = {
-    ReservedCacheNodesOfferingId: undefined,
-    CacheNodeType: undefined,
-    Duration: undefined,
-    FixedPrice: undefined,
-    UsagePrice: undefined,
-    ProductDescription: undefined,
-    OfferingType: undefined,
-    RecurringCharges: undefined,
-  };
+/**
+ * deserializeAws_queryReservedCacheNodesOffering
+ */
+const de_ReservedCacheNodesOffering = (output: any, context: __SerdeContext): ReservedCacheNodesOffering => {
+  const contents: any = {};
   if (output["ReservedCacheNodesOfferingId"] !== undefined) {
     contents.ReservedCacheNodesOfferingId = __expectString(output["ReservedCacheNodesOfferingId"]);
   }
@@ -13951,9 +12435,8 @@ const deserializeAws_queryReservedCacheNodesOffering = (
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
-  }
-  if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
-    contents.RecurringCharges = deserializeAws_queryRecurringChargeList(
+  } else if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
+    contents.RecurringCharges = de_RecurringChargeList(
       __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
       context
     );
@@ -13961,39 +12444,35 @@ const deserializeAws_queryReservedCacheNodesOffering = (
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodesOfferingList = (
-  output: any,
-  context: __SerdeContext
-): ReservedCacheNodesOffering[] => {
+/**
+ * deserializeAws_queryReservedCacheNodesOfferingList
+ */
+const de_ReservedCacheNodesOfferingList = (output: any, context: __SerdeContext): ReservedCacheNodesOffering[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryReservedCacheNodesOffering(entry, context);
+      return de_ReservedCacheNodesOffering(entry, context);
     });
 };
 
-const deserializeAws_queryReservedCacheNodesOfferingMessage = (
+/**
+ * deserializeAws_queryReservedCacheNodesOfferingMessage
+ */
+const de_ReservedCacheNodesOfferingMessage = (
   output: any,
   context: __SerdeContext
 ): ReservedCacheNodesOfferingMessage => {
-  const contents: any = {
-    Marker: undefined,
-    ReservedCacheNodesOfferings: undefined,
-  };
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ReservedCacheNodesOfferings === "") {
     contents.ReservedCacheNodesOfferings = [];
-  }
-  if (
+  } else if (
     output["ReservedCacheNodesOfferings"] !== undefined &&
     output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"] !== undefined
   ) {
-    contents.ReservedCacheNodesOfferings = deserializeAws_queryReservedCacheNodesOfferingList(
+    contents.ReservedCacheNodesOfferings = de_ReservedCacheNodesOfferingList(
       __getArrayIfSingleItem(output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"]),
       context
     );
@@ -14001,47 +12480,50 @@ const deserializeAws_queryReservedCacheNodesOfferingMessage = (
   return contents;
 };
 
-const deserializeAws_queryReservedCacheNodesOfferingNotFoundFault = (
+/**
+ * deserializeAws_queryReservedCacheNodesOfferingNotFoundFault
+ */
+const de_ReservedCacheNodesOfferingNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): ReservedCacheNodesOfferingNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryReshardingStatus = (output: any, context: __SerdeContext): ReshardingStatus => {
-  const contents: any = {
-    SlotMigration: undefined,
-  };
+/**
+ * deserializeAws_queryReshardingStatus
+ */
+const de_ReshardingStatus = (output: any, context: __SerdeContext): ReshardingStatus => {
+  const contents: any = {};
   if (output["SlotMigration"] !== undefined) {
-    contents.SlotMigration = deserializeAws_querySlotMigration(output["SlotMigration"], context);
+    contents.SlotMigration = de_SlotMigration(output["SlotMigration"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryRevokeCacheSecurityGroupIngressResult = (
+/**
+ * deserializeAws_queryRevokeCacheSecurityGroupIngressResult
+ */
+const de_RevokeCacheSecurityGroupIngressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeCacheSecurityGroupIngressResult => {
-  const contents: any = {
-    CacheSecurityGroup: undefined,
-  };
+  const contents: any = {};
   if (output["CacheSecurityGroup"] !== undefined) {
-    contents.CacheSecurityGroup = deserializeAws_queryCacheSecurityGroup(output["CacheSecurityGroup"], context);
+    contents.CacheSecurityGroup = de_CacheSecurityGroup(output["CacheSecurityGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_querySecurityGroupMembership = (output: any, context: __SerdeContext): SecurityGroupMembership => {
-  const contents: any = {
-    SecurityGroupId: undefined,
-    Status: undefined,
-  };
+/**
+ * deserializeAws_querySecurityGroupMembership
+ */
+const de_SecurityGroupMembership = (output: any, context: __SerdeContext): SecurityGroupMembership => {
+  const contents: any = {};
   if (output["SecurityGroupId"] !== undefined) {
     contents.SecurityGroupId = __expectString(output["SecurityGroupId"]);
   }
@@ -14051,63 +12533,50 @@ const deserializeAws_querySecurityGroupMembership = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_querySecurityGroupMembershipList = (
-  output: any,
-  context: __SerdeContext
-): SecurityGroupMembership[] => {
+/**
+ * deserializeAws_querySecurityGroupMembershipList
+ */
+const de_SecurityGroupMembershipList = (output: any, context: __SerdeContext): SecurityGroupMembership[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_querySecurityGroupMembership(entry, context);
+      return de_SecurityGroupMembership(entry, context);
     });
 };
 
-const deserializeAws_queryServiceLinkedRoleNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ServiceLinkedRoleNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryServiceLinkedRoleNotFoundFault
+ */
+const de_ServiceLinkedRoleNotFoundFault = (output: any, context: __SerdeContext): ServiceLinkedRoleNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext): ServiceUpdate => {
-  const contents: any = {
-    ServiceUpdateName: undefined,
-    ServiceUpdateReleaseDate: undefined,
-    ServiceUpdateEndDate: undefined,
-    ServiceUpdateSeverity: undefined,
-    ServiceUpdateRecommendedApplyByDate: undefined,
-    ServiceUpdateStatus: undefined,
-    ServiceUpdateDescription: undefined,
-    ServiceUpdateType: undefined,
-    Engine: undefined,
-    EngineVersion: undefined,
-    AutoUpdateAfterRecommendedApplyByDate: undefined,
-    EstimatedUpdateTime: undefined,
-  };
+/**
+ * deserializeAws_queryServiceUpdate
+ */
+const de_ServiceUpdate = (output: any, context: __SerdeContext): ServiceUpdate => {
+  const contents: any = {};
   if (output["ServiceUpdateName"] !== undefined) {
     contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
-    contents.ServiceUpdateReleaseDate = __expectNonNull(__parseRfc3339DateTime(output["ServiceUpdateReleaseDate"]));
+    contents.ServiceUpdateReleaseDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateReleaseDate"])
+    );
   }
   if (output["ServiceUpdateEndDate"] !== undefined) {
-    contents.ServiceUpdateEndDate = __expectNonNull(__parseRfc3339DateTime(output["ServiceUpdateEndDate"]));
+    contents.ServiceUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ServiceUpdateEndDate"]));
   }
   if (output["ServiceUpdateSeverity"] !== undefined) {
     contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
   }
   if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
     contents.ServiceUpdateRecommendedApplyByDate = __expectNonNull(
-      __parseRfc3339DateTime(output["ServiceUpdateRecommendedApplyByDate"])
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateRecommendedApplyByDate"])
     );
   }
   if (output["ServiceUpdateStatus"] !== undefined) {
@@ -14134,43 +12603,40 @@ const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext)
   return contents;
 };
 
-const deserializeAws_queryServiceUpdateList = (output: any, context: __SerdeContext): ServiceUpdate[] => {
+/**
+ * deserializeAws_queryServiceUpdateList
+ */
+const de_ServiceUpdateList = (output: any, context: __SerdeContext): ServiceUpdate[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryServiceUpdate(entry, context);
+      return de_ServiceUpdate(entry, context);
     });
 };
 
-const deserializeAws_queryServiceUpdateNotFoundFault = (
-  output: any,
-  context: __SerdeContext
-): ServiceUpdateNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryServiceUpdateNotFoundFault
+ */
+const de_ServiceUpdateNotFoundFault = (output: any, context: __SerdeContext): ServiceUpdateNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __SerdeContext): ServiceUpdatesMessage => {
-  const contents: any = {
-    Marker: undefined,
-    ServiceUpdates: undefined,
-  };
+/**
+ * deserializeAws_queryServiceUpdatesMessage
+ */
+const de_ServiceUpdatesMessage = (output: any, context: __SerdeContext): ServiceUpdatesMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.ServiceUpdates === "") {
     contents.ServiceUpdates = [];
-  }
-  if (output["ServiceUpdates"] !== undefined && output["ServiceUpdates"]["ServiceUpdate"] !== undefined) {
-    contents.ServiceUpdates = deserializeAws_queryServiceUpdateList(
+  } else if (output["ServiceUpdates"] !== undefined && output["ServiceUpdates"]["ServiceUpdate"] !== undefined) {
+    contents.ServiceUpdates = de_ServiceUpdateList(
       __getArrayIfSingleItem(output["ServiceUpdates"]["ServiceUpdate"]),
       context
     );
@@ -14178,46 +12644,22 @@ const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __Serde
   return contents;
 };
 
-const deserializeAws_querySlotMigration = (output: any, context: __SerdeContext): SlotMigration => {
-  const contents: any = {
-    ProgressPercentage: undefined,
-  };
+/**
+ * deserializeAws_querySlotMigration
+ */
+const de_SlotMigration = (output: any, context: __SerdeContext): SlotMigration => {
+  const contents: any = {};
   if (output["ProgressPercentage"] !== undefined) {
     contents.ProgressPercentage = __strictParseFloat(output["ProgressPercentage"]) as number;
   }
   return contents;
 };
 
-const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Snapshot => {
-  const contents: any = {
-    SnapshotName: undefined,
-    ReplicationGroupId: undefined,
-    ReplicationGroupDescription: undefined,
-    CacheClusterId: undefined,
-    SnapshotStatus: undefined,
-    SnapshotSource: undefined,
-    CacheNodeType: undefined,
-    Engine: undefined,
-    EngineVersion: undefined,
-    NumCacheNodes: undefined,
-    PreferredAvailabilityZone: undefined,
-    PreferredOutpostArn: undefined,
-    CacheClusterCreateTime: undefined,
-    PreferredMaintenanceWindow: undefined,
-    TopicArn: undefined,
-    Port: undefined,
-    CacheParameterGroupName: undefined,
-    CacheSubnetGroupName: undefined,
-    VpcId: undefined,
-    AutoMinorVersionUpgrade: undefined,
-    SnapshotRetentionLimit: undefined,
-    SnapshotWindow: undefined,
-    NumNodeGroups: undefined,
-    AutomaticFailover: undefined,
-    NodeSnapshots: undefined,
-    KmsKeyId: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_querySnapshot
+ */
+const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
+  const contents: any = {};
   if (output["SnapshotName"] !== undefined) {
     contents.SnapshotName = __expectString(output["SnapshotName"]);
   }
@@ -14255,7 +12697,9 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
   }
   if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = __expectNonNull(__parseRfc3339DateTime(output["CacheClusterCreateTime"]));
+    contents.CacheClusterCreateTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["CacheClusterCreateTime"])
+    );
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
     contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
@@ -14292,9 +12736,8 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
   }
   if (output.NodeSnapshots === "") {
     contents.NodeSnapshots = [];
-  }
-  if (output["NodeSnapshots"] !== undefined && output["NodeSnapshots"]["NodeSnapshot"] !== undefined) {
-    contents.NodeSnapshots = deserializeAws_queryNodeSnapshotList(
+  } else if (output["NodeSnapshots"] !== undefined && output["NodeSnapshots"]["NodeSnapshot"] !== undefined) {
+    contents.NodeSnapshots = de_NodeSnapshotList(
       __getArrayIfSingleItem(output["NodeSnapshots"]["NodeSnapshot"]),
       context
     );
@@ -14305,143 +12748,155 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
   }
+  if (output["DataTiering"] !== undefined) {
+    contents.DataTiering = __expectString(output["DataTiering"]);
+  }
   return contents;
 };
 
-const deserializeAws_querySnapshotAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_querySnapshotAlreadyExistsFault
+ */
+const de_SnapshotAlreadyExistsFault = (output: any, context: __SerdeContext): SnapshotAlreadyExistsFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySnapshotFeatureNotSupportedFault = (
+/**
+ * deserializeAws_querySnapshotFeatureNotSupportedFault
+ */
+const de_SnapshotFeatureNotSupportedFault = (
   output: any,
   context: __SerdeContext
 ): SnapshotFeatureNotSupportedFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
+/**
+ * deserializeAws_querySnapshotList
+ */
+const de_SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_querySnapshot(entry, context);
+      return de_Snapshot(entry, context);
     });
 };
 
-const deserializeAws_querySnapshotNotFoundFault = (output: any, context: __SerdeContext): SnapshotNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_querySnapshotNotFoundFault
+ */
+const de_SnapshotNotFoundFault = (output: any, context: __SerdeContext): SnapshotNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySnapshotQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): SnapshotQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_querySnapshotQuotaExceededFault
+ */
+const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): SnapshotQuotaExceededFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryStartMigrationResponse = (output: any, context: __SerdeContext): StartMigrationResponse => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryStartMigrationResponse
+ */
+const de_StartMigrationResponse = (output: any, context: __SerdeContext): StartMigrationResponse => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {
-  const contents: any = {
-    SubnetIdentifier: undefined,
-    SubnetAvailabilityZone: undefined,
-    SubnetOutpost: undefined,
-  };
+/**
+ * deserializeAws_querySubnet
+ */
+const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
+  const contents: any = {};
   if (output["SubnetIdentifier"] !== undefined) {
     contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
   }
   if (output["SubnetAvailabilityZone"] !== undefined) {
-    contents.SubnetAvailabilityZone = deserializeAws_queryAvailabilityZone(output["SubnetAvailabilityZone"], context);
+    contents.SubnetAvailabilityZone = de_AvailabilityZone(output["SubnetAvailabilityZone"], context);
   }
   if (output["SubnetOutpost"] !== undefined) {
-    contents.SubnetOutpost = deserializeAws_querySubnetOutpost(output["SubnetOutpost"], context);
+    contents.SubnetOutpost = de_SubnetOutpost(output["SubnetOutpost"], context);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = de_NetworkTypeList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
 
-const deserializeAws_querySubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_querySubnetInUse
+ */
+const de_SubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySubnetList = (output: any, context: __SerdeContext): Subnet[] => {
+/**
+ * deserializeAws_querySubnetList
+ */
+const de_SubnetList = (output: any, context: __SerdeContext): Subnet[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_querySubnet(entry, context);
+      return de_Subnet(entry, context);
     });
 };
 
-const deserializeAws_querySubnetNotAllowedFault = (output: any, context: __SerdeContext): SubnetNotAllowedFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_querySubnetNotAllowedFault
+ */
+const de_SubnetNotAllowedFault = (output: any, context: __SerdeContext): SubnetNotAllowedFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_querySubnetOutpost = (output: any, context: __SerdeContext): SubnetOutpost => {
-  const contents: any = {
-    SubnetOutpostArn: undefined,
-  };
+/**
+ * deserializeAws_querySubnetOutpost
+ */
+const de_SubnetOutpost = (output: any, context: __SerdeContext): SubnetOutpost => {
+  const contents: any = {};
   if (output["SubnetOutpostArn"] !== undefined) {
     contents.SubnetOutpostArn = __expectString(output["SubnetOutpostArn"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+/**
+ * deserializeAws_queryTag
+ */
+const de_Tag = (output: any, context: __SerdeContext): Tag => {
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -14451,95 +12906,101 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   return contents;
 };
 
-const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
+/**
+ * deserializeAws_queryTagList
+ */
+const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryTag(entry, context);
+      return de_Tag(entry, context);
     });
 };
 
-const deserializeAws_queryTagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
-  const contents: any = {
-    TagList: undefined,
-  };
+/**
+ * deserializeAws_queryTagListMessage
+ */
+const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
+  const contents: any = {};
   if (output.TagList === "") {
     contents.TagList = [];
-  }
-  if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryTagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryTagNotFoundFault
+ */
+const de_TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTagQuotaPerResourceExceeded = (
-  output: any,
-  context: __SerdeContext
-): TagQuotaPerResourceExceeded => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryTagQuotaPerResourceExceeded
+ */
+const de_TagQuotaPerResourceExceeded = (output: any, context: __SerdeContext): TagQuotaPerResourceExceeded => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTestFailoverNotAvailableFault = (
-  output: any,
-  context: __SerdeContext
-): TestFailoverNotAvailableFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryTestFailoverNotAvailableFault
+ */
+const de_TestFailoverNotAvailableFault = (output: any, context: __SerdeContext): TestFailoverNotAvailableFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryTestFailoverResult = (output: any, context: __SerdeContext): TestFailoverResult => {
-  const contents: any = {
-    ReplicationGroup: undefined,
-  };
+/**
+ * deserializeAws_queryTestFailoverResult
+ */
+const de_TestFailoverResult = (output: any, context: __SerdeContext): TestFailoverResult => {
+  const contents: any = {};
   if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = deserializeAws_queryReplicationGroup(output["ReplicationGroup"], context);
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
   }
   return contents;
 };
 
-const deserializeAws_queryUGReplicationGroupIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryTestMigrationResponse
+ */
+const de_TestMigrationResponse = (output: any, context: __SerdeContext): TestMigrationResponse => {
+  const contents: any = {};
+  if (output["ReplicationGroup"] !== undefined) {
+    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryUGReplicationGroupIdList
+ */
+const de_UGReplicationGroupIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryUnprocessedUpdateAction = (output: any, context: __SerdeContext): UnprocessedUpdateAction => {
-  const contents: any = {
-    ReplicationGroupId: undefined,
-    CacheClusterId: undefined,
-    ServiceUpdateName: undefined,
-    ErrorType: undefined,
-    ErrorMessage: undefined,
-  };
+/**
+ * deserializeAws_queryUnprocessedUpdateAction
+ */
+const de_UnprocessedUpdateAction = (output: any, context: __SerdeContext): UnprocessedUpdateAction => {
+  const contents: any = {};
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
@@ -14558,40 +13019,22 @@ const deserializeAws_queryUnprocessedUpdateAction = (output: any, context: __Ser
   return contents;
 };
 
-const deserializeAws_queryUnprocessedUpdateActionList = (
-  output: any,
-  context: __SerdeContext
-): UnprocessedUpdateAction[] => {
+/**
+ * deserializeAws_queryUnprocessedUpdateActionList
+ */
+const de_UnprocessedUpdateActionList = (output: any, context: __SerdeContext): UnprocessedUpdateAction[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryUnprocessedUpdateAction(entry, context);
+      return de_UnprocessedUpdateAction(entry, context);
     });
 };
 
-const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext): UpdateAction => {
-  const contents: any = {
-    ReplicationGroupId: undefined,
-    CacheClusterId: undefined,
-    ServiceUpdateName: undefined,
-    ServiceUpdateReleaseDate: undefined,
-    ServiceUpdateSeverity: undefined,
-    ServiceUpdateStatus: undefined,
-    ServiceUpdateRecommendedApplyByDate: undefined,
-    ServiceUpdateType: undefined,
-    UpdateActionAvailableDate: undefined,
-    UpdateActionStatus: undefined,
-    NodesUpdated: undefined,
-    UpdateActionStatusModifiedDate: undefined,
-    SlaMet: undefined,
-    NodeGroupUpdateStatus: undefined,
-    CacheNodeUpdateStatus: undefined,
-    EstimatedUpdateTime: undefined,
-    Engine: undefined,
-  };
+/**
+ * deserializeAws_queryUpdateAction
+ */
+const de_UpdateAction = (output: any, context: __SerdeContext): UpdateAction => {
+  const contents: any = {};
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
   }
@@ -14602,7 +13045,9 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
     contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
-    contents.ServiceUpdateReleaseDate = __expectNonNull(__parseRfc3339DateTime(output["ServiceUpdateReleaseDate"]));
+    contents.ServiceUpdateReleaseDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateReleaseDate"])
+    );
   }
   if (output["ServiceUpdateSeverity"] !== undefined) {
     contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
@@ -14612,14 +13057,16 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
   }
   if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
     contents.ServiceUpdateRecommendedApplyByDate = __expectNonNull(
-      __parseRfc3339DateTime(output["ServiceUpdateRecommendedApplyByDate"])
+      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateRecommendedApplyByDate"])
     );
   }
   if (output["ServiceUpdateType"] !== undefined) {
     contents.ServiceUpdateType = __expectString(output["ServiceUpdateType"]);
   }
   if (output["UpdateActionAvailableDate"] !== undefined) {
-    contents.UpdateActionAvailableDate = __expectNonNull(__parseRfc3339DateTime(output["UpdateActionAvailableDate"]));
+    contents.UpdateActionAvailableDate = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["UpdateActionAvailableDate"])
+    );
   }
   if (output["UpdateActionStatus"] !== undefined) {
     contents.UpdateActionStatus = __expectString(output["UpdateActionStatus"]);
@@ -14629,7 +13076,7 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
   }
   if (output["UpdateActionStatusModifiedDate"] !== undefined) {
     contents.UpdateActionStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTime(output["UpdateActionStatusModifiedDate"])
+      __parseRfc3339DateTimeWithOffset(output["UpdateActionStatusModifiedDate"])
     );
   }
   if (output["SlaMet"] !== undefined) {
@@ -14637,24 +13084,22 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
   }
   if (output.NodeGroupUpdateStatus === "") {
     contents.NodeGroupUpdateStatus = [];
-  }
-  if (
+  } else if (
     output["NodeGroupUpdateStatus"] !== undefined &&
     output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"] !== undefined
   ) {
-    contents.NodeGroupUpdateStatus = deserializeAws_queryNodeGroupUpdateStatusList(
+    contents.NodeGroupUpdateStatus = de_NodeGroupUpdateStatusList(
       __getArrayIfSingleItem(output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"]),
       context
     );
   }
   if (output.CacheNodeUpdateStatus === "") {
     contents.CacheNodeUpdateStatus = [];
-  }
-  if (
+  } else if (
     output["CacheNodeUpdateStatus"] !== undefined &&
     output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] !== undefined
   ) {
-    contents.CacheNodeUpdateStatus = deserializeAws_queryCacheNodeUpdateStatusList(
+    contents.CacheNodeUpdateStatus = de_CacheNodeUpdateStatusList(
       __getArrayIfSingleItem(output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]),
       context
     );
@@ -14668,45 +13113,40 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryUpdateActionList = (output: any, context: __SerdeContext): UpdateAction[] => {
+/**
+ * deserializeAws_queryUpdateActionList
+ */
+const de_UpdateActionList = (output: any, context: __SerdeContext): UpdateAction[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryUpdateAction(entry, context);
+      return de_UpdateAction(entry, context);
     });
 };
 
-const deserializeAws_queryUpdateActionResultsMessage = (
-  output: any,
-  context: __SerdeContext
-): UpdateActionResultsMessage => {
-  const contents: any = {
-    ProcessedUpdateActions: undefined,
-    UnprocessedUpdateActions: undefined,
-  };
+/**
+ * deserializeAws_queryUpdateActionResultsMessage
+ */
+const de_UpdateActionResultsMessage = (output: any, context: __SerdeContext): UpdateActionResultsMessage => {
+  const contents: any = {};
   if (output.ProcessedUpdateActions === "") {
     contents.ProcessedUpdateActions = [];
-  }
-  if (
+  } else if (
     output["ProcessedUpdateActions"] !== undefined &&
     output["ProcessedUpdateActions"]["ProcessedUpdateAction"] !== undefined
   ) {
-    contents.ProcessedUpdateActions = deserializeAws_queryProcessedUpdateActionList(
+    contents.ProcessedUpdateActions = de_ProcessedUpdateActionList(
       __getArrayIfSingleItem(output["ProcessedUpdateActions"]["ProcessedUpdateAction"]),
       context
     );
   }
   if (output.UnprocessedUpdateActions === "") {
     contents.UnprocessedUpdateActions = [];
-  }
-  if (
+  } else if (
     output["UnprocessedUpdateActions"] !== undefined &&
     output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"] !== undefined
   ) {
-    contents.UnprocessedUpdateActions = deserializeAws_queryUnprocessedUpdateActionList(
+    contents.UnprocessedUpdateActions = de_UnprocessedUpdateActionList(
       __getArrayIfSingleItem(output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]),
       context
     );
@@ -14714,19 +13154,18 @@ const deserializeAws_queryUpdateActionResultsMessage = (
   return contents;
 };
 
-const deserializeAws_queryUpdateActionsMessage = (output: any, context: __SerdeContext): UpdateActionsMessage => {
-  const contents: any = {
-    Marker: undefined,
-    UpdateActions: undefined,
-  };
+/**
+ * deserializeAws_queryUpdateActionsMessage
+ */
+const de_UpdateActionsMessage = (output: any, context: __SerdeContext): UpdateActionsMessage => {
+  const contents: any = {};
   if (output["Marker"] !== undefined) {
     contents.Marker = __expectString(output["Marker"]);
   }
   if (output.UpdateActions === "") {
     contents.UpdateActions = [];
-  }
-  if (output["UpdateActions"] !== undefined && output["UpdateActions"]["UpdateAction"] !== undefined) {
-    contents.UpdateActions = deserializeAws_queryUpdateActionList(
+  } else if (output["UpdateActions"] !== undefined && output["UpdateActions"]["UpdateAction"] !== undefined) {
+    contents.UpdateActions = de_UpdateActionList(
       __getArrayIfSingleItem(output["UpdateActions"]["UpdateAction"]),
       context
     );
@@ -14734,17 +13173,11 @@ const deserializeAws_queryUpdateActionsMessage = (output: any, context: __SerdeC
   return contents;
 };
 
-const deserializeAws_queryUser = (output: any, context: __SerdeContext): User => {
-  const contents: any = {
-    UserId: undefined,
-    UserName: undefined,
-    Status: undefined,
-    Engine: undefined,
-    AccessString: undefined,
-    UserGroupIds: undefined,
-    Authentication: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_queryUser
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  const contents: any = {};
   if (output["UserId"] !== undefined) {
     contents.UserId = __expectString(output["UserId"]);
   }
@@ -14757,20 +13190,19 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
   }
+  if (output["MinimumEngineVersion"] !== undefined) {
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  }
   if (output["AccessString"] !== undefined) {
     contents.AccessString = __expectString(output["AccessString"]);
   }
   if (output.UserGroupIds === "") {
     contents.UserGroupIds = [];
-  }
-  if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
-    contents.UserGroupIds = deserializeAws_queryUserGroupIdList(
-      __getArrayIfSingleItem(output["UserGroupIds"]["member"]),
-      context
-    );
+  } else if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
+    contents.UserGroupIds = de_UserGroupIdList(__getArrayIfSingleItem(output["UserGroupIds"]["member"]), context);
   }
   if (output["Authentication"] !== undefined) {
-    contents.Authentication = deserializeAws_queryAuthentication(output["Authentication"], context);
+    contents.Authentication = de_Authentication(output["Authentication"], context);
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
@@ -14778,26 +13210,22 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
   return contents;
 };
 
-const deserializeAws_queryUserAlreadyExistsFault = (output: any, context: __SerdeContext): UserAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserAlreadyExistsFault
+ */
+const de_UserAlreadyExistsFault = (output: any, context: __SerdeContext): UserAlreadyExistsFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): UserGroup => {
-  const contents: any = {
-    UserGroupId: undefined,
-    Status: undefined,
-    Engine: undefined,
-    UserIds: undefined,
-    PendingChanges: undefined,
-    ReplicationGroups: undefined,
-    ARN: undefined,
-  };
+/**
+ * deserializeAws_queryUserGroup
+ */
+const de_UserGroup = (output: any, context: __SerdeContext): UserGroup => {
+  const contents: any = {};
   if (output["UserGroupId"] !== undefined) {
     contents.UserGroupId = __expectString(output["UserGroupId"]);
   }
@@ -14809,18 +13237,19 @@ const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): Us
   }
   if (output.UserIds === "") {
     contents.UserIds = [];
+  } else if (output["UserIds"] !== undefined && output["UserIds"]["member"] !== undefined) {
+    contents.UserIds = de_UserIdList(__getArrayIfSingleItem(output["UserIds"]["member"]), context);
   }
-  if (output["UserIds"] !== undefined && output["UserIds"]["member"] !== undefined) {
-    contents.UserIds = deserializeAws_queryUserIdList(__getArrayIfSingleItem(output["UserIds"]["member"]), context);
+  if (output["MinimumEngineVersion"] !== undefined) {
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
   }
   if (output["PendingChanges"] !== undefined) {
-    contents.PendingChanges = deserializeAws_queryUserGroupPendingChanges(output["PendingChanges"], context);
+    contents.PendingChanges = de_UserGroupPendingChanges(output["PendingChanges"], context);
   }
   if (output.ReplicationGroups === "") {
     contents.ReplicationGroups = [];
-  }
-  if (output["ReplicationGroups"] !== undefined && output["ReplicationGroups"]["member"] !== undefined) {
-    contents.ReplicationGroups = deserializeAws_queryUGReplicationGroupIdList(
+  } else if (output["ReplicationGroups"] !== undefined && output["ReplicationGroups"]["member"] !== undefined) {
+    contents.ReplicationGroups = de_UGReplicationGroupIdList(
       __getArrayIfSingleItem(output["ReplicationGroups"]["member"]),
       context
     );
@@ -14831,109 +13260,96 @@ const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): Us
   return contents;
 };
 
-const deserializeAws_queryUserGroupAlreadyExistsFault = (
-  output: any,
-  context: __SerdeContext
-): UserGroupAlreadyExistsFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserGroupAlreadyExistsFault
+ */
+const de_UserGroupAlreadyExistsFault = (output: any, context: __SerdeContext): UserGroupAlreadyExistsFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUserGroupIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryUserGroupIdList
+ */
+const de_UserGroupIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryUserGroupList = (output: any, context: __SerdeContext): UserGroup[] => {
+/**
+ * deserializeAws_queryUserGroupList
+ */
+const de_UserGroupList = (output: any, context: __SerdeContext): UserGroup[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryUserGroup(entry, context);
+      return de_UserGroup(entry, context);
     });
 };
 
-const deserializeAws_queryUserGroupNotFoundFault = (output: any, context: __SerdeContext): UserGroupNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserGroupNotFoundFault
+ */
+const de_UserGroupNotFoundFault = (output: any, context: __SerdeContext): UserGroupNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUserGroupPendingChanges = (output: any, context: __SerdeContext): UserGroupPendingChanges => {
-  const contents: any = {
-    UserIdsToRemove: undefined,
-    UserIdsToAdd: undefined,
-  };
+/**
+ * deserializeAws_queryUserGroupPendingChanges
+ */
+const de_UserGroupPendingChanges = (output: any, context: __SerdeContext): UserGroupPendingChanges => {
+  const contents: any = {};
   if (output.UserIdsToRemove === "") {
     contents.UserIdsToRemove = [];
-  }
-  if (output["UserIdsToRemove"] !== undefined && output["UserIdsToRemove"]["member"] !== undefined) {
-    contents.UserIdsToRemove = deserializeAws_queryUserIdList(
-      __getArrayIfSingleItem(output["UserIdsToRemove"]["member"]),
-      context
-    );
+  } else if (output["UserIdsToRemove"] !== undefined && output["UserIdsToRemove"]["member"] !== undefined) {
+    contents.UserIdsToRemove = de_UserIdList(__getArrayIfSingleItem(output["UserIdsToRemove"]["member"]), context);
   }
   if (output.UserIdsToAdd === "") {
     contents.UserIdsToAdd = [];
-  }
-  if (output["UserIdsToAdd"] !== undefined && output["UserIdsToAdd"]["member"] !== undefined) {
-    contents.UserIdsToAdd = deserializeAws_queryUserIdList(
-      __getArrayIfSingleItem(output["UserIdsToAdd"]["member"]),
-      context
-    );
+  } else if (output["UserIdsToAdd"] !== undefined && output["UserIdsToAdd"]["member"] !== undefined) {
+    contents.UserIdsToAdd = de_UserIdList(__getArrayIfSingleItem(output["UserIdsToAdd"]["member"]), context);
   }
   return contents;
 };
 
-const deserializeAws_queryUserGroupQuotaExceededFault = (
-  output: any,
-  context: __SerdeContext
-): UserGroupQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserGroupQuotaExceededFault
+ */
+const de_UserGroupQuotaExceededFault = (output: any, context: __SerdeContext): UserGroupQuotaExceededFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUserGroupsUpdateStatus = (output: any, context: __SerdeContext): UserGroupsUpdateStatus => {
-  const contents: any = {
-    UserGroupIdsToAdd: undefined,
-    UserGroupIdsToRemove: undefined,
-  };
+/**
+ * deserializeAws_queryUserGroupsUpdateStatus
+ */
+const de_UserGroupsUpdateStatus = (output: any, context: __SerdeContext): UserGroupsUpdateStatus => {
+  const contents: any = {};
   if (output.UserGroupIdsToAdd === "") {
     contents.UserGroupIdsToAdd = [];
-  }
-  if (output["UserGroupIdsToAdd"] !== undefined && output["UserGroupIdsToAdd"]["member"] !== undefined) {
-    contents.UserGroupIdsToAdd = deserializeAws_queryUserGroupIdList(
+  } else if (output["UserGroupIdsToAdd"] !== undefined && output["UserGroupIdsToAdd"]["member"] !== undefined) {
+    contents.UserGroupIdsToAdd = de_UserGroupIdList(
       __getArrayIfSingleItem(output["UserGroupIdsToAdd"]["member"]),
       context
     );
   }
   if (output.UserGroupIdsToRemove === "") {
     contents.UserGroupIdsToRemove = [];
-  }
-  if (output["UserGroupIdsToRemove"] !== undefined && output["UserGroupIdsToRemove"]["member"] !== undefined) {
-    contents.UserGroupIdsToRemove = deserializeAws_queryUserGroupIdList(
+  } else if (output["UserGroupIdsToRemove"] !== undefined && output["UserGroupIdsToRemove"]["member"] !== undefined) {
+    contents.UserGroupIdsToRemove = de_UserGroupIdList(
       __getArrayIfSingleItem(output["UserGroupIdsToRemove"]["member"]),
       context
     );
@@ -14941,42 +13357,44 @@ const deserializeAws_queryUserGroupsUpdateStatus = (output: any, context: __Serd
   return contents;
 };
 
-const deserializeAws_queryUserIdList = (output: any, context: __SerdeContext): string[] => {
+/**
+ * deserializeAws_queryUserIdList
+ */
+const de_UserIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
 
-const deserializeAws_queryUserList = (output: any, context: __SerdeContext): User[] => {
+/**
+ * deserializeAws_queryUserList
+ */
+const de_UserList = (output: any, context: __SerdeContext): User[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_queryUser(entry, context);
+      return de_User(entry, context);
     });
 };
 
-const deserializeAws_queryUserNotFoundFault = (output: any, context: __SerdeContext): UserNotFoundFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserNotFoundFault
+ */
+const de_UserNotFoundFault = (output: any, context: __SerdeContext): UserNotFoundFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
   return contents;
 };
 
-const deserializeAws_queryUserQuotaExceededFault = (output: any, context: __SerdeContext): UserQuotaExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+/**
+ * deserializeAws_queryUserQuotaExceededFault
+ */
+const de_UserQuotaExceededFault = (output: any, context: __SerdeContext): UserQuotaExceededFault => {
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -14985,23 +13403,17 @@ const deserializeAws_queryUserQuotaExceededFault = (output: any, context: __Serd
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -15026,17 +13438,25 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+const SHARED_HEADERS: __HeaderBag = {
+  "content-type": "application/x-www-form-urlencoded",
+};
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      const parsedObj = xmlParse(encoded, {
+      const parser = new XMLParser({
         attributeNamePrefix: "",
+        htmlEntities: true,
         ignoreAttributes: false,
-        parseNodeValue: false,
+        ignoreDeclaration: true,
+        parseTagValue: false,
         trimValues: false,
-        tagValueProcessor: (val) => (val.trim() === "" && val.includes("\n") ? "" : decodeHTML(val)),
+        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
       });
+      parser.addEntity("#xD", "\r");
+      parser.addEntity("#10", "\n");
+      const parsedObj = parser.parse(encoded);
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
@@ -15049,17 +13469,24 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string =>
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  if (value.Error) {
+    value.Error.message = value.Error.message ?? value.Error.Message;
+  }
+  return value;
+};
+
+const buildFormUrlencodedString = (formEntries: Record<string, string>): string =>
   Object.entries(formEntries)
     .map(([key, value]) => __extendedEncodeURIComponent(key) + "=" + __extendedEncodeURIComponent(value))
     .join("&");
 
-const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
-  if (data.Error.Code !== undefined) {
+const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefined => {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
     return "NotFound";
   }
-  return "";
 };

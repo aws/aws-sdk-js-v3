@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListTranscriptionJobsCommand,
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput,
 } from "../commands/ListTranscriptionJobsCommand";
-import { Transcribe } from "../Transcribe";
 import { TranscribeClient } from "../TranscribeClient";
 import { TranscribePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TranscribeClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListTranscriptionJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Transcribe,
-  input: ListTranscriptionJobsCommandInput,
-  ...args: any
-): Promise<ListTranscriptionJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listTranscriptionJobs(input, ...args);
-};
 export async function* paginateListTranscriptionJobs(
   config: TranscribePaginationConfiguration,
   input: ListTranscriptionJobsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListTranscriptionJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Transcribe) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TranscribeClient) {
+    if (config.client instanceof TranscribeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Transcribe | TranscribeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

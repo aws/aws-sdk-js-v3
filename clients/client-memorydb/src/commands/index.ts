@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchUpdateClusterCommand";
 export * from "./CopySnapshotCommand";
 export * from "./CreateACLCommand";
@@ -18,6 +19,8 @@ export * from "./DescribeEngineVersionsCommand";
 export * from "./DescribeEventsCommand";
 export * from "./DescribeParameterGroupsCommand";
 export * from "./DescribeParametersCommand";
+export * from "./DescribeReservedNodesCommand";
+export * from "./DescribeReservedNodesOfferingsCommand";
 export * from "./DescribeServiceUpdatesCommand";
 export * from "./DescribeSnapshotsCommand";
 export * from "./DescribeSubnetGroupsCommand";
@@ -25,6 +28,7 @@ export * from "./DescribeUsersCommand";
 export * from "./FailoverShardCommand";
 export * from "./ListAllowedNodeTypeUpdatesCommand";
 export * from "./ListTagsCommand";
+export * from "./PurchaseReservedNodesOfferingCommand";
 export * from "./ResetParameterGroupCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

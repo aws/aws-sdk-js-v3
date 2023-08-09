@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,70 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { TestWirelessDeviceRequest, TestWirelessDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestWirelessDeviceCommand,
-  serializeAws_restJson1TestWirelessDeviceCommand,
-} from "../protocols/Aws_restJson1";
+import { TestWirelessDeviceRequest, TestWirelessDeviceResponse } from "../models/models_1";
+import { de_TestWirelessDeviceCommand, se_TestWirelessDeviceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link TestWirelessDeviceCommand}.
+ */
 export interface TestWirelessDeviceCommandInput extends TestWirelessDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link TestWirelessDeviceCommand}.
+ */
 export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.</p>
+ * @public
+ * <p>Simulates a provisioned device by sending an uplink data payload of
+ *             <code>Hello</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTWirelessClient, TestWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, TestWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // TestWirelessDeviceRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new TestWirelessDeviceCommand(input);
  * const response = await client.send(command);
+ * // { // TestWirelessDeviceResponse
+ * //   Result: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param TestWirelessDeviceCommandInput - {@link TestWirelessDeviceCommandInput}
+ * @returns {@link TestWirelessDeviceCommandOutput}
  * @see {@link TestWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link TestWirelessDeviceCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class TestWirelessDeviceCommand extends $Command<
@@ -46,6 +85,18 @@ export class TestWirelessDeviceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: TestWirelessDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,9 @@ export class TestWirelessDeviceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, TestWirelessDeviceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +125,8 @@ export class TestWirelessDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestWirelessDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestWirelessDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +136,18 @@ export class TestWirelessDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestWirelessDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestWirelessDeviceCommand(input, context);
+    return se_TestWirelessDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestWirelessDeviceCommandOutput> {
-    return deserializeAws_restJson1TestWirelessDeviceCommand(output, context);
+    return de_TestWirelessDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

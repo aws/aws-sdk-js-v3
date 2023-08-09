@@ -1,447 +1,545 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
 /**
+ * @public
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace AccessDeniedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
- * <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
+ * @public
+ * <p>Indicates that a request to authorize a client with an access user session token is
+ *       pending.</p>
  */
-export interface AuthorizationPendingException extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationPendingException";
-  $fault: "client";
+export class AuthorizationPendingException extends __BaseException {
+  readonly name: "AuthorizationPendingException" = "AuthorizationPendingException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace AuthorizationPendingException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AuthorizationPendingException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AuthorizationPendingException, __BaseException>) {
+    super({
+      name: "AuthorizationPendingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationPendingException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
+/**
+ * @public
+ */
 export interface CreateTokenRequest {
   /**
-   * <p>The unique identifier string for each client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
+   * @public
+   * <p>The unique identifier string for each client. This value should come from the persisted
+   *       result of the <a>RegisterClient</a> API.</p>
    */
   clientId: string | undefined;
 
   /**
-   * <p>A secret string generated for the client. This value should come from the persisted result of the <a>RegisterClient</a> API.</p>
+   * @public
+   * <p>A secret string generated for the client. This value should come from the persisted result
+   *       of the <a>RegisterClient</a> API.</p>
    */
   clientSecret: string | undefined;
 
   /**
-   * <p>Supports grant types for authorization code, refresh token, and device code request.</p>
+   * @public
+   * <p>Supports grant types for the authorization code, refresh token, and device code request.
+   *       For device code requests, specify the following value:</p>
+   *
+   *          <p>
+   *             <code>urn:ietf:params:oauth:grant-type:<i>device_code</i>
+   *             </code>
+   *          </p>
+   *
+   *          <p>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a> topic.</p>
    */
   grantType: string | undefined;
 
   /**
+   * @public
    * <p>Used only when calling this API for the device code grant type. This short-term code is
    *       used to identify this authentication attempt. This should come from an in-memory reference to
    *       the result of the <a>StartDeviceAuthorization</a> API.</p>
    */
-  deviceCode: string | undefined;
+  deviceCode?: string;
 
   /**
-   * <p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>
+   * @public
+   * <p>The authorization code received from the authorization service. This parameter is required
+   *       to perform an authorization grant request to get access to a token.</p>
    */
   code?: string;
 
   /**
-   * <p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>
+   * @public
+   * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
+   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
+   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
+   *         OIDC API Reference</a>.</p>
+   *          <p>The token used to obtain an access token in the event that the access token is invalid or
+   *       expired.</p>
    */
   refreshToken?: string;
 
   /**
+   * @public
    * <p>The list of scopes that is defined by the client. Upon authorization, this list is used to
    *       restrict permissions when granting an access token.</p>
    */
   scope?: string[];
 
   /**
+   * @public
    * <p>The location of the application that will receive the authorization code. Users authorize
    *       the service to send the request to this location.</p>
    */
   redirectUri?: string;
 }
 
-export namespace CreateTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTokenResponse {
   /**
-   * <p>An opaque token to access AWS SSO resources assigned to a user.</p>
+   * @public
+   * <p>An opaque token to access IAM Identity Center resources assigned to a user.</p>
    */
   accessToken?: string;
 
   /**
+   * @public
    * <p>Used to notify the client that the returned token is an access token. The supported type
    *       is <code>BearerToken</code>.</p>
    */
   tokenType?: string;
 
   /**
+   * @public
    * <p>Indicates the time in seconds when an access token will expire.</p>
    */
   expiresIn?: number;
 
   /**
-   * <p>A token that, if present, can be used to refresh a previously issued access token that
+   * @public
+   * <p>Currently, <code>refreshToken</code> is not yet implemented and is not supported. For more
+   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
+   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
+   *         OIDC API Reference</a>.</p>
+   *          <p>A token that, if present, can be used to refresh a previously issued access token that
    *       might have expired.</p>
    */
   refreshToken?: string;
 
   /**
-   * <p>The identifier of the user that associated with the access token, if present.</p>
+   * @public
+   * <p>Currently, <code>idToken</code> is not yet implemented and is not supported. For more
+   *       information about the features and limitations of the current IAM Identity Center OIDC implementation,
+   *       see <i>Considerations for Using this Guide</i> in the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM Identity Center
+   *         OIDC API Reference</a>.</p>
+   *          <p>The identifier of the user that associated with the access token, if present.</p>
    */
   idToken?: string;
 }
 
-export namespace CreateTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
  */
-export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredTokenException";
-  $fault: "client";
+export class ExpiredTokenException extends __BaseException {
+  readonly name: "ExpiredTokenException" = "ExpiredTokenException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace ExpiredTokenException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ExpiredTokenException, __BaseException>) {
+    super({
+      name: "ExpiredTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredTokenException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
- * <p>Indicates that an error from the service occurred while trying to process a request.</p>
+ * @public
+ * <p>Indicates that an error from the service occurred while trying to process a
+ *       request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   error?: string;
   error_description?: string;
-}
-
-export namespace InternalServerException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
  *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
  *       an expired <code>clientSecret</code>.</p>
  */
-export interface InvalidClientException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientException";
-  $fault: "client";
+export class InvalidClientException extends __BaseException {
+  readonly name: "InvalidClientException" = "InvalidClientException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidClientException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidClientException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidClientException, __BaseException>) {
+    super({
+      name: "InvalidClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
- * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
+ * @public
+ * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a
+ *         <a>CreateToken</a> request with an invalid grant type.</p>
  */
-export interface InvalidGrantException extends __SmithyException, $MetadataBearer {
-  name: "InvalidGrantException";
-  $fault: "client";
+export class InvalidGrantException extends __BaseException {
+  readonly name: "InvalidGrantException" = "InvalidGrantException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidGrantException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidGrantException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidGrantException, __BaseException>) {
+    super({
+      name: "InvalidGrantException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGrantException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidRequestException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the scope provided in the request is invalid.</p>
  */
-export interface InvalidScopeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidScopeException";
-  $fault: "client";
+export class InvalidScopeException extends __BaseException {
+  readonly name: "InvalidScopeException" = "InvalidScopeException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidScopeException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidScopeException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidScopeException, __BaseException>) {
+    super({
+      name: "InvalidScopeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidScopeException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
- * <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
+ * @public
+ * <p>Indicates that the client is making the request too frequently and is more than the
+ *       service can handle. </p>
  */
-export interface SlowDownException extends __SmithyException, $MetadataBearer {
-  name: "SlowDownException";
-  $fault: "client";
+export class SlowDownException extends __BaseException {
+  readonly name: "SlowDownException" = "SlowDownException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace SlowDownException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SlowDownException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<SlowDownException, __BaseException>) {
+    super({
+      name: "SlowDownException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SlowDownException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the client is not currently authorized to make the request. This can happen
  *       when a <code>clientId</code> is not issued for a public client.</p>
  */
-export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedClientException";
-  $fault: "client";
+export class UnauthorizedClientException extends __BaseException {
+  readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace UnauthorizedClientException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<UnauthorizedClientException, __BaseException>) {
+    super({
+      name: "UnauthorizedClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedClientException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
+ * @public
  * <p>Indicates that the grant type in the request is not supported by the service.</p>
  */
-export interface UnsupportedGrantTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedGrantTypeException";
-  $fault: "client";
+export class UnsupportedGrantTypeException extends __BaseException {
+  readonly name: "UnsupportedGrantTypeException" = "UnsupportedGrantTypeException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace UnsupportedGrantTypeException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnsupportedGrantTypeException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<UnsupportedGrantTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedGrantTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedGrantTypeException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
- * <p>Indicates that the client information sent in the request during registration is invalid.</p>
+ * @public
+ * <p>Indicates that the client information sent in the request during registration is
+ *       invalid.</p>
  */
-export interface InvalidClientMetadataException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientMetadataException";
-  $fault: "client";
+export class InvalidClientMetadataException extends __BaseException {
+  readonly name: "InvalidClientMetadataException" = "InvalidClientMetadataException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
-}
-
-export namespace InvalidClientMetadataException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidClientMetadataException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidClientMetadataException, __BaseException>) {
+    super({
+      name: "InvalidClientMetadataException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientMetadataException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
+/**
+ * @public
+ */
 export interface RegisterClientRequest {
   /**
+   * @public
    * <p>The friendly name of the client.</p>
    */
   clientName: string | undefined;
 
   /**
-   * <p>The type of client. The service supports only <code>public</code> as a client type. Anything other than public will be rejected by the service.</p>
+   * @public
+   * <p>The type of client. The service supports only <code>public</code> as a client type.
+   *       Anything other than public will be rejected by the service.</p>
    */
   clientType: string | undefined;
 
   /**
+   * @public
    * <p>The list of scopes that are defined by the client. Upon authorization, this list is used
    *       to restrict permissions when granting an access token.</p>
    */
   scopes?: string[];
 }
 
-export namespace RegisterClientRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterClientRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface RegisterClientResponse {
   /**
+   * @public
    * <p>The unique identifier string for each client. This client uses this identifier to get
    *       authenticated by the service in subsequent calls.</p>
    */
   clientId?: string;
 
   /**
+   * @public
    * <p>A secret string generated for the client. The client will use this string to get
    *       authenticated by the service in subsequent calls.</p>
    */
   clientSecret?: string;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were issued.</p>
+   * @public
+   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were
+   *       issued.</p>
    */
   clientIdIssuedAt?: number;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>
+   * @public
+   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will
+   *       become invalid.</p>
    */
   clientSecretExpiresAt?: number;
 
   /**
+   * @public
    * <p>The endpoint where the client can request authorization.</p>
    */
   authorizationEndpoint?: string;
 
   /**
+   * @public
    * <p>The endpoint where the client can get an access token.</p>
    */
   tokenEndpoint?: string;
 }
 
-export namespace RegisterClientResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterClientResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartDeviceAuthorizationRequest {
   /**
-   * <p>The unique identifier string for the client that is registered with AWS SSO. This value
+   * @public
+   * <p>The unique identifier string for the client that is registered with IAM Identity Center. This value
    *       should come from the persisted result of the <a>RegisterClient</a> API
    *       operation.</p>
    */
   clientId: string | undefined;
 
   /**
+   * @public
    * <p>A secret string that is generated for the client. This value should come from the
    *       persisted result of the <a>RegisterClient</a> API operation.</p>
    */
   clientSecret: string | undefined;
 
   /**
-   * <p>The URL for the AWS SSO user portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-   *         the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</p>
+   * @public
+   * <p>The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
+   *       the AWS access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>
    */
   startUrl: string | undefined;
 }
 
-export namespace StartDeviceAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface StartDeviceAuthorizationResponse {
   /**
+   * @public
    * <p>The short-lived code that is used by the device when polling for a session token.</p>
    */
   deviceCode?: string;
 
   /**
+   * @public
    * <p>A one-time user verification code. This is needed to authorize an in-use device.</p>
    */
   userCode?: string;
 
   /**
-   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the device.</p>
+   * @public
+   * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the
+   *       device.</p>
    */
   verificationUri?: string;
 
   /**
+   * @public
    * <p>An alternate URL that the client can use to automatically launch a browser. This process
    *       skips the manual step in which the user visits the verification page and enters their
    *       code.</p>
@@ -449,21 +547,15 @@ export interface StartDeviceAuthorizationResponse {
   verificationUriComplete?: string;
 
   /**
+   * @public
    * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
    */
   expiresIn?: number;
 
   /**
-   * <p>Indicates the number of seconds the client must wait between attempts when polling for a session.</p>
+   * @public
+   * <p>Indicates the number of seconds the client must wait between attempts when polling for a
+   *       session.</p>
    */
   interval?: number;
-}
-
-export namespace StartDeviceAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeviceAuthorizationResponse): any => ({
-    ...obj,
-  });
 }

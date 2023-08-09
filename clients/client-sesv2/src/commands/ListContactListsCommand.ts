@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListContactListsRequest, ListContactListsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListContactListsCommand,
-  serializeAws_restJson1ListContactListsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListContactListsCommand, se_ListContactListsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListContactListsCommand}.
+ */
 export interface ListContactListsCommandInput extends ListContactListsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListContactListsCommand}.
+ */
 export interface ListContactListsCommandOutput extends ListContactListsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all of the contact lists available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,38 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
  * import { SESv2Client, ListContactListsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListContactListsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = { // ListContactListsRequest
+ *   PageSize: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListContactListsCommand(input);
  * const response = await client.send(command);
+ * // { // ListContactListsResponse
+ * //   ContactLists: [ // ListOfContactLists
+ * //     { // ContactList
+ * //       ContactListName: "STRING_VALUE",
+ * //       LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListContactListsCommandInput - {@link ListContactListsCommandInput}
+ * @returns {@link ListContactListsCommandOutput}
  * @see {@link ListContactListsCommandInput} for command's `input` shape.
  * @see {@link ListContactListsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
+ * @throws {@link SESv2ServiceException}
+ * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  */
 export class ListContactListsCommand extends $Command<
@@ -46,6 +85,18 @@ export class ListContactListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListContactListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +112,9 @@ export class ListContactListsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListContactListsCommandInput, ListContactListsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListContactListsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +125,8 @@ export class ListContactListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactListsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListContactListsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +136,18 @@ export class ListContactListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListContactListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListContactListsCommand(input, context);
+    return se_ListContactListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListContactListsCommandOutput> {
-    return deserializeAws_restJson1ListContactListsCommand(output, context);
+    return de_ListContactListsCommand(output, context);
   }
 
   // Start section: command_body_extra

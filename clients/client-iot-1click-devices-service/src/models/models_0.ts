@@ -1,518 +1,517 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { IoT1ClickDevicesServiceServiceException as __BaseException } from "./IoT1ClickDevicesServiceServiceException";
+
+/**
+ * @public
+ */
 export interface DeviceDescription {
   /**
+   * @public
    * <p>The ARN of the device.</p>
    */
   Arn?: string;
 
   /**
+   * @public
    * <p>An array of zero or more elements of DeviceAttribute objects providing
    *  user specified device attributes.</p>
    */
-  Attributes?: { [key: string]: string };
+  Attributes?: Record<string, string>;
 
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>A Boolean value indicating whether or not the device is enabled.</p>
    */
   Enabled?: boolean;
 
   /**
+   * @public
    * <p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the
    *  device.</p>
    */
   RemainingLife?: number;
 
   /**
+   * @public
    * <p>The type of the device, such as "button".</p>
    */
   Type?: string;
 
   /**
+   * @public
    * <p>The tags currently associated with the AWS IoT 1-Click device.</p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace DeviceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceDescription): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface Attributes {}
 
-export namespace Attributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attributes): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface Device {
   /**
+   * @public
    * <p>The user specified attributes associated with the device for an event.</p>
    */
   Attributes?: Attributes;
 
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId?: string;
 
   /**
+   * @public
    * <p>The device type, such as "button".</p>
    */
   Type?: string;
 }
 
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeviceEvent {
   /**
+   * @public
    * <p>An object representing the device associated with the event.</p>
    */
   Device?: Device;
 
   /**
+   * @public
    * <p>A serialized JSON object representing the device-type specific event.</p>
    */
   StdEvent?: string;
 }
 
-export namespace DeviceEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceEvent): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeviceMethod {
   /**
+   * @public
    * <p>The type of the device, such as "button".</p>
    */
   DeviceType?: string;
 
   /**
+   * @public
    * <p>The name of the method applicable to the deviceType.</p>
    */
   MethodName?: string;
 }
 
-export namespace DeviceMethod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceMethod): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ClaimDevicesByClaimCodeRequest {
   /**
+   * @public
    * <p>The claim code, starting with "C-", as provided by the device manufacturer.</p>
    */
   ClaimCode: string | undefined;
 }
 
-export namespace ClaimDevicesByClaimCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ClaimDevicesByClaimCodeResponse {
   /**
+   * @public
    * <p>The claim code provided by the device manufacturer.</p>
    */
   ClaimCode?: string;
 
   /**
+   * @public
    * <p>The total number of devices associated with the claim code that has been processed in
    *  the claim request.</p>
    */
   Total?: number;
 }
 
-export namespace ClaimDevicesByClaimCodeResponse {
+/**
+ * @public
+ */
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
-  /**
+   * @public
    * <p>403</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>The 403 error message returned by the web server.</p>
    */
   Message?: string;
-}
-
-export namespace ForbiddenException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
+/**
+ * @public
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>500</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>The 500 error message returned by the web server.</p>
    */
   Message?: string;
-}
-
-export namespace InternalFailureException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+/**
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>400</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>The 400 error message returned by the web server.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidRequestException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
+/**
+ * @public
+ */
 export interface DescribeDeviceRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 }
 
-export namespace DescribeDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDeviceResponse {
   /**
+   * @public
    * <p>Device details.</p>
    */
   DeviceDescription?: DeviceDescription;
 }
 
-export namespace DescribeDeviceResponse {
+/**
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
+   * @public
    * <p>404</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>The requested device could not be found.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
+/**
+ * @public
+ */
 export interface FinalizeDeviceClaimRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 
   /**
-   * <p>A collection of key/value pairs defining the resource tags. For example, {
-   *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+   * @public
+   * <p>A collection of key/value pairs defining the resource tags. For example, \{
+   *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace FinalizeDeviceClaimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalizeDeviceClaimRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface FinalizeDeviceClaimResponse {
   /**
+   * @public
    * <p>The device's final claim state.</p>
    */
   State?: string;
 }
 
-export namespace FinalizeDeviceClaimResponse {
+/**
+ * @public
+ */
+export class PreconditionFailedException extends __BaseException {
+  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
+  readonly $fault: "client" = "client";
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalizeDeviceClaimResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailedException";
-  $fault: "client";
-  /**
+   * @public
    * <p>412</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>An error message explaining the error or its remedy.</p>
    */
   Message?: string;
-}
-
-export namespace PreconditionFailedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
+    super({
+      name: "PreconditionFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+/**
+ * @public
+ */
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>409</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>An error message explaining the error or its remedy.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceConflictException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
+/**
+ * @public
+ */
 export interface GetDeviceMethodsRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 }
 
-export namespace GetDeviceMethodsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceMethodsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetDeviceMethodsResponse {
   /**
+   * @public
    * <p>List of available device APIs.</p>
    */
   DeviceMethods?: DeviceMethod[];
 }
 
-export namespace GetDeviceMethodsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceMethodsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface InitiateDeviceClaimRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 }
 
-export namespace InitiateDeviceClaimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateDeviceClaimRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface InitiateDeviceClaimResponse {
   /**
+   * @public
    * <p>The device's final claim state.</p>
    */
   State?: string;
 }
 
-export namespace InitiateDeviceClaimResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateDeviceClaimResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface InvokeDeviceMethodRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>The device method to invoke.</p>
    */
   DeviceMethod?: DeviceMethod;
 
   /**
+   * @public
    * <p>A JSON encoded string containing the device method request parameters.</p>
    */
   DeviceMethodParameters?: string;
 }
 
-export namespace InvokeDeviceMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeDeviceMethodRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface InvokeDeviceMethodResponse {
   /**
+   * @public
    * <p>A JSON encoded string containing the device method response.</p>
    */
   DeviceMethodResponse?: string;
 }
 
-export namespace InvokeDeviceMethodResponse {
+/**
+ * @public
+ */
+export class RangeNotSatisfiableException extends __BaseException {
+  readonly name: "RangeNotSatisfiableException" = "RangeNotSatisfiableException";
+  readonly $fault: "client" = "client";
   /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeDeviceMethodResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface RangeNotSatisfiableException extends __SmithyException, $MetadataBearer {
-  name: "RangeNotSatisfiableException";
-  $fault: "client";
-  /**
+   * @public
    * <p>416</p>
    */
   Code?: string;
 
   /**
+   * @public
    * <p>The requested number of results specified by nextToken cannot be
    *  satisfied.</p>
    */
   Message?: string;
-}
-
-export namespace RangeNotSatisfiableException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RangeNotSatisfiableException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RangeNotSatisfiableException, __BaseException>) {
+    super({
+      name: "RangeNotSatisfiableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RangeNotSatisfiableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
+/**
+ * @public
+ */
 export interface ListDeviceEventsRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>The start date for the device event query, in ISO8061 format. For example,
    *  2018-03-28T15:45:12.880Z
    *  </p>
@@ -520,17 +519,20 @@ export interface ListDeviceEventsRequest {
   FromTimeStamp: Date | undefined;
 
   /**
+   * @public
    * <p>The maximum number of results to return per request. If not set, a default value of
    *  100 is used.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
+   * @public
    * <p>The end date for the device event query, in ISO8061 format. For example,
    *  2018-03-28T15:45:12.880Z
    *  </p>
@@ -538,228 +540,170 @@ export interface ListDeviceEventsRequest {
   ToTimeStamp: Date | undefined;
 }
 
-export namespace ListDeviceEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDeviceEventsResponse {
   /**
+   * @public
    * <p>An array of zero or more elements describing the event(s) associated with the
    *  device.</p>
    */
   Events?: DeviceEvent[];
 
   /**
+   * @public
    * <p>The token to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListDeviceEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDevicesRequest {
   /**
+   * @public
    * <p>The type of the device, such as "button".</p>
    */
   DeviceType?: string;
 
   /**
+   * @public
    * <p>The maximum number of results to return per request. If not set, a default value of
    *  100 is used.</p>
    */
   MaxResults?: number;
 
   /**
+   * @public
    * <p>The token to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDevicesResponse {
   /**
+   * @public
    * <p>A list of devices.</p>
    */
   Devices?: DeviceDescription[];
 
   /**
+   * @public
    * <p>The token to retrieve the next set of results.</p>
    */
   NextToken?: string;
 }
 
-export namespace ListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A collection of key/value pairs defining the resource tags. For example, {
-   *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+   * @public
+   * <p>A collection of key/value pairs defining the resource tags. For example, \{
+   *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
    */
-  Tags?: { [key: string]: string };
+  Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A collection of key/value pairs defining the resource tags. For example, {
-   *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+   * @public
+   * <p>A collection of key/value pairs defining the resource tags. For example, \{
+   *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
    */
-  Tags: { [key: string]: string } | undefined;
+  Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UnclaimDeviceRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 }
 
-export namespace UnclaimDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnclaimDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UnclaimDeviceResponse {
   /**
+   * @public
    * <p>The device's final claim state.</p>
    */
   State?: string;
 }
 
-export namespace UnclaimDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnclaimDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A collections of tag keys. For example, {"key1","key2"}</p>
+   * @public
+   * <p>A collections of tag keys. For example, \{"key1","key2"\}</p>
    */
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDeviceStateRequest {
   /**
+   * @public
    * <p>The unique identifier of the device.</p>
    */
   DeviceId: string | undefined;
 
   /**
+   * @public
    * <p>If true, the device is enabled. If false, the device is
    *  disabled.</p>
    */
   Enabled?: boolean;
 }
 
-export namespace UpdateDeviceStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceStateRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateDeviceStateResponse {}
-
-export namespace UpdateDeviceStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceStateResponse): any => ({
-    ...obj,
-  });
-}

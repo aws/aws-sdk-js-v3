@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateHITRequest, CreateHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import { deserializeAws_json1_1CreateHITCommand, serializeAws_json1_1CreateHITCommand } from "../protocols/Aws_json1_1";
+import { de_CreateHITCommand, se_CreateHITCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateHITCommand}.
+ */
 export interface CreateHITCommandInput extends CreateHITRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateHITCommand}.
+ */
 export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The <code>CreateHIT</code> operation creates a new Human Intelligence Task (HIT).
  *             The new HIT is made available for Workers to find and accept on the Amazon Mechanical
  *             Turk website. </p>
@@ -42,13 +59,141 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // CreateHITRequest
+ *   MaxAssignments: Number("int"),
+ *   AutoApprovalDelayInSeconds: Number("long"),
+ *   LifetimeInSeconds: Number("long"), // required
+ *   AssignmentDurationInSeconds: Number("long"), // required
+ *   Reward: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   Question: "STRING_VALUE",
+ *   RequesterAnnotation: "STRING_VALUE",
+ *   QualificationRequirements: [ // QualificationRequirementList
+ *     { // QualificationRequirement
+ *       QualificationTypeId: "STRING_VALUE", // required
+ *       Comparator: "STRING_VALUE", // required
+ *       IntegerValues: [ // IntegerList
+ *         Number("int"),
+ *       ],
+ *       LocaleValues: [ // LocaleList
+ *         { // Locale
+ *           Country: "STRING_VALUE", // required
+ *           Subdivision: "STRING_VALUE",
+ *         },
+ *       ],
+ *       RequiredToPreview: true || false,
+ *       ActionsGuarded: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UniqueRequestToken: "STRING_VALUE",
+ *   AssignmentReviewPolicy: { // ReviewPolicy
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [ // PolicyParameterList
+ *       { // PolicyParameter
+ *         Key: "STRING_VALUE",
+ *         Values: [ // StringList
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [ // ParameterMapEntryList
+ *           { // ParameterMapEntry
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITReviewPolicy: {
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITLayoutId: "STRING_VALUE",
+ *   HITLayoutParameters: [ // HITLayoutParameterList
+ *     { // HITLayoutParameter
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHITCommand(input);
  * const response = await client.send(command);
+ * // { // CreateHITResponse
+ * //   HIT: { // HIT
+ * //     HITId: "STRING_VALUE",
+ * //     HITTypeId: "STRING_VALUE",
+ * //     HITGroupId: "STRING_VALUE",
+ * //     HITLayoutId: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     Title: "STRING_VALUE",
+ * //     Description: "STRING_VALUE",
+ * //     Question: "STRING_VALUE",
+ * //     Keywords: "STRING_VALUE",
+ * //     HITStatus: "STRING_VALUE",
+ * //     MaxAssignments: Number("int"),
+ * //     Reward: "STRING_VALUE",
+ * //     AutoApprovalDelayInSeconds: Number("long"),
+ * //     Expiration: new Date("TIMESTAMP"),
+ * //     AssignmentDurationInSeconds: Number("long"),
+ * //     RequesterAnnotation: "STRING_VALUE",
+ * //     QualificationRequirements: [ // QualificationRequirementList
+ * //       { // QualificationRequirement
+ * //         QualificationTypeId: "STRING_VALUE", // required
+ * //         Comparator: "STRING_VALUE", // required
+ * //         IntegerValues: [ // IntegerList
+ * //           Number("int"),
+ * //         ],
+ * //         LocaleValues: [ // LocaleList
+ * //           { // Locale
+ * //             Country: "STRING_VALUE", // required
+ * //             Subdivision: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         RequiredToPreview: true || false,
+ * //         ActionsGuarded: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     HITReviewStatus: "STRING_VALUE",
+ * //     NumberOfAssignmentsPending: Number("int"),
+ * //     NumberOfAssignmentsAvailable: Number("int"),
+ * //     NumberOfAssignmentsCompleted: Number("int"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateHITCommandInput - {@link CreateHITCommandInput}
+ * @returns {@link CreateHITCommandOutput}
  * @see {@link CreateHITCommandInput} for command's `input` shape.
  * @see {@link CreateHITCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class CreateHITCommand extends $Command<
@@ -59,6 +204,18 @@ export class CreateHITCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateHITCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +231,7 @@ export class CreateHITCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateHITCommandInput, CreateHITCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateHITCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +242,8 @@ export class CreateHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHITRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +253,18 @@ export class CreateHITCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateHITCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateHITCommand(input, context);
+    return se_CreateHITCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHITCommandOutput> {
-    return deserializeAws_json1_1CreateHITCommand(output, context);
+    return de_CreateHITCommand(output, context);
   }
 
   // Start section: command_body_extra

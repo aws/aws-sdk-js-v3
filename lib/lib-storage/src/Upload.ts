@@ -1,22 +1,31 @@
-import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
 import {
+  AbortMultipartUploadCommandOutput,
   CompletedPart,
   CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
   CreateMultipartUploadCommandOutput,
   PutObjectCommand,
   PutObjectCommandInput,
-  PutObjectCommandOutput,
   PutObjectTaggingCommand,
-  ServiceOutputTypes,
+  S3Client,
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { AbortController, AbortSignal } from "@smithy/abort-controller";
+import {
+  EndpointParameterInstructionsSupplier,
+  getEndpointFromInstructions,
+  toEndpointV1,
+} from "@smithy/middleware-endpoint";
+import { HttpRequest } from "@smithy/protocol-http";
+import { extendedEncodeURIComponent } from "@smithy/smithy-client";
+import { Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
 import { getChunk } from "./chunker";
-import { BodyDataTypes, Options, Progress, ServiceClients } from "./types";
+import { BodyDataTypes, Options, Progress } from "./types";
 
 export interface RawDataPart {
   partNumber: number;
@@ -38,7 +47,7 @@ export class Upload extends EventEmitter {
   private leavePartsOnError = false;
   private tags: Tag[] = [];
 
-  private client: ServiceClients;
+  private client: S3Client;
   private params: PutObjectCommandInput;
 
   // used for reporting progress.
@@ -55,7 +64,7 @@ export class Upload extends EventEmitter {
   uploadEvent?: string;
 
   private isMultiPart = true;
-  private putResponse?: PutObjectCommandOutput;
+  private singleUploadResult?: CompleteMultipartUploadCommandOutput;
 
   constructor(options: Options) {
     super();
@@ -74,7 +83,7 @@ export class Upload extends EventEmitter {
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
-    this.abortController = new AbortController();
+    this.abortController = options.abortController ?? new AbortController();
   }
 
   async abort(): Promise<void> {
@@ -85,21 +94,85 @@ export class Upload extends EventEmitter {
     this.abortController.abort();
   }
 
-  async done(): Promise<ServiceOutputTypes> {
+  public async done(): Promise<CompleteMultipartUploadCommandOutput | AbortMultipartUploadCommandOutput> {
     return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
   }
 
-  on(event: "httpUploadProgress", listener: (progress: Progress) => void): any {
+  public on(event: "httpUploadProgress", listener: (progress: Progress) => void): this {
     this.uploadEvent = event;
-    super.on(event, listener);
+    return super.on(event, listener);
   }
 
-  async __uploadUsingPut(dataPart: RawDataPart) {
+  private async __uploadUsingPut(dataPart: RawDataPart): Promise<void> {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
-    const putResult = await this.client.send(new PutObjectCommand(params));
-    this.putResponse = putResult;
+
+    const clientConfig = this.client.config;
+    const requestHandler = clientConfig.requestHandler;
+    const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
+    const uploadEventListener = (event: ProgressEvent) => {
+      this.bytesUploadedSoFar = event.loaded;
+      this.totalBytes = event.total;
+      this.__notifyProgress({
+        loaded: this.bytesUploadedSoFar,
+        total: this.totalBytes,
+        part: dataPart.partNumber,
+        Key: this.params.Key,
+        Bucket: this.params.Bucket,
+      });
+    };
+
+    if (eventEmitter !== null) {
+      // The requestHandler is the xhr-http-handler.
+      eventEmitter.on("xhr.upload.progress", uploadEventListener);
+    }
+
+    const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
+    const putResult = resolved[0];
+    let endpoint: Endpoint | undefined = resolved[1];
+
+    if (!endpoint) {
+      endpoint = toEndpointV1(
+        await getEndpointFromInstructions(params, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+          ...clientConfig,
+        })
+      );
+    }
+
+    if (!endpoint) {
+      throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()" nor EndpointsV2.');
+    }
+
+    if (eventEmitter !== null) {
+      eventEmitter.off("xhr.upload.progress", uploadEventListener);
+    }
+
+    const locationKey = this.params
+      .Key!.split("/")
+      .map((segment) => extendedEncodeURIComponent(segment))
+      .join("/");
+    const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
+
+    const Location: string = (() => {
+      const endpointHostnameIncludesBucket = endpoint.hostname.startsWith(`${locationBucket}.`);
+      const forcePathStyle = this.client.config.forcePathStyle;
+      if (forcePathStyle) {
+        return `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
+      }
+      if (endpointHostnameIncludesBucket) {
+        return `${endpoint.protocol}//${endpoint.hostname}/${locationKey}`;
+      }
+      return `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+    })();
+
+    this.singleUploadResult = {
+      ...putResult,
+      Bucket: this.params.Bucket,
+      Key: this.params.Key,
+      Location,
+    };
     const totalSize = byteLength(dataPart.data);
+
     this.__notifyProgress({
       loaded: totalSize,
       total: totalSize,
@@ -109,16 +182,15 @@ export class Upload extends EventEmitter {
     });
   }
 
-  async __createMultipartUpload() {
+  private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
       this.createMultiPartPromise = this.client.send(new CreateMultipartUploadCommand(createCommandParams));
     }
-    const createMultipartUploadResult = await this.createMultiPartPromise;
-    this.uploadId = createMultipartUploadResult.UploadId;
+    return this.createMultiPartPromise;
   }
 
-  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
+  private async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
       if (this.uploadedParts.length > this.MAX_PARTS) {
         throw new Error(
@@ -137,10 +209,44 @@ export class Upload extends EventEmitter {
         }
 
         if (!this.uploadId) {
-          await this.__createMultipartUpload();
+          const { UploadId } = await this.__createMultipartUpload();
+          this.uploadId = UploadId;
           if (this.abortController.signal.aborted) {
             return;
           }
+        }
+
+        const partSize: number = byteLength(dataPart.data) || 0;
+
+        const requestHandler = this.client.config.requestHandler;
+        const eventEmitter: EventEmitter | null = requestHandler instanceof EventEmitter ? requestHandler : null;
+
+        let lastSeenBytes = 0;
+        const uploadEventListener = (event: ProgressEvent, request: HttpRequest) => {
+          const requestPartSize = Number(request.query["partNumber"]) || -1;
+
+          if (requestPartSize !== dataPart.partNumber) {
+            // ignored, because the emitted event is not for this part.
+            return;
+          }
+
+          if (event.total && partSize) {
+            this.bytesUploadedSoFar += event.loaded - lastSeenBytes;
+            lastSeenBytes = event.loaded;
+          }
+
+          this.__notifyProgress({
+            loaded: this.bytesUploadedSoFar,
+            total: this.totalBytes,
+            part: dataPart.partNumber,
+            Key: this.params.Key,
+            Bucket: this.params.Bucket,
+          });
+        };
+
+        if (eventEmitter !== null) {
+          // The requestHandler is the xhr-http-handler.
+          eventEmitter.on("xhr.upload.progress", uploadEventListener);
         }
 
         const partResult = await this.client.send(
@@ -152,16 +258,33 @@ export class Upload extends EventEmitter {
           })
         );
 
+        if (eventEmitter !== null) {
+          eventEmitter.off("xhr.upload.progress", uploadEventListener);
+        }
+
         if (this.abortController.signal.aborted) {
           return;
+        }
+
+        if (!partResult.ETag) {
+          throw new Error(
+            `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
+          );
         }
 
         this.uploadedParts.push({
           PartNumber: dataPart.partNumber,
           ETag: partResult.ETag,
+          ...(partResult.ChecksumCRC32 && { ChecksumCRC32: partResult.ChecksumCRC32 }),
+          ...(partResult.ChecksumCRC32C && { ChecksumCRC32C: partResult.ChecksumCRC32C }),
+          ...(partResult.ChecksumSHA1 && { ChecksumSHA1: partResult.ChecksumSHA1 }),
+          ...(partResult.ChecksumSHA256 && { ChecksumSHA256: partResult.ChecksumSHA256 }),
         });
 
-        this.bytesUploadedSoFar += byteLength(dataPart.data);
+        if (eventEmitter === null) {
+          this.bytesUploadedSoFar += partSize;
+        }
+
         this.__notifyProgress({
           loaded: this.bytesUploadedSoFar,
           total: this.totalBytes,
@@ -183,7 +306,7 @@ export class Upload extends EventEmitter {
     }
   }
 
-  async __doMultipartUpload(): Promise<ServiceOutputTypes> {
+  private async __doMultipartUpload(): Promise<CompleteMultipartUploadCommandOutput> {
     // Set up data input chunks.
     const dataFeeder = getChunk(this.params.Body, this.partSize);
 
@@ -213,7 +336,7 @@ export class Upload extends EventEmitter {
       };
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
     } else {
-      result = this.putResponse!;
+      result = this.singleUploadResult!;
     }
 
     // Add tags to the object after it's completed the upload.
@@ -231,13 +354,13 @@ export class Upload extends EventEmitter {
     return result;
   }
 
-  __notifyProgress(progress: Progress) {
+  private __notifyProgress(progress: Progress): void {
     if (this.uploadEvent) {
       this.emit(this.uploadEvent, progress);
     }
   }
 
-  async __abortTimeout(abortSignal: AbortSignal): Promise<ServiceOutputTypes> {
+  private async __abortTimeout(abortSignal: AbortSignal): Promise<AbortMultipartUploadCommandOutput> {
     return new Promise((resolve, reject) => {
       abortSignal.onabort = () => {
         const abortError = new Error("Upload aborted.");
@@ -247,7 +370,7 @@ export class Upload extends EventEmitter {
     });
   }
 
-  __validateInput() {
+  private __validateInput(): void {
     if (!this.params) {
       throw new Error(`InputError: Upload requires params to be passed to upload.`);
     }

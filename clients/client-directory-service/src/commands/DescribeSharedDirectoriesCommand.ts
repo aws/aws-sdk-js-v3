@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeSharedDirectoriesCommand,
-  serializeAws_json1_1DescribeSharedDirectoriesCommand,
-} from "../protocols/Aws_json1_1";
+  DescribeSharedDirectoriesRequest,
+  DescribeSharedDirectoriesResult,
+  DescribeSharedDirectoriesResultFilterSensitiveLog,
+} from "../models/models_0";
+import { de_DescribeSharedDirectoriesCommand, se_DescribeSharedDirectoriesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSharedDirectoriesCommand}.
+ */
 export interface DescribeSharedDirectoriesCommandInput extends DescribeSharedDirectoriesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSharedDirectoriesCommand}.
+ */
 export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDirectoriesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the shared directories in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,61 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * import { DirectoryServiceClient, DescribeSharedDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSharedDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = { // DescribeSharedDirectoriesRequest
+ *   OwnerDirectoryId: "STRING_VALUE", // required
+ *   SharedDirectoryIds: [ // DirectoryIds
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeSharedDirectoriesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeSharedDirectoriesResult
+ * //   SharedDirectories: [ // SharedDirectories
+ * //     { // SharedDirectory
+ * //       OwnerAccountId: "STRING_VALUE",
+ * //       OwnerDirectoryId: "STRING_VALUE",
+ * //       ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
+ * //       SharedAccountId: "STRING_VALUE",
+ * //       SharedDirectoryId: "STRING_VALUE",
+ * //       ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
+ * //       ShareNotes: "STRING_VALUE",
+ * //       CreatedDateTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeSharedDirectoriesCommandInput - {@link DescribeSharedDirectoriesCommandInput}
+ * @returns {@link DescribeSharedDirectoriesCommandOutput}
  * @see {@link DescribeSharedDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeSharedDirectoriesCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link DirectoryServiceServiceException}
+ * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
  */
 export class DescribeSharedDirectoriesCommand extends $Command<
@@ -46,6 +112,18 @@ export class DescribeSharedDirectoriesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeSharedDirectoriesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +139,9 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeSharedDirectoriesCommandInput, DescribeSharedDirectoriesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeSharedDirectoriesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +152,8 @@ export class DescribeSharedDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSharedDirectoriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSharedDirectoriesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeSharedDirectoriesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +163,21 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeSharedDirectoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSharedDirectoriesCommand(input, context);
+    return se_DescribeSharedDirectoriesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSharedDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeSharedDirectoriesCommand(output, context);
+    return de_DescribeSharedDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

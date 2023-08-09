@@ -1,160 +1,152 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { ApiGatewayManagementApiServiceException as __BaseException } from "./ApiGatewayManagementApiServiceException";
+
+/**
+ * @public
+ */
 export interface DeleteConnectionRequest {
   ConnectionId: string | undefined;
 }
 
-export namespace DeleteConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The caller is not authorized to invoke this operation.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
-}
-
-export namespace ForbiddenException {
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The connection with the provided id no longer exists.</p>
  */
-export interface GoneException extends __SmithyException, $MetadataBearer {
-  name: "GoneException";
-  $fault: "client";
-}
-
-export namespace GoneException {
+export class GoneException extends __BaseException {
+  readonly name: "GoneException" = "GoneException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: GoneException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<GoneException, __BaseException>) {
+    super({
+      name: "GoneException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GoneException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-}
-
-export namespace LimitExceededException {
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface GetConnectionRequest {
   ConnectionId: string | undefined;
 }
 
-export namespace GetConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface Identity {
   /**
+   * @public
    * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
    */
   SourceIp: string | undefined;
 
   /**
+   * @public
    * <p>The User Agent of the API caller.</p>
    */
   UserAgent: string | undefined;
 }
 
-export namespace Identity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetConnectionResponse {
   /**
+   * @public
    * <p>The time in ISO 8601 format for when the connection was established.</p>
    */
   ConnectedAt?: Date;
 
   Identity?: Identity;
   /**
+   * @public
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    */
   LastActiveAt?: Date;
 }
 
-export namespace GetConnectionResponse {
+/**
+ * @public
+ * <p>The data has exceeded the maximum size allowed.</p>
+ */
+export class PayloadTooLargeException extends __BaseException {
+  readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
+  readonly $fault: "client" = "client";
+  Message?: string;
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PayloadTooLargeException, __BaseException>) {
+    super({
+      name: "PayloadTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PayloadTooLargeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
- * <p>The data has exceeded the maximum size allowed.</p>
+ * @public
  */
-export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "PayloadTooLargeException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PayloadTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
-    ...obj,
-  });
-}
-
 export interface PostToConnectionRequest {
   /**
+   * @public
    * <p>The data to be sent to the client specified by its connection id.</p>
    */
   Data: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The identifier of the connection that a specific client is using.</p>
    */
   ConnectionId: string | undefined;
-}
-
-export namespace PostToConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostToConnectionRequest): any => ({
-    ...obj,
-  });
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,27 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { StartServerRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1StartServerCommand,
-  serializeAws_json1_1StartServerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_StartServerCommand, se_StartServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartServerCommand}.
+ */
 export interface StartServerCommandInput extends StartServerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartServerCommand}.
+ */
 export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
  *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
  *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
- *
  *          <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,
  *       either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
  *       can indicate an error condition.</p>
- *
  *          <p>No response is returned from this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,13 +49,39 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * import { TransferClient, StartServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, StartServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = { // StartServerRequest
+ *   ServerId: "STRING_VALUE", // required
+ * };
  * const command = new StartServerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StartServerCommandInput - {@link StartServerCommandInput}
+ * @returns {@link StartServerCommandOutput}
  * @see {@link StartServerCommandInput} for command's `input` shape.
  * @see {@link StartServerCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
+ *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
+ *       service.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link TransferServiceException}
+ * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
 export class StartServerCommand extends $Command<
@@ -54,6 +92,18 @@ export class StartServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +119,7 @@ export class StartServerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartServerCommandInput, StartServerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, StartServerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +130,8 @@ export class StartServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +141,18 @@ export class StartServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartServerCommand(input, context);
+    return se_StartServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartServerCommandOutput> {
-    return deserializeAws_json1_1StartServerCommand(output, context);
+    return de_StartServerCommand(output, context);
   }
 
   // Start section: command_body_extra

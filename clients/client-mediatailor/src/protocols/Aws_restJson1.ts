@@ -1,6 +1,9 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
-  expectBoolean as __expectBoolean,
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -8,21 +11,28 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  resolvedPath as __resolvedPath,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
+import {
+  ConfigureLogsForChannelCommandInput,
+  ConfigureLogsForChannelCommandOutput,
+} from "../commands/ConfigureLogsForChannelCommand";
 import {
   ConfigureLogsForPlaybackConfigurationCommandInput,
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "../commands/ConfigureLogsForPlaybackConfigurationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
+import { CreateLiveSourceCommandInput, CreateLiveSourceCommandOutput } from "../commands/CreateLiveSourceCommand";
 import {
   CreatePrefetchScheduleCommandInput,
   CreatePrefetchScheduleCommandOutput,
@@ -38,6 +48,7 @@ import {
   DeleteChannelPolicyCommandInput,
   DeleteChannelPolicyCommandOutput,
 } from "../commands/DeleteChannelPolicyCommand";
+import { DeleteLiveSourceCommandInput, DeleteLiveSourceCommandOutput } from "../commands/DeleteLiveSourceCommand";
 import {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
@@ -53,6 +64,7 @@ import {
 } from "../commands/DeleteSourceLocationCommand";
 import { DeleteVodSourceCommandInput, DeleteVodSourceCommandOutput } from "../commands/DeleteVodSourceCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "../commands/DescribeChannelCommand";
+import { DescribeLiveSourceCommandInput, DescribeLiveSourceCommandOutput } from "../commands/DescribeLiveSourceCommand";
 import { DescribeProgramCommandInput, DescribeProgramCommandOutput } from "../commands/DescribeProgramCommand";
 import {
   DescribeSourceLocationCommandInput,
@@ -71,6 +83,7 @@ import {
 } from "../commands/GetPrefetchScheduleCommand";
 import { ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
+import { ListLiveSourcesCommandInput, ListLiveSourcesCommandOutput } from "../commands/ListLiveSourcesCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
@@ -98,15 +111,19 @@ import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/S
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
+import { UpdateLiveSourceCommandInput, UpdateLiveSourceCommandOutput } from "../commands/UpdateLiveSourceCommand";
+import { UpdateProgramCommandInput, UpdateProgramCommandOutput } from "../commands/UpdateProgramCommand";
 import {
   UpdateSourceLocationCommandInput,
   UpdateSourceLocationCommandOutput,
 } from "../commands/UpdateSourceLocationCommand";
 import { UpdateVodSourceCommandInput, UpdateVodSourceCommandOutput } from "../commands/UpdateVodSourceCommand";
+import { MediaTailorServiceException as __BaseException } from "../models/MediaTailorServiceException";
 import {
   AccessConfiguration,
   AdBreak,
   AdMarkerPassthrough,
+  AdMarkupType,
   Alert,
   AvailMatchingCriteria,
   AvailSuppression,
@@ -114,35 +131,73 @@ import {
   Bumper,
   CdnConfiguration,
   Channel,
-  DashConfiguration,
+  ClipRange,
   DashConfigurationForPut,
   DashPlaylistSettings,
   DefaultSegmentDeliveryConfiguration,
-  HlsConfiguration,
   HlsPlaylistSettings,
   HttpConfiguration,
   HttpPackageConfiguration,
+  KeyValuePair,
   LivePreRollConfiguration,
-  LogConfiguration,
+  LiveSource,
+  LogType,
   ManifestProcessingRules,
   PlaybackConfiguration,
   PrefetchConsumption,
   PrefetchRetrieval,
   PrefetchSchedule,
   RequestOutputItem,
-  ResponseOutputItem,
   ScheduleAdBreak,
   ScheduleConfiguration,
   ScheduleEntry,
   SecretsManagerAccessTokenConfiguration,
+  SegmentationDescriptor,
+  SegmentDeliveryConfiguration,
   SlateSource,
   SourceLocation,
   SpliceInsertMessage,
+  TimeSignalMessage,
   Transition,
+  UpdateProgramScheduleConfiguration,
+  UpdateProgramTransition,
   VodSource,
 } from "../models/models_0";
 
-export const serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
+/**
+ * serializeAws_restJson1ConfigureLogsForChannelCommand
+ */
+export const se_ConfigureLogsForChannelCommand = async (
+  input: ConfigureLogsForChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/channel";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChannelName: [],
+      LogTypes: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand
+ */
+export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   input: ConfigureLogsForPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -153,12 +208,12 @@ export const serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/playbackConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.PercentEnabled !== undefined &&
-      input.PercentEnabled !== null && { PercentEnabled: input.PercentEnabled }),
-    ...(input.PlaybackConfigurationName !== undefined &&
-      input.PlaybackConfigurationName !== null && { PlaybackConfigurationName: input.PlaybackConfigurationName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      PercentEnabled: [],
+      PlaybackConfigurationName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -170,7 +225,10 @@ export const serializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand 
   });
 };
 
-export const serializeAws_restJson1CreateChannelCommand = async (
+/**
+ * serializeAws_restJson1CreateChannelCommand
+ */
+export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -179,25 +237,17 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.FillerSlate !== undefined &&
-      input.FillerSlate !== null && { FillerSlate: serializeAws_restJson1SlateSource(input.FillerSlate, context) }),
-    ...(input.Outputs !== undefined &&
-      input.Outputs !== null && { Outputs: serializeAws_restJson1RequestOutputs(input.Outputs, context) }),
-    ...(input.PlaybackMode !== undefined && input.PlaybackMode !== null && { PlaybackMode: input.PlaybackMode }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FillerSlate: (_) => _json(_),
+      Outputs: (_) => _json(_),
+      PlaybackMode: [],
+      tags: [, (_) => _json(_), `Tags`],
+      Tier: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -209,7 +259,58 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreatePrefetchScheduleCommand = async (
+/**
+ * serializeAws_restJson1CreateLiveSourceCommand
+ */
+export const se_CreateLiveSourceCommand = async (
+  input: CreateLiveSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "LiveSourceName",
+    () => input.LiveSourceName!,
+    "{LiveSourceName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreatePrefetchScheduleCommand
+ */
+export const se_CreatePrefetchScheduleCommand = async (
   input: CreatePrefetchScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -220,34 +321,23 @@ export const serializeAws_restJson1CreatePrefetchScheduleCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
-  if (input.PlaybackConfigurationName !== undefined) {
-    const labelValue: string = input.PlaybackConfigurationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
-    }
-    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "PlaybackConfigurationName",
+    () => input.PlaybackConfigurationName!,
+    "{PlaybackConfigurationName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.Consumption !== undefined &&
-      input.Consumption !== null && {
-        Consumption: serializeAws_restJson1PrefetchConsumption(input.Consumption, context),
-      }),
-    ...(input.Retrieval !== undefined &&
-      input.Retrieval !== null && { Retrieval: serializeAws_restJson1PrefetchRetrieval(input.Retrieval, context) }),
-    ...(input.StreamId !== undefined && input.StreamId !== null && { StreamId: input.StreamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Consumption: (_) => se_PrefetchConsumption(_, context),
+      Retrieval: (_) => se_PrefetchRetrieval(_, context),
+      StreamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -259,7 +349,10 @@ export const serializeAws_restJson1CreatePrefetchScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateProgramCommand = async (
+/**
+ * serializeAws_restJson1CreateProgramCommand
+ */
+export const se_CreateProgramCommand = async (
   input: CreateProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -270,36 +363,18 @@ export const serializeAws_restJson1CreateProgramCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/channel/{ChannelName}/program/{ProgramName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
-  if (input.ProgramName !== undefined) {
-    const labelValue: string = input.ProgramName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ProgramName.");
-    }
-    resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ProgramName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdBreaks !== undefined &&
-      input.AdBreaks !== null && { AdBreaks: serializeAws_restJson1__listOfAdBreak(input.AdBreaks, context) }),
-    ...(input.ScheduleConfiguration !== undefined &&
-      input.ScheduleConfiguration !== null && {
-        ScheduleConfiguration: serializeAws_restJson1ScheduleConfiguration(input.ScheduleConfiguration, context),
-      }),
-    ...(input.SourceLocationName !== undefined &&
-      input.SourceLocationName !== null && { SourceLocationName: input.SourceLocationName }),
-    ...(input.VodSourceName !== undefined && input.VodSourceName !== null && { VodSourceName: input.VodSourceName }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdBreaks: (_) => _json(_),
+      LiveSourceName: [],
+      ScheduleConfiguration: (_) => _json(_),
+      SourceLocationName: [],
+      VodSourceName: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -311,7 +386,10 @@ export const serializeAws_restJson1CreateProgramCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateSourceLocationCommand = async (
+/**
+ * serializeAws_restJson1CreateSourceLocationCommand
+ */
+export const se_CreateSourceLocationCommand = async (
   input: CreateSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -321,35 +399,24 @@ export const serializeAws_restJson1CreateSourceLocationCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessConfiguration !== undefined &&
-      input.AccessConfiguration !== null && {
-        AccessConfiguration: serializeAws_restJson1AccessConfiguration(input.AccessConfiguration, context),
-      }),
-    ...(input.DefaultSegmentDeliveryConfiguration !== undefined &&
-      input.DefaultSegmentDeliveryConfiguration !== null && {
-        DefaultSegmentDeliveryConfiguration: serializeAws_restJson1DefaultSegmentDeliveryConfiguration(
-          input.DefaultSegmentDeliveryConfiguration,
-          context
-        ),
-      }),
-    ...(input.HttpConfiguration !== undefined &&
-      input.HttpConfiguration !== null && {
-        HttpConfiguration: serializeAws_restJson1HttpConfiguration(input.HttpConfiguration, context),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessConfiguration: (_) => _json(_),
+      DefaultSegmentDeliveryConfiguration: (_) => _json(_),
+      HttpConfiguration: (_) => _json(_),
+      SegmentDeliveryConfigurations: (_) => _json(_),
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -361,7 +428,10 @@ export const serializeAws_restJson1CreateSourceLocationCommand = async (
   });
 };
 
-export const serializeAws_restJson1CreateVodSourceCommand = async (
+/**
+ * serializeAws_restJson1CreateVodSourceCommand
+ */
+export const se_CreateVodSourceCommand = async (
   input: CreateVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -372,36 +442,29 @@ export const serializeAws_restJson1CreateVodSourceCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
-  if (input.VodSourceName !== undefined) {
-    const labelValue: string = input.VodSourceName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VodSourceName.");
-    }
-    resolvedPath = resolvedPath.replace("{VodSourceName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VodSourceName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VodSourceName",
+    () => input.VodSourceName!,
+    "{VodSourceName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.HttpPackageConfigurations !== undefined &&
-      input.HttpPackageConfigurations !== null && {
-        HttpPackageConfigurations: serializeAws_restJson1HttpPackageConfigurations(
-          input.HttpPackageConfigurations,
-          context
-        ),
-      }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -413,22 +476,17 @@ export const serializeAws_restJson1CreateVodSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelCommand
+ */
+export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -441,7 +499,10 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteChannelPolicyCommand = async (
+/**
+ * serializeAws_restJson1DeleteChannelPolicyCommand
+ */
+export const se_DeleteChannelPolicyCommand = async (
   input: DeleteChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -449,15 +510,7 @@ export const serializeAws_restJson1DeleteChannelPolicyCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -470,7 +523,50 @@ export const serializeAws_restJson1DeleteChannelPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
+/**
+ * serializeAws_restJson1DeleteLiveSourceCommand
+ */
+export const se_DeleteLiveSourceCommand = async (
+  input: DeleteLiveSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "LiveSourceName",
+    () => input.LiveSourceName!,
+    "{LiveSourceName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeletePlaybackConfigurationCommand
+ */
+export const se_DeletePlaybackConfigurationCommand = async (
   input: DeletePlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -478,15 +574,7 @@ export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -499,7 +587,10 @@ export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeletePrefetchScheduleCommand = async (
+/**
+ * serializeAws_restJson1DeletePrefetchScheduleCommand
+ */
+export const se_DeletePrefetchScheduleCommand = async (
   input: DeletePrefetchScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -508,24 +599,15 @@ export const serializeAws_restJson1DeletePrefetchScheduleCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
-  if (input.PlaybackConfigurationName !== undefined) {
-    const labelValue: string = input.PlaybackConfigurationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
-    }
-    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "PlaybackConfigurationName",
+    () => input.PlaybackConfigurationName!,
+    "{PlaybackConfigurationName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -538,7 +620,10 @@ export const serializeAws_restJson1DeletePrefetchScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteProgramCommand = async (
+/**
+ * serializeAws_restJson1DeleteProgramCommand
+ */
+export const se_DeleteProgramCommand = async (
   input: DeleteProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -547,24 +632,8 @@ export const serializeAws_restJson1DeleteProgramCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/channel/{ChannelName}/program/{ProgramName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
-  if (input.ProgramName !== undefined) {
-    const labelValue: string = input.ProgramName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ProgramName.");
-    }
-    resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ProgramName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -577,7 +646,10 @@ export const serializeAws_restJson1DeleteProgramCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteSourceLocationCommand = async (
+/**
+ * serializeAws_restJson1DeleteSourceLocationCommand
+ */
+export const se_DeleteSourceLocationCommand = async (
   input: DeleteSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -585,15 +657,14 @@ export const serializeAws_restJson1DeleteSourceLocationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -606,7 +677,10 @@ export const serializeAws_restJson1DeleteSourceLocationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DeleteVodSourceCommand = async (
+/**
+ * serializeAws_restJson1DeleteVodSourceCommand
+ */
+export const se_DeleteVodSourceCommand = async (
   input: DeleteVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -615,24 +689,22 @@ export const serializeAws_restJson1DeleteVodSourceCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
-  if (input.VodSourceName !== undefined) {
-    const labelValue: string = input.VodSourceName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VodSourceName.");
-    }
-    resolvedPath = resolvedPath.replace("{VodSourceName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VodSourceName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VodSourceName",
+    () => input.VodSourceName!,
+    "{VodSourceName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -645,22 +717,17 @@ export const serializeAws_restJson1DeleteVodSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeChannelCommand = async (
+/**
+ * serializeAws_restJson1DescribeChannelCommand
+ */
+export const se_DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -673,7 +740,50 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeProgramCommand = async (
+/**
+ * serializeAws_restJson1DescribeLiveSourceCommand
+ */
+export const se_DescribeLiveSourceCommand = async (
+  input: DescribeLiveSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "LiveSourceName",
+    () => input.LiveSourceName!,
+    "{LiveSourceName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeProgramCommand
+ */
+export const se_DescribeProgramCommand = async (
   input: DescribeProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -682,24 +792,8 @@ export const serializeAws_restJson1DescribeProgramCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/channel/{ChannelName}/program/{ProgramName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
-  if (input.ProgramName !== undefined) {
-    const labelValue: string = input.ProgramName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ProgramName.");
-    }
-    resolvedPath = resolvedPath.replace("{ProgramName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ProgramName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -712,7 +806,10 @@ export const serializeAws_restJson1DescribeProgramCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeSourceLocationCommand = async (
+/**
+ * serializeAws_restJson1DescribeSourceLocationCommand
+ */
+export const se_DescribeSourceLocationCommand = async (
   input: DescribeSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -720,15 +817,14 @@ export const serializeAws_restJson1DescribeSourceLocationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -741,7 +837,10 @@ export const serializeAws_restJson1DescribeSourceLocationCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeVodSourceCommand = async (
+/**
+ * serializeAws_restJson1DescribeVodSourceCommand
+ */
+export const se_DescribeVodSourceCommand = async (
   input: DescribeVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -750,24 +849,22 @@ export const serializeAws_restJson1DescribeVodSourceCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
-  if (input.VodSourceName !== undefined) {
-    const labelValue: string = input.VodSourceName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VodSourceName.");
-    }
-    resolvedPath = resolvedPath.replace("{VodSourceName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VodSourceName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VodSourceName",
+    () => input.VodSourceName!,
+    "{VodSourceName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -780,7 +877,10 @@ export const serializeAws_restJson1DescribeVodSourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChannelPolicyCommand = async (
+/**
+ * serializeAws_restJson1GetChannelPolicyCommand
+ */
+export const se_GetChannelPolicyCommand = async (
   input: GetChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -788,15 +888,7 @@ export const serializeAws_restJson1GetChannelPolicyCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -809,7 +901,10 @@ export const serializeAws_restJson1GetChannelPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetChannelScheduleCommand = async (
+/**
+ * serializeAws_restJson1GetChannelScheduleCommand
+ */
+export const se_GetChannelScheduleCommand = async (
   input: GetChannelScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -817,20 +912,12 @@ export const serializeAws_restJson1GetChannelScheduleCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/schedule";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
-  const query: any = {
-    ...(input.DurationMinutes !== undefined && { durationMinutes: input.DurationMinutes }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  const query: any = map({
+    durationMinutes: [, input.DurationMinutes!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -844,7 +931,10 @@ export const serializeAws_restJson1GetChannelScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
+/**
+ * serializeAws_restJson1GetPlaybackConfigurationCommand
+ */
+export const se_GetPlaybackConfigurationCommand = async (
   input: GetPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -852,15 +942,7 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -873,7 +955,10 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetPrefetchScheduleCommand = async (
+/**
+ * serializeAws_restJson1GetPrefetchScheduleCommand
+ */
+export const se_GetPrefetchScheduleCommand = async (
   input: GetPrefetchScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -882,24 +967,15 @@ export const serializeAws_restJson1GetPrefetchScheduleCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
-  if (input.PlaybackConfigurationName !== undefined) {
-    const labelValue: string = input.PlaybackConfigurationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
-    }
-    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "PlaybackConfigurationName",
+    () => input.PlaybackConfigurationName!,
+    "{PlaybackConfigurationName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -912,18 +988,21 @@ export const serializeAws_restJson1GetPrefetchScheduleCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListAlertsCommand = async (
+/**
+ * serializeAws_restJson1ListAlertsCommand
+ */
+export const se_ListAlertsCommand = async (
   input: ListAlertsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alerts";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && { resourceArn: input.ResourceArn }),
-  };
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -937,17 +1016,20 @@ export const serializeAws_restJson1ListAlertsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListChannelsCommand = async (
+/**
+ * serializeAws_restJson1ListChannelsCommand
+ */
+export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-  };
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -961,7 +1043,47 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
+/**
+ * serializeAws_restJson1ListLiveSourcesCommand
+ */
+export const se_ListLiveSourcesCommand = async (
+  input: ListLiveSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/liveSources";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListPlaybackConfigurationsCommand
+ */
+export const se_ListPlaybackConfigurationsCommand = async (
   input: ListPlaybackConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -969,10 +1091,10 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfigurations";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-  };
+  const query: any = map({
+    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    NextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -986,7 +1108,10 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListPrefetchSchedulesCommand = async (
+/**
+ * serializeAws_restJson1ListPrefetchSchedulesCommand
+ */
+export const se_ListPrefetchSchedulesCommand = async (
   input: ListPrefetchSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -997,21 +1122,22 @@ export const serializeAws_restJson1ListPrefetchSchedulesCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/prefetchSchedule/{PlaybackConfigurationName}";
-  if (input.PlaybackConfigurationName !== undefined) {
-    const labelValue: string = input.PlaybackConfigurationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
-    }
-    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "PlaybackConfigurationName",
+    () => input.PlaybackConfigurationName!,
+    "{PlaybackConfigurationName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-    ...(input.StreamId !== undefined && input.StreamId !== null && { StreamId: input.StreamId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      StreamId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1023,17 +1149,20 @@ export const serializeAws_restJson1ListPrefetchSchedulesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSourceLocationsCommand = async (
+/**
+ * serializeAws_restJson1ListSourceLocationsCommand
+ */
+export const se_ListSourceLocationsCommand = async (
   input: ListSourceLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocations";
-  const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-  };
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1047,22 +1176,17 @@ export const serializeAws_restJson1ListSourceLocationsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1075,7 +1199,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListVodSourcesCommand = async (
+/**
+ * serializeAws_restJson1ListVodSourcesCommand
+ */
+export const se_ListVodSourcesCommand = async (
   input: ListVodSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1084,19 +1211,18 @@ export const serializeAws_restJson1ListVodSourcesCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sourceLocation/{SourceLocationName}/vodSources";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
-  const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1110,7 +1236,10 @@ export const serializeAws_restJson1ListVodSourcesCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutChannelPolicyCommand = async (
+/**
+ * serializeAws_restJson1PutChannelPolicyCommand
+ */
+export const se_PutChannelPolicyCommand = async (
   input: PutChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1120,19 +1249,13 @@ export const serializeAws_restJson1PutChannelPolicyCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      Policy: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1144,7 +1267,10 @@ export const serializeAws_restJson1PutChannelPolicyCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
+/**
+ * serializeAws_restJson1PutPlaybackConfigurationCommand
+ */
+export const se_PutPlaybackConfigurationCommand = async (
   input: PutPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1154,51 +1280,24 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration";
   let body: any;
-  body = JSON.stringify({
-    ...(input.AdDecisionServerUrl !== undefined &&
-      input.AdDecisionServerUrl !== null && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
-    ...(input.AvailSuppression !== undefined &&
-      input.AvailSuppression !== null && {
-        AvailSuppression: serializeAws_restJson1AvailSuppression(input.AvailSuppression, context),
-      }),
-    ...(input.Bumper !== undefined &&
-      input.Bumper !== null && { Bumper: serializeAws_restJson1Bumper(input.Bumper, context) }),
-    ...(input.CdnConfiguration !== undefined &&
-      input.CdnConfiguration !== null && {
-        CdnConfiguration: serializeAws_restJson1CdnConfiguration(input.CdnConfiguration, context),
-      }),
-    ...(input.ConfigurationAliases !== undefined &&
-      input.ConfigurationAliases !== null && {
-        ConfigurationAliases: serializeAws_restJson1ConfigurationAliasesRequest(input.ConfigurationAliases, context),
-      }),
-    ...(input.DashConfiguration !== undefined &&
-      input.DashConfiguration !== null && {
-        DashConfiguration: serializeAws_restJson1DashConfigurationForPut(input.DashConfiguration, context),
-      }),
-    ...(input.LivePreRollConfiguration !== undefined &&
-      input.LivePreRollConfiguration !== null && {
-        LivePreRollConfiguration: serializeAws_restJson1LivePreRollConfiguration(
-          input.LivePreRollConfiguration,
-          context
-        ),
-      }),
-    ...(input.ManifestProcessingRules !== undefined &&
-      input.ManifestProcessingRules !== null && {
-        ManifestProcessingRules: serializeAws_restJson1ManifestProcessingRules(input.ManifestProcessingRules, context),
-      }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.PersonalizationThresholdSeconds !== undefined &&
-      input.PersonalizationThresholdSeconds !== null && {
-        PersonalizationThresholdSeconds: input.PersonalizationThresholdSeconds,
-      }),
-    ...(input.SlateAdUrl !== undefined && input.SlateAdUrl !== null && { SlateAdUrl: input.SlateAdUrl }),
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-    ...(input.TranscodeProfileName !== undefined &&
-      input.TranscodeProfileName !== null && { TranscodeProfileName: input.TranscodeProfileName }),
-    ...(input.VideoContentSourceUrl !== undefined &&
-      input.VideoContentSourceUrl !== null && { VideoContentSourceUrl: input.VideoContentSourceUrl }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AdDecisionServerUrl: [],
+      AvailSuppression: (_) => _json(_),
+      Bumper: (_) => _json(_),
+      CdnConfiguration: (_) => _json(_),
+      ConfigurationAliases: (_) => _json(_),
+      DashConfiguration: (_) => _json(_),
+      LivePreRollConfiguration: (_) => _json(_),
+      ManifestProcessingRules: (_) => _json(_),
+      Name: [],
+      PersonalizationThresholdSeconds: [],
+      SlateAdUrl: [],
+      tags: [, (_) => _json(_), `Tags`],
+      TranscodeProfileName: [],
+      VideoContentSourceUrl: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1210,7 +1309,10 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartChannelCommand = async (
+/**
+ * serializeAws_restJson1StartChannelCommand
+ */
+export const se_StartChannelCommand = async (
   input: StartChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1218,15 +1320,7 @@ export const serializeAws_restJson1StartChannelCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/start";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1239,7 +1333,10 @@ export const serializeAws_restJson1StartChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1StopChannelCommand = async (
+/**
+ * serializeAws_restJson1StopChannelCommand
+ */
+export const se_StopChannelCommand = async (
   input: StopChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1247,15 +1344,7 @@ export const serializeAws_restJson1StopChannelCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/stop";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1268,7 +1357,10 @@ export const serializeAws_restJson1StopChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1277,20 +1369,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Tags !== undefined &&
-      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1302,25 +1387,23 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
-  }
-  const query: any = {
-    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -1334,7 +1417,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateChannelCommand = async (
+/**
+ * serializeAws_restJson1UpdateChannelCommand
+ */
+export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1343,20 +1429,14 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  if (input.ChannelName !== undefined) {
-    const labelValue: string = input.ChannelName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ChannelName.");
-    }
-    resolvedPath = resolvedPath.replace("{ChannelName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ChannelName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.Outputs !== undefined &&
-      input.Outputs !== null && { Outputs: serializeAws_restJson1RequestOutputs(input.Outputs, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      FillerSlate: (_) => _json(_),
+      Outputs: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1368,7 +1448,91 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateSourceLocationCommand = async (
+/**
+ * serializeAws_restJson1UpdateLiveSourceCommand
+ */
+export const se_UpdateLiveSourceCommand = async (
+  input: UpdateLiveSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "LiveSourceName",
+    () => input.LiveSourceName!,
+    "{LiveSourceName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateProgramCommand
+ */
+export const se_UpdateProgramCommand = async (
+  input: UpdateProgramCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channel/{ChannelName}/program/{ProgramName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AdBreaks: (_) => _json(_),
+      ScheduleConfiguration: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateSourceLocationCommand
+ */
+export const se_UpdateSourceLocationCommand = async (
   input: UpdateSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1378,33 +1542,23 @@ export const serializeAws_restJson1UpdateSourceLocationCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.AccessConfiguration !== undefined &&
-      input.AccessConfiguration !== null && {
-        AccessConfiguration: serializeAws_restJson1AccessConfiguration(input.AccessConfiguration, context),
-      }),
-    ...(input.DefaultSegmentDeliveryConfiguration !== undefined &&
-      input.DefaultSegmentDeliveryConfiguration !== null && {
-        DefaultSegmentDeliveryConfiguration: serializeAws_restJson1DefaultSegmentDeliveryConfiguration(
-          input.DefaultSegmentDeliveryConfiguration,
-          context
-        ),
-      }),
-    ...(input.HttpConfiguration !== undefined &&
-      input.HttpConfiguration !== null && {
-        HttpConfiguration: serializeAws_restJson1HttpConfiguration(input.HttpConfiguration, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      AccessConfiguration: (_) => _json(_),
+      DefaultSegmentDeliveryConfiguration: (_) => _json(_),
+      HttpConfiguration: (_) => _json(_),
+      SegmentDeliveryConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1416,7 +1570,10 @@ export const serializeAws_restJson1UpdateSourceLocationCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateVodSourceCommand = async (
+/**
+ * serializeAws_restJson1UpdateVodSourceCommand
+ */
+export const se_UpdateVodSourceCommand = async (
   input: UpdateVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -1427,34 +1584,28 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  if (input.SourceLocationName !== undefined) {
-    const labelValue: string = input.SourceLocationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SourceLocationName.");
-    }
-    resolvedPath = resolvedPath.replace("{SourceLocationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SourceLocationName.");
-  }
-  if (input.VodSourceName !== undefined) {
-    const labelValue: string = input.VodSourceName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VodSourceName.");
-    }
-    resolvedPath = resolvedPath.replace("{VodSourceName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VodSourceName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "SourceLocationName",
+    () => input.SourceLocationName!,
+    "{SourceLocationName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "VodSourceName",
+    () => input.VodSourceName!,
+    "{VodSourceName}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.HttpPackageConfigurations !== undefined &&
-      input.HttpPackageConfigurations !== null && {
-        HttpPackageConfigurations: serializeAws_restJson1HttpPackageConfigurations(
-          input.HttpPackageConfigurations,
-          context
-        ),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      HttpPackageConfigurations: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1466,3240 +1617,2434 @@ export const serializeAws_restJson1UpdateVodSourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand = async (
+/**
+ * deserializeAws_restJson1ConfigureLogsForChannelCommand
+ */
+export const de_ConfigureLogsForChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
+): Promise<ConfigureLogsForChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommandError(output, context);
+    return de_ConfigureLogsForChannelCommandError(output, context);
   }
-  const contents: ConfigureLogsForPlaybackConfigurationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    PercentEnabled: undefined,
-    PlaybackConfigurationName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.PercentEnabled !== undefined && data.PercentEnabled !== null) {
-    contents.PercentEnabled = __expectInt32(data.PercentEnabled);
-  }
-  if (data.PlaybackConfigurationName !== undefined && data.PlaybackConfigurationName !== null) {
-    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1CreateChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateChannelCommandError(output, context);
-  }
-  const contents: CreateChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    ChannelName: undefined,
-    ChannelState: undefined,
-    CreationTime: undefined,
-    FillerSlate: undefined,
-    LastModifiedTime: undefined,
-    Outputs: undefined,
-    PlaybackMode: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName !== undefined && data.ChannelName !== null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ChannelState !== undefined && data.ChannelState !== null) {
-    contents.ChannelState = __expectString(data.ChannelState);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FillerSlate !== undefined && data.FillerSlate !== null) {
-    contents.FillerSlate = deserializeAws_restJson1SlateSource(data.FillerSlate, context);
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.Outputs !== undefined && data.Outputs !== null) {
-    contents.Outputs = deserializeAws_restJson1ResponseOutputs(data.Outputs, context);
-  }
-  if (data.PlaybackMode !== undefined && data.PlaybackMode !== null) {
-    contents.PlaybackMode = __expectString(data.PlaybackMode);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1CreatePrefetchScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePrefetchScheduleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreatePrefetchScheduleCommandError(output, context);
-  }
-  const contents: CreatePrefetchScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    Consumption: undefined,
-    Name: undefined,
-    PlaybackConfigurationName: undefined,
-    Retrieval: undefined,
-    StreamId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Consumption !== undefined && data.Consumption !== null) {
-    contents.Consumption = deserializeAws_restJson1PrefetchConsumption(data.Consumption, context);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PlaybackConfigurationName !== undefined && data.PlaybackConfigurationName !== null) {
-    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
-  }
-  if (data.Retrieval !== undefined && data.Retrieval !== null) {
-    contents.Retrieval = deserializeAws_restJson1PrefetchRetrieval(data.Retrieval, context);
-  }
-  if (data.StreamId !== undefined && data.StreamId !== null) {
-    contents.StreamId = __expectString(data.StreamId);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1CreatePrefetchScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePrefetchScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1CreateProgramCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProgramCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateProgramCommandError(output, context);
-  }
-  const contents: CreateProgramCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AdBreaks: undefined,
-    Arn: undefined,
-    ChannelName: undefined,
-    CreationTime: undefined,
-    ProgramName: undefined,
-    ScheduledStartTime: undefined,
-    SourceLocationName: undefined,
-    VodSourceName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdBreaks !== undefined && data.AdBreaks !== null) {
-    contents.AdBreaks = deserializeAws_restJson1__listOfAdBreak(data.AdBreaks, context);
-  }
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName !== undefined && data.ChannelName !== null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ProgramName !== undefined && data.ProgramName !== null) {
-    contents.ProgramName = __expectString(data.ProgramName);
-  }
-  if (data.ScheduledStartTime !== undefined && data.ScheduledStartTime !== null) {
-    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.VodSourceName !== undefined && data.VodSourceName !== null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1CreateProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1CreateSourceLocationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSourceLocationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateSourceLocationCommandError(output, context);
-  }
-  const contents: CreateSourceLocationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AccessConfiguration: undefined,
-    Arn: undefined,
-    CreationTime: undefined,
-    DefaultSegmentDeliveryConfiguration: undefined,
-    HttpConfiguration: undefined,
-    LastModifiedTime: undefined,
-    SourceLocationName: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessConfiguration !== undefined && data.AccessConfiguration !== null) {
-    contents.AccessConfiguration = deserializeAws_restJson1AccessConfiguration(data.AccessConfiguration, context);
-  }
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DefaultSegmentDeliveryConfiguration !== undefined && data.DefaultSegmentDeliveryConfiguration !== null) {
-    contents.DefaultSegmentDeliveryConfiguration = deserializeAws_restJson1DefaultSegmentDeliveryConfiguration(
-      data.DefaultSegmentDeliveryConfiguration,
-      context
-    );
-  }
-  if (data.HttpConfiguration !== undefined && data.HttpConfiguration !== null) {
-    contents.HttpConfiguration = deserializeAws_restJson1HttpConfiguration(data.HttpConfiguration, context);
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1CreateSourceLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSourceLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1CreateVodSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVodSourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CreateVodSourceCommandError(output, context);
-  }
-  const contents: CreateVodSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    CreationTime: undefined,
-    HttpPackageConfigurations: undefined,
-    LastModifiedTime: undefined,
-    SourceLocationName: undefined,
-    Tags: undefined,
-    VodSourceName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations !== undefined && data.HttpPackageConfigurations !== null) {
-    contents.HttpPackageConfigurations = deserializeAws_restJson1HttpPackageConfigurations(
-      data.HttpPackageConfigurations,
-      context
-    );
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  if (data.VodSourceName !== undefined && data.VodSourceName !== null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1CreateVodSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVodSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeleteChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelCommandError(output, context);
-  }
-  const contents: DeleteChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeleteChannelPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteChannelPolicyCommandError(output, context);
-  }
-  const contents: DeleteChannelPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeleteChannelPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeletePlaybackConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlaybackConfigurationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePlaybackConfigurationCommandError(output, context);
-  }
-  const contents: DeletePlaybackConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeletePlaybackConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlaybackConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeletePrefetchScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePrefetchScheduleCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeletePrefetchScheduleCommandError(output, context);
-  }
-  const contents: DeletePrefetchScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeletePrefetchScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePrefetchScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeleteProgramCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProgramCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteProgramCommandError(output, context);
-  }
-  const contents: DeleteProgramCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeleteProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeleteSourceLocationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSourceLocationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteSourceLocationCommandError(output, context);
-  }
-  const contents: DeleteSourceLocationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeleteSourceLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSourceLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DeleteVodSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVodSourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DeleteVodSourceCommandError(output, context);
-  }
-  const contents: DeleteVodSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DeleteVodSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVodSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DescribeChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeChannelCommandError(output, context);
-  }
-  const contents: DescribeChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    ChannelName: undefined,
-    ChannelState: undefined,
-    CreationTime: undefined,
-    FillerSlate: undefined,
-    LastModifiedTime: undefined,
-    Outputs: undefined,
-    PlaybackMode: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName !== undefined && data.ChannelName !== null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ChannelState !== undefined && data.ChannelState !== null) {
-    contents.ChannelState = __expectString(data.ChannelState);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FillerSlate !== undefined && data.FillerSlate !== null) {
-    contents.FillerSlate = deserializeAws_restJson1SlateSource(data.FillerSlate, context);
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.Outputs !== undefined && data.Outputs !== null) {
-    contents.Outputs = deserializeAws_restJson1ResponseOutputs(data.Outputs, context);
-  }
-  if (data.PlaybackMode !== undefined && data.PlaybackMode !== null) {
-    contents.PlaybackMode = __expectString(data.PlaybackMode);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DescribeChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DescribeProgramCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProgramCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeProgramCommandError(output, context);
-  }
-  const contents: DescribeProgramCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AdBreaks: undefined,
-    Arn: undefined,
-    ChannelName: undefined,
-    CreationTime: undefined,
-    ProgramName: undefined,
-    ScheduledStartTime: undefined,
-    SourceLocationName: undefined,
-    VodSourceName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdBreaks !== undefined && data.AdBreaks !== null) {
-    contents.AdBreaks = deserializeAws_restJson1__listOfAdBreak(data.AdBreaks, context);
-  }
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName !== undefined && data.ChannelName !== null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.ProgramName !== undefined && data.ProgramName !== null) {
-    contents.ProgramName = __expectString(data.ProgramName);
-  }
-  if (data.ScheduledStartTime !== undefined && data.ScheduledStartTime !== null) {
-    contents.ScheduledStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.ScheduledStartTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.VodSourceName !== undefined && data.VodSourceName !== null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DescribeProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DescribeSourceLocationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSourceLocationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeSourceLocationCommandError(output, context);
-  }
-  const contents: DescribeSourceLocationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AccessConfiguration: undefined,
-    Arn: undefined,
-    CreationTime: undefined,
-    DefaultSegmentDeliveryConfiguration: undefined,
-    HttpConfiguration: undefined,
-    LastModifiedTime: undefined,
-    SourceLocationName: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessConfiguration !== undefined && data.AccessConfiguration !== null) {
-    contents.AccessConfiguration = deserializeAws_restJson1AccessConfiguration(data.AccessConfiguration, context);
-  }
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DefaultSegmentDeliveryConfiguration !== undefined && data.DefaultSegmentDeliveryConfiguration !== null) {
-    contents.DefaultSegmentDeliveryConfiguration = deserializeAws_restJson1DefaultSegmentDeliveryConfiguration(
-      data.DefaultSegmentDeliveryConfiguration,
-      context
-    );
-  }
-  if (data.HttpConfiguration !== undefined && data.HttpConfiguration !== null) {
-    contents.HttpConfiguration = deserializeAws_restJson1HttpConfiguration(data.HttpConfiguration, context);
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DescribeSourceLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSourceLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1DescribeVodSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVodSourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeVodSourceCommandError(output, context);
-  }
-  const contents: DescribeVodSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    CreationTime: undefined,
-    HttpPackageConfigurations: undefined,
-    LastModifiedTime: undefined,
-    SourceLocationName: undefined,
-    Tags: undefined,
-    VodSourceName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations !== undefined && data.HttpPackageConfigurations !== null) {
-    contents.HttpPackageConfigurations = deserializeAws_restJson1HttpPackageConfigurations(
-      data.HttpPackageConfigurations,
-      context
-    );
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  if (data.VodSourceName !== undefined && data.VodSourceName !== null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1DescribeVodSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVodSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1GetChannelPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChannelPolicyCommandError(output, context);
-  }
-  const contents: GetChannelPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Policy: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = __expectString(data.Policy);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1GetChannelPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1GetChannelScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelScheduleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetChannelScheduleCommandError(output, context);
-  }
-  const contents: GetChannelScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfScheduleEntry(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1GetChannelScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlaybackConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPlaybackConfigurationCommandError(output, context);
-  }
-  const contents: GetPlaybackConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AdDecisionServerUrl: undefined,
-    AvailSuppression: undefined,
-    Bumper: undefined,
-    CdnConfiguration: undefined,
-    ConfigurationAliases: undefined,
-    DashConfiguration: undefined,
-    HlsConfiguration: undefined,
-    LivePreRollConfiguration: undefined,
-    LogConfiguration: undefined,
-    ManifestProcessingRules: undefined,
-    Name: undefined,
-    PersonalizationThresholdSeconds: undefined,
-    PlaybackConfigurationArn: undefined,
-    PlaybackEndpointPrefix: undefined,
-    SessionInitializationEndpointPrefix: undefined,
-    SlateAdUrl: undefined,
-    Tags: undefined,
-    TranscodeProfileName: undefined,
-    VideoContentSourceUrl: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdDecisionServerUrl !== undefined && data.AdDecisionServerUrl !== null) {
-    contents.AdDecisionServerUrl = __expectString(data.AdDecisionServerUrl);
-  }
-  if (data.AvailSuppression !== undefined && data.AvailSuppression !== null) {
-    contents.AvailSuppression = deserializeAws_restJson1AvailSuppression(data.AvailSuppression, context);
-  }
-  if (data.Bumper !== undefined && data.Bumper !== null) {
-    contents.Bumper = deserializeAws_restJson1Bumper(data.Bumper, context);
-  }
-  if (data.CdnConfiguration !== undefined && data.CdnConfiguration !== null) {
-    contents.CdnConfiguration = deserializeAws_restJson1CdnConfiguration(data.CdnConfiguration, context);
-  }
-  if (data.ConfigurationAliases !== undefined && data.ConfigurationAliases !== null) {
-    contents.ConfigurationAliases = deserializeAws_restJson1ConfigurationAliasesResponse(
-      data.ConfigurationAliases,
-      context
-    );
-  }
-  if (data.DashConfiguration !== undefined && data.DashConfiguration !== null) {
-    contents.DashConfiguration = deserializeAws_restJson1DashConfiguration(data.DashConfiguration, context);
-  }
-  if (data.HlsConfiguration !== undefined && data.HlsConfiguration !== null) {
-    contents.HlsConfiguration = deserializeAws_restJson1HlsConfiguration(data.HlsConfiguration, context);
-  }
-  if (data.LivePreRollConfiguration !== undefined && data.LivePreRollConfiguration !== null) {
-    contents.LivePreRollConfiguration = deserializeAws_restJson1LivePreRollConfiguration(
-      data.LivePreRollConfiguration,
-      context
-    );
-  }
-  if (data.LogConfiguration !== undefined && data.LogConfiguration !== null) {
-    contents.LogConfiguration = deserializeAws_restJson1LogConfiguration(data.LogConfiguration, context);
-  }
-  if (data.ManifestProcessingRules !== undefined && data.ManifestProcessingRules !== null) {
-    contents.ManifestProcessingRules = deserializeAws_restJson1ManifestProcessingRules(
-      data.ManifestProcessingRules,
-      context
-    );
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
-    contents.PersonalizationThresholdSeconds = __expectInt32(data.PersonalizationThresholdSeconds);
-  }
-  if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
-    contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
-  }
-  if (data.PlaybackEndpointPrefix !== undefined && data.PlaybackEndpointPrefix !== null) {
-    contents.PlaybackEndpointPrefix = __expectString(data.PlaybackEndpointPrefix);
-  }
-  if (data.SessionInitializationEndpointPrefix !== undefined && data.SessionInitializationEndpointPrefix !== null) {
-    contents.SessionInitializationEndpointPrefix = __expectString(data.SessionInitializationEndpointPrefix);
-  }
-  if (data.SlateAdUrl !== undefined && data.SlateAdUrl !== null) {
-    contents.SlateAdUrl = __expectString(data.SlateAdUrl);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  if (data.TranscodeProfileName !== undefined && data.TranscodeProfileName !== null) {
-    contents.TranscodeProfileName = __expectString(data.TranscodeProfileName);
-  }
-  if (data.VideoContentSourceUrl !== undefined && data.VideoContentSourceUrl !== null) {
-    contents.VideoContentSourceUrl = __expectString(data.VideoContentSourceUrl);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1GetPlaybackConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlaybackConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1GetPrefetchScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPrefetchScheduleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPrefetchScheduleCommandError(output, context);
-  }
-  const contents: GetPrefetchScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    Consumption: undefined,
-    Name: undefined,
-    PlaybackConfigurationName: undefined,
-    Retrieval: undefined,
-    StreamId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.Consumption !== undefined && data.Consumption !== null) {
-    contents.Consumption = deserializeAws_restJson1PrefetchConsumption(data.Consumption, context);
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PlaybackConfigurationName !== undefined && data.PlaybackConfigurationName !== null) {
-    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
-  }
-  if (data.Retrieval !== undefined && data.Retrieval !== null) {
-    contents.Retrieval = deserializeAws_restJson1PrefetchRetrieval(data.Retrieval, context);
-  }
-  if (data.StreamId !== undefined && data.StreamId !== null) {
-    contents.StreamId = __expectString(data.StreamId);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1GetPrefetchScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPrefetchScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListAlertsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAlertsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListAlertsCommandError(output, context);
-  }
-  const contents: ListAlertsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfAlert(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListAlertsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAlertsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListChannelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListChannelsCommandError(output, context);
-  }
-  const contents: ListChannelsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfChannel(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListPlaybackConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlaybackConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPlaybackConfigurationsCommandError(output, context);
-  }
-  const contents: ListPlaybackConfigurationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfPlaybackConfiguration(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListPlaybackConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlaybackConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListPrefetchSchedulesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPrefetchSchedulesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListPrefetchSchedulesCommandError(output, context);
-  }
-  const contents: ListPrefetchSchedulesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfPrefetchSchedule(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListPrefetchSchedulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPrefetchSchedulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListSourceLocationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceLocationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSourceLocationsCommandError(output, context);
-  }
-  const contents: ListSourceLocationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfSourceLocation(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListSourceLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
-  }
-  const contents: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mediatailor#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1ListVodSourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVodSourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListVodSourcesCommandError(output, context);
-  }
-  const contents: ListVodSourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Items: undefined,
-    NextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Items !== undefined && data.Items !== null) {
-    contents.Items = deserializeAws_restJson1__listOfVodSource(data.Items, context);
-  }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListVodSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVodSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1PutChannelPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutChannelPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutChannelPolicyCommandError(output, context);
-  }
-  const contents: PutChannelPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1PutChannelPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutChannelPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPlaybackConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutPlaybackConfigurationCommandError(output, context);
-  }
-  const contents: PutPlaybackConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AdDecisionServerUrl: undefined,
-    AvailSuppression: undefined,
-    Bumper: undefined,
-    CdnConfiguration: undefined,
-    ConfigurationAliases: undefined,
-    DashConfiguration: undefined,
-    HlsConfiguration: undefined,
-    LivePreRollConfiguration: undefined,
-    LogConfiguration: undefined,
-    ManifestProcessingRules: undefined,
-    Name: undefined,
-    PersonalizationThresholdSeconds: undefined,
-    PlaybackConfigurationArn: undefined,
-    PlaybackEndpointPrefix: undefined,
-    SessionInitializationEndpointPrefix: undefined,
-    SlateAdUrl: undefined,
-    Tags: undefined,
-    TranscodeProfileName: undefined,
-    VideoContentSourceUrl: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AdDecisionServerUrl !== undefined && data.AdDecisionServerUrl !== null) {
-    contents.AdDecisionServerUrl = __expectString(data.AdDecisionServerUrl);
-  }
-  if (data.AvailSuppression !== undefined && data.AvailSuppression !== null) {
-    contents.AvailSuppression = deserializeAws_restJson1AvailSuppression(data.AvailSuppression, context);
-  }
-  if (data.Bumper !== undefined && data.Bumper !== null) {
-    contents.Bumper = deserializeAws_restJson1Bumper(data.Bumper, context);
-  }
-  if (data.CdnConfiguration !== undefined && data.CdnConfiguration !== null) {
-    contents.CdnConfiguration = deserializeAws_restJson1CdnConfiguration(data.CdnConfiguration, context);
-  }
-  if (data.ConfigurationAliases !== undefined && data.ConfigurationAliases !== null) {
-    contents.ConfigurationAliases = deserializeAws_restJson1ConfigurationAliasesResponse(
-      data.ConfigurationAliases,
-      context
-    );
-  }
-  if (data.DashConfiguration !== undefined && data.DashConfiguration !== null) {
-    contents.DashConfiguration = deserializeAws_restJson1DashConfiguration(data.DashConfiguration, context);
-  }
-  if (data.HlsConfiguration !== undefined && data.HlsConfiguration !== null) {
-    contents.HlsConfiguration = deserializeAws_restJson1HlsConfiguration(data.HlsConfiguration, context);
-  }
-  if (data.LivePreRollConfiguration !== undefined && data.LivePreRollConfiguration !== null) {
-    contents.LivePreRollConfiguration = deserializeAws_restJson1LivePreRollConfiguration(
-      data.LivePreRollConfiguration,
-      context
-    );
-  }
-  if (data.LogConfiguration !== undefined && data.LogConfiguration !== null) {
-    contents.LogConfiguration = deserializeAws_restJson1LogConfiguration(data.LogConfiguration, context);
-  }
-  if (data.ManifestProcessingRules !== undefined && data.ManifestProcessingRules !== null) {
-    contents.ManifestProcessingRules = deserializeAws_restJson1ManifestProcessingRules(
-      data.ManifestProcessingRules,
-      context
-    );
-  }
-  if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = __expectString(data.Name);
-  }
-  if (data.PersonalizationThresholdSeconds !== undefined && data.PersonalizationThresholdSeconds !== null) {
-    contents.PersonalizationThresholdSeconds = __expectInt32(data.PersonalizationThresholdSeconds);
-  }
-  if (data.PlaybackConfigurationArn !== undefined && data.PlaybackConfigurationArn !== null) {
-    contents.PlaybackConfigurationArn = __expectString(data.PlaybackConfigurationArn);
-  }
-  if (data.PlaybackEndpointPrefix !== undefined && data.PlaybackEndpointPrefix !== null) {
-    contents.PlaybackEndpointPrefix = __expectString(data.PlaybackEndpointPrefix);
-  }
-  if (data.SessionInitializationEndpointPrefix !== undefined && data.SessionInitializationEndpointPrefix !== null) {
-    contents.SessionInitializationEndpointPrefix = __expectString(data.SessionInitializationEndpointPrefix);
-  }
-  if (data.SlateAdUrl !== undefined && data.SlateAdUrl !== null) {
-    contents.SlateAdUrl = __expectString(data.SlateAdUrl);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  if (data.TranscodeProfileName !== undefined && data.TranscodeProfileName !== null) {
-    contents.TranscodeProfileName = __expectString(data.TranscodeProfileName);
-  }
-  if (data.VideoContentSourceUrl !== undefined && data.VideoContentSourceUrl !== null) {
-    contents.VideoContentSourceUrl = __expectString(data.VideoContentSourceUrl);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1PutPlaybackConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPlaybackConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1StartChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartChannelCommandError(output, context);
-  }
-  const contents: StartChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1StartChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1StopChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StopChannelCommandError(output, context);
-  }
-  const contents: StopChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1StopChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
-  }
-  const contents: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mediatailor#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
-  }
-  const contents: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  await collectBody(output.body, context);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mediatailor#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1UpdateChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateChannelCommandError(output, context);
-  }
-  const contents: UpdateChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    ChannelName: undefined,
-    ChannelState: undefined,
-    CreationTime: undefined,
-    FillerSlate: undefined,
-    LastModifiedTime: undefined,
-    Outputs: undefined,
-    PlaybackMode: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.ChannelName !== undefined && data.ChannelName !== null) {
-    contents.ChannelName = __expectString(data.ChannelName);
-  }
-  if (data.ChannelState !== undefined && data.ChannelState !== null) {
-    contents.ChannelState = __expectString(data.ChannelState);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.FillerSlate !== undefined && data.FillerSlate !== null) {
-    contents.FillerSlate = deserializeAws_restJson1SlateSource(data.FillerSlate, context);
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.Outputs !== undefined && data.Outputs !== null) {
-    contents.Outputs = deserializeAws_restJson1ResponseOutputs(data.Outputs, context);
-  }
-  if (data.PlaybackMode !== undefined && data.PlaybackMode !== null) {
-    contents.PlaybackMode = __expectString(data.PlaybackMode);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1UpdateSourceLocationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSourceLocationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateSourceLocationCommandError(output, context);
-  }
-  const contents: UpdateSourceLocationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    AccessConfiguration: undefined,
-    Arn: undefined,
-    CreationTime: undefined,
-    DefaultSegmentDeliveryConfiguration: undefined,
-    HttpConfiguration: undefined,
-    LastModifiedTime: undefined,
-    SourceLocationName: undefined,
-    Tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.AccessConfiguration !== undefined && data.AccessConfiguration !== null) {
-    contents.AccessConfiguration = deserializeAws_restJson1AccessConfiguration(data.AccessConfiguration, context);
-  }
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.DefaultSegmentDeliveryConfiguration !== undefined && data.DefaultSegmentDeliveryConfiguration !== null) {
-    contents.DefaultSegmentDeliveryConfiguration = deserializeAws_restJson1DefaultSegmentDeliveryConfiguration(
-      data.DefaultSegmentDeliveryConfiguration,
-      context
-    );
-  }
-  if (data.HttpConfiguration !== undefined && data.HttpConfiguration !== null) {
-    contents.HttpConfiguration = deserializeAws_restJson1HttpConfiguration(data.HttpConfiguration, context);
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UpdateSourceLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSourceLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1UpdateVodSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVodSourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateVodSourceCommandError(output, context);
-  }
-  const contents: UpdateVodSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    Arn: undefined,
-    CreationTime: undefined,
-    HttpPackageConfigurations: undefined,
-    LastModifiedTime: undefined,
-    SourceLocationName: undefined,
-    Tags: undefined,
-    VodSourceName: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = __expectString(data.Arn);
-  }
-  if (data.CreationTime !== undefined && data.CreationTime !== null) {
-    contents.CreationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationTime)));
-  }
-  if (data.HttpPackageConfigurations !== undefined && data.HttpPackageConfigurations !== null) {
-    contents.HttpPackageConfigurations = deserializeAws_restJson1HttpPackageConfigurations(
-      data.HttpPackageConfigurations,
-      context
-    );
-  }
-  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
-    contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
-  }
-  if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
-    contents.SourceLocationName = __expectString(data.SourceLocationName);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1__mapOf__string(data.tags, context);
-  }
-  if (data.VodSourceName !== undefined && data.VodSourceName !== null) {
-    contents.VodSourceName = __expectString(data.VodSourceName);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1UpdateVodSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVodSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
-  const contents: BadRequestException = {
-    name: "BadRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
-  const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelName: __expectString,
+    LogTypes: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
-const serializeAws_restJson1__listOfAdBreak = (input: AdBreak[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1AdBreak(entry, context);
-    });
-};
-
-const serializeAws_restJson1__listOfAvailMatchingCriteria = (
-  input: AvailMatchingCriteria[],
+/**
+ * deserializeAws_restJson1ConfigureLogsForChannelCommandError
+ */
+const de_ConfigureLogsForChannelCommandError = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1AvailMatchingCriteria(entry, context);
-    });
-};
-
-const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1AccessConfiguration = (input: AccessConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AccessType !== undefined && input.AccessType !== null && { AccessType: input.AccessType }),
-    ...(input.SecretsManagerAccessTokenConfiguration !== undefined &&
-      input.SecretsManagerAccessTokenConfiguration !== null && {
-        SecretsManagerAccessTokenConfiguration: serializeAws_restJson1SecretsManagerAccessTokenConfiguration(
-          input.SecretsManagerAccessTokenConfiguration,
-          context
-        ),
-      }),
+): Promise<ConfigureLogsForChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
-const serializeAws_restJson1AdBreak = (input: AdBreak, context: __SerdeContext): any => {
-  return {
-    ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
-    ...(input.OffsetMillis !== undefined && input.OffsetMillis !== null && { OffsetMillis: input.OffsetMillis }),
-    ...(input.Slate !== undefined &&
-      input.Slate !== null && { Slate: serializeAws_restJson1SlateSource(input.Slate, context) }),
-    ...(input.SpliceInsertMessage !== undefined &&
-      input.SpliceInsertMessage !== null && {
-        SpliceInsertMessage: serializeAws_restJson1SpliceInsertMessage(input.SpliceInsertMessage, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1AdMarkerPassthrough = (input: AdMarkerPassthrough, context: __SerdeContext): any => {
-  return {
-    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
-  };
-};
-
-const serializeAws_restJson1AvailMatchingCriteria = (input: AvailMatchingCriteria, context: __SerdeContext): any => {
-  return {
-    ...(input.DynamicVariable !== undefined &&
-      input.DynamicVariable !== null && { DynamicVariable: input.DynamicVariable }),
-    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
-  };
-};
-
-const serializeAws_restJson1AvailSuppression = (input: AvailSuppression, context: __SerdeContext): any => {
-  return {
-    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_restJson1Bumper = (input: Bumper, context: __SerdeContext): any => {
-  return {
-    ...(input.EndUrl !== undefined && input.EndUrl !== null && { EndUrl: input.EndUrl }),
-    ...(input.StartUrl !== undefined && input.StartUrl !== null && { StartUrl: input.StartUrl }),
-  };
-};
-
-const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.AdSegmentUrlPrefix !== undefined &&
-      input.AdSegmentUrlPrefix !== null && { AdSegmentUrlPrefix: input.AdSegmentUrlPrefix }),
-    ...(input.ContentSegmentUrlPrefix !== undefined &&
-      input.ContentSegmentUrlPrefix !== null && { ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix }),
-  };
-};
-
-const serializeAws_restJson1ConfigurationAliasesRequest = (
-  input: { [key: string]: { [key: string]: string } },
+/**
+ * deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand
+ */
+export const de_ConfigureLogsForPlaybackConfigurationCommand = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1__mapOf__string(value, context),
-    };
-  }, {});
+): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ConfigureLogsForPlaybackConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PercentEnabled: __expectInt32,
+    PlaybackConfigurationName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const serializeAws_restJson1DashConfigurationForPut = (
-  input: DashConfigurationForPut,
+/**
+ * deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommandError
+ */
+const de_ConfigureLogsForPlaybackConfigurationCommandError = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.MpdLocation !== undefined && input.MpdLocation !== null && { MpdLocation: input.MpdLocation }),
-    ...(input.OriginManifestType !== undefined &&
-      input.OriginManifestType !== null && { OriginManifestType: input.OriginManifestType }),
+): Promise<ConfigureLogsForPlaybackConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
-const serializeAws_restJson1DashPlaylistSettings = (input: DashPlaylistSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ManifestWindowSeconds !== undefined &&
-      input.ManifestWindowSeconds !== null && { ManifestWindowSeconds: input.ManifestWindowSeconds }),
-    ...(input.MinBufferTimeSeconds !== undefined &&
-      input.MinBufferTimeSeconds !== null && { MinBufferTimeSeconds: input.MinBufferTimeSeconds }),
-    ...(input.MinUpdatePeriodSeconds !== undefined &&
-      input.MinUpdatePeriodSeconds !== null && { MinUpdatePeriodSeconds: input.MinUpdatePeriodSeconds }),
-    ...(input.SuggestedPresentationDelaySeconds !== undefined &&
-      input.SuggestedPresentationDelaySeconds !== null && {
-        SuggestedPresentationDelaySeconds: input.SuggestedPresentationDelaySeconds,
-      }),
-  };
-};
-
-const serializeAws_restJson1DefaultSegmentDeliveryConfiguration = (
-  input: DefaultSegmentDeliveryConfiguration,
+/**
+ * deserializeAws_restJson1CreateChannelCommand
+ */
+export const de_CreateChannelCommand = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.BaseUrl !== undefined && input.BaseUrl !== null && { BaseUrl: input.BaseUrl }),
-  };
+): Promise<CreateChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const serializeAws_restJson1HlsPlaylistSettings = (input: HlsPlaylistSettings, context: __SerdeContext): any => {
-  return {
-    ...(input.ManifestWindowSeconds !== undefined &&
-      input.ManifestWindowSeconds !== null && { ManifestWindowSeconds: input.ManifestWindowSeconds }),
-  };
-};
-
-const serializeAws_restJson1HttpConfiguration = (input: HttpConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.BaseUrl !== undefined && input.BaseUrl !== null && { BaseUrl: input.BaseUrl }),
-  };
-};
-
-const serializeAws_restJson1HttpPackageConfiguration = (
-  input: HttpPackageConfiguration,
+/**
+ * deserializeAws_restJson1CreateChannelCommandError
+ */
+const de_CreateChannelCommandError = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
-    ...(input.SourceGroup !== undefined && input.SourceGroup !== null && { SourceGroup: input.SourceGroup }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+): Promise<CreateChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
-const serializeAws_restJson1HttpPackageConfigurations = (
-  input: HttpPackageConfiguration[],
+/**
+ * deserializeAws_restJson1CreateLiveSourceCommand
+ */
+export const de_CreateLiveSourceCommand = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1HttpPackageConfiguration(entry, context);
-    });
+): Promise<CreateLiveSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLiveSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const serializeAws_restJson1LivePreRollConfiguration = (
-  input: LivePreRollConfiguration,
+/**
+ * deserializeAws_restJson1CreateLiveSourceCommandError
+ */
+const de_CreateLiveSourceCommandError = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.AdDecisionServerUrl !== undefined &&
-      input.AdDecisionServerUrl !== null && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
-    ...(input.MaxDurationSeconds !== undefined &&
-      input.MaxDurationSeconds !== null && { MaxDurationSeconds: input.MaxDurationSeconds }),
+): Promise<CreateLiveSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
-const serializeAws_restJson1ManifestProcessingRules = (
-  input: ManifestProcessingRules,
+/**
+ * deserializeAws_restJson1CreatePrefetchScheduleCommand
+ */
+export const de_CreatePrefetchScheduleCommand = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.AdMarkerPassthrough !== undefined &&
-      input.AdMarkerPassthrough !== null && {
-        AdMarkerPassthrough: serializeAws_restJson1AdMarkerPassthrough(input.AdMarkerPassthrough, context),
-      }),
-  };
+): Promise<CreatePrefetchScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePrefetchScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    Consumption: (_) => de_PrefetchConsumption(_, context),
+    Name: __expectString,
+    PlaybackConfigurationName: __expectString,
+    Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    StreamId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const serializeAws_restJson1PrefetchConsumption = (input: PrefetchConsumption, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailMatchingCriteria !== undefined &&
-      input.AvailMatchingCriteria !== null && {
-        AvailMatchingCriteria: serializeAws_restJson1__listOfAvailMatchingCriteria(
-          input.AvailMatchingCriteria,
-          context
-        ),
-      }),
-    ...(input.EndTime !== undefined &&
-      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime !== undefined &&
-      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_restJson1PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext): any => {
-  return {
-    ...(input.DynamicVariables !== undefined &&
-      input.DynamicVariables !== null && {
-        DynamicVariables: serializeAws_restJson1__mapOf__string(input.DynamicVariables, context),
-      }),
-    ...(input.EndTime !== undefined &&
-      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime !== undefined &&
-      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
-  };
-};
-
-const serializeAws_restJson1RequestOutputItem = (input: RequestOutputItem, context: __SerdeContext): any => {
-  return {
-    ...(input.DashPlaylistSettings !== undefined &&
-      input.DashPlaylistSettings !== null && {
-        DashPlaylistSettings: serializeAws_restJson1DashPlaylistSettings(input.DashPlaylistSettings, context),
-      }),
-    ...(input.HlsPlaylistSettings !== undefined &&
-      input.HlsPlaylistSettings !== null && {
-        HlsPlaylistSettings: serializeAws_restJson1HlsPlaylistSettings(input.HlsPlaylistSettings, context),
-      }),
-    ...(input.ManifestName !== undefined && input.ManifestName !== null && { ManifestName: input.ManifestName }),
-    ...(input.SourceGroup !== undefined && input.SourceGroup !== null && { SourceGroup: input.SourceGroup }),
-  };
-};
-
-const serializeAws_restJson1RequestOutputs = (input: RequestOutputItem[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1RequestOutputItem(entry, context);
-    });
-};
-
-const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Transition !== undefined &&
-      input.Transition !== null && { Transition: serializeAws_restJson1Transition(input.Transition, context) }),
-  };
-};
-
-const serializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
-  input: SecretsManagerAccessTokenConfiguration,
+/**
+ * deserializeAws_restJson1CreatePrefetchScheduleCommandError
+ */
+const de_CreatePrefetchScheduleCommandError = async (
+  output: __HttpResponse,
   context: __SerdeContext
-): any => {
-  return {
-    ...(input.HeaderName !== undefined && input.HeaderName !== null && { HeaderName: input.HeaderName }),
-    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
-    ...(input.SecretStringKey !== undefined &&
-      input.SecretStringKey !== null && { SecretStringKey: input.SecretStringKey }),
+): Promise<CreatePrefetchScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
-const serializeAws_restJson1SlateSource = (input: SlateSource, context: __SerdeContext): any => {
-  return {
-    ...(input.SourceLocationName !== undefined &&
-      input.SourceLocationName !== null && { SourceLocationName: input.SourceLocationName }),
-    ...(input.VodSourceName !== undefined && input.VodSourceName !== null && { VodSourceName: input.VodSourceName }),
-  };
+/**
+ * deserializeAws_restJson1CreateProgramCommand
+ */
+export const de_CreateProgramCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProgramCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateProgramCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdBreaks: _json,
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ClipRange: _json,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DurationMillis: __expectLong,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduledStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const serializeAws_restJson1SpliceInsertMessage = (input: SpliceInsertMessage, context: __SerdeContext): any => {
-  return {
-    ...(input.AvailNum !== undefined && input.AvailNum !== null && { AvailNum: input.AvailNum }),
-    ...(input.AvailsExpected !== undefined &&
-      input.AvailsExpected !== null && { AvailsExpected: input.AvailsExpected }),
-    ...(input.SpliceEventId !== undefined && input.SpliceEventId !== null && { SpliceEventId: input.SpliceEventId }),
-    ...(input.UniqueProgramId !== undefined &&
-      input.UniqueProgramId !== null && { UniqueProgramId: input.UniqueProgramId }),
+/**
+ * deserializeAws_restJson1CreateProgramCommandError
+ */
+const de_CreateProgramCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProgramCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
   };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
 };
 
-const serializeAws_restJson1Transition = (input: Transition, context: __SerdeContext): any => {
-  return {
-    ...(input.RelativePosition !== undefined &&
-      input.RelativePosition !== null && { RelativePosition: input.RelativePosition }),
-    ...(input.RelativeProgram !== undefined &&
-      input.RelativeProgram !== null && { RelativeProgram: input.RelativeProgram }),
-    ...(input.ScheduledStartTimeMillis !== undefined &&
-      input.ScheduledStartTimeMillis !== null && { ScheduledStartTimeMillis: input.ScheduledStartTimeMillis }),
-    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
-  };
+/**
+ * deserializeAws_restJson1CreateSourceLocationCommand
+ */
+export const de_CreateSourceLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSourceLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateSourceLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1CreateSourceLocationCommandError
+ */
+const de_CreateSourceLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSourceLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1CreateVodSourceCommand
+ */
+export const de_CreateVodSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVodSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateVodSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateVodSourceCommandError
+ */
+const de_CreateVodSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVodSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeleteChannelCommand
+ */
+export const de_DeleteChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteChannelCommandError
+ */
+const de_DeleteChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeleteChannelPolicyCommand
+ */
+export const de_DeleteChannelPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteChannelPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteChannelPolicyCommandError
+ */
+const de_DeleteChannelPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeleteLiveSourceCommand
+ */
+export const de_DeleteLiveSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLiveSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteLiveSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLiveSourceCommandError
+ */
+const de_DeleteLiveSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLiveSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeletePlaybackConfigurationCommand
+ */
+export const de_DeletePlaybackConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlaybackConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeletePlaybackConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePlaybackConfigurationCommandError
+ */
+const de_DeletePlaybackConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlaybackConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeletePrefetchScheduleCommand
+ */
+export const de_DeletePrefetchScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrefetchScheduleCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeletePrefetchScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePrefetchScheduleCommandError
+ */
+const de_DeletePrefetchScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrefetchScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeleteProgramCommand
+ */
+export const de_DeleteProgramCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProgramCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteProgramCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteProgramCommandError
+ */
+const de_DeleteProgramCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProgramCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeleteSourceLocationCommand
+ */
+export const de_DeleteSourceLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSourceLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteSourceLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSourceLocationCommandError
+ */
+const de_DeleteSourceLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSourceLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DeleteVodSourceCommand
+ */
+export const de_DeleteVodSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVodSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteVodSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteVodSourceCommandError
+ */
+const de_DeleteVodSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVodSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DescribeChannelCommand
+ */
+export const de_DescribeChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfiguration: _json,
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeChannelCommandError
+ */
+const de_DescribeChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DescribeLiveSourceCommand
+ */
+export const de_DescribeLiveSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLiveSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeLiveSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeLiveSourceCommandError
+ */
+const de_DescribeLiveSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLiveSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DescribeProgramCommand
+ */
+export const de_DescribeProgramCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProgramCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeProgramCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdBreaks: _json,
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ClipRange: _json,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DurationMillis: __expectLong,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduledStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeProgramCommandError
+ */
+const de_DescribeProgramCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProgramCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DescribeSourceLocationCommand
+ */
+export const de_DescribeSourceLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSourceLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeSourceLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeSourceLocationCommandError
+ */
+const de_DescribeSourceLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSourceLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1DescribeVodSourceCommand
+ */
+export const de_DescribeVodSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVodSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeVodSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeVodSourceCommandError
+ */
+const de_DescribeVodSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVodSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1GetChannelPolicyCommand
+ */
+export const de_GetChannelPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetChannelPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Policy: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetChannelPolicyCommandError
+ */
+const de_GetChannelPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1GetChannelScheduleCommand
+ */
+export const de_GetChannelScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetChannelScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfScheduleEntry(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetChannelScheduleCommandError
+ */
+const de_GetChannelScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1GetPlaybackConfigurationCommand
+ */
+export const de_GetPlaybackConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaybackConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetPlaybackConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdDecisionServerUrl: __expectString,
+    AvailSuppression: _json,
+    Bumper: _json,
+    CdnConfiguration: _json,
+    ConfigurationAliases: _json,
+    DashConfiguration: _json,
+    HlsConfiguration: _json,
+    LivePreRollConfiguration: _json,
+    LogConfiguration: _json,
+    ManifestProcessingRules: _json,
+    Name: __expectString,
+    PersonalizationThresholdSeconds: __expectInt32,
+    PlaybackConfigurationArn: __expectString,
+    PlaybackEndpointPrefix: __expectString,
+    SessionInitializationEndpointPrefix: __expectString,
+    SlateAdUrl: __expectString,
+    Tags: [, _json, `tags`],
+    TranscodeProfileName: __expectString,
+    VideoContentSourceUrl: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPlaybackConfigurationCommandError
+ */
+const de_GetPlaybackConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaybackConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1GetPrefetchScheduleCommand
+ */
+export const de_GetPrefetchScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrefetchScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetPrefetchScheduleCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    Consumption: (_) => de_PrefetchConsumption(_, context),
+    Name: __expectString,
+    PlaybackConfigurationName: __expectString,
+    Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    StreamId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPrefetchScheduleCommandError
+ */
+const de_GetPrefetchScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrefetchScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListAlertsCommand
+ */
+export const de_ListAlertsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlertsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAlertsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfAlert(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAlertsCommandError
+ */
+const de_ListAlertsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlertsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListChannelsCommand
+ */
+export const de_ListChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListChannelsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfChannel(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListChannelsCommandError
+ */
+const de_ListChannelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListLiveSourcesCommand
+ */
+export const de_ListLiveSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLiveSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLiveSourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfLiveSource(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLiveSourcesCommandError
+ */
+const de_ListLiveSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLiveSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListPlaybackConfigurationsCommand
+ */
+export const de_ListPlaybackConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlaybackConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPlaybackConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfPlaybackConfiguration(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPlaybackConfigurationsCommandError
+ */
+const de_ListPlaybackConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlaybackConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListPrefetchSchedulesCommand
+ */
+export const de_ListPrefetchSchedulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrefetchSchedulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPrefetchSchedulesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfPrefetchSchedule(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPrefetchSchedulesCommandError
+ */
+const de_ListPrefetchSchedulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrefetchSchedulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListSourceLocationsCommand
+ */
+export const de_ListSourceLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceLocationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSourceLocationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfSourceLocation(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSourceLocationsCommandError
+ */
+const de_ListSourceLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediatailor#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListVodSourcesCommand
+ */
+export const de_ListVodSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVodSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListVodSourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Items: (_) => de___listOfVodSource(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListVodSourcesCommandError
+ */
+const de_ListVodSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVodSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1PutChannelPolicyCommand
+ */
+export const de_PutChannelPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutChannelPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutChannelPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutChannelPolicyCommandError
+ */
+const de_PutChannelPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutChannelPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1PutPlaybackConfigurationCommand
+ */
+export const de_PutPlaybackConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPlaybackConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutPlaybackConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdDecisionServerUrl: __expectString,
+    AvailSuppression: _json,
+    Bumper: _json,
+    CdnConfiguration: _json,
+    ConfigurationAliases: _json,
+    DashConfiguration: _json,
+    HlsConfiguration: _json,
+    LivePreRollConfiguration: _json,
+    LogConfiguration: _json,
+    ManifestProcessingRules: _json,
+    Name: __expectString,
+    PersonalizationThresholdSeconds: __expectInt32,
+    PlaybackConfigurationArn: __expectString,
+    PlaybackEndpointPrefix: __expectString,
+    SessionInitializationEndpointPrefix: __expectString,
+    SlateAdUrl: __expectString,
+    Tags: [, _json, `tags`],
+    TranscodeProfileName: __expectString,
+    VideoContentSourceUrl: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutPlaybackConfigurationCommandError
+ */
+const de_PutPlaybackConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPlaybackConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1StartChannelCommand
+ */
+export const de_StartChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartChannelCommandError
+ */
+const de_StartChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1StopChannelCommand
+ */
+export const de_StopChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopChannelCommandError
+ */
+const de_StopChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediatailor#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediatailor#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelCommand
+ */
+export const de_UpdateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateChannelCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelCommandError
+ */
+const de_UpdateChannelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1UpdateLiveSourceCommand
+ */
+export const de_UpdateLiveSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLiveSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateLiveSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateLiveSourceCommandError
+ */
+const de_UpdateLiveSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLiveSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1UpdateProgramCommand
+ */
+export const de_UpdateProgramCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProgramCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateProgramCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdBreaks: _json,
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ClipRange: _json,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DurationMillis: __expectLong,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduledStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateProgramCommandError
+ */
+const de_UpdateProgramCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProgramCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1UpdateSourceLocationCommand
+ */
+export const de_UpdateSourceLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceLocationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSourceLocationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSourceLocationCommandError
+ */
+const de_UpdateSourceLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSourceLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restJson1UpdateVodSourceCommand
+ */
+export const de_UpdateVodSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVodSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateVodSourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateVodSourceCommandError
+ */
+const de_UpdateVodSourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVodSourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+// se___listOfAdBreak omitted.
+
+// se___listOfAvailMatchingCriteria omitted.
+
+// se___listOfSegmentDeliveryConfiguration omitted.
+
+// se___mapOf__string omitted.
+
+// se_AccessConfiguration omitted.
+
+// se_AdBreak omitted.
+
+// se_AdBreakMetadataList omitted.
+
+// se_AdMarkerPassthrough omitted.
+
+// se_adMarkupTypes omitted.
+
+// se_AvailMatchingCriteria omitted.
+
+// se_AvailSuppression omitted.
+
+// se_Bumper omitted.
+
+// se_CdnConfiguration omitted.
+
+// se_ClipRange omitted.
+
+// se_ConfigurationAliasesRequest omitted.
+
+// se_DashConfigurationForPut omitted.
+
+// se_DashPlaylistSettings omitted.
+
+// se_DefaultSegmentDeliveryConfiguration omitted.
+
+// se_HlsPlaylistSettings omitted.
+
+// se_HttpConfiguration omitted.
+
+// se_HttpPackageConfiguration omitted.
+
+// se_HttpPackageConfigurations omitted.
+
+// se_KeyValuePair omitted.
+
+// se_LivePreRollConfiguration omitted.
+
+// se_LogTypes omitted.
+
+// se_ManifestProcessingRules omitted.
+
+/**
+ * serializeAws_restJson1PrefetchConsumption
+ */
+const se_PrefetchConsumption = (input: PrefetchConsumption, context: __SerdeContext): any => {
+  return take(input, {
+    AvailMatchingCriteria: _json,
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+/**
+ * serializeAws_restJson1PrefetchRetrieval
+ */
+const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext): any => {
+  return take(input, {
+    DynamicVariables: _json,
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+// se_RequestOutputItem omitted.
+
+// se_RequestOutputs omitted.
+
+// se_ScheduleConfiguration omitted.
+
+// se_SecretsManagerAccessTokenConfiguration omitted.
+
+// se_SegmentationDescriptor omitted.
+
+// se_SegmentationDescriptorList omitted.
+
+// se_SegmentDeliveryConfiguration omitted.
+
+// se_SlateSource omitted.
+
+// se_SpliceInsertMessage omitted.
+
+// se_TimeSignalMessage omitted.
+
+// se_Transition omitted.
+
+// se_UpdateProgramScheduleConfiguration omitted.
+
+// se_UpdateProgramTransition omitted.
+
+// de___listOf__string omitted.
+
+// de___listOfAdBreak omitted.
+
+/**
+ * deserializeAws_restJson1__listOfAlert
+ */
+const de___listOfAlert = (output: any, context: __SerdeContext): Alert[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_Alert(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfAdBreak = (output: any, context: __SerdeContext): AdBreak[] => {
-  return (output || [])
+// de___listOfAvailMatchingCriteria omitted.
+
+/**
+ * deserializeAws_restJson1__listOfChannel
+ */
+const de___listOfChannel = (output: any, context: __SerdeContext): Channel[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AdBreak(entry, context);
+      return de_Channel(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfAlert = (output: any, context: __SerdeContext): Alert[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1__listOfLiveSource
+ */
+const de___listOfLiveSource = (output: any, context: __SerdeContext): LiveSource[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Alert(entry, context);
+      return de_LiveSource(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfAvailMatchingCriteria = (
-  output: any,
-  context: __SerdeContext
-): AvailMatchingCriteria[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1__listOfPlaybackConfiguration
+ */
+const de___listOfPlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1AvailMatchingCriteria(entry, context);
+      return de_PlaybackConfiguration(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfChannel = (output: any, context: __SerdeContext): Channel[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1__listOfPrefetchSchedule
+ */
+const de___listOfPrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Channel(entry, context);
+      return de_PrefetchSchedule(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfPlaybackConfiguration = (
-  output: any,
-  context: __SerdeContext
-): PlaybackConfiguration[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1__listOfScheduleAdBreak
+ */
+const de___listOfScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PlaybackConfiguration(entry, context);
+      return de_ScheduleAdBreak(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfPrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1__listOfScheduleEntry
+ */
+const de___listOfScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PrefetchSchedule(entry, context);
+      return de_ScheduleEntry(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak[] => {
-  return (output || [])
+// de___listOfSegmentDeliveryConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1__listOfSourceLocation
+ */
+const de___listOfSourceLocation = (output: any, context: __SerdeContext): SourceLocation[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ScheduleAdBreak(entry, context);
+      return de_SourceLocation(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1__listOfVodSource
+ */
+const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ScheduleEntry(entry, context);
+      return de_VodSource(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1__listOfSourceLocation = (output: any, context: __SerdeContext): SourceLocation[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SourceLocation(entry, context);
-    });
+// de___mapOf__string omitted.
+
+// de_AccessConfiguration omitted.
+
+// de_AdBreak omitted.
+
+// de_AdBreakMetadataList omitted.
+
+// de_AdMarkerPassthrough omitted.
+
+// de_adMarkupTypes omitted.
+
+/**
+ * deserializeAws_restJson1Alert
+ */
+const de_Alert = (output: any, context: __SerdeContext): Alert => {
+  return take(output, {
+    AlertCode: __expectString,
+    AlertMessage: __expectString,
+    Category: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RelatedResourceArns: _json,
+    ResourceArn: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1__listOfVodSource = (output: any, context: __SerdeContext): VodSource[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1VodSource(entry, context);
-    });
+// de_AvailMatchingCriteria omitted.
+
+// de_AvailSuppression omitted.
+
+// de_Bumper omitted.
+
+// de_CdnConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1Channel
+ */
+const de_Channel = (output: any, context: __SerdeContext): Channel => {
+  return take(output, {
+    Arn: __expectString,
+    ChannelName: __expectString,
+    ChannelState: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FillerSlate: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfiguration: _json,
+    Outputs: _json,
+    PlaybackMode: __expectString,
+    Tags: [, _json, `tags`],
+    Tier: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
+// de_ClipRange omitted.
+
+// de_ConfigurationAliasesResponse omitted.
+
+// de_DashConfiguration omitted.
+
+// de_DashPlaylistSettings omitted.
+
+// de_DefaultSegmentDeliveryConfiguration omitted.
+
+// de_HlsConfiguration omitted.
+
+// de_HlsPlaylistSettings omitted.
+
+// de_HttpConfiguration omitted.
+
+// de_HttpPackageConfiguration omitted.
+
+// de_HttpPackageConfigurations omitted.
+
+// de_KeyValuePair omitted.
+
+// de_LivePreRollConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1LiveSource
+ */
+const de_LiveSource = (output: any, context: __SerdeContext): LiveSource => {
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LiveSourceName: __expectString,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1AccessConfiguration = (output: any, context: __SerdeContext): AccessConfiguration => {
-  return {
-    AccessType: __expectString(output.AccessType),
-    SecretsManagerAccessTokenConfiguration:
-      output.SecretsManagerAccessTokenConfiguration !== undefined &&
-      output.SecretsManagerAccessTokenConfiguration !== null
-        ? deserializeAws_restJson1SecretsManagerAccessTokenConfiguration(
-            output.SecretsManagerAccessTokenConfiguration,
-            context
-          )
-        : undefined,
-  } as any;
+// de_LogConfiguration omitted.
+
+// de_LogConfigurationForChannel omitted.
+
+// de_LogTypes omitted.
+
+// de_ManifestProcessingRules omitted.
+
+/**
+ * deserializeAws_restJson1PlaybackConfiguration
+ */
+const de_PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
+  return take(output, {
+    AdDecisionServerUrl: __expectString,
+    AvailSuppression: _json,
+    Bumper: _json,
+    CdnConfiguration: _json,
+    ConfigurationAliases: _json,
+    DashConfiguration: _json,
+    HlsConfiguration: _json,
+    LivePreRollConfiguration: _json,
+    LogConfiguration: _json,
+    ManifestProcessingRules: _json,
+    Name: __expectString,
+    PersonalizationThresholdSeconds: __expectInt32,
+    PlaybackConfigurationArn: __expectString,
+    PlaybackEndpointPrefix: __expectString,
+    SessionInitializationEndpointPrefix: __expectString,
+    SlateAdUrl: __expectString,
+    Tags: [, _json, `tags`],
+    TranscodeProfileName: __expectString,
+    VideoContentSourceUrl: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1AdBreak = (output: any, context: __SerdeContext): AdBreak => {
-  return {
-    MessageType: __expectString(output.MessageType),
-    OffsetMillis: __expectLong(output.OffsetMillis),
-    Slate:
-      output.Slate !== undefined && output.Slate !== null
-        ? deserializeAws_restJson1SlateSource(output.Slate, context)
-        : undefined,
-    SpliceInsertMessage:
-      output.SpliceInsertMessage !== undefined && output.SpliceInsertMessage !== null
-        ? deserializeAws_restJson1SpliceInsertMessage(output.SpliceInsertMessage, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_restJson1PrefetchConsumption
+ */
+const de_PrefetchConsumption = (output: any, context: __SerdeContext): PrefetchConsumption => {
+  return take(output, {
+    AvailMatchingCriteria: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1AdMarkerPassthrough = (output: any, context: __SerdeContext): AdMarkerPassthrough => {
-  return {
-    Enabled: __expectBoolean(output.Enabled),
-  } as any;
+/**
+ * deserializeAws_restJson1PrefetchRetrieval
+ */
+const de_PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRetrieval => {
+  return take(output, {
+    DynamicVariables: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Alert => {
-  return {
-    AlertCode: __expectString(output.AlertCode),
-    AlertMessage: __expectString(output.AlertMessage),
-    LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    RelatedResourceArns:
-      output.RelatedResourceArns !== undefined && output.RelatedResourceArns !== null
-        ? deserializeAws_restJson1__listOf__string(output.RelatedResourceArns, context)
-        : undefined,
-    ResourceArn: __expectString(output.ResourceArn),
-  } as any;
+/**
+ * deserializeAws_restJson1PrefetchSchedule
+ */
+const de_PrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule => {
+  return take(output, {
+    Arn: __expectString,
+    Consumption: (_: any) => de_PrefetchConsumption(_, context),
+    Name: __expectString,
+    PlaybackConfigurationName: __expectString,
+    Retrieval: (_: any) => de_PrefetchRetrieval(_, context),
+    StreamId: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1AvailMatchingCriteria = (output: any, context: __SerdeContext): AvailMatchingCriteria => {
-  return {
-    DynamicVariable: __expectString(output.DynamicVariable),
-    Operator: __expectString(output.Operator),
-  } as any;
+// de_ResponseOutputItem omitted.
+
+// de_ResponseOutputs omitted.
+
+/**
+ * deserializeAws_restJson1ScheduleAdBreak
+ */
+const de_ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {
+  return take(output, {
+    ApproximateDurationSeconds: __expectLong,
+    ApproximateStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1AvailSuppression = (output: any, context: __SerdeContext): AvailSuppression => {
-  return {
-    Mode: __expectString(output.Mode),
-    Value: __expectString(output.Value),
-  } as any;
+/**
+ * deserializeAws_restJson1ScheduleEntry
+ */
+const de_ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry => {
+  return take(output, {
+    ApproximateDurationSeconds: __expectLong,
+    ApproximateStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Arn: __expectString,
+    ChannelName: __expectString,
+    LiveSourceName: __expectString,
+    ProgramName: __expectString,
+    ScheduleAdBreaks: (_: any) => de___listOfScheduleAdBreak(_, context),
+    ScheduleEntryType: __expectString,
+    SourceLocationName: __expectString,
+    VodSourceName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1Bumper = (output: any, context: __SerdeContext): Bumper => {
-  return {
-    EndUrl: __expectString(output.EndUrl),
-    StartUrl: __expectString(output.StartUrl),
-  } as any;
+// de_SecretsManagerAccessTokenConfiguration omitted.
+
+// de_SegmentationDescriptor omitted.
+
+// de_SegmentationDescriptorList omitted.
+
+// de_SegmentDeliveryConfiguration omitted.
+
+// de_SlateSource omitted.
+
+/**
+ * deserializeAws_restJson1SourceLocation
+ */
+const de_SourceLocation = (output: any, context: __SerdeContext): SourceLocation => {
+  return take(output, {
+    AccessConfiguration: _json,
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultSegmentDeliveryConfiguration: _json,
+    HttpConfiguration: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentDeliveryConfigurations: _json,
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+  }) as any;
 };
 
-const deserializeAws_restJson1CdnConfiguration = (output: any, context: __SerdeContext): CdnConfiguration => {
-  return {
-    AdSegmentUrlPrefix: __expectString(output.AdSegmentUrlPrefix),
-    ContentSegmentUrlPrefix: __expectString(output.ContentSegmentUrlPrefix),
-  } as any;
-};
+// de_SpliceInsertMessage omitted.
 
-const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
-  return {
-    Arn: __expectString(output.Arn),
-    ChannelName: __expectString(output.ChannelName),
-    ChannelState: __expectString(output.ChannelState),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    FillerSlate:
-      output.FillerSlate !== undefined && output.FillerSlate !== null
-        ? deserializeAws_restJson1SlateSource(output.FillerSlate, context)
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    Outputs:
-      output.Outputs !== undefined && output.Outputs !== null
-        ? deserializeAws_restJson1ResponseOutputs(output.Outputs, context)
-        : undefined,
-    PlaybackMode: __expectString(output.PlaybackMode),
-    Tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1__mapOf__string(output.tags, context)
-        : undefined,
-  } as any;
-};
+// de_TimeSignalMessage omitted.
 
-const deserializeAws_restJson1ConfigurationAliasesResponse = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: { [key: string]: string } } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1__mapOf__string(value, context),
-      };
-    },
-    {}
-  );
-};
-
-const deserializeAws_restJson1DashConfiguration = (output: any, context: __SerdeContext): DashConfiguration => {
-  return {
-    ManifestEndpointPrefix: __expectString(output.ManifestEndpointPrefix),
-    MpdLocation: __expectString(output.MpdLocation),
-    OriginManifestType: __expectString(output.OriginManifestType),
-  } as any;
-};
-
-const deserializeAws_restJson1DashPlaylistSettings = (output: any, context: __SerdeContext): DashPlaylistSettings => {
-  return {
-    ManifestWindowSeconds: __expectInt32(output.ManifestWindowSeconds),
-    MinBufferTimeSeconds: __expectInt32(output.MinBufferTimeSeconds),
-    MinUpdatePeriodSeconds: __expectInt32(output.MinUpdatePeriodSeconds),
-    SuggestedPresentationDelaySeconds: __expectInt32(output.SuggestedPresentationDelaySeconds),
-  } as any;
-};
-
-const deserializeAws_restJson1DefaultSegmentDeliveryConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DefaultSegmentDeliveryConfiguration => {
-  return {
-    BaseUrl: __expectString(output.BaseUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1HlsConfiguration = (output: any, context: __SerdeContext): HlsConfiguration => {
-  return {
-    ManifestEndpointPrefix: __expectString(output.ManifestEndpointPrefix),
-  } as any;
-};
-
-const deserializeAws_restJson1HlsPlaylistSettings = (output: any, context: __SerdeContext): HlsPlaylistSettings => {
-  return {
-    ManifestWindowSeconds: __expectInt32(output.ManifestWindowSeconds),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpConfiguration = (output: any, context: __SerdeContext): HttpConfiguration => {
-  return {
-    BaseUrl: __expectString(output.BaseUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpPackageConfiguration = (
-  output: any,
-  context: __SerdeContext
-): HttpPackageConfiguration => {
-  return {
-    Path: __expectString(output.Path),
-    SourceGroup: __expectString(output.SourceGroup),
-    Type: __expectString(output.Type),
-  } as any;
-};
-
-const deserializeAws_restJson1HttpPackageConfigurations = (
-  output: any,
-  context: __SerdeContext
-): HttpPackageConfiguration[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1HttpPackageConfiguration(entry, context);
-    });
-};
-
-const deserializeAws_restJson1LivePreRollConfiguration = (
-  output: any,
-  context: __SerdeContext
-): LivePreRollConfiguration => {
-  return {
-    AdDecisionServerUrl: __expectString(output.AdDecisionServerUrl),
-    MaxDurationSeconds: __expectInt32(output.MaxDurationSeconds),
-  } as any;
-};
-
-const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
-  return {
-    PercentEnabled: __expectInt32(output.PercentEnabled),
-  } as any;
-};
-
-const deserializeAws_restJson1ManifestProcessingRules = (
-  output: any,
-  context: __SerdeContext
-): ManifestProcessingRules => {
-  return {
-    AdMarkerPassthrough:
-      output.AdMarkerPassthrough !== undefined && output.AdMarkerPassthrough !== null
-        ? deserializeAws_restJson1AdMarkerPassthrough(output.AdMarkerPassthrough, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
-  return {
-    AdDecisionServerUrl: __expectString(output.AdDecisionServerUrl),
-    AvailSuppression:
-      output.AvailSuppression !== undefined && output.AvailSuppression !== null
-        ? deserializeAws_restJson1AvailSuppression(output.AvailSuppression, context)
-        : undefined,
-    Bumper:
-      output.Bumper !== undefined && output.Bumper !== null
-        ? deserializeAws_restJson1Bumper(output.Bumper, context)
-        : undefined,
-    CdnConfiguration:
-      output.CdnConfiguration !== undefined && output.CdnConfiguration !== null
-        ? deserializeAws_restJson1CdnConfiguration(output.CdnConfiguration, context)
-        : undefined,
-    ConfigurationAliases:
-      output.ConfigurationAliases !== undefined && output.ConfigurationAliases !== null
-        ? deserializeAws_restJson1ConfigurationAliasesResponse(output.ConfigurationAliases, context)
-        : undefined,
-    DashConfiguration:
-      output.DashConfiguration !== undefined && output.DashConfiguration !== null
-        ? deserializeAws_restJson1DashConfiguration(output.DashConfiguration, context)
-        : undefined,
-    HlsConfiguration:
-      output.HlsConfiguration !== undefined && output.HlsConfiguration !== null
-        ? deserializeAws_restJson1HlsConfiguration(output.HlsConfiguration, context)
-        : undefined,
-    LivePreRollConfiguration:
-      output.LivePreRollConfiguration !== undefined && output.LivePreRollConfiguration !== null
-        ? deserializeAws_restJson1LivePreRollConfiguration(output.LivePreRollConfiguration, context)
-        : undefined,
-    LogConfiguration:
-      output.LogConfiguration !== undefined && output.LogConfiguration !== null
-        ? deserializeAws_restJson1LogConfiguration(output.LogConfiguration, context)
-        : undefined,
-    ManifestProcessingRules:
-      output.ManifestProcessingRules !== undefined && output.ManifestProcessingRules !== null
-        ? deserializeAws_restJson1ManifestProcessingRules(output.ManifestProcessingRules, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    PersonalizationThresholdSeconds: __expectInt32(output.PersonalizationThresholdSeconds),
-    PlaybackConfigurationArn: __expectString(output.PlaybackConfigurationArn),
-    PlaybackEndpointPrefix: __expectString(output.PlaybackEndpointPrefix),
-    SessionInitializationEndpointPrefix: __expectString(output.SessionInitializationEndpointPrefix),
-    SlateAdUrl: __expectString(output.SlateAdUrl),
-    Tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1__mapOf__string(output.tags, context)
-        : undefined,
-    TranscodeProfileName: __expectString(output.TranscodeProfileName),
-    VideoContentSourceUrl: __expectString(output.VideoContentSourceUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1PrefetchConsumption = (output: any, context: __SerdeContext): PrefetchConsumption => {
-  return {
-    AvailMatchingCriteria:
-      output.AvailMatchingCriteria !== undefined && output.AvailMatchingCriteria !== null
-        ? deserializeAws_restJson1__listOfAvailMatchingCriteria(output.AvailMatchingCriteria, context)
-        : undefined,
-    EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
-    StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRetrieval => {
-  return {
-    DynamicVariables:
-      output.DynamicVariables !== undefined && output.DynamicVariables !== null
-        ? deserializeAws_restJson1__mapOf__string(output.DynamicVariables, context)
-        : undefined,
-    EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
-        : undefined,
-    StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1PrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule => {
-  return {
-    Arn: __expectString(output.Arn),
-    Consumption:
-      output.Consumption !== undefined && output.Consumption !== null
-        ? deserializeAws_restJson1PrefetchConsumption(output.Consumption, context)
-        : undefined,
-    Name: __expectString(output.Name),
-    PlaybackConfigurationName: __expectString(output.PlaybackConfigurationName),
-    Retrieval:
-      output.Retrieval !== undefined && output.Retrieval !== null
-        ? deserializeAws_restJson1PrefetchRetrieval(output.Retrieval, context)
-        : undefined,
-    StreamId: __expectString(output.StreamId),
-  } as any;
-};
-
-const deserializeAws_restJson1ResponseOutputItem = (output: any, context: __SerdeContext): ResponseOutputItem => {
-  return {
-    DashPlaylistSettings:
-      output.DashPlaylistSettings !== undefined && output.DashPlaylistSettings !== null
-        ? deserializeAws_restJson1DashPlaylistSettings(output.DashPlaylistSettings, context)
-        : undefined,
-    HlsPlaylistSettings:
-      output.HlsPlaylistSettings !== undefined && output.HlsPlaylistSettings !== null
-        ? deserializeAws_restJson1HlsPlaylistSettings(output.HlsPlaylistSettings, context)
-        : undefined,
-    ManifestName: __expectString(output.ManifestName),
-    PlaybackUrl: __expectString(output.PlaybackUrl),
-    SourceGroup: __expectString(output.SourceGroup),
-  } as any;
-};
-
-const deserializeAws_restJson1ResponseOutputs = (output: any, context: __SerdeContext): ResponseOutputItem[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResponseOutputItem(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {
-  return {
-    ApproximateDurationSeconds: __expectLong(output.ApproximateDurationSeconds),
-    ApproximateStartTime:
-      output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateStartTime)))
-        : undefined,
-    SourceLocationName: __expectString(output.SourceLocationName),
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
-};
-
-const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry => {
-  return {
-    ApproximateDurationSeconds: __expectLong(output.ApproximateDurationSeconds),
-    ApproximateStartTime:
-      output.ApproximateStartTime !== undefined && output.ApproximateStartTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ApproximateStartTime)))
-        : undefined,
-    Arn: __expectString(output.Arn),
-    ChannelName: __expectString(output.ChannelName),
-    ProgramName: __expectString(output.ProgramName),
-    ScheduleAdBreaks:
-      output.ScheduleAdBreaks !== undefined && output.ScheduleAdBreaks !== null
-        ? deserializeAws_restJson1__listOfScheduleAdBreak(output.ScheduleAdBreaks, context)
-        : undefined,
-    ScheduleEntryType: __expectString(output.ScheduleEntryType),
-    SourceLocationName: __expectString(output.SourceLocationName),
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
-};
-
-const deserializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SecretsManagerAccessTokenConfiguration => {
-  return {
-    HeaderName: __expectString(output.HeaderName),
-    SecretArn: __expectString(output.SecretArn),
-    SecretStringKey: __expectString(output.SecretStringKey),
-  } as any;
-};
-
-const deserializeAws_restJson1SlateSource = (output: any, context: __SerdeContext): SlateSource => {
-  return {
-    SourceLocationName: __expectString(output.SourceLocationName),
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
-};
-
-const deserializeAws_restJson1SourceLocation = (output: any, context: __SerdeContext): SourceLocation => {
-  return {
-    AccessConfiguration:
-      output.AccessConfiguration !== undefined && output.AccessConfiguration !== null
-        ? deserializeAws_restJson1AccessConfiguration(output.AccessConfiguration, context)
-        : undefined,
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DefaultSegmentDeliveryConfiguration:
-      output.DefaultSegmentDeliveryConfiguration !== undefined && output.DefaultSegmentDeliveryConfiguration !== null
-        ? deserializeAws_restJson1DefaultSegmentDeliveryConfiguration(
-            output.DefaultSegmentDeliveryConfiguration,
-            context
-          )
-        : undefined,
-    HttpConfiguration:
-      output.HttpConfiguration !== undefined && output.HttpConfiguration !== null
-        ? deserializeAws_restJson1HttpConfiguration(output.HttpConfiguration, context)
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    SourceLocationName: __expectString(output.SourceLocationName),
-    Tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1__mapOf__string(output.tags, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SpliceInsertMessage = (output: any, context: __SerdeContext): SpliceInsertMessage => {
-  return {
-    AvailNum: __expectInt32(output.AvailNum),
-    AvailsExpected: __expectInt32(output.AvailsExpected),
-    SpliceEventId: __expectInt32(output.SpliceEventId),
-    UniqueProgramId: __expectInt32(output.UniqueProgramId),
-  } as any;
-};
-
-const deserializeAws_restJson1VodSource = (output: any, context: __SerdeContext): VodSource => {
-  return {
-    Arn: __expectString(output.Arn),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    HttpPackageConfigurations:
-      output.HttpPackageConfigurations !== undefined && output.HttpPackageConfigurations !== null
-        ? deserializeAws_restJson1HttpPackageConfigurations(output.HttpPackageConfigurations, context)
-        : undefined,
-    LastModifiedTime:
-      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
-        : undefined,
-    SourceLocationName: __expectString(output.SourceLocationName),
-    Tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1__mapOf__string(output.tags, context)
-        : undefined,
-    VodSourceName: __expectString(output.VodSourceName),
-  } as any;
+/**
+ * deserializeAws_restJson1VodSource
+ */
+const de_VodSource = (output: any, context: __SerdeContext): VodSource => {
+  return take(output, {
+    Arn: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HttpPackageConfigurations: _json,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SourceLocationName: __expectString,
+    Tags: [, _json, `tags`],
+    VodSourceName: __expectString,
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -4720,14 +4065,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -4749,6 +4106,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

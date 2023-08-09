@@ -1,8 +1,10 @@
-import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+// smithy-typescript generated code
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -11,42 +13,69 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CompleteMultipartUploadOutput, CompleteMultipartUploadRequest } from "../models/models_0";
 import {
-  deserializeAws_restXmlCompleteMultipartUploadCommand,
-  serializeAws_restXmlCompleteMultipartUploadCommand,
-} from "../protocols/Aws_restXml";
+  CompleteMultipartUploadOutput,
+  CompleteMultipartUploadOutputFilterSensitiveLog,
+  CompleteMultipartUploadRequest,
+  CompleteMultipartUploadRequestFilterSensitiveLog,
+} from "../models/models_0";
+import { de_CompleteMultipartUploadCommand, se_CompleteMultipartUploadCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CompleteMultipartUploadCommand}.
+ */
 export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CompleteMultipartUploadCommand}.
+ */
 export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartUploadOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *          operation. After successfully uploading all relevant parts of an upload, you call this
- *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all
- *          the parts in ascending order by part number to create a new object. In the Complete
- *          Multipart Upload request, you must provide the parts list. You must ensure that the parts
- *          list is complete. This action concatenates the parts that you provide in the list. For
- *          each part in the list, you must provide the part number and the <code>ETag</code> value,
- *          returned after that part was uploaded.</p>
+ *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all the
+ *          parts in ascending order by part number to create a new object. In the Complete Multipart
+ *          Upload request, you must provide the parts list. You must ensure that the parts list is
+ *          complete. This action concatenates the parts that you provide in the list. For each part in
+ *          the list, you must provide the part number and the <code>ETag</code> value, returned after
+ *          that part was uploaded.</p>
  *          <p>Processing of a Complete Multipart Upload request could take several minutes to
  *          complete. After Amazon S3 begins processing the request, it sends an HTTP response header that
  *          specifies a 200 OK response. While processing is in progress, Amazon S3 periodically sends white
- *          space characters to keep the connection from timing out. Because a request could fail after
- *          the initial 200 OK response has been sent, it is important that you check the response body
- *          to determine whether the request succeeded.</p>
+ *          space characters to keep the connection from timing out. A request could fail after the
+ *          initial 200 OK response has been sent. This means that a <code>200 OK</code> response can
+ *          contain either a success or an error. If you call the S3 API directly, make sure to design
+ *          your application to parse the contents of the response and handle it appropriately. If you
+ *          use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the embedded error and apply
+ *          error handling per your configuration settings (including automatically retrying the
+ *          request as appropriate). If the condition persists, the SDKs throws an exception (or, for
+ *          the SDKs that don't use exceptions, they return the error). </p>
  *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
- *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best Practices</a>.</p>
+ *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
+ *          Practices</a>.</p>
+ *          <important>
+ *             <p>You cannot use <code>Content-Type: application/x-www-form-urlencoded</code> with
+ *             Complete Multipart Upload requests. Also, if you do not provide a
+ *                <code>Content-Type</code> header, <code>CompleteMultipartUpload</code> returns a 200
+ *             OK response.</p>
+ *          </important>
  *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
- *          Permissions</a>.</p>
- *
- *
+ *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
+ *             and Permissions</a>.</p>
  *          <p>
  *             <code>CompleteMultipartUpload</code> has the following special errors:</p>
  *          <ul>
@@ -105,7 +134,6 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                </ul>
  *             </li>
  *          </ul>
- *
  *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
  *          <ul>
  *             <li>
@@ -140,13 +168,94 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * import { S3Client, CompleteMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CompleteMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = { // CompleteMultipartUploadRequest
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   MultipartUpload: { // CompletedMultipartUpload
+ *     Parts: [ // CompletedPartList
+ *       { // CompletedPart
+ *         ETag: "STRING_VALUE",
+ *         ChecksumCRC32: "STRING_VALUE",
+ *         ChecksumCRC32C: "STRING_VALUE",
+ *         ChecksumSHA1: "STRING_VALUE",
+ *         ChecksumSHA256: "STRING_VALUE",
+ *         PartNumber: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   UploadId: "STRING_VALUE", // required
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
+ * // { // CompleteMultipartUploadOutput
+ * //   Location: "STRING_VALUE",
+ * //   Bucket: "STRING_VALUE",
+ * //   Key: "STRING_VALUE",
+ * //   Expiration: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
+ * //   ChecksumCRC32: "STRING_VALUE",
+ * //   ChecksumCRC32C: "STRING_VALUE",
+ * //   ChecksumSHA1: "STRING_VALUE",
+ * //   ChecksumSHA256: "STRING_VALUE",
+ * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ * //   VersionId: "STRING_VALUE",
+ * //   SSEKMSKeyId: "STRING_VALUE",
+ * //   BucketKeyEnabled: true || false,
+ * //   RequestCharged: "requester",
+ * // };
+ *
  * ```
  *
+ * @param CompleteMultipartUploadCommandInput - {@link CompleteMultipartUploadCommandInput}
+ * @returns {@link CompleteMultipartUploadCommandOutput}
  * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
+ *
+ * @throws {@link S3ServiceException}
+ * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
+ * @example To complete multipart upload
+ * ```javascript
+ * // The following example completes a multipart upload.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "bigobject",
+ *   "MultipartUpload": {
+ *     "Parts": [
+ *       {
+ *         "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
+ *         "PartNumber": "1"
+ *       },
+ *       {
+ *         "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
+ *         "PartNumber": "2"
+ *       }
+ *     ]
+ *   },
+ *   "UploadId": "7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ * };
+ * const command = new CompleteMultipartUploadCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Bucket": "acexamplebucket",
+ *   "ETag": "\"4d9031c7644d8081c2829f4ea23c55f7-2\"",
+ *   "Key": "bigobject",
+ *   "Location": "https://examplebucket.s3.<Region>.amazonaws.com/bigobject"
+ * }
+ * *\/
+ * // example id: to-complete-multipart-upload-1481851590483
+ * ```
  *
  */
 export class CompleteMultipartUploadCommand extends $Command<
@@ -157,6 +266,24 @@ export class CompleteMultipartUploadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      Bucket: { type: "contextParams", name: "Bucket" },
+      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
+      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
+      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
+      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
+      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CompleteMultipartUploadCommandInput) {
     // Start section: command_constructor
     super();
@@ -172,8 +299,11 @@ export class CompleteMultipartUploadCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CompleteMultipartUploadCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getSsecPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -184,8 +314,8 @@ export class CompleteMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteMultipartUploadRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CompleteMultipartUploadOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteMultipartUploadRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CompleteMultipartUploadOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -195,12 +325,18 @@ export class CompleteMultipartUploadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCompleteMultipartUploadCommand(input, context);
+    return se_CompleteMultipartUploadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restXmlCompleteMultipartUploadCommand(output, context);
+    return de_CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

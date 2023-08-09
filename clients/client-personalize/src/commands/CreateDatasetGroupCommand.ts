@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateDatasetGroupCommand,
-  serializeAws_json1_1CreateDatasetGroupCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDatasetGroupCommand, se_CreateDatasetGroupCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDatasetGroupCommand}.
+ */
 export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDatasetGroupCommand}.
+ */
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an empty dataset group. A dataset group contains related datasets that supply data
- *       for training a model. A dataset group can contain at most three datasets, one for each type of
- *       dataset:</p>
+ * @public
+ * <p>Creates an empty dataset group. A dataset group is a container for
+ *       Amazon Personalize resources. A dataset group can contain at most three datasets, one
+ *       for each type of dataset:</p>
  *          <ul>
  *             <li>
  *                <p>Interactions</p>
@@ -36,45 +50,50 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *                <p>Users</p>
  *             </li>
  *          </ul>
- *          <p>To train a model (create a solution), a dataset group that contains an
- *         <code>Interactions</code> dataset is required. Call <a>CreateDataset</a> to add a
- *       dataset to the group.</p>
+ *          <p> A dataset group can be a Domain dataset group, where you specify a
+ *       domain and use pre-configured resources like recommenders, or a
+ *       Custom dataset group, where you use custom resources, such as a solution
+ *       with a solution version, that you deploy with a campaign. If you start
+ *       with a Domain dataset group, you can still add custom resources such as
+ *       solutions and solution versions trained with recipes for custom use cases
+ *       and deployed with campaigns. </p>
  *          <p>A dataset group can be in one of the following states:</p>
  *          <ul>
  *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
+ *           FAILED</p>
  *             </li>
  *             <li>
  *                <p>DELETE PENDING</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the dataset group, call <a>DescribeDatasetGroup</a>. If
- *       the status shows as CREATE FAILED, the response includes a <code>failureReason</code> key,
- *       which describes why the creation failed.</p>
+ *          <p>To get the status of the dataset group, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>. If the status shows as CREATE FAILED, the
+ *       response includes a <code>failureReason</code> key, which describes why
+ *       the creation failed.</p>
  *          <note>
- *             <p>You must wait until the <code>status</code> of the dataset group is <code>ACTIVE</code>
- *         before adding a dataset to the group.</p>
+ *             <p>You must wait until the <code>status</code> of the dataset group is
+ *           <code>ACTIVE</code> before adding a dataset to the group.</p>
  *          </note>
- *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in the group. If you
- *       specify a KMS key, you must also include an Identity and Access Management (IAM) role that has permission to
- *       access the key.</p>
+ *          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in
+ *       the group. If you specify a KMS key, you must also include an Identity and Access Management
+ *       (IAM) role that has permission to access the key.</p>
  *          <p class="title">
  *             <b>APIs that require a dataset group ARN in the request</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateDataset</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateEventTracker</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -84,17 +103,17 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListDatasetGroups</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeDatasetGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteDatasetGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html">DeleteDatasetGroup</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -104,13 +123,47 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * import { PersonalizeClient, CreateDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateDatasetGroupRequest
+ *   name: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   kmsKeyArn: "STRING_VALUE",
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ *   tags: [ // Tags
+ *     { // Tag
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetGroupCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDatasetGroupResponse
+ * //   datasetGroupArn: "STRING_VALUE",
+ * //   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * // };
+ *
  * ```
  *
+ * @param CreateDatasetGroupCommandInput - {@link CreateDatasetGroupCommandInput}
+ * @returns {@link CreateDatasetGroupCommandOutput}
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateDatasetGroupCommand extends $Command<
@@ -121,6 +174,18 @@ export class CreateDatasetGroupCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDatasetGroupCommandInput) {
     // Start section: command_constructor
     super();
@@ -136,6 +201,9 @@ export class CreateDatasetGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDatasetGroupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -146,8 +214,8 @@ export class CreateDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -157,12 +225,18 @@ export class CreateDatasetGroupCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDatasetGroupCommand(input, context);
+    return se_CreateDatasetGroupCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetGroupCommandOutput> {
-    return deserializeAws_json1_1CreateDatasetGroupCommand(output, context);
+    return de_CreateDatasetGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

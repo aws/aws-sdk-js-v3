@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeUserProfilesRequest, DescribeUserProfilesResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1DescribeUserProfilesCommand,
-  serializeAws_json1_1DescribeUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeUserProfilesCommand, se_DescribeUserProfilesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeUserProfilesCommand}.
+ */
 export interface DescribeUserProfilesCommandInput extends DescribeUserProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeUserProfilesCommand}.
+ */
 export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describe specified users.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -33,13 +47,41 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * import { OpsWorksClient, DescribeUserProfilesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeUserProfilesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // DescribeUserProfilesRequest
+ *   IamUserArns: [ // Strings
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeUserProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeUserProfilesResult
+ * //   UserProfiles: [ // UserProfiles
+ * //     { // UserProfile
+ * //       IamUserArn: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       SshUsername: "STRING_VALUE",
+ * //       SshPublicKey: "STRING_VALUE",
+ * //       AllowSelfManagement: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeUserProfilesCommandInput - {@link DescribeUserProfilesCommandInput}
+ * @returns {@link DescribeUserProfilesCommandOutput}
  * @see {@link DescribeUserProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class DescribeUserProfilesCommand extends $Command<
@@ -50,6 +92,18 @@ export class DescribeUserProfilesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +119,9 @@ export class DescribeUserProfilesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeUserProfilesCommandInput, DescribeUserProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeUserProfilesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +132,8 @@ export class DescribeUserProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +143,18 @@ export class DescribeUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeUserProfilesCommand(input, context);
+    return se_DescribeUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeUserProfilesCommandOutput> {
-    return deserializeAws_json1_1DescribeUserProfilesCommand(output, context);
+    return de_DescribeUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

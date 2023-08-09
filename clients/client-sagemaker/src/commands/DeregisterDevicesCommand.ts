@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { DeregisterDevicesRequest } from "../models/models_1";
-import {
-  deserializeAws_json1_1DeregisterDevicesCommand,
-  serializeAws_json1_1DeregisterDevicesCommand,
-} from "../protocols/Aws_json1_1";
+import { DeregisterDevicesRequest } from "../models/models_2";
+import { de_DeregisterDevicesCommand, se_DeregisterDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeregisterDevicesCommand}.
+ */
 export interface DeregisterDevicesCommandInput extends DeregisterDevicesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeregisterDevicesCommand}.
+ */
 export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,26 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeregisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeregisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // DeregisterDevicesRequest
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   DeviceNames: [ // DeviceNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeregisterDevicesCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeregisterDevicesCommandInput - {@link DeregisterDevicesCommandInput}
+ * @returns {@link DeregisterDevicesCommandOutput}
  * @see {@link DeregisterDevicesCommandInput} for command's `input` shape.
  * @see {@link DeregisterDevicesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class DeregisterDevicesCommand extends $Command<
@@ -46,6 +73,18 @@ export class DeregisterDevicesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeregisterDevicesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +100,9 @@ export class DeregisterDevicesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeregisterDevicesCommandInput, DeregisterDevicesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterDevicesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +113,8 @@ export class DeregisterDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDevicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +124,18 @@ export class DeregisterDevicesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeregisterDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterDevicesCommand(input, context);
+    return se_DeregisterDevicesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDevicesCommandOutput> {
-    return deserializeAws_json1_1DeregisterDevicesCommand(output, context);
+    return de_DeregisterDevicesCommand(output, context);
   }
 
   // Start section: command_body_extra

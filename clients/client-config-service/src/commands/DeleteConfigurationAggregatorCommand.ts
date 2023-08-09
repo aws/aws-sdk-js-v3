@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteConfigurationAggregatorRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteConfigurationAggregatorCommand,
-  serializeAws_json1_1DeleteConfigurationAggregatorCommand,
+  de_DeleteConfigurationAggregatorCommand,
+  se_DeleteConfigurationAggregatorCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteConfigurationAggregatorCommand}.
+ */
 export interface DeleteConfigurationAggregatorCommandInput extends DeleteConfigurationAggregatorRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteConfigurationAggregatorCommand}.
+ */
 export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified configuration aggregator and the
  * 			aggregated data associated with the aggregator.</p>
  * @example
@@ -30,13 +47,26 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * import { ConfigServiceClient, DeleteConfigurationAggregatorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConfigurationAggregatorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeleteConfigurationAggregatorRequest
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteConfigurationAggregatorCommandInput - {@link DeleteConfigurationAggregatorCommandInput}
+ * @returns {@link DeleteConfigurationAggregatorCommandOutput}
  * @see {@link DeleteConfigurationAggregatorCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeleteConfigurationAggregatorCommand extends $Command<
@@ -47,6 +77,18 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteConfigurationAggregatorCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +104,9 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteConfigurationAggregatorCommandInput, DeleteConfigurationAggregatorCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteConfigurationAggregatorCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +117,8 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationAggregatorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +128,21 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteConfigurationAggregatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteConfigurationAggregatorCommand(input, context);
+    return se_DeleteConfigurationAggregatorCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConfigurationAggregatorCommandOutput> {
-    return deserializeAws_json1_1DeleteConfigurationAggregatorCommand(output, context);
+    return de_DeleteConfigurationAggregatorCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachInternetGatewayRequest } from "../models/models_4";
-import {
-  deserializeAws_ec2DetachInternetGatewayCommand,
-  serializeAws_ec2DetachInternetGatewayCommand,
-} from "../protocols/Aws_ec2";
+import { DetachInternetGatewayRequest } from "../models/models_5";
+import { de_DetachInternetGatewayCommand, se_DetachInternetGatewayCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DetachInternetGatewayCommand}.
+ */
 export interface DetachInternetGatewayCommandInput extends DetachInternetGatewayRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DetachInternetGatewayCommand}.
+ */
 export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet
  * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
  * 			public IPv4 addresses.</p>
@@ -31,13 +45,37 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DetachInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // DetachInternetGatewayRequest
+ *   DryRun: true || false,
+ *   InternetGatewayId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DetachInternetGatewayCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DetachInternetGatewayCommandInput - {@link DetachInternetGatewayCommandInput}
+ * @returns {@link DetachInternetGatewayCommandOutput}
  * @see {@link DetachInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DetachInternetGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To detach an Internet gateway from a VPC
+ * ```javascript
+ * // This example detaches the specified Internet gateway from the specified VPC.
+ * const input = {
+ *   "InternetGatewayId": "igw-c0a643a9",
+ *   "VpcId": "vpc-a01106c2"
+ * };
+ * const command = new DetachInternetGatewayCommand(input);
+ * await client.send(command);
+ * // example id: ec2-detach-internet-gateway-1
+ * ```
  *
  */
 export class DetachInternetGatewayCommand extends $Command<
@@ -48,6 +86,18 @@ export class DetachInternetGatewayCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DetachInternetGatewayCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +113,9 @@ export class DetachInternetGatewayCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DetachInternetGatewayCommandInput, DetachInternetGatewayCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DetachInternetGatewayCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +126,8 @@ export class DetachInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachInternetGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +137,18 @@ export class DetachInternetGatewayCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DetachInternetGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2DetachInternetGatewayCommand(input, context);
+    return se_DetachInternetGatewayCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachInternetGatewayCommandOutput> {
-    return deserializeAws_ec2DetachInternetGatewayCommand(output, context);
+    return de_DetachInternetGatewayCommand(output, context);
   }
 
   // Start section: command_body_extra

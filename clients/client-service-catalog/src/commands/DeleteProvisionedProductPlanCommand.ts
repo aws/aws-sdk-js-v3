@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeleteProvisionedProductPlanCommand,
-  serializeAws_json1_1DeleteProvisionedProductPlanCommand,
+  de_DeleteProvisionedProductPlanCommand,
+  se_DeleteProvisionedProductPlanCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteProvisionedProductPlanCommand}.
+ */
 export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisionedProductPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProvisionedProductPlanCommand}.
+ */
 export interface DeleteProvisionedProductPlanCommandOutput
   extends DeleteProvisionedProductPlanOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,31 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, DeleteProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DeleteProvisionedProductPlanInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PlanId: "STRING_VALUE", // required
+ *   IgnoreErrors: true || false,
+ * };
  * const command = new DeleteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteProvisionedProductPlanCommandInput - {@link DeleteProvisionedProductPlanCommandInput}
+ * @returns {@link DeleteProvisionedProductPlanCommandOutput}
  * @see {@link DeleteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedProductPlanCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DeleteProvisionedProductPlanCommand extends $Command<
@@ -48,6 +83,18 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProvisionedProductPlanCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +110,9 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteProvisionedProductPlanCommandInput, DeleteProvisionedProductPlanCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteProvisionedProductPlanCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +123,8 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProvisionedProductPlanInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProvisionedProductPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +134,21 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProvisionedProductPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProvisionedProductPlanCommand(input, context);
+    return se_DeleteProvisionedProductPlanCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteProvisionedProductPlanCommandOutput> {
-    return deserializeAws_json1_1DeleteProvisionedProductPlanCommand(output, context);
+    return de_DeleteProvisionedProductPlanCommand(output, context);
   }
 
   // Start section: command_body_extra

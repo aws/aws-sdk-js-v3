@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeReportJobInput, DescribeReportJobOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeReportJobCommand,
-  serializeAws_restJson1DescribeReportJobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DescribeReportJobCommand, se_DescribeReportJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeReportJobCommand}.
+ */
 export interface DescribeReportJobCommandInput extends DescribeReportJobInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeReportJobCommand}.
+ */
 export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the details associated with creating a report as specified by its
  *             <code>ReportJobId</code>.</p>
  * @example
@@ -30,13 +44,48 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * import { BackupClient, DescribeReportJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeReportJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = { // DescribeReportJobInput
+ *   ReportJobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReportJobCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeReportJobOutput
+ * //   ReportJob: { // ReportJob
+ * //     ReportJobId: "STRING_VALUE",
+ * //     ReportPlanArn: "STRING_VALUE",
+ * //     ReportTemplate: "STRING_VALUE",
+ * //     CreationTime: new Date("TIMESTAMP"),
+ * //     CompletionTime: new Date("TIMESTAMP"),
+ * //     Status: "STRING_VALUE",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     ReportDestination: { // ReportDestination
+ * //       S3BucketName: "STRING_VALUE",
+ * //       S3Keys: [ // stringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeReportJobCommandInput - {@link DescribeReportJobCommandInput}
+ * @returns {@link DescribeReportJobCommandOutput}
  * @see {@link DescribeReportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeReportJobCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
 export class DescribeReportJobCommand extends $Command<
@@ -47,6 +96,18 @@ export class DescribeReportJobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeReportJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +123,9 @@ export class DescribeReportJobCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeReportJobCommandInput, DescribeReportJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeReportJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +136,8 @@ export class DescribeReportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReportJobInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReportJobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +147,18 @@ export class DescribeReportJobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeReportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeReportJobCommand(input, context);
+    return se_DescribeReportJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportJobCommandOutput> {
-    return deserializeAws_restJson1DescribeReportJobCommand(output, context);
+    return de_DescribeReportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

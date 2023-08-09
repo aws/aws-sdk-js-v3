@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateCustomMetadataRequest, CreateCustomMetadataResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1CreateCustomMetadataCommand,
-  serializeAws_restJson1CreateCustomMetadataCommand,
-} from "../protocols/Aws_restJson1";
+  CreateCustomMetadataRequest,
+  CreateCustomMetadataRequestFilterSensitiveLog,
+  CreateCustomMetadataResponse,
+} from "../models/models_0";
+import { de_CreateCustomMetadataCommand, se_CreateCustomMetadataCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateCustomMetadataCommand}.
+ */
 export interface CreateCustomMetadataCommandInput extends CreateCustomMetadataRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateCustomMetadataCommand}.
+ */
 export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more custom properties to the specified resource (a folder, document,
  *             or version).</p>
  * @example
@@ -30,13 +48,52 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * import { WorkDocsClient, CreateCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = { // CreateCustomMetadataRequest
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   CustomMetadata: { // CustomMetadataMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCustomMetadataCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateCustomMetadataCommandInput - {@link CreateCustomMetadataCommandInput}
+ * @returns {@link CreateCustomMetadataCommandOutput}
  * @see {@link CreateCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetadataCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
+ *
+ * @throws {@link CustomMetadataLimitExceededException} (client fault)
+ *  <p>The limit has been reached on the number of custom properties for the specified
+ *             resource.</p>
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link ProhibitedStateException} (client fault)
+ *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * @throws {@link WorkDocsServiceException}
+ * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
  */
 export class CreateCustomMetadataCommand extends $Command<
@@ -47,6 +104,18 @@ export class CreateCustomMetadataCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateCustomMetadataCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +131,9 @@ export class CreateCustomMetadataCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateCustomMetadataCommandInput, CreateCustomMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateCustomMetadataCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +144,8 @@ export class CreateCustomMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +155,18 @@ export class CreateCustomMetadataCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateCustomMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1CreateCustomMetadataCommand(input, context);
+    return se_CreateCustomMetadataCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomMetadataCommandOutput> {
-    return deserializeAws_restJson1CreateCustomMetadataCommand(output, context);
+    return de_CreateCustomMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

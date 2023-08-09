@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AttachVolumeRequest, VolumeAttachment } from "../models/models_0";
-import { deserializeAws_ec2AttachVolumeCommand, serializeAws_ec2AttachVolumeCommand } from "../protocols/Aws_ec2";
+import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AttachVolumeCommand}.
+ */
 export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachVolumeCommand}.
+ */
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
  *       with the specified device name.</p>
  *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
@@ -50,13 +67,55 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * import { EC2Client, AttachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AttachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // AttachVolumeRequest
+ *   Device: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
+ * // { // VolumeAttachment
+ * //   AttachTime: new Date("TIMESTAMP"),
+ * //   Device: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //   VolumeId: "STRING_VALUE",
+ * //   DeleteOnTermination: true || false,
+ * // };
+ *
  * ```
  *
+ * @param AttachVolumeCommandInput - {@link AttachVolumeCommandInput}
+ * @returns {@link AttachVolumeCommandOutput}
  * @see {@link AttachVolumeCommandInput} for command's `input` shape.
  * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To attach a volume to an instance
+ * ```javascript
+ * // This example attaches a volume (``vol-1234567890abcdef0``) to an instance (``i-01474ef662b89480``) as ``/dev/sdf``.
+ * const input = {
+ *   "Device": "/dev/sdf",
+ *   "InstanceId": "i-01474ef662b89480",
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * };
+ * const command = new AttachVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AttachTime": "2016-08-29T18:52:32.724Z",
+ *   "Device": "/dev/sdf",
+ *   "InstanceId": "i-01474ef662b89480",
+ *   "State": "attaching",
+ *   "VolumeId": "vol-1234567890abcdef0"
+ * }
+ * *\/
+ * // example id: to-attach-a-volume-to-an-instance-1472499213109
+ * ```
  *
  */
 export class AttachVolumeCommand extends $Command<
@@ -67,6 +126,18 @@ export class AttachVolumeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AttachVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,6 +153,7 @@ export class AttachVolumeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachVolumeCommandInput, AttachVolumeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, AttachVolumeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -92,8 +164,8 @@ export class AttachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVolumeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VolumeAttachment.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +175,18 @@ export class AttachVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2AttachVolumeCommand(input, context);
+    return se_AttachVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachVolumeCommandOutput> {
-    return deserializeAws_ec2AttachVolumeCommand(output, context);
+    return de_AttachVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

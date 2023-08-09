@@ -1,4 +1,4 @@
-const { Before, Given, Then } = require("cucumber");
+const { Before, Given, Then } = require("@cucumber/cucumber");
 
 Before({ tags: "@autoscaling" }, function (scenario, callback) {
   const { AutoScaling } = require("../../../clients/client-auto-scaling");

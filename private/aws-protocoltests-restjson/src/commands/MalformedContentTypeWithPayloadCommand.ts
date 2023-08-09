@@ -1,7 +1,9 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
+  BlobPayloadInputTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,16 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MalformedContentTypeWithPayloadInput } from "../models/models_0";
 import {
-  deserializeAws_restJson1MalformedContentTypeWithPayloadCommand,
-  serializeAws_restJson1MalformedContentTypeWithPayloadCommand,
+  de_MalformedContentTypeWithPayloadCommand,
+  se_MalformedContentTypeWithPayloadCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadInput {}
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ */
+export type MalformedContentTypeWithPayloadCommandInputType = Omit<MalformedContentTypeWithPayloadInput, "payload"> & {
+  payload?: BlobPayloadInputTypes;
+};
+
+/**
+ * @public
+ *
+ * The input for {@link MalformedContentTypeWithPayloadCommand}.
+ */
+export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadCommandInputType {}
+/**
+ * @public
+ *
+ * The output of {@link MalformedContentTypeWithPayloadCommand}.
+ */
 export interface MalformedContentTypeWithPayloadCommandOutput extends __MetadataBearer {}
 
 export class MalformedContentTypeWithPayloadCommand extends $Command<
@@ -29,6 +52,9 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedContentTypeWithPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -54,8 +80,8 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedContentTypeWithPayloadInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -65,18 +91,24 @@ export class MalformedContentTypeWithPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: MalformedContentTypeWithPayloadCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1MalformedContentTypeWithPayloadCommand(input, context);
+    return se_MalformedContentTypeWithPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<MalformedContentTypeWithPayloadCommandOutput> {
-    return deserializeAws_restJson1MalformedContentTypeWithPayloadCommand(output, context);
+    return de_MalformedContentTypeWithPayloadCommand(output, context);
   }
 
   // Start section: command_body_extra

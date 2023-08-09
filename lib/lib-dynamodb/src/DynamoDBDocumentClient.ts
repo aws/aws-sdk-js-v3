@@ -1,12 +1,13 @@
+// smithy-typescript generated code
 import {
   DynamoDBClient,
   DynamoDBClientResolvedConfig,
   ServiceInputTypes as __ServiceInputTypes,
   ServiceOutputTypes as __ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
-import { Client as __Client } from "@aws-sdk/smithy-client";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+import { Client as __Client } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchExecuteStatementCommandInput,
@@ -25,6 +26,13 @@ import { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/Tr
 import { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
 import { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
 
+/**
+ * @public
+ */
+export { __Client };
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | __ServiceInputTypes
   | BatchExecuteStatementCommandInput
@@ -41,6 +49,9 @@ export type ServiceInputTypes =
   | TransactWriteCommandInput
   | UpdateCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | __ServiceOutputTypes
   | BatchExecuteStatementCommandOutput
@@ -57,11 +68,17 @@ export type ServiceOutputTypes =
   | TransactWriteCommandOutput
   | UpdateCommandOutput;
 
+/**
+ * @public
+ */
 export type TranslateConfig = {
   marshallOptions?: marshallOptions;
   unmarshallOptions?: unmarshallOptions;
 };
 
+/**
+ * @public
+ */
 export type DynamoDBDocumentClientResolvedConfig = DynamoDBClientResolvedConfig & {
   translateConfig?: TranslateConfig;
 };
@@ -110,7 +127,9 @@ export type DynamoDBDocumentClientResolvedConfig = DynamoDBClientResolvedConfig 
  * [null, false, 1, "two"]
  * ```
  *
- * @see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}
+ * @see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb | @aws-sdk/client-dynamodb}
+ *
+ * @public
  */
 export class DynamoDBDocumentClient extends __Client<
   __HttpHandlerOptions,

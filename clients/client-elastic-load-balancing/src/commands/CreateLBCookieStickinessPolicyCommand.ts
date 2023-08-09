@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticLoadBalancingClientResolvedConfig,
@@ -18,16 +20,31 @@ import {
 } from "../ElasticLoadBalancingClient";
 import { CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput } from "../models/models_0";
 import {
-  deserializeAws_queryCreateLBCookieStickinessPolicyCommand,
-  serializeAws_queryCreateLBCookieStickinessPolicyCommand,
+  de_CreateLBCookieStickinessPolicyCommand,
+  se_CreateLBCookieStickinessPolicyCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateLBCookieStickinessPolicyCommand}.
+ */
 export interface CreateLBCookieStickinessPolicyCommandInput extends CreateLBCookieStickinessPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateLBCookieStickinessPolicyCommand}.
+ */
 export interface CreateLBCookieStickinessPolicyCommandOutput
   extends CreateLBCookieStickinessPolicyOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.</p>
  *         <p>When a load balancer implements this policy, the load balancer uses a special cookie to track the instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request.
  *             If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load-balancing algorithm.</p>
@@ -41,13 +58,50 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * import { ElasticLoadBalancingClient, CreateLBCookieStickinessPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLBCookieStickinessPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = { // CreateLBCookieStickinessPolicyInput
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   CookieExpirationPeriod: Number("long"),
+ * };
  * const command = new CreateLBCookieStickinessPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateLBCookieStickinessPolicyCommandInput - {@link CreateLBCookieStickinessPolicyCommandInput}
+ * @returns {@link CreateLBCookieStickinessPolicyCommandOutput}
  * @see {@link CreateLBCookieStickinessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLBCookieStickinessPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
+ *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link DuplicatePolicyNameException} (client fault)
+ *  <p>A policy with the specified name already exists for this load balancer.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link TooManyPoliciesException} (client fault)
+ *  <p>The quota for the number of policies for this load balancer has been reached.</p>
+ *
+ * @throws {@link ElasticLoadBalancingServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
+ *
+ * @example To generate a duration-based stickiness policy for your load balancer
+ * ```javascript
+ * // This example generates a stickiness policy with sticky session lifetimes controlled by the specified expiration period.
+ * const input = {
+ *   "CookieExpirationPeriod": 60,
+ *   "LoadBalancerName": "my-load-balancer",
+ *   "PolicyName": "my-duration-cookie-policy"
+ * };
+ * const command = new CreateLBCookieStickinessPolicyCommand(input);
+ * await client.send(command);
+ * // example id: elb-create-lb-cookie-stickiness-policy-1
+ * ```
  *
  */
 export class CreateLBCookieStickinessPolicyCommand extends $Command<
@@ -58,6 +112,18 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateLBCookieStickinessPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +139,9 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateLBCookieStickinessPolicyCommandInput, CreateLBCookieStickinessPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLBCookieStickinessPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +152,8 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLBCookieStickinessPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLBCookieStickinessPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,18 +163,24 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: CreateLBCookieStickinessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLBCookieStickinessPolicyCommand(input, context);
+    return se_CreateLBCookieStickinessPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLBCookieStickinessPolicyCommandOutput> {
-    return deserializeAws_queryCreateLBCookieStickinessPolicyCommand(output, context);
+    return de_CreateLBCookieStickinessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

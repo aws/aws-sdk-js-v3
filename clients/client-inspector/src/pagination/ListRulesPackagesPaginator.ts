@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListRulesPackagesCommand,
   ListRulesPackagesCommandInput,
   ListRulesPackagesCommandOutput,
 } from "../commands/ListRulesPackagesCommand";
-import { Inspector } from "../Inspector";
 import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: InspectorClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListRulesPackagesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Inspector,
-  input: ListRulesPackagesCommandInput,
-  ...args: any
-): Promise<ListRulesPackagesCommandOutput> => {
-  // @ts-ignore
-  return await client.listRulesPackages(input, ...args);
-};
 export async function* paginateListRulesPackages(
   config: InspectorPaginationConfiguration,
   input: ListRulesPackagesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListRulesPackages(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Inspector) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof InspectorClient) {
+    if (config.client instanceof InspectorClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Inspector | InspectorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

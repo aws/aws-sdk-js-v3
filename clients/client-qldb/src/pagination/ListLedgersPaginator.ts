@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListLedgersCommand, ListLedgersCommandInput, ListLedgersCommandOutput } from "../commands/ListLedgersCommand";
-import { QLDB } from "../QLDB";
 import { QLDBClient } from "../QLDBClient";
 import { QLDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: QLDBClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListLedgersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: QLDB,
-  input: ListLedgersCommandInput,
-  ...args: any
-): Promise<ListLedgersCommandOutput> => {
-  // @ts-ignore
-  return await client.listLedgers(input, ...args);
-};
 export async function* paginateListLedgers(
   config: QLDBPaginationConfiguration,
   input: ListLedgersCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListLedgers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QLDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof QLDBClient) {
+    if (config.client instanceof QLDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected QLDB | QLDBClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

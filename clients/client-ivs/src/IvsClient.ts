@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,30 +19,43 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
-  Credentials as __Credentials,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BatchGetChannelCommandInput, BatchGetChannelCommandOutput } from "./commands/BatchGetChannelCommand";
 import { BatchGetStreamKeyCommandInput, BatchGetStreamKeyCommandOutput } from "./commands/BatchGetStreamKeyCommand";
+import {
+  BatchStartViewerSessionRevocationCommandInput,
+  BatchStartViewerSessionRevocationCommandOutput,
+} from "./commands/BatchStartViewerSessionRevocationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import {
   CreateRecordingConfigurationCommandInput,
@@ -75,6 +80,7 @@ import {
 } from "./commands/GetRecordingConfigurationCommand";
 import { GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "./commands/GetStreamKeyCommand";
+import { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
 import {
   ImportPlaybackKeyPairCommandInput,
   ImportPlaybackKeyPairCommandOutput,
@@ -90,20 +96,37 @@ import {
 } from "./commands/ListRecordingConfigurationsCommand";
 import { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "./commands/ListStreamKeysCommand";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
+import { ListStreamSessionsCommandInput, ListStreamSessionsCommandOutput } from "./commands/ListStreamSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutMetadataCommandInput, PutMetadataCommandOutput } from "./commands/PutMetadataCommand";
+import {
+  StartViewerSessionRevocationCommandInput,
+  StartViewerSessionRevocationCommandOutput,
+} from "./commands/StartViewerSessionRevocationCommand";
 import { StopStreamCommandInput, StopStreamCommandOutput } from "./commands/StopStreamCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchGetChannelCommandInput
   | BatchGetStreamKeyCommandInput
+  | BatchStartViewerSessionRevocationCommandInput
   | CreateChannelCommandInput
   | CreateRecordingConfigurationCommandInput
   | CreateStreamKeyCommandInput
@@ -116,22 +139,29 @@ export type ServiceInputTypes =
   | GetRecordingConfigurationCommandInput
   | GetStreamCommandInput
   | GetStreamKeyCommandInput
+  | GetStreamSessionCommandInput
   | ImportPlaybackKeyPairCommandInput
   | ListChannelsCommandInput
   | ListPlaybackKeyPairsCommandInput
   | ListRecordingConfigurationsCommandInput
   | ListStreamKeysCommandInput
+  | ListStreamSessionsCommandInput
   | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
   | PutMetadataCommandInput
+  | StartViewerSessionRevocationCommandInput
   | StopStreamCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateChannelCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchGetChannelCommandOutput
   | BatchGetStreamKeyCommandOutput
+  | BatchStartViewerSessionRevocationCommandOutput
   | CreateChannelCommandOutput
   | CreateRecordingConfigurationCommandOutput
   | CreateStreamKeyCommandOutput
@@ -144,19 +174,25 @@ export type ServiceOutputTypes =
   | GetRecordingConfigurationCommandOutput
   | GetStreamCommandOutput
   | GetStreamKeyCommandOutput
+  | GetStreamSessionCommandOutput
   | ImportPlaybackKeyPairCommandOutput
   | ListChannelsCommandOutput
   | ListPlaybackKeyPairsCommandOutput
   | ListRecordingConfigurationsCommandOutput
   | ListStreamKeysCommandOutput
+  | ListStreamSessionsCommandOutput
   | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutMetadataCommandOutput
+  | StartViewerSessionRevocationCommandOutput
   | StopStreamCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateChannelCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -164,11 +200,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -180,7 +216,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * A function that can calculate the length of a request body.
    * @internal
    */
-  bodyLengthChecker?: (body: any) => number | undefined;
+  bodyLengthChecker?: __BodyLengthCalculator;
 
   /**
    * A function that converts a stream into an array of bytes.
@@ -219,10 +255,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -240,72 +309,51 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of IvsClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of IvsClient class constructor that set the region, credentials and other options.
  */
 export interface IvsClientConfig extends IvsClientConfigType {}
 
-type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of IvsClient class. This is resolved and normalized from the {@link IvsClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of IvsClient class. This is resolved and normalized from the {@link IvsClientConfig | constructor configuration interface}.
  */
 export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
 
 /**
+ * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -323,7 +371,6 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *          </p>
  *          <p>For a summary of notable documentation changes in each release, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/doc-history.html"> Document
  *       History</a>.</p>
- *
  *          <p>
  *             <b>Allowed Header Values</b>
  *          </p>
@@ -354,12 +401,14 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *         Amazon IVS</a>):</p>
  *          <ul>
  *             <li>
- *                <p>Channel — Stores configuration data related to your live stream. You first create a
+ *                <p>
+ *                   <b>Channel</b> — Stores configuration data related to your live stream. You first create a
  *           channel and then use the channel’s stream key to start your live stream. See the Channel
  *           endpoints for more information. </p>
  *             </li>
  *             <li>
- *                <p>Stream key — An identifier assigned by Amazon IVS when you create a channel, which is
+ *                <p>
+ *                   <b>Stream key</b> — An identifier assigned by Amazon IVS when you create a channel, which is
  *           then used to authorize streaming. See the StreamKey endpoints for more information.
  *               <i>
  *                      <b>Treat the stream key like a secret, since it allows
@@ -368,13 +417,15 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *                </p>
  *             </li>
  *             <li>
- *                <p>Playback key pair — Video playback may be restricted using playback-authorization
+ *                <p>
+ *                   <b>Playback key pair</b> — Video playback may be restricted using playback-authorization
  *           tokens, which use public-key encryption. A playback key pair is the public-private pair of
  *           keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair
  *           endpoints for more information.</p>
  *             </li>
  *             <li>
- *                <p>Recording configuration — Stores configuration related to recording a live stream and
+ *                <p>
+ *                   <b>Recording configuration</b> — Stores configuration related to recording a live stream and
  *           where to store the recorded content. Multiple channels can reference the same recording
  *           configuration. See the Recording Configuration endpoints for more information.</p>
  *             </li>
@@ -386,7 +437,9 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *       resource. A tag comprises a <i>key</i> and a <i>value</i>, both
  *       set by you. For example, you might set a tag as <code>topic:nature</code> to label a
  *       particular video category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for
- *       more information, including restrictions that apply to tags.</p>
+ *       more information, including restrictions that apply to tags and "Tag naming limits and
+ *       requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+ *       there.</p>
  *          <p>Tags can help you identify and organize your Amazon Web Services resources. For example,
  *       you can use the same tag for different resources to indicate that they are related. You can
  *       also use tags to manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html"> Access Tags</a>). </p>
@@ -406,9 +459,11 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                <p>
- *                   <i>Authorization</i> is about granting permissions. You need to be
- *           authorized to view <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Amazon IVS private channels</a>.
- *           (Private channels are channels that are enabled for "playback authorization.")</p>
+ *                   <i>Authorization</i> is about granting permissions. Your IAM roles need
+ *           to have permissions for Amazon IVS API requests. In addition, authorization is needed to
+ *           view <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Amazon
+ *             IVS private channels</a>. (Private channels are channels that are enabled for
+ *           "playback authorization.")</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -420,7 +475,7 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *       responsibility to sign the requests.</p>
  *          <p>You generate a signature using valid Amazon Web Services credentials that have permission
  *       to perform the requested action. For example, you must sign PutMetadata requests with a
- *       signature generated from an IAM user account that has the <code>ivs:PutMetadata</code>
+ *       signature generated from a user account that has the <code>ivs:PutMetadata</code>
  *       permission.</p>
  *          <p>For more information:</p>
  *          <ul>
@@ -435,6 +490,13 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Amazon Resource Names (ARNs)</b>
+ *          </p>
+ *          <p>ARNs uniquely identify AWS resources. An ARN is required when you need to specify a
+ *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
+ *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
+ *       Reference</i>.</p>
+ *          <p>
  *             <b>Channel Endpoints</b>
  *          </p>
  *          <ul>
@@ -446,7 +508,7 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             <li>
  *                <p>
  *                   <a>GetChannel</a> — Gets the channel configuration for the specified
- *           channel ARN (Amazon Resource Name).</p>
+ *           channel ARN.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -513,8 +575,18 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetStreamSession</a> — Gets metadata on a specified stream.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>ListStreams</a> — Gets summary information about live streams in
  *           your account, in the Amazon Web Services region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStreamSessions</a> — Gets a summary of current and previous
+ *           streams for a specified channel in your account, in the AWS region where the API request
+ *           is processed.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -532,7 +604,7 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *             </li>
  *          </ul>
  *          <p>
- *             <b>PlaybackKeyPair Endpoints</b>
+ *             <b>Private Channel Endpoints</b>
  *          </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private Channels</a> in the
  *         <i>Amazon IVS User Guide</i>.</p>
@@ -562,6 +634,18 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *                   <a>DeletePlaybackKeyPair</a> — Deletes a specified authorization key
  *           pair. This invalidates future viewer tokens generated using the key pair’s
  *             <code>privateKey</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartViewerSessionRevocation</a> — Starts the process of revoking
+ *           the viewer session associated with a specified channel ARN and viewer ID. Optionally, you
+ *           can provide a version to revoke viewer sessions less than and including that
+ *           version.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>BatchStartViewerSessionRevocation</a> — Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer ID pairs
+ *           simultaneously.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -621,20 +705,22 @@ export class IvsClient extends __Client<
    */
   readonly config: IvsClientResolvedConfig;
 
-  constructor(configuration: IvsClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<IvsClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

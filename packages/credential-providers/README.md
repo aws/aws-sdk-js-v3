@@ -23,6 +23,7 @@ A collection of all credential providers, with default clients.
    1. [Supported Configuration](#supported-configuration)
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
+1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
 
 ## `fromCognitoIdentity()`
 
@@ -61,7 +62,7 @@ const client = new FooClient({
 
 ## `fromCognitoIdentityPool()`
 
-The function `fromCognitoIdentityPool()` returns `CredentialProvider` that calls [GetId API][getid_api]
+The function `fromCognitoIdentityPool()` returns `AwsCredentialIdentityProvider` that calls [GetId API][getid_api]
 to obtain an `identityId`, then generates temporary AWS credentials with
 [GetCredentialsForIdentity API][getcredentialsforidentity_api], see
 [`fromCognitoIdentity()`](#fromcognitoidentity).
@@ -106,7 +107,7 @@ const client = new FooClient({
 
 ## `fromTemporaryCredentials()`
 
-The function `fromTemporaryCredentials` returns `CredentialProvider` that retrieves temporary
+The function `fromTemporaryCredentials` returns `AwsCredentialIdentityProvider` that retrieves temporary
 credentials from [STS AssumeRole API][assumerole_api].
 
 ```javascript
@@ -115,11 +116,11 @@ import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6
 
 const client = new FooClient({
   region,
-  credentials: fromTemporaryCredentials(
+  credentials: fromTemporaryCredentials({
     // Optional. The master credentials used to get and refresh temporary credentials from AWS STS.
     // If skipped, it uses the default credential resolved by internal STS client.
     masterCredentials: fromTemporaryCredentials({
-      params: { RoleArn: "arn:aws:iam::1234567890:role/RoleA" }
+      params: { RoleArn: "arn:aws:iam::1234567890:role/RoleA" },
     }),
     // Required. Options passed to STS AssumeRole operation.
     params: {
@@ -129,23 +130,23 @@ const client = new FooClient({
       // session name with prefix of 'aws-sdk-js-'.
       RoleSessionName: "aws-sdk-js-123",
       // Optional. The duration, in seconds, of the role session.
-      DurationSeconds: 3600
+      DurationSeconds: 3600,
       // ... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
     },
     // Optional. Custom STS client configurations overriding the default ones.
     clientConfig: { region },
     // Optional. A function that returns a promise fulfilled with an MFA token code for the provided
     // MFA Serial code. Required if `params` has `SerialNumber` config.
-    mfaCodeProvider: async mfaSerial => {
-      return "token"
-    }
-  ),
+    mfaCodeProvider: async (mfaSerial) => {
+      return "token";
+    },
+  }),
 });
 ```
 
 ## `fromWebToken()`
 
-The function `fromWebToken` returns `CredentialProvider` that gets credentials calling
+The function `fromWebToken` returns `AwsCredentialIdentityProvider` that gets credentials calling
 [STS AssumeRoleWithWebIdentity API][assumerolewithwebidentity_api]
 
 ```javascript
@@ -208,7 +209,7 @@ provider, see the documentation for the identity provider.
 
 ## `fromContainerMetadata()` and `fromInstanceMetadata()`
 
-`fromContainerMetadata` and `fromInstanceMetadata` will create `CredentialProvider` functions that
+`fromContainerMetadata` and `fromInstanceMetadata` will create `AwsCredentialIdentityProvider` functions that
 read from the ECS container metadata service and the EC2 instance metadata service, respectively.
 
 ```javascript
@@ -243,12 +244,12 @@ const client = new FooClient({
 });
 ```
 
-A `CredentialProvider` function created with `fromContainerMetadata` will return a promise that will
+A `AwsCredentialIdentityProvider` function created with `fromContainerMetadata` will return a promise that will
 resolve with credentials for the IAM role associated with containers in an Amazon ECS task. Please
 see [IAM Roles for Tasks][iam_roles_for_tasks] for more information on using IAM roles with Amazon
 ECS.
 
-A `CredentialProvider` function created with `fromInstanceMetadata` will return a promise that will
+A `AwsCredentialIdentityProvider` function created with `fromInstanceMetadata` will return a promise that will
 resolve with credentials for the IAM role associated with an EC2 instance.
 Please see [IAM Roles for Amazon EC2][iam_roles_for_ec2] for more information on using IAM roles
 with Amazon EC2. Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are
@@ -258,7 +259,7 @@ Please see [Configure the instance metadata service][config_instance_metadata] f
 
 ## `fromIni()`
 
-`fromIni` creates `CredentialProvider` functions that read from a shared credentials file at
+`fromIni` creates `AwsCredentialIdentityProvider` functions that read from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both files are expected to
 be INI formatted with section names corresponding to profiles. Sections in the credentials file are
 treated as profile names, whereas profile sections in the config file must have the format of
@@ -393,7 +394,7 @@ const client = new FooClient({
 });
 ```
 
-`fromEnv` returns a `CredentialProvider` function, that reads credentials from the following
+`fromEnv` returns a `AwsCredentialIdentityProvider` function, that reads credentials from the following
 environment variables:
 
 - `AWS_ACCESS_KEY_ID` - The access key for your AWS account.
@@ -429,7 +430,7 @@ const client = new FooClient({
 });
 ```
 
-`fromSharedConfigFiles` creates a `CredentialProvider` functions that executes a given process and
+`fromSharedConfigFiles` creates a `AwsCredentialIdentityProvider` functions that executes a given process and
 attempt to read its standard output to receive a JSON payload containing the credentials. The
 process command is read from a shared credentials file at `~/.aws/credentials` and a shared
 configuration file at `~/.aws/config`. Both files are expected to be INI formatted with section
@@ -465,7 +466,7 @@ credential_process = /usr/local/bin/awscreds dev
 
 ## `fromTokenFile()`
 
-The function `fromTokenFile` returns `CredentialProvider` that reads credentials as follows:
+The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads credentials as follows:
 
 - Reads file location of where the OIDC token is stored from either provided option  
   `webIdentityTokenFile` or environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
@@ -501,11 +502,11 @@ const client = new FooClient({
 > profile that assumes a role which derived from the SSO credential, you should use the
 > [`fromIni()`](#fromini), or `@aws-sdk/credential-provider-node` package.
 
-`fromSSO`, that creates `CredentialProvider` functions that read from the _resolved_ access token
+`fromSSO`, that creates `AwsCredentialIdentityProvider` functions that read from the _resolved_ access token
 from local disk then requests temporary AWS credentials. For guidance on the AWS Single Sign-On
 service, please refer to [AWS's Single Sign-On documentation][sso_api].
 
-You can create the `CredentialProvider` functions using the inline SSO parameters(`ssoStartUrl`,
+You can create the `AwsCredentialIdentityProvider` functions using the inline SSO parameters(`ssoStartUrl`,
 `ssoAccountId`, `ssoRegion`, `ssoRoleName`) or load them from
 [AWS SDKs and Tools shared configuration and credentials files][shared_config_files].
 Profiles in the `credentials` file are given precedence over profiles in the `config` file.
@@ -520,7 +521,7 @@ function. You can either load the SSO config from shared INI credential files, o
 
 ```javascript
 import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromSSO } = require(@aws-sdk/credential-providers") // CommonJS import
+// const { fromSSO } = require("@aws-sdk/credential-providers") // CommonJS import
 
 const client = new FooClient({
   credentials: fromSSO({
@@ -593,7 +594,7 @@ Successfully signed out of all SSO profiles.
 ### Sample files
 
 This credential provider is only applicable if the profile specified in shared configuration and
-credentials files contain ALL of the following entries:
+credentials files contain ALL of the following entries.
 
 #### `~/.aws/credentials`
 
@@ -613,6 +614,69 @@ sso_account_id = 012345678901
 sso_region = us-east-1
 sso_role_name = SampleRole
 sso_start_url = https://d-abc123.awsapps.com/start
+```
+
+## `fromNodeProviderChain()`
+
+The credential provider used as default in the Node.js clients, but with default role assumers so
+you don't need to import them from STS client and supply them manually. You normally don't need
+to use this explicitly in the client constructor. It is useful for utility functions requiring
+credentials like S3 presigner, or RDS signer.
+
+This credential provider will attempt to find credentials from the following sources (listed in
+order of precedence):
+
+- [Environment variables exposed via `process.env`](#fromenv)
+- [SSO credentials from token cache](#fromsso)
+- [Web identity token credentials](#fromtokenfile)
+- [Shared credentials and config ini files](#fromini)
+- [The EC2/ECS Instance Metadata Service](#fromcontainermetadata-and-frominstancemetadata)
+
+This credential provider will invoke one provider at a time and only
+continue to the next if no credentials have been located. For example, if
+the process finds values defined via the `AWS_ACCESS_KEY_ID` and
+`AWS_SECRET_ACCESS_KEY` environment variables, the files at
+`~/.aws/credentials` and `~/.aws/config` will not be read, nor will any
+messages be sent to the Instance Metadata Service
+
+```js
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
+const credentialProvider = fromNodeProviderChain({
+  //...any input of fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
+  // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
+  // Optional. Custom STS client configurations overriding the default ones.
+  clientConfig: { region },
+});
+```
+
+## Add Custom Headers to STS assume-role calls
+
+You can specify the plugins--groups of middleware, to inject to the STS client.
+For example, you can inject custom headers to each STS assume-role calls. It's
+available in [`fromTemporaryCredentials()`](#fromtemporarycredentials),
+[`fromWebToken()`](#fromwebtoken), [`fromTokenFile()`](#fromtokenfile), [`fromIni()`](#fromini).
+
+Code example:
+
+```javascript
+const addConfusedDeputyMiddleware = (next) => (args) => {
+  args.request.headers["x-amz-source-account"] = account;
+  args.request.headers["x-amz-source-arn"] = sourceArn;
+  return next(args);
+};
+const confusedDeputyPlugin = {
+  applyToStack: (stack) => {
+    stack.add(addConfusedDeputyMiddleware, { step: "finalizeRequest" });
+  },
+};
+const provider = fromTemporaryCredentials({
+  // Required. Options passed to STS AssumeRole operation.
+  params: {
+    RoleArn: "arn:aws:iam::1234567890:role/Role",
+  },
+  clientPlugins: [confusedDeputyPlugin],
+});
 ```
 
 [getcredentialsforidentity_api]: https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html

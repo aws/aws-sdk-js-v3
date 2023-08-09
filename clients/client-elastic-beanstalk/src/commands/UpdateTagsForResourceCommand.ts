@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { UpdateTagsForResourceMessage } from "../models/models_0";
-import {
-  deserializeAws_queryUpdateTagsForResourceCommand,
-  serializeAws_queryUpdateTagsForResourceCommand,
-} from "../protocols/Aws_query";
+import { de_UpdateTagsForResourceCommand, se_UpdateTagsForResourceCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateTagsForResourceCommand}.
+ */
 export interface UpdateTagsForResourceCommandInput extends UpdateTagsForResourceMessage {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateTagsForResourceCommand}.
+ */
 export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
  *       for tags to add or update, and <code>TagsToRemove</code>.</p>
  *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
@@ -48,13 +62,52 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, UpdateTagsForResourceCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateTagsForResourceCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // UpdateTagsForResourceMessage
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagsToAdd: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TagsToRemove: [ // TagKeyList
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateTagsForResourceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateTagsForResourceCommandInput - {@link UpdateTagsForResourceCommandInput}
+ * @returns {@link UpdateTagsForResourceCommandOutput}
  * @see {@link UpdateTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
+ *
+ * @throws {@link ResourceTypeNotSupportedException} (client fault)
+ *  <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The number of tags in the resource would exceed the number of tags that each resource
+ *       can have.</p>
+ *          <p>To calculate this, the operation considers both the number of tags the resource already has
+ *       and the tags this operation would add if it succeeded.</p>
+ *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class UpdateTagsForResourceCommand extends $Command<
@@ -65,6 +118,18 @@ export class UpdateTagsForResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,6 +145,9 @@ export class UpdateTagsForResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateTagsForResourceCommandInput, UpdateTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateTagsForResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -90,8 +158,8 @@ export class UpdateTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTagsForResourceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +169,18 @@ export class UpdateTagsForResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateTagsForResourceCommand(input, context);
+    return se_UpdateTagsForResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTagsForResourceCommandOutput> {
-    return deserializeAws_queryUpdateTagsForResourceCommand(output, context);
+    return de_UpdateTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

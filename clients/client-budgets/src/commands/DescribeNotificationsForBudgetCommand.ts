@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeNotificationsForBudgetCommand,
-  serializeAws_json1_1DescribeNotificationsForBudgetCommand,
+  de_DescribeNotificationsForBudgetCommand,
+  se_DescribeNotificationsForBudgetCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeNotificationsForBudgetCommand}.
+ */
 export interface DescribeNotificationsForBudgetCommandInput extends DescribeNotificationsForBudgetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeNotificationsForBudgetCommand}.
+ */
 export interface DescribeNotificationsForBudgetCommandOutput
   extends DescribeNotificationsForBudgetResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the notifications that are associated with a budget.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,59 @@ export interface DescribeNotificationsForBudgetCommandOutput
  * import { BudgetsClient, DescribeNotificationsForBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeNotificationsForBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = { // DescribeNotificationsForBudgetRequest
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeNotificationsForBudgetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeNotificationsForBudgetResponse
+ * //   Notifications: [ // Notifications
+ * //     { // Notification
+ * //       NotificationType: "ACTUAL" || "FORECASTED", // required
+ * //       ComparisonOperator: "GREATER_THAN" || "LESS_THAN" || "EQUAL_TO", // required
+ * //       Threshold: Number("double"), // required
+ * //       ThresholdType: "PERCENTAGE" || "ABSOLUTE_VALUE",
+ * //       NotificationState: "OK" || "ALARM",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeNotificationsForBudgetCommandInput - {@link DescribeNotificationsForBudgetCommandInput}
+ * @returns {@link DescribeNotificationsForBudgetCommandOutput}
  * @see {@link DescribeNotificationsForBudgetCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationsForBudgetCommandOutput} for command's `response` shape.
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * @throws {@link ExpiredNextTokenException} (client fault)
+ *  <p>The pagination token expired.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>We can’t locate the resource that you specified.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
+ *       for the account.</p>
+ *
+ * @throws {@link BudgetsServiceException}
+ * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
  */
 export class DescribeNotificationsForBudgetCommand extends $Command<
@@ -48,6 +111,18 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeNotificationsForBudgetCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +138,9 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeNotificationsForBudgetCommandInput, DescribeNotificationsForBudgetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeNotificationsForBudgetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +151,8 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationsForBudgetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotificationsForBudgetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,18 +162,24 @@ export class DescribeNotificationsForBudgetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DescribeNotificationsForBudgetCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeNotificationsForBudgetCommand(input, context);
+    return se_DescribeNotificationsForBudgetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationsForBudgetCommandOutput> {
-    return deserializeAws_json1_1DescribeNotificationsForBudgetCommand(output, context);
+    return de_DescribeNotificationsForBudgetCommand(output, context);
   }
 
   // Start section: command_body_extra

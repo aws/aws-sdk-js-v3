@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeQueryDefinitionsCommand,
-  serializeAws_json1_1DescribeQueryDefinitionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeQueryDefinitionsCommand, se_DescribeQueryDefinitionsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeQueryDefinitionsCommand}.
+ */
 export interface DescribeQueryDefinitionsCommandInput extends DescribeQueryDefinitionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeQueryDefinitionsCommand}.
+ */
 export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefinitionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
  *       query definitions that have names that start with a certain string.</p>
@@ -31,13 +45,44 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeQueryDefinitionsRequest
+ *   queryDefinitionNamePrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeQueryDefinitionsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeQueryDefinitionsResponse
+ * //   queryDefinitions: [ // QueryDefinitionList
+ * //     { // QueryDefinition
+ * //       queryDefinitionId: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       queryString: "STRING_VALUE",
+ * //       lastModified: Number("long"),
+ * //       logGroupNames: [ // LogGroupNames
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeQueryDefinitionsCommandInput - {@link DescribeQueryDefinitionsCommandInput}
+ * @returns {@link DescribeQueryDefinitionsCommandOutput}
  * @see {@link DescribeQueryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeQueryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeQueryDefinitionsCommand extends $Command<
@@ -48,6 +93,18 @@ export class DescribeQueryDefinitionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeQueryDefinitionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +120,9 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeQueryDefinitionsCommandInput, DescribeQueryDefinitionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeQueryDefinitionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +133,8 @@ export class DescribeQueryDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueryDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueryDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +144,18 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeQueryDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeQueryDefinitionsCommand(input, context);
+    return se_DescribeQueryDefinitionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeQueryDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeQueryDefinitionsCommand(output, context);
+    return de_DescribeQueryDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

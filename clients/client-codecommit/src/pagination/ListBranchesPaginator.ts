@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CodeCommit } from "../CodeCommit";
 import { CodeCommitClient } from "../CodeCommitClient";
 import {
   ListBranchesCommand,
@@ -10,7 +10,7 @@ import {
 import { CodeCommitPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodeCommitClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListBranchesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodeCommit,
-  input: ListBranchesCommandInput,
-  ...args: any
-): Promise<ListBranchesCommandOutput> => {
-  // @ts-ignore
-  return await client.listBranches(input, ...args);
-};
 export async function* paginateListBranches(
   config: CodeCommitPaginationConfiguration,
   input: ListBranchesCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListBranches(
   let page: ListBranchesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof CodeCommit) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodeCommitClient) {
+    if (config.client instanceof CodeCommitClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

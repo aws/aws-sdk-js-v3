@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DeleteLogStreamRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteLogStreamCommand,
-  serializeAws_json1_1DeleteLogStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteLogStreamCommand, se_DeleteLogStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteLogStreamCommand}.
+ */
 export interface DeleteLogStreamCommandInput extends DeleteLogStreamRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteLogStreamCommand}.
+ */
 export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified log stream and permanently deletes all the archived log events associated
  *       with the log stream.</p>
  * @example
@@ -30,13 +44,36 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DeleteLogStreamRequest
+ *   logGroupName: "STRING_VALUE", // required
+ *   logStreamName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLogStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteLogStreamCommandInput - {@link DeleteLogStreamCommandInput}
+ * @returns {@link DeleteLogStreamCommandOutput}
  * @see {@link DeleteLogStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteLogStreamCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DeleteLogStreamCommand extends $Command<
@@ -47,6 +84,18 @@ export class DeleteLogStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteLogStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +111,9 @@ export class DeleteLogStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteLogStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +124,8 @@ export class DeleteLogStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLogStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +135,18 @@ export class DeleteLogStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteLogStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLogStreamCommand(input, context);
+    return se_DeleteLogStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogStreamCommandOutput> {
-    return deserializeAws_json1_1DeleteLogStreamCommand(output, context);
+    return de_DeleteLogStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

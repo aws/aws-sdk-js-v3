@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { StartNotebookInstanceInput } from "../models/models_2";
-import {
-  deserializeAws_json1_1StartNotebookInstanceCommand,
-  serializeAws_json1_1StartNotebookInstanceCommand,
-} from "../protocols/Aws_json1_1";
+import { StartNotebookInstanceInput } from "../models/models_4";
+import { de_StartNotebookInstanceCommand, se_StartNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartNotebookInstanceCommand}.
+ */
 export interface StartNotebookInstanceCommandInput extends StartNotebookInstanceInput {}
+/**
+ * @public
+ *
+ * The output of {@link StartNotebookInstanceCommand}.
+ */
 export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Launches an ML compute instance with the latest version of the libraries and
- *             attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the
+ *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
  *             notebook instance status to <code>InService</code>. A notebook instance's status must be
  *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
  * @example
@@ -32,13 +46,27 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StartNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StartNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // StartNotebookInstanceInput
+ *   NotebookInstanceName: "STRING_VALUE", // required
+ * };
  * const command = new StartNotebookInstanceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param StartNotebookInstanceCommandInput - {@link StartNotebookInstanceCommandInput}
+ * @returns {@link StartNotebookInstanceCommandOutput}
  * @see {@link StartNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link StartNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class StartNotebookInstanceCommand extends $Command<
@@ -49,6 +77,18 @@ export class StartNotebookInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: StartNotebookInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +104,9 @@ export class StartNotebookInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<StartNotebookInstanceCommandInput, StartNotebookInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, StartNotebookInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +117,8 @@ export class StartNotebookInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartNotebookInstanceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +128,18 @@ export class StartNotebookInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StartNotebookInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartNotebookInstanceCommand(input, context);
+    return se_StartNotebookInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartNotebookInstanceCommandOutput> {
-    return deserializeAws_json1_1StartNotebookInstanceCommand(output, context);
+    return de_StartNotebookInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

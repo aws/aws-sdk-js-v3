@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1GetHostnameSuggestionCommand,
-  serializeAws_json1_1GetHostnameSuggestionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetHostnameSuggestionCommand, se_GetHostnameSuggestionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetHostnameSuggestionCommand}.
+ */
 export interface GetHostnameSuggestionCommandInput extends GetHostnameSuggestionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetHostnameSuggestionCommand}.
+ */
 export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -34,13 +48,32 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * import { OpsWorksClient, GetHostnameSuggestionCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, GetHostnameSuggestionCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // GetHostnameSuggestionRequest
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new GetHostnameSuggestionCommand(input);
  * const response = await client.send(command);
+ * // { // GetHostnameSuggestionResult
+ * //   LayerId: "STRING_VALUE",
+ * //   Hostname: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetHostnameSuggestionCommandInput - {@link GetHostnameSuggestionCommandInput}
+ * @returns {@link GetHostnameSuggestionCommandOutput}
  * @see {@link GetHostnameSuggestionCommandInput} for command's `input` shape.
  * @see {@link GetHostnameSuggestionCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class GetHostnameSuggestionCommand extends $Command<
@@ -51,6 +84,18 @@ export class GetHostnameSuggestionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetHostnameSuggestionCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +111,9 @@ export class GetHostnameSuggestionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetHostnameSuggestionCommandInput, GetHostnameSuggestionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetHostnameSuggestionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +124,8 @@ export class GetHostnameSuggestionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostnameSuggestionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetHostnameSuggestionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +135,18 @@ export class GetHostnameSuggestionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetHostnameSuggestionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetHostnameSuggestionCommand(input, context);
+    return se_GetHostnameSuggestionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHostnameSuggestionCommandOutput> {
-    return deserializeAws_json1_1GetHostnameSuggestionCommand(output, context);
+    return de_GetHostnameSuggestionCommand(output, context);
   }
 
   // Start section: command_body_extra

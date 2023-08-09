@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { AppConfig } from "../AppConfig";
 import { AppConfigClient } from "../AppConfigClient";
 import {
   ListConfigurationProfilesCommand,
@@ -10,7 +10,7 @@ import {
 import { AppConfigPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AppConfigClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListConfigurationProfilesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AppConfig,
-  input: ListConfigurationProfilesCommandInput,
-  ...args: any
-): Promise<ListConfigurationProfilesCommandOutput> => {
-  // @ts-ignore
-  return await client.listConfigurationProfiles(input, ...args);
-};
 export async function* paginateListConfigurationProfiles(
   config: AppConfigPaginationConfiguration,
   input: ListConfigurationProfilesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListConfigurationProfiles(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof AppConfig) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AppConfigClient) {
+    if (config.client instanceof AppConfigClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AppConfig | AppConfigClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,18 +1,23 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
-  expectLong as __expectLong,
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
-} from "@aws-sdk/smithy-client";
+  map,
+  resolvedPath as __resolvedPath,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   DescribeJobExecutionCommandInput,
@@ -27,20 +32,21 @@ import {
   StartNextPendingJobExecutionCommandOutput,
 } from "../commands/StartNextPendingJobExecutionCommand";
 import { UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput } from "../commands/UpdateJobExecutionCommand";
+import { IoTJobsDataPlaneServiceException as __BaseException } from "../models/IoTJobsDataPlaneServiceException";
 import {
   CertificateValidationException,
   InvalidRequestException,
   InvalidStateTransitionException,
-  JobExecution,
-  JobExecutionState,
-  JobExecutionSummary,
   ResourceNotFoundException,
   ServiceUnavailableException,
   TerminalStateException,
   ThrottlingException,
 } from "../models/models_0";
 
-export const serializeAws_restJson1DescribeJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1DescribeJobExecutionCommand
+ */
+export const se_DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -48,28 +54,12 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/{jobId}";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
-  }
-  const query: any = {
-    ...(input.includeJobDocument !== undefined && { includeJobDocument: input.includeJobDocument.toString() }),
-    ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  const query: any = map({
+    includeJobDocument: [() => input.includeJobDocument !== void 0, () => input.includeJobDocument!.toString()],
+    executionNumber: [() => input.executionNumber !== void 0, () => input.executionNumber!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -83,22 +73,17 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
+/**
+ * serializeAws_restJson1GetPendingJobExecutionsCommand
+ */
+export const se_GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs";
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -111,7 +96,10 @@ export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1StartNextPendingJobExecutionCommand
+ */
+export const se_StartNextPendingJobExecutionCommand = async (
   input: StartNextPendingJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -121,24 +109,14 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/$next";
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.statusDetails !== undefined &&
-      input.statusDetails !== null && {
-        statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
-      }),
-    ...(input.stepTimeoutInMinutes !== undefined &&
-      input.stepTimeoutInMinutes !== null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      statusDetails: (_) => _json(_),
+      stepTimeoutInMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -150,7 +128,10 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateJobExecutionCommand = async (
+/**
+ * serializeAws_restJson1UpdateJobExecutionCommand
+ */
+export const se_UpdateJobExecutionCommand = async (
   input: UpdateJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -160,42 +141,20 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/{jobId}";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.executionNumber !== undefined &&
-      input.executionNumber !== null && { executionNumber: input.executionNumber }),
-    ...(input.expectedVersion !== undefined &&
-      input.expectedVersion !== null && { expectedVersion: input.expectedVersion }),
-    ...(input.includeJobDocument !== undefined &&
-      input.includeJobDocument !== null && { includeJobDocument: input.includeJobDocument }),
-    ...(input.includeJobExecutionState !== undefined &&
-      input.includeJobExecutionState !== null && { includeJobExecutionState: input.includeJobExecutionState }),
-    ...(input.status !== undefined && input.status !== null && { status: input.status }),
-    ...(input.statusDetails !== undefined &&
-      input.statusDetails !== null && {
-        statusDetails: serializeAws_restJson1DetailsMap(input.statusDetails, context),
-      }),
-    ...(input.stepTimeoutInMinutes !== undefined &&
-      input.stepTimeoutInMinutes !== null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      executionNumber: [],
+      expectedVersion: [],
+      includeJobDocument: [],
+      includeJobExecutionState: [],
+      status: [],
+      statusDetails: (_) => _json(_),
+      stepTimeoutInMinutes: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -207,594 +166,408 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   });
 };
 
-export const deserializeAws_restJson1DescribeJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1DescribeJobExecutionCommand
+ */
+export const de_DescribeJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeJobExecutionCommandError(output, context);
+    return de_DescribeJobExecutionCommandError(output, context);
   }
-  const contents: DescribeJobExecutionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    execution: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.execution !== undefined && data.execution !== null) {
-    contents.execution = deserializeAws_restJson1JobExecution(data.execution, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    execution: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeJobExecutionCommandError
+ */
+const de_DescribeJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      response = {
-        ...(await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "TerminalStateException":
     case "com.amazonaws.iotjobsdataplane#TerminalStateException":
-      response = {
-        ...(await deserializeAws_restJson1TerminalStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TerminalStateExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetPendingJobExecutionsCommand = async (
+/**
+ * deserializeAws_restJson1GetPendingJobExecutionsCommand
+ */
+export const de_GetPendingJobExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetPendingJobExecutionsCommandError(output, context);
+    return de_GetPendingJobExecutionsCommandError(output, context);
   }
-  const contents: GetPendingJobExecutionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    inProgressJobs: undefined,
-    queuedJobs: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.inProgressJobs !== undefined && data.inProgressJobs !== null) {
-    contents.inProgressJobs = deserializeAws_restJson1JobExecutionSummaryList(data.inProgressJobs, context);
-  }
-  if (data.queuedJobs !== undefined && data.queuedJobs !== null) {
-    contents.queuedJobs = deserializeAws_restJson1JobExecutionSummaryList(data.queuedJobs, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    inProgressJobs: _json,
+    queuedJobs: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetPendingJobExecutionsCommandError = async (
+/**
+ * deserializeAws_restJson1GetPendingJobExecutionsCommandError
+ */
+const de_GetPendingJobExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      response = {
-        ...(await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartNextPendingJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1StartNextPendingJobExecutionCommand
+ */
+export const de_StartNextPendingJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartNextPendingJobExecutionCommandError(output, context);
+    return de_StartNextPendingJobExecutionCommandError(output, context);
   }
-  const contents: StartNextPendingJobExecutionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    execution: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.execution !== undefined && data.execution !== null) {
-    contents.execution = deserializeAws_restJson1JobExecution(data.execution, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    execution: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartNextPendingJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1StartNextPendingJobExecutionCommandError
+ */
+const de_StartNextPendingJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      response = {
-        ...(await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
+/**
+ * deserializeAws_restJson1UpdateJobExecutionCommand
+ */
+export const de_UpdateJobExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UpdateJobExecutionCommandError(output, context);
+    return de_UpdateJobExecutionCommandError(output, context);
   }
-  const contents: UpdateJobExecutionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    executionState: undefined,
-    jobDocument: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.executionState !== undefined && data.executionState !== null) {
-    contents.executionState = deserializeAws_restJson1JobExecutionState(data.executionState, context);
-  }
-  if (data.jobDocument !== undefined && data.jobDocument !== null) {
-    contents.jobDocument = __expectString(data.jobDocument);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    executionState: _json,
+    jobDocument: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1UpdateJobExecutionCommandError = async (
+/**
+ * deserializeAws_restJson1UpdateJobExecutionCommandError
+ */
+const de_UpdateJobExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iotjobsdataplane#CertificateValidationException":
-      response = {
-        ...(await deserializeAws_restJson1CertificateValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_CertificateValidationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.iotjobsdataplane#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.iotjobsdataplane#InvalidStateTransitionException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotjobsdataplane#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iotjobsdataplane#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1CertificateValidationExceptionRes
+ */
+const de_CertificateValidationExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CertificateValidationException> => {
-  const contents: CertificateValidationException = {
-    name: "CertificateValidationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new CertificateValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidStateTransitionExceptionRes
+ */
+const de_InvalidStateTransitionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
-  const contents: InvalidStateTransitionException = {
-    name: "InvalidStateTransitionException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidStateTransitionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TerminalStateExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TerminalStateExceptionRes
+ */
+const de_TerminalStateExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TerminalStateException> => {
-  const contents: TerminalStateException = {
-    name: "TerminalStateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
-};
-
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new TerminalStateException({
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-    payload: undefined,
-  };
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  if (data.payload !== undefined && data.payload !== null) {
-    contents.payload = context.base64Decoder(data.payload);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+    payload: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
+// se_DetailsMap omitted.
 
-const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_DetailsMap omitted.
 
-const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
-  return {
-    approximateSecondsBeforeTimedOut: __expectLong(output.approximateSecondsBeforeTimedOut),
-    executionNumber: __expectLong(output.executionNumber),
-    jobDocument: __expectString(output.jobDocument),
-    jobId: __expectString(output.jobId),
-    lastUpdatedAt: __expectLong(output.lastUpdatedAt),
-    queuedAt: __expectLong(output.queuedAt),
-    startedAt: __expectLong(output.startedAt),
-    status: __expectString(output.status),
-    statusDetails:
-      output.statusDetails !== undefined && output.statusDetails !== null
-        ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
-        : undefined,
-    thingName: __expectString(output.thingName),
-    versionNumber: __expectLong(output.versionNumber),
-  } as any;
-};
+// de_JobExecution omitted.
 
-const deserializeAws_restJson1JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
-  return {
-    status: __expectString(output.status),
-    statusDetails:
-      output.statusDetails !== undefined && output.statusDetails !== null
-        ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
-        : undefined,
-    versionNumber: __expectLong(output.versionNumber),
-  } as any;
-};
+// de_JobExecutionState omitted.
 
-const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
-  return {
-    executionNumber: __expectLong(output.executionNumber),
-    jobId: __expectString(output.jobId),
-    lastUpdatedAt: __expectLong(output.lastUpdatedAt),
-    queuedAt: __expectLong(output.queuedAt),
-    startedAt: __expectLong(output.startedAt),
-    versionNumber: __expectLong(output.versionNumber),
-  } as any;
-};
+// de_JobExecutionSummary omitted.
 
-const deserializeAws_restJson1JobExecutionSummaryList = (
-  output: any,
-  context: __SerdeContext
-): JobExecutionSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1JobExecutionSummary(entry, context);
-    });
-};
+// de_JobExecutionSummaryList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -815,14 +588,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -844,6 +629,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

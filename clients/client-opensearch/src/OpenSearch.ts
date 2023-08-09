@@ -1,4 +1,6 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptInboundConnectionCommand,
@@ -11,6 +13,11 @@ import {
   AssociatePackageCommandInput,
   AssociatePackageCommandOutput,
 } from "./commands/AssociatePackageCommand";
+import {
+  AuthorizeVpcEndpointAccessCommand,
+  AuthorizeVpcEndpointAccessCommandInput,
+  AuthorizeVpcEndpointAccessCommandOutput,
+} from "./commands/AuthorizeVpcEndpointAccessCommand";
 import {
   CancelServiceSoftwareUpdateCommand,
   CancelServiceSoftwareUpdateCommandInput,
@@ -32,6 +39,11 @@ import {
   CreatePackageCommandOutput,
 } from "./commands/CreatePackageCommand";
 import {
+  CreateVpcEndpointCommand,
+  CreateVpcEndpointCommandInput,
+  CreateVpcEndpointCommandOutput,
+} from "./commands/CreateVpcEndpointCommand";
+import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
   DeleteDomainCommandOutput,
@@ -52,10 +64,20 @@ import {
   DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  DeleteVpcEndpointCommand,
+  DeleteVpcEndpointCommandInput,
+  DeleteVpcEndpointCommandOutput,
+} from "./commands/DeleteVpcEndpointCommand";
+import {
   DescribeDomainAutoTunesCommand,
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
+import {
+  DescribeDomainChangeProgressCommand,
+  DescribeDomainChangeProgressCommandInput,
+  DescribeDomainChangeProgressCommandOutput,
+} from "./commands/DescribeDomainChangeProgressCommand";
 import {
   DescribeDomainCommand,
   DescribeDomainCommandInput,
@@ -67,10 +89,25 @@ import {
   DescribeDomainConfigCommandOutput,
 } from "./commands/DescribeDomainConfigCommand";
 import {
+  DescribeDomainHealthCommand,
+  DescribeDomainHealthCommandInput,
+  DescribeDomainHealthCommandOutput,
+} from "./commands/DescribeDomainHealthCommand";
+import {
+  DescribeDomainNodesCommand,
+  DescribeDomainNodesCommandInput,
+  DescribeDomainNodesCommandOutput,
+} from "./commands/DescribeDomainNodesCommand";
+import {
   DescribeDomainsCommand,
   DescribeDomainsCommandInput,
   DescribeDomainsCommandOutput,
 } from "./commands/DescribeDomainsCommand";
+import {
+  DescribeDryRunProgressCommand,
+  DescribeDryRunProgressCommandInput,
+  DescribeDryRunProgressCommandOutput,
+} from "./commands/DescribeDryRunProgressCommand";
 import {
   DescribeInboundConnectionsCommand,
   DescribeInboundConnectionsCommandInput,
@@ -101,6 +138,11 @@ import {
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
+import {
+  DescribeVpcEndpointsCommand,
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
 import {
   DissociatePackageCommand,
   DissociatePackageCommandInput,
@@ -146,12 +188,32 @@ import {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
 } from "./commands/ListPackagesForDomainCommand";
+import {
+  ListScheduledActionsCommand,
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "./commands/ListScheduledActionsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   ListVersionsCommand,
   ListVersionsCommandInput,
   ListVersionsCommandOutput,
 } from "./commands/ListVersionsCommand";
+import {
+  ListVpcEndpointAccessCommand,
+  ListVpcEndpointAccessCommandInput,
+  ListVpcEndpointAccessCommandOutput,
+} from "./commands/ListVpcEndpointAccessCommand";
+import {
+  ListVpcEndpointsCommand,
+  ListVpcEndpointsCommandInput,
+  ListVpcEndpointsCommandOutput,
+} from "./commands/ListVpcEndpointsCommand";
+import {
+  ListVpcEndpointsForDomainCommand,
+  ListVpcEndpointsForDomainCommandInput,
+  ListVpcEndpointsForDomainCommandOutput,
+} from "./commands/ListVpcEndpointsForDomainCommand";
 import {
   PurchaseReservedInstanceOfferingCommand,
   PurchaseReservedInstanceOfferingCommandInput,
@@ -163,6 +225,11 @@ import {
   RejectInboundConnectionCommandOutput,
 } from "./commands/RejectInboundConnectionCommand";
 import { RemoveTagsCommand, RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import {
+  RevokeVpcEndpointAccessCommand,
+  RevokeVpcEndpointAccessCommandInput,
+  RevokeVpcEndpointAccessCommandOutput,
+} from "./commands/RevokeVpcEndpointAccessCommand";
 import {
   StartServiceSoftwareUpdateCommand,
   StartServiceSoftwareUpdateCommandInput,
@@ -179,1281 +246,942 @@ import {
   UpdatePackageCommandOutput,
 } from "./commands/UpdatePackageCommand";
 import {
+  UpdateScheduledActionCommand,
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "./commands/UpdateScheduledActionCommand";
+import {
+  UpdateVpcEndpointCommand,
+  UpdateVpcEndpointCommandInput,
+  UpdateVpcEndpointCommandOutput,
+} from "./commands/UpdateVpcEndpointCommand";
+import {
   UpgradeDomainCommand,
   UpgradeDomainCommandInput,
   UpgradeDomainCommandOutput,
 } from "./commands/UpgradeDomainCommand";
-import { OpenSearchClient } from "./OpenSearchClient";
+import { OpenSearchClient, OpenSearchClientConfig } from "./OpenSearchClient";
 
-/**
- * <fullname>Amazon OpenSearch Configuration Service</fullname>
- *     <p>Use the Amazon OpenSearch configuration API to create, configure, and manage Amazon OpenSearch Service domains.</p>
- *     <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
- *       Amazon OpenSearch Service Developer Guide</a>.
- *       The guide also contains <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html">
- *         sample
- *         code for sending signed HTTP requests to the OpenSearch APIs</a>.
- *     </p>
- *     <p>The endpoint for configuration service requests is region-specific: es.<i>region</i>.amazonaws.com.
- *       For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints,
- *       see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions" target="_blank">Regions and Endpoints</a>.
- *     </p>
- */
-export class OpenSearch extends OpenSearchClient {
+const commands = {
+  AcceptInboundConnectionCommand,
+  AddTagsCommand,
+  AssociatePackageCommand,
+  AuthorizeVpcEndpointAccessCommand,
+  CancelServiceSoftwareUpdateCommand,
+  CreateDomainCommand,
+  CreateOutboundConnectionCommand,
+  CreatePackageCommand,
+  CreateVpcEndpointCommand,
+  DeleteDomainCommand,
+  DeleteInboundConnectionCommand,
+  DeleteOutboundConnectionCommand,
+  DeletePackageCommand,
+  DeleteVpcEndpointCommand,
+  DescribeDomainCommand,
+  DescribeDomainAutoTunesCommand,
+  DescribeDomainChangeProgressCommand,
+  DescribeDomainConfigCommand,
+  DescribeDomainHealthCommand,
+  DescribeDomainNodesCommand,
+  DescribeDomainsCommand,
+  DescribeDryRunProgressCommand,
+  DescribeInboundConnectionsCommand,
+  DescribeInstanceTypeLimitsCommand,
+  DescribeOutboundConnectionsCommand,
+  DescribePackagesCommand,
+  DescribeReservedInstanceOfferingsCommand,
+  DescribeReservedInstancesCommand,
+  DescribeVpcEndpointsCommand,
+  DissociatePackageCommand,
+  GetCompatibleVersionsCommand,
+  GetPackageVersionHistoryCommand,
+  GetUpgradeHistoryCommand,
+  GetUpgradeStatusCommand,
+  ListDomainNamesCommand,
+  ListDomainsForPackageCommand,
+  ListInstanceTypeDetailsCommand,
+  ListPackagesForDomainCommand,
+  ListScheduledActionsCommand,
+  ListTagsCommand,
+  ListVersionsCommand,
+  ListVpcEndpointAccessCommand,
+  ListVpcEndpointsCommand,
+  ListVpcEndpointsForDomainCommand,
+  PurchaseReservedInstanceOfferingCommand,
+  RejectInboundConnectionCommand,
+  RemoveTagsCommand,
+  RevokeVpcEndpointAccessCommand,
+  StartServiceSoftwareUpdateCommand,
+  UpdateDomainConfigCommand,
+  UpdatePackageCommand,
+  UpdateScheduledActionCommand,
+  UpdateVpcEndpointCommand,
+  UpgradeDomainCommand,
+};
+
+export interface OpenSearch {
   /**
-   * <p>Allows the remote domain owner to accept an inbound cross-cluster connection request.</p>
+   * @see {@link AcceptInboundConnectionCommand}
    */
-  public acceptInboundConnection(
+  acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AcceptInboundConnectionCommandOutput>;
-  public acceptInboundConnection(
+  acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
     cb: (err: any, data?: AcceptInboundConnectionCommandOutput) => void
   ): void;
-  public acceptInboundConnection(
+  acceptInboundConnection(
     args: AcceptInboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptInboundConnectionCommandOutput) => void
   ): void;
-  public acceptInboundConnection(
-    args: AcceptInboundConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInboundConnectionCommandOutput) => void),
-    cb?: (err: any, data?: AcceptInboundConnectionCommandOutput) => void
-  ): Promise<AcceptInboundConnectionCommandOutput> | void {
-    const command = new AcceptInboundConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Attaches tags to an existing domain. Tags are a set of case-sensitive key value pairs. An
-   *       domain can have up to 10 tags. See
-   *       <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging" target="_blank">
-   *         Tagging Amazon OpenSearch Service domains</a> for more information.
-   *     </p>
+   * @see {@link AddTagsCommand}
    */
-  public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
-  public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
-  public addTags(
+  addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
+  addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
+  addTags(
     args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
-  public addTags(
-    args: AddTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
-    cb?: (err: any, data?: AddTagsCommandOutput) => void
-  ): Promise<AddTagsCommandOutput> | void {
-    const command = new AddTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Associates a package with an Amazon OpenSearch Service domain.</p>
+   * @see {@link AssociatePackageCommand}
    */
-  public associatePackage(
+  associatePackage(
     args: AssociatePackageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AssociatePackageCommandOutput>;
-  public associatePackage(
+  associatePackage(
     args: AssociatePackageCommandInput,
     cb: (err: any, data?: AssociatePackageCommandOutput) => void
   ): void;
-  public associatePackage(
+  associatePackage(
     args: AssociatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePackageCommandOutput) => void
   ): void;
-  public associatePackage(
-    args: AssociatePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociatePackageCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePackageCommandOutput) => void
-  ): Promise<AssociatePackageCommandOutput> | void {
-    const command = new AssociatePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can only perform this operation before
-   *       the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.
-   *     </p>
+   * @see {@link AuthorizeVpcEndpointAccessCommand}
    */
-  public cancelServiceSoftwareUpdate(
+  authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AuthorizeVpcEndpointAccessCommandOutput>;
+  authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  authorizeVpcEndpointAccess(
+    args: AuthorizeVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelServiceSoftwareUpdateCommand}
+   */
+  cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelServiceSoftwareUpdateCommandOutput>;
-  public cancelServiceSoftwareUpdate(
+  cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
     cb: (err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void
   ): void;
-  public cancelServiceSoftwareUpdate(
+  cancelServiceSoftwareUpdate(
     args: CancelServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void
   ): void;
-  public cancelServiceSoftwareUpdate(
-    args: CancelServiceSoftwareUpdateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void),
-    cb?: (err: any, data?: CancelServiceSoftwareUpdateCommandOutput) => void
-  ): Promise<CancelServiceSoftwareUpdateCommandOutput> | void {
-    const command = new CancelServiceSoftwareUpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new Amazon OpenSearch Service domain. For more information,
-   *       see <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html" target="_blank">Creating and managing Amazon OpenSearch Service domains
-   *       </a> in the <i>Amazon OpenSearch Service Developer Guide</i>.
-   *     </p>
+   * @see {@link CreateDomainCommand}
    */
-  public createDomain(
-    args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDomainCommandOutput>;
-  public createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
-  public createDomain(
+  createDomain(args: CreateDomainCommandInput, options?: __HttpHandlerOptions): Promise<CreateDomainCommandOutput>;
+  createDomain(args: CreateDomainCommandInput, cb: (err: any, data?: CreateDomainCommandOutput) => void): void;
+  createDomain(
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
-  public createDomain(
-    args: CreateDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
-    cb?: (err: any, data?: CreateDomainCommandOutput) => void
-  ): Promise<CreateDomainCommandOutput> | void {
-    const command = new CreateDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new cross-cluster connection from a local OpenSearch domain to a remote OpenSearch domain.</p>
+   * @see {@link CreateOutboundConnectionCommand}
    */
-  public createOutboundConnection(
+  createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateOutboundConnectionCommandOutput>;
-  public createOutboundConnection(
+  createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
     cb: (err: any, data?: CreateOutboundConnectionCommandOutput) => void
   ): void;
-  public createOutboundConnection(
+  createOutboundConnection(
     args: CreateOutboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOutboundConnectionCommandOutput) => void
   ): void;
-  public createOutboundConnection(
-    args: CreateOutboundConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOutboundConnectionCommandOutput) => void),
-    cb?: (err: any, data?: CreateOutboundConnectionCommandOutput) => void
-  ): Promise<CreateOutboundConnectionCommandOutput> | void {
-    const command = new CreateOutboundConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create a package for use with Amazon OpenSearch Service domains.</p>
+   * @see {@link CreatePackageCommand}
    */
-  public createPackage(
-    args: CreatePackageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePackageCommandOutput>;
-  public createPackage(
-    args: CreatePackageCommandInput,
-    cb: (err: any, data?: CreatePackageCommandOutput) => void
-  ): void;
-  public createPackage(
+  createPackage(args: CreatePackageCommandInput, options?: __HttpHandlerOptions): Promise<CreatePackageCommandOutput>;
+  createPackage(args: CreatePackageCommandInput, cb: (err: any, data?: CreatePackageCommandOutput) => void): void;
+  createPackage(
     args: CreatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePackageCommandOutput) => void
   ): void;
-  public createPackage(
-    args: CreatePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePackageCommandOutput) => void),
-    cb?: (err: any, data?: CreatePackageCommandOutput) => void
-  ): Promise<CreatePackageCommandOutput> | void {
-    const command = new CreatePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Permanently deletes the specified domain and all of its data. Once a domain is deleted, it cannot
-   *       be recovered.
-   *     </p>
+   * @see {@link CreateVpcEndpointCommand}
    */
-  public deleteDomain(
-    args: DeleteDomainCommandInput,
+  createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDomainCommandOutput>;
-  public deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
-  public deleteDomain(
+  ): Promise<CreateVpcEndpointCommandOutput>;
+  createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+  createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDomainCommand}
+   */
+  deleteDomain(args: DeleteDomainCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDomainCommandOutput>;
+  deleteDomain(args: DeleteDomainCommandInput, cb: (err: any, data?: DeleteDomainCommandOutput) => void): void;
+  deleteDomain(
     args: DeleteDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
-  public deleteDomain(
-    args: DeleteDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDomainCommandOutput) => void
-  ): Promise<DeleteDomainCommandOutput> | void {
-    const command = new DeleteDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows the remote domain owner to delete an existing inbound cross-cluster connection.</p>
+   * @see {@link DeleteInboundConnectionCommand}
    */
-  public deleteInboundConnection(
+  deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteInboundConnectionCommandOutput>;
-  public deleteInboundConnection(
+  deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
     cb: (err: any, data?: DeleteInboundConnectionCommandOutput) => void
   ): void;
-  public deleteInboundConnection(
+  deleteInboundConnection(
     args: DeleteInboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInboundConnectionCommandOutput) => void
   ): void;
-  public deleteInboundConnection(
-    args: DeleteInboundConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInboundConnectionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteInboundConnectionCommandOutput) => void
-  ): Promise<DeleteInboundConnectionCommandOutput> | void {
-    const command = new DeleteInboundConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows the local domain owner to delete an existing outbound cross-cluster connection.</p>
+   * @see {@link DeleteOutboundConnectionCommand}
    */
-  public deleteOutboundConnection(
+  deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteOutboundConnectionCommandOutput>;
-  public deleteOutboundConnection(
+  deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
     cb: (err: any, data?: DeleteOutboundConnectionCommandOutput) => void
   ): void;
-  public deleteOutboundConnection(
+  deleteOutboundConnection(
     args: DeleteOutboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOutboundConnectionCommandOutput) => void
   ): void;
-  public deleteOutboundConnection(
-    args: DeleteOutboundConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOutboundConnectionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteOutboundConnectionCommandOutput) => void
-  ): Promise<DeleteOutboundConnectionCommandOutput> | void {
-    const command = new DeleteOutboundConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the package.</p>
+   * @see {@link DeletePackageCommand}
    */
-  public deletePackage(
+  deletePackage(args: DeletePackageCommandInput, options?: __HttpHandlerOptions): Promise<DeletePackageCommandOutput>;
+  deletePackage(args: DeletePackageCommandInput, cb: (err: any, data?: DeletePackageCommandOutput) => void): void;
+  deletePackage(
     args: DeletePackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpcEndpointCommand}
+   */
+  deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeletePackageCommandOutput>;
-  public deletePackage(
-    args: DeletePackageCommandInput,
-    cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): Promise<DeleteVpcEndpointCommandOutput>;
+  deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
   ): void;
-  public deletePackage(
-    args: DeletePackageCommandInput,
+  deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePackageCommandOutput) => void
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
   ): void;
-  public deletePackage(
-    args: DeletePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackageCommandOutput) => void),
-    cb?: (err: any, data?: DeletePackageCommandOutput) => void
-  ): Promise<DeletePackageCommandOutput> | void {
-    const command = new DeletePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns domain configuration information about the specified domain, including the domain ID,
-   *       domain endpoint, and domain ARN.
-   *     </p>
+   * @see {@link DescribeDomainCommand}
    */
-  public describeDomain(
+  describeDomain(
     args: DescribeDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainCommandOutput>;
-  public describeDomain(
-    args: DescribeDomainCommandInput,
-    cb: (err: any, data?: DescribeDomainCommandOutput) => void
-  ): void;
-  public describeDomain(
+  describeDomain(args: DescribeDomainCommandInput, cb: (err: any, data?: DescribeDomainCommandOutput) => void): void;
+  describeDomain(
     args: DescribeDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDomainCommandOutput) => void
   ): void;
-  public describeDomain(
-    args: DescribeDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDomainCommandOutput) => void
-  ): Promise<DescribeDomainCommandOutput> | void {
-    const command = new DescribeDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides scheduled Auto-Tune action details for the domain, such as Auto-Tune action type,
-   *       description, severity, and scheduled date.
-   *     </p>
+   * @see {@link DescribeDomainAutoTunesCommand}
    */
-  public describeDomainAutoTunes(
+  describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainAutoTunesCommandOutput>;
-  public describeDomainAutoTunes(
+  describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
     cb: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
   ): void;
-  public describeDomainAutoTunes(
+  describeDomainAutoTunes(
     args: DescribeDomainAutoTunesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
   ): void;
-  public describeDomainAutoTunes(
-    args: DescribeDomainAutoTunesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainAutoTunesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
-  ): Promise<DescribeDomainAutoTunesCommandOutput> | void {
-    const command = new DescribeDomainAutoTunesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Provides cluster configuration information about the specified domain, such as the state, creation
-   *       date, update version, and update date for cluster options.
-   *     </p>
+   * @see {@link DescribeDomainChangeProgressCommand}
    */
-  public describeDomainConfig(
+  describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDomainChangeProgressCommandOutput>;
+  describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    cb: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
+  ): void;
+  describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDomainConfigCommand}
+   */
+  describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainConfigCommandOutput>;
-  public describeDomainConfig(
+  describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
     cb: (err: any, data?: DescribeDomainConfigCommandOutput) => void
   ): void;
-  public describeDomainConfig(
+  describeDomainConfig(
     args: DescribeDomainConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDomainConfigCommandOutput) => void
   ): void;
-  public describeDomainConfig(
-    args: DescribeDomainConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainConfigCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDomainConfigCommandOutput) => void
-  ): Promise<DescribeDomainConfigCommandOutput> | void {
-    const command = new DescribeDomainConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns domain configuration information about the specified domains, including the domain ID,
-   *       domain endpoint, and domain ARN.
-   *     </p>
+   * @see {@link DescribeDomainHealthCommand}
    */
-  public describeDomains(
+  describeDomainHealth(
+    args: DescribeDomainHealthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDomainHealthCommandOutput>;
+  describeDomainHealth(
+    args: DescribeDomainHealthCommandInput,
+    cb: (err: any, data?: DescribeDomainHealthCommandOutput) => void
+  ): void;
+  describeDomainHealth(
+    args: DescribeDomainHealthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDomainHealthCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDomainNodesCommand}
+   */
+  describeDomainNodes(
+    args: DescribeDomainNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDomainNodesCommandOutput>;
+  describeDomainNodes(
+    args: DescribeDomainNodesCommandInput,
+    cb: (err: any, data?: DescribeDomainNodesCommandOutput) => void
+  ): void;
+  describeDomainNodes(
+    args: DescribeDomainNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDomainNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDomainsCommand}
+   */
+  describeDomains(
     args: DescribeDomainsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDomainsCommandOutput>;
-  public describeDomains(
-    args: DescribeDomainsCommandInput,
-    cb: (err: any, data?: DescribeDomainsCommandOutput) => void
-  ): void;
-  public describeDomains(
+  describeDomains(args: DescribeDomainsCommandInput, cb: (err: any, data?: DescribeDomainsCommandOutput) => void): void;
+  describeDomains(
     args: DescribeDomainsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDomainsCommandOutput) => void
   ): void;
-  public describeDomains(
-    args: DescribeDomainsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDomainsCommandOutput) => void
-  ): Promise<DescribeDomainsCommandOutput> | void {
-    const command = new DescribeDomainsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all the inbound cross-cluster connections for a remote domain.</p>
+   * @see {@link DescribeDryRunProgressCommand}
    */
-  public describeInboundConnections(
+  describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDryRunProgressCommandOutput>;
+  describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+  describeDryRunProgress(
+    args: DescribeDryRunProgressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDryRunProgressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeInboundConnectionsCommand}
+   */
+  describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeInboundConnectionsCommandOutput>;
-  public describeInboundConnections(
+  describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
     cb: (err: any, data?: DescribeInboundConnectionsCommandOutput) => void
   ): void;
-  public describeInboundConnections(
+  describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInboundConnectionsCommandOutput) => void
   ): void;
-  public describeInboundConnections(
-    args: DescribeInboundConnectionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInboundConnectionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInboundConnectionsCommandOutput) => void
-  ): Promise<DescribeInboundConnectionsCommandOutput> | void {
-    const command = new DescribeInboundConnectionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>
-   *       Describe the limits for a given instance type and OpenSearch or Elasticsearch version.
-   *       When modifying an existing domain, specify the
-   *       <code>
-   *         <a>DomainName</a>
-   *       </code>
-   *       to see which limits you can modify.
-   *     </p>
+   * @see {@link DescribeInstanceTypeLimitsCommand}
    */
-  public describeInstanceTypeLimits(
+  describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeInstanceTypeLimitsCommandOutput>;
-  public describeInstanceTypeLimits(
+  describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
     cb: (err: any, data?: DescribeInstanceTypeLimitsCommandOutput) => void
   ): void;
-  public describeInstanceTypeLimits(
+  describeInstanceTypeLimits(
     args: DescribeInstanceTypeLimitsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInstanceTypeLimitsCommandOutput) => void
   ): void;
-  public describeInstanceTypeLimits(
-    args: DescribeInstanceTypeLimitsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstanceTypeLimitsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstanceTypeLimitsCommandOutput) => void
-  ): Promise<DescribeInstanceTypeLimitsCommandOutput> | void {
-    const command = new DescribeInstanceTypeLimitsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all the outbound cross-cluster connections for a local domain.</p>
+   * @see {@link DescribeOutboundConnectionsCommand}
    */
-  public describeOutboundConnections(
+  describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeOutboundConnectionsCommandOutput>;
-  public describeOutboundConnections(
+  describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
     cb: (err: any, data?: DescribeOutboundConnectionsCommandOutput) => void
   ): void;
-  public describeOutboundConnections(
+  describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeOutboundConnectionsCommandOutput) => void
   ): void;
-  public describeOutboundConnections(
-    args: DescribeOutboundConnectionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOutboundConnectionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeOutboundConnectionsCommandOutput) => void
-  ): Promise<DescribeOutboundConnectionsCommandOutput> | void {
-    const command = new DescribeOutboundConnectionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Describes all packages available to Amazon OpenSearch Service domains. Includes options for filtering, limiting the number of results,
-   *       and pagination.
-   *     </p>
+   * @see {@link DescribePackagesCommand}
    */
-  public describePackages(
+  describePackages(
     args: DescribePackagesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribePackagesCommandOutput>;
-  public describePackages(
+  describePackages(
     args: DescribePackagesCommandInput,
     cb: (err: any, data?: DescribePackagesCommandOutput) => void
   ): void;
-  public describePackages(
+  describePackages(
     args: DescribePackagesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePackagesCommandOutput) => void
   ): void;
-  public describePackages(
-    args: DescribePackagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackagesCommandOutput) => void),
-    cb?: (err: any, data?: DescribePackagesCommandOutput) => void
-  ): Promise<DescribePackagesCommandOutput> | void {
-    const command = new DescribePackagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists available reserved OpenSearch instance offerings.</p>
+   * @see {@link DescribeReservedInstanceOfferingsCommand}
    */
-  public describeReservedInstanceOfferings(
+  describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeReservedInstanceOfferingsCommandOutput>;
-  public describeReservedInstanceOfferings(
+  describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
     cb: (err: any, data?: DescribeReservedInstanceOfferingsCommandOutput) => void
   ): void;
-  public describeReservedInstanceOfferings(
+  describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReservedInstanceOfferingsCommandOutput) => void
   ): void;
-  public describeReservedInstanceOfferings(
-    args: DescribeReservedInstanceOfferingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedInstanceOfferingsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReservedInstanceOfferingsCommandOutput) => void
-  ): Promise<DescribeReservedInstanceOfferingsCommandOutput> | void {
-    const command = new DescribeReservedInstanceOfferingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns information about reserved OpenSearch instances for this account.</p>
+   * @see {@link DescribeReservedInstancesCommand}
    */
-  public describeReservedInstances(
+  describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeReservedInstancesCommandOutput>;
-  public describeReservedInstances(
+  describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
     cb: (err: any, data?: DescribeReservedInstancesCommandOutput) => void
   ): void;
-  public describeReservedInstances(
+  describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReservedInstancesCommandOutput) => void
   ): void;
-  public describeReservedInstances(
-    args: DescribeReservedInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReservedInstancesCommandOutput) => void
-  ): Promise<DescribeReservedInstancesCommandOutput> | void {
-    const command = new DescribeReservedInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Dissociates a package from the Amazon OpenSearch Service domain.</p>
+   * @see {@link DescribeVpcEndpointsCommand}
    */
-  public dissociatePackage(
+  describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEndpointsCommandOutput>;
+  describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+  describeVpcEndpoints(
+    args: DescribeVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DissociatePackageCommand}
+   */
+  dissociatePackage(
     args: DissociatePackageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DissociatePackageCommandOutput>;
-  public dissociatePackage(
+  dissociatePackage(
     args: DissociatePackageCommandInput,
     cb: (err: any, data?: DissociatePackageCommandOutput) => void
   ): void;
-  public dissociatePackage(
+  dissociatePackage(
     args: DissociatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DissociatePackageCommandOutput) => void
   ): void;
-  public dissociatePackage(
-    args: DissociatePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DissociatePackageCommandOutput) => void),
-    cb?: (err: any, data?: DissociatePackageCommandOutput) => void
-  ): Promise<DissociatePackageCommandOutput> | void {
-    const command = new DissociatePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>
-   *       Returns a list of upgrade-compatible versions of OpenSearch/Elasticsearch.
-   *       You can optionally pass a
-   *       <code>
-   *         <a>DomainName</a>
-   *       </code>
-   *       to get all upgrade-compatible versions of OpenSearch/Elasticsearch for that specific domain.
-   *     </p>
+   * @see {@link GetCompatibleVersionsCommand}
    */
-  public getCompatibleVersions(
+  getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetCompatibleVersionsCommandOutput>;
-  public getCompatibleVersions(
+  getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
     cb: (err: any, data?: GetCompatibleVersionsCommandOutput) => void
   ): void;
-  public getCompatibleVersions(
+  getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCompatibleVersionsCommandOutput) => void
   ): void;
-  public getCompatibleVersions(
-    args: GetCompatibleVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCompatibleVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetCompatibleVersionsCommandOutput) => void
-  ): Promise<GetCompatibleVersionsCommandOutput> | void {
-    const command = new GetCompatibleVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of package versions, along with their creation time and commit message.</p>
+   * @see {@link GetPackageVersionHistoryCommand}
    */
-  public getPackageVersionHistory(
+  getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetPackageVersionHistoryCommandOutput>;
-  public getPackageVersionHistory(
+  getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
     cb: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
   ): void;
-  public getPackageVersionHistory(
+  getPackageVersionHistory(
     args: GetPackageVersionHistoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
   ): void;
-  public getPackageVersionHistory(
-    args: GetPackageVersionHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPackageVersionHistoryCommandOutput) => void),
-    cb?: (err: any, data?: GetPackageVersionHistoryCommandOutput) => void
-  ): Promise<GetPackageVersionHistoryCommandOutput> | void {
-    const command = new GetPackageVersionHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the complete history of the last 10 upgrades performed on the domain.</p>
+   * @see {@link GetUpgradeHistoryCommand}
    */
-  public getUpgradeHistory(
+  getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUpgradeHistoryCommandOutput>;
-  public getUpgradeHistory(
+  getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
     cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): void;
-  public getUpgradeHistory(
+  getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): void;
-  public getUpgradeHistory(
-    args: GetUpgradeHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUpgradeHistoryCommandOutput) => void),
-    cb?: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
-  ): Promise<GetUpgradeHistoryCommandOutput> | void {
-    const command = new GetUpgradeHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check performed on the domain.
-   *     </p>
+   * @see {@link GetUpgradeStatusCommand}
    */
-  public getUpgradeStatus(
+  getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetUpgradeStatusCommandOutput>;
-  public getUpgradeStatus(
+  getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
   ): void;
-  public getUpgradeStatus(
+  getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
   ): void;
-  public getUpgradeStatus(
-    args: GetUpgradeStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUpgradeStatusCommandOutput) => void),
-    cb?: (err: any, data?: GetUpgradeStatusCommandOutput) => void
-  ): Promise<GetUpgradeStatusCommandOutput> | void {
-    const command = new GetUpgradeStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns the names of all domains owned by the current user's account.</p>
+   * @see {@link ListDomainNamesCommand}
    */
-  public listDomainNames(
+  listDomainNames(
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDomainNamesCommandOutput>;
-  public listDomainNames(
-    args: ListDomainNamesCommandInput,
-    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
-  ): void;
-  public listDomainNames(
+  listDomainNames(args: ListDomainNamesCommandInput, cb: (err: any, data?: ListDomainNamesCommandOutput) => void): void;
+  listDomainNames(
     args: ListDomainNamesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): void;
-  public listDomainNames(
-    args: ListDomainNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainNamesCommandOutput) => void),
-    cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
-  ): Promise<ListDomainNamesCommandOutput> | void {
-    const command = new ListDomainNamesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all Amazon OpenSearch Service domains associated with the package.</p>
+   * @see {@link ListDomainsForPackageCommand}
    */
-  public listDomainsForPackage(
+  listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDomainsForPackageCommandOutput>;
-  public listDomainsForPackage(
+  listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
     cb: (err: any, data?: ListDomainsForPackageCommandOutput) => void
   ): void;
-  public listDomainsForPackage(
+  listDomainsForPackage(
     args: ListDomainsForPackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDomainsForPackageCommandOutput) => void
   ): void;
-  public listDomainsForPackage(
-    args: ListDomainsForPackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsForPackageCommandOutput) => void),
-    cb?: (err: any, data?: ListDomainsForPackageCommandOutput) => void
-  ): Promise<ListDomainsForPackageCommandOutput> | void {
-    const command = new ListDomainsForPackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
-  public listInstanceTypeDetails(
+  /**
+   * @see {@link ListInstanceTypeDetailsCommand}
+   */
+  listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListInstanceTypeDetailsCommandOutput>;
-  public listInstanceTypeDetails(
+  listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
     cb: (err: any, data?: ListInstanceTypeDetailsCommandOutput) => void
   ): void;
-  public listInstanceTypeDetails(
+  listInstanceTypeDetails(
     args: ListInstanceTypeDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListInstanceTypeDetailsCommandOutput) => void
   ): void;
-  public listInstanceTypeDetails(
-    args: ListInstanceTypeDetailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceTypeDetailsCommandOutput) => void),
-    cb?: (err: any, data?: ListInstanceTypeDetailsCommandOutput) => void
-  ): Promise<ListInstanceTypeDetailsCommandOutput> | void {
-    const command = new ListInstanceTypeDetailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all packages associated with the Amazon OpenSearch Service domain.</p>
+   * @see {@link ListPackagesForDomainCommand}
    */
-  public listPackagesForDomain(
+  listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListPackagesForDomainCommandOutput>;
-  public listPackagesForDomain(
+  listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
     cb: (err: any, data?: ListPackagesForDomainCommandOutput) => void
   ): void;
-  public listPackagesForDomain(
+  listPackagesForDomain(
     args: ListPackagesForDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPackagesForDomainCommandOutput) => void
   ): void;
-  public listPackagesForDomain(
-    args: ListPackagesForDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPackagesForDomainCommandOutput) => void),
-    cb?: (err: any, data?: ListPackagesForDomainCommandOutput) => void
-  ): Promise<ListPackagesForDomainCommandOutput> | void {
-    const command = new ListPackagesForDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns all tags for the given domain.</p>
+   * @see {@link ListScheduledActionsCommand}
    */
-  public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
-  public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
-  public listTags(
+  listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScheduledActionsCommandOutput>;
+  listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+  listScheduledActions(
+    args: ListScheduledActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsCommand}
+   */
+  listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
+  listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
+  listTags(
     args: ListTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsCommandOutput) => void
-  ): Promise<ListTagsCommandOutput> | void {
-    const command = new ListTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List all supported versions of OpenSearch and Elasticsearch.</p>
+   * @see {@link ListVersionsCommand}
    */
-  public listVersions(
-    args: ListVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListVersionsCommandOutput>;
-  public listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
-  public listVersions(
+  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
     args: ListVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
-  public listVersions(
-    args: ListVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListVersionsCommandOutput) => void
-  ): Promise<ListVersionsCommandOutput> | void {
-    const command = new ListVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows you to purchase reserved OpenSearch instances.</p>
+   * @see {@link ListVpcEndpointAccessCommand}
    */
-  public purchaseReservedInstanceOffering(
+  listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointAccessCommandOutput>;
+  listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): void;
+  listVpcEndpointAccess(
+    args: ListVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVpcEndpointsCommand}
+   */
+  listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsCommandOutput>;
+  listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+  listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVpcEndpointsForDomainCommand}
+   */
+  listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsForDomainCommandOutput>;
+  listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): void;
+  listVpcEndpointsForDomain(
+    args: ListVpcEndpointsForDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsForDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PurchaseReservedInstanceOfferingCommand}
+   */
+  purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PurchaseReservedInstanceOfferingCommandOutput>;
-  public purchaseReservedInstanceOffering(
+  purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
     cb: (err: any, data?: PurchaseReservedInstanceOfferingCommandOutput) => void
   ): void;
-  public purchaseReservedInstanceOffering(
+  purchaseReservedInstanceOffering(
     args: PurchaseReservedInstanceOfferingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PurchaseReservedInstanceOfferingCommandOutput) => void
   ): void;
-  public purchaseReservedInstanceOffering(
-    args: PurchaseReservedInstanceOfferingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedInstanceOfferingCommandOutput) => void),
-    cb?: (err: any, data?: PurchaseReservedInstanceOfferingCommandOutput) => void
-  ): Promise<PurchaseReservedInstanceOfferingCommandOutput> | void {
-    const command = new PurchaseReservedInstanceOfferingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows the remote domain owner to reject an inbound cross-cluster connection request.</p>
+   * @see {@link RejectInboundConnectionCommand}
    */
-  public rejectInboundConnection(
+  rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RejectInboundConnectionCommandOutput>;
-  public rejectInboundConnection(
+  rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
     cb: (err: any, data?: RejectInboundConnectionCommandOutput) => void
   ): void;
-  public rejectInboundConnection(
+  rejectInboundConnection(
     args: RejectInboundConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectInboundConnectionCommandOutput) => void
   ): void;
-  public rejectInboundConnection(
-    args: RejectInboundConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectInboundConnectionCommandOutput) => void),
-    cb?: (err: any, data?: RejectInboundConnectionCommandOutput) => void
-  ): Promise<RejectInboundConnectionCommandOutput> | void {
-    const command = new RejectInboundConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes the specified set of tags from the given domain.</p>
+   * @see {@link RemoveTagsCommand}
    */
-  public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
-  public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
-  public removeTags(
+  removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
+  removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;
+  removeTags(
     args: RemoveTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemoveTagsCommandOutput) => void
   ): void;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
-    cb?: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): Promise<RemoveTagsCommandOutput> | void {
-    const command = new RemoveTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Schedules a service software update for an Amazon OpenSearch Service domain.</p>
+   * @see {@link RevokeVpcEndpointAccessCommand}
    */
-  public startServiceSoftwareUpdate(
+  revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeVpcEndpointAccessCommandOutput>;
+  revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+  revokeVpcEndpointAccess(
+    args: RevokeVpcEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeVpcEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartServiceSoftwareUpdateCommand}
+   */
+  startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<StartServiceSoftwareUpdateCommandOutput>;
-  public startServiceSoftwareUpdate(
+  startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
     cb: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
   ): void;
-  public startServiceSoftwareUpdate(
+  startServiceSoftwareUpdate(
     args: StartServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
   ): void;
-  public startServiceSoftwareUpdate(
-    args: StartServiceSoftwareUpdateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void),
-    cb?: (err: any, data?: StartServiceSoftwareUpdateCommandOutput) => void
-  ): Promise<StartServiceSoftwareUpdateCommandOutput> | void {
-    const command = new StartServiceSoftwareUpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Modifies the cluster configuration of the specified domain, such as setting the instance type
-   *       and the number of instances.
-   *     </p>
+   * @see {@link UpdateDomainConfigCommand}
    */
-  public updateDomainConfig(
+  updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDomainConfigCommandOutput>;
-  public updateDomainConfig(
+  updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
     cb: (err: any, data?: UpdateDomainConfigCommandOutput) => void
   ): void;
-  public updateDomainConfig(
+  updateDomainConfig(
     args: UpdateDomainConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDomainConfigCommandOutput) => void
   ): void;
-  public updateDomainConfig(
-    args: UpdateDomainConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDomainConfigCommandOutput) => void
-  ): Promise<UpdateDomainConfigCommandOutput> | void {
-    const command = new UpdateDomainConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a package for use with Amazon OpenSearch Service domains.</p>
+   * @see {@link UpdatePackageCommand}
    */
-  public updatePackage(
-    args: UpdatePackageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePackageCommandOutput>;
-  public updatePackage(
-    args: UpdatePackageCommandInput,
-    cb: (err: any, data?: UpdatePackageCommandOutput) => void
-  ): void;
-  public updatePackage(
+  updatePackage(args: UpdatePackageCommandInput, options?: __HttpHandlerOptions): Promise<UpdatePackageCommandOutput>;
+  updatePackage(args: UpdatePackageCommandInput, cb: (err: any, data?: UpdatePackageCommandOutput) => void): void;
+  updatePackage(
     args: UpdatePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdatePackageCommandOutput) => void
   ): void;
-  public updatePackage(
-    args: UpdatePackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePackageCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePackageCommandOutput) => void
-  ): Promise<UpdatePackageCommandOutput> | void {
-    const command = new UpdatePackageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows you to either upgrade your domain or perform an upgrade eligibility check to a compatible version of OpenSearch or Elasticsearch.
-   *     </p>
+   * @see {@link UpdateScheduledActionCommand}
    */
-  public upgradeDomain(
-    args: UpgradeDomainCommandInput,
+  updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpgradeDomainCommandOutput>;
-  public upgradeDomain(
-    args: UpgradeDomainCommandInput,
-    cb: (err: any, data?: UpgradeDomainCommandOutput) => void
+  ): Promise<UpdateScheduledActionCommandOutput>;
+  updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
   ): void;
-  public upgradeDomain(
+  updateScheduledAction(
+    args: UpdateScheduledActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVpcEndpointCommand}
+   */
+  updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcEndpointCommandOutput>;
+  updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+  updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpgradeDomainCommand}
+   */
+  upgradeDomain(args: UpgradeDomainCommandInput, options?: __HttpHandlerOptions): Promise<UpgradeDomainCommandOutput>;
+  upgradeDomain(args: UpgradeDomainCommandInput, cb: (err: any, data?: UpgradeDomainCommandOutput) => void): void;
+  upgradeDomain(
     args: UpgradeDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeDomainCommandOutput) => void
   ): void;
-  public upgradeDomain(
-    args: UpgradeDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpgradeDomainCommandOutput) => void),
-    cb?: (err: any, data?: UpgradeDomainCommandOutput) => void
-  ): Promise<UpgradeDomainCommandOutput> | void {
-    const command = new UpgradeDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>Use the Amazon OpenSearch Service configuration API to create, configure, and manage
+ *    OpenSearch Service domains.</p>
+ *          <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
+ *                <i>Amazon OpenSearch Service Developer Guide</i>
+ *             </a>. The guide also
+ *    contains <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html">sample code</a> for
+ *    sending signed HTTP requests to the OpenSearch APIs. The endpoint for configuration service
+ *    requests is Region specific: es.<i>region</i>.amazonaws.com. For example,
+ *    es.us-east-1.amazonaws.com. For a current list of supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services
+ *     service endpoints</a>.</p>
+ */
+export class OpenSearch extends OpenSearchClient implements OpenSearch {}
+createAggregatedClient(commands, OpenSearch);

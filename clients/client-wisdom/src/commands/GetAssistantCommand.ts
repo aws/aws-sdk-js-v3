@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetAssistantRequest, GetAssistantResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssistantCommand,
-  serializeAws_restJson1GetAssistantCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssistantCommand, se_GetAssistantCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAssistantCommand}.
+ */
 export interface GetAssistantCommandInput extends GetAssistantRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssistantCommand}.
+ */
 export interface GetAssistantCommandOutput extends GetAssistantResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves information about an assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,50 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * import { WisdomClient, GetAssistantCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetAssistantCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // GetAssistantRequest
+ *   assistantId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssistantCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssistantResponse
+ * //   assistant: { // AssistantData
+ * //     assistantId: "STRING_VALUE", // required
+ * //     assistantArn: "STRING_VALUE", // required
+ * //     name: "STRING_VALUE", // required
+ * //     type: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE", // required
+ * //     description: "STRING_VALUE",
+ * //     tags: { // Tags
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
+ * //       kmsKeyId: "STRING_VALUE",
+ * //     },
+ * //     integrationConfiguration: { // AssistantIntegrationConfiguration
+ * //       topicIntegrationArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetAssistantCommandInput - {@link GetAssistantCommandInput}
+ * @returns {@link GetAssistantCommandOutput}
  * @see {@link GetAssistantCommandInput} for command's `input` shape.
  * @see {@link GetAssistantCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class GetAssistantCommand extends $Command<
@@ -46,6 +97,18 @@ export class GetAssistantCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssistantCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +124,7 @@ export class GetAssistantCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAssistantCommandInput, GetAssistantCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetAssistantCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +135,8 @@ export class GetAssistantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssistantRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssistantResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +146,18 @@ export class GetAssistantCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssistantCommand(input, context);
+    return se_GetAssistantCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssistantCommandOutput> {
-    return deserializeAws_restJson1GetAssistantCommand(output, context);
+    return de_GetAssistantCommand(output, context);
   }
 
   // Start section: command_body_extra

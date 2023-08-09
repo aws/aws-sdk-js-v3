@@ -1,5 +1,9 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -9,49 +13,99 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
+import {
+  CreateAutoPredictorCommandInput,
+  CreateAutoPredictorCommandOutput,
+} from "../commands/CreateAutoPredictorCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "../commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "../commands/CreateDatasetImportJobCommand";
+import {
+  CreateExplainabilityCommandInput,
+  CreateExplainabilityCommandOutput,
+} from "../commands/CreateExplainabilityCommand";
+import {
+  CreateExplainabilityExportCommandInput,
+  CreateExplainabilityExportCommandOutput,
+} from "../commands/CreateExplainabilityExportCommand";
 import { CreateForecastCommandInput, CreateForecastCommandOutput } from "../commands/CreateForecastCommand";
 import {
   CreateForecastExportJobCommandInput,
   CreateForecastExportJobCommandOutput,
 } from "../commands/CreateForecastExportJobCommand";
+import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "../commands/CreateMonitorCommand";
 import {
   CreatePredictorBacktestExportJobCommandInput,
   CreatePredictorBacktestExportJobCommandOutput,
 } from "../commands/CreatePredictorBacktestExportJobCommand";
 import { CreatePredictorCommandInput, CreatePredictorCommandOutput } from "../commands/CreatePredictorCommand";
+import {
+  CreateWhatIfAnalysisCommandInput,
+  CreateWhatIfAnalysisCommandOutput,
+} from "../commands/CreateWhatIfAnalysisCommand";
+import {
+  CreateWhatIfForecastCommandInput,
+  CreateWhatIfForecastCommandOutput,
+} from "../commands/CreateWhatIfForecastCommand";
+import {
+  CreateWhatIfForecastExportCommandInput,
+  CreateWhatIfForecastExportCommandOutput,
+} from "../commands/CreateWhatIfForecastExportCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "../commands/DeleteDatasetGroupCommand";
 import {
   DeleteDatasetImportJobCommandInput,
   DeleteDatasetImportJobCommandOutput,
 } from "../commands/DeleteDatasetImportJobCommand";
+import {
+  DeleteExplainabilityCommandInput,
+  DeleteExplainabilityCommandOutput,
+} from "../commands/DeleteExplainabilityCommand";
+import {
+  DeleteExplainabilityExportCommandInput,
+  DeleteExplainabilityExportCommandOutput,
+} from "../commands/DeleteExplainabilityExportCommand";
 import { DeleteForecastCommandInput, DeleteForecastCommandOutput } from "../commands/DeleteForecastCommand";
 import {
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput,
 } from "../commands/DeleteForecastExportJobCommand";
+import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "../commands/DeleteMonitorCommand";
 import {
   DeletePredictorBacktestExportJobCommandInput,
   DeletePredictorBacktestExportJobCommandOutput,
 } from "../commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "../commands/DeletePredictorCommand";
 import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "../commands/DeleteResourceTreeCommand";
+import {
+  DeleteWhatIfAnalysisCommandInput,
+  DeleteWhatIfAnalysisCommandOutput,
+} from "../commands/DeleteWhatIfAnalysisCommand";
+import {
+  DeleteWhatIfForecastCommandInput,
+  DeleteWhatIfForecastCommandOutput,
+} from "../commands/DeleteWhatIfForecastCommand";
+import {
+  DeleteWhatIfForecastExportCommandInput,
+  DeleteWhatIfForecastExportCommandOutput,
+} from "../commands/DeleteWhatIfForecastExportCommand";
+import {
+  DescribeAutoPredictorCommandInput,
+  DescribeAutoPredictorCommandOutput,
+} from "../commands/DescribeAutoPredictorCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
@@ -61,16 +115,37 @@ import {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput,
 } from "../commands/DescribeDatasetImportJobCommand";
+import {
+  DescribeExplainabilityCommandInput,
+  DescribeExplainabilityCommandOutput,
+} from "../commands/DescribeExplainabilityCommand";
+import {
+  DescribeExplainabilityExportCommandInput,
+  DescribeExplainabilityExportCommandOutput,
+} from "../commands/DescribeExplainabilityExportCommand";
 import { DescribeForecastCommandInput, DescribeForecastCommandOutput } from "../commands/DescribeForecastCommand";
 import {
   DescribeForecastExportJobCommandInput,
   DescribeForecastExportJobCommandOutput,
 } from "../commands/DescribeForecastExportJobCommand";
+import { DescribeMonitorCommandInput, DescribeMonitorCommandOutput } from "../commands/DescribeMonitorCommand";
 import {
   DescribePredictorBacktestExportJobCommandInput,
   DescribePredictorBacktestExportJobCommandOutput,
 } from "../commands/DescribePredictorBacktestExportJobCommand";
 import { DescribePredictorCommandInput, DescribePredictorCommandOutput } from "../commands/DescribePredictorCommand";
+import {
+  DescribeWhatIfAnalysisCommandInput,
+  DescribeWhatIfAnalysisCommandOutput,
+} from "../commands/DescribeWhatIfAnalysisCommand";
+import {
+  DescribeWhatIfForecastCommandInput,
+  DescribeWhatIfForecastCommandOutput,
+} from "../commands/DescribeWhatIfForecastCommand";
+import {
+  DescribeWhatIfForecastExportCommandInput,
+  DescribeWhatIfForecastExportCommandOutput,
+} from "../commands/DescribeWhatIfForecastExportCommand";
 import { GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput } from "../commands/GetAccuracyMetricsCommand";
 import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "../commands/ListDatasetGroupsCommand";
 import {
@@ -79,10 +154,23 @@ import {
 } from "../commands/ListDatasetImportJobsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import {
+  ListExplainabilitiesCommandInput,
+  ListExplainabilitiesCommandOutput,
+} from "../commands/ListExplainabilitiesCommand";
+import {
+  ListExplainabilityExportsCommandInput,
+  ListExplainabilityExportsCommandOutput,
+} from "../commands/ListExplainabilityExportsCommand";
+import {
   ListForecastExportJobsCommandInput,
   ListForecastExportJobsCommandOutput,
 } from "../commands/ListForecastExportJobsCommand";
 import { ListForecastsCommandInput, ListForecastsCommandOutput } from "../commands/ListForecastsCommand";
+import {
+  ListMonitorEvaluationsCommandInput,
+  ListMonitorEvaluationsCommandOutput,
+} from "../commands/ListMonitorEvaluationsCommand";
+import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "../commands/ListMonitorsCommand";
 import {
   ListPredictorBacktestExportJobsCommandInput,
   ListPredictorBacktestExportJobsCommandOutput,
@@ -92,27 +180,44 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListWhatIfAnalysesCommandInput, ListWhatIfAnalysesCommandOutput } from "../commands/ListWhatIfAnalysesCommand";
+import {
+  ListWhatIfForecastExportsCommandInput,
+  ListWhatIfForecastExportsCommandOutput,
+} from "../commands/ListWhatIfForecastExportsCommand";
+import {
+  ListWhatIfForecastsCommandInput,
+  ListWhatIfForecastsCommandOutput,
+} from "../commands/ListWhatIfForecastsCommand";
+import { ResumeResourceCommandInput, ResumeResourceCommandOutput } from "../commands/ResumeResourceCommand";
 import { StopResourceCommandInput, StopResourceCommandOutput } from "../commands/StopResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "../commands/UpdateDatasetGroupCommand";
+import { ForecastServiceException as __BaseException } from "../models/ForecastServiceException";
 import {
+  Action,
+  AdditionalDataset,
+  AttributeConfig,
+  Baseline,
+  BaselineMetric,
   CategoricalParameterRange,
   ContinuousParameterRange,
+  CreateAutoPredictorRequest,
   CreateDatasetGroupRequest,
-  CreateDatasetGroupResponse,
   CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse,
   CreateDatasetRequest,
-  CreateDatasetResponse,
+  CreateExplainabilityExportRequest,
+  CreateExplainabilityRequest,
   CreateForecastExportJobRequest,
-  CreateForecastExportJobResponse,
   CreateForecastRequest,
-  CreateForecastResponse,
+  CreateMonitorRequest,
   CreatePredictorBacktestExportJobRequest,
-  CreatePredictorBacktestExportJobResponse,
   CreatePredictorRequest,
-  CreatePredictorResponse,
+  CreateWhatIfAnalysisRequest,
+  CreateWhatIfForecastExportRequest,
+  CreateWhatIfForecastRequest,
+  DataConfig,
   DataDestination,
   DatasetGroupSummary,
   DatasetImportJobSummary,
@@ -121,29 +226,52 @@ import {
   DeleteDatasetGroupRequest,
   DeleteDatasetImportJobRequest,
   DeleteDatasetRequest,
+  DeleteExplainabilityExportRequest,
+  DeleteExplainabilityRequest,
   DeleteForecastExportJobRequest,
   DeleteForecastRequest,
+  DeleteMonitorRequest,
   DeletePredictorBacktestExportJobRequest,
   DeletePredictorRequest,
   DeleteResourceTreeRequest,
+  DeleteWhatIfAnalysisRequest,
+  DeleteWhatIfForecastExportRequest,
+  DeleteWhatIfForecastRequest,
+  DescribeAutoPredictorRequest,
+  DescribeAutoPredictorResponse,
   DescribeDatasetGroupRequest,
   DescribeDatasetGroupResponse,
   DescribeDatasetImportJobRequest,
   DescribeDatasetImportJobResponse,
   DescribeDatasetRequest,
   DescribeDatasetResponse,
+  DescribeExplainabilityExportRequest,
+  DescribeExplainabilityExportResponse,
+  DescribeExplainabilityRequest,
+  DescribeExplainabilityResponse,
   DescribeForecastExportJobRequest,
   DescribeForecastExportJobResponse,
   DescribeForecastRequest,
   DescribeForecastResponse,
+  DescribeMonitorRequest,
+  DescribeMonitorResponse,
   DescribePredictorBacktestExportJobRequest,
   DescribePredictorBacktestExportJobResponse,
   DescribePredictorRequest,
   DescribePredictorResponse,
+  DescribeWhatIfAnalysisRequest,
+  DescribeWhatIfAnalysisResponse,
+  DescribeWhatIfForecastExportRequest,
+  DescribeWhatIfForecastExportResponse,
+  DescribeWhatIfForecastRequest,
+  DescribeWhatIfForecastResponse,
   EncryptionConfig,
   ErrorMetric,
   EvaluationParameters,
   EvaluationResult,
+  ExplainabilityConfig,
+  ExplainabilityExportSummary,
+  ExplainabilitySummary,
   Featurization,
   FeaturizationConfig,
   FeaturizationMethod,
@@ -164,25 +292,45 @@ import {
   ListDatasetImportJobsResponse,
   ListDatasetsRequest,
   ListDatasetsResponse,
+  ListExplainabilitiesRequest,
+  ListExplainabilitiesResponse,
+  ListExplainabilityExportsRequest,
+  ListExplainabilityExportsResponse,
   ListForecastExportJobsRequest,
   ListForecastExportJobsResponse,
   ListForecastsRequest,
   ListForecastsResponse,
+  ListMonitorEvaluationsRequest,
+  ListMonitorEvaluationsResponse,
+  ListMonitorsRequest,
+  ListMonitorsResponse,
   ListPredictorBacktestExportJobsRequest,
   ListPredictorBacktestExportJobsResponse,
   ListPredictorsRequest,
   ListPredictorsResponse,
   ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
+  ListWhatIfAnalysesRequest,
+  ListWhatIfAnalysesResponse,
+  ListWhatIfForecastExportsRequest,
+  ListWhatIfForecastExportsResponse,
+  ListWhatIfForecastsRequest,
+  ListWhatIfForecastsResponse,
+  MetricResult,
   Metrics,
+  MonitorConfig,
+  MonitorSummary,
   ParameterRanges,
   PredictorBacktestExportJobSummary,
+  PredictorBaseline,
+  PredictorEvent,
   PredictorExecution,
   PredictorExecutionDetails,
+  PredictorMonitorEvaluation,
   PredictorSummary,
   ResourceAlreadyExistsException,
   ResourceInUseException,
   ResourceNotFoundException,
+  ResumeResourceRequest,
   S3Config,
   Schema,
   SchemaAttribute,
@@ -191,4939 +339,5825 @@ import {
   SupplementaryFeature,
   Tag,
   TagResourceRequest,
-  TagResourceResponse,
   TestWindowSummary,
+  TimeAlignmentBoundary,
+  TimeSeriesCondition,
+  TimeSeriesIdentifiers,
+  TimeSeriesReplacementsDataSource,
+  TimeSeriesSelector,
+  TimeSeriesTransformation,
   UntagResourceRequest,
-  UntagResourceResponse,
   UpdateDatasetGroupRequest,
-  UpdateDatasetGroupResponse,
   WeightedQuantileLoss,
+  WhatIfAnalysisSummary,
+  WhatIfForecastExportSummary,
+  WhatIfForecastSummary,
   WindowSummary,
 } from "../models/models_0";
 
-export const serializeAws_json1_1CreateDatasetCommand = async (
+/**
+ * serializeAws_json1_1CreateAutoPredictorCommand
+ */
+export const se_CreateAutoPredictorCommand = async (
+  input: CreateAutoPredictorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAutoPredictor");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateDatasetCommand
+ */
+export const se_CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreateDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateDatasetGroupCommand
+ */
+export const se_CreateDatasetGroupCommand = async (
   input: CreateDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreateDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
+/**
+ * serializeAws_json1_1CreateDatasetImportJobCommand
+ */
+export const se_CreateDatasetImportJobCommand = async (
   input: CreateDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreateDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetImportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateForecastCommand = async (
+/**
+ * serializeAws_json1_1CreateExplainabilityCommand
+ */
+export const se_CreateExplainabilityCommand = async (
+  input: CreateExplainabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateExplainability");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateExplainabilityExportCommand
+ */
+export const se_CreateExplainabilityExportCommand = async (
+  input: CreateExplainabilityExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateExplainabilityExport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateForecastCommand
+ */
+export const se_CreateForecastCommand = async (
   input: CreateForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreateForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateForecast");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateForecastExportJobCommand = async (
+/**
+ * serializeAws_json1_1CreateForecastExportJobCommand
+ */
+export const se_CreateForecastExportJobCommand = async (
   input: CreateForecastExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreateForecastExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateForecastExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateForecastExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePredictorCommand = async (
+/**
+ * serializeAws_json1_1CreateMonitorCommand
+ */
+export const se_CreateMonitorCommand = async (
+  input: CreateMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateMonitor");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreatePredictorCommand
+ */
+export const se_CreatePredictorCommand = async (
   input: CreatePredictorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreatePredictor",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePredictor");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePredictorRequest(input, context));
+  body = JSON.stringify(se_CreatePredictorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreatePredictorBacktestExportJobCommand = async (
+/**
+ * serializeAws_json1_1CreatePredictorBacktestExportJobCommand
+ */
+export const se_CreatePredictorBacktestExportJobCommand = async (
   input: CreatePredictorBacktestExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.CreatePredictorBacktestExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreatePredictorBacktestExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreatePredictorBacktestExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDatasetCommand = async (
+/**
+ * serializeAws_json1_1CreateWhatIfAnalysisCommand
+ */
+export const se_CreateWhatIfAnalysisCommand = async (
+  input: CreateWhatIfAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateWhatIfAnalysis");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateWhatIfForecastCommand
+ */
+export const se_CreateWhatIfForecastCommand = async (
+  input: CreateWhatIfForecastCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateWhatIfForecast");
+  let body: any;
+  body = JSON.stringify(se_CreateWhatIfForecastRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateWhatIfForecastExportCommand
+ */
+export const se_CreateWhatIfForecastExportCommand = async (
+  input: CreateWhatIfForecastExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateWhatIfForecastExport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDatasetCommand
+ */
+export const se_DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeleteDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataset");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteDatasetGroupCommand
+ */
+export const se_DeleteDatasetGroupCommand = async (
   input: DeleteDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeleteDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDatasetImportJobCommand = async (
+/**
+ * serializeAws_json1_1DeleteDatasetImportJobCommand
+ */
+export const se_DeleteDatasetImportJobCommand = async (
   input: DeleteDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeleteDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDatasetImportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteForecastCommand = async (
+/**
+ * serializeAws_json1_1DeleteExplainabilityCommand
+ */
+export const se_DeleteExplainabilityCommand = async (
+  input: DeleteExplainabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteExplainability");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteExplainabilityExportCommand
+ */
+export const se_DeleteExplainabilityExportCommand = async (
+  input: DeleteExplainabilityExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteExplainabilityExport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteForecastCommand
+ */
+export const se_DeleteForecastCommand = async (
   input: DeleteForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeleteForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteForecast");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteForecastExportJobCommand = async (
+/**
+ * serializeAws_json1_1DeleteForecastExportJobCommand
+ */
+export const se_DeleteForecastExportJobCommand = async (
   input: DeleteForecastExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeleteForecastExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteForecastExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteForecastExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePredictorCommand = async (
+/**
+ * serializeAws_json1_1DeleteMonitorCommand
+ */
+export const se_DeleteMonitorCommand = async (
+  input: DeleteMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMonitor");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeletePredictorCommand
+ */
+export const se_DeletePredictorCommand = async (
   input: DeletePredictorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeletePredictor",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePredictor");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePredictorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeletePredictorBacktestExportJobCommand = async (
+/**
+ * serializeAws_json1_1DeletePredictorBacktestExportJobCommand
+ */
+export const se_DeletePredictorBacktestExportJobCommand = async (
   input: DeletePredictorBacktestExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeletePredictorBacktestExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeletePredictorBacktestExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeletePredictorBacktestExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteResourceTreeCommand = async (
+/**
+ * serializeAws_json1_1DeleteResourceTreeCommand
+ */
+export const se_DeleteResourceTreeCommand = async (
   input: DeleteResourceTreeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DeleteResourceTree",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteResourceTree");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteResourceTreeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetCommand = async (
+/**
+ * serializeAws_json1_1DeleteWhatIfAnalysisCommand
+ */
+export const se_DeleteWhatIfAnalysisCommand = async (
+  input: DeleteWhatIfAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWhatIfAnalysis");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteWhatIfForecastCommand
+ */
+export const se_DeleteWhatIfForecastCommand = async (
+  input: DeleteWhatIfForecastCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWhatIfForecast");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteWhatIfForecastExportCommand
+ */
+export const se_DeleteWhatIfForecastExportCommand = async (
+  input: DeleteWhatIfForecastExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWhatIfForecastExport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeAutoPredictorCommand
+ */
+export const se_DescribeAutoPredictorCommand = async (
+  input: DescribeAutoPredictorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeAutoPredictor");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeDatasetCommand
+ */
+export const se_DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribeDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1DescribeDatasetGroupCommand
+ */
+export const se_DescribeDatasetGroupCommand = async (
   input: DescribeDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribeDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeDatasetImportJobCommand
+ */
+export const se_DescribeDatasetImportJobCommand = async (
   input: DescribeDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribeDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetImportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeForecastCommand = async (
+/**
+ * serializeAws_json1_1DescribeExplainabilityCommand
+ */
+export const se_DescribeExplainabilityCommand = async (
+  input: DescribeExplainabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeExplainability");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeExplainabilityExportCommand
+ */
+export const se_DescribeExplainabilityExportCommand = async (
+  input: DescribeExplainabilityExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeExplainabilityExport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeForecastCommand
+ */
+export const se_DescribeForecastCommand = async (
   input: DescribeForecastCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribeForecast",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeForecast");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeForecastRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeForecastExportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeForecastExportJobCommand
+ */
+export const se_DescribeForecastExportJobCommand = async (
   input: DescribeForecastExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribeForecastExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeForecastExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeForecastExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePredictorCommand = async (
+/**
+ * serializeAws_json1_1DescribeMonitorCommand
+ */
+export const se_DescribeMonitorCommand = async (
+  input: DescribeMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMonitor");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribePredictorCommand
+ */
+export const se_DescribePredictorCommand = async (
   input: DescribePredictorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribePredictor",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePredictor");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePredictorRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribePredictorBacktestExportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribePredictorBacktestExportJobCommand
+ */
+export const se_DescribePredictorBacktestExportJobCommand = async (
   input: DescribePredictorBacktestExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.DescribePredictorBacktestExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribePredictorBacktestExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribePredictorBacktestExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetAccuracyMetricsCommand = async (
+/**
+ * serializeAws_json1_1DescribeWhatIfAnalysisCommand
+ */
+export const se_DescribeWhatIfAnalysisCommand = async (
+  input: DescribeWhatIfAnalysisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWhatIfAnalysis");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeWhatIfForecastCommand
+ */
+export const se_DescribeWhatIfForecastCommand = async (
+  input: DescribeWhatIfForecastCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWhatIfForecast");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeWhatIfForecastExportCommand
+ */
+export const se_DescribeWhatIfForecastExportCommand = async (
+  input: DescribeWhatIfForecastExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeWhatIfForecastExport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetAccuracyMetricsCommand
+ */
+export const se_GetAccuracyMetricsCommand = async (
   input: GetAccuracyMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.GetAccuracyMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetAccuracyMetrics");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAccuracyMetricsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetGroupsCommand
+ */
+export const se_ListDatasetGroupsCommand = async (
   input: ListDatasetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListDatasetGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetImportJobsCommand
+ */
+export const se_ListDatasetImportJobsCommand = async (
   input: ListDatasetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListDatasetImportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetImportJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetImportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetsCommand
+ */
+export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListDatasets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListForecastExportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListExplainabilitiesCommand
+ */
+export const se_ListExplainabilitiesCommand = async (
+  input: ListExplainabilitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListExplainabilities");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListExplainabilityExportsCommand
+ */
+export const se_ListExplainabilityExportsCommand = async (
+  input: ListExplainabilityExportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListExplainabilityExports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListForecastExportJobsCommand
+ */
+export const se_ListForecastExportJobsCommand = async (
   input: ListForecastExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListForecastExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListForecastExportJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListForecastExportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListForecastsCommand = async (
+/**
+ * serializeAws_json1_1ListForecastsCommand
+ */
+export const se_ListForecastsCommand = async (
   input: ListForecastsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListForecasts",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListForecasts");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListForecastsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPredictorBacktestExportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListMonitorEvaluationsCommand
+ */
+export const se_ListMonitorEvaluationsCommand = async (
+  input: ListMonitorEvaluationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMonitorEvaluations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListMonitorsCommand
+ */
+export const se_ListMonitorsCommand = async (
+  input: ListMonitorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMonitors");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListPredictorBacktestExportJobsCommand
+ */
+export const se_ListPredictorBacktestExportJobsCommand = async (
   input: ListPredictorBacktestExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListPredictorBacktestExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPredictorBacktestExportJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPredictorBacktestExportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListPredictorsCommand = async (
+/**
+ * serializeAws_json1_1ListPredictorsCommand
+ */
+export const se_ListPredictorsCommand = async (
   input: ListPredictorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListPredictors",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListPredictors");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListPredictorsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.ListTagsForResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopResourceCommand = async (
+/**
+ * serializeAws_json1_1ListWhatIfAnalysesCommand
+ */
+export const se_ListWhatIfAnalysesCommand = async (
+  input: ListWhatIfAnalysesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWhatIfAnalyses");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListWhatIfForecastExportsCommand
+ */
+export const se_ListWhatIfForecastExportsCommand = async (
+  input: ListWhatIfForecastExportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWhatIfForecastExports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListWhatIfForecastsCommand
+ */
+export const se_ListWhatIfForecastsCommand = async (
+  input: ListWhatIfForecastsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWhatIfForecasts");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ResumeResourceCommand
+ */
+export const se_ResumeResourceCommand = async (
+  input: ResumeResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ResumeResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopResourceCommand
+ */
+export const se_StopResourceCommand = async (
   input: StopResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.StopResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1TagResourceCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.TagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("TagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UntagResourceCommand = async (
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.UntagResource",
-  };
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1UpdateDatasetGroupCommand
+ */
+export const se_UpdateDatasetGroupCommand = async (
   input: UpdateDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonForecast.UpdateDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateDatasetCommand = async (
+/**
+ * deserializeAws_json1_1CreateAutoPredictorCommand
+ */
+export const de_CreateAutoPredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutoPredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateAutoPredictorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAutoPredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAutoPredictorCommandError
+ */
+const de_CreateAutoPredictorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutoPredictorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateDatasetCommand
+ */
+export const de_CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetCommandError(output, context);
+    return de_CreateDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetCommandError
+ */
+const de_CreateDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateDatasetGroupCommand
+ */
+export const de_CreateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetGroupCommandError(output, context);
+    return de_CreateDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetGroupCommandError
+ */
+const de_CreateDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateDatasetImportJobCommand = async (
+/**
+ * deserializeAws_json1_1CreateDatasetImportJobCommand
+ */
+export const de_CreateDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetImportJobCommandError(output, context);
+    return de_CreateDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetImportJobResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetImportJobCommandError
+ */
+const de_CreateDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateForecastCommand = async (
+/**
+ * deserializeAws_json1_1CreateExplainabilityCommand
+ */
+export const de_CreateExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateExplainabilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateExplainabilityCommandError
+ */
+const de_CreateExplainabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateExplainabilityExportCommand
+ */
+export const de_CreateExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateExplainabilityExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateExplainabilityExportCommandError
+ */
+const de_CreateExplainabilityExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExplainabilityExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateForecastCommand
+ */
+export const de_CreateForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateForecastCommandError(output, context);
+    return de_CreateForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateForecastResponse(data, context);
+  contents = _json(data);
   const response: CreateForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateForecastCommandError = async (
+/**
+ * deserializeAws_json1_1CreateForecastCommandError
+ */
+const de_CreateForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateForecastExportJobCommand = async (
+/**
+ * deserializeAws_json1_1CreateForecastExportJobCommand
+ */
+export const de_CreateForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateForecastExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateForecastExportJobCommandError(output, context);
+    return de_CreateForecastExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateForecastExportJobResponse(data, context);
+  contents = _json(data);
   const response: CreateForecastExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreateForecastExportJobCommandError
+ */
+const de_CreateForecastExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateForecastExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreatePredictorCommand = async (
+/**
+ * deserializeAws_json1_1CreateMonitorCommand
+ */
+export const de_CreateMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateMonitorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateMonitorCommandError
+ */
+const de_CreateMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreatePredictorCommand
+ */
+export const de_CreatePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePredictorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePredictorCommandError(output, context);
+    return de_CreatePredictorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePredictorResponse(data, context);
+  contents = _json(data);
   const response: CreatePredictorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreatePredictorCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePredictorCommandError
+ */
+const de_CreatePredictorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePredictorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreatePredictorBacktestExportJobCommand = async (
+/**
+ * deserializeAws_json1_1CreatePredictorBacktestExportJobCommand
+ */
+export const de_CreatePredictorBacktestExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePredictorBacktestExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreatePredictorBacktestExportJobCommandError(output, context);
+    return de_CreatePredictorBacktestExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePredictorBacktestExportJobResponse(data, context);
+  contents = _json(data);
   const response: CreatePredictorBacktestExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreatePredictorBacktestExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreatePredictorBacktestExportJobCommandError
+ */
+const de_CreatePredictorBacktestExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePredictorBacktestExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteDatasetCommand = async (
+/**
+ * deserializeAws_json1_1CreateWhatIfAnalysisCommand
+ */
+export const de_CreateWhatIfAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatIfAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateWhatIfAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateWhatIfAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateWhatIfAnalysisCommandError
+ */
+const de_CreateWhatIfAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatIfAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateWhatIfForecastCommand
+ */
+export const de_CreateWhatIfForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatIfForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateWhatIfForecastCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateWhatIfForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateWhatIfForecastCommandError
+ */
+const de_CreateWhatIfForecastCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatIfForecastCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateWhatIfForecastExportCommand
+ */
+export const de_CreateWhatIfForecastExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatIfForecastExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateWhatIfForecastExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateWhatIfForecastExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateWhatIfForecastExportCommandError
+ */
+const de_CreateWhatIfForecastExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWhatIfForecastExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteDatasetCommand
+ */
+export const de_DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
+    return de_DeleteDatasetCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteDatasetCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetCommandError
+ */
+const de_DeleteDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetGroupCommand
+ */
+export const de_DeleteDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDatasetGroupCommandError(output, context);
+    return de_DeleteDatasetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetGroupCommandError
+ */
+const de_DeleteDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteDatasetImportJobCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetImportJobCommand
+ */
+export const de_DeleteDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDatasetImportJobCommandError(output, context);
+    return de_DeleteDatasetImportJobCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetImportJobCommandError
+ */
+const de_DeleteDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteForecastCommand = async (
+/**
+ * deserializeAws_json1_1DeleteExplainabilityCommand
+ */
+export const de_DeleteExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteExplainabilityCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteExplainabilityCommandError
+ */
+const de_DeleteExplainabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteExplainabilityExportCommand
+ */
+export const de_DeleteExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteExplainabilityExportCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteExplainabilityExportCommandError
+ */
+const de_DeleteExplainabilityExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteForecastCommand
+ */
+export const de_DeleteForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteForecastCommandError(output, context);
+    return de_DeleteForecastCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteForecastCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteForecastCommandError
+ */
+const de_DeleteForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteForecastExportJobCommand = async (
+/**
+ * deserializeAws_json1_1DeleteForecastExportJobCommand
+ */
+export const de_DeleteForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteForecastExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteForecastExportJobCommandError(output, context);
+    return de_DeleteForecastExportJobCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteForecastExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteForecastExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteForecastExportJobCommandError
+ */
+const de_DeleteForecastExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteForecastExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeletePredictorCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMonitorCommand
+ */
+export const de_DeleteMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteMonitorCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMonitorCommandError
+ */
+const de_DeleteMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeletePredictorCommand
+ */
+export const de_DeletePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePredictorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePredictorCommandError(output, context);
+    return de_DeletePredictorCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePredictorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeletePredictorCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePredictorCommandError
+ */
+const de_DeletePredictorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePredictorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeletePredictorBacktestExportJobCommand = async (
+/**
+ * deserializeAws_json1_1DeletePredictorBacktestExportJobCommand
+ */
+export const de_DeletePredictorBacktestExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePredictorBacktestExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeletePredictorBacktestExportJobCommandError(output, context);
+    return de_DeletePredictorBacktestExportJobCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePredictorBacktestExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeletePredictorBacktestExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DeletePredictorBacktestExportJobCommandError
+ */
+const de_DeletePredictorBacktestExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePredictorBacktestExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteResourceTreeCommand = async (
+/**
+ * deserializeAws_json1_1DeleteResourceTreeCommand
+ */
+export const de_DeleteResourceTreeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceTreeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteResourceTreeCommandError(output, context);
+    return de_DeleteResourceTreeCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourceTreeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteResourceTreeCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteResourceTreeCommandError
+ */
+const de_DeleteResourceTreeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceTreeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetCommand = async (
+/**
+ * deserializeAws_json1_1DeleteWhatIfAnalysisCommand
+ */
+export const de_DeleteWhatIfAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteWhatIfAnalysisCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWhatIfAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfAnalysisCommandError
+ */
+const de_DeleteWhatIfAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfForecastCommand
+ */
+export const de_DeleteWhatIfForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteWhatIfForecastCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWhatIfForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfForecastCommandError
+ */
+const de_DeleteWhatIfForecastCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfForecastCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfForecastExportCommand
+ */
+export const de_DeleteWhatIfForecastExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfForecastExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteWhatIfForecastExportCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWhatIfForecastExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfForecastExportCommandError
+ */
+const de_DeleteWhatIfForecastExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfForecastExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeAutoPredictorCommand
+ */
+export const de_DescribeAutoPredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoPredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeAutoPredictorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAutoPredictorResponse(data, context);
+  const response: DescribeAutoPredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAutoPredictorCommandError
+ */
+const de_DescribeAutoPredictorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoPredictorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeDatasetCommand
+ */
+export const de_DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetCommandError(output, context);
+    return de_DescribeDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetResponse(data, context);
+  contents = de_DescribeDatasetResponse(data, context);
   const response: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetCommandError
+ */
+const de_DescribeDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupCommand
+ */
+export const de_DescribeDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetGroupCommandError(output, context);
+    return de_DescribeDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetGroupResponse(data, context);
+  contents = de_DescribeDatasetGroupResponse(data, context);
   const response: DescribeDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupCommandError
+ */
+const de_DescribeDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetImportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobCommand
+ */
+export const de_DescribeDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommandError(output, context);
+    return de_DescribeDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetImportJobResponse(data, context);
+  contents = de_DescribeDatasetImportJobResponse(data, context);
   const response: DescribeDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobCommandError
+ */
+const de_DescribeDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeForecastCommand = async (
+/**
+ * deserializeAws_json1_1DescribeExplainabilityCommand
+ */
+export const de_DescribeExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeExplainabilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeExplainabilityResponse(data, context);
+  const response: DescribeExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeExplainabilityCommandError
+ */
+const de_DescribeExplainabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeExplainabilityExportCommand
+ */
+export const de_DescribeExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeExplainabilityExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeExplainabilityExportResponse(data, context);
+  const response: DescribeExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeExplainabilityExportCommandError
+ */
+const de_DescribeExplainabilityExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeForecastCommand
+ */
+export const de_DescribeForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeForecastCommandError(output, context);
+    return de_DescribeForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeForecastResponse(data, context);
+  contents = de_DescribeForecastResponse(data, context);
   const response: DescribeForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeForecastCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeForecastCommandError
+ */
+const de_DescribeForecastCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeForecastCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeForecastExportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeForecastExportJobCommand
+ */
+export const de_DescribeForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeForecastExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeForecastExportJobCommandError(output, context);
+    return de_DescribeForecastExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeForecastExportJobResponse(data, context);
+  contents = de_DescribeForecastExportJobResponse(data, context);
   const response: DescribeForecastExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeForecastExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeForecastExportJobCommandError
+ */
+const de_DescribeForecastExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeForecastExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribePredictorCommand = async (
+/**
+ * deserializeAws_json1_1DescribeMonitorCommand
+ */
+export const de_DescribeMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMonitorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMonitorResponse(data, context);
+  const response: DescribeMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMonitorCommandError
+ */
+const de_DescribeMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribePredictorCommand
+ */
+export const de_DescribePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePredictorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePredictorCommandError(output, context);
+    return de_DescribePredictorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePredictorResponse(data, context);
+  contents = de_DescribePredictorResponse(data, context);
   const response: DescribePredictorCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribePredictorCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePredictorCommandError
+ */
+const de_DescribePredictorCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePredictorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribePredictorBacktestExportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribePredictorBacktestExportJobCommand
+ */
+export const de_DescribePredictorBacktestExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePredictorBacktestExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribePredictorBacktestExportJobCommandError(output, context);
+    return de_DescribePredictorBacktestExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePredictorBacktestExportJobResponse(data, context);
+  contents = de_DescribePredictorBacktestExportJobResponse(data, context);
   const response: DescribePredictorBacktestExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribePredictorBacktestExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribePredictorBacktestExportJobCommandError
+ */
+const de_DescribePredictorBacktestExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePredictorBacktestExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1GetAccuracyMetricsCommand = async (
+/**
+ * deserializeAws_json1_1DescribeWhatIfAnalysisCommand
+ */
+export const de_DescribeWhatIfAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeWhatIfAnalysisCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWhatIfAnalysisResponse(data, context);
+  const response: DescribeWhatIfAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfAnalysisCommandError
+ */
+const de_DescribeWhatIfAnalysisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfAnalysisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastCommand
+ */
+export const de_DescribeWhatIfForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeWhatIfForecastCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWhatIfForecastResponse(data, context);
+  const response: DescribeWhatIfForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastCommandError
+ */
+const de_DescribeWhatIfForecastCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfForecastCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastExportCommand
+ */
+export const de_DescribeWhatIfForecastExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfForecastExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeWhatIfForecastExportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWhatIfForecastExportResponse(data, context);
+  const response: DescribeWhatIfForecastExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastExportCommandError
+ */
+const de_DescribeWhatIfForecastExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfForecastExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetAccuracyMetricsCommand
+ */
+export const de_GetAccuracyMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccuracyMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAccuracyMetricsCommandError(output, context);
+    return de_GetAccuracyMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccuracyMetricsResponse(data, context);
+  contents = de_GetAccuracyMetricsResponse(data, context);
   const response: GetAccuracyMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetAccuracyMetricsCommandError = async (
+/**
+ * deserializeAws_json1_1GetAccuracyMetricsCommandError
+ */
+const de_GetAccuracyMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccuracyMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetGroupsCommand
+ */
+export const de_ListDatasetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetGroupsCommandError(output, context);
+    return de_ListDatasetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetGroupsResponse(data, context);
+  contents = de_ListDatasetGroupsResponse(data, context);
   const response: ListDatasetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetGroupsCommandError
+ */
+const de_ListDatasetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetImportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsCommand
+ */
+export const de_ListDatasetImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetImportJobsCommandError(output, context);
+    return de_ListDatasetImportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetImportJobsResponse(data, context);
+  contents = de_ListDatasetImportJobsResponse(data, context);
   const response: ListDatasetImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsCommandError
+ */
+const de_ListDatasetImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetsCommand
+ */
+export const de_ListDatasetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetsCommandError(output, context);
+    return de_ListDatasetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetsResponse(data, context);
+  contents = de_ListDatasetsResponse(data, context);
   const response: ListDatasetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetsCommandError
+ */
+const de_ListDatasetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListForecastExportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListExplainabilitiesCommand
+ */
+export const de_ListExplainabilitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListExplainabilitiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListExplainabilitiesResponse(data, context);
+  const response: ListExplainabilitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilitiesCommandError
+ */
+const de_ListExplainabilitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilityExportsCommand
+ */
+export const de_ListExplainabilityExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilityExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListExplainabilityExportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListExplainabilityExportsResponse(data, context);
+  const response: ListExplainabilityExportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilityExportsCommandError
+ */
+const de_ListExplainabilityExportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilityExportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListForecastExportJobsCommand
+ */
+export const de_ListForecastExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListForecastExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListForecastExportJobsCommandError(output, context);
+    return de_ListForecastExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListForecastExportJobsResponse(data, context);
+  contents = de_ListForecastExportJobsResponse(data, context);
   const response: ListForecastExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListForecastExportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListForecastExportJobsCommandError
+ */
+const de_ListForecastExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListForecastExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListForecastsCommand = async (
+/**
+ * deserializeAws_json1_1ListForecastsCommand
+ */
+export const de_ListForecastsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListForecastsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListForecastsCommandError(output, context);
+    return de_ListForecastsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListForecastsResponse(data, context);
+  contents = de_ListForecastsResponse(data, context);
   const response: ListForecastsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListForecastsCommandError = async (
+/**
+ * deserializeAws_json1_1ListForecastsCommandError
+ */
+const de_ListForecastsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListForecastsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListPredictorBacktestExportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListMonitorEvaluationsCommand
+ */
+export const de_ListMonitorEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitorEvaluationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListMonitorEvaluationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMonitorEvaluationsResponse(data, context);
+  const response: ListMonitorEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMonitorEvaluationsCommandError
+ */
+const de_ListMonitorEvaluationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitorEvaluationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListMonitorsCommand
+ */
+export const de_ListMonitorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListMonitorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMonitorsResponse(data, context);
+  const response: ListMonitorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMonitorsCommandError
+ */
+const de_ListMonitorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListPredictorBacktestExportJobsCommand
+ */
+export const de_ListPredictorBacktestExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPredictorBacktestExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPredictorBacktestExportJobsCommandError(output, context);
+    return de_ListPredictorBacktestExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPredictorBacktestExportJobsResponse(data, context);
+  contents = de_ListPredictorBacktestExportJobsResponse(data, context);
   const response: ListPredictorBacktestExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListPredictorBacktestExportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListPredictorBacktestExportJobsCommandError
+ */
+const de_ListPredictorBacktestExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPredictorBacktestExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListPredictorsCommand = async (
+/**
+ * deserializeAws_json1_1ListPredictorsCommand
+ */
+export const de_ListPredictorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPredictorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListPredictorsCommandError(output, context);
+    return de_ListPredictorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPredictorsResponse(data, context);
+  contents = de_ListPredictorsResponse(data, context);
   const response: ListPredictorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListPredictorsCommandError = async (
+/**
+ * deserializeAws_json1_1ListPredictorsCommandError
+ */
+const de_ListPredictorsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPredictorsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  contents = _json(data);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1StopResourceCommand = async (
+/**
+ * deserializeAws_json1_1ListWhatIfAnalysesCommand
+ */
+export const de_ListWhatIfAnalysesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfAnalysesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListWhatIfAnalysesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWhatIfAnalysesResponse(data, context);
+  const response: ListWhatIfAnalysesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfAnalysesCommandError
+ */
+const de_ListWhatIfAnalysesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfAnalysesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastExportsCommand
+ */
+export const de_ListWhatIfForecastExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfForecastExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListWhatIfForecastExportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWhatIfForecastExportsResponse(data, context);
+  const response: ListWhatIfForecastExportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastExportsCommandError
+ */
+const de_ListWhatIfForecastExportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfForecastExportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastsCommand
+ */
+export const de_ListWhatIfForecastsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfForecastsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListWhatIfForecastsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWhatIfForecastsResponse(data, context);
+  const response: ListWhatIfForecastsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastsCommandError
+ */
+const de_ListWhatIfForecastsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfForecastsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.forecast#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ResumeResourceCommand
+ */
+export const de_ResumeResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ResumeResourceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ResumeResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResumeResourceCommandError
+ */
+const de_ResumeResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.forecast#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopResourceCommand
+ */
+export const de_StopResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopResourceCommandError(output, context);
+    return de_StopResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopResourceCommandError = async (
+/**
+ * deserializeAws_json1_1StopResourceCommandError
+ */
+const de_StopResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1TagResourceCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  contents = _json(data);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1TagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecast#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1UntagResourceCommand = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  contents = _json(data);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UntagResourceCommandError = async (
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1UpdateDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1UpdateDatasetGroupCommand
+ */
+export const de_UpdateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateDatasetGroupCommandError(output, context);
+    return de_UpdateDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDatasetGroupResponse(data, context);
+  contents = _json(data);
   const response: UpdateDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateDatasetGroupCommandError
+ */
+const de_UpdateDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecast#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
-  const contents: InvalidInputException = {
-    name: "InvalidInputException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
-  const contents: ResourceAlreadyExistsException = {
-    name: "ResourceAlreadyExistsException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * serializeAws_json1_1Action
+ */
+const se_Action = (input: Action, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeName: [],
+    Operation: [],
+    Value: __serializeFloat,
+  });
+};
+
+// se_AdditionalDataset omitted.
+
+// se_AdditionalDatasets omitted.
+
+// se_ArnList omitted.
+
+// se_AttributeConfig omitted.
+
+// se_AttributeConfigs omitted.
+
+// se_CategoricalParameterRange omitted.
+
+// se_CategoricalParameterRanges omitted.
+
+// se_Configuration omitted.
+
+/**
+ * serializeAws_json1_1ContinuousParameterRange
+ */
+const se_ContinuousParameterRange = (input: ContinuousParameterRange, context: __SerdeContext): any => {
+  return take(input, {
+    MaxValue: __serializeFloat,
+    MinValue: __serializeFloat,
+    Name: [],
+    ScalingType: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1ContinuousParameterRanges
+ */
+const se_ContinuousParameterRanges = (input: ContinuousParameterRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
+      return se_ContinuousParameterRange(entry, context);
     });
 };
 
-const serializeAws_json1_1CategoricalParameterRange = (
-  input: CategoricalParameterRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Values !== undefined &&
-      input.Values !== null && { Values: serializeAws_json1_1Values(input.Values, context) }),
-  };
+// se_CreateAutoPredictorRequest omitted.
+
+// se_CreateDatasetGroupRequest omitted.
+
+// se_CreateDatasetImportJobRequest omitted.
+
+// se_CreateDatasetRequest omitted.
+
+// se_CreateExplainabilityExportRequest omitted.
+
+// se_CreateExplainabilityRequest omitted.
+
+// se_CreateForecastExportJobRequest omitted.
+
+// se_CreateForecastRequest omitted.
+
+// se_CreateMonitorRequest omitted.
+
+// se_CreatePredictorBacktestExportJobRequest omitted.
+
+/**
+ * serializeAws_json1_1CreatePredictorRequest
+ */
+const se_CreatePredictorRequest = (input: CreatePredictorRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AlgorithmArn: [],
+    AutoMLOverrideStrategy: [],
+    EncryptionConfig: _json,
+    EvaluationParameters: _json,
+    FeaturizationConfig: _json,
+    ForecastHorizon: [],
+    ForecastTypes: _json,
+    HPOConfig: (_) => se_HyperParameterTuningJobConfig(_, context),
+    InputDataConfig: _json,
+    OptimizationMetric: [],
+    PerformAutoML: [],
+    PerformHPO: [],
+    PredictorName: [],
+    Tags: _json,
+    TrainingParameters: _json,
+  });
 };
 
-const serializeAws_json1_1CategoricalParameterRanges = (
-  input: CategoricalParameterRange[],
-  context: __SerdeContext
-): any => {
+// se_CreateWhatIfAnalysisRequest omitted.
+
+// se_CreateWhatIfForecastExportRequest omitted.
+
+/**
+ * serializeAws_json1_1CreateWhatIfForecastRequest
+ */
+const se_CreateWhatIfForecastRequest = (input: CreateWhatIfForecastRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Tags: _json,
+    TimeSeriesReplacementsDataSource: _json,
+    TimeSeriesTransformations: (_) => se_TimeSeriesTransformations(_, context),
+    WhatIfAnalysisArn: [],
+    WhatIfForecastName: [],
+  });
+};
+
+// se_DataConfig omitted.
+
+// se_DataDestination omitted.
+
+// se_DataSource omitted.
+
+// se_DeleteDatasetGroupRequest omitted.
+
+// se_DeleteDatasetImportJobRequest omitted.
+
+// se_DeleteDatasetRequest omitted.
+
+// se_DeleteExplainabilityExportRequest omitted.
+
+// se_DeleteExplainabilityRequest omitted.
+
+// se_DeleteForecastExportJobRequest omitted.
+
+// se_DeleteForecastRequest omitted.
+
+// se_DeleteMonitorRequest omitted.
+
+// se_DeletePredictorBacktestExportJobRequest omitted.
+
+// se_DeletePredictorRequest omitted.
+
+// se_DeleteResourceTreeRequest omitted.
+
+// se_DeleteWhatIfAnalysisRequest omitted.
+
+// se_DeleteWhatIfForecastExportRequest omitted.
+
+// se_DeleteWhatIfForecastRequest omitted.
+
+// se_DescribeAutoPredictorRequest omitted.
+
+// se_DescribeDatasetGroupRequest omitted.
+
+// se_DescribeDatasetImportJobRequest omitted.
+
+// se_DescribeDatasetRequest omitted.
+
+// se_DescribeExplainabilityExportRequest omitted.
+
+// se_DescribeExplainabilityRequest omitted.
+
+// se_DescribeForecastExportJobRequest omitted.
+
+// se_DescribeForecastRequest omitted.
+
+// se_DescribeMonitorRequest omitted.
+
+// se_DescribePredictorBacktestExportJobRequest omitted.
+
+// se_DescribePredictorRequest omitted.
+
+// se_DescribeWhatIfAnalysisRequest omitted.
+
+// se_DescribeWhatIfForecastExportRequest omitted.
+
+// se_DescribeWhatIfForecastRequest omitted.
+
+// se_EncryptionConfig omitted.
+
+// se_EvaluationParameters omitted.
+
+// se_ExplainabilityConfig omitted.
+
+// se_Featurization omitted.
+
+// se_FeaturizationConfig omitted.
+
+// se_FeaturizationMethod omitted.
+
+// se_FeaturizationMethodParameters omitted.
+
+// se_FeaturizationPipeline omitted.
+
+// se_Featurizations omitted.
+
+// se_Filter omitted.
+
+// se_Filters omitted.
+
+// se_ForecastDimensions omitted.
+
+// se_ForecastTypes omitted.
+
+// se_GetAccuracyMetricsRequest omitted.
+
+/**
+ * serializeAws_json1_1HyperParameterTuningJobConfig
+ */
+const se_HyperParameterTuningJobConfig = (input: HyperParameterTuningJobConfig, context: __SerdeContext): any => {
+  return take(input, {
+    ParameterRanges: (_) => se_ParameterRanges(_, context),
+  });
+};
+
+// se_InputDataConfig omitted.
+
+// se_IntegerParameterRange omitted.
+
+// se_IntegerParameterRanges omitted.
+
+// se_ListDatasetGroupsRequest omitted.
+
+// se_ListDatasetImportJobsRequest omitted.
+
+// se_ListDatasetsRequest omitted.
+
+// se_ListExplainabilitiesRequest omitted.
+
+// se_ListExplainabilityExportsRequest omitted.
+
+// se_ListForecastExportJobsRequest omitted.
+
+// se_ListForecastsRequest omitted.
+
+// se_ListMonitorEvaluationsRequest omitted.
+
+// se_ListMonitorsRequest omitted.
+
+// se_ListPredictorBacktestExportJobsRequest omitted.
+
+// se_ListPredictorsRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
+// se_ListWhatIfAnalysesRequest omitted.
+
+// se_ListWhatIfForecastExportsRequest omitted.
+
+// se_ListWhatIfForecastsRequest omitted.
+
+// se_MonitorConfig omitted.
+
+/**
+ * serializeAws_json1_1ParameterRanges
+ */
+const se_ParameterRanges = (input: ParameterRanges, context: __SerdeContext): any => {
+  return take(input, {
+    CategoricalParameterRanges: _json,
+    ContinuousParameterRanges: (_) => se_ContinuousParameterRanges(_, context),
+    IntegerParameterRanges: _json,
+  });
+};
+
+// se_ResumeResourceRequest omitted.
+
+// se_S3Config omitted.
+
+// se_Schema omitted.
+
+// se_SchemaAttribute omitted.
+
+// se_SchemaAttributes omitted.
+
+// se_StopResourceRequest omitted.
+
+// se_SupplementaryFeature omitted.
+
+// se_SupplementaryFeatures omitted.
+
+// se_Tag omitted.
+
+// se_TagKeys omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_Tags omitted.
+
+// se_TimeAlignmentBoundary omitted.
+
+// se_TimeSeriesCondition omitted.
+
+// se_TimeSeriesConditions omitted.
+
+// se_TimeSeriesIdentifiers omitted.
+
+// se_TimeSeriesReplacementsDataSource omitted.
+
+// se_TimeSeriesSelector omitted.
+
+/**
+ * serializeAws_json1_1TimeSeriesTransformation
+ */
+const se_TimeSeriesTransformation = (input: TimeSeriesTransformation, context: __SerdeContext): any => {
+  return take(input, {
+    Action: (_) => se_Action(_, context),
+    TimeSeriesConditions: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1TimeSeriesTransformations
+ */
+const se_TimeSeriesTransformations = (input: TimeSeriesTransformation[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1CategoricalParameterRange(entry, context);
+      return se_TimeSeriesTransformation(entry, context);
     });
 };
 
-const serializeAws_json1_1ContinuousParameterRange = (
-  input: ContinuousParameterRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxValue !== undefined && input.MaxValue !== null && { MaxValue: __serializeFloat(input.MaxValue) }),
-    ...(input.MinValue !== undefined && input.MinValue !== null && { MinValue: __serializeFloat(input.MinValue) }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
-  };
-};
-
-const serializeAws_json1_1ContinuousParameterRanges = (
-  input: ContinuousParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1ContinuousParameterRange(entry, context);
-    });
-};
-
-const serializeAws_json1_1CreateDatasetGroupRequest = (
-  input: CreateDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatasetArns !== undefined &&
-      input.DatasetArns !== null && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
-    ...(input.DatasetGroupName !== undefined &&
-      input.DatasetGroupName !== null && { DatasetGroupName: input.DatasetGroupName }),
-    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1CreateDatasetImportJobRequest = (
-  input: CreateDatasetImportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DataSource !== undefined &&
-      input.DataSource !== null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
-    ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
-    ...(input.DatasetImportJobName !== undefined &&
-      input.DatasetImportJobName !== null && { DatasetImportJobName: input.DatasetImportJobName }),
-    ...(input.GeolocationFormat !== undefined &&
-      input.GeolocationFormat !== null && { GeolocationFormat: input.GeolocationFormat }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TimeZone !== undefined && input.TimeZone !== null && { TimeZone: input.TimeZone }),
-    ...(input.TimestampFormat !== undefined &&
-      input.TimestampFormat !== null && { TimestampFormat: input.TimestampFormat }),
-    ...(input.UseGeolocationForTimeZone !== undefined &&
-      input.UseGeolocationForTimeZone !== null && { UseGeolocationForTimeZone: input.UseGeolocationForTimeZone }),
-  };
-};
-
-const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DataFrequency !== undefined && input.DataFrequency !== null && { DataFrequency: input.DataFrequency }),
-    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
-    ...(input.DatasetType !== undefined && input.DatasetType !== null && { DatasetType: input.DatasetType }),
-    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
-    ...(input.EncryptionConfig !== undefined &&
-      input.EncryptionConfig !== null && {
-        EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
-      }),
-    ...(input.Schema !== undefined &&
-      input.Schema !== null && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1CreateForecastExportJobRequest = (
-  input: CreateForecastExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination !== undefined &&
-      input.Destination !== null && { Destination: serializeAws_json1_1DataDestination(input.Destination, context) }),
-    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
-    ...(input.ForecastExportJobName !== undefined &&
-      input.ForecastExportJobName !== null && { ForecastExportJobName: input.ForecastExportJobName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1CreateForecastRequest = (input: CreateForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastName !== undefined && input.ForecastName !== null && { ForecastName: input.ForecastName }),
-    ...(input.ForecastTypes !== undefined &&
-      input.ForecastTypes !== null && {
-        ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
-      }),
-    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1CreatePredictorBacktestExportJobRequest = (
-  input: CreatePredictorBacktestExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Destination !== undefined &&
-      input.Destination !== null && { Destination: serializeAws_json1_1DataDestination(input.Destination, context) }),
-    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
-    ...(input.PredictorBacktestExportJobName !== undefined &&
-      input.PredictorBacktestExportJobName !== null && {
-        PredictorBacktestExportJobName: input.PredictorBacktestExportJobName,
-      }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.AlgorithmArn !== undefined && input.AlgorithmArn !== null && { AlgorithmArn: input.AlgorithmArn }),
-    ...(input.AutoMLOverrideStrategy !== undefined &&
-      input.AutoMLOverrideStrategy !== null && { AutoMLOverrideStrategy: input.AutoMLOverrideStrategy }),
-    ...(input.EncryptionConfig !== undefined &&
-      input.EncryptionConfig !== null && {
-        EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
-      }),
-    ...(input.EvaluationParameters !== undefined &&
-      input.EvaluationParameters !== null && {
-        EvaluationParameters: serializeAws_json1_1EvaluationParameters(input.EvaluationParameters, context),
-      }),
-    ...(input.FeaturizationConfig !== undefined &&
-      input.FeaturizationConfig !== null && {
-        FeaturizationConfig: serializeAws_json1_1FeaturizationConfig(input.FeaturizationConfig, context),
-      }),
-    ...(input.ForecastHorizon !== undefined &&
-      input.ForecastHorizon !== null && { ForecastHorizon: input.ForecastHorizon }),
-    ...(input.ForecastTypes !== undefined &&
-      input.ForecastTypes !== null && {
-        ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
-      }),
-    ...(input.HPOConfig !== undefined &&
-      input.HPOConfig !== null && {
-        HPOConfig: serializeAws_json1_1HyperParameterTuningJobConfig(input.HPOConfig, context),
-      }),
-    ...(input.InputDataConfig !== undefined &&
-      input.InputDataConfig !== null && {
-        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-      }),
-    ...(input.OptimizationMetric !== undefined &&
-      input.OptimizationMetric !== null && { OptimizationMetric: input.OptimizationMetric }),
-    ...(input.PerformAutoML !== undefined && input.PerformAutoML !== null && { PerformAutoML: input.PerformAutoML }),
-    ...(input.PerformHPO !== undefined && input.PerformHPO !== null && { PerformHPO: input.PerformHPO }),
-    ...(input.PredictorName !== undefined && input.PredictorName !== null && { PredictorName: input.PredictorName }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TrainingParameters !== undefined &&
-      input.TrainingParameters !== null && {
-        TrainingParameters: serializeAws_json1_1TrainingParameters(input.TrainingParameters, context),
-      }),
-  };
-};
-
-const serializeAws_json1_1DataDestination = (input: DataDestination, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Config !== undefined &&
-      input.S3Config !== null && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
-  };
-};
-
-const serializeAws_json1_1DataSource = (input: DataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.S3Config !== undefined &&
-      input.S3Config !== null && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
-  };
-};
-
-const serializeAws_json1_1DeleteDatasetGroupRequest = (
-  input: DeleteDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatasetGroupArn !== undefined &&
-      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
-};
-
-const serializeAws_json1_1DeleteDatasetImportJobRequest = (
-  input: DeleteDatasetImportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatasetImportJobArn !== undefined &&
-      input.DatasetImportJobArn !== null && { DatasetImportJobArn: input.DatasetImportJobArn }),
-  };
-};
-
-const serializeAws_json1_1DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
-  };
-};
-
-const serializeAws_json1_1DeleteForecastExportJobRequest = (
-  input: DeleteForecastExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ForecastExportJobArn !== undefined &&
-      input.ForecastExportJobArn !== null && { ForecastExportJobArn: input.ForecastExportJobArn }),
-  };
-};
-
-const serializeAws_json1_1DeleteForecastRequest = (input: DeleteForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
-  };
-};
-
-const serializeAws_json1_1DeletePredictorBacktestExportJobRequest = (
-  input: DeletePredictorBacktestExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredictorBacktestExportJobArn !== undefined &&
-      input.PredictorBacktestExportJobArn !== null && {
-        PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
-      }),
-  };
-};
-
-const serializeAws_json1_1DeletePredictorRequest = (input: DeletePredictorRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
-  };
-};
-
-const serializeAws_json1_1DeleteResourceTreeRequest = (
-  input: DeleteResourceTreeRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-const serializeAws_json1_1DescribeDatasetGroupRequest = (
-  input: DescribeDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatasetGroupArn !== undefined &&
-      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
-};
-
-const serializeAws_json1_1DescribeDatasetImportJobRequest = (
-  input: DescribeDatasetImportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatasetImportJobArn !== undefined &&
-      input.DatasetImportJobArn !== null && { DatasetImportJobArn: input.DatasetImportJobArn }),
-  };
-};
-
-const serializeAws_json1_1DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
-  };
-};
-
-const serializeAws_json1_1DescribeForecastExportJobRequest = (
-  input: DescribeForecastExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ForecastExportJobArn !== undefined &&
-      input.ForecastExportJobArn !== null && { ForecastExportJobArn: input.ForecastExportJobArn }),
-  };
-};
-
-const serializeAws_json1_1DescribeForecastRequest = (input: DescribeForecastRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
-  };
-};
-
-const serializeAws_json1_1DescribePredictorBacktestExportJobRequest = (
-  input: DescribePredictorBacktestExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredictorBacktestExportJobArn !== undefined &&
-      input.PredictorBacktestExportJobArn !== null && {
-        PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
-      }),
-  };
-};
-
-const serializeAws_json1_1DescribePredictorRequest = (
-  input: DescribePredictorRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
-  };
-};
-
-const serializeAws_json1_1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.KMSKeyArn !== undefined && input.KMSKeyArn !== null && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
-  };
-};
-
-const serializeAws_json1_1EvaluationParameters = (input: EvaluationParameters, context: __SerdeContext): any => {
-  return {
-    ...(input.BackTestWindowOffset !== undefined &&
-      input.BackTestWindowOffset !== null && { BackTestWindowOffset: input.BackTestWindowOffset }),
-    ...(input.NumberOfBacktestWindows !== undefined &&
-      input.NumberOfBacktestWindows !== null && { NumberOfBacktestWindows: input.NumberOfBacktestWindows }),
-  };
-};
-
-const serializeAws_json1_1Featurization = (input: Featurization, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
-    ...(input.FeaturizationPipeline !== undefined &&
-      input.FeaturizationPipeline !== null && {
-        FeaturizationPipeline: serializeAws_json1_1FeaturizationPipeline(input.FeaturizationPipeline, context),
-      }),
-  };
-};
-
-const serializeAws_json1_1FeaturizationConfig = (input: FeaturizationConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.Featurizations !== undefined &&
-      input.Featurizations !== null && {
-        Featurizations: serializeAws_json1_1Featurizations(input.Featurizations, context),
-      }),
-    ...(input.ForecastDimensions !== undefined &&
-      input.ForecastDimensions !== null && {
-        ForecastDimensions: serializeAws_json1_1ForecastDimensions(input.ForecastDimensions, context),
-      }),
-    ...(input.ForecastFrequency !== undefined &&
-      input.ForecastFrequency !== null && { ForecastFrequency: input.ForecastFrequency }),
-  };
-};
-
-const serializeAws_json1_1FeaturizationMethod = (input: FeaturizationMethod, context: __SerdeContext): any => {
-  return {
-    ...(input.FeaturizationMethodName !== undefined &&
-      input.FeaturizationMethodName !== null && { FeaturizationMethodName: input.FeaturizationMethodName }),
-    ...(input.FeaturizationMethodParameters !== undefined &&
-      input.FeaturizationMethodParameters !== null && {
-        FeaturizationMethodParameters: serializeAws_json1_1FeaturizationMethodParameters(
-          input.FeaturizationMethodParameters,
-          context
-        ),
-      }),
-  };
-};
-
-const serializeAws_json1_1FeaturizationMethodParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_json1_1FeaturizationPipeline = (input: FeaturizationMethod[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1FeaturizationMethod(entry, context);
-    });
-};
-
-const serializeAws_json1_1Featurizations = (input: Featurization[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1Featurization(entry, context);
-    });
-};
-
-const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.Condition !== undefined && input.Condition !== null && { Condition: input.Condition }),
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1Filter(entry, context);
-    });
-};
-
-const serializeAws_json1_1ForecastDimensions = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1ForecastTypes = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_json1_1GetAccuracyMetricsRequest = (
-  input: GetAccuracyMetricsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
-  };
-};
-
-const serializeAws_json1_1HyperParameterTuningJobConfig = (
-  input: HyperParameterTuningJobConfig,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ParameterRanges !== undefined &&
-      input.ParameterRanges !== null && {
-        ParameterRanges: serializeAws_json1_1ParameterRanges(input.ParameterRanges, context),
-      }),
-  };
-};
-
-const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.DatasetGroupArn !== undefined &&
-      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
-    ...(input.SupplementaryFeatures !== undefined &&
-      input.SupplementaryFeatures !== null && {
-        SupplementaryFeatures: serializeAws_json1_1SupplementaryFeatures(input.SupplementaryFeatures, context),
-      }),
-  };
-};
-
-const serializeAws_json1_1IntegerParameterRange = (input: IntegerParameterRange, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxValue !== undefined && input.MaxValue !== null && { MaxValue: input.MaxValue }),
-    ...(input.MinValue !== undefined && input.MinValue !== null && { MinValue: input.MinValue }),
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
-  };
-};
-
-const serializeAws_json1_1IntegerParameterRanges = (input: IntegerParameterRange[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1IntegerParameterRange(entry, context);
-    });
-};
-
-const serializeAws_json1_1ListDatasetGroupsRequest = (
-  input: ListDatasetGroupsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
+// se_TrainingParameters omitted.
 
-const serializeAws_json1_1ListDatasetImportJobsRequest = (
-  input: ListDatasetImportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListForecastExportJobsRequest = (
-  input: ListForecastExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListForecastsRequest = (input: ListForecastsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListPredictorBacktestExportJobsRequest = (
-  input: ListPredictorBacktestExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListPredictorsRequest = (input: ListPredictorsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.Filters !== undefined &&
-      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  };
-};
-
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  };
-};
-
-const serializeAws_json1_1ParameterRanges = (input: ParameterRanges, context: __SerdeContext): any => {
-  return {
-    ...(input.CategoricalParameterRanges !== undefined &&
-      input.CategoricalParameterRanges !== null && {
-        CategoricalParameterRanges: serializeAws_json1_1CategoricalParameterRanges(
-          input.CategoricalParameterRanges,
-          context
-        ),
-      }),
-    ...(input.ContinuousParameterRanges !== undefined &&
-      input.ContinuousParameterRanges !== null && {
-        ContinuousParameterRanges: serializeAws_json1_1ContinuousParameterRanges(
-          input.ContinuousParameterRanges,
-          context
-        ),
-      }),
-    ...(input.IntegerParameterRanges !== undefined &&
-      input.IntegerParameterRanges !== null && {
-        IntegerParameterRanges: serializeAws_json1_1IntegerParameterRanges(input.IntegerParameterRanges, context),
-      }),
-  };
-};
+// se_Transformations omitted.
 
-const serializeAws_json1_1S3Config = (input: S3Config, context: __SerdeContext): any => {
-  return {
-    ...(input.KMSKeyArn !== undefined && input.KMSKeyArn !== null && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
-    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
-  };
-};
-
-const serializeAws_json1_1Schema = (input: Schema, context: __SerdeContext): any => {
-  return {
-    ...(input.Attributes !== undefined &&
-      input.Attributes !== null && { Attributes: serializeAws_json1_1SchemaAttributes(input.Attributes, context) }),
-  };
-};
-
-const serializeAws_json1_1SchemaAttribute = (input: SchemaAttribute, context: __SerdeContext): any => {
-  return {
-    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
-    ...(input.AttributeType !== undefined && input.AttributeType !== null && { AttributeType: input.AttributeType }),
-  };
-};
-
-const serializeAws_json1_1SchemaAttributes = (input: SchemaAttribute[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1SchemaAttribute(entry, context);
-    });
-};
+// se_UntagResourceRequest omitted.
 
-const serializeAws_json1_1StopResourceRequest = (input: StopResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-  };
-};
+// se_UpdateDatasetGroupRequest omitted.
 
-const serializeAws_json1_1SupplementaryFeature = (input: SupplementaryFeature, context: __SerdeContext): any => {
-  return {
-    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
-};
+// se_Values omitted.
 
-const serializeAws_json1_1SupplementaryFeatures = (input: SupplementaryFeature[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1SupplementaryFeature(entry, context);
-    });
-};
+// se_WhatIfForecastArnListForExport omitted.
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
-  };
+/**
+ * deserializeAws_json1_1Action
+ */
+const de_Action = (output: any, context: __SerdeContext): Action => {
+  return take(output, {
+    AttributeName: __expectString,
+    Operation: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
-const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// de_AdditionalDataset omitted.
 
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-  };
-};
+// de_AdditionalDatasets omitted.
 
-const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1Tag(entry, context);
-    });
-};
+// de_ArnList omitted.
 
-const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
+// de_AttributeConfig omitted.
 
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined &&
-      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
-  };
-};
+// de_AttributeConfigs omitted.
 
-const serializeAws_json1_1UpdateDatasetGroupRequest = (
-  input: UpdateDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.DatasetArns !== undefined &&
-      input.DatasetArns !== null && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
-    ...(input.DatasetGroupArn !== undefined &&
-      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
-  };
+/**
+ * deserializeAws_json1_1Baseline
+ */
+const de_Baseline = (output: any, context: __SerdeContext): Baseline => {
+  return take(output, {
+    PredictorBaseline: (_: any) => de_PredictorBaseline(_, context),
+  }) as any;
 };
 
-const serializeAws_json1_1Values = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
+/**
+ * deserializeAws_json1_1BaselineMetric
+ */
+const de_BaselineMetric = (output: any, context: __SerdeContext): BaselineMetric => {
+  return take(output, {
+    Name: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1BaselineMetrics
+ */
+const de_BaselineMetrics = (output: any, context: __SerdeContext): BaselineMetric[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_BaselineMetric(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1CategoricalParameterRange = (
-  output: any,
-  context: __SerdeContext
-): CategoricalParameterRange => {
-  return {
-    Name: __expectString(output.Name),
-    Values:
-      output.Values !== undefined && output.Values !== null
-        ? deserializeAws_json1_1Values(output.Values, context)
-        : undefined,
-  } as any;
+// de_CategoricalParameterRange omitted.
+
+// de_CategoricalParameterRanges omitted.
+
+// de_Configuration omitted.
+
+/**
+ * deserializeAws_json1_1ContinuousParameterRange
+ */
+const de_ContinuousParameterRange = (output: any, context: __SerdeContext): ContinuousParameterRange => {
+  return take(output, {
+    MaxValue: __limitedParseDouble,
+    MinValue: __limitedParseDouble,
+    Name: __expectString,
+    ScalingType: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CategoricalParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): CategoricalParameterRange[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1ContinuousParameterRanges
+ */
+const de_ContinuousParameterRanges = (output: any, context: __SerdeContext): ContinuousParameterRange[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CategoricalParameterRange(entry, context);
+      return de_ContinuousParameterRange(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1ContinuousParameterRange = (
-  output: any,
-  context: __SerdeContext
-): ContinuousParameterRange => {
-  return {
-    MaxValue: __limitedParseDouble(output.MaxValue),
-    MinValue: __limitedParseDouble(output.MinValue),
-    Name: __expectString(output.Name),
-    ScalingType: __expectString(output.ScalingType),
-  } as any;
-};
+// de_CreateAutoPredictorResponse omitted.
 
-const deserializeAws_json1_1ContinuousParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): ContinuousParameterRange[] => {
-  return (output || [])
+// de_CreateDatasetGroupResponse omitted.
+
+// de_CreateDatasetImportJobResponse omitted.
+
+// de_CreateDatasetResponse omitted.
+
+// de_CreateExplainabilityExportResponse omitted.
+
+// de_CreateExplainabilityResponse omitted.
+
+// de_CreateForecastExportJobResponse omitted.
+
+// de_CreateForecastResponse omitted.
+
+// de_CreateMonitorResponse omitted.
+
+// de_CreatePredictorBacktestExportJobResponse omitted.
+
+// de_CreatePredictorResponse omitted.
+
+// de_CreateWhatIfAnalysisResponse omitted.
+
+// de_CreateWhatIfForecastExportResponse omitted.
+
+// de_CreateWhatIfForecastResponse omitted.
+
+// de_DataConfig omitted.
+
+// de_DataDestination omitted.
+
+/**
+ * deserializeAws_json1_1DatasetGroups
+ */
+const de_DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ContinuousParameterRange(entry, context);
+      return de_DatasetGroupSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1CreateDatasetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDatasetGroupResponse => {
-  return {
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetGroupSummary
+ */
+const de_DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    DatasetGroupName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateDatasetImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDatasetImportJobResponse => {
-  return {
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
-  return {
-    DatasetArn: __expectString(output.DatasetArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateForecastExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateForecastExportJobResponse => {
-  return {
-    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateForecastResponse = (output: any, context: __SerdeContext): CreateForecastResponse => {
-  return {
-    ForecastArn: __expectString(output.ForecastArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreatePredictorBacktestExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePredictorBacktestExportJobResponse => {
-  return {
-    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreatePredictorResponse = (
-  output: any,
-  context: __SerdeContext
-): CreatePredictorResponse => {
-  return {
-    PredictorArn: __expectString(output.PredictorArn),
-  } as any;
-};
-
-const deserializeAws_json1_1DataDestination = (output: any, context: __SerdeContext): DataDestination => {
-  return {
-    S3Config:
-      output.S3Config !== undefined && output.S3Config !== null
-        ? deserializeAws_json1_1S3Config(output.S3Config, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1DatasetImportJobs
+ */
+const de_DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImportJobSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetGroupSummary(entry, context);
+      return de_DatasetImportJobSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    DatasetGroupName: __expectString(output.DatasetGroupName),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetImportJobSummary
+ */
+const de_DatasetImportJobSummary = (output: any, context: __SerdeContext): DatasetImportJobSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSource: _json,
+    DatasetImportJobArn: __expectString,
+    DatasetImportJobName: __expectString,
+    ImportMode: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImportJobSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Datasets
+ */
+const de_Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetImportJobSummary(entry, context);
+      return de_DatasetSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1DatasetImportJobSummary = (
-  output: any,
-  context: __SerdeContext
-): DatasetImportJobSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataSource:
-      output.DataSource !== undefined && output.DataSource !== null
-        ? deserializeAws_json1_1DataSource(output.DataSource, context)
-        : undefined,
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-    DatasetImportJobName: __expectString(output.DatasetImportJobName),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetSummary
+ */
+const de_DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetArn: __expectString,
+    DatasetName: __expectString,
+    DatasetType: __expectString,
+    Domain: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
-const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetSummary(entry, context);
-    });
+// de_DataSource omitted.
+
+/**
+ * deserializeAws_json1_1DescribeAutoPredictorResponse
+ */
+const de_DescribeAutoPredictorResponse = (output: any, context: __SerdeContext): DescribeAutoPredictorResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataConfig: _json,
+    DatasetImportJobArns: _json,
+    EncryptionConfig: _json,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ExplainabilityInfo: _json,
+    ForecastDimensions: _json,
+    ForecastFrequency: __expectString,
+    ForecastHorizon: __expectInt32,
+    ForecastTypes: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    MonitorInfo: _json,
+    OptimizationMetric: __expectString,
+    PredictorArn: __expectString,
+    PredictorName: __expectString,
+    ReferencePredictorSummary: _json,
+    Status: __expectString,
+    TimeAlignmentBoundary: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetName: __expectString(output.DatasetName),
-    DatasetType: __expectString(output.DatasetType),
-    Domain: __expectString(output.Domain),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupResponse
+ */
+const de_DescribeDatasetGroupResponse = (output: any, context: __SerdeContext): DescribeDatasetGroupResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetArns: _json,
+    DatasetGroupArn: __expectString,
+    DatasetGroupName: __expectString,
+    Domain: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    S3Config:
-      output.S3Config !== undefined && output.S3Config !== null
-        ? deserializeAws_json1_1S3Config(output.S3Config, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeDatasetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeDatasetGroupResponse => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetArns:
-      output.DatasetArns !== undefined && output.DatasetArns !== null
-        ? deserializeAws_json1_1ArnList(output.DatasetArns, context)
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    DatasetGroupName: __expectString(output.DatasetGroupName),
-    Domain: __expectString(output.Domain),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobResponse
+ */
+const de_DescribeDatasetImportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDatasetImportJobResponse => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataSize: __limitedParseDouble(output.DataSize),
-    DataSource:
-      output.DataSource !== undefined && output.DataSource !== null
-        ? deserializeAws_json1_1DataSource(output.DataSource, context)
-        : undefined,
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetImportJobArn: __expectString(output.DatasetImportJobArn),
-    DatasetImportJobName: __expectString(output.DatasetImportJobName),
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    FieldStatistics:
-      output.FieldStatistics !== undefined && output.FieldStatistics !== null
-        ? deserializeAws_json1_1FieldStatistics(output.FieldStatistics, context)
-        : undefined,
-    GeolocationFormat: __expectString(output.GeolocationFormat),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TimeZone: __expectString(output.TimeZone),
-    TimestampFormat: __expectString(output.TimestampFormat),
-    UseGeolocationForTimeZone: __expectBoolean(output.UseGeolocationForTimeZone),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSize: __limitedParseDouble,
+    DataSource: _json,
+    DatasetArn: __expectString,
+    DatasetImportJobArn: __expectString,
+    DatasetImportJobName: __expectString,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    FieldStatistics: (_: any) => de_FieldStatistics(_, context),
+    Format: __expectString,
+    GeolocationFormat: __expectString,
+    ImportMode: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    TimeZone: __expectString,
+    TimestampFormat: __expectString,
+    UseGeolocationForTimeZone: __expectBoolean,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeDatasetResponse = (
+/**
+ * deserializeAws_json1_1DescribeDatasetResponse
+ */
+const de_DescribeDatasetResponse = (output: any, context: __SerdeContext): DescribeDatasetResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataFrequency: __expectString,
+    DatasetArn: __expectString,
+    DatasetName: __expectString,
+    DatasetType: __expectString,
+    Domain: __expectString,
+    EncryptionConfig: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Schema: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeExplainabilityExportResponse
+ */
+const de_DescribeExplainabilityExportResponse = (
   output: any,
   context: __SerdeContext
-): DescribeDatasetResponse => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DataFrequency: __expectString(output.DataFrequency),
-    DatasetArn: __expectString(output.DatasetArn),
-    DatasetName: __expectString(output.DatasetName),
-    DatasetType: __expectString(output.DatasetType),
-    Domain: __expectString(output.Domain),
-    EncryptionConfig:
-      output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
-        ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Schema:
-      output.Schema !== undefined && output.Schema !== null
-        ? deserializeAws_json1_1Schema(output.Schema, context)
-        : undefined,
-    Status: __expectString(output.Status),
-  } as any;
+): DescribeExplainabilityExportResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ExplainabilityArn: __expectString,
+    ExplainabilityExportArn: __expectString,
+    ExplainabilityExportName: __expectString,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeForecastExportJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeExplainabilityResponse
+ */
+const de_DescribeExplainabilityResponse = (output: any, context: __SerdeContext): DescribeExplainabilityResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataSource: _json,
+    EnableVisualization: __expectBoolean,
+    EndDateTime: __expectString,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ExplainabilityArn: __expectString,
+    ExplainabilityConfig: _json,
+    ExplainabilityName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    ResourceArn: __expectString,
+    Schema: _json,
+    StartDateTime: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeForecastExportJobResponse
+ */
+const de_DescribeForecastExportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeForecastExportJobResponse => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination:
-      output.Destination !== undefined && output.Destination !== null
-        ? deserializeAws_json1_1DataDestination(output.Destination, context)
-        : undefined,
-    ForecastArn: __expectString(output.ForecastArn),
-    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
-    ForecastExportJobName: __expectString(output.ForecastExportJobName),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ForecastArn: __expectString,
+    ForecastExportJobArn: __expectString,
+    ForecastExportJobName: __expectString,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeForecastResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeForecastResponse => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    ForecastArn: __expectString(output.ForecastArn),
-    ForecastName: __expectString(output.ForecastName),
-    ForecastTypes:
-      output.ForecastTypes !== undefined && output.ForecastTypes !== null
-        ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    Status: __expectString(output.Status),
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeForecastResponse
+ */
+const de_DescribeForecastResponse = (output: any, context: __SerdeContext): DescribeForecastResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ForecastArn: __expectString,
+    ForecastName: __expectString,
+    ForecastTypes: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    Status: __expectString,
+    TimeSeriesSelector: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribePredictorBacktestExportJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeMonitorResponse
+ */
+const de_DescribeMonitorResponse = (output: any, context: __SerdeContext): DescribeMonitorResponse => {
+  return take(output, {
+    Baseline: (_: any) => de_Baseline(_, context),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EstimatedEvaluationTimeRemainingInMinutes: __expectLong,
+    LastEvaluationState: __expectString,
+    LastEvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    MonitorArn: __expectString,
+    MonitorName: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribePredictorBacktestExportJobResponse
+ */
+const de_DescribePredictorBacktestExportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribePredictorBacktestExportJobResponse => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination:
-      output.Destination !== undefined && output.Destination !== null
-        ? deserializeAws_json1_1DataDestination(output.Destination, context)
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
-    PredictorBacktestExportJobName: __expectString(output.PredictorBacktestExportJobName),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    PredictorBacktestExportJobArn: __expectString,
+    PredictorBacktestExportJobName: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribePredictorResponse = (
+/**
+ * deserializeAws_json1_1DescribePredictorResponse
+ */
+const de_DescribePredictorResponse = (output: any, context: __SerdeContext): DescribePredictorResponse => {
+  return take(output, {
+    AlgorithmArn: __expectString,
+    AutoMLAlgorithmArns: _json,
+    AutoMLOverrideStrategy: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetImportJobArns: _json,
+    EncryptionConfig: _json,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    EvaluationParameters: _json,
+    FeaturizationConfig: _json,
+    ForecastHorizon: __expectInt32,
+    ForecastTypes: _json,
+    HPOConfig: (_: any) => de_HyperParameterTuningJobConfig(_, context),
+    InputDataConfig: _json,
+    IsAutoPredictor: __expectBoolean,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    OptimizationMetric: __expectString,
+    PerformAutoML: __expectBoolean,
+    PerformHPO: __expectBoolean,
+    PredictorArn: __expectString,
+    PredictorExecutionDetails: (_: any) => de_PredictorExecutionDetails(_, context),
+    PredictorName: __expectString,
+    Status: __expectString,
+    TrainingParameters: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfAnalysisResponse
+ */
+const de_DescribeWhatIfAnalysisResponse = (output: any, context: __SerdeContext): DescribeWhatIfAnalysisResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ForecastArn: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    TimeSeriesSelector: _json,
+    WhatIfAnalysisArn: __expectString,
+    WhatIfAnalysisName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastExportResponse
+ */
+const de_DescribeWhatIfForecastExportResponse = (
   output: any,
   context: __SerdeContext
-): DescribePredictorResponse => {
-  return {
-    AlgorithmArn: __expectString(output.AlgorithmArn),
-    AutoMLAlgorithmArns:
-      output.AutoMLAlgorithmArns !== undefined && output.AutoMLAlgorithmArns !== null
-        ? deserializeAws_json1_1ArnList(output.AutoMLAlgorithmArns, context)
-        : undefined,
-    AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetImportJobArns:
-      output.DatasetImportJobArns !== undefined && output.DatasetImportJobArns !== null
-        ? deserializeAws_json1_1ArnList(output.DatasetImportJobArns, context)
-        : undefined,
-    EncryptionConfig:
-      output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
-        ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
-        : undefined,
-    EstimatedTimeRemainingInMinutes: __expectLong(output.EstimatedTimeRemainingInMinutes),
-    EvaluationParameters:
-      output.EvaluationParameters !== undefined && output.EvaluationParameters !== null
-        ? deserializeAws_json1_1EvaluationParameters(output.EvaluationParameters, context)
-        : undefined,
-    FeaturizationConfig:
-      output.FeaturizationConfig !== undefined && output.FeaturizationConfig !== null
-        ? deserializeAws_json1_1FeaturizationConfig(output.FeaturizationConfig, context)
-        : undefined,
-    ForecastHorizon: __expectInt32(output.ForecastHorizon),
-    ForecastTypes:
-      output.ForecastTypes !== undefined && output.ForecastTypes !== null
-        ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
-        : undefined,
-    HPOConfig:
-      output.HPOConfig !== undefined && output.HPOConfig !== null
-        ? deserializeAws_json1_1HyperParameterTuningJobConfig(output.HPOConfig, context)
-        : undefined,
-    InputDataConfig:
-      output.InputDataConfig !== undefined && output.InputDataConfig !== null
-        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    OptimizationMetric: __expectString(output.OptimizationMetric),
-    PerformAutoML: __expectBoolean(output.PerformAutoML),
-    PerformHPO: __expectBoolean(output.PerformHPO),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorExecutionDetails:
-      output.PredictorExecutionDetails !== undefined && output.PredictorExecutionDetails !== null
-        ? deserializeAws_json1_1PredictorExecutionDetails(output.PredictorExecutionDetails, context)
-        : undefined,
-    PredictorName: __expectString(output.PredictorName),
-    Status: __expectString(output.Status),
-    TrainingParameters:
-      output.TrainingParameters !== undefined && output.TrainingParameters !== null
-        ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
-        : undefined,
-  } as any;
+): DescribeWhatIfForecastExportResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    Format: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfForecastArns: _json,
+    WhatIfForecastExportArn: __expectString,
+    WhatIfForecastExportName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
-  return {
-    KMSKeyArn: __expectString(output.KMSKeyArn),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastResponse
+ */
+const de_DescribeWhatIfForecastResponse = (output: any, context: __SerdeContext): DescribeWhatIfForecastResponse => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EstimatedTimeRemainingInMinutes: __expectLong,
+    ForecastTypes: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    TimeSeriesReplacementsDataSource: _json,
+    TimeSeriesTransformations: (_: any) => de_TimeSeriesTransformations(_, context),
+    WhatIfAnalysisArn: __expectString,
+    WhatIfForecastArn: __expectString,
+    WhatIfForecastName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
-  return {
-    ForecastType: __expectString(output.ForecastType),
-    MAPE: __limitedParseDouble(output.MAPE),
-    MASE: __limitedParseDouble(output.MASE),
-    RMSE: __limitedParseDouble(output.RMSE),
-    WAPE: __limitedParseDouble(output.WAPE),
-  } as any;
+// de_EncryptionConfig omitted.
+
+/**
+ * deserializeAws_json1_1ErrorMetric
+ */
+const de_ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
+  return take(output, {
+    ForecastType: __expectString,
+    MAPE: __limitedParseDouble,
+    MASE: __limitedParseDouble,
+    RMSE: __limitedParseDouble,
+    WAPE: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_json1_1ErrorMetrics = (output: any, context: __SerdeContext): ErrorMetric[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1ErrorMetrics
+ */
+const de_ErrorMetrics = (output: any, context: __SerdeContext): ErrorMetric[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ErrorMetric(entry, context);
+      return de_ErrorMetric(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
-  return {
-    BackTestWindowOffset: __expectInt32(output.BackTestWindowOffset),
-    NumberOfBacktestWindows: __expectInt32(output.NumberOfBacktestWindows),
-  } as any;
+// de_EvaluationParameters omitted.
+
+/**
+ * deserializeAws_json1_1EvaluationResult
+ */
+const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
+  return take(output, {
+    AlgorithmArn: __expectString,
+    TestWindows: (_: any) => de_TestWindows(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
-  return {
-    AlgorithmArn: __expectString(output.AlgorithmArn),
-    TestWindows:
-      output.TestWindows !== undefined && output.TestWindows !== null
-        ? deserializeAws_json1_1TestWindows(output.TestWindows, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1Explainabilities
+ */
+const de_Explainabilities = (output: any, context: __SerdeContext): ExplainabilitySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExplainabilitySummary(entry, context);
+    });
+  return retVal;
 };
 
-const deserializeAws_json1_1Featurization = (output: any, context: __SerdeContext): Featurization => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    FeaturizationPipeline:
-      output.FeaturizationPipeline !== undefined && output.FeaturizationPipeline !== null
-        ? deserializeAws_json1_1FeaturizationPipeline(output.FeaturizationPipeline, context)
-        : undefined,
-  } as any;
+// de_ExplainabilityConfig omitted.
+
+/**
+ * deserializeAws_json1_1ExplainabilityExports
+ */
+const de_ExplainabilityExports = (output: any, context: __SerdeContext): ExplainabilityExportSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExplainabilityExportSummary(entry, context);
+    });
+  return retVal;
 };
 
-const deserializeAws_json1_1FeaturizationConfig = (output: any, context: __SerdeContext): FeaturizationConfig => {
-  return {
-    Featurizations:
-      output.Featurizations !== undefined && output.Featurizations !== null
-        ? deserializeAws_json1_1Featurizations(output.Featurizations, context)
-        : undefined,
-    ForecastDimensions:
-      output.ForecastDimensions !== undefined && output.ForecastDimensions !== null
-        ? deserializeAws_json1_1ForecastDimensions(output.ForecastDimensions, context)
-        : undefined,
-    ForecastFrequency: __expectString(output.ForecastFrequency),
-  } as any;
+/**
+ * deserializeAws_json1_1ExplainabilityExportSummary
+ */
+const de_ExplainabilityExportSummary = (output: any, context: __SerdeContext): ExplainabilityExportSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ExplainabilityExportArn: __expectString,
+    ExplainabilityExportName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1FeaturizationMethod = (output: any, context: __SerdeContext): FeaturizationMethod => {
-  return {
-    FeaturizationMethodName: __expectString(output.FeaturizationMethodName),
-    FeaturizationMethodParameters:
-      output.FeaturizationMethodParameters !== undefined && output.FeaturizationMethodParameters !== null
-        ? deserializeAws_json1_1FeaturizationMethodParameters(output.FeaturizationMethodParameters, context)
-        : undefined,
-  } as any;
+// de_ExplainabilityInfo omitted.
+
+/**
+ * deserializeAws_json1_1ExplainabilitySummary
+ */
+const de_ExplainabilitySummary = (output: any, context: __SerdeContext): ExplainabilitySummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExplainabilityArn: __expectString,
+    ExplainabilityConfig: _json,
+    ExplainabilityName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1FeaturizationMethodParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+// de_Featurization omitted.
+
+// de_FeaturizationConfig omitted.
+
+// de_FeaturizationMethod omitted.
+
+// de_FeaturizationMethodParameters omitted.
+
+// de_FeaturizationPipeline omitted.
+
+// de_Featurizations omitted.
+
+/**
+ * deserializeAws_json1_1FieldStatistics
+ */
+const de_FieldStatistics = (output: any, context: __SerdeContext): Record<string, Statistics> => {
+  return Object.entries(output).reduce((acc: Record<string, Statistics>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = de_Statistics(value, context);
+    return acc;
   }, {});
 };
 
-const deserializeAws_json1_1FeaturizationPipeline = (output: any, context: __SerdeContext): FeaturizationMethod[] => {
-  return (output || [])
+// de_ForecastDimensions omitted.
+
+/**
+ * deserializeAws_json1_1ForecastExportJobs
+ */
+const de_ForecastExportJobs = (output: any, context: __SerdeContext): ForecastExportJobSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1FeaturizationMethod(entry, context);
+      return de_ForecastExportJobSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1Featurizations = (output: any, context: __SerdeContext): Featurization[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1ForecastExportJobSummary
+ */
+const de_ForecastExportJobSummary = (output: any, context: __SerdeContext): ForecastExportJobSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    ForecastExportJobArn: __expectString,
+    ForecastExportJobName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Forecasts
+ */
+const de_Forecasts = (output: any, context: __SerdeContext): ForecastSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Featurization(entry, context);
+      return de_ForecastSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1FieldStatistics = (output: any, context: __SerdeContext): { [key: string]: Statistics } => {
-  return Object.entries(output).reduce((acc: { [key: string]: Statistics }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Statistics(value, context),
-    };
-  }, {});
+/**
+ * deserializeAws_json1_1ForecastSummary
+ */
+const de_ForecastSummary = (output: any, context: __SerdeContext): ForecastSummary => {
+  return take(output, {
+    CreatedUsingAutoPredictor: __expectBoolean,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    ForecastArn: __expectString,
+    ForecastName: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ForecastDimensions = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
+// de_ForecastTypes omitted.
+
+/**
+ * deserializeAws_json1_1GetAccuracyMetricsResponse
+ */
+const de_GetAccuracyMetricsResponse = (output: any, context: __SerdeContext): GetAccuracyMetricsResponse => {
+  return take(output, {
+    AutoMLOverrideStrategy: __expectString,
+    IsAutoPredictor: __expectBoolean,
+    OptimizationMetric: __expectString,
+    PredictorEvaluationResults: (_: any) => de_PredictorEvaluationResults(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ForecastExportJobs = (output: any, context: __SerdeContext): ForecastExportJobSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ForecastExportJobSummary(entry, context);
-    });
+/**
+ * deserializeAws_json1_1HyperParameterTuningJobConfig
+ */
+const de_HyperParameterTuningJobConfig = (output: any, context: __SerdeContext): HyperParameterTuningJobConfig => {
+  return take(output, {
+    ParameterRanges: (_: any) => de_ParameterRanges(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ForecastExportJobSummary = (
+// de_InputDataConfig omitted.
+
+// de_IntegerParameterRange omitted.
+
+// de_IntegerParameterRanges omitted.
+
+// de_InvalidInputException omitted.
+
+// de_InvalidNextTokenException omitted.
+
+// de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_1ListDatasetGroupsResponse
+ */
+const de_ListDatasetGroupsResponse = (output: any, context: __SerdeContext): ListDatasetGroupsResponse => {
+  return take(output, {
+    DatasetGroups: (_: any) => de_DatasetGroups(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsResponse
+ */
+const de_ListDatasetImportJobsResponse = (output: any, context: __SerdeContext): ListDatasetImportJobsResponse => {
+  return take(output, {
+    DatasetImportJobs: (_: any) => de_DatasetImportJobs(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetsResponse
+ */
+const de_ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
+  return take(output, {
+    Datasets: (_: any) => de_Datasets(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilitiesResponse
+ */
+const de_ListExplainabilitiesResponse = (output: any, context: __SerdeContext): ListExplainabilitiesResponse => {
+  return take(output, {
+    Explainabilities: (_: any) => de_Explainabilities(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilityExportsResponse
+ */
+const de_ListExplainabilityExportsResponse = (
   output: any,
   context: __SerdeContext
-): ForecastExportJobSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination:
-      output.Destination !== undefined && output.Destination !== null
-        ? deserializeAws_json1_1DataDestination(output.Destination, context)
-        : undefined,
-    ForecastExportJobArn: __expectString(output.ForecastExportJobArn),
-    ForecastExportJobName: __expectString(output.ForecastExportJobName),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-  } as any;
+): ListExplainabilityExportsResponse => {
+  return take(output, {
+    ExplainabilityExports: (_: any) => de_ExplainabilityExports(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Forecasts = (output: any, context: __SerdeContext): ForecastSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ForecastSummary(entry, context);
-    });
+/**
+ * deserializeAws_json1_1ListForecastExportJobsResponse
+ */
+const de_ListForecastExportJobsResponse = (output: any, context: __SerdeContext): ListForecastExportJobsResponse => {
+  return take(output, {
+    ForecastExportJobs: (_: any) => de_ForecastExportJobs(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ForecastSummary = (output: any, context: __SerdeContext): ForecastSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    ForecastArn: __expectString(output.ForecastArn),
-    ForecastName: __expectString(output.ForecastName),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    Status: __expectString(output.Status),
-  } as any;
+/**
+ * deserializeAws_json1_1ListForecastsResponse
+ */
+const de_ListForecastsResponse = (output: any, context: __SerdeContext): ListForecastsResponse => {
+  return take(output, {
+    Forecasts: (_: any) => de_Forecasts(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ForecastTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
+/**
+ * deserializeAws_json1_1ListMonitorEvaluationsResponse
+ */
+const de_ListMonitorEvaluationsResponse = (output: any, context: __SerdeContext): ListMonitorEvaluationsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    PredictorMonitorEvaluations: (_: any) => de_PredictorMonitorEvaluations(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1GetAccuracyMetricsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccuracyMetricsResponse => {
-  return {
-    AutoMLOverrideStrategy: __expectString(output.AutoMLOverrideStrategy),
-    OptimizationMetric: __expectString(output.OptimizationMetric),
-    PredictorEvaluationResults:
-      output.PredictorEvaluationResults !== undefined && output.PredictorEvaluationResults !== null
-        ? deserializeAws_json1_1PredictorEvaluationResults(output.PredictorEvaluationResults, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListMonitorsResponse
+ */
+const de_ListMonitorsResponse = (output: any, context: __SerdeContext): ListMonitorsResponse => {
+  return take(output, {
+    Monitors: (_: any) => de_Monitors(_, context),
+    NextToken: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1HyperParameterTuningJobConfig = (
-  output: any,
-  context: __SerdeContext
-): HyperParameterTuningJobConfig => {
-  return {
-    ParameterRanges:
-      output.ParameterRanges !== undefined && output.ParameterRanges !== null
-        ? deserializeAws_json1_1ParameterRanges(output.ParameterRanges, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
-  return {
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    SupplementaryFeatures:
-      output.SupplementaryFeatures !== undefined && output.SupplementaryFeatures !== null
-        ? deserializeAws_json1_1SupplementaryFeatures(output.SupplementaryFeatures, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1IntegerParameterRange = (output: any, context: __SerdeContext): IntegerParameterRange => {
-  return {
-    MaxValue: __expectInt32(output.MaxValue),
-    MinValue: __expectInt32(output.MinValue),
-    Name: __expectString(output.Name),
-    ScalingType: __expectString(output.ScalingType),
-  } as any;
-};
-
-const deserializeAws_json1_1IntegerParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): IntegerParameterRange[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1IntegerParameterRange(entry, context);
-    });
-};
-
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ListDatasetGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDatasetGroupsResponse => {
-  return {
-    DatasetGroups:
-      output.DatasetGroups !== undefined && output.DatasetGroups !== null
-        ? deserializeAws_json1_1DatasetGroups(output.DatasetGroups, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListDatasetImportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDatasetImportJobsResponse => {
-  return {
-    DatasetImportJobs:
-      output.DatasetImportJobs !== undefined && output.DatasetImportJobs !== null
-        ? deserializeAws_json1_1DatasetImportJobs(output.DatasetImportJobs, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
-  return {
-    Datasets:
-      output.Datasets !== undefined && output.Datasets !== null
-        ? deserializeAws_json1_1Datasets(output.Datasets, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListForecastExportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListForecastExportJobsResponse => {
-  return {
-    ForecastExportJobs:
-      output.ForecastExportJobs !== undefined && output.ForecastExportJobs !== null
-        ? deserializeAws_json1_1ForecastExportJobs(output.ForecastExportJobs, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListForecastsResponse = (output: any, context: __SerdeContext): ListForecastsResponse => {
-  return {
-    Forecasts:
-      output.Forecasts !== undefined && output.Forecasts !== null
-        ? deserializeAws_json1_1Forecasts(output.Forecasts, context)
-        : undefined,
-    NextToken: __expectString(output.NextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListPredictorBacktestExportJobsResponse = (
+/**
+ * deserializeAws_json1_1ListPredictorBacktestExportJobsResponse
+ */
+const de_ListPredictorBacktestExportJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPredictorBacktestExportJobsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    PredictorBacktestExportJobs:
-      output.PredictorBacktestExportJobs !== undefined && output.PredictorBacktestExportJobs !== null
-        ? deserializeAws_json1_1PredictorBacktestExportJobs(output.PredictorBacktestExportJobs, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    NextToken: __expectString,
+    PredictorBacktestExportJobs: (_: any) => de_PredictorBacktestExportJobs(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListPredictorsResponse = (output: any, context: __SerdeContext): ListPredictorsResponse => {
-  return {
-    NextToken: __expectString(output.NextToken),
-    Predictors:
-      output.Predictors !== undefined && output.Predictors !== null
-        ? deserializeAws_json1_1Predictors(output.Predictors, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListPredictorsResponse
+ */
+const de_ListPredictorsResponse = (output: any, context: __SerdeContext): ListPredictorsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    Predictors: (_: any) => de_Predictors(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
+// de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListWhatIfAnalysesResponse
+ */
+const de_ListWhatIfAnalysesResponse = (output: any, context: __SerdeContext): ListWhatIfAnalysesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    WhatIfAnalyses: (_: any) => de_WhatIfAnalyses(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastExportsResponse
+ */
+const de_ListWhatIfForecastExportsResponse = (
   output: any,
   context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
-  } as any;
+): ListWhatIfForecastExportsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    WhatIfForecastExports: (_: any) => de_WhatIfForecastExports(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Metrics => {
-  return {
-    AverageWeightedQuantileLoss: __limitedParseDouble(output.AverageWeightedQuantileLoss),
-    ErrorMetrics:
-      output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
-        ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)
-        : undefined,
-    RMSE: __limitedParseDouble(output.RMSE),
-    WeightedQuantileLosses:
-      output.WeightedQuantileLosses !== undefined && output.WeightedQuantileLosses !== null
-        ? deserializeAws_json1_1WeightedQuantileLosses(output.WeightedQuantileLosses, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1ListWhatIfForecastsResponse
+ */
+const de_ListWhatIfForecastsResponse = (output: any, context: __SerdeContext): ListWhatIfForecastsResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    WhatIfForecasts: (_: any) => de_WhatIfForecasts(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1ParameterRanges = (output: any, context: __SerdeContext): ParameterRanges => {
-  return {
-    CategoricalParameterRanges:
-      output.CategoricalParameterRanges !== undefined && output.CategoricalParameterRanges !== null
-        ? deserializeAws_json1_1CategoricalParameterRanges(output.CategoricalParameterRanges, context)
-        : undefined,
-    ContinuousParameterRanges:
-      output.ContinuousParameterRanges !== undefined && output.ContinuousParameterRanges !== null
-        ? deserializeAws_json1_1ContinuousParameterRanges(output.ContinuousParameterRanges, context)
-        : undefined,
-    IntegerParameterRanges:
-      output.IntegerParameterRanges !== undefined && output.IntegerParameterRanges !== null
-        ? deserializeAws_json1_1IntegerParameterRanges(output.IntegerParameterRanges, context)
-        : undefined,
-  } as any;
+// de_LongArnList omitted.
+
+/**
+ * deserializeAws_json1_1MetricResult
+ */
+const de_MetricResult = (output: any, context: __SerdeContext): MetricResult => {
+  return take(output, {
+    MetricName: __expectString,
+    MetricValue: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_json1_1PredictorBacktestExportJobs = (
-  output: any,
-  context: __SerdeContext
-): PredictorBacktestExportJobSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1MetricResults
+ */
+const de_MetricResults = (output: any, context: __SerdeContext): MetricResult[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1PredictorBacktestExportJobSummary(entry, context);
+      return de_MetricResult(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1PredictorBacktestExportJobSummary = (
+/**
+ * deserializeAws_json1_1Metrics
+ */
+const de_Metrics = (output: any, context: __SerdeContext): Metrics => {
+  return take(output, {
+    AverageWeightedQuantileLoss: __limitedParseDouble,
+    ErrorMetrics: (_: any) => de_ErrorMetrics(_, context),
+    RMSE: __limitedParseDouble,
+    WeightedQuantileLosses: (_: any) => de_WeightedQuantileLosses(_, context),
+  }) as any;
+};
+
+// de_MonitorDataSource omitted.
+
+// de_MonitorInfo omitted.
+
+/**
+ * deserializeAws_json1_1Monitors
+ */
+const de_Monitors = (output: any, context: __SerdeContext): MonitorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MonitorSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1MonitorSummary
+ */
+const de_MonitorSummary = (output: any, context: __SerdeContext): MonitorSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MonitorArn: __expectString,
+    MonitorName: __expectString,
+    ResourceArn: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ParameterRanges
+ */
+const de_ParameterRanges = (output: any, context: __SerdeContext): ParameterRanges => {
+  return take(output, {
+    CategoricalParameterRanges: _json,
+    ContinuousParameterRanges: (_: any) => de_ContinuousParameterRanges(_, context),
+    IntegerParameterRanges: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PredictorBacktestExportJobs
+ */
+const de_PredictorBacktestExportJobs = (output: any, context: __SerdeContext): PredictorBacktestExportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredictorBacktestExportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1PredictorBacktestExportJobSummary
+ */
+const de_PredictorBacktestExportJobSummary = (
   output: any,
   context: __SerdeContext
 ): PredictorBacktestExportJobSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    Destination:
-      output.Destination !== undefined && output.Destination !== null
-        ? deserializeAws_json1_1DataDestination(output.Destination, context)
-        : undefined,
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorBacktestExportJobArn: __expectString(output.PredictorBacktestExportJobArn),
-    PredictorBacktestExportJobName: __expectString(output.PredictorBacktestExportJobName),
-    Status: __expectString(output.Status),
-  } as any;
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorBacktestExportJobArn: __expectString,
+    PredictorBacktestExportJobName: __expectString,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1PredictorEvaluationResults = (output: any, context: __SerdeContext): EvaluationResult[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1PredictorBaseline
+ */
+const de_PredictorBaseline = (output: any, context: __SerdeContext): PredictorBaseline => {
+  return take(output, {
+    BaselineMetrics: (_: any) => de_BaselineMetrics(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PredictorEvaluationResults
+ */
+const de_PredictorEvaluationResults = (output: any, context: __SerdeContext): EvaluationResult[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EvaluationResult(entry, context);
+      return de_EvaluationResult(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1PredictorExecution = (output: any, context: __SerdeContext): PredictorExecution => {
-  return {
-    AlgorithmArn: __expectString(output.AlgorithmArn),
-    TestWindows:
-      output.TestWindows !== undefined && output.TestWindows !== null
-        ? deserializeAws_json1_1TestWindowDetails(output.TestWindows, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1PredictorEvent
+ */
+const de_PredictorEvent = (output: any, context: __SerdeContext): PredictorEvent => {
+  return take(output, {
+    Datetime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Detail: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1PredictorExecutionDetails = (
-  output: any,
-  context: __SerdeContext
-): PredictorExecutionDetails => {
-  return {
-    PredictorExecutions:
-      output.PredictorExecutions !== undefined && output.PredictorExecutions !== null
-        ? deserializeAws_json1_1PredictorExecutions(output.PredictorExecutions, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1PredictorExecution
+ */
+const de_PredictorExecution = (output: any, context: __SerdeContext): PredictorExecution => {
+  return take(output, {
+    AlgorithmArn: __expectString,
+    TestWindows: (_: any) => de_TestWindowDetails(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1PredictorExecutions = (output: any, context: __SerdeContext): PredictorExecution[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1PredictorExecutionDetails
+ */
+const de_PredictorExecutionDetails = (output: any, context: __SerdeContext): PredictorExecutionDetails => {
+  return take(output, {
+    PredictorExecutions: (_: any) => de_PredictorExecutions(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PredictorExecutions
+ */
+const de_PredictorExecutions = (output: any, context: __SerdeContext): PredictorExecution[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1PredictorExecution(entry, context);
+      return de_PredictorExecution(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1Predictors = (output: any, context: __SerdeContext): PredictorSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1PredictorMonitorEvaluation
+ */
+const de_PredictorMonitorEvaluation = (output: any, context: __SerdeContext): PredictorMonitorEvaluation => {
+  return take(output, {
+    EvaluationState: __expectString,
+    EvaluationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    MetricResults: (_: any) => de_MetricResults(_, context),
+    MonitorArn: __expectString,
+    MonitorDataSource: _json,
+    NumItemsEvaluated: __expectLong,
+    PredictorEvent: (_: any) => de_PredictorEvent(_, context),
+    ResourceArn: __expectString,
+    WindowEndDatetime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    WindowStartDatetime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PredictorMonitorEvaluations
+ */
+const de_PredictorMonitorEvaluations = (output: any, context: __SerdeContext): PredictorMonitorEvaluation[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1PredictorSummary(entry, context);
+      return de_PredictorMonitorEvaluation(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1PredictorSummary = (output: any, context: __SerdeContext): PredictorSummary => {
-  return {
-    CreationTime:
-      output.CreationTime !== undefined && output.CreationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
-        : undefined,
-    DatasetGroupArn: __expectString(output.DatasetGroupArn),
-    LastModificationTime:
-      output.LastModificationTime !== undefined && output.LastModificationTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModificationTime)))
-        : undefined,
-    Message: __expectString(output.Message),
-    PredictorArn: __expectString(output.PredictorArn),
-    PredictorName: __expectString(output.PredictorName),
-    Status: __expectString(output.Status),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: __expectString(output.Message),
-  } as any;
-};
-
-const deserializeAws_json1_1S3Config = (output: any, context: __SerdeContext): S3Config => {
-  return {
-    KMSKeyArn: __expectString(output.KMSKeyArn),
-    Path: __expectString(output.Path),
-    RoleArn: __expectString(output.RoleArn),
-  } as any;
-};
-
-const deserializeAws_json1_1Schema = (output: any, context: __SerdeContext): Schema => {
-  return {
-    Attributes:
-      output.Attributes !== undefined && output.Attributes !== null
-        ? deserializeAws_json1_1SchemaAttributes(output.Attributes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1SchemaAttribute = (output: any, context: __SerdeContext): SchemaAttribute => {
-  return {
-    AttributeName: __expectString(output.AttributeName),
-    AttributeType: __expectString(output.AttributeType),
-  } as any;
-};
-
-const deserializeAws_json1_1SchemaAttributes = (output: any, context: __SerdeContext): SchemaAttribute[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Predictors
+ */
+const de_Predictors = (output: any, context: __SerdeContext): PredictorSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SchemaAttribute(entry, context);
+      return de_PredictorSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext): Statistics => {
-  return {
-    Avg: __limitedParseDouble(output.Avg),
-    Count: __expectInt32(output.Count),
-    CountDistinct: __expectInt32(output.CountDistinct),
-    CountDistinctLong: __expectLong(output.CountDistinctLong),
-    CountLong: __expectLong(output.CountLong),
-    CountNan: __expectInt32(output.CountNan),
-    CountNanLong: __expectLong(output.CountNanLong),
-    CountNull: __expectInt32(output.CountNull),
-    CountNullLong: __expectLong(output.CountNullLong),
-    Max: __expectString(output.Max),
-    Min: __expectString(output.Min),
-    Stddev: __limitedParseDouble(output.Stddev),
-  } as any;
+/**
+ * deserializeAws_json1_1PredictorSummary
+ */
+const de_PredictorSummary = (output: any, context: __SerdeContext): PredictorSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DatasetGroupArn: __expectString,
+    IsAutoPredictor: __expectBoolean,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    PredictorArn: __expectString,
+    PredictorName: __expectString,
+    ReferencePredictorSummary: _json,
+    Status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1SupplementaryFeature = (output: any, context: __SerdeContext): SupplementaryFeature => {
-  return {
-    Name: __expectString(output.Name),
-    Value: __expectString(output.Value),
-  } as any;
+// de_ReferencePredictorSummary omitted.
+
+// de_ResourceAlreadyExistsException omitted.
+
+// de_ResourceInUseException omitted.
+
+// de_ResourceNotFoundException omitted.
+
+// de_S3Config omitted.
+
+// de_Schema omitted.
+
+// de_SchemaAttribute omitted.
+
+// de_SchemaAttributes omitted.
+
+/**
+ * deserializeAws_json1_1Statistics
+ */
+const de_Statistics = (output: any, context: __SerdeContext): Statistics => {
+  return take(output, {
+    Avg: __limitedParseDouble,
+    Count: __expectInt32,
+    CountDistinct: __expectInt32,
+    CountDistinctLong: __expectLong,
+    CountLong: __expectLong,
+    CountNan: __expectInt32,
+    CountNanLong: __expectLong,
+    CountNull: __expectInt32,
+    CountNullLong: __expectLong,
+    Max: __expectString,
+    Min: __expectString,
+    Stddev: __limitedParseDouble,
+  }) as any;
 };
 
-const deserializeAws_json1_1SupplementaryFeatures = (output: any, context: __SerdeContext): SupplementaryFeature[] => {
-  return (output || [])
+// de_SupplementaryFeature omitted.
+
+// de_SupplementaryFeatures omitted.
+
+// de_Tag omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_Tags omitted.
+
+/**
+ * deserializeAws_json1_1TestWindowDetails
+ */
+const de_TestWindowDetails = (output: any, context: __SerdeContext): TestWindowSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SupplementaryFeature(entry, context);
+      return de_TestWindowSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: __expectString(output.Key),
-    Value: __expectString(output.Value),
-  } as any;
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1TestWindows
+ */
+const de_TestWindows = (output: any, context: __SerdeContext): WindowSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1Tag(entry, context);
+      return de_WindowSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1TestWindowDetails = (output: any, context: __SerdeContext): TestWindowSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1TestWindowSummary
+ */
+const de_TestWindowSummary = (output: any, context: __SerdeContext): TestWindowSummary => {
+  return take(output, {
+    Message: __expectString,
+    Status: __expectString,
+    TestWindowEnd: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TestWindowStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_TimeAlignmentBoundary omitted.
+
+// de_TimeSeriesCondition omitted.
+
+// de_TimeSeriesConditions omitted.
+
+// de_TimeSeriesIdentifiers omitted.
+
+// de_TimeSeriesReplacementsDataSource omitted.
+
+// de_TimeSeriesSelector omitted.
+
+/**
+ * deserializeAws_json1_1TimeSeriesTransformation
+ */
+const de_TimeSeriesTransformation = (output: any, context: __SerdeContext): TimeSeriesTransformation => {
+  return take(output, {
+    Action: (_: any) => de_Action(_, context),
+    TimeSeriesConditions: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1TimeSeriesTransformations
+ */
+const de_TimeSeriesTransformations = (output: any, context: __SerdeContext): TimeSeriesTransformation[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1TestWindowSummary(entry, context);
+      return de_TimeSeriesTransformation(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1TestWindows = (output: any, context: __SerdeContext): WindowSummary[] => {
-  return (output || [])
+// de_TrainingParameters omitted.
+
+// de_Transformations omitted.
+
+// de_UntagResourceResponse omitted.
+
+// de_UpdateDatasetGroupResponse omitted.
+
+// de_Values omitted.
+
+/**
+ * deserializeAws_json1_1WeightedQuantileLoss
+ */
+const de_WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
+  return take(output, {
+    LossValue: __limitedParseDouble,
+    Quantile: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WeightedQuantileLosses
+ */
+const de_WeightedQuantileLosses = (output: any, context: __SerdeContext): WeightedQuantileLoss[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1WindowSummary(entry, context);
+      return de_WeightedQuantileLoss(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeContext): TestWindowSummary => {
-  return {
-    Message: __expectString(output.Message),
-    Status: __expectString(output.Status),
-    TestWindowEnd:
-      output.TestWindowEnd !== undefined && output.TestWindowEnd !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowEnd)))
-        : undefined,
-    TestWindowStart:
-      output.TestWindowStart !== undefined && output.TestWindowStart !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1UpdateDatasetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateDatasetGroupResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1WhatIfAnalyses
+ */
+const de_WhatIfAnalyses = (output: any, context: __SerdeContext): WhatIfAnalysisSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_WhatIfAnalysisSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
-  return {
-    LossValue: __limitedParseDouble(output.LossValue),
-    Quantile: __limitedParseDouble(output.Quantile),
-  } as any;
+/**
+ * deserializeAws_json1_1WhatIfAnalysisSummary
+ */
+const de_WhatIfAnalysisSummary = (output: any, context: __SerdeContext): WhatIfAnalysisSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ForecastArn: __expectString,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfAnalysisArn: __expectString,
+    WhatIfAnalysisName: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1WeightedQuantileLosses = (output: any, context: __SerdeContext): WeightedQuantileLoss[] => {
-  return (output || [])
+// de_WhatIfForecastArnListForExport omitted.
+
+/**
+ * deserializeAws_json1_1WhatIfForecastExports
+ */
+const de_WhatIfForecastExports = (output: any, context: __SerdeContext): WhatIfForecastExportSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1WeightedQuantileLoss(entry, context);
+      return de_WhatIfForecastExportSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1WindowSummary = (output: any, context: __SerdeContext): WindowSummary => {
-  return {
-    EvaluationType: __expectString(output.EvaluationType),
-    ItemCount: __expectInt32(output.ItemCount),
-    Metrics:
-      output.Metrics !== undefined && output.Metrics !== null
-        ? deserializeAws_json1_1Metrics(output.Metrics, context)
-        : undefined,
-    TestWindowEnd:
-      output.TestWindowEnd !== undefined && output.TestWindowEnd !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowEnd)))
-        : undefined,
-    TestWindowStart:
-      output.TestWindowStart !== undefined && output.TestWindowStart !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TestWindowStart)))
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1WhatIfForecastExportSummary
+ */
+const de_WhatIfForecastExportSummary = (output: any, context: __SerdeContext): WhatIfForecastExportSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Destination: _json,
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfForecastArns: _json,
+    WhatIfForecastExportArn: __expectString,
+    WhatIfForecastExportName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WhatIfForecasts
+ */
+const de_WhatIfForecasts = (output: any, context: __SerdeContext): WhatIfForecastSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WhatIfForecastSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1WhatIfForecastSummary
+ */
+const de_WhatIfForecastSummary = (output: any, context: __SerdeContext): WhatIfForecastSummary => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    Status: __expectString,
+    WhatIfAnalysisArn: __expectString,
+    WhatIfForecastArn: __expectString,
+    WhatIfForecastName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WindowSummary
+ */
+const de_WindowSummary = (output: any, context: __SerdeContext): WindowSummary => {
+  return take(output, {
+    EvaluationType: __expectString,
+    ItemCount: __expectInt32,
+    Metrics: (_: any) => de_Metrics(_, context),
+    TestWindowEnd: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TestWindowStart: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -5148,6 +6182,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonForecast.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -5157,14 +6197,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -5186,6 +6238,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

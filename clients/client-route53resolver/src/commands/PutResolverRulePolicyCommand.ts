@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutResolverRulePolicyRequest, PutResolverRulePolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1PutResolverRulePolicyCommand,
-  serializeAws_json1_1PutResolverRulePolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_PutResolverRulePolicyCommand, se_PutResolverRulePolicyCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutResolverRulePolicyCommand}.
+ */
 export interface PutResolverRulePolicyCommandInput extends PutResolverRulePolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutResolverRulePolicyCommand}.
+ */
 export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with,
  * 			and the operations that you want the account to be able to perform on the rule.</p>
  * @example
@@ -30,13 +44,41 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * import { Route53ResolverClient, PutResolverRulePolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, PutResolverRulePolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = { // PutResolverRulePolicyRequest
+ *   Arn: "STRING_VALUE", // required
+ *   ResolverRulePolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutResolverRulePolicyCommand(input);
  * const response = await client.send(command);
+ * // { // PutResolverRulePolicyResponse
+ * //   ReturnValue: true || false,
+ * // };
+ *
  * ```
  *
+ * @param PutResolverRulePolicyCommandInput - {@link PutResolverRulePolicyCommandInput}
+ * @returns {@link PutResolverRulePolicyCommandOutput}
  * @see {@link PutResolverRulePolicyCommandInput} for command's `input` shape.
  * @see {@link PutResolverRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (client fault)
+ *  <p>We encountered an unknown error. Try again in a few minutes.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in this request are not valid.</p>
+ *
+ * @throws {@link InvalidPolicyDocument} (client fault)
+ *  <p>The specified Resolver rule policy is invalid.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link Route53ResolverServiceException}
+ * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
 export class PutResolverRulePolicyCommand extends $Command<
@@ -47,6 +89,18 @@ export class PutResolverRulePolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutResolverRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +116,9 @@ export class PutResolverRulePolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutResolverRulePolicyCommandInput, PutResolverRulePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutResolverRulePolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +129,8 @@ export class PutResolverRulePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResolverRulePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResolverRulePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +140,18 @@ export class PutResolverRulePolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutResolverRulePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutResolverRulePolicyCommand(input, context);
+    return se_PutResolverRulePolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResolverRulePolicyCommandOutput> {
-    return deserializeAws_json1_1PutResolverRulePolicyCommand(output, context);
+    return de_PutResolverRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

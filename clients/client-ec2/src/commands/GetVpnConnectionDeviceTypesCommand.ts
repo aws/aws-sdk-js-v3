@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_4";
-import {
-  deserializeAws_ec2GetVpnConnectionDeviceTypesCommand,
-  serializeAws_ec2GetVpnConnectionDeviceTypesCommand,
-} from "../protocols/Aws_ec2";
+import { GetVpnConnectionDeviceTypesRequest, GetVpnConnectionDeviceTypesResult } from "../models/models_5";
+import { de_GetVpnConnectionDeviceTypesCommand, se_GetVpnConnectionDeviceTypesCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetVpnConnectionDeviceTypesCommand}.
+ */
 export interface GetVpnConnectionDeviceTypesCommandInput extends GetVpnConnectionDeviceTypesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetVpnConnectionDeviceTypesCommand}.
+ */
 export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnectionDeviceTypesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Obtain a list of customer gateway devices for which sample configuration
  *             files can be provided. The request has no additional parameters. You can also see the
  *             list of device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer gateway
@@ -32,13 +46,35 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * import { EC2Client, GetVpnConnectionDeviceTypesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetVpnConnectionDeviceTypesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // GetVpnConnectionDeviceTypesRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetVpnConnectionDeviceTypesCommand(input);
  * const response = await client.send(command);
+ * // { // GetVpnConnectionDeviceTypesResult
+ * //   VpnConnectionDeviceTypes: [ // VpnConnectionDeviceTypeList
+ * //     { // VpnConnectionDeviceType
+ * //       VpnConnectionDeviceTypeId: "STRING_VALUE",
+ * //       Vendor: "STRING_VALUE",
+ * //       Platform: "STRING_VALUE",
+ * //       Software: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetVpnConnectionDeviceTypesCommandInput - {@link GetVpnConnectionDeviceTypesCommandInput}
+ * @returns {@link GetVpnConnectionDeviceTypesCommandOutput}
  * @see {@link GetVpnConnectionDeviceTypesCommandInput} for command's `input` shape.
  * @see {@link GetVpnConnectionDeviceTypesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class GetVpnConnectionDeviceTypesCommand extends $Command<
@@ -49,6 +85,18 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetVpnConnectionDeviceTypesCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +112,9 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetVpnConnectionDeviceTypesCommandInput, GetVpnConnectionDeviceTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetVpnConnectionDeviceTypesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +125,8 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpnConnectionDeviceTypesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetVpnConnectionDeviceTypesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,15 +136,21 @@ export class GetVpnConnectionDeviceTypesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetVpnConnectionDeviceTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2GetVpnConnectionDeviceTypesCommand(input, context);
+    return se_GetVpnConnectionDeviceTypesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetVpnConnectionDeviceTypesCommandOutput> {
-    return deserializeAws_ec2GetVpnConnectionDeviceTypesCommand(output, context);
+    return de_GetVpnConnectionDeviceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

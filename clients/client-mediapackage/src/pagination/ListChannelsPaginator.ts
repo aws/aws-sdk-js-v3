@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
-import { MediaPackage } from "../MediaPackage";
 import { MediaPackageClient } from "../MediaPackageClient";
 import { MediaPackagePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MediaPackageClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListChannelsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: MediaPackage,
-  input: ListChannelsCommandInput,
-  ...args: any
-): Promise<ListChannelsCommandOutput> => {
-  // @ts-ignore
-  return await client.listChannels(input, ...args);
-};
 export async function* paginateListChannels(
   config: MediaPackagePaginationConfiguration,
   input: ListChannelsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListChannels(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof MediaPackage) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MediaPackageClient) {
+    if (config.client instanceof MediaPackageClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected MediaPackage | MediaPackageClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

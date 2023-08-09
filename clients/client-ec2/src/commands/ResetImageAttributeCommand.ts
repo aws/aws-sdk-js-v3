@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetImageAttributeRequest } from "../models/models_5";
-import {
-  deserializeAws_ec2ResetImageAttributeCommand,
-  serializeAws_ec2ResetImageAttributeCommand,
-} from "../protocols/Aws_ec2";
+import { ResetImageAttributeRequest } from "../models/models_6";
+import { de_ResetImageAttributeCommand, se_ResetImageAttributeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ResetImageAttributeCommand}.
+ */
 export interface ResetImageAttributeCommandInput extends ResetImageAttributeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ResetImageAttributeCommand}.
+ */
 export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Resets an attribute of an AMI to its default value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,37 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ResetImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ResetImageAttributeRequest
+ *   Attribute: "launchPermission", // required
+ *   ImageId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ResetImageAttributeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param ResetImageAttributeCommandInput - {@link ResetImageAttributeCommandInput}
+ * @returns {@link ResetImageAttributeCommandOutput}
  * @see {@link ResetImageAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
+ *
+ * @example To reset the launchPermission attribute
+ * ```javascript
+ * // This example resets the launchPermission attribute for the specified AMI. By default, AMIs are private.
+ * const input = {
+ *   "Attribute": "launchPermission",
+ *   "ImageId": "ami-5731123e"
+ * };
+ * const command = new ResetImageAttributeCommand(input);
+ * await client.send(command);
+ * // example id: to-reset-the-launchpermission-attribute-1529359519534
+ * ```
  *
  */
 export class ResetImageAttributeCommand extends $Command<
@@ -46,6 +84,18 @@ export class ResetImageAttributeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ResetImageAttributeCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +111,9 @@ export class ResetImageAttributeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ResetImageAttributeCommandInput, ResetImageAttributeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ResetImageAttributeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +124,8 @@ export class ResetImageAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetImageAttributeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +135,18 @@ export class ResetImageAttributeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ResetImageAttributeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ResetImageAttributeCommand(input, context);
+    return se_ResetImageAttributeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetImageAttributeCommandOutput> {
-    return deserializeAws_ec2ResetImageAttributeCommand(output, context);
+    return de_ResetImageAttributeCommand(output, context);
   }
 
   // Start section: command_body_extra

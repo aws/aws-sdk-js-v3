@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { IoT1ClickProjects } from "../IoT1ClickProjects";
 import { IoT1ClickProjectsClient } from "../IoT1ClickProjectsClient";
 
+/**
+ * @public
+ */
 export interface IoT1ClickProjectsPaginationConfiguration extends PaginationConfiguration {
-  client: IoT1ClickProjects | IoT1ClickProjectsClient;
+  client: IoT1ClickProjectsClient;
 }

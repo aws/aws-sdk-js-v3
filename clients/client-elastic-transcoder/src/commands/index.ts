@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelJobCommand";
 export * from "./CreateJobCommand";
 export * from "./CreatePipelineCommand";

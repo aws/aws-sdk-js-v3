@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchExecuteStatementCommand";
 export * from "./BatchGetItemCommand";
 export * from "./BatchWriteItemCommand";
@@ -14,6 +15,7 @@ export * from "./DescribeEndpointsCommand";
 export * from "./DescribeExportCommand";
 export * from "./DescribeGlobalTableCommand";
 export * from "./DescribeGlobalTableSettingsCommand";
+export * from "./DescribeImportCommand";
 export * from "./DescribeKinesisStreamingDestinationCommand";
 export * from "./DescribeLimitsCommand";
 export * from "./DescribeTableCommand";
@@ -25,10 +27,12 @@ export * from "./ExecuteStatementCommand";
 export * from "./ExecuteTransactionCommand";
 export * from "./ExportTableToPointInTimeCommand";
 export * from "./GetItemCommand";
+export * from "./ImportTableCommand";
 export * from "./ListBackupsCommand";
 export * from "./ListContributorInsightsCommand";
 export * from "./ListExportsCommand";
 export * from "./ListGlobalTablesCommand";
+export * from "./ListImportsCommand";
 export * from "./ListTablesCommand";
 export * from "./ListTagsOfResourceCommand";
 export * from "./PutItemCommand";

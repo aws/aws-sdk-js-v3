@@ -1,4 +1,5 @@
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+// smithy-typescript generated code
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import {
   GetFunctionConfigurationCommand,
@@ -41,7 +42,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
   return { state: WaiterState.RETRY, reason };
 };
 /**
- * Waits for the function's LastUpdateStatus to be Successful.
+ * Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunctionConfiguration API. This should be used after function updates.
  *  @deprecated Use waitUntilFunctionUpdated instead. waitForFunctionUpdated does not throw error in non-success cases.
  */
 export const waitForFunctionUpdated = async (
@@ -52,7 +53,7 @@ export const waitForFunctionUpdated = async (
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
- * Waits for the function's LastUpdateStatus to be Successful.
+ * Waits for the function's LastUpdateStatus to be Successful. This waiter uses GetFunctionConfiguration API. This should be used after function updates.
  *  @param params - Waiter configuration options.
  *  @param input - The input to GetFunctionConfigurationCommand for polling.
  */

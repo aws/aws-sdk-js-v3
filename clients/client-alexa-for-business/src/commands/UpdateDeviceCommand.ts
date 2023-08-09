@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateDeviceCommand,
-  serializeAws_json1_1UpdateDeviceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UpdateDeviceCommand, se_UpdateDeviceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateDeviceCommand}.
+ */
 export interface UpdateDeviceCommandInput extends UpdateDeviceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDeviceCommand}.
+ */
 export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __MetadataBearer {}
 
 /**
+ * @public
+ * @deprecated
+ *
  * <p>Updates the device name by device ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +45,33 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * import { AlexaForBusinessClient, UpdateDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = { // UpdateDeviceRequest
+ *   DeviceArn: "STRING_VALUE",
+ *   DeviceName: "STRING_VALUE",
+ * };
  * const command = new UpdateDeviceCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateDeviceCommandInput - {@link UpdateDeviceCommandInput}
+ * @returns {@link UpdateDeviceCommandOutput}
  * @see {@link UpdateDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ * @throws {@link AlexaForBusinessServiceException}
+ * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  */
 export class UpdateDeviceCommand extends $Command<
@@ -46,6 +82,18 @@ export class UpdateDeviceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDeviceCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +109,7 @@ export class UpdateDeviceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeviceCommandInput, UpdateDeviceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateDeviceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +120,8 @@ export class UpdateDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +131,18 @@ export class UpdateDeviceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDeviceCommand(input, context);
+    return se_UpdateDeviceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeviceCommandOutput> {
-    return deserializeAws_json1_1UpdateDeviceCommand(output, context);
+    return de_UpdateDeviceCommand(output, context);
   }
 
   // Start section: command_body_extra

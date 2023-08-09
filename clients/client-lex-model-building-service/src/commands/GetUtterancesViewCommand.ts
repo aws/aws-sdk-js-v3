@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   LexModelBuildingServiceClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetUtterancesViewCommand,
-  serializeAws_restJson1GetUtterancesViewCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetUtterancesViewCommand, se_GetUtterancesViewCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetUtterancesViewCommand}.
+ */
 export interface GetUtterancesViewCommandInput extends GetUtterancesViewRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetUtterancesViewCommand}.
+ */
 export interface GetUtterancesViewCommandOutput extends GetUtterancesViewResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Use the <code>GetUtterancesView</code> operation to get information
  *       about the utterances that your users have made to your bot. You can use
  *       this list to tune the utterances that your bot responds to.</p>
@@ -56,13 +70,54 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * import { LexModelBuildingServiceClient, GetUtterancesViewCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetUtterancesViewCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // GetUtterancesViewRequest
+ *   botName: "STRING_VALUE", // required
+ *   botVersions: [ // BotVersions // required
+ *     "STRING_VALUE",
+ *   ],
+ *   statusType: "STRING_VALUE", // required
+ * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);
+ * // { // GetUtterancesViewResponse
+ * //   botName: "STRING_VALUE",
+ * //   utterances: [ // ListsOfUtterances
+ * //     { // UtteranceList
+ * //       botVersion: "STRING_VALUE",
+ * //       utterances: [ // ListOfUtterance
+ * //         { // UtteranceData
+ * //           utteranceString: "STRING_VALUE",
+ * //           count: Number("int"),
+ * //           distinctUsers: Number("int"),
+ * //           firstUtteredDate: new Date("TIMESTAMP"),
+ * //           lastUtteredDate: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetUtterancesViewCommandInput - {@link GetUtterancesViewCommandInput}
+ * @returns {@link GetUtterancesViewCommandOutput}
  * @see {@link GetUtterancesViewCommandInput} for command's `input` shape.
  * @see {@link GetUtterancesViewCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class GetUtterancesViewCommand extends $Command<
@@ -73,6 +128,18 @@ export class GetUtterancesViewCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetUtterancesViewCommandInput) {
     // Start section: command_constructor
     super();
@@ -88,6 +155,9 @@ export class GetUtterancesViewCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetUtterancesViewCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -98,8 +168,8 @@ export class GetUtterancesViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUtterancesViewRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUtterancesViewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +179,18 @@ export class GetUtterancesViewCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetUtterancesViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetUtterancesViewCommand(input, context);
+    return se_GetUtterancesViewCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUtterancesViewCommandOutput> {
-    return deserializeAws_restJson1GetUtterancesViewCommand(output, context);
+    return de_GetUtterancesViewCommand(output, context);
   }
 
   // Start section: command_body_extra

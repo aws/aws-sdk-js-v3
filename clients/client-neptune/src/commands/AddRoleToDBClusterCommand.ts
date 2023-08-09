@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AddRoleToDBClusterMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryAddRoleToDBClusterCommand,
-  serializeAws_queryAddRoleToDBClusterCommand,
-} from "../protocols/Aws_query";
+import { de_AddRoleToDBClusterCommand, se_AddRoleToDBClusterCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AddRoleToDBClusterCommand}.
+ */
 export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
+/**
+ * @public
+ *
+ * The output of {@link AddRoleToDBClusterCommand}.
+ */
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates an Identity and Access Management (IAM) role with an
  *       Neptune DB cluster.</p>
  * @example
@@ -30,13 +44,38 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * import { NeptuneClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // AddRoleToDBClusterMessage
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE",
+ * };
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AddRoleToDBClusterCommandInput - {@link AddRoleToDBClusterCommandInput}
+ * @returns {@link AddRoleToDBClusterCommandOutput}
  * @see {@link AddRoleToDBClusterCommandInput} for command's `input` shape.
  * @see {@link AddRoleToDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBClusterRoleAlreadyExistsFault} (client fault)
+ *  <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+ *
+ * @throws {@link DBClusterRoleQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class AddRoleToDBClusterCommand extends $Command<
@@ -47,6 +86,18 @@ export class AddRoleToDBClusterCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AddRoleToDBClusterCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +113,9 @@ export class AddRoleToDBClusterCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AddRoleToDBClusterCommandInput, AddRoleToDBClusterCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddRoleToDBClusterCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +126,8 @@ export class AddRoleToDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddRoleToDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +137,18 @@ export class AddRoleToDBClusterCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AddRoleToDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryAddRoleToDBClusterCommand(input, context);
+    return se_AddRoleToDBClusterCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddRoleToDBClusterCommandOutput> {
-    return deserializeAws_queryAddRoleToDBClusterCommand(output, context);
+    return de_AddRoleToDBClusterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,33 +11,109 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListImagesRequest, ListImagesResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListImagesCommand,
-  serializeAws_restJson1ListImagesCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListImagesCommand, se_ListImagesCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListImagesCommand}.
+ */
 export interface ListImagesCommandInput extends ListImagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListImagesCommand}.
+ */
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * <p> Returns the list of images that you have access to.</p>
+ * @public
+ * <p>Returns the list of images that you have access to. Newly created images can take up
+ * 			to two minutes to appear in the ListImages API Results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ListImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // ListImagesRequest
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   filters: [ // FilterList
+ *     { // Filter
+ *       name: "STRING_VALUE",
+ *       values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   byName: true || false,
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   includeDeprecated: true || false,
+ * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
+ * // { // ListImagesResponse
+ * //   requestId: "STRING_VALUE",
+ * //   imageVersionList: [ // ImageVersionList
+ * //     { // ImageVersion
+ * //       arn: "STRING_VALUE",
+ * //       name: "STRING_VALUE",
+ * //       type: "AMI" || "DOCKER",
+ * //       version: "STRING_VALUE",
+ * //       platform: "Windows" || "Linux",
+ * //       osVersion: "STRING_VALUE",
+ * //       owner: "STRING_VALUE",
+ * //       dateCreated: "STRING_VALUE",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListImagesCommandInput - {@link ListImagesCommandInput}
+ * @returns {@link ListImagesCommandOutput}
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>You have provided an invalid pagination token in your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class ListImagesCommand extends $Command<
@@ -46,6 +124,18 @@ export class ListImagesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListImagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +151,7 @@ export class ListImagesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListImagesCommandInput, ListImagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListImagesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +162,8 @@ export class ListImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListImagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +173,18 @@ export class ListImagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListImagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListImagesCommand(input, context);
+    return se_ListImagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImagesCommandOutput> {
-    return deserializeAws_restJson1ListImagesCommand(output, context);
+    return de_ListImagesCommand(output, context);
   }
 
   // Start section: command_body_extra

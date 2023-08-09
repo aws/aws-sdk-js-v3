@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { CreateEvaluationInput, CreateEvaluationOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateEvaluationCommand,
-  serializeAws_json1_1CreateEvaluationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateEvaluationCommand, se_CreateEvaluationCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateEvaluationCommand}.
+ */
 export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateEvaluationCommand}.
+ */
 export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
  *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
  *             summary so that you know how effective the <code>MLModel</code> functions on the test
@@ -40,13 +54,37 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * import { MachineLearningClient, CreateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = { // CreateEvaluationInput
+ *   EvaluationId: "STRING_VALUE", // required
+ *   EvaluationName: "STRING_VALUE",
+ *   MLModelId: "STRING_VALUE", // required
+ *   EvaluationDataSourceId: "STRING_VALUE", // required
+ * };
  * const command = new CreateEvaluationCommand(input);
  * const response = await client.send(command);
+ * // { // CreateEvaluationOutput
+ * //   EvaluationId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateEvaluationCommandInput - {@link CreateEvaluationCommandInput}
+ * @returns {@link CreateEvaluationCommandOutput}
  * @see {@link CreateEvaluationCommandInput} for command's `input` shape.
  * @see {@link CreateEvaluationCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link MachineLearningServiceException}
+ * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
 export class CreateEvaluationCommand extends $Command<
@@ -57,6 +95,18 @@ export class CreateEvaluationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateEvaluationCommandInput) {
     // Start section: command_constructor
     super();
@@ -72,6 +122,9 @@ export class CreateEvaluationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateEvaluationCommandInput, CreateEvaluationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateEvaluationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -82,8 +135,8 @@ export class CreateEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEvaluationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEvaluationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +146,18 @@ export class CreateEvaluationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateEvaluationCommand(input, context);
+    return se_CreateEvaluationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEvaluationCommandOutput> {
-    return deserializeAws_json1_1CreateEvaluationCommand(output, context);
+    return de_CreateEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

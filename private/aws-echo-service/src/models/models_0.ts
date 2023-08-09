@@ -1,71 +1,52 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
 
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+/**
+ * @public
+ */
 export interface EchoInput {
   string?: string;
 }
 
-export namespace EchoInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EchoInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface EchoOutput {
   string?: string;
 }
 
-export namespace EchoOutput {
+/**
+ * @public
+ * For some reason, this service does not like palindromes!
+ */
+export class PalindromeException extends __BaseException {
+  readonly name: "PalindromeException" = "PalindromeException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: EchoOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PalindromeException, __BaseException>) {
+    super({
+      name: "PalindromeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PalindromeException.prototype);
+  }
 }
 
 /**
- * For some reason, this service does not like palindromes!
+ * @public
  */
-export interface PalindromeException extends __SmithyException, $MetadataBearer {
-  name: "PalindromeException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace PalindromeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PalindromeException): any => ({
-    ...obj,
-  });
-}
-
 export interface LengthInput {
   string: string | undefined;
 }
 
-export namespace LengthInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LengthInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface LengthOutput {
   length?: number;
-}
-
-export namespace LengthOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LengthOutput): any => ({
-    ...obj,
-  });
 }

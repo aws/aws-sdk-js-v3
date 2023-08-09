@@ -1,10 +1,17 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   AcceptEnvironmentAccountConnectionCommand,
   AcceptEnvironmentAccountConnectionCommandInput,
   AcceptEnvironmentAccountConnectionCommandOutput,
 } from "./commands/AcceptEnvironmentAccountConnectionCommand";
+import {
+  CancelComponentDeploymentCommand,
+  CancelComponentDeploymentCommandInput,
+  CancelComponentDeploymentCommandOutput,
+} from "./commands/CancelComponentDeploymentCommand";
 import {
   CancelEnvironmentDeploymentCommand,
   CancelEnvironmentDeploymentCommandInput,
@@ -20,6 +27,11 @@ import {
   CancelServicePipelineDeploymentCommandInput,
   CancelServicePipelineDeploymentCommandOutput,
 } from "./commands/CancelServicePipelineDeploymentCommand";
+import {
+  CreateComponentCommand,
+  CreateComponentCommandInput,
+  CreateComponentCommandOutput,
+} from "./commands/CreateComponentCommand";
 import {
   CreateEnvironmentAccountConnectionCommand,
   CreateEnvironmentAccountConnectionCommandInput,
@@ -41,10 +53,25 @@ import {
   CreateEnvironmentTemplateVersionCommandOutput,
 } from "./commands/CreateEnvironmentTemplateVersionCommand";
 import {
+  CreateRepositoryCommand,
+  CreateRepositoryCommandInput,
+  CreateRepositoryCommandOutput,
+} from "./commands/CreateRepositoryCommand";
+import {
   CreateServiceCommand,
   CreateServiceCommandInput,
   CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
+import {
+  CreateServiceInstanceCommand,
+  CreateServiceInstanceCommandInput,
+  CreateServiceInstanceCommandOutput,
+} from "./commands/CreateServiceInstanceCommand";
+import {
+  CreateServiceSyncConfigCommand,
+  CreateServiceSyncConfigCommandInput,
+  CreateServiceSyncConfigCommandOutput,
+} from "./commands/CreateServiceSyncConfigCommand";
 import {
   CreateServiceTemplateCommand,
   CreateServiceTemplateCommandInput,
@@ -55,6 +82,21 @@ import {
   CreateServiceTemplateVersionCommandInput,
   CreateServiceTemplateVersionCommandOutput,
 } from "./commands/CreateServiceTemplateVersionCommand";
+import {
+  CreateTemplateSyncConfigCommand,
+  CreateTemplateSyncConfigCommandInput,
+  CreateTemplateSyncConfigCommandOutput,
+} from "./commands/CreateTemplateSyncConfigCommand";
+import {
+  DeleteComponentCommand,
+  DeleteComponentCommandInput,
+  DeleteComponentCommandOutput,
+} from "./commands/DeleteComponentCommand";
+import {
+  DeleteDeploymentCommand,
+  DeleteDeploymentCommandInput,
+  DeleteDeploymentCommandOutput,
+} from "./commands/DeleteDeploymentCommand";
 import {
   DeleteEnvironmentAccountConnectionCommand,
   DeleteEnvironmentAccountConnectionCommandInput,
@@ -76,10 +118,20 @@ import {
   DeleteEnvironmentTemplateVersionCommandOutput,
 } from "./commands/DeleteEnvironmentTemplateVersionCommand";
 import {
+  DeleteRepositoryCommand,
+  DeleteRepositoryCommandInput,
+  DeleteRepositoryCommandOutput,
+} from "./commands/DeleteRepositoryCommand";
+import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
   DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
+import {
+  DeleteServiceSyncConfigCommand,
+  DeleteServiceSyncConfigCommandInput,
+  DeleteServiceSyncConfigCommandOutput,
+} from "./commands/DeleteServiceSyncConfigCommand";
 import {
   DeleteServiceTemplateCommand,
   DeleteServiceTemplateCommandInput,
@@ -91,10 +143,25 @@ import {
   DeleteServiceTemplateVersionCommandOutput,
 } from "./commands/DeleteServiceTemplateVersionCommand";
 import {
+  DeleteTemplateSyncConfigCommand,
+  DeleteTemplateSyncConfigCommandInput,
+  DeleteTemplateSyncConfigCommandOutput,
+} from "./commands/DeleteTemplateSyncConfigCommand";
+import {
   GetAccountSettingsCommand,
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
+import {
+  GetComponentCommand,
+  GetComponentCommandInput,
+  GetComponentCommandOutput,
+} from "./commands/GetComponentCommand";
+import {
+  GetDeploymentCommand,
+  GetDeploymentCommandInput,
+  GetDeploymentCommandOutput,
+} from "./commands/GetDeploymentCommand";
 import {
   GetEnvironmentAccountConnectionCommand,
   GetEnvironmentAccountConnectionCommandInput,
@@ -115,12 +182,42 @@ import {
   GetEnvironmentTemplateVersionCommandInput,
   GetEnvironmentTemplateVersionCommandOutput,
 } from "./commands/GetEnvironmentTemplateVersionCommand";
+import {
+  GetRepositoryCommand,
+  GetRepositoryCommandInput,
+  GetRepositoryCommandOutput,
+} from "./commands/GetRepositoryCommand";
+import {
+  GetRepositorySyncStatusCommand,
+  GetRepositorySyncStatusCommandInput,
+  GetRepositorySyncStatusCommandOutput,
+} from "./commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourcesSummaryCommand,
+  GetResourcesSummaryCommandInput,
+  GetResourcesSummaryCommandOutput,
+} from "./commands/GetResourcesSummaryCommand";
 import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
   GetServiceInstanceCommand,
   GetServiceInstanceCommandInput,
   GetServiceInstanceCommandOutput,
 } from "./commands/GetServiceInstanceCommand";
+import {
+  GetServiceInstanceSyncStatusCommand,
+  GetServiceInstanceSyncStatusCommandInput,
+  GetServiceInstanceSyncStatusCommandOutput,
+} from "./commands/GetServiceInstanceSyncStatusCommand";
+import {
+  GetServiceSyncBlockerSummaryCommand,
+  GetServiceSyncBlockerSummaryCommandInput,
+  GetServiceSyncBlockerSummaryCommandOutput,
+} from "./commands/GetServiceSyncBlockerSummaryCommand";
+import {
+  GetServiceSyncConfigCommand,
+  GetServiceSyncConfigCommandInput,
+  GetServiceSyncConfigCommandOutput,
+} from "./commands/GetServiceSyncConfigCommand";
 import {
   GetServiceTemplateCommand,
   GetServiceTemplateCommandInput,
@@ -132,10 +229,50 @@ import {
   GetServiceTemplateVersionCommandOutput,
 } from "./commands/GetServiceTemplateVersionCommand";
 import {
+  GetTemplateSyncConfigCommand,
+  GetTemplateSyncConfigCommandInput,
+  GetTemplateSyncConfigCommandOutput,
+} from "./commands/GetTemplateSyncConfigCommand";
+import {
+  GetTemplateSyncStatusCommand,
+  GetTemplateSyncStatusCommandInput,
+  GetTemplateSyncStatusCommandOutput,
+} from "./commands/GetTemplateSyncStatusCommand";
+import {
+  ListComponentOutputsCommand,
+  ListComponentOutputsCommandInput,
+  ListComponentOutputsCommandOutput,
+} from "./commands/ListComponentOutputsCommand";
+import {
+  ListComponentProvisionedResourcesCommand,
+  ListComponentProvisionedResourcesCommandInput,
+  ListComponentProvisionedResourcesCommandOutput,
+} from "./commands/ListComponentProvisionedResourcesCommand";
+import {
+  ListComponentsCommand,
+  ListComponentsCommandInput,
+  ListComponentsCommandOutput,
+} from "./commands/ListComponentsCommand";
+import {
+  ListDeploymentsCommand,
+  ListDeploymentsCommandInput,
+  ListDeploymentsCommandOutput,
+} from "./commands/ListDeploymentsCommand";
+import {
   ListEnvironmentAccountConnectionsCommand,
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
 } from "./commands/ListEnvironmentAccountConnectionsCommand";
+import {
+  ListEnvironmentOutputsCommand,
+  ListEnvironmentOutputsCommandInput,
+  ListEnvironmentOutputsCommandOutput,
+} from "./commands/ListEnvironmentOutputsCommand";
+import {
+  ListEnvironmentProvisionedResourcesCommand,
+  ListEnvironmentProvisionedResourcesCommandInput,
+  ListEnvironmentProvisionedResourcesCommandOutput,
+} from "./commands/ListEnvironmentProvisionedResourcesCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
@@ -152,10 +289,40 @@ import {
   ListEnvironmentTemplateVersionsCommandOutput,
 } from "./commands/ListEnvironmentTemplateVersionsCommand";
 import {
+  ListRepositoriesCommand,
+  ListRepositoriesCommandInput,
+  ListRepositoriesCommandOutput,
+} from "./commands/ListRepositoriesCommand";
+import {
+  ListRepositorySyncDefinitionsCommand,
+  ListRepositorySyncDefinitionsCommandInput,
+  ListRepositorySyncDefinitionsCommandOutput,
+} from "./commands/ListRepositorySyncDefinitionsCommand";
+import {
+  ListServiceInstanceOutputsCommand,
+  ListServiceInstanceOutputsCommandInput,
+  ListServiceInstanceOutputsCommandOutput,
+} from "./commands/ListServiceInstanceOutputsCommand";
+import {
+  ListServiceInstanceProvisionedResourcesCommand,
+  ListServiceInstanceProvisionedResourcesCommandInput,
+  ListServiceInstanceProvisionedResourcesCommandOutput,
+} from "./commands/ListServiceInstanceProvisionedResourcesCommand";
+import {
   ListServiceInstancesCommand,
   ListServiceInstancesCommandInput,
   ListServiceInstancesCommandOutput,
 } from "./commands/ListServiceInstancesCommand";
+import {
+  ListServicePipelineOutputsCommand,
+  ListServicePipelineOutputsCommandInput,
+  ListServicePipelineOutputsCommandOutput,
+} from "./commands/ListServicePipelineOutputsCommand";
+import {
+  ListServicePipelineProvisionedResourcesCommand,
+  ListServicePipelineProvisionedResourcesCommandInput,
+  ListServicePipelineProvisionedResourcesCommandOutput,
+} from "./commands/ListServicePipelineProvisionedResourcesCommand";
 import {
   ListServicesCommand,
   ListServicesCommandInput,
@@ -177,6 +344,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  NotifyResourceDeploymentStatusChangeCommand,
+  NotifyResourceDeploymentStatusChangeCommandInput,
+  NotifyResourceDeploymentStatusChangeCommandOutput,
+} from "./commands/NotifyResourceDeploymentStatusChangeCommand";
+import {
   RejectEnvironmentAccountConnectionCommand,
   RejectEnvironmentAccountConnectionCommandInput,
   RejectEnvironmentAccountConnectionCommandOutput,
@@ -192,6 +364,11 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateComponentCommand,
+  UpdateComponentCommandInput,
+  UpdateComponentCommandOutput,
+} from "./commands/UpdateComponentCommand";
 import {
   UpdateEnvironmentAccountConnectionCommand,
   UpdateEnvironmentAccountConnectionCommandInput,
@@ -228,6 +405,16 @@ import {
   UpdateServicePipelineCommandOutput,
 } from "./commands/UpdateServicePipelineCommand";
 import {
+  UpdateServiceSyncBlockerCommand,
+  UpdateServiceSyncBlockerCommandInput,
+  UpdateServiceSyncBlockerCommandOutput,
+} from "./commands/UpdateServiceSyncBlockerCommand";
+import {
+  UpdateServiceSyncConfigCommand,
+  UpdateServiceSyncConfigCommandInput,
+  UpdateServiceSyncConfigCommandOutput,
+} from "./commands/UpdateServiceSyncConfigCommand";
+import {
   UpdateServiceTemplateCommand,
   UpdateServiceTemplateCommandInput,
   UpdateServiceTemplateCommandOutput,
@@ -237,1916 +424,1637 @@ import {
   UpdateServiceTemplateVersionCommandInput,
   UpdateServiceTemplateVersionCommandOutput,
 } from "./commands/UpdateServiceTemplateVersionCommand";
-import { ProtonClient } from "./ProtonClient";
+import {
+  UpdateTemplateSyncConfigCommand,
+  UpdateTemplateSyncConfigCommandInput,
+  UpdateTemplateSyncConfigCommandOutput,
+} from "./commands/UpdateTemplateSyncConfigCommand";
+import { ProtonClient, ProtonClientConfig } from "./ProtonClient";
 
-/**
- * <p>This is the AWS Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the AWS Proton service.</p>
- *         <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
- *         <p>Alternatively, you can use the AWS CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface User Guide</a>.</p>
- *         <p>The AWS Proton service is a two-pronged automation framework. Administrators create service templates to provide standardized
- *             infrastructure and deployment tooling for serverless and container based applications. Developers, in turn, select from the available
- *             service templates to automate their application or service deployments.</p>
- *         <p>Because administrators define the infrastructure and tooling that AWS Proton deploys and manages, they need permissions to use all of the
- *             listed API operations.</p>
- *         <p>When developers select a specific infrastructure and tooling set, AWS Proton deploys their applications. To monitor their applications
- *             that are running on AWS Proton, developers need permissions to the service <i>create</i>, <i>list</i>,
- *                 <i>update</i> and <i>delete</i> API operations and the service instance <i>list</i> and
- *                 <i>update</i> API operations.</p>
- *         <p>To learn more about AWS Proton administration, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html">AWS Proton
- *                 Administrator Guide</a>.</p>
- *         <p>To learn more about deploying serverless and containerized applications on AWS Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">AWS Proton User Guide</a>.</p>
- *         <p>
- *             <b>Ensuring Idempotency</b>
- *          </p>
- *         <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows of the operation are
- *             complete. Operations might also time out or encounter other server issues before they're complete, even if the request already returned a
- *             result. This might make it difficult to determine whether the request succeeded. Moreover, you might need to retry the request multiple
- *             times to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the
- *             operation occurs multiple times. This means that you might create more resources than you intended.</p>
- *         <p>
- *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an idempotent request, if the
- *             original request action completes successfully, any subsequent retries complete successfully without performing any further actions.
- *             However, the result might contain updated information, such as the current creation status.</p>
- *         <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
- *         <p>
- *             <b>Idempotent create APIs with a client token</b>
- *          </p>
- *         <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The corresponding AWS CLI
- *             commands also support idempotency using a client token. A client token is a unique, case-sensitive string of up to 64 ASCII characters. To
- *             make an idempotent API request using one of these actions, specify a client token in the request. We recommend that you
- *                 <i>don't</i> reuse the same client token for other API requests. If you don’t provide a client token for these APIs, a
- *             default client token is automatically provided by SDKs.</p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request using the same client token and the same parameters, the retry succeeds without performing any further actions
- *             other than returning the original resource detail data in the response.</p>
- *         <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry throws a
- *                 <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
- *         <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new resource is
- *             created.</p>
- *         <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
- *         <p>Idempotent create APIs with a client token:</p>
- *         <ul>
- *             <li>
- *                 <p>CreateEnvironmentTemplateVersion</p>
- *             </li>
- *             <li>
- *                 <p>CreateServiceTemplateVersion</p>
- *             </li>
- *             <li>
- *                 <p>CreateEnvironmentAccountConnection</p>
- *             </li>
- *          </ul>
- *         <p>
- *             <b>Idempotent create APIs</b>
- *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been modified, the retry
- *             succeeds without performing any further actions other than returning the original resource detail data in the response.</p>
- *         <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
- *         <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
- *                 <code>IdempotentParameterMismatch</code> error.</p>
- *         <p>Idempotent create APIs:</p>
- *         <ul>
- *             <li>
- *                 <p>CreateEnvironmentTemplate</p>
- *             </li>
- *             <li>
- *                 <p>CreateServiceTemplate</p>
- *             </li>
- *             <li>
- *                 <p>CreateEnvironment</p>
- *             </li>
- *             <li>
- *                 <p>CreateService</p>
- *             </li>
- *          </ul>
- *         <p>
- *             <b>Idempotent delete APIs</b>
- *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in the response.</p>
- *         <p>If you retry and the resource doesn't exist, the response is empty.</p>
- *         <p>In both cases, the retry succeeds.</p>
- *         <p>Idempotent delete APIs:</p>
- *         <ul>
- *             <li>
- *                 <p>DeleteEnvironmentTemplate</p>
- *             </li>
- *             <li>
- *                 <p>DeleteEnvironmentTemplateVersion</p>
- *             </li>
- *             <li>
- *                 <p>DeleteServiceTemplate</p>
- *             </li>
- *             <li>
- *                 <p>DeleteServiceTemplateVersion</p>
- *             </li>
- *             <li>
- *                 <p>DeleteEnvironmentAccountConnection</p>
- *             </li>
- *          </ul>
- *         <p>
- *             <b>Asynchronous idempotent delete APIs</b>
- *          </p>
- *         <p>Given a request action that has succeeded:</p>
- *         <p>If you retry the request with an API from this group, if the original request delete operation status is
- *             <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any further actions.</p>
- *         <p>If the original request delete operation is complete, a retry returns an empty response.</p>
- *         <p>Asynchronous idempotent delete APIs:</p>
- *         <ul>
- *             <li>
- *                 <p>DeleteEnvironment</p>
- *             </li>
- *             <li>
- *                 <p>DeleteService</p>
- *             </li>
- *          </ul>
- */
-export class Proton extends ProtonClient {
+const commands = {
+  AcceptEnvironmentAccountConnectionCommand,
+  CancelComponentDeploymentCommand,
+  CancelEnvironmentDeploymentCommand,
+  CancelServiceInstanceDeploymentCommand,
+  CancelServicePipelineDeploymentCommand,
+  CreateComponentCommand,
+  CreateEnvironmentCommand,
+  CreateEnvironmentAccountConnectionCommand,
+  CreateEnvironmentTemplateCommand,
+  CreateEnvironmentTemplateVersionCommand,
+  CreateRepositoryCommand,
+  CreateServiceCommand,
+  CreateServiceInstanceCommand,
+  CreateServiceSyncConfigCommand,
+  CreateServiceTemplateCommand,
+  CreateServiceTemplateVersionCommand,
+  CreateTemplateSyncConfigCommand,
+  DeleteComponentCommand,
+  DeleteDeploymentCommand,
+  DeleteEnvironmentCommand,
+  DeleteEnvironmentAccountConnectionCommand,
+  DeleteEnvironmentTemplateCommand,
+  DeleteEnvironmentTemplateVersionCommand,
+  DeleteRepositoryCommand,
+  DeleteServiceCommand,
+  DeleteServiceSyncConfigCommand,
+  DeleteServiceTemplateCommand,
+  DeleteServiceTemplateVersionCommand,
+  DeleteTemplateSyncConfigCommand,
+  GetAccountSettingsCommand,
+  GetComponentCommand,
+  GetDeploymentCommand,
+  GetEnvironmentCommand,
+  GetEnvironmentAccountConnectionCommand,
+  GetEnvironmentTemplateCommand,
+  GetEnvironmentTemplateVersionCommand,
+  GetRepositoryCommand,
+  GetRepositorySyncStatusCommand,
+  GetResourcesSummaryCommand,
+  GetServiceCommand,
+  GetServiceInstanceCommand,
+  GetServiceInstanceSyncStatusCommand,
+  GetServiceSyncBlockerSummaryCommand,
+  GetServiceSyncConfigCommand,
+  GetServiceTemplateCommand,
+  GetServiceTemplateVersionCommand,
+  GetTemplateSyncConfigCommand,
+  GetTemplateSyncStatusCommand,
+  ListComponentOutputsCommand,
+  ListComponentProvisionedResourcesCommand,
+  ListComponentsCommand,
+  ListDeploymentsCommand,
+  ListEnvironmentAccountConnectionsCommand,
+  ListEnvironmentOutputsCommand,
+  ListEnvironmentProvisionedResourcesCommand,
+  ListEnvironmentsCommand,
+  ListEnvironmentTemplatesCommand,
+  ListEnvironmentTemplateVersionsCommand,
+  ListRepositoriesCommand,
+  ListRepositorySyncDefinitionsCommand,
+  ListServiceInstanceOutputsCommand,
+  ListServiceInstanceProvisionedResourcesCommand,
+  ListServiceInstancesCommand,
+  ListServicePipelineOutputsCommand,
+  ListServicePipelineProvisionedResourcesCommand,
+  ListServicesCommand,
+  ListServiceTemplatesCommand,
+  ListServiceTemplateVersionsCommand,
+  ListTagsForResourceCommand,
+  NotifyResourceDeploymentStatusChangeCommand,
+  RejectEnvironmentAccountConnectionCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAccountSettingsCommand,
+  UpdateComponentCommand,
+  UpdateEnvironmentCommand,
+  UpdateEnvironmentAccountConnectionCommand,
+  UpdateEnvironmentTemplateCommand,
+  UpdateEnvironmentTemplateVersionCommand,
+  UpdateServiceCommand,
+  UpdateServiceInstanceCommand,
+  UpdateServicePipelineCommand,
+  UpdateServiceSyncBlockerCommand,
+  UpdateServiceSyncConfigCommand,
+  UpdateServiceTemplateCommand,
+  UpdateServiceTemplateVersionCommand,
+  UpdateTemplateSyncConfigCommand,
+};
+
+export interface Proton {
   /**
-   * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is
-   *             accepted, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment
-   *             account.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link AcceptEnvironmentAccountConnectionCommand}
    */
-  public acceptEnvironmentAccountConnection(
+  acceptEnvironmentAccountConnection(
     args: AcceptEnvironmentAccountConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<AcceptEnvironmentAccountConnectionCommandOutput>;
-  public acceptEnvironmentAccountConnection(
+  acceptEnvironmentAccountConnection(
     args: AcceptEnvironmentAccountConnectionCommandInput,
     cb: (err: any, data?: AcceptEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public acceptEnvironmentAccountConnection(
+  acceptEnvironmentAccountConnection(
     args: AcceptEnvironmentAccountConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public acceptEnvironmentAccountConnection(
-    args: AcceptEnvironmentAccountConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptEnvironmentAccountConnectionCommandOutput) => void),
-    cb?: (err: any, data?: AcceptEnvironmentAccountConnectionCommandOutput) => void
-  ): Promise<AcceptEnvironmentAccountConnectionCommandOutput> | void {
-    const command = new AcceptEnvironmentAccountConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>AWS Proton Administrator guide</i>.</p>
-   *         <p>The following list includes potential cancellation scenarios.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt starts, the resulting
-   *                     deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
-   *             </li>
-   *          </ul>
+   * @see {@link CancelComponentDeploymentCommand}
    */
-  public cancelEnvironmentDeployment(
+  cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelComponentDeploymentCommandOutput>;
+  cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    cb: (err: any, data?: CancelComponentDeploymentCommandOutput) => void
+  ): void;
+  cancelComponentDeployment(
+    args: CancelComponentDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelComponentDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelEnvironmentDeploymentCommand}
+   */
+  cancelEnvironmentDeployment(
     args: CancelEnvironmentDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelEnvironmentDeploymentCommandOutput>;
-  public cancelEnvironmentDeployment(
+  cancelEnvironmentDeployment(
     args: CancelEnvironmentDeploymentCommandInput,
     cb: (err: any, data?: CancelEnvironmentDeploymentCommandOutput) => void
   ): void;
-  public cancelEnvironmentDeployment(
+  cancelEnvironmentDeployment(
     args: CancelEnvironmentDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelEnvironmentDeploymentCommandOutput) => void
   ): void;
-  public cancelEnvironmentDeployment(
-    args: CancelEnvironmentDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelEnvironmentDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CancelEnvironmentDeploymentCommandOutput) => void
-  ): Promise<CancelEnvironmentDeploymentCommandOutput> | void {
-    const command = new CancelEnvironmentDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Attempts to cancel a service instance deployment on an <a>UpdateServiceInstance</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service instance</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html">AWS Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html">AWS Proton User guide</a>.</p>
-   *         <p>The following list includes potential cancellation scenarios.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the current <a>UpdateServiceInstance</a> action succeeds before the cancellation attempt starts, the resulting
-   *                     deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
-   *             </li>
-   *          </ul>
+   * @see {@link CancelServiceInstanceDeploymentCommand}
    */
-  public cancelServiceInstanceDeployment(
+  cancelServiceInstanceDeployment(
     args: CancelServiceInstanceDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelServiceInstanceDeploymentCommandOutput>;
-  public cancelServiceInstanceDeployment(
+  cancelServiceInstanceDeployment(
     args: CancelServiceInstanceDeploymentCommandInput,
     cb: (err: any, data?: CancelServiceInstanceDeploymentCommandOutput) => void
   ): void;
-  public cancelServiceInstanceDeployment(
+  cancelServiceInstanceDeployment(
     args: CancelServiceInstanceDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelServiceInstanceDeploymentCommandOutput) => void
   ): void;
-  public cancelServiceInstanceDeployment(
-    args: CancelServiceInstanceDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelServiceInstanceDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CancelServiceInstanceDeploymentCommandOutput) => void
-  ): Promise<CancelServiceInstanceDeploymentCommandOutput> | void {
-    const command = new CancelServiceInstanceDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is
-   *                 <code>IN_PROGRESS</code>. For more information, see <i>Update a service pipeline</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-pipeline-update.html">AWS Proton Administrator guide</a> or the <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-pipeline-update.html">AWS Proton User guide</a>.</p>
-   *         <p>The following list includes potential cancellation scenarios.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If the cancellation attempt succeeds, the resulting deployment state is <code>CANCELLED</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the cancellation attempt fails, the resulting deployment state is <code>FAILED</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the current <a>UpdateServicePipeline</a> action succeeds before the cancellation attempt starts, the resulting
-   *                     deployment state is <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
-   *             </li>
-   *          </ul>
+   * @see {@link CancelServicePipelineDeploymentCommand}
    */
-  public cancelServicePipelineDeployment(
+  cancelServicePipelineDeployment(
     args: CancelServicePipelineDeploymentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelServicePipelineDeploymentCommandOutput>;
-  public cancelServicePipelineDeployment(
+  cancelServicePipelineDeployment(
     args: CancelServicePipelineDeploymentCommandInput,
     cb: (err: any, data?: CancelServicePipelineDeploymentCommandOutput) => void
   ): void;
-  public cancelServicePipelineDeployment(
+  cancelServicePipelineDeployment(
     args: CancelServicePipelineDeploymentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelServicePipelineDeploymentCommandOutput) => void
   ): void;
-  public cancelServicePipelineDeployment(
-    args: CancelServicePipelineDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelServicePipelineDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CancelServicePipelineDeploymentCommandOutput) => void
-  ): Promise<CancelServicePipelineDeploymentCommandOutput> | void {
-    const command = new CancelServicePipelineDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deploy a new environment. An AWS Proton environment is created from an environment template that defines infrastructure and resources
-   *             that can be shared across services. For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the <i>AWS Proton Administrator
-   *             Guide.</i>
-   *          </p>
+   * @see {@link CreateComponentCommand}
    */
-  public createEnvironment(
+  createComponent(
+    args: CreateComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComponentCommandOutput>;
+  createComponent(args: CreateComponentCommandInput, cb: (err: any, data?: CreateComponentCommandOutput) => void): void;
+  createComponent(
+    args: CreateComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEnvironmentCommand}
+   */
+  createEnvironment(
     args: CreateEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEnvironmentCommandOutput>;
-  public createEnvironment(
+  createEnvironment(
     args: CreateEnvironmentCommandInput,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): void;
-  public createEnvironment(
+  createEnvironment(
     args: CreateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): void;
-  public createEnvironment(
-    args: CreateEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: CreateEnvironmentCommandOutput) => void
-  ): Promise<CreateEnvironmentCommandOutput> | void {
-    const command = new CreateEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in
-   *             the environment account from a management account.</p>
-   *         <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an
-   *                 <i>environment account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account connections</a> in the
-   *                 <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link CreateEnvironmentAccountConnectionCommand}
    */
-  public createEnvironmentAccountConnection(
+  createEnvironmentAccountConnection(
     args: CreateEnvironmentAccountConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEnvironmentAccountConnectionCommandOutput>;
-  public createEnvironmentAccountConnection(
+  createEnvironmentAccountConnection(
     args: CreateEnvironmentAccountConnectionCommandInput,
     cb: (err: any, data?: CreateEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public createEnvironmentAccountConnection(
+  createEnvironmentAccountConnection(
     args: CreateEnvironmentAccountConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public createEnvironmentAccountConnection(
-    args: CreateEnvironmentAccountConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentAccountConnectionCommandOutput) => void),
-    cb?: (err: any, data?: CreateEnvironmentAccountConnectionCommandOutput) => void
-  ): Promise<CreateEnvironmentAccountConnectionCommandOutput> | void {
-    const command = new CreateEnvironmentAccountConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create an environment template for AWS Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment Templates</a> in the <i>AWS Proton Administrator
-   *                 Guide</i>.</p>
-   *         <p>You can create an environment template in one of the two following ways:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Register and publish a <i>standard</i> environment template that instructs AWS Proton to deploy and manage
-   *                     environment infrastructure.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Register and publish a <i>customer managed</i> environment template that connects AWS Proton to your existing
-   *                     provisioned infrastructure that you manage. AWS Proton <i>doesn't</i> manage your existing provisioned
-   *                     infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the
-   *                         <code>provisioning</code> parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register and publish an environment template</a>
-   *                     in the <i>AWS Proton Administrator Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * @see {@link CreateEnvironmentTemplateCommand}
    */
-  public createEnvironmentTemplate(
+  createEnvironmentTemplate(
     args: CreateEnvironmentTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEnvironmentTemplateCommandOutput>;
-  public createEnvironmentTemplate(
+  createEnvironmentTemplate(
     args: CreateEnvironmentTemplateCommandInput,
     cb: (err: any, data?: CreateEnvironmentTemplateCommandOutput) => void
   ): void;
-  public createEnvironmentTemplate(
+  createEnvironmentTemplate(
     args: CreateEnvironmentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentTemplateCommandOutput) => void
   ): void;
-  public createEnvironmentTemplate(
-    args: CreateEnvironmentTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateEnvironmentTemplateCommandOutput) => void
-  ): Promise<CreateEnvironmentTemplateCommandOutput> | void {
-    const command = new CreateEnvironmentTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
-   *                 <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible
-   *             within its major version.</p>
+   * @see {@link CreateEnvironmentTemplateVersionCommand}
    */
-  public createEnvironmentTemplateVersion(
+  createEnvironmentTemplateVersion(
     args: CreateEnvironmentTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateEnvironmentTemplateVersionCommandOutput>;
-  public createEnvironmentTemplateVersion(
+  createEnvironmentTemplateVersion(
     args: CreateEnvironmentTemplateVersionCommandInput,
     cb: (err: any, data?: CreateEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public createEnvironmentTemplateVersion(
+  createEnvironmentTemplateVersion(
     args: CreateEnvironmentTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public createEnvironmentTemplateVersion(
-    args: CreateEnvironmentTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateEnvironmentTemplateVersionCommandOutput) => void
-  ): Promise<CreateEnvironmentTemplateVersionCommandOutput> | void {
-    const command = new CreateEnvironmentTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create an AWS Proton service. An AWS Proton service is an instantiation of a service template and often includes several service instances
-   *             and pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in
-   *             the <i>AWS Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a> in the <i>AWS Proton User Guide</i>.</p>
+   * @see {@link CreateRepositoryCommand}
    */
-  public createService(
-    args: CreateServiceCommandInput,
+  createRepository(
+    args: CreateRepositoryCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateServiceCommandOutput>;
-  public createService(
-    args: CreateServiceCommandInput,
-    cb: (err: any, data?: CreateServiceCommandOutput) => void
+  ): Promise<CreateRepositoryCommandOutput>;
+  createRepository(
+    args: CreateRepositoryCommandInput,
+    cb: (err: any, data?: CreateRepositoryCommandOutput) => void
   ): void;
-  public createService(
+  createRepository(
+    args: CreateRepositoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateServiceCommand}
+   */
+  createService(args: CreateServiceCommandInput, options?: __HttpHandlerOptions): Promise<CreateServiceCommandOutput>;
+  createService(args: CreateServiceCommandInput, cb: (err: any, data?: CreateServiceCommandOutput) => void): void;
+  createService(
     args: CreateServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateServiceCommandOutput) => void
   ): void;
-  public createService(
-    args: CreateServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceCommandOutput) => void),
-    cb?: (err: any, data?: CreateServiceCommandOutput) => void
-  ): Promise<CreateServiceCommandOutput> | void {
-    const command = new CreateServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CICD
-   *             service pipeline. Developers, in turn, select the service template from AWS Proton. If the selected service template includes a service
-   *             pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by
-   *             the selected service template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html">Service Templates</a> in the <i>AWS Proton Administrator
-   *                 Guide</i>.</p>
+   * @see {@link CreateServiceInstanceCommand}
    */
-  public createServiceTemplate(
+  createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceInstanceCommandOutput>;
+  createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    cb: (err: any, data?: CreateServiceInstanceCommandOutput) => void
+  ): void;
+  createServiceInstance(
+    args: CreateServiceInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateServiceSyncConfigCommand}
+   */
+  createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceSyncConfigCommandOutput>;
+  createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    cb: (err: any, data?: CreateServiceSyncConfigCommandOutput) => void
+  ): void;
+  createServiceSyncConfig(
+    args: CreateServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateServiceTemplateCommand}
+   */
+  createServiceTemplate(
     args: CreateServiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateServiceTemplateCommandOutput>;
-  public createServiceTemplate(
+  createServiceTemplate(
     args: CreateServiceTemplateCommandInput,
     cb: (err: any, data?: CreateServiceTemplateCommandOutput) => void
   ): void;
-  public createServiceTemplate(
+  createServiceTemplate(
     args: CreateServiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateServiceTemplateCommandOutput) => void
   ): void;
-  public createServiceTemplate(
-    args: CreateServiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateServiceTemplateCommandOutput) => void
-  ): Promise<CreateServiceTemplateCommandOutput> | void {
-    const command = new CreateServiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Create a new major or minor version of a service template. A major version of a service template is a version that
-   *                 <i>isn't</i> backwards compatible. A minor version of a service template is a version that's backwards compatible within
-   *             its major version.</p>
+   * @see {@link CreateServiceTemplateVersionCommand}
    */
-  public createServiceTemplateVersion(
+  createServiceTemplateVersion(
     args: CreateServiceTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateServiceTemplateVersionCommandOutput>;
-  public createServiceTemplateVersion(
+  createServiceTemplateVersion(
     args: CreateServiceTemplateVersionCommandInput,
     cb: (err: any, data?: CreateServiceTemplateVersionCommandOutput) => void
   ): void;
-  public createServiceTemplateVersion(
+  createServiceTemplateVersion(
     args: CreateServiceTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateServiceTemplateVersionCommandOutput) => void
   ): void;
-  public createServiceTemplateVersion(
-    args: CreateServiceTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateServiceTemplateVersionCommandOutput) => void
-  ): Promise<CreateServiceTemplateVersionCommandOutput> | void {
-    const command = new CreateServiceTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Delete an environment.</p>
+   * @see {@link CreateTemplateSyncConfigCommand}
    */
-  public deleteEnvironment(
+  createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTemplateSyncConfigCommandOutput>;
+  createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: CreateTemplateSyncConfigCommandOutput) => void
+  ): void;
+  createTemplateSyncConfig(
+    args: CreateTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTemplateSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteComponentCommand}
+   */
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComponentCommandOutput>;
+  deleteComponent(args: DeleteComponentCommandInput, cb: (err: any, data?: DeleteComponentCommandOutput) => void): void;
+  deleteComponent(
+    args: DeleteComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDeploymentCommand}
+   */
+  deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeploymentCommandOutput>;
+  deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): void;
+  deleteDeployment(
+    args: DeleteDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEnvironmentCommand}
+   */
+  deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEnvironmentCommandOutput>;
-  public deleteEnvironment(
+  deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): void;
-  public deleteEnvironment(
+  deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): void;
-  public deleteEnvironment(
-    args: DeleteEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEnvironmentCommandOutput) => void
-  ): Promise<DeleteEnvironmentCommandOutput> | void {
-    const command = new DeleteEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>In an environment account, delete an environment account connection.</p>
-   *         <p>After you delete an environment account connection that’s in use by an AWS Proton environment, AWS Proton <i>can’t</i>
-   *             manage the environment infrastructure resources until a new environment account connection is accepted for the environment account and
-   *             associated environment. You're responsible for cleaning up provisioned resources that remain without an environment connection.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link DeleteEnvironmentAccountConnectionCommand}
    */
-  public deleteEnvironmentAccountConnection(
+  deleteEnvironmentAccountConnection(
     args: DeleteEnvironmentAccountConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEnvironmentAccountConnectionCommandOutput>;
-  public deleteEnvironmentAccountConnection(
+  deleteEnvironmentAccountConnection(
     args: DeleteEnvironmentAccountConnectionCommandInput,
     cb: (err: any, data?: DeleteEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public deleteEnvironmentAccountConnection(
+  deleteEnvironmentAccountConnection(
     args: DeleteEnvironmentAccountConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public deleteEnvironmentAccountConnection(
-    args: DeleteEnvironmentAccountConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentAccountConnectionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEnvironmentAccountConnectionCommandOutput) => void
-  ): Promise<DeleteEnvironmentAccountConnectionCommandOutput> | void {
-    const command = new DeleteEnvironmentAccountConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>
+   * @see {@link DeleteEnvironmentTemplateCommand}
    */
-  public deleteEnvironmentTemplate(
+  deleteEnvironmentTemplate(
     args: DeleteEnvironmentTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEnvironmentTemplateCommandOutput>;
-  public deleteEnvironmentTemplate(
+  deleteEnvironmentTemplate(
     args: DeleteEnvironmentTemplateCommandInput,
     cb: (err: any, data?: DeleteEnvironmentTemplateCommandOutput) => void
   ): void;
-  public deleteEnvironmentTemplate(
+  deleteEnvironmentTemplate(
     args: DeleteEnvironmentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentTemplateCommandOutput) => void
   ): void;
-  public deleteEnvironmentTemplate(
-    args: DeleteEnvironmentTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEnvironmentTemplateCommandOutput) => void
-  ): Promise<DeleteEnvironmentTemplateCommandOutput> | void {
-    const command = new DeleteEnvironmentTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
-   *                 <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions
-   *             or minor versions of the environment template exist. A major version of an environment template is a version that's not backwards
-   *             compatible.</p>
-   *         <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a
-   *                 <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A
-   *             minor version of an environment template is a version that's backwards compatible.</p>
+   * @see {@link DeleteEnvironmentTemplateVersionCommand}
    */
-  public deleteEnvironmentTemplateVersion(
+  deleteEnvironmentTemplateVersion(
     args: DeleteEnvironmentTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEnvironmentTemplateVersionCommandOutput>;
-  public deleteEnvironmentTemplateVersion(
+  deleteEnvironmentTemplateVersion(
     args: DeleteEnvironmentTemplateVersionCommandInput,
     cb: (err: any, data?: DeleteEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public deleteEnvironmentTemplateVersion(
+  deleteEnvironmentTemplateVersion(
     args: DeleteEnvironmentTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public deleteEnvironmentTemplateVersion(
-    args: DeleteEnvironmentTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEnvironmentTemplateVersionCommandOutput) => void
-  ): Promise<DeleteEnvironmentTemplateVersionCommandOutput> | void {
-    const command = new DeleteEnvironmentTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Delete a service.</p>
+   * @see {@link DeleteRepositoryCommand}
    */
-  public deleteService(
-    args: DeleteServiceCommandInput,
+  deleteRepository(
+    args: DeleteRepositoryCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteServiceCommandOutput>;
-  public deleteService(
-    args: DeleteServiceCommandInput,
-    cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): Promise<DeleteRepositoryCommandOutput>;
+  deleteRepository(
+    args: DeleteRepositoryCommandInput,
+    cb: (err: any, data?: DeleteRepositoryCommandOutput) => void
   ): void;
-  public deleteService(
+  deleteRepository(
+    args: DeleteRepositoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceCommand}
+   */
+  deleteService(args: DeleteServiceCommandInput, options?: __HttpHandlerOptions): Promise<DeleteServiceCommandOutput>;
+  deleteService(args: DeleteServiceCommandInput, cb: (err: any, data?: DeleteServiceCommandOutput) => void): void;
+  deleteService(
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteServiceCommandOutput) => void
   ): void;
-  public deleteService(
-    args: DeleteServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteServiceCommandOutput) => void
-  ): Promise<DeleteServiceCommandOutput> | void {
-    const command = new DeleteServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>If no other major or minor versions of the service template exist, delete the service template.</p>
+   * @see {@link DeleteServiceSyncConfigCommand}
    */
-  public deleteServiceTemplate(
+  deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceSyncConfigCommandOutput>;
+  deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    cb: (err: any, data?: DeleteServiceSyncConfigCommandOutput) => void
+  ): void;
+  deleteServiceSyncConfig(
+    args: DeleteServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceTemplateCommand}
+   */
+  deleteServiceTemplate(
     args: DeleteServiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteServiceTemplateCommandOutput>;
-  public deleteServiceTemplate(
+  deleteServiceTemplate(
     args: DeleteServiceTemplateCommandInput,
     cb: (err: any, data?: DeleteServiceTemplateCommandOutput) => void
   ): void;
-  public deleteServiceTemplate(
+  deleteServiceTemplate(
     args: DeleteServiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteServiceTemplateCommandOutput) => void
   ): void;
-  public deleteServiceTemplate(
-    args: DeleteServiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteServiceTemplateCommandOutput) => void
-  ): Promise<DeleteServiceTemplateCommandOutput> | void {
-    const command = new DeleteServiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>If no other minor versions of a service template exist, delete a major version of the service template if it's not the
-   *                 <code>Recommended</code> version. Delete the <code>Recommended</code> version of the service template if no other major versions or
-   *             minor versions of the service template exist. A major version of a service template is a version that <i>isn't</i> backwards
-   *             compatible.</p>
-   *         <p>Delete a minor version of a service template if it's not the <code>Recommended</code> version. Delete a <code>Recommended</code> minor
-   *             version of the service template if no other minor versions of the service template exist. A minor version of a service template is a
-   *             version that's backwards compatible.</p>
+   * @see {@link DeleteServiceTemplateVersionCommand}
    */
-  public deleteServiceTemplateVersion(
+  deleteServiceTemplateVersion(
     args: DeleteServiceTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteServiceTemplateVersionCommandOutput>;
-  public deleteServiceTemplateVersion(
+  deleteServiceTemplateVersion(
     args: DeleteServiceTemplateVersionCommandInput,
     cb: (err: any, data?: DeleteServiceTemplateVersionCommandOutput) => void
   ): void;
-  public deleteServiceTemplateVersion(
+  deleteServiceTemplateVersion(
     args: DeleteServiceTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteServiceTemplateVersionCommandOutput) => void
   ): void;
-  public deleteServiceTemplateVersion(
-    args: DeleteServiceTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteServiceTemplateVersionCommandOutput) => void
-  ): Promise<DeleteServiceTemplateVersionCommandOutput> | void {
-    const command = new DeleteServiceTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get detail data for the AWS Proton pipeline service role.</p>
+   * @see {@link DeleteTemplateSyncConfigCommand}
    */
-  public getAccountSettings(
+  deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTemplateSyncConfigCommandOutput>;
+  deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: DeleteTemplateSyncConfigCommandOutput) => void
+  ): void;
+  deleteTemplateSyncConfig(
+    args: DeleteTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTemplateSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountSettingsCommand}
+   */
+  getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAccountSettingsCommandOutput>;
-  public getAccountSettings(
+  getAccountSettings(
     args: GetAccountSettingsCommandInput,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
-  public getAccountSettings(
+  getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): Promise<GetAccountSettingsCommandOutput> | void {
-    const command = new GetAccountSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get detail data for an environment.</p>
+   * @see {@link GetComponentCommand}
    */
-  public getEnvironment(
+  getComponent(args: GetComponentCommandInput, options?: __HttpHandlerOptions): Promise<GetComponentCommandOutput>;
+  getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
+  getComponent(
+    args: GetComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDeploymentCommand}
+   */
+  getDeployment(args: GetDeploymentCommandInput, options?: __HttpHandlerOptions): Promise<GetDeploymentCommandOutput>;
+  getDeployment(args: GetDeploymentCommandInput, cb: (err: any, data?: GetDeploymentCommandOutput) => void): void;
+  getDeployment(
+    args: GetDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEnvironmentCommand}
+   */
+  getEnvironment(
     args: GetEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
-  public getEnvironment(
-    args: GetEnvironmentCommandInput,
-    cb: (err: any, data?: GetEnvironmentCommandOutput) => void
-  ): void;
-  public getEnvironment(
+  getEnvironment(args: GetEnvironmentCommandInput, cb: (err: any, data?: GetEnvironmentCommandOutput) => void): void;
+  getEnvironment(
     args: GetEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): void;
-  public getEnvironment(
-    args: GetEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: GetEnvironmentCommandOutput) => void
-  ): Promise<GetEnvironmentCommandOutput> | void {
-    const command = new GetEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>In an environment account, view the detail data for an environment account connection.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link GetEnvironmentAccountConnectionCommand}
    */
-  public getEnvironmentAccountConnection(
+  getEnvironmentAccountConnection(
     args: GetEnvironmentAccountConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentAccountConnectionCommandOutput>;
-  public getEnvironmentAccountConnection(
+  getEnvironmentAccountConnection(
     args: GetEnvironmentAccountConnectionCommandInput,
     cb: (err: any, data?: GetEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public getEnvironmentAccountConnection(
+  getEnvironmentAccountConnection(
     args: GetEnvironmentAccountConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public getEnvironmentAccountConnection(
-    args: GetEnvironmentAccountConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentAccountConnectionCommandOutput) => void),
-    cb?: (err: any, data?: GetEnvironmentAccountConnectionCommandOutput) => void
-  ): Promise<GetEnvironmentAccountConnectionCommandOutput> | void {
-    const command = new GetEnvironmentAccountConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get detail data for an environment template.</p>
+   * @see {@link GetEnvironmentTemplateCommand}
    */
-  public getEnvironmentTemplate(
+  getEnvironmentTemplate(
     args: GetEnvironmentTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentTemplateCommandOutput>;
-  public getEnvironmentTemplate(
+  getEnvironmentTemplate(
     args: GetEnvironmentTemplateCommandInput,
     cb: (err: any, data?: GetEnvironmentTemplateCommandOutput) => void
   ): void;
-  public getEnvironmentTemplate(
+  getEnvironmentTemplate(
     args: GetEnvironmentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentTemplateCommandOutput) => void
   ): void;
-  public getEnvironmentTemplate(
-    args: GetEnvironmentTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetEnvironmentTemplateCommandOutput) => void
-  ): Promise<GetEnvironmentTemplateCommandOutput> | void {
-    const command = new GetEnvironmentTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>View detail data for a major or minor version of an environment template.</p>
+   * @see {@link GetEnvironmentTemplateVersionCommand}
    */
-  public getEnvironmentTemplateVersion(
+  getEnvironmentTemplateVersion(
     args: GetEnvironmentTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentTemplateVersionCommandOutput>;
-  public getEnvironmentTemplateVersion(
+  getEnvironmentTemplateVersion(
     args: GetEnvironmentTemplateVersionCommandInput,
     cb: (err: any, data?: GetEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public getEnvironmentTemplateVersion(
+  getEnvironmentTemplateVersion(
     args: GetEnvironmentTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public getEnvironmentTemplateVersion(
-    args: GetEnvironmentTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetEnvironmentTemplateVersionCommandOutput) => void
-  ): Promise<GetEnvironmentTemplateVersionCommandOutput> | void {
-    const command = new GetEnvironmentTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get detail data for a service.</p>
+   * @see {@link GetRepositoryCommand}
    */
-  public getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
-  public getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
-  public getService(
+  getRepository(args: GetRepositoryCommandInput, options?: __HttpHandlerOptions): Promise<GetRepositoryCommandOutput>;
+  getRepository(args: GetRepositoryCommandInput, cb: (err: any, data?: GetRepositoryCommandOutput) => void): void;
+  getRepository(
+    args: GetRepositoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRepositorySyncStatusCommand}
+   */
+  getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRepositorySyncStatusCommandOutput>;
+  getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): void;
+  getRepositorySyncStatus(
+    args: GetRepositorySyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcesSummaryCommand}
+   */
+  getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcesSummaryCommandOutput>;
+  getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    cb: (err: any, data?: GetResourcesSummaryCommandOutput) => void
+  ): void;
+  getResourcesSummary(
+    args: GetResourcesSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcesSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceCommand}
+   */
+  getService(args: GetServiceCommandInput, options?: __HttpHandlerOptions): Promise<GetServiceCommandOutput>;
+  getService(args: GetServiceCommandInput, cb: (err: any, data?: GetServiceCommandOutput) => void): void;
+  getService(
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
-  public getService(
-    args: GetServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceCommandOutput) => void),
-    cb?: (err: any, data?: GetServiceCommandOutput) => void
-  ): Promise<GetServiceCommandOutput> | void {
-    const command = new GetServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get detail data for a service instance. A service instance is an instantiation of service template, which is running in a specific
-   *             environment.</p>
+   * @see {@link GetServiceInstanceCommand}
    */
-  public getServiceInstance(
+  getServiceInstance(
     args: GetServiceInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceInstanceCommandOutput>;
-  public getServiceInstance(
+  getServiceInstance(
     args: GetServiceInstanceCommandInput,
     cb: (err: any, data?: GetServiceInstanceCommandOutput) => void
   ): void;
-  public getServiceInstance(
+  getServiceInstance(
     args: GetServiceInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceInstanceCommandOutput) => void
   ): void;
-  public getServiceInstance(
-    args: GetServiceInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceInstanceCommandOutput) => void),
-    cb?: (err: any, data?: GetServiceInstanceCommandOutput) => void
-  ): Promise<GetServiceInstanceCommandOutput> | void {
-    const command = new GetServiceInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get detail data for a service template.</p>
+   * @see {@link GetServiceInstanceSyncStatusCommand}
    */
-  public getServiceTemplate(
+  getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceInstanceSyncStatusCommandOutput>;
+  getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    cb: (err: any, data?: GetServiceInstanceSyncStatusCommandOutput) => void
+  ): void;
+  getServiceInstanceSyncStatus(
+    args: GetServiceInstanceSyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceInstanceSyncStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceSyncBlockerSummaryCommand}
+   */
+  getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceSyncBlockerSummaryCommandOutput>;
+  getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    cb: (err: any, data?: GetServiceSyncBlockerSummaryCommandOutput) => void
+  ): void;
+  getServiceSyncBlockerSummary(
+    args: GetServiceSyncBlockerSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceSyncBlockerSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceSyncConfigCommand}
+   */
+  getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceSyncConfigCommandOutput>;
+  getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    cb: (err: any, data?: GetServiceSyncConfigCommandOutput) => void
+  ): void;
+  getServiceSyncConfig(
+    args: GetServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceTemplateCommand}
+   */
+  getServiceTemplate(
     args: GetServiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceTemplateCommandOutput>;
-  public getServiceTemplate(
+  getServiceTemplate(
     args: GetServiceTemplateCommandInput,
     cb: (err: any, data?: GetServiceTemplateCommandOutput) => void
   ): void;
-  public getServiceTemplate(
+  getServiceTemplate(
     args: GetServiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceTemplateCommandOutput) => void
   ): void;
-  public getServiceTemplate(
-    args: GetServiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetServiceTemplateCommandOutput) => void
-  ): Promise<GetServiceTemplateCommandOutput> | void {
-    const command = new GetServiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>View detail data for a major or minor version of a service template.</p>
+   * @see {@link GetServiceTemplateVersionCommand}
    */
-  public getServiceTemplateVersion(
+  getServiceTemplateVersion(
     args: GetServiceTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetServiceTemplateVersionCommandOutput>;
-  public getServiceTemplateVersion(
+  getServiceTemplateVersion(
     args: GetServiceTemplateVersionCommandInput,
     cb: (err: any, data?: GetServiceTemplateVersionCommandOutput) => void
   ): void;
-  public getServiceTemplateVersion(
+  getServiceTemplateVersion(
     args: GetServiceTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceTemplateVersionCommandOutput) => void
   ): void;
-  public getServiceTemplateVersion(
-    args: GetServiceTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetServiceTemplateVersionCommandOutput) => void
-  ): Promise<GetServiceTemplateVersionCommandOutput> | void {
-    const command = new GetServiceTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>View a list of environment account connections.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link GetTemplateSyncConfigCommand}
    */
-  public listEnvironmentAccountConnections(
+  getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemplateSyncConfigCommandOutput>;
+  getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: GetTemplateSyncConfigCommandOutput) => void
+  ): void;
+  getTemplateSyncConfig(
+    args: GetTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemplateSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTemplateSyncStatusCommand}
+   */
+  getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTemplateSyncStatusCommandOutput>;
+  getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    cb: (err: any, data?: GetTemplateSyncStatusCommandOutput) => void
+  ): void;
+  getTemplateSyncStatus(
+    args: GetTemplateSyncStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTemplateSyncStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComponentOutputsCommand}
+   */
+  listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentOutputsCommandOutput>;
+  listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    cb: (err: any, data?: ListComponentOutputsCommandOutput) => void
+  ): void;
+  listComponentOutputs(
+    args: ListComponentOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentOutputsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComponentProvisionedResourcesCommand}
+   */
+  listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentProvisionedResourcesCommandOutput>;
+  listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListComponentProvisionedResourcesCommandOutput) => void
+  ): void;
+  listComponentProvisionedResources(
+    args: ListComponentProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentProvisionedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComponentsCommand}
+   */
+  listComponents(
+    args: ListComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentsCommandOutput>;
+  listComponents(args: ListComponentsCommandInput, cb: (err: any, data?: ListComponentsCommandOutput) => void): void;
+  listComponents(
+    args: ListComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDeploymentsCommand}
+   */
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeploymentsCommandOutput>;
+  listDeployments(args: ListDeploymentsCommandInput, cb: (err: any, data?: ListDeploymentsCommandOutput) => void): void;
+  listDeployments(
+    args: ListDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnvironmentAccountConnectionsCommand}
+   */
+  listEnvironmentAccountConnections(
     args: ListEnvironmentAccountConnectionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEnvironmentAccountConnectionsCommandOutput>;
-  public listEnvironmentAccountConnections(
+  listEnvironmentAccountConnections(
     args: ListEnvironmentAccountConnectionsCommandInput,
     cb: (err: any, data?: ListEnvironmentAccountConnectionsCommandOutput) => void
   ): void;
-  public listEnvironmentAccountConnections(
+  listEnvironmentAccountConnections(
     args: ListEnvironmentAccountConnectionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEnvironmentAccountConnectionsCommandOutput) => void
   ): void;
-  public listEnvironmentAccountConnections(
-    args: ListEnvironmentAccountConnectionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentAccountConnectionsCommandOutput) => void),
-    cb?: (err: any, data?: ListEnvironmentAccountConnectionsCommandOutput) => void
-  ): Promise<ListEnvironmentAccountConnectionsCommandOutput> | void {
-    const command = new ListEnvironmentAccountConnectionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List environments with detail data summaries.</p>
+   * @see {@link ListEnvironmentOutputsCommand}
    */
-  public listEnvironments(
+  listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentOutputsCommandOutput>;
+  listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    cb: (err: any, data?: ListEnvironmentOutputsCommandOutput) => void
+  ): void;
+  listEnvironmentOutputs(
+    args: ListEnvironmentOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentOutputsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnvironmentProvisionedResourcesCommand}
+   */
+  listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnvironmentProvisionedResourcesCommandOutput>;
+  listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListEnvironmentProvisionedResourcesCommandOutput) => void
+  ): void;
+  listEnvironmentProvisionedResources(
+    args: ListEnvironmentProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnvironmentProvisionedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnvironmentsCommand}
+   */
+  listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEnvironmentsCommandOutput>;
-  public listEnvironments(
+  listEnvironments(
     args: ListEnvironmentsCommandInput,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
-  public listEnvironments(
+  listEnvironments(
     args: ListEnvironmentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
-  public listEnvironments(
-    args: ListEnvironmentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
-    cb?: (err: any, data?: ListEnvironmentsCommandOutput) => void
-  ): Promise<ListEnvironmentsCommandOutput> | void {
-    const command = new ListEnvironmentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List environment templates.</p>
+   * @see {@link ListEnvironmentTemplatesCommand}
    */
-  public listEnvironmentTemplates(
+  listEnvironmentTemplates(
     args: ListEnvironmentTemplatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEnvironmentTemplatesCommandOutput>;
-  public listEnvironmentTemplates(
+  listEnvironmentTemplates(
     args: ListEnvironmentTemplatesCommandInput,
     cb: (err: any, data?: ListEnvironmentTemplatesCommandOutput) => void
   ): void;
-  public listEnvironmentTemplates(
+  listEnvironmentTemplates(
     args: ListEnvironmentTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEnvironmentTemplatesCommandOutput) => void
   ): void;
-  public listEnvironmentTemplates(
-    args: ListEnvironmentTemplatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: ListEnvironmentTemplatesCommandOutput) => void
-  ): Promise<ListEnvironmentTemplatesCommandOutput> | void {
-    const command = new ListEnvironmentTemplatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List major or minor versions of an environment template with detail data.</p>
+   * @see {@link ListEnvironmentTemplateVersionsCommand}
    */
-  public listEnvironmentTemplateVersions(
+  listEnvironmentTemplateVersions(
     args: ListEnvironmentTemplateVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListEnvironmentTemplateVersionsCommandOutput>;
-  public listEnvironmentTemplateVersions(
+  listEnvironmentTemplateVersions(
     args: ListEnvironmentTemplateVersionsCommandInput,
     cb: (err: any, data?: ListEnvironmentTemplateVersionsCommandOutput) => void
   ): void;
-  public listEnvironmentTemplateVersions(
+  listEnvironmentTemplateVersions(
     args: ListEnvironmentTemplateVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEnvironmentTemplateVersionsCommandOutput) => void
   ): void;
-  public listEnvironmentTemplateVersions(
-    args: ListEnvironmentTemplateVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentTemplateVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListEnvironmentTemplateVersionsCommandOutput) => void
-  ): Promise<ListEnvironmentTemplateVersionsCommandOutput> | void {
-    const command = new ListEnvironmentTemplateVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List service instances with summaries of detail data.</p>
+   * @see {@link ListRepositoriesCommand}
    */
-  public listServiceInstances(
+  listRepositories(
+    args: ListRepositoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRepositoriesCommandOutput>;
+  listRepositories(
+    args: ListRepositoriesCommandInput,
+    cb: (err: any, data?: ListRepositoriesCommandOutput) => void
+  ): void;
+  listRepositories(
+    args: ListRepositoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRepositoriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRepositorySyncDefinitionsCommand}
+   */
+  listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRepositorySyncDefinitionsCommandOutput>;
+  listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): void;
+  listRepositorySyncDefinitions(
+    args: ListRepositorySyncDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceInstanceOutputsCommand}
+   */
+  listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceInstanceOutputsCommandOutput>;
+  listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    cb: (err: any, data?: ListServiceInstanceOutputsCommandOutput) => void
+  ): void;
+  listServiceInstanceOutputs(
+    args: ListServiceInstanceOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceInstanceOutputsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceInstanceProvisionedResourcesCommand}
+   */
+  listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceInstanceProvisionedResourcesCommandOutput>;
+  listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListServiceInstanceProvisionedResourcesCommandOutput) => void
+  ): void;
+  listServiceInstanceProvisionedResources(
+    args: ListServiceInstanceProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceInstanceProvisionedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceInstancesCommand}
+   */
+  listServiceInstances(
     args: ListServiceInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListServiceInstancesCommandOutput>;
-  public listServiceInstances(
+  listServiceInstances(
     args: ListServiceInstancesCommandInput,
     cb: (err: any, data?: ListServiceInstancesCommandOutput) => void
   ): void;
-  public listServiceInstances(
+  listServiceInstances(
     args: ListServiceInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServiceInstancesCommandOutput) => void
   ): void;
-  public listServiceInstances(
-    args: ListServiceInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListServiceInstancesCommandOutput) => void
-  ): Promise<ListServiceInstancesCommandOutput> | void {
-    const command = new ListServiceInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List services with summaries of detail data.</p>
+   * @see {@link ListServicePipelineOutputsCommand}
    */
-  public listServices(
-    args: ListServicesCommandInput,
+  listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListServicesCommandOutput>;
-  public listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
-  public listServices(
+  ): Promise<ListServicePipelineOutputsCommandOutput>;
+  listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    cb: (err: any, data?: ListServicePipelineOutputsCommandOutput) => void
+  ): void;
+  listServicePipelineOutputs(
+    args: ListServicePipelineOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServicePipelineOutputsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServicePipelineProvisionedResourcesCommand}
+   */
+  listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicePipelineProvisionedResourcesCommandOutput>;
+  listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    cb: (err: any, data?: ListServicePipelineProvisionedResourcesCommandOutput) => void
+  ): void;
+  listServicePipelineProvisionedResources(
+    args: ListServicePipelineProvisionedResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServicePipelineProvisionedResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServicesCommand}
+   */
+  listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
+  listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
+  listServices(
     args: ListServicesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
-  public listServices(
-    args: ListServicesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
-    cb?: (err: any, data?: ListServicesCommandOutput) => void
-  ): Promise<ListServicesCommandOutput> | void {
-    const command = new ListServicesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List service templates with detail data.</p>
+   * @see {@link ListServiceTemplatesCommand}
    */
-  public listServiceTemplates(
+  listServiceTemplates(
     args: ListServiceTemplatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListServiceTemplatesCommandOutput>;
-  public listServiceTemplates(
+  listServiceTemplates(
     args: ListServiceTemplatesCommandInput,
     cb: (err: any, data?: ListServiceTemplatesCommandOutput) => void
   ): void;
-  public listServiceTemplates(
+  listServiceTemplates(
     args: ListServiceTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServiceTemplatesCommandOutput) => void
   ): void;
-  public listServiceTemplates(
-    args: ListServiceTemplatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: ListServiceTemplatesCommandOutput) => void
-  ): Promise<ListServiceTemplatesCommandOutput> | void {
-    const command = new ListServiceTemplatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List major or minor versions of a service template with detail data.</p>
+   * @see {@link ListServiceTemplateVersionsCommand}
    */
-  public listServiceTemplateVersions(
+  listServiceTemplateVersions(
     args: ListServiceTemplateVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListServiceTemplateVersionsCommandOutput>;
-  public listServiceTemplateVersions(
+  listServiceTemplateVersions(
     args: ListServiceTemplateVersionsCommandInput,
     cb: (err: any, data?: ListServiceTemplateVersionsCommandOutput) => void
   ): void;
-  public listServiceTemplateVersions(
+  listServiceTemplateVersions(
     args: ListServiceTemplateVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServiceTemplateVersionsCommandOutput) => void
   ): void;
-  public listServiceTemplateVersions(
-    args: ListServiceTemplateVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServiceTemplateVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListServiceTemplateVersionsCommandOutput) => void
-  ): Promise<ListServiceTemplateVersionsCommandOutput> | void {
-    const command = new ListServiceTemplateVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List tags for a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * @see {@link ListTagsForResourceCommand}
    */
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>In a management account, reject an environment account connection from another environment account.</p>
-   *         <p>After you reject an environment account connection request, you <i>won’t</i> be able to accept or use the rejected
-   *             environment account connection.</p>
-   *         <p>You <i>can’t</i> reject an environment account connection that is connected to an environment.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link NotifyResourceDeploymentStatusChangeCommand}
    */
-  public rejectEnvironmentAccountConnection(
+  notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyResourceDeploymentStatusChangeCommandOutput>;
+  notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    cb: (err: any, data?: NotifyResourceDeploymentStatusChangeCommandOutput) => void
+  ): void;
+  notifyResourceDeploymentStatusChange(
+    args: NotifyResourceDeploymentStatusChangeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NotifyResourceDeploymentStatusChangeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectEnvironmentAccountConnectionCommand}
+   */
+  rejectEnvironmentAccountConnection(
     args: RejectEnvironmentAccountConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RejectEnvironmentAccountConnectionCommandOutput>;
-  public rejectEnvironmentAccountConnection(
+  rejectEnvironmentAccountConnection(
     args: RejectEnvironmentAccountConnectionCommandInput,
     cb: (err: any, data?: RejectEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public rejectEnvironmentAccountConnection(
+  rejectEnvironmentAccountConnection(
     args: RejectEnvironmentAccountConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public rejectEnvironmentAccountConnection(
-    args: RejectEnvironmentAccountConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectEnvironmentAccountConnectionCommandOutput) => void),
-    cb?: (err: any, data?: RejectEnvironmentAccountConnectionCommandOutput) => void
-  ): Promise<RejectEnvironmentAccountConnectionCommandOutput> | void {
-    const command = new RejectEnvironmentAccountConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Tag a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Remove a tag from a resource. For more information, see <i>AWS Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">AWS Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">AWS Proton User Guide</a>.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update the AWS Proton pipeline service account settings.</p>
+   * @see {@link UpdateAccountSettingsCommand}
    */
-  public updateAccountSettings(
+  updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateAccountSettingsCommandOutput>;
-  public updateAccountSettings(
+  updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
     cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
-  public updateAccountSettings(
+  updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): Promise<UpdateAccountSettingsCommandOutput> | void {
-    const command = new UpdateAccountSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update an environment.</p>
-   *         <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
-   *                 <code>protonServiceRoleArn</code> parameter to update or connect to an environment account connection. </p>
-   *         <p>You can only update to a new environment account connection if it was created in the same environment account that the current
-   *             environment account connection was created in and is associated with the current environment.</p>
-   *         <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or
-   *             include the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
-   *         <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You
-   *             can’t update both.</p>
-   *         <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the
-   *             mode.</p>
-   *         <dl>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>NONE</code>
-   *                </p>
-   *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>CURRENT_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are
-   *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
-   *                         <code>deployment-type</code>.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>MINOR_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current
-   *                         major version in use, by default. You can also specify a different minor version of the current major version in use.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>MAJOR_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of
-   *                         the current template, by default. You can also specify a different major version that's higher than the major version in use
-   *                         and a minor version (optional).</p>
-   *                 </dd>
-   *          </dl>
+   * @see {@link UpdateComponentCommand}
    */
-  public updateEnvironment(
+  updateComponent(
+    args: UpdateComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateComponentCommandOutput>;
+  updateComponent(args: UpdateComponentCommandInput, cb: (err: any, data?: UpdateComponentCommandOutput) => void): void;
+  updateComponent(
+    args: UpdateComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEnvironmentCommand}
+   */
+  updateEnvironment(
     args: UpdateEnvironmentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEnvironmentCommandOutput>;
-  public updateEnvironment(
+  updateEnvironment(
     args: UpdateEnvironmentCommandInput,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): void;
-  public updateEnvironment(
+  updateEnvironment(
     args: UpdateEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): void;
-  public updateEnvironment(
-    args: UpdateEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEnvironmentCommandOutput) => void
-  ): Promise<UpdateEnvironmentCommandOutput> | void {
-    const command = new UpdateEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment account
-   *                 connections</a> in the <i>AWS Proton Administrator guide</i>.</p>
+   * @see {@link UpdateEnvironmentAccountConnectionCommand}
    */
-  public updateEnvironmentAccountConnection(
+  updateEnvironmentAccountConnection(
     args: UpdateEnvironmentAccountConnectionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEnvironmentAccountConnectionCommandOutput>;
-  public updateEnvironmentAccountConnection(
+  updateEnvironmentAccountConnection(
     args: UpdateEnvironmentAccountConnectionCommandInput,
     cb: (err: any, data?: UpdateEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public updateEnvironmentAccountConnection(
+  updateEnvironmentAccountConnection(
     args: UpdateEnvironmentAccountConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentAccountConnectionCommandOutput) => void
   ): void;
-  public updateEnvironmentAccountConnection(
-    args: UpdateEnvironmentAccountConnectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentAccountConnectionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEnvironmentAccountConnectionCommandOutput) => void
-  ): Promise<UpdateEnvironmentAccountConnectionCommandOutput> | void {
-    const command = new UpdateEnvironmentAccountConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update an environment template.</p>
+   * @see {@link UpdateEnvironmentTemplateCommand}
    */
-  public updateEnvironmentTemplate(
+  updateEnvironmentTemplate(
     args: UpdateEnvironmentTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEnvironmentTemplateCommandOutput>;
-  public updateEnvironmentTemplate(
+  updateEnvironmentTemplate(
     args: UpdateEnvironmentTemplateCommandInput,
     cb: (err: any, data?: UpdateEnvironmentTemplateCommandOutput) => void
   ): void;
-  public updateEnvironmentTemplate(
+  updateEnvironmentTemplate(
     args: UpdateEnvironmentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentTemplateCommandOutput) => void
   ): void;
-  public updateEnvironmentTemplate(
-    args: UpdateEnvironmentTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEnvironmentTemplateCommandOutput) => void
-  ): Promise<UpdateEnvironmentTemplateCommandOutput> | void {
-    const command = new UpdateEnvironmentTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update a major or minor version of an environment template.</p>
+   * @see {@link UpdateEnvironmentTemplateVersionCommand}
    */
-  public updateEnvironmentTemplateVersion(
+  updateEnvironmentTemplateVersion(
     args: UpdateEnvironmentTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEnvironmentTemplateVersionCommandOutput>;
-  public updateEnvironmentTemplateVersion(
+  updateEnvironmentTemplateVersion(
     args: UpdateEnvironmentTemplateVersionCommandInput,
     cb: (err: any, data?: UpdateEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public updateEnvironmentTemplateVersion(
+  updateEnvironmentTemplateVersion(
     args: UpdateEnvironmentTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEnvironmentTemplateVersionCommandOutput) => void
   ): void;
-  public updateEnvironmentTemplateVersion(
-    args: UpdateEnvironmentTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEnvironmentTemplateVersionCommandOutput) => void
-  ): Promise<UpdateEnvironmentTemplateVersionCommandOutput> | void {
-    const command = new UpdateEnvironmentTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Edit a service description or use a spec to add and delete service instances.</p>
-   *         <note>
-   *             <p>Existing service instances and the service pipeline <i>can't</i> be edited using this API. They can only be
-   *                 deleted.</p>
-   *         </note>
-   *         <p>Use the <code>description</code> parameter to modify the description.</p>
-   *         <p>Edit the <code>spec</code> parameter to add or delete instances.</p>
+   * @see {@link UpdateServiceCommand}
    */
-  public updateService(
-    args: UpdateServiceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateServiceCommandOutput>;
-  public updateService(
-    args: UpdateServiceCommandInput,
-    cb: (err: any, data?: UpdateServiceCommandOutput) => void
-  ): void;
-  public updateService(
+  updateService(args: UpdateServiceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateServiceCommandOutput>;
+  updateService(args: UpdateServiceCommandInput, cb: (err: any, data?: UpdateServiceCommandOutput) => void): void;
+  updateService(
     args: UpdateServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceCommandOutput) => void
   ): void;
-  public updateService(
-    args: UpdateServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServiceCommandOutput) => void
-  ): Promise<UpdateServiceCommandOutput> | void {
-    const command = new UpdateServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update a service instance.</p>
-   *         <p>There are four modes for updating a service instance as described in the following. The <code>deploymentType</code> field defines the
-   *             mode.</p>
-   *         <dl>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>NONE</code>
-   *                </p>
-   *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>CURRENT_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the service instance is deployed and updated with the new spec that you provide. Only requested parameters are
-   *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
-   *                         <code>deployment-type</code>.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>MINOR_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) minor version of the
-   *                         current major version in use, by default. You can also specify a different minor version of the current major version in
-   *                         use.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>MAJOR_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the service instance is deployed and updated with the published, recommended (latest) major and minor version
-   *                         of the current template, by default. You can also specify a different major version that is higher than the major version in
-   *                         use and a minor version (optional).</p>
-   *                 </dd>
-   *          </dl>
+   * @see {@link UpdateServiceInstanceCommand}
    */
-  public updateServiceInstance(
+  updateServiceInstance(
     args: UpdateServiceInstanceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateServiceInstanceCommandOutput>;
-  public updateServiceInstance(
+  updateServiceInstance(
     args: UpdateServiceInstanceCommandInput,
     cb: (err: any, data?: UpdateServiceInstanceCommandOutput) => void
   ): void;
-  public updateServiceInstance(
+  updateServiceInstance(
     args: UpdateServiceInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceInstanceCommandOutput) => void
   ): void;
-  public updateServiceInstance(
-    args: UpdateServiceInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceInstanceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServiceInstanceCommandOutput) => void
-  ): Promise<UpdateServiceInstanceCommandOutput> | void {
-    const command = new UpdateServiceInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update the service pipeline.</p>
-   *         <p>There are four modes for updating a service pipeline as described in the following. The <code>deploymentType</code> field defines the
-   *             mode.</p>
-   *         <dl>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>NONE</code>
-   *                </p>
-   *                     <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>CURRENT_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the service pipeline is deployed and updated with the new spec that you provide. Only requested parameters are
-   *                         updated. <i>Don’t</i> include minor or major version parameters when you use this
-   *                         <code>deployment-type</code>.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>MINOR_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the
-   *                         current major version in use, by default. You can also specify a different minor version of the current major version in
-   *                         use.</p>
-   *                 </dd>
-   *             <dt/>
-   *             <dd>
-   *                     <p>
-   *                   <code>MAJOR_VERSION</code>
-   *                </p>
-   *                     <p>In this mode, the service pipeline is deployed and updated with the published, recommended (latest) major and minor version
-   *                         of the current template by default. You can also specify a different major version that is higher than the major version in
-   *                         use and a minor version (optional).</p>
-   *                 </dd>
-   *          </dl>
+   * @see {@link UpdateServicePipelineCommand}
    */
-  public updateServicePipeline(
+  updateServicePipeline(
     args: UpdateServicePipelineCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateServicePipelineCommandOutput>;
-  public updateServicePipeline(
+  updateServicePipeline(
     args: UpdateServicePipelineCommandInput,
     cb: (err: any, data?: UpdateServicePipelineCommandOutput) => void
   ): void;
-  public updateServicePipeline(
+  updateServicePipeline(
     args: UpdateServicePipelineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServicePipelineCommandOutput) => void
   ): void;
-  public updateServicePipeline(
-    args: UpdateServicePipelineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServicePipelineCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServicePipelineCommandOutput) => void
-  ): Promise<UpdateServicePipelineCommandOutput> | void {
-    const command = new UpdateServicePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update a service template.</p>
+   * @see {@link UpdateServiceSyncBlockerCommand}
    */
-  public updateServiceTemplate(
+  updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceSyncBlockerCommandOutput>;
+  updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    cb: (err: any, data?: UpdateServiceSyncBlockerCommandOutput) => void
+  ): void;
+  updateServiceSyncBlocker(
+    args: UpdateServiceSyncBlockerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceSyncBlockerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateServiceSyncConfigCommand}
+   */
+  updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceSyncConfigCommandOutput>;
+  updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    cb: (err: any, data?: UpdateServiceSyncConfigCommandOutput) => void
+  ): void;
+  updateServiceSyncConfig(
+    args: UpdateServiceSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceSyncConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateServiceTemplateCommand}
+   */
+  updateServiceTemplate(
     args: UpdateServiceTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateServiceTemplateCommandOutput>;
-  public updateServiceTemplate(
+  updateServiceTemplate(
     args: UpdateServiceTemplateCommandInput,
     cb: (err: any, data?: UpdateServiceTemplateCommandOutput) => void
   ): void;
-  public updateServiceTemplate(
+  updateServiceTemplate(
     args: UpdateServiceTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceTemplateCommandOutput) => void
   ): void;
-  public updateServiceTemplate(
-    args: UpdateServiceTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServiceTemplateCommandOutput) => void
-  ): Promise<UpdateServiceTemplateCommandOutput> | void {
-    const command = new UpdateServiceTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Update a major or minor version of a service template.</p>
+   * @see {@link UpdateServiceTemplateVersionCommand}
    */
-  public updateServiceTemplateVersion(
+  updateServiceTemplateVersion(
     args: UpdateServiceTemplateVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateServiceTemplateVersionCommandOutput>;
-  public updateServiceTemplateVersion(
+  updateServiceTemplateVersion(
     args: UpdateServiceTemplateVersionCommandInput,
     cb: (err: any, data?: UpdateServiceTemplateVersionCommandOutput) => void
   ): void;
-  public updateServiceTemplateVersion(
+  updateServiceTemplateVersion(
     args: UpdateServiceTemplateVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceTemplateVersionCommandOutput) => void
   ): void;
-  public updateServiceTemplateVersion(
-    args: UpdateServiceTemplateVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceTemplateVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateServiceTemplateVersionCommandOutput) => void
-  ): Promise<UpdateServiceTemplateVersionCommandOutput> | void {
-    const command = new UpdateServiceTemplateVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
+
+  /**
+   * @see {@link UpdateTemplateSyncConfigCommand}
+   */
+  updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTemplateSyncConfigCommandOutput>;
+  updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    cb: (err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void
+  ): void;
+  updateTemplateSyncConfig(
+    args: UpdateTemplateSyncConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTemplateSyncConfigCommandOutput) => void
+  ): void;
 }
+
+/**
+ * @public
+ * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
+ *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
+ *    service.</p>
+ *          <p>The documentation for each action shows the Query API request parameters and the XML response.</p>
+ *          <p>Alternatively, you can use the Amazon Web Services CLI to access an API. For more information, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">Amazon Web Services Command Line Interface User
+ *     Guide</a>.</p>
+ *          <p>The Proton service is a two-pronged automation framework. Administrators create service templates to provide
+ *    standardized infrastructure and deployment tooling for serverless and container based applications. Developers, in
+ *    turn, select from the available service templates to automate their application or service deployments.</p>
+ *          <p>Because administrators define the infrastructure and tooling that Proton deploys and manages, they need
+ *    permissions to use all of the listed API operations.</p>
+ *          <p>When developers select a specific infrastructure and tooling set, Proton deploys their applications. To
+ *    monitor their applications that are running on Proton, developers need permissions to the service
+ *     <i>create</i>, <i>list</i>, <i>update</i> and <i>delete</i>
+ *    API operations and the service instance <i>list</i> and <i>update</i> API
+ *    operations.</p>
+ *          <p>To learn more about Proton, see the <a href="https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html">Proton User Guide</a>.</p>
+ *          <p>
+ *             <b>Ensuring Idempotency</b>
+ *          </p>
+ *          <p>When you make a mutating API request, the request typically returns a result before the asynchronous workflows
+ *    of the operation are complete. Operations might also time out or encounter other server issues before they're
+ *    complete, even if the request already returned a result. This might make it difficult to determine whether the
+ *    request succeeded. Moreover, you might need to retry the request multiple times to ensure that the operation
+ *    completes successfully. However, if the original request and the subsequent retries are successful, the operation
+ *    occurs multiple times. This means that you might create more resources than you intended.</p>
+ *          <p>
+ *             <i>Idempotency</i> ensures that an API request action completes no more than one time. With an
+ *    idempotent request, if the original request action completes successfully, any subsequent retries complete
+ *    successfully without performing any further actions. However, the result might contain updated information, such as
+ *    the current creation status.</p>
+ *          <p>The following lists of APIs are grouped according to methods that ensure idempotency.</p>
+ *          <p>
+ *             <b>Idempotent create APIs with a client token</b>
+ *          </p>
+ *          <p>The API actions in this list support idempotency with the use of a <i>client token</i>. The
+ *    corresponding Amazon Web Services CLI commands also support idempotency using a client token. A client token is a unique,
+ *    case-sensitive string of up to 64 ASCII characters. To make an idempotent API request using one of these actions,
+ *    specify a client token in the request. We recommend that you <i>don't</i> reuse the same client token
+ *    for other API requests. If you don’t provide a client token for these APIs, a default client token is automatically
+ *    provided by SDKs.</p>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request using the same client token and the same parameters, the retry succeeds without
+ *    performing any further actions other than returning the original resource detail data in the response.</p>
+ *          <p>If you retry the request using the same client token, but one or more of the parameters are different, the retry
+ *    throws a <code>ValidationException</code> with an <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Client tokens expire eight hours after a request is made. If you retry the request with the expired token, a new
+ *    resource is created.</p>
+ *          <p>If the original resource is deleted and you retry the request, a new resource is created.</p>
+ *          <p>Idempotent create APIs with a client token:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CreateEnvironmentTemplateVersion</p>
+ *             </li>
+ *             <li>
+ *                <p>CreateServiceTemplateVersion</p>
+ *             </li>
+ *             <li>
+ *                <p>CreateEnvironmentAccountConnection</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Idempotent create APIs</b>
+ *          </p>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request with an API from this group, and the original resource <i>hasn't</i> been
+ *    modified, the retry succeeds without performing any further actions other than returning the original resource detail
+ *    data in the response.</p>
+ *          <p>If the original resource has been modified, the retry throws a <code>ConflictException</code>.</p>
+ *          <p>If you retry with different input parameters, the retry throws a <code>ValidationException</code> with an
+ *     <code>IdempotentParameterMismatch</code> error.</p>
+ *          <p>Idempotent create APIs:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CreateEnvironmentTemplate</p>
+ *             </li>
+ *             <li>
+ *                <p>CreateServiceTemplate</p>
+ *             </li>
+ *             <li>
+ *                <p>CreateEnvironment</p>
+ *             </li>
+ *             <li>
+ *                <p>CreateService</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Idempotent delete APIs</b>
+ *          </p>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>When you retry the request with an API from this group and the resource was deleted, its metadata is returned in
+ *    the response.</p>
+ *          <p>If you retry and the resource doesn't exist, the response is empty.</p>
+ *          <p>In both cases, the retry succeeds.</p>
+ *          <p>Idempotent delete APIs:</p>
+ *          <ul>
+ *             <li>
+ *                <p>DeleteEnvironmentTemplate</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteEnvironmentTemplateVersion</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteServiceTemplate</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteServiceTemplateVersion</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteEnvironmentAccountConnection</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Asynchronous idempotent delete APIs</b>
+ *          </p>
+ *          <p>Given a request action that has succeeded:</p>
+ *          <p>If you retry the request with an API from this group, if the original request delete operation status is
+ *     <code>DELETE_IN_PROGRESS</code>, the retry returns the resource detail data in the response without performing any
+ *    further actions.</p>
+ *          <p>If the original request delete operation is complete, a retry returns an empty response.</p>
+ *          <p>Asynchronous idempotent delete APIs:</p>
+ *          <ul>
+ *             <li>
+ *                <p>DeleteEnvironment</p>
+ *             </li>
+ *             <li>
+ *                <p>DeleteService</p>
+ *             </li>
+ *          </ul>
+ */
+export class Proton extends ProtonClient implements Proton {}
+createAggregatedClient(commands, Proton);

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1UntagDeliveryStreamCommand,
-  serializeAws_json1_1UntagDeliveryStreamCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UntagDeliveryStreamCommand, se_UntagDeliveryStreamCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UntagDeliveryStreamCommand}.
+ */
 export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInput {}
+/**
+ * @public
+ *
+ * The output of {@link UntagDeliveryStreamCommand}.
+ */
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
  *          can't recover them after this operation successfully completes.</p>
  *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
@@ -32,13 +46,38 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * import { FirehoseClient, UntagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, UntagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
+ * const input = { // UntagDeliveryStreamInput
+ *   DeliveryStreamName: "STRING_VALUE", // required
+ *   TagKeys: [ // TagKeyList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagDeliveryStreamCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UntagDeliveryStreamCommandInput - {@link UntagDeliveryStreamCommandInput}
+ * @returns {@link UntagDeliveryStreamCommandOutput}
  * @see {@link UntagDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link UntagDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is already in use and not available for this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link FirehoseServiceException}
+ * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
 export class UntagDeliveryStreamCommand extends $Command<
@@ -49,6 +88,18 @@ export class UntagDeliveryStreamCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UntagDeliveryStreamCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +115,9 @@ export class UntagDeliveryStreamCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UntagDeliveryStreamCommandInput, UntagDeliveryStreamCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UntagDeliveryStreamCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +128,8 @@ export class UntagDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagDeliveryStreamInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagDeliveryStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +139,18 @@ export class UntagDeliveryStreamCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UntagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UntagDeliveryStreamCommand(input, context);
+    return se_UntagDeliveryStreamCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagDeliveryStreamCommandOutput> {
-    return deserializeAws_json1_1UntagDeliveryStreamCommand(output, context);
+    return de_UntagDeliveryStreamCommand(output, context);
   }
 
   // Start section: command_body_extra

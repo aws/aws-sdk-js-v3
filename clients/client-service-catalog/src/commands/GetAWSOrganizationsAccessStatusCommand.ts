@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,22 +11,37 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand,
-  serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand,
+  de_GetAWSOrganizationsAccessStatusCommand,
+  se_GetAWSOrganizationsAccessStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAWSOrganizationsAccessStatusCommand}.
+ */
 export interface GetAWSOrganizationsAccessStatusCommandInput extends GetAWSOrganizationsAccessStatusInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetAWSOrganizationsAccessStatusCommand}.
+ */
 export interface GetAWSOrganizationsAccessStatusCommandOutput
   extends GetAWSOrganizationsAccessStatusOutput,
     __MetadataBearer {}
 
 /**
- * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be
+ * @public
+ * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
  *          called by the management account in the organization or by a delegated admin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -32,13 +49,29 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * import { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {};
  * const command = new GetAWSOrganizationsAccessStatusCommand(input);
  * const response = await client.send(command);
+ * // { // GetAWSOrganizationsAccessStatusOutput
+ * //   AccessStatus: "ENABLED" || "UNDER_CHANGE" || "DISABLED",
+ * // };
+ *
  * ```
  *
+ * @param GetAWSOrganizationsAccessStatusCommandInput - {@link GetAWSOrganizationsAccessStatusCommandInput}
+ * @returns {@link GetAWSOrganizationsAccessStatusCommandOutput}
  * @see {@link GetAWSOrganizationsAccessStatusCommandInput} for command's `input` shape.
  * @see {@link GetAWSOrganizationsAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command<
@@ -49,6 +82,18 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAWSOrganizationsAccessStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +109,9 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAWSOrganizationsAccessStatusCommandInput, GetAWSOrganizationsAccessStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAWSOrganizationsAccessStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +122,8 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAWSOrganizationsAccessStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAWSOrganizationsAccessStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +133,24 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetAWSOrganizationsAccessStatusCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand(input, context);
+    return se_GetAWSOrganizationsAccessStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> {
-    return deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand(output, context);
+    return de_GetAWSOrganizationsAccessStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

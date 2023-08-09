@@ -1,5 +1,8 @@
-import { Logger as __Logger } from "@aws-sdk/types";
-import { parseUrl } from "@aws-sdk/url-parser";
+// smithy-typescript generated code
+import { NoOpLogger } from "@smithy/smithy-client";
+import { parseUrl } from "@smithy/url-parser";
+import { fromBase64, toBase64 } from "@smithy/util-base64";
+import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultRegionInfoProvider } from "./endpoints";
 import { RestXmlProtocolClientConfig } from "./RestXmlProtocolClient";
@@ -9,9 +12,13 @@ import { RestXmlProtocolClientConfig } from "./RestXmlProtocolClient";
  */
 export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => ({
   apiVersion: "2019-12-16",
+  base64Decoder: config?.base64Decoder ?? fromBase64,
+  base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
-  logger: config?.logger ?? ({} as __Logger),
+  logger: config?.logger ?? new NoOpLogger(),
   regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "Rest Xml Protocol",
   urlParser: config?.urlParser ?? parseUrl,
+  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+  utf8Encoder: config?.utf8Encoder ?? toUtf8,
 });

@@ -1,4 +1,6 @@
 /**
+ * @internal
+ * 
  * Escapes characters that can not be in an XML attribute.
  */
 export function escapeAttribute(value: string): string {

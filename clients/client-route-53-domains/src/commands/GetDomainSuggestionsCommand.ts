@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetDomainSuggestionsCommand,
-  serializeAws_json1_1GetDomainSuggestionsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetDomainSuggestionsCommand, se_GetDomainSuggestionsCommand } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDomainSuggestionsCommand}.
+ */
 export interface GetDomainSuggestionsCommandInput extends GetDomainSuggestionsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDomainSuggestionsCommand}.
+ */
 export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,41 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * import { Route53DomainsClient, GetDomainSuggestionsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, GetDomainSuggestionsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = { // GetDomainSuggestionsRequest
+ *   DomainName: "STRING_VALUE", // required
+ *   SuggestionCount: Number("int"), // required
+ *   OnlyAvailable: true || false, // required
+ * };
  * const command = new GetDomainSuggestionsCommand(input);
  * const response = await client.send(command);
+ * // { // GetDomainSuggestionsResponse
+ * //   SuggestionsList: [ // DomainSuggestionsList
+ * //     { // DomainSuggestion
+ * //       DomainName: "STRING_VALUE",
+ * //       Availability: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param GetDomainSuggestionsCommandInput - {@link GetDomainSuggestionsCommandInput}
+ * @returns {@link GetDomainSuggestionsCommandOutput}
  * @see {@link GetDomainSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetDomainSuggestionsCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
+ * 			the request might specify a domain name that doesn't belong to the account that
+ * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
+ * 			password might be invalid.</p>
+ *
+ * @throws {@link UnsupportedTLD} (client fault)
+ *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * @throws {@link Route53DomainsServiceException}
+ * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
  */
 export class GetDomainSuggestionsCommand extends $Command<
@@ -46,6 +88,18 @@ export class GetDomainSuggestionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetDomainSuggestionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +115,9 @@ export class GetDomainSuggestionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetDomainSuggestionsCommandInput, GetDomainSuggestionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetDomainSuggestionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +128,8 @@ export class GetDomainSuggestionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainSuggestionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainSuggestionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +139,18 @@ export class GetDomainSuggestionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetDomainSuggestionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetDomainSuggestionsCommand(input, context);
+    return se_GetDomainSuggestionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainSuggestionsCommandOutput> {
-    return deserializeAws_json1_1GetDomainSuggestionsCommand(output, context);
+    return de_GetDomainSuggestionsCommand(output, context);
   }
 
   // Start section: command_body_extra

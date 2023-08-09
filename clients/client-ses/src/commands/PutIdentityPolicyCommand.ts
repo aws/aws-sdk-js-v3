@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryPutIdentityPolicyCommand,
-  serializeAws_queryPutIdentityPolicyCommand,
-} from "../protocols/Aws_query";
+import { de_PutIdentityPolicyCommand, se_PutIdentityPolicyCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutIdentityPolicyCommand}.
+ */
 export interface PutIdentityPolicyCommandInput extends PutIdentityPolicyRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutIdentityPolicyCommand}.
+ */
 export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds or updates a sending authorization policy for the specified identity (an email
  *             address or a domain).</p>
  *         <note>
@@ -39,13 +53,42 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * import { SESClient, PutIdentityPolicyCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, PutIdentityPolicyCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // PutIdentityPolicyRequest
+ *   Identity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutIdentityPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PutIdentityPolicyCommandInput - {@link PutIdentityPolicyCommandInput}
+ * @returns {@link PutIdentityPolicyCommandOutput}
  * @see {@link PutIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>Indicates that the provided policy is invalid. Check the error stack for more
+ *             information about what caused the error.</p>
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example PutIdentityPolicy
+ * ```javascript
+ * // The following example adds a sending authorization policy to an identity:
+ * const input = {
+ *   "Identity": "example.com",
+ *   "Policy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"stmt1469123904194\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":[\"ses:SendEmail\",\"ses:SendRawEmail\"],\"Resource\":\"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com\"}]}",
+ *   "PolicyName": "MyPolicy"
+ * };
+ * const command = new PutIdentityPolicyCommand(input);
+ * await client.send(command);
+ * // example id: putidentitypolicy-1469124560016
+ * ```
  *
  */
 export class PutIdentityPolicyCommand extends $Command<
@@ -56,6 +99,18 @@ export class PutIdentityPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutIdentityPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +126,9 @@ export class PutIdentityPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutIdentityPolicyCommandInput, PutIdentityPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutIdentityPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +139,8 @@ export class PutIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIdentityPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutIdentityPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +150,18 @@ export class PutIdentityPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutIdentityPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryPutIdentityPolicyCommand(input, context);
+    return se_PutIdentityPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutIdentityPolicyCommandOutput> {
-    return deserializeAws_queryPutIdentityPolicyCommand(output, context);
+    return de_PutIdentityPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

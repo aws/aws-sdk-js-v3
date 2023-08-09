@@ -1,22 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import {
-  EventStreamSerdeInputConfig,
-  EventStreamSerdeResolvedConfig,
-  resolveEventStreamSerdeConfig,
-} from "@aws-sdk/eventstream-serde-config-resolver";
-import {
-  BucketEndpointInputConfig,
-  BucketEndpointResolvedConfig,
-  resolveBucketEndpointConfig,
-} from "@aws-sdk/middleware-bucket-endpoint";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import { getAddExpectContinuePlugin } from "@aws-sdk/middleware-expect-continue";
 import {
   getHostHeaderPlugin,
@@ -25,8 +7,13 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
-import { getUseRegionalEndpointPlugin, getValidateBucketNamePlugin } from "@aws-sdk/middleware-sdk-s3";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
+import {
+  getValidateBucketNamePlugin,
+  resolveS3Config,
+  S3InputConfig,
+  S3ResolvedConfig,
+} from "@aws-sdk/middleware-sdk-s3";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -39,16 +26,31 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials, GetAwsChunkedEncodingStream } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
-  Credentials as __Credentials,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
@@ -56,12 +58,12 @@ import {
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
+  SdkStreamMixinInjector as __SdkStreamMixinInjector,
   StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 import { Readable } from "stream";
 
 import {
@@ -191,6 +193,10 @@ import {
 } from "./commands/GetBucketVersioningCommand";
 import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand";
 import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand";
+import {
+  GetObjectAttributesCommandInput,
+  GetObjectAttributesCommandOutput,
+} from "./commands/GetObjectAttributesCommand";
 import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import { GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput } from "./commands/GetObjectLegalHoldCommand";
 import {
@@ -309,8 +315,19 @@ import {
   WriteGetObjectResponseCommandInput,
   WriteGetObjectResponseCommandOutput,
 } from "./commands/WriteGetObjectResponseCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AbortMultipartUploadCommandInput
   | CompleteMultipartUploadCommandInput
@@ -355,6 +372,7 @@ export type ServiceInputTypes =
   | GetBucketVersioningCommandInput
   | GetBucketWebsiteCommandInput
   | GetObjectAclCommandInput
+  | GetObjectAttributesCommandInput
   | GetObjectCommandInput
   | GetObjectLegalHoldCommandInput
   | GetObjectLockConfigurationCommandInput
@@ -405,6 +423,9 @@ export type ServiceInputTypes =
   | UploadPartCopyCommandInput
   | WriteGetObjectResponseCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AbortMultipartUploadCommandOutput
   | CompleteMultipartUploadCommandOutput
@@ -449,6 +470,7 @@ export type ServiceOutputTypes =
   | GetBucketVersioningCommandOutput
   | GetBucketWebsiteCommandOutput
   | GetObjectAclCommandOutput
+  | GetObjectAttributesCommandOutput
   | GetObjectCommandOutput
   | GetObjectLegalHoldCommandOutput
   | GetObjectLockConfigurationCommandOutput
@@ -499,6 +521,9 @@ export type ServiceOutputTypes =
   | UploadPartCopyCommandOutput
   | WriteGetObjectResponseCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -506,11 +531,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -522,7 +547,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * A function that can calculate the length of a request body.
    * @internal
    */
-  bodyLengthChecker?: (body: any) => number | undefined;
+  bodyLengthChecker?: __BodyLengthCalculator;
 
   /**
    * A function that converts a stream into an array of bytes.
@@ -561,25 +586,16 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
 
   /**
-   * Value for how many times a request will be made at most in case of retry.
+   * Unique service identifier.
+   * @internal
    */
-  maxAttempts?: number | __Provider<number>;
-
-  /**
-   * Specifies which retry algorithm to use.
-   */
-  retryMode?: string | __Provider<string>;
-
-  /**
-   * Optional logger for logging debug/info/warn/error.
-   */
-  logger?: __Logger;
+  serviceId?: string;
 
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
@@ -592,12 +608,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
@@ -607,12 +617,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
 
   /**
    * Whether to escape request path when signing the request.
@@ -630,11 +634,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The function that provides necessary utilities for generating and parsing event stream
-   */
-  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
-
-  /**
    * A function that, given a hash constructor and a stream, calculates the
    * hash of the streamed value.
    * @internal
@@ -642,44 +641,101 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes MD5 hashes.
    * @internal
    */
-  md5?: __HashConstructor;
+  md5?: __ChecksumConstructor | __HashConstructor;
+
+  /**
+   * A constructor for a class implementing the {@link __Checksum} interface
+   * that computes SHA1 hashes.
+   * @internal
+   */
+  sha1?: __ChecksumConstructor | __HashConstructor;
+
+  /**
+   * A function that returns Readable Stream which follows aws-chunked encoding stream.
+   * @internal
+   */
+  getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;
+
+  /**
+   * Value for how many times a request will be made at most in case of retry.
+   */
+  maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies which retry algorithm to use.
+   */
+  retryMode?: string | __Provider<string>;
+
+  /**
+   * Optional logger for logging debug/info/warn/error.
+   */
+  logger?: __Logger;
+
+  /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+
+  /**
+   * The internal function that inject utilities to runtime-specific stream to help users consume the data
+   * @internal
+   */
+  sdkStreamMixin?: __SdkStreamMixinInjector;
 }
 
-type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  BucketEndpointInputConfig &
+  S3InputConfig &
   UserAgentInputConfig &
-  EventStreamSerdeInputConfig;
+  EventStreamSerdeInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of S3Client class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of S3Client class constructor that set the region, credentials and other options.
  */
 export interface S3ClientConfig extends S3ClientConfigType {}
 
-type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  BucketEndpointResolvedConfig &
+  S3ResolvedConfig &
   UserAgentResolvedConfig &
-  EventStreamSerdeResolvedConfig;
+  EventStreamSerdeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of S3Client class. This is resolved and normalized from the {@link S3ClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of S3Client class. This is resolved and normalized from the {@link S3ClientConfig | constructor configuration interface}.
  */
 export interface S3ClientResolvedConfig extends S3ClientResolvedConfigType {}
 
 /**
+ * @public
  * <p></p>
  */
 export class S3Client extends __Client<
@@ -693,25 +749,26 @@ export class S3Client extends __Client<
    */
   readonly config: S3ClientResolvedConfig;
 
-  constructor(configuration: S3ClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveBucketEndpointConfig(_config_5);
-    const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
-    super(_config_8);
-    this.config = _config_8;
+  constructor(...[configuration]: __CheckOptionalClientConfig<S3ClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveS3Config(_config_6);
+    const _config_8 = resolveUserAgentConfig(_config_7);
+    const _config_9 = resolveEventStreamSerdeConfig(_config_8);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
-    this.middlewareStack.use(getUseRegionalEndpointPlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

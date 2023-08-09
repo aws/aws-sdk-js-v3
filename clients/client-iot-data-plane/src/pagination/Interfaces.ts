@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { IoTDataPlane } from "../IoTDataPlane";
 import { IoTDataPlaneClient } from "../IoTDataPlaneClient";
 
+/**
+ * @public
+ */
 export interface IoTDataPlanePaginationConfiguration extends PaginationConfiguration {
-  client: IoTDataPlane | IoTDataPlaneClient;
+  client: IoTDataPlaneClient;
 }

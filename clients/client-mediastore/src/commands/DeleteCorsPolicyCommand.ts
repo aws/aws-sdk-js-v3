@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
 import { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteCorsPolicyCommand,
-  serializeAws_json1_1DeleteCorsPolicyCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteCorsPolicyCommand, se_DeleteCorsPolicyCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteCorsPolicyCommand}.
+ */
 export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteCorsPolicyCommand}.
+ */
 export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -33,13 +47,36 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * import { MediaStoreClient, DeleteCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = { // DeleteCorsPolicyInput
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCorsPolicyCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteCorsPolicyCommandInput - {@link DeleteCorsPolicyCommandInput}
+ * @returns {@link DeleteCorsPolicyCommandOutput}
  * @see {@link DeleteCorsPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteCorsPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
+ *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link CorsPolicyNotFoundException} (client fault)
+ *  <p>The CORS policy that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link MediaStoreServiceException}
+ * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
  */
 export class DeleteCorsPolicyCommand extends $Command<
@@ -50,6 +87,18 @@ export class DeleteCorsPolicyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteCorsPolicyCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +114,9 @@ export class DeleteCorsPolicyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCorsPolicyCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +127,8 @@ export class DeleteCorsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCorsPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCorsPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +138,18 @@ export class DeleteCorsPolicyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteCorsPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteCorsPolicyCommand(input, context);
+    return se_DeleteCorsPolicyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCorsPolicyCommandOutput> {
-    return deserializeAws_json1_1DeleteCorsPolicyCommand(output, context);
+    return de_DeleteCorsPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

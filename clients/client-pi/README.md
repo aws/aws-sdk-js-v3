@@ -1,7 +1,6 @@
-# @aws-sdk/client-pi
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-pi/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-pi)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-pi.svg)](https://www.npmjs.com/package/@aws-sdk/client-pi)
+# @aws-sdk/client-pi
 
 ## Description
 
@@ -9,24 +8,28 @@ AWS SDK for JavaScript PI Client for Node.js, Browser and React Native.
 
 <fullname>Amazon RDS Performance Insights</fullname>
 
-<p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of
-database load based on data captured from a running DB instance. The guide provides detailed
-information about Performance Insights data types, parameters and errors.</p>
-
-<p>When Performance Insights is enabled, the Amazon RDS Performance Insights API provides visibility into the performance of your DB instance. Amazon
-CloudWatch provides the authoritative source for AWS service-vended monitoring metrics.  Performance Insights offers a domain-specific
-view of DB load. </p>
-<p>DB load is measured as Average Active Sessions. Performance Insights provides the data to API consumers as a two-dimensional
-time-series dataset. The time dimension provides DB load data for each time point in the queried time range. Each time
-point decomposes overall load in relation to the requested dimensions, measured at that time point. Examples include
-SQL, Wait event, User, and Host.</p>
-
+<p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running DB instance. The guide
+provides detailed information about Performance Insights data types, parameters and errors.</p>
+<p>When Performance Insights is enabled, the Amazon RDS Performance Insights API provides visibility into the performance of your DB instance. Amazon CloudWatch provides the
+authoritative source for Amazon Web Services service-vended monitoring metrics. Performance Insights offers a domain-specific view of DB load.</p>
+<p>DB load is measured as average active sessions. Performance Insights provides the data to API consumers as a two-dimensional time-series dataset. The time dimension
+provides DB load data for each time point in the queried time range. Each time point decomposes overall load in relation to the requested
+dimensions, measured at that time point. Examples include SQL, Wait event, User, and Host.</p>
 <ul>
 <li>
-<p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html">Amazon Aurora User Guide</a>.</p>
+<p>To learn more about Performance Insights and Amazon Aurora DB instances, go to the <i>
+<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html"> Amazon Aurora User Guide</a>
+</i>. </p>
 </li>
 <li>
-<p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Amazon RDS User Guide</a>.</p>
+<p>To learn more about Performance Insights and Amazon RDS DB instances, go to the <i>
+<a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html"> Amazon RDS User Guide</a>
+</i>. </p>
+</li>
+<li>
+<p>To learn more about Performance Insights and Amazon DocumentDB clusters, go to the <i>
+<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html"> Amazon DocumentDB Developer Guide</a>
+</i>.</p>
 </li>
 </ul>
 
@@ -136,7 +139,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -170,7 +173,7 @@ client
 
 // callbacks.
 client.describeDimensionKeys(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -184,7 +187,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -222,3 +225,54 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+DescribeDimensionKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/describedimensionkeyscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/describedimensionkeyscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/describedimensionkeyscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetDimensionKeyDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/getdimensionkeydetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getdimensionkeydetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getdimensionkeydetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResourceMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/getresourcemetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getresourcemetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getresourcemetadatacommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetResourceMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/getresourcemetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getresourcemetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getresourcemetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAvailableResourceDimensions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/listavailableresourcedimensionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listavailableresourcedimensionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listavailableresourcedimensionscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAvailableResourceMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/listavailableresourcemetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listavailableresourcemetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listavailableresourcemetricscommandoutput.html)
+
+</details>

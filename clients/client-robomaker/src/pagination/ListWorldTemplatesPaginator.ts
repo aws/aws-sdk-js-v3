@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListWorldTemplatesCommand,
   ListWorldTemplatesCommandInput,
   ListWorldTemplatesCommandOutput,
 } from "../commands/ListWorldTemplatesCommand";
-import { RoboMaker } from "../RoboMaker";
 import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: RoboMakerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListWorldTemplatesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: RoboMaker,
-  input: ListWorldTemplatesCommandInput,
-  ...args: any
-): Promise<ListWorldTemplatesCommandOutput> => {
-  // @ts-ignore
-  return await client.listWorldTemplates(input, ...args);
-};
 export async function* paginateListWorldTemplates(
   config: RoboMakerPaginationConfiguration,
   input: ListWorldTemplatesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListWorldTemplates(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof RoboMaker) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof RoboMakerClient) {
+    if (config.client instanceof RoboMakerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected RoboMaker | RoboMakerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

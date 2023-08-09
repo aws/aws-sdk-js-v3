@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DisableInsightRulesInput, DisableInsightRulesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDisableInsightRulesCommand,
-  serializeAws_queryDisableInsightRulesCommand,
-} from "../protocols/Aws_query";
+import { de_DisableInsightRulesCommand, se_DisableInsightRulesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DisableInsightRulesCommand}.
+ */
 export interface DisableInsightRulesCommandInput extends DisableInsightRulesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DisableInsightRulesCommand}.
+ */
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
  * 		not incur costs.</p>
  * @example
@@ -30,13 +44,40 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * import { CloudWatchClient, DisableInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DisableInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = { // DisableInsightRulesInput
+ *   RuleNames: [ // InsightRuleNames // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisableInsightRulesCommand(input);
  * const response = await client.send(command);
+ * // { // DisableInsightRulesOutput
+ * //   Failures: [ // BatchFailures
+ * //     { // PartialFailure
+ * //       FailureResource: "STRING_VALUE",
+ * //       ExceptionType: "STRING_VALUE",
+ * //       FailureCode: "STRING_VALUE",
+ * //       FailureDescription: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DisableInsightRulesCommandInput - {@link DisableInsightRulesCommandInput}
+ * @returns {@link DisableInsightRulesCommandOutput}
  * @see {@link DisableInsightRulesCommandInput} for command's `input` shape.
  * @see {@link DisableInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
+ * @throws {@link CloudWatchServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
  */
 export class DisableInsightRulesCommand extends $Command<
@@ -47,6 +88,18 @@ export class DisableInsightRulesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DisableInsightRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +115,9 @@ export class DisableInsightRulesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DisableInsightRulesCommandInput, DisableInsightRulesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisableInsightRulesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +128,8 @@ export class DisableInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableInsightRulesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableInsightRulesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +139,18 @@ export class DisableInsightRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DisableInsightRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDisableInsightRulesCommand(input, context);
+    return se_DisableInsightRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableInsightRulesCommandOutput> {
-    return deserializeAws_queryDisableInsightRulesCommand(output, context);
+    return de_DisableInsightRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

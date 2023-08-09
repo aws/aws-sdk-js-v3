@@ -1,5 +1,7 @@
 const jmespath = require("jmespath");
-const { Before, Given, Then } = require("cucumber");
+const { After, Before, Given, Then } = require("@cucumber/cucumber");
+
+const dbsgNames = [];
 
 Before({ tags: "@rds" }, function (scenario, callback) {
   const { RDS } = require("../../../clients/client-rds");
@@ -7,8 +9,20 @@ Before({ tags: "@rds" }, function (scenario, callback) {
   callback();
 });
 
+After({ tags: "@rds" }, async function () {
+  while (dbsgNames.length) {
+    const name = dbsgNames.pop();
+    if (name) {
+      await this.service.deleteDBSecurityGroup({
+        DBSecurityGroupName: name,
+      });
+    }
+  }
+});
+
 Given("I create a RDS security group with prefix name {string}", function (prefix, callback) {
   this.dbGroupName = this.uniqueName(prefix);
+  dbsgNames.push(this.dbGroupName);
   const params = {
     DBSecurityGroupDescription: "Description",
     DBSecurityGroupName: this.dbGroupName,
@@ -24,7 +38,10 @@ Then("the value at {string} should contain {string} with {string}", function (pa
       containDefault = true;
     }
   });
-  this.assert.ok(containDefault === true, `No ${path} has member key ${key} of the value ${value}`);
+  this.assert.ok(
+    containDefault === true,
+    `No ${path} has member key ${key} of the value ${value}: ${JSON.stringify(this.data, null, 2)}`
+  );
   callback();
 });
 

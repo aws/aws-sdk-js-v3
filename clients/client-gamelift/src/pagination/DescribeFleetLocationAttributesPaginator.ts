@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeFleetLocationAttributesCommand,
   DescribeFleetLocationAttributesCommandInput,
   DescribeFleetLocationAttributesCommandOutput,
 } from "../commands/DescribeFleetLocationAttributesCommand";
-import { GameLift } from "../GameLift";
 import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GameLiftClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeFleetLocationAttributesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: GameLift,
-  input: DescribeFleetLocationAttributesCommandInput,
-  ...args: any
-): Promise<DescribeFleetLocationAttributesCommandOutput> => {
-  // @ts-ignore
-  return await client.describeFleetLocationAttributes(input, ...args);
-};
 export async function* paginateDescribeFleetLocationAttributes(
   config: GameLiftPaginationConfiguration,
   input: DescribeFleetLocationAttributesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeFleetLocationAttributes(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof GameLift) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GameLiftClient) {
+    if (config.client instanceof GameLiftClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected GameLift | GameLiftClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

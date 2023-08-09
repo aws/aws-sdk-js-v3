@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,39 +11,93 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListTrafficPolicyInstancesRequest, ListTrafficPolicyInstancesResponse } from "../models/models_0";
-import {
-  deserializeAws_restXmlListTrafficPolicyInstancesCommand,
-  serializeAws_restXmlListTrafficPolicyInstancesCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListTrafficPolicyInstancesCommand, se_ListTrafficPolicyInstancesCommand } from "../protocols/Aws_restXml";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTrafficPolicyInstancesCommand}.
+ */
 export interface ListTrafficPolicyInstancesCommandInput extends ListTrafficPolicyInstancesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTrafficPolicyInstancesCommand}.
+ */
 export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPolicyInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the traffic policy instances that you created by using the current Amazon Web Services account.</p>
- * 		       <note>
- * 			         <p>After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while Amazon Route 53 creates the
- * 				resource record sets that are specified in the traffic policy definition. For more information, see the <code>State</code> response element.</p>
- * 		       </note>
- * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the
- * 			<code>MaxItems</code> parameter to list them in groups of up to 100.</p>
+ * @public
+ * <p>Gets information about the traffic policy instances that you created by using the
+ * 			current Amazon Web Services account.</p>
+ *          <note>
+ *             <p>After you submit an <code>UpdateTrafficPolicyInstance</code> request, there's a
+ * 				brief delay while Amazon Route 53 creates the resource record sets that are
+ * 				specified in the traffic policy definition. For more information, see the
+ * 					<code>State</code> response element.</p>
+ *          </note>
+ *          <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
+ * 			policy instances, you can use the <code>MaxItems</code> parameter to list them in groups
+ * 			of up to 100.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, ListTrafficPolicyInstancesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTrafficPolicyInstancesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = { // ListTrafficPolicyInstancesRequest
+ *   HostedZoneIdMarker: "STRING_VALUE",
+ *   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
+ *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTrafficPolicyInstancesCommand(input);
  * const response = await client.send(command);
+ * // { // ListTrafficPolicyInstancesResponse
+ * //   TrafficPolicyInstances: [ // TrafficPolicyInstances // required
+ * //     { // TrafficPolicyInstance
+ * //       Id: "STRING_VALUE", // required
+ * //       HostedZoneId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       TTL: Number("long"), // required
+ * //       State: "STRING_VALUE", // required
+ * //       Message: "STRING_VALUE", // required
+ * //       TrafficPolicyId: "STRING_VALUE", // required
+ * //       TrafficPolicyVersion: Number("int"), // required
+ * //       TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     },
+ * //   ],
+ * //   HostedZoneIdMarker: "STRING_VALUE",
+ * //   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
+ * //   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ * //   IsTruncated: true || false, // required
+ * //   MaxItems: Number("int"), // required
+ * // };
+ *
  * ```
  *
+ * @param ListTrafficPolicyInstancesCommandInput - {@link ListTrafficPolicyInstancesCommandInput}
+ * @returns {@link ListTrafficPolicyInstancesCommandOutput}
  * @see {@link ListTrafficPolicyInstancesCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
+ *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ * @throws {@link Route53ServiceException}
+ * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
  */
 export class ListTrafficPolicyInstancesCommand extends $Command<
@@ -52,6 +108,18 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrafficPolicyInstancesCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +135,9 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTrafficPolicyInstancesCommandInput, ListTrafficPolicyInstancesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTrafficPolicyInstancesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +148,8 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrafficPolicyInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTrafficPolicyInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,15 +159,21 @@ export class ListTrafficPolicyInstancesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrafficPolicyInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListTrafficPolicyInstancesCommand(input, context);
+    return se_ListTrafficPolicyInstancesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTrafficPolicyInstancesCommandOutput> {
-    return deserializeAws_restXmlListTrafficPolicyInstancesCommand(output, context);
+    return de_ListTrafficPolicyInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

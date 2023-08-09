@@ -1,27 +1,34 @@
+import { EventStreamCodec } from "@smithy/eventstream-codec";
+import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
 import { PassThrough, Readable } from "stream";
-const mockSingingStream = jest.fn().mockImplementation(() => new PassThrough());
-jest.mock("./EventSigningStream", () => ({
-  EventSigningStream: mockSingingStream,
-}));
-import { Decoder, Encoder, EventSigner, FinalizeHandler, FinalizeHandlerArguments, HttpRequest } from "@aws-sdk/types";
 
+import { EventSigningStream } from "./EventSigningStream";
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
 
-describe("EventStreamPayloadHandler", () => {
-  const mockSigner: EventSigner = {
+jest.mock("./EventSigningStream");
+jest.mock("@smithy/eventstream-codec");
+
+describe(EventStreamPayloadHandler.name, () => {
+  const mockMessageSigner: MessageSigner = {
     sign: jest.fn(),
+    signMessage: jest.fn(),
   };
   const mockUtf8Decoder: Decoder = jest.fn();
   const mockUtf8encoder: Encoder = jest.fn();
   const mockNextHandler: FinalizeHandler<any, any> = jest.fn();
 
   beforeEach(() => {
+    (EventSigningStream as unknown as jest.Mock).mockImplementation(() => new PassThrough());
+    (EventStreamCodec as jest.Mock).mockImplementation(() => {});
+  });
+
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
   it("should throw if request payload is not a stream", () => {
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
@@ -33,52 +40,88 @@ describe("EventStreamPayloadHandler", () => {
     ).rejects.toThrow("Eventstream payload must be a Readable stream.");
   });
 
-  it("should close the request payload if downstream middleware throws", async (done) => {
-    expect.assertions(2);
-    (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(new Error()));
+  it("should close the request payload if downstream middleware throws", async () => {
+    const mockError = new Error("mockError");
+    (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(mockError));
+
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
     const mockRequest = { body: new Readable() } as HttpRequest;
-    let error;
+
     try {
       await handler.handle(mockNextHandler, {
         request: mockRequest,
         input: {},
       });
-    } catch (e) {
-      error = e;
+      fail(`Expected ${mockError} to be thrown.`);
+    } catch (error) {
+      expect(error).toBe(mockError);
     }
-    expect(error instanceof Error).toBe(true);
-    //Expect stream is closed
-    //Ref: should use writableEnded when bumped to Node 13+
-    (mockRequest.body as PassThrough).on("error", (err) => {
-      expect(err.message).toEqual("write after end");
-      done();
-    });
-    mockRequest.body.write("This should be allowed to write.");
+
+    // Expect stream is closed
+    expect(mockRequest.body.writableEnded).toEqual(true);
   });
 
   it("should call event signer with request signature from signing middleware", async () => {
-    const authorization =
-      "AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=1234567890";
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=${priorSignature}`;
+
     const mockRequest = {
       body: new PassThrough(),
       headers: { authorization },
     } as any;
+
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });
+
     await handler.handle(mockNextHandler, {
       request: mockRequest,
       input: {},
     });
-    expect(mockSingingStream.mock.calls.length).toBe(1);
-    expect(mockSingingStream.mock.calls[0][0].priorSignature).toBe("1234567890");
+
+    expect(EventSigningStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningStream).toHaveBeenCalledWith({
+      priorSignature,
+      eventStreamCodec: expect.anything(),
+      messageSigner: expect.anything(),
+    });
+  });
+
+  it("should call event signer with request signature from query string if no signature headers are found", async () => {
+    const priorSignature = "1234567890";
+    const authorization = `AWS4-HMAC-SHA256 Credential=AKID/20200510/us-west-2/foo/aws4_request, SignedHeaders=host, Signature=`;
+
+    const mockRequest = {
+      body: new PassThrough(),
+      headers: { authorization },
+      query: {
+        "X-Amz-Signature": priorSignature,
+      },
+    } as any;
+
+    const handler = new EventStreamPayloadHandler({
+      messageSigner: () => Promise.resolve(mockMessageSigner),
+      utf8Decoder: mockUtf8Decoder,
+      utf8Encoder: mockUtf8encoder,
+    });
+
+    await handler.handle(mockNextHandler, {
+      request: mockRequest,
+      input: {},
+    });
+
+    expect(EventSigningStream).toHaveBeenCalledTimes(1);
+    expect(EventSigningStream).toHaveBeenCalledWith({
+      priorSignature,
+      eventStreamCodec: expect.anything(),
+      messageSigner: expect.anything(),
+    });
   });
 
   it("should start piping to request payload through event signer if downstream middleware returns", async () => {
@@ -90,7 +133,7 @@ describe("EventStreamPayloadHandler", () => {
       headers: { authorization },
     } as any;
     const handler = new EventStreamPayloadHandler({
-      eventSigner: () => Promise.resolve(mockSigner),
+      messageSigner: () => Promise.resolve(mockMessageSigner),
       utf8Decoder: mockUtf8Decoder,
       utf8Encoder: mockUtf8encoder,
     });

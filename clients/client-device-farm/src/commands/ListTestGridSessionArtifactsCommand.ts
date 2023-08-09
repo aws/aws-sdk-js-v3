@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListTestGridSessionArtifactsRequest, ListTestGridSessionArtifactsResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListTestGridSessionArtifactsCommand,
-  serializeAws_json1_1ListTestGridSessionArtifactsCommand,
+  ListTestGridSessionArtifactsRequest,
+  ListTestGridSessionArtifactsResult,
+  ListTestGridSessionArtifactsResultFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  de_ListTestGridSessionArtifactsCommand,
+  se_ListTestGridSessionArtifactsCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTestGridSessionArtifactsCommand}.
+ */
 export interface ListTestGridSessionArtifactsCommandInput extends ListTestGridSessionArtifactsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTestGridSessionArtifactsCommand}.
+ */
 export interface ListTestGridSessionArtifactsCommandOutput
   extends ListTestGridSessionArtifactsResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Retrieves a list of artifacts created during the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +52,45 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * import { DeviceFarmClient, ListTestGridSessionArtifactsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridSessionArtifactsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = { // ListTestGridSessionArtifactsRequest
+ *   sessionArn: "STRING_VALUE", // required
+ *   type: "VIDEO" || "LOG",
+ *   maxResult: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTestGridSessionArtifactsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTestGridSessionArtifactsResult
+ * //   artifacts: [ // TestGridSessionArtifacts
+ * //     { // TestGridSessionArtifact
+ * //       filename: "STRING_VALUE",
+ * //       type: "UNKNOWN" || "VIDEO" || "SELENIUM_LOG",
+ * //       url: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTestGridSessionArtifactsCommandInput - {@link ListTestGridSessionArtifactsCommandInput}
+ * @returns {@link ListTestGridSessionArtifactsCommandOutput}
  * @see {@link ListTestGridSessionArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListTestGridSessionArtifactsCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
+ *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
+ *          error. </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link DeviceFarmServiceException}
+ * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
 export class ListTestGridSessionArtifactsCommand extends $Command<
@@ -48,6 +101,18 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTestGridSessionArtifactsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +128,9 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTestGridSessionArtifactsCommandInput, ListTestGridSessionArtifactsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListTestGridSessionArtifactsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +141,8 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestGridSessionArtifactsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTestGridSessionArtifactsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListTestGridSessionArtifactsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +152,21 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTestGridSessionArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTestGridSessionArtifactsCommand(input, context);
+    return se_ListTestGridSessionArtifactsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListTestGridSessionArtifactsCommandOutput> {
-    return deserializeAws_json1_1ListTestGridSessionArtifactsCommand(output, context);
+    return de_ListTestGridSessionArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

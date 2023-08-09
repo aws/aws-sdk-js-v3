@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetCodeSigningConfigRequest, GetCodeSigningConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetCodeSigningConfigCommand,
-  serializeAws_restJson1GetCodeSigningConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetCodeSigningConfigCommand, se_GetCodeSigningConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetCodeSigningConfigCommand}.
+ */
 export interface GetCodeSigningConfigCommandInput extends GetCodeSigningConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetCodeSigningConfigCommand}.
+ */
 export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified code signing configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,47 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * import { LambdaClient, GetCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = { // GetCodeSigningConfigRequest
+ *   CodeSigningConfigArn: "STRING_VALUE", // required
+ * };
  * const command = new GetCodeSigningConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetCodeSigningConfigResponse
+ * //   CodeSigningConfig: { // CodeSigningConfig
+ * //     CodeSigningConfigId: "STRING_VALUE", // required
+ * //     CodeSigningConfigArn: "STRING_VALUE", // required
+ * //     Description: "STRING_VALUE",
+ * //     AllowedPublishers: { // AllowedPublishers
+ * //       SigningProfileVersionArns: [ // SigningProfileVersionArns // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     CodeSigningPolicies: { // CodeSigningPolicies
+ * //       UntrustedArtifactOnDeployment: "Warn" || "Enforce",
+ * //     },
+ * //     LastModified: "STRING_VALUE", // required
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetCodeSigningConfigCommandInput - {@link GetCodeSigningConfigCommandInput}
+ * @returns {@link GetCodeSigningConfigCommandOutput}
  * @see {@link GetCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link GetCodeSigningConfigCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link LambdaServiceException}
+ * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
 export class GetCodeSigningConfigCommand extends $Command<
@@ -46,6 +94,18 @@ export class GetCodeSigningConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetCodeSigningConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +121,9 @@ export class GetCodeSigningConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetCodeSigningConfigCommandInput, GetCodeSigningConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCodeSigningConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +134,8 @@ export class GetCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCodeSigningConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCodeSigningConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +145,18 @@ export class GetCodeSigningConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetCodeSigningConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetCodeSigningConfigCommand(input, context);
+    return se_GetCodeSigningConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCodeSigningConfigCommandOutput> {
-    return deserializeAws_restJson1GetCodeSigningConfigCommand(output, context);
+    return de_GetCodeSigningConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

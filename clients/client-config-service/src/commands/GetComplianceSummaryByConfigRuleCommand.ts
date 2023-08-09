@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { GetComplianceSummaryByConfigRuleResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
-  serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
+  de_GetComplianceSummaryByConfigRuleCommand,
+  se_GetComplianceSummaryByConfigRuleCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetComplianceSummaryByConfigRuleCommand}.
+ */
 export interface GetComplianceSummaryByConfigRuleCommandInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetComplianceSummaryByConfigRuleCommand}.
+ */
 export interface GetComplianceSummaryByConfigRuleCommandOutput
   extends GetComplianceSummaryByConfigRuleResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the number of Config rules that are compliant and
  * 			noncompliant, up to a maximum of 25 for each.</p>
  * @example
@@ -32,13 +49,33 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * import { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {};
  * const command = new GetComplianceSummaryByConfigRuleCommand(input);
  * const response = await client.send(command);
+ * // { // GetComplianceSummaryByConfigRuleResponse
+ * //   ComplianceSummary: { // ComplianceSummary
+ * //     CompliantResourceCount: { // ComplianceContributorCount
+ * //       CappedCount: Number("int"),
+ * //       CapExceeded: true || false,
+ * //     },
+ * //     NonCompliantResourceCount: {
+ * //       CappedCount: Number("int"),
+ * //       CapExceeded: true || false,
+ * //     },
+ * //     ComplianceSummaryTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetComplianceSummaryByConfigRuleCommandInput - {@link GetComplianceSummaryByConfigRuleCommandInput}
+ * @returns {@link GetComplianceSummaryByConfigRuleCommandOutput}
  * @see {@link GetComplianceSummaryByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryByConfigRuleCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class GetComplianceSummaryByConfigRuleCommand extends $Command<
@@ -49,6 +86,18 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetComplianceSummaryByConfigRuleCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +113,9 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetComplianceSummaryByConfigRuleCommandInput, GetComplianceSummaryByConfigRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetComplianceSummaryByConfigRuleCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +126,8 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetComplianceSummaryByConfigRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +137,24 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetComplianceSummaryByConfigRuleCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(input, context);
+    return se_GetComplianceSummaryByConfigRuleCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(output, context);
+    return de_GetComplianceSummaryByConfigRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,18 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.37.0",
+  "version": "3.310.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.4",
-    "jest": "^26.1.0",
-    "typescript": "~4.3.5"
+    "tslib": "^2.5.0"
   },
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest"
   },
   "author": {
@@ -27,7 +24,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">=14.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -37,12 +34,23 @@
     }
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xml-builder",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/xml-builder"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "rimraf": "3.0.2",
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

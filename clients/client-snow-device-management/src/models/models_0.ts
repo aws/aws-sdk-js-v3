@@ -1,213 +1,211 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { SnowDeviceManagementServiceException as __BaseException } from "./SnowDeviceManagementServiceException";
 
 /**
+ * @public
  * <p>You don't have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace AccessDeniedException {
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
-export enum AttachmentStatus {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const AttachmentStatus = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+} as const;
 
+/**
+ * @public
+ */
+export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof AttachmentStatus];
+
+/**
+ * @public
+ */
 export interface CancelTaskInput {
   /**
+   * @public
    * <p>The ID of the task that you are attempting to cancel. You can retrieve a task ID by using
    *       the <code>ListTasks</code> operation.</p>
    */
   taskId: string | undefined;
 }
 
-export namespace CancelTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTaskInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CancelTaskOutput {
   /**
+   * @public
    * <p>The ID of the task that you are attempting to cancel.</p>
    */
   taskId?: string;
 }
 
-export namespace CancelTaskOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTaskOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An unexpected error occurred while processing the request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  $retryable: {};
-  message: string | undefined;
-}
-
-export namespace InternalServerException {
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request references a resource that doesn't exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request was denied due to request throttling.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  $retryable: {
-    throttling: true;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
   };
-  message: string | undefined;
-}
-
-export namespace ThrottlingException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ValidationException {
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The physical capacity of the Amazon Web Services Snow Family device. </p>
  */
 export interface Capacity {
   /**
+   * @public
    * <p>The name of the type of capacity, such as memory.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The unit of measure for the type of capacity.</p>
    */
   unit?: string;
 
   /**
+   * @public
    * <p>The total capacity on the device.</p>
    */
   total?: number;
 
   /**
+   * @public
    * <p>The amount of capacity used on the device.</p>
    */
   used?: number;
 
   /**
+   * @public
    * <p>The amount of capacity available for use on the device.</p>
    */
   available?: number;
 }
 
-export namespace Capacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Capacity): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure used to reboot the device.</p>
  */
 export interface Reboot {}
 
-export namespace Reboot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Reboot): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A structure used to unlock a device.</p>
  */
 export interface Unlock {}
 
-export namespace Unlock {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Unlock): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The command given to the device to execute.</p>
  */
 export type Command = Command.RebootMember | Command.UnlockMember | Command.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace Command {
   /**
+   * @public
    * <p>Unlocks the device.</p>
    */
   export interface UnlockMember {
@@ -217,6 +215,7 @@ export namespace Command {
   }
 
   /**
+   * @public
    * <p>Reboots the device.</p>
    */
   export interface RebootMember {
@@ -225,6 +224,9 @@ export namespace Command {
     $unknown?: never;
   }
 
+  /**
+   * @public
+   */
   export interface $UnknownMember {
     unlock?: never;
     reboot?: never;
@@ -242,163 +244,169 @@ export namespace Command {
     if (value.reboot !== undefined) return visitor.reboot(value.reboot);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Command): any => {
-    if (obj.unlock !== undefined) return { unlock: Unlock.filterSensitiveLog(obj.unlock) };
-    if (obj.reboot !== undefined) return { reboot: Reboot.filterSensitiveLog(obj.reboot) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
+ * @public
  * <p>The options for how a device's CPU is configured.</p>
  */
 export interface CpuOptions {
   /**
+   * @public
    * <p>The number of cores that the CPU can use.</p>
    */
   coreCount?: number;
 
   /**
+   * @public
    * <p>The number of threads per core in the CPU.</p>
    */
   threadsPerCore?: number;
 }
 
-export namespace CpuOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CpuOptions): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTaskInput {
   /**
+   * @public
    * <p>A list of managed device IDs.</p>
    */
   targets: string[] | undefined;
 
   /**
+   * @public
    * <p>The task to be performed. Only one task is executed on a device at a time.</p>
    */
   command: Command | undefined;
 
   /**
+   * @public
    * <p>A description of the task and its targets.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A token ensuring that the action is called only once with the specified details.</p>
    */
   clientToken?: string;
 }
 
-export namespace CreateTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskInput): any => ({
-    ...obj,
-    ...(obj.command && { command: Command.filterSensitiveLog(obj.command) }),
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateTaskOutput {
   /**
+   * @public
    * <p>The ID of the task that you created.</p>
    */
   taskId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the task that you created.</p>
    */
   taskArn?: string;
 }
 
-export namespace CreateTaskOutput {
+/**
+ * @public
+ * <p>The request would cause a service quota to be exceeded.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CreateTaskOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
+ * @public
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeviceInput {
   /**
+   * @public
    * <p>The ID of the device that you are checking the information of.</p>
    */
   managedDeviceId: string | undefined;
 }
 
-export namespace DescribeDeviceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceInput): any => ({
-    ...obj,
-  });
-}
-
-export enum UnlockState {
-  LOCKED = "LOCKED",
-  UNLOCKED = "UNLOCKED",
-  UNLOCKING = "UNLOCKING",
-}
-
-export enum IpAddressAssignment {
-  DHCP = "DHCP",
-  STATIC = "STATIC",
-}
-
-export enum PhysicalConnectorType {
-  QSFP = "QSFP",
-  RJ45 = "RJ45",
-  RJ45_2 = "RJ45_2",
-  SFP_PLUS = "SFP_PLUS",
-  WIFI = "WIFI",
-}
+/**
+ * @public
+ * @enum
+ */
+export const UnlockState = {
+  LOCKED: "LOCKED",
+  UNLOCKED: "UNLOCKED",
+  UNLOCKING: "UNLOCKING",
+} as const;
 
 /**
+ * @public
+ */
+export type UnlockState = (typeof UnlockState)[keyof typeof UnlockState];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressAssignment = {
+  DHCP: "DHCP",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressAssignment = (typeof IpAddressAssignment)[keyof typeof IpAddressAssignment];
+
+/**
+ * @public
+ * @enum
+ */
+export const PhysicalConnectorType = {
+  QSFP: "QSFP",
+  RJ45: "RJ45",
+  RJ45_2: "RJ45_2",
+  SFP_PLUS: "SFP_PLUS",
+  WIFI: "WIFI",
+} as const;
+
+/**
+ * @public
+ */
+export type PhysicalConnectorType = (typeof PhysicalConnectorType)[keyof typeof PhysicalConnectorType];
+
+/**
+ * @public
  * <p>The details about the physical network interface for the device.</p>
  */
 export interface PhysicalNetworkInterface {
   /**
+   * @public
    * <p>The physical network interface ID.</p>
    */
   physicalNetworkInterfaceId?: string;
 
   /**
+   * @public
    * <p>The
    *       physical
    *       connector type.</p>
@@ -406,258 +414,245 @@ export interface PhysicalNetworkInterface {
   physicalConnectorType?: PhysicalConnectorType | string;
 
   /**
+   * @public
    * <p>A value that describes whether the IP address is dynamic or persistent.</p>
    */
   ipAddressAssignment?: IpAddressAssignment | string;
 
   /**
+   * @public
    * <p>The IP address of the device.</p>
    */
   ipAddress?: string;
 
   /**
+   * @public
    * <p>The netmask used to divide the IP address into subnets.</p>
    */
   netmask?: string;
 
   /**
+   * @public
    * <p>The default gateway of the device.</p>
    */
   defaultGateway?: string;
 
   /**
+   * @public
    * <p>The MAC address of the device.</p>
    */
   macAddress?: string;
 }
 
-export namespace PhysicalNetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalNetworkInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the software on the device.</p>
  */
 export interface SoftwareInformation {
   /**
+   * @public
    * <p>The version of the software currently installed on the device.</p>
    */
   installedVersion?: string;
 
   /**
+   * @public
    * <p>The version of the software being installed on the device.</p>
    */
   installingVersion?: string;
 
   /**
+   * @public
    * <p>The state of the software that is installed or that is being installed on the
    *       device.</p>
    */
   installState?: string;
 }
 
-export namespace SoftwareInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwareInformation): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDeviceOutput {
   /**
+   * @public
    * <p>When the device last contacted the Amazon Web Services Cloud. Indicates that the device is
    *       online.</p>
    */
   lastReachedOutAt?: Date;
 
   /**
+   * @public
    * <p>When the device last pushed an update to the Amazon Web Services Cloud. Indicates when the device cache
    *       was refreshed.</p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>The ID of the device that you checked the information for.</p>
    */
   managedDeviceId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    */
   managedDeviceArn?: string;
 
   /**
+   * @public
    * <p>The type of Amazon Web Services Snow Family device.</p>
    */
   deviceType?: string;
 
   /**
+   * @public
    * <p>The ID of the job used when ordering the device.</p>
    */
   associatedWithJob?: string;
 
   /**
+   * @public
    * <p>The current state of the device.</p>
    */
   deviceState?: UnlockState | string;
 
   /**
+   * @public
    * <p>The network interfaces available on the device.</p>
    */
   physicalNetworkInterfaces?: PhysicalNetworkInterface[];
 
   /**
+   * @public
    * <p>The hardware specifications of the device. </p>
    */
   deviceCapacities?: Capacity[];
 
   /**
+   * @public
    * <p>The software installed on the device.</p>
    */
   software?: SoftwareInformation;
 }
 
-export namespace DescribeDeviceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDeviceEc2Input {
   /**
+   * @public
    * <p>The ID of the managed device.</p>
    */
   managedDeviceId: string | undefined;
 
   /**
+   * @public
    * <p>A list of instance IDs associated with the managed device.</p>
    */
   instanceIds: string[] | undefined;
 }
 
-export namespace DescribeDeviceEc2Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceEc2Input): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Describes a parameter used to set up an Amazon Elastic Block Store (Amazon EBS) volume
  *       in a block device mapping.</p>
  */
 export interface EbsInstanceBlockDevice {
   /**
+   * @public
    * <p>When the attachment was initiated.</p>
    */
   attachTime?: Date;
 
   /**
+   * @public
    * <p>A value that indicates whether the volume is deleted on instance termination.</p>
    */
   deleteOnTermination?: boolean;
 
   /**
+   * @public
    * <p>The attachment state.</p>
    */
   status?: AttachmentStatus | string;
 
   /**
+   * @public
    * <p>The ID of the Amazon EBS volume.</p>
    */
   volumeId?: string;
 }
 
-export namespace EbsInstanceBlockDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The description of a block device mapping.</p>
  */
 export interface InstanceBlockDeviceMapping {
   /**
+   * @public
    * <p>The block device name.</p>
    */
   deviceName?: string;
 
   /**
+   * @public
    * <p>The parameters used to automatically set up Amazon Elastic Block Store (Amazon EBS)
    *       volumes when the instance is launched. </p>
    */
   ebs?: EbsInstanceBlockDevice;
 }
 
-export namespace InstanceBlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the device's security group.</p>
  */
 export interface SecurityGroupIdentifier {
   /**
+   * @public
    * <p>The security group ID.</p>
    */
   groupId?: string;
 
   /**
+   * @public
    * <p>The security group name.</p>
    */
   groupName?: string;
 }
 
-export namespace SecurityGroupIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupIdentifier): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceStateName {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
+/**
+ * @public
+ * @enum
+ */
+export const InstanceStateName = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+} as const;
 
 /**
+ * @public
+ */
+export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
+
+/**
+ * @public
  * <p>The description of the current state of an instance.</p>
  */
 export interface InstanceState {
   /**
+   * @public
    * <p>The state of the instance as a 16-bit unsigned integer. </p>
    *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
    *       between 256 and 65,535. These numerical values are used for internal purposes and should be
@@ -704,6 +699,7 @@ export interface InstanceState {
   code?: number;
 
   /**
+   * @public
    * <p>The current
    *       state
    *       of the instance.</p>
@@ -711,692 +707,628 @@ export interface InstanceState {
   name?: InstanceStateName | string;
 }
 
-export namespace InstanceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceState): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The description of an
  *       instance.
  *       Currently, Amazon EC2 instances are the only supported instance type.</p>
  */
 export interface Instance {
   /**
+   * @public
    * <p>The ID of the AMI used to launch the instance.</p>
    */
   imageId?: string;
 
   /**
+   * @public
    * <p>The Amazon Machine Image (AMI) launch index, which you can use to find this instance in
    *       the launch group. </p>
    */
   amiLaunchIndex?: number;
 
   /**
+   * @public
    * <p>The ID of the instance.</p>
    */
   instanceId?: string;
 
   /**
+   * @public
    * <p>The description of the current state of an instance.</p>
    */
   state?: InstanceState;
 
   /**
+   * @public
    * <p>The instance type.</p>
    */
   instanceType?: string;
 
   /**
+   * @public
    * <p>The private IPv4 address assigned to the instance.</p>
    */
   privateIpAddress?: string;
 
   /**
+   * @public
    * <p>The public IPv4 address assigned to the instance.</p>
    */
   publicIpAddress?: string;
 
   /**
+   * @public
    * <p>When the instance was created.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>When the instance was last updated.</p>
    */
   updatedAt?: Date;
 
   /**
+   * @public
    * <p>Any block device mapping entries for the instance.</p>
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
+   * @public
    * <p>The security groups for the instance.</p>
    */
   securityGroups?: SecurityGroupIdentifier[];
 
   /**
+   * @public
    * <p>The CPU options for the instance.</p>
    */
   cpuOptions?: CpuOptions;
 
   /**
+   * @public
    * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>). </p>
    */
   rootDeviceName?: string;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The details about the instance.</p>
  */
 export interface InstanceSummary {
   /**
+   * @public
    * <p>A structure containing details about the instance.</p>
    */
   instance?: Instance;
 
   /**
+   * @public
    * <p>When the instance summary was last updated.</p>
    */
   lastUpdatedAt?: Date;
 }
 
-export namespace InstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeDeviceEc2Output {
   /**
+   * @public
    * <p>A list of structures containing information about each instance. </p>
    */
   instances?: InstanceSummary[];
 }
 
-export namespace DescribeDeviceEc2Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceEc2Output): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeExecutionInput {
   /**
+   * @public
    * <p>The ID of the task that the action is describing.</p>
    */
   taskId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the managed device.</p>
    */
   managedDeviceId: string | undefined;
 }
 
-export namespace DescribeExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExecutionInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionState = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
 
-export enum ExecutionState {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+/**
+ * @public
+ */
+export type ExecutionState = (typeof ExecutionState)[keyof typeof ExecutionState];
 
+/**
+ * @public
+ */
 export interface DescribeExecutionOutput {
   /**
+   * @public
    * <p>The ID of the task being executed on the device.</p>
    */
   taskId?: string;
 
   /**
+   * @public
    * <p>The ID of the execution.</p>
    */
   executionId?: string;
 
   /**
+   * @public
    * <p>The ID of the managed device that the task is being executed on.</p>
    */
   managedDeviceId?: string;
 
   /**
+   * @public
    * <p>The current state of the execution.</p>
    */
   state?: ExecutionState | string;
 
   /**
+   * @public
    * <p>When the execution began.</p>
    */
   startedAt?: Date;
 
   /**
+   * @public
    * <p>When the status of the execution was last updated.</p>
    */
   lastUpdatedAt?: Date;
 }
 
-export namespace DescribeExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExecutionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeTaskInput {
   /**
+   * @public
    * <p>The ID of the task to be described.</p>
    */
   taskId: string | undefined;
 }
 
-export namespace DescribeTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const TaskState = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
 
-export enum TaskState {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+/**
+ * @public
+ */
+export type TaskState = (typeof TaskState)[keyof typeof TaskState];
 
+/**
+ * @public
+ */
 export interface DescribeTaskOutput {
   /**
+   * @public
    * <p>The ID of the task.</p>
    */
   taskId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    */
   taskArn?: string;
 
   /**
+   * @public
    * <p>The managed devices that the task was sent to.</p>
    */
   targets?: string[];
 
   /**
+   * @public
    * <p>The current state of the task.</p>
    */
   state?: TaskState | string;
 
   /**
+   * @public
    * <p>When the <code>CreateTask</code> operation was called.</p>
    */
   createdAt?: Date;
 
   /**
+   * @public
    * <p>When the state of the task was last updated.</p>
    */
   lastUpdatedAt?: Date;
 
   /**
+   * @public
    * <p>When the task was completed.</p>
    */
   completedAt?: Date;
 
   /**
+   * @public
    * <p>The description provided of the task and managed devices.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace DescribeTaskOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskOutput): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>Identifying information about the device.</p>
  */
 export interface DeviceSummary {
   /**
+   * @public
    * <p>The ID of the device.</p>
    */
   managedDeviceId?: string;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    */
   managedDeviceArn?: string;
 
   /**
+   * @public
    * <p>The ID of the job used to order the device.</p>
    */
   associatedWithJob?: string;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace DeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListExecutionsInput {
   /**
+   * @public
    * <p>The ID of the task.</p>
    */
   taskId: string | undefined;
 
   /**
+   * @public
    * <p>A structure used to filter the tasks by their current state.</p>
    */
   state?: ExecutionState | string;
 
   /**
+   * @public
    * <p>The maximum number of tasks to list per page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of tasks.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The summary of a task execution on a specified device.</p>
  */
 export interface ExecutionSummary {
   /**
+   * @public
    * <p>The ID of the task.</p>
    */
   taskId?: string;
 
   /**
+   * @public
    * <p>The ID of the execution.</p>
    */
   executionId?: string;
 
   /**
+   * @public
    * <p>The ID of the managed device that the task is being executed on.</p>
    */
   managedDeviceId?: string;
 
   /**
+   * @public
    * <p>The state of the execution.</p>
    */
   state?: ExecutionState | string;
 }
 
-export namespace ExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListExecutionsOutput {
   /**
+   * @public
    * <p>A list of executions. Each execution contains the task ID, the device that the task is
    *       executing on, the execution ID, and the status of the execution.</p>
    */
   executions?: ExecutionSummary[];
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of executions.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListExecutionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExecutionsOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDeviceResourcesInput {
   /**
+   * @public
    * <p>The ID of the managed device that you are listing the resources of.</p>
    */
   managedDeviceId: string | undefined;
 
   /**
+   * @public
    * <p>A structure used to filter the results by type of resource.</p>
    */
   type?: string;
 
   /**
+   * @public
    * <p>The maximum number of resources per page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDeviceResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A summary of a resource available on the device.</p>
  */
 export interface ResourceSummary {
   /**
+   * @public
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The ID of the resource.</p>
    */
   id?: string;
 }
 
-export namespace ResourceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDeviceResourcesOutput {
   /**
+   * @public
    * <p>A structure defining the resource's type, Amazon Resource Name (ARN), and ID.</p>
    */
   resources?: ResourceSummary[];
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDeviceResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceResourcesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDevicesInput {
   /**
+   * @public
    * <p>The ID of the job used to order the device.</p>
    */
   jobId?: string;
 
   /**
+   * @public
    * <p>The maximum number of devices to list per page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDevicesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListDevicesOutput {
   /**
+   * @public
    * <p>A list of device structures that contain information about the device.</p>
    */
   devices?: DeviceSummary[];
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of devices.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListDevicesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>The list of tags for the device or task.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTasksInput {
   /**
+   * @public
    * <p>A structure used to filter the list of tasks.</p>
    */
   state?: TaskState | string;
 
   /**
+   * @public
    * <p>The maximum number of tasks per page.</p>
    */
   maxResults?: number;
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of tasks.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTasksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTasksInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about the task assigned to one or many devices.</p>
  */
 export interface TaskSummary {
   /**
+   * @public
    * <p>The task ID.</p>
    */
   taskId: string | undefined;
 
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    */
   taskArn?: string;
 
   /**
+   * @public
    * <p>The state of the task assigned to one or many devices.</p>
    */
   state?: TaskState | string;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace TaskSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTasksOutput {
   /**
+   * @public
    * <p>A list of task structures containing details about each task.</p>
    */
   tasks?: TaskSummary[];
 
   /**
+   * @public
    * <p>A pagination token to continue to the next page of tasks.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTasksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTasksOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
    */
   tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
 }

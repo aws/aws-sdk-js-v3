@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeCopyProductStatusCommand,
-  serializeAws_json1_1DescribeCopyProductStatusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeCopyProductStatusCommand, se_DescribeCopyProductStatusCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeCopyProductStatusCommand}.
+ */
 export interface DescribeCopyProductStatusCommandInput extends DescribeCopyProductStatusInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeCopyProductStatusCommand}.
+ */
 export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProductStatusOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the status of the specified copy product operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,31 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * import { ServiceCatalogClient, DescribeCopyProductStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeCopyProductStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = { // DescribeCopyProductStatusInput
+ *   AcceptLanguage: "STRING_VALUE",
+ *   CopyProductToken: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCopyProductStatusCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeCopyProductStatusOutput
+ * //   CopyProductStatus: "SUCCEEDED" || "IN_PROGRESS" || "FAILED",
+ * //   TargetProductId: "STRING_VALUE",
+ * //   StatusDetail: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeCopyProductStatusCommandInput - {@link DescribeCopyProductStatusCommandInput}
+ * @returns {@link DescribeCopyProductStatusCommandOutput}
  * @see {@link DescribeCopyProductStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeCopyProductStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceCatalogServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
 export class DescribeCopyProductStatusCommand extends $Command<
@@ -46,6 +78,18 @@ export class DescribeCopyProductStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeCopyProductStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +105,9 @@ export class DescribeCopyProductStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeCopyProductStatusCommandInput, DescribeCopyProductStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeCopyProductStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +118,8 @@ export class DescribeCopyProductStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCopyProductStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCopyProductStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +129,21 @@ export class DescribeCopyProductStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeCopyProductStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeCopyProductStatusCommand(input, context);
+    return se_DescribeCopyProductStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeCopyProductStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeCopyProductStatusCommand(output, context);
+    return de_DescribeCopyProductStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

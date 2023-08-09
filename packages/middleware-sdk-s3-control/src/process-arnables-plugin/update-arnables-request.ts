@@ -1,5 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerOptions, BuildMiddleware, Provider } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/protocol-http";
+import { BuildHandlerOptions, BuildMiddleware, Provider } from "@smithy/types";
 
 import { CONTEXT_ACCOUNT_ID, CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID } from "../constants";
 import { getOutpostEndpoint } from "./getOutpostEndpoint";
@@ -8,7 +8,7 @@ const ACCOUNT_ID_HEADER = "x-amz-account-id";
 const OUTPOST_ID_HEADER = "x-amz-outpost-id";
 
 export interface UpdateArnablesRequestMiddlewareConfig {
-  isCustomEndpoint: boolean;
+  isCustomEndpoint?: boolean;
   useFipsEndpoint: Provider<boolean>;
 }
 

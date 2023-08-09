@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeDestinationsRequest, DescribeDestinationsResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDestinationsCommand,
-  serializeAws_json1_1DescribeDestinationsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDestinationsCommand, se_DescribeDestinationsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDestinationsCommand}.
+ */
 export interface DescribeDestinationsCommandInput extends DescribeDestinationsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDestinationsCommand}.
+ */
 export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,43 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * import { CloudWatchLogsClient, DescribeDestinationsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeDestinationsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeDestinationsRequest
+ *   DestinationNamePrefix: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeDestinationsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDestinationsResponse
+ * //   destinations: [ // Destinations
+ * //     { // Destination
+ * //       destinationName: "STRING_VALUE",
+ * //       targetArn: "STRING_VALUE",
+ * //       roleArn: "STRING_VALUE",
+ * //       accessPolicy: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       creationTime: Number("long"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeDestinationsCommandInput - {@link DescribeDestinationsCommandInput}
+ * @returns {@link DescribeDestinationsCommandOutput}
  * @see {@link DescribeDestinationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDestinationsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeDestinationsCommand extends $Command<
@@ -46,6 +90,18 @@ export class DescribeDestinationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDestinationsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +117,9 @@ export class DescribeDestinationsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDestinationsCommandInput, DescribeDestinationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDestinationsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +130,8 @@ export class DescribeDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDestinationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDestinationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +141,18 @@ export class DescribeDestinationsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDestinationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDestinationsCommand(input, context);
+    return se_DescribeDestinationsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDestinationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDestinationsCommand(output, context);
+    return de_DescribeDestinationsCommand(output, context);
   }
 
   // Start section: command_body_extra

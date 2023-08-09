@@ -1,9 +1,21 @@
-const { Before, Given, Then, When } = require("cucumber");
+const { After, Before, Given, Then, When } = require("@cucumber/cucumber");
 
-Before({ tags: "@buckets" }, function (scenario, callback) {
+Before({ tags: "@buckets" }, function () {
   const { S3 } = require("../../../clients/client-s3");
   this.S3 = S3;
-  callback();
+});
+
+After({ tags: "@buckets" }, function (callback) {
+  const _callback = typeof callback === "function" ? callback : () => {};
+  if (this.bucket) {
+    this.s3
+      .deleteBucket({ Bucket: this.bucket })
+      .catch(() => {})
+      .then(_callback);
+    this.bucket = undefined;
+  } else {
+    _callback();
+  }
 });
 
 Given("I am using the S3 {string} region", function (region, callback) {
@@ -25,7 +37,7 @@ Given(
 );
 
 When("I create a bucket with the location constraint {string}", function (location, callback) {
-  const bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
+  this.bucket = this.uniqueName("aws-sdk-js-integration");
   const params = {
     Bucket: this.bucket,
     CreateBucketConfiguration: {

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteEnvironmentConfigurationMessage } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteEnvironmentConfigurationCommand,
-  serializeAws_queryDeleteEnvironmentConfigurationCommand,
+  de_DeleteEnvironmentConfigurationCommand,
+  se_DeleteEnvironmentConfigurationCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteEnvironmentConfigurationCommand}.
+ */
 export interface DeleteEnvironmentConfigurationCommandInput extends DeleteEnvironmentConfigurationMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEnvironmentConfigurationCommand}.
+ */
 export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the draft configuration associated with the running environment.</p>
  *          <p>Updating a running environment with any configuration changes creates a draft
  *       configuration set. You can get the draft configuration using <a>DescribeConfigurationSettings</a> while the update is in progress or if the update
@@ -34,13 +51,36 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * import { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // DeleteEnvironmentConfigurationMessage
+ *   ApplicationName: "STRING_VALUE", // required
+ *   EnvironmentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentConfigurationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteEnvironmentConfigurationCommandInput - {@link DeleteEnvironmentConfigurationCommandInput}
+ * @returns {@link DeleteEnvironmentConfigurationCommandOutput}
  * @see {@link DeleteEnvironmentConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
+ *
+ * @example To delete a draft configuration
+ * ```javascript
+ * // The following operation deletes a draft configuration for an environment named my-env:
+ * const input = {
+ *   "ApplicationName": "my-app",
+ *   "EnvironmentName": "my-env"
+ * };
+ * const command = new DeleteEnvironmentConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-draft-configuration-1456269886654
+ * ```
  *
  */
 export class DeleteEnvironmentConfigurationCommand extends $Command<
@@ -51,6 +91,18 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEnvironmentConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +118,9 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEnvironmentConfigurationCommandInput, DeleteEnvironmentConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEnvironmentConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +131,8 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentConfigurationMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,18 +142,24 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteEnvironmentConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEnvironmentConfigurationCommand(input, context);
+    return se_DeleteEnvironmentConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteEnvironmentConfigurationCommand(output, context);
+    return de_DeleteEnvironmentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

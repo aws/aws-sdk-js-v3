@@ -1,14 +1,27 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-export enum ApplicationState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+import { IoTFleetHubServiceException as __BaseException } from "./IoTFleetHubServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const ApplicationState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationState = (typeof ApplicationState)[keyof typeof ApplicationState];
+
+/**
+ * @public
  * <p>A summary of information about a AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -16,68 +29,73 @@ export enum ApplicationState {
  */
 export interface ApplicationSummary {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>The URL of the web application.</p>
    */
   applicationUrl: string | undefined;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the web application was created.</p>
    */
   applicationCreationDate?: number;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the web application was last updated.</p>
    */
   applicationLastUpdateDate?: number;
 
   /**
+   * @public
    * <p>The current state of the web application.</p>
    */
   applicationState?: ApplicationState | string;
 }
 
-export namespace ApplicationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
 
   /**
+   * @public
    * <p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p>
    *          <note>
    *             <p>The name of the role must be in the form <code>AWSIotFleetHub_<i>random_string</i>
@@ -87,441 +105,385 @@ export interface CreateApplicationRequest {
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the web application.</p>
    */
   applicationArn: string | undefined;
 }
 
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An unexpected error has occurred.</p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request is not valid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRequestException {
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A limit has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The rate exceeds the limit.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ThrottlingException {
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {}
 
-export namespace DeleteApplicationResponse {
+/**
+ * @public
+ * <p>The specified resource does not exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * @public
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeApplicationRequest {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 }
 
-export namespace DescribeApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DescribeApplicationResponse {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The ARN of the web application.</p>
    */
   applicationArn: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName: string | undefined;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>The URL of the web application.</p>
    */
   applicationUrl: string | undefined;
 
   /**
+   * @public
    * <p>The current state of the web application.</p>
    */
   applicationState: ApplicationState | string | undefined;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the application was created.</p>
    */
   applicationCreationDate: number | undefined;
 
   /**
+   * @public
    * <p>The date (in Unix epoch time) when the application was last updated.</p>
    */
   applicationLastUpdateDate: number | undefined;
 
   /**
+   * @public
    * <p>The ARN of the role that the web application assumes when it interacts with AWS IoT Core.</p>
    */
   roleArn: string | undefined;
 
   /**
+   * @public
    * <p>The Id of the single sign-on client that you use to authenticate and authorize users on the web application.</p>
    */
   ssoClientId?: string;
 
   /**
+   * @public
    * <p>A message indicating why the <code>DescribeApplication</code> API failed.</p>
    */
   errorMessage?: string;
 
   /**
+   * @public
    * <p>A set of key/value pairs that you can use to manage the web application resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace DescribeApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
+   * @public
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
+   * @public
    * <p>An array of objects that provide summaries of information about the web applications in the list.</p>
    */
   applicationSummaries?: ApplicationSummary[];
 
   /**
+   * @public
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The list of tags assigned to the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the keys of the tags to be removed from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
+/**
+ * @public
+ * <p>The request conflicts with the current state of the resource.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 /**
- * <p>The request conflicts with the current state of the resource.</p>
+ * @public
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationRequest {
   /**
+   * @public
    * <p>The unique Id of the web application.</p>
    */
   applicationId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the web application.</p>
    */
   applicationName?: string;
 
   /**
+   * @public
    * <p>An optional description of the web application.</p>
    */
   applicationDescription?: string;
 
   /**
+   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request.
    *       Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {}
-
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
-}

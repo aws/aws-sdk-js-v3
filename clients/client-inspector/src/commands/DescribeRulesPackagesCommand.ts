@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeRulesPackagesRequest, DescribeRulesPackagesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeRulesPackagesCommand,
-  serializeAws_json1_1DescribeRulesPackagesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeRulesPackagesCommand, se_DescribeRulesPackagesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeRulesPackagesCommand}.
+ */
 export interface DescribeRulesPackagesCommandInput extends DescribeRulesPackagesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeRulesPackagesCommand}.
+ */
 export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackagesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the rules packages that are specified by the ARNs of the rules
  *          packages.</p>
  * @example
@@ -30,13 +44,76 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * import { InspectorClient, DescribeRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = { // DescribeRulesPackagesRequest
+ *   rulesPackageArns: [ // BatchDescribeArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeRulesPackagesResponse
+ * //   rulesPackages: [ // RulesPackageList // required
+ * //     { // RulesPackage
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //       provider: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   failedItems: { // FailedItems // required
+ * //     "<keys>": { // FailedItemDetails
+ * //       failureCode: "STRING_VALUE", // required
+ * //       retryable: true || false, // required
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeRulesPackagesCommandInput - {@link DescribeRulesPackagesCommandInput}
+ * @returns {@link DescribeRulesPackagesCommandOutput}
  * @see {@link DescribeRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link InspectorServiceException}
+ * <p>Base exception class for all service exceptions from Inspector service.</p>
+ *
+ * @example Describe rules packages
+ * ```javascript
+ * // Describes the rules packages that are specified by the ARNs of the rules packages.
+ * const input = {
+ *   "rulesPackageArns": [
+ *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+ *   ]
+ * };
+ * const command = new DescribeRulesPackagesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "failedItems": {},
+ *   "rulesPackages": [
+ *     {
+ *       "version": "1.1",
+ *       "name": "Security Best Practices",
+ *       "arn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+ *       "description": "The rules in this package help determine whether your systems are configured securely.",
+ *       "provider": "Amazon Web Services, Inc."
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describe-rules-packages-1481069641979
+ * ```
  *
  */
 export class DescribeRulesPackagesCommand extends $Command<
@@ -47,6 +124,18 @@ export class DescribeRulesPackagesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeRulesPackagesCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +151,9 @@ export class DescribeRulesPackagesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeRulesPackagesCommandInput, DescribeRulesPackagesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeRulesPackagesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +164,8 @@ export class DescribeRulesPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRulesPackagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRulesPackagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +175,18 @@ export class DescribeRulesPackagesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeRulesPackagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeRulesPackagesCommand(input, context);
+    return se_DescribeRulesPackagesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRulesPackagesCommandOutput> {
-    return deserializeAws_json1_1DescribeRulesPackagesCommand(output, context);
+    return de_DescribeRulesPackagesCommand(output, context);
   }
 
   // Start section: command_body_extra

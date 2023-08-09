@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
 import { DescribeExportTasksRequest, DescribeExportTasksResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeExportTasksCommand,
-  serializeAws_json1_1DescribeExportTasksCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeExportTasksCommand, se_DescribeExportTasksCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeExportTasksCommand}.
+ */
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the specified export tasks. You can list all your export tasks or filter
  *       the results based on task ID or task status.</p>
  * @example
@@ -30,13 +44,53 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * import { CloudWatchLogsClient, DescribeExportTasksCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeExportTasksCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = { // DescribeExportTasksRequest
+ *   taskId: "STRING_VALUE",
+ *   statusCode: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeExportTasksResponse
+ * //   exportTasks: [ // ExportTasks
+ * //     { // ExportTask
+ * //       taskId: "STRING_VALUE",
+ * //       taskName: "STRING_VALUE",
+ * //       logGroupName: "STRING_VALUE",
+ * //       from: Number("long"),
+ * //       to: Number("long"),
+ * //       destination: "STRING_VALUE",
+ * //       destinationPrefix: "STRING_VALUE",
+ * //       status: { // ExportTaskStatus
+ * //         code: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
+ * //         message: "STRING_VALUE",
+ * //       },
+ * //       executionInfo: { // ExportTaskExecutionInfo
+ * //         creationTime: Number("long"),
+ * //         completionTime: Number("long"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeExportTasksCommandInput - {@link DescribeExportTasksCommandInput}
+ * @returns {@link DescribeExportTasksCommandOutput}
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link CloudWatchLogsServiceException}
+ * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
 export class DescribeExportTasksCommand extends $Command<
@@ -47,6 +101,18 @@ export class DescribeExportTasksCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeExportTasksCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +128,9 @@ export class DescribeExportTasksCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeExportTasksCommandInput, DescribeExportTasksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeExportTasksCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +141,8 @@ export class DescribeExportTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExportTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExportTasksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +152,18 @@ export class DescribeExportTasksCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeExportTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeExportTasksCommand(input, context);
+    return se_DescribeExportTasksCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExportTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeExportTasksCommand(output, context);
+    return de_DescribeExportTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

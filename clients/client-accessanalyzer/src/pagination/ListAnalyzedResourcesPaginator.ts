@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { AccessAnalyzer } from "../AccessAnalyzer";
 import { AccessAnalyzerClient } from "../AccessAnalyzerClient";
 import {
   ListAnalyzedResourcesCommand,
@@ -10,7 +10,7 @@ import {
 import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: AccessAnalyzerClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAnalyzedResourcesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: AccessAnalyzer,
-  input: ListAnalyzedResourcesCommandInput,
-  ...args: any
-): Promise<ListAnalyzedResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAnalyzedResources(input, ...args);
-};
 export async function* paginateListAnalyzedResources(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListAnalyzedResourcesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListAnalyzedResources(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof AccessAnalyzer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof AccessAnalyzerClient) {
+    if (config.client instanceof AccessAnalyzerClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribePortfolioSharesCommand,
   DescribePortfolioSharesCommandInput,
   DescribePortfolioSharesCommandOutput,
 } from "../commands/DescribePortfolioSharesCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribePortfolioSharesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: DescribePortfolioSharesCommandInput,
-  ...args: any
-): Promise<DescribePortfolioSharesCommandOutput> => {
-  // @ts-ignore
-  return await client.describePortfolioShares(input, ...args);
-};
 export async function* paginateDescribePortfolioShares(
   config: ServiceCatalogPaginationConfiguration,
   input: DescribePortfolioSharesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribePortfolioShares(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextPageToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1ListV2LoggingLevelsCommand,
-  serializeAws_restJson1ListV2LoggingLevelsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ListV2LoggingLevelsCommand, se_ListV2LoggingLevelsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListV2LoggingLevelsCommand}.
+ */
 export interface ListV2LoggingLevelsCommandInput extends ListV2LoggingLevelsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListV2LoggingLevelsCommand}.
+ */
 export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists logging levels.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListV2LoggingLevels</a> action.</p>
  * @example
@@ -30,13 +44,48 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * import { IoTClient, ListV2LoggingLevelsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListV2LoggingLevelsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // ListV2LoggingLevelsRequest
+ *   targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListV2LoggingLevelsCommand(input);
  * const response = await client.send(command);
+ * // { // ListV2LoggingLevelsResponse
+ * //   logTargetConfigurations: [ // LogTargetConfigurations
+ * //     { // LogTargetConfiguration
+ * //       logTarget: { // LogTarget
+ * //         targetType: "DEFAULT" || "THING_GROUP" || "CLIENT_ID" || "SOURCE_IP" || "PRINCIPAL_ID", // required
+ * //         targetName: "STRING_VALUE",
+ * //       },
+ * //       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListV2LoggingLevelsCommandInput - {@link ListV2LoggingLevelsCommandInput}
+ * @returns {@link ListV2LoggingLevelsCommandOutput}
  * @see {@link ListV2LoggingLevelsCommandInput} for command's `input` shape.
  * @see {@link ListV2LoggingLevelsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link NotConfiguredException} (client fault)
+ *  <p>The resource is not configured.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class ListV2LoggingLevelsCommand extends $Command<
@@ -47,6 +96,18 @@ export class ListV2LoggingLevelsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListV2LoggingLevelsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +123,9 @@ export class ListV2LoggingLevelsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListV2LoggingLevelsCommandInput, ListV2LoggingLevelsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListV2LoggingLevelsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +136,8 @@ export class ListV2LoggingLevelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListV2LoggingLevelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListV2LoggingLevelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +147,18 @@ export class ListV2LoggingLevelsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListV2LoggingLevelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListV2LoggingLevelsCommand(input, context);
+    return se_ListV2LoggingLevelsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListV2LoggingLevelsCommandOutput> {
-    return deserializeAws_restJson1ListV2LoggingLevelsCommand(output, context);
+    return de_ListV2LoggingLevelsCommand(output, context);
   }
 
   // Start section: command_body_extra

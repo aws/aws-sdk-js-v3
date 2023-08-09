@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListAnomalyGroupTimeSeriesCommand,
   ListAnomalyGroupTimeSeriesCommandInput,
   ListAnomalyGroupTimeSeriesCommandOutput,
 } from "../commands/ListAnomalyGroupTimeSeriesCommand";
-import { LookoutMetrics } from "../LookoutMetrics";
 import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutMetricsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListAnomalyGroupTimeSeriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LookoutMetrics,
-  input: ListAnomalyGroupTimeSeriesCommandInput,
-  ...args: any
-): Promise<ListAnomalyGroupTimeSeriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listAnomalyGroupTimeSeries(input, ...args);
-};
 export async function* paginateListAnomalyGroupTimeSeries(
   config: LookoutMetricsPaginationConfiguration,
   input: ListAnomalyGroupTimeSeriesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListAnomalyGroupTimeSeries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutMetrics) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutMetricsClient) {
+    if (config.client instanceof LookoutMetricsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutMetrics | LookoutMetricsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchCreateTableRowsCommand";
 export * from "./BatchDeleteTableRowsCommand";
 export * from "./BatchUpdateTableRowsCommand";
@@ -8,5 +9,8 @@ export * from "./InvokeScreenAutomationCommand";
 export * from "./ListTableColumnsCommand";
 export * from "./ListTableRowsCommand";
 export * from "./ListTablesCommand";
+export * from "./ListTagsForResourceCommand";
 export * from "./QueryTableRowsCommand";
 export * from "./StartTableDataImportJobCommand";
+export * from "./TagResourceCommand";
+export * from "./UntagResourceCommand";

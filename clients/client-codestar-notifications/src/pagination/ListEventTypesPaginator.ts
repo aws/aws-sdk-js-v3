@@ -1,6 +1,6 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
-import { CodestarNotifications } from "../CodestarNotifications";
 import { CodestarNotificationsClient } from "../CodestarNotificationsClient";
 import {
   ListEventTypesCommand,
@@ -10,7 +10,7 @@ import {
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: CodestarNotificationsClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEventTypesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: CodestarNotifications,
-  input: ListEventTypesCommandInput,
-  ...args: any
-): Promise<ListEventTypesCommandOutput> => {
-  // @ts-ignore
-  return await client.listEventTypes(input, ...args);
-};
 export async function* paginateListEventTypes(
   config: CodestarNotificationsPaginationConfiguration,
   input: ListEventTypesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListEventTypes(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CodestarNotifications) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof CodestarNotificationsClient) {
+    if (config.client instanceof CodestarNotificationsClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected CodestarNotifications | CodestarNotificationsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

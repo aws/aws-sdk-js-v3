@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput } from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateCodeRepositoryCommand,
-  serializeAws_json1_1UpdateCodeRepositoryCommand,
-} from "../protocols/Aws_json1_1";
+import { UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput } from "../models/models_4";
+import { de_UpdateCodeRepositoryCommand, se_UpdateCodeRepositoryCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateCodeRepositoryCommand}.
+ */
 export interface UpdateCodeRepositoryCommandInput extends UpdateCodeRepositoryInput {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateCodeRepositoryCommand}.
+ */
 export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the specified Git repository with the specified values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,28 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * import { SageMakerClient, UpdateCodeRepositoryCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateCodeRepositoryCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // UpdateCodeRepositoryInput
+ *   CodeRepositoryName: "STRING_VALUE", // required
+ *   GitConfig: { // GitConfigForUpdate
+ *     SecretArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateCodeRepositoryCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateCodeRepositoryOutput
+ * //   CodeRepositoryArn: "STRING_VALUE", // required
+ * // };
+ *
  * ```
  *
+ * @param UpdateCodeRepositoryCommandInput - {@link UpdateCodeRepositoryCommandInput}
+ * @returns {@link UpdateCodeRepositoryCommandOutput}
  * @see {@link UpdateCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCodeRepositoryCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class UpdateCodeRepositoryCommand extends $Command<
@@ -46,6 +75,18 @@ export class UpdateCodeRepositoryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateCodeRepositoryCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +102,9 @@ export class UpdateCodeRepositoryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateCodeRepositoryCommandInput, UpdateCodeRepositoryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateCodeRepositoryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +115,8 @@ export class UpdateCodeRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCodeRepositoryInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCodeRepositoryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +126,18 @@ export class UpdateCodeRepositoryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateCodeRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateCodeRepositoryCommand(input, context);
+    return se_UpdateCodeRepositoryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCodeRepositoryCommandOutput> {
-    return deserializeAws_json1_1UpdateCodeRepositoryCommand(output, context);
+    return de_UpdateCodeRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { GetFieldLevelEncryptionConfigRequest, GetFieldLevelEncryptionConfigResult } from "../models/models_1";
 import {
-  deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand,
-  serializeAws_restXmlGetFieldLevelEncryptionConfigCommand,
+  de_GetFieldLevelEncryptionConfigCommand,
+  se_GetFieldLevelEncryptionConfigCommand,
 } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetFieldLevelEncryptionConfigCommand}.
+ */
 export interface GetFieldLevelEncryptionConfigCommandInput extends GetFieldLevelEncryptionConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFieldLevelEncryptionConfigCommand}.
+ */
 export interface GetFieldLevelEncryptionConfigCommandOutput
   extends GetFieldLevelEncryptionConfigResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Get the field-level encryption configuration information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,60 @@ export interface GetFieldLevelEncryptionConfigCommandOutput
  * import { CloudFrontClient, GetFieldLevelEncryptionConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFieldLevelEncryptionConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // GetFieldLevelEncryptionConfigRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetFieldLevelEncryptionConfigCommand(input);
  * const response = await client.send(command);
+ * // { // GetFieldLevelEncryptionConfigResult
+ * //   FieldLevelEncryptionConfig: { // FieldLevelEncryptionConfig
+ * //     CallerReference: "STRING_VALUE", // required
+ * //     Comment: "STRING_VALUE",
+ * //     QueryArgProfileConfig: { // QueryArgProfileConfig
+ * //       ForwardWhenQueryArgProfileIsUnknown: true || false, // required
+ * //       QueryArgProfiles: { // QueryArgProfiles
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // QueryArgProfileList
+ * //           { // QueryArgProfile
+ * //             QueryArg: "STRING_VALUE", // required
+ * //             ProfileId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     ContentTypeProfileConfig: { // ContentTypeProfileConfig
+ * //       ForwardWhenContentTypeIsUnknown: true || false, // required
+ * //       ContentTypeProfiles: { // ContentTypeProfiles
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // ContentTypeProfileList
+ * //           { // ContentTypeProfile
+ * //             Format: "URLEncoded", // required
+ * //             ProfileId: "STRING_VALUE",
+ * //             ContentType: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetFieldLevelEncryptionConfigCommandInput - {@link GetFieldLevelEncryptionConfigCommandInput}
+ * @returns {@link GetFieldLevelEncryptionConfigCommandOutput}
  * @see {@link GetFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
+ *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class GetFieldLevelEncryptionConfigCommand extends $Command<
@@ -48,6 +112,18 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetFieldLevelEncryptionConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +139,9 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFieldLevelEncryptionConfigCommandInput, GetFieldLevelEncryptionConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetFieldLevelEncryptionConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +152,8 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFieldLevelEncryptionConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFieldLevelEncryptionConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +163,21 @@ export class GetFieldLevelEncryptionConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFieldLevelEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(input, context);
+    return se_GetFieldLevelEncryptionConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand(output, context);
+    return de_GetFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

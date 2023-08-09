@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeGlobalClustersCommand,
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
 } from "../commands/DescribeGlobalClustersCommand";
-import { DocDB } from "../DocDB";
 import { DocDBClient } from "../DocDBClient";
 import { DocDBPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DocDBClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeGlobalClustersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DocDB,
-  input: DescribeGlobalClustersCommandInput,
-  ...args: any
-): Promise<DescribeGlobalClustersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeGlobalClusters(input, ...args);
-};
 export async function* paginateDescribeGlobalClusters(
   config: DocDBPaginationConfiguration,
   input: DescribeGlobalClustersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeGlobalClusters(
   while (hasNext) {
     input.Marker = token;
     input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DocDB) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DocDBClient) {
+    if (config.client instanceof DocDBClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DocDB | DocDBClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

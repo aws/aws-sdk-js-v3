@@ -1,7 +1,9 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+// smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -10,46 +12,116 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1AssociateSoftwareTokenCommand,
-  serializeAws_json1_1AssociateSoftwareTokenCommand,
-} from "../protocols/Aws_json1_1";
+  AssociateSoftwareTokenRequest,
+  AssociateSoftwareTokenRequestFilterSensitiveLog,
+  AssociateSoftwareTokenResponse,
+  AssociateSoftwareTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_AssociateSoftwareTokenCommand, se_AssociateSoftwareTokenCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateSoftwareTokenCommand}.
+ */
 export interface AssociateSoftwareTokenCommandInput extends AssociateSoftwareTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateSoftwareTokenCommand}.
+ */
 export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a unique generated shared secret key code for the user account. The request
- *             takes an access token or a session string, but not both.</p>
- *         <note>
- *             <p>Calling AssociateSoftwareToken immediately disassociates the existing software
- *                 token from the user account. If the user doesn't subsequently verify the software
- *                 token, their account is essentially set up to authenticate without MFA. If MFA
- *                 config is set to Optional at the user pool level, the user can then login without
- *                 MFA. However, if MFA is set to Required for the user pool, the user will be asked to
- *                 setup a new software token MFA during sign in.</p>
- *         </note>
+ * @public
+ * <p>Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
+ *             for a user, with a unique private key that Amazon Cognito generates and returns in the API
+ *             response. You can authorize an <code>AssociateSoftwareToken</code> request with either
+ *             the user's access token, or a session string from a challenge response that you received
+ *             from Amazon Cognito.</p>
+ *          <note>
+ *             <p>Amazon Cognito disassociates an existing software token when you verify the new token in a
+ *                     <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html"> VerifySoftwareToken</a> API request. If you don't verify the software
+ *                 token and your user pool doesn't require MFA, the user can then authenticate with
+ *                 user name and password credentials alone. If your user pool requires TOTP MFA, Amazon Cognito
+ *                 generates an <code>MFA_SETUP</code> or <code>SOFTWARE_TOKEN_SETUP</code> challenge
+ *                 each time your user signs. Complete setup with <code>AssociateSoftwareToken</code>
+ *                 and <code>VerifySoftwareToken</code>.</p>
+ *             <p>After you set up software token MFA for your user, Amazon Cognito generates a
+ *                     <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to
+ *                 this challenge with your user's TOTP.</p>
+ *          </note>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *             this operation, you can't use IAM credentials to authorize requests, and you can't
+ *             grant IAM permissions in policies. For more information about authorization models in
+ *             Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = { // AssociateSoftwareTokenRequest
+ *   AccessToken: "STRING_VALUE",
+ *   Session: "STRING_VALUE",
+ * };
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);
+ * // { // AssociateSoftwareTokenResponse
+ * //   SecretCode: "STRING_VALUE",
+ * //   Session: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param AssociateSoftwareTokenCommandInput - {@link AssociateSoftwareTokenCommandInput}
+ * @returns {@link AssociateSoftwareTokenCommandOutput}
  * @see {@link AssociateSoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link AssociateSoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>This exception is thrown when WAF doesn't allow your request based on a web
+ *             ACL that's associated with your user pool.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
+ *             parameter.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
+ *             resource.</p>
+ *
+ * @throws {@link SoftwareTokenMFANotFoundException} (client fault)
+ *  <p>This exception is thrown when the software token time-based one-time password (TOTP)
+ *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
+ *
+ * @throws {@link CognitoIdentityProviderServiceException}
+ * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
 export class AssociateSoftwareTokenCommand extends $Command<
@@ -60,6 +132,18 @@ export class AssociateSoftwareTokenCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateSoftwareTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +159,9 @@ export class AssociateSoftwareTokenCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateSoftwareTokenCommandInput, AssociateSoftwareTokenCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateSoftwareTokenCommand.getEndpointParameterInstructions())
+    );
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -86,8 +173,8 @@ export class AssociateSoftwareTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSoftwareTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSoftwareTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +184,18 @@ export class AssociateSoftwareTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateSoftwareTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateSoftwareTokenCommand(input, context);
+    return se_AssociateSoftwareTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateSoftwareTokenCommandOutput> {
-    return deserializeAws_json1_1AssociateSoftwareTokenCommand(output, context);
+    return de_AssociateSoftwareTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { PutItemsRequest } from "../models/models_0";
+import { PutItemsRequest, PutItemsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   PersonalizeEventsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
-import {
-  deserializeAws_restJson1PutItemsCommand,
-  serializeAws_restJson1PutItemsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutItemsCommand, se_PutItemsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutItemsCommand}.
+ */
 export interface PutItemsCommandInput extends PutItemsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutItemsCommand}.
+ */
 export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Adds one or more items to an Items dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
  *      </p>
@@ -35,13 +49,38 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutItemsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutItemsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = { // PutItemsRequest
+ *   datasetArn: "STRING_VALUE", // required
+ *   items: [ // ItemList // required
+ *     { // Item
+ *       itemId: "STRING_VALUE", // required
+ *       properties: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutItemsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PutItemsCommandInput - {@link PutItemsCommandInput}
+ * @returns {@link PutItemsCommandOutput}
  * @see {@link PutItemsCommandInput} for command's `input` shape.
  * @see {@link PutItemsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ * @throws {@link PersonalizeEventsServiceException}
+ * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
  */
 export class PutItemsCommand extends $Command<
@@ -52,6 +91,18 @@ export class PutItemsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutItemsCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +118,7 @@ export class PutItemsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutItemsCommandInput, PutItemsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PutItemsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +129,8 @@ export class PutItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutItemsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: PutItemsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +140,18 @@ export class PutItemsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutItemsCommand(input, context);
+    return se_PutItemsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutItemsCommandOutput> {
-    return deserializeAws_restJson1PutItemsCommand(output, context);
+    return de_PutItemsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
@@ -17,17 +19,32 @@ import {
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
 } from "../models/models_0";
 import {
-  deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
-  serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
+  de_ApplySecurityGroupsToClientVpnTargetNetworkCommand,
+  se_ApplySecurityGroupsToClientVpnTargetNetworkCommand,
 } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
   extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ApplySecurityGroupsToClientVpnTargetNetworkCommand}.
+ */
 export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
   extends ApplySecurityGroupsToClientVpnTargetNetworkResult,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing
  * 			security groups with the specified security groups.</p>
  * @example
@@ -36,13 +53,32 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
  * import { EC2Client, ApplySecurityGroupsToClientVpnTargetNetworkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ApplySecurityGroupsToClientVpnTargetNetworkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ApplySecurityGroupsToClientVpnTargetNetworkRequest
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(input);
  * const response = await client.send(command);
+ * // { // ApplySecurityGroupsToClientVpnTargetNetworkResult
+ * //   SecurityGroupIds: [ // ClientVpnSecurityGroupIdSet
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ApplySecurityGroupsToClientVpnTargetNetworkCommandInput - {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput}
+ * @returns {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput}
  * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput} for command's `input` shape.
  * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command<
@@ -53,6 +89,18 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +119,12 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        ApplySecurityGroupsToClientVpnTargetNetworkCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +135,8 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,18 +146,24 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(input, context);
+    return se_ApplySecurityGroupsToClientVpnTargetNetworkCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> {
-    return deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand(output, context);
+    return de_ApplySecurityGroupsToClientVpnTargetNetworkCommand(output, context);
   }
 
   // Start section: command_body_extra

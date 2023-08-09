@@ -1,5 +1,13 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
 import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@smithy/protocol-http";
+import {
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -7,15 +15,17 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  resolvedPath as __resolvedPath,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
@@ -27,6 +37,10 @@ import {
   CancelSigningProfileCommandOutput,
 } from "../commands/CancelSigningProfileCommand";
 import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "../commands/DescribeSigningJobCommand";
+import {
+  GetRevocationStatusCommandInput,
+  GetRevocationStatusCommandOutput,
+} from "../commands/GetRevocationStatusCommand";
 import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "../commands/GetSigningPlatformCommand";
 import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "../commands/GetSigningProfileCommand";
 import {
@@ -56,6 +70,7 @@ import {
   RevokeSigningProfileCommandInput,
   RevokeSigningProfileCommandOutput,
 } from "../commands/RevokeSigningProfileCommand";
+import { SignPayloadCommandInput, SignPayloadCommandOutput } from "../commands/SignPayloadCommand";
 import { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "../commands/StartSigningJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -64,38 +79,30 @@ import {
   BadRequestException,
   ConflictException,
   Destination,
-  EncryptionAlgorithm,
-  EncryptionAlgorithmOptions,
-  HashAlgorithm,
-  HashAlgorithmOptions,
-  ImageFormat,
   InternalServiceErrorException,
   NotFoundException,
-  Permission,
   ResourceNotFoundException,
   S3Destination,
-  S3SignedObject,
   S3Source,
   ServiceLimitExceededException,
   SignatureValidityPeriod,
-  SignedObject,
-  SigningConfiguration,
   SigningConfigurationOverrides,
-  SigningImageFormat,
   SigningJob,
   SigningJobRevocationRecord,
   SigningMaterial,
-  SigningPlatform,
   SigningPlatformOverrides,
-  SigningProfile,
   SigningProfileRevocationRecord,
   Source,
   ThrottlingException,
   TooManyRequestsException,
   ValidationException,
 } from "../models/models_0";
+import { SignerServiceException as __BaseException } from "../models/SignerServiceException";
 
-export const serializeAws_restJson1AddProfilePermissionCommand = async (
+/**
+ * serializeAws_restJson1AddProfilePermissionCommand
+ */
+export const se_AddProfilePermissionCommand = async (
   input: AddProfilePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -106,24 +113,17 @@ export const serializeAws_restJson1AddProfilePermissionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/signing-profiles/{profileName}/permissions";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.action !== undefined && input.action !== null && { action: input.action }),
-    ...(input.principal !== undefined && input.principal !== null && { principal: input.principal }),
-    ...(input.profileVersion !== undefined &&
-      input.profileVersion !== null && { profileVersion: input.profileVersion }),
-    ...(input.revisionId !== undefined && input.revisionId !== null && { revisionId: input.revisionId }),
-    ...(input.statementId !== undefined && input.statementId !== null && { statementId: input.statementId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      action: [],
+      principal: [],
+      profileVersion: [],
+      revisionId: [],
+      statementId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -135,7 +135,10 @@ export const serializeAws_restJson1AddProfilePermissionCommand = async (
   });
 };
 
-export const serializeAws_restJson1CancelSigningProfileCommand = async (
+/**
+ * serializeAws_restJson1CancelSigningProfileCommand
+ */
+export const se_CancelSigningProfileCommand = async (
   input: CancelSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -143,15 +146,7 @@ export const serializeAws_restJson1CancelSigningProfileCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -164,22 +159,17 @@ export const serializeAws_restJson1CancelSigningProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeSigningJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeSigningJobCommand
+ */
+export const se_DescribeSigningJobCommand = async (
   input: DescribeSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/{jobId}";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -192,7 +182,53 @@ export const serializeAws_restJson1DescribeSigningJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSigningPlatformCommand = async (
+/**
+ * serializeAws_restJson1GetRevocationStatusCommand
+ */
+export const se_GetRevocationStatusCommand = async (
+  input: GetRevocationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/revocations";
+  const query: any = map({
+    signatureTimestamp: [
+      __expectNonNull(input.signatureTimestamp, `signatureTimestamp`) != null,
+      () => (input.signatureTimestamp!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    platformId: [, __expectNonNull(input.platformId!, `platformId`)],
+    profileVersionArn: [, __expectNonNull(input.profileVersionArn!, `profileVersionArn`)],
+    jobArn: [, __expectNonNull(input.jobArn!, `jobArn`)],
+    certificateHashes: [
+      __expectNonNull(input.certificateHashes, `certificateHashes`) != null,
+      () => (input.certificateHashes! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "verification." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetSigningPlatformCommand
+ */
+export const se_GetSigningPlatformCommand = async (
   input: GetSigningPlatformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -200,15 +236,7 @@ export const serializeAws_restJson1GetSigningPlatformCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-platforms/{platformId}";
-  if (input.platformId !== undefined) {
-    const labelValue: string = input.platformId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: platformId.");
-    }
-    resolvedPath = resolvedPath.replace("{platformId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: platformId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "platformId", () => input.platformId!, "{platformId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -221,7 +249,10 @@ export const serializeAws_restJson1GetSigningPlatformCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetSigningProfileCommand = async (
+/**
+ * serializeAws_restJson1GetSigningProfileCommand
+ */
+export const se_GetSigningProfileCommand = async (
   input: GetSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -229,18 +260,10 @@ export const serializeAws_restJson1GetSigningProfileCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
-  const query: any = {
-    ...(input.profileOwner !== undefined && { profileOwner: input.profileOwner }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  const query: any = map({
+    profileOwner: [, input.profileOwner!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -254,7 +277,10 @@ export const serializeAws_restJson1GetSigningProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListProfilePermissionsCommand = async (
+/**
+ * serializeAws_restJson1ListProfilePermissionsCommand
+ */
+export const se_ListProfilePermissionsCommand = async (
   input: ListProfilePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -263,18 +289,10 @@ export const serializeAws_restJson1ListProfilePermissionsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/signing-profiles/{profileName}/permissions";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -288,28 +306,33 @@ export const serializeAws_restJson1ListProfilePermissionsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSigningJobsCommand = async (
+/**
+ * serializeAws_restJson1ListSigningJobsCommand
+ */
+export const se_ListSigningJobsCommand = async (
   input: ListSigningJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs";
-  const query: any = {
-    ...(input.status !== undefined && { status: input.status }),
-    ...(input.platformId !== undefined && { platformId: input.platformId }),
-    ...(input.requestedBy !== undefined && { requestedBy: input.requestedBy }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.isRevoked !== undefined && { isRevoked: input.isRevoked.toString() }),
-    ...(input.signatureExpiresBefore !== undefined && {
-      signatureExpiresBefore: (input.signatureExpiresBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.signatureExpiresAfter !== undefined && {
-      signatureExpiresAfter: (input.signatureExpiresAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.jobInvoker !== undefined && { jobInvoker: input.jobInvoker }),
-  };
+  const query: any = map({
+    status: [, input.status!],
+    platformId: [, input.platformId!],
+    requestedBy: [, input.requestedBy!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    isRevoked: [() => input.isRevoked !== void 0, () => input.isRevoked!.toString()],
+    signatureExpiresBefore: [
+      () => input.signatureExpiresBefore !== void 0,
+      () => (input.signatureExpiresBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    signatureExpiresAfter: [
+      () => input.signatureExpiresAfter !== void 0,
+      () => (input.signatureExpiresAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    jobInvoker: [, input.jobInvoker!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -323,20 +346,23 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSigningPlatformsCommand = async (
+/**
+ * serializeAws_restJson1ListSigningPlatformsCommand
+ */
+export const se_ListSigningPlatformsCommand = async (
   input: ListSigningPlatformsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-platforms";
-  const query: any = {
-    ...(input.category !== undefined && { category: input.category }),
-    ...(input.partner !== undefined && { partner: input.partner }),
-    ...(input.target !== undefined && { target: input.target }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  const query: any = map({
+    category: [, input.category!],
+    partner: [, input.partner!],
+    target: [, input.target!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -350,20 +376,23 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListSigningProfilesCommand = async (
+/**
+ * serializeAws_restJson1ListSigningProfilesCommand
+ */
+export const se_ListSigningProfilesCommand = async (
   input: ListSigningProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles";
-  const query: any = {
-    ...(input.includeCanceled !== undefined && { includeCanceled: input.includeCanceled.toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.platformId !== undefined && { platformId: input.platformId }),
-    ...(input.statuses !== undefined && { statuses: (input.statuses || []).map((_entry) => _entry as any) }),
-  };
+  const query: any = map({
+    includeCanceled: [() => input.includeCanceled !== void 0, () => input.includeCanceled!.toString()],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+    platformId: [, input.platformId!],
+    statuses: [() => input.statuses !== void 0, () => (input.statuses! || []).map((_entry) => _entry as any)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -377,22 +406,17 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -405,7 +429,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1PutSigningProfileCommand = async (
+/**
+ * serializeAws_restJson1PutSigningProfileCommand
+ */
+export const se_PutSigningProfileCommand = async (
   input: PutSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -415,36 +442,18 @@ export const serializeAws_restJson1PutSigningProfileCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.overrides !== undefined &&
-      input.overrides !== null && {
-        overrides: serializeAws_restJson1SigningPlatformOverrides(input.overrides, context),
-      }),
-    ...(input.platformId !== undefined && input.platformId !== null && { platformId: input.platformId }),
-    ...(input.signatureValidityPeriod !== undefined &&
-      input.signatureValidityPeriod !== null && {
-        signatureValidityPeriod: serializeAws_restJson1SignatureValidityPeriod(input.signatureValidityPeriod, context),
-      }),
-    ...(input.signingMaterial !== undefined &&
-      input.signingMaterial !== null && {
-        signingMaterial: serializeAws_restJson1SigningMaterial(input.signingMaterial, context),
-      }),
-    ...(input.signingParameters !== undefined &&
-      input.signingParameters !== null && {
-        signingParameters: serializeAws_restJson1SigningParameters(input.signingParameters, context),
-      }),
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      overrides: (_) => _json(_),
+      platformId: [],
+      signatureValidityPeriod: (_) => _json(_),
+      signingMaterial: (_) => _json(_),
+      signingParameters: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -456,7 +465,10 @@ export const serializeAws_restJson1PutSigningProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1RemoveProfilePermissionCommand = async (
+/**
+ * serializeAws_restJson1RemoveProfilePermissionCommand
+ */
+export const se_RemoveProfilePermissionCommand = async (
   input: RemoveProfilePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -465,27 +477,11 @@ export const serializeAws_restJson1RemoveProfilePermissionCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/signing-profiles/{profileName}/permissions/{statementId}";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
-  if (input.statementId !== undefined) {
-    const labelValue: string = input.statementId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: statementId.");
-    }
-    resolvedPath = resolvedPath.replace("{statementId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: statementId.");
-  }
-  const query: any = {
-    ...(input.revisionId !== undefined && { revisionId: input.revisionId }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "statementId", () => input.statementId!, "{statementId}", false);
+  const query: any = map({
+    revisionId: [, __expectNonNull(input.revisionId!, `revisionId`)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -499,7 +495,10 @@ export const serializeAws_restJson1RemoveProfilePermissionCommand = async (
   });
 };
 
-export const serializeAws_restJson1RevokeSignatureCommand = async (
+/**
+ * serializeAws_restJson1RevokeSignatureCommand
+ */
+export const se_RevokeSignatureCommand = async (
   input: RevokeSignatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -509,20 +508,14 @@ export const serializeAws_restJson1RevokeSignatureCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/{jobId}/revoke";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.jobOwner !== undefined && input.jobOwner !== null && { jobOwner: input.jobOwner }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      jobOwner: [],
+      reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -534,7 +527,10 @@ export const serializeAws_restJson1RevokeSignatureCommand = async (
   });
 };
 
-export const serializeAws_restJson1RevokeSigningProfileCommand = async (
+/**
+ * serializeAws_restJson1RevokeSigningProfileCommand
+ */
+export const se_RevokeSigningProfileCommand = async (
   input: RevokeSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -544,23 +540,15 @@ export const serializeAws_restJson1RevokeSigningProfileCommand = async (
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}/revoke";
-  if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: profileName.");
-    }
-    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.effectiveTime !== undefined &&
-      input.effectiveTime !== null && { effectiveTime: Math.round(input.effectiveTime.getTime() / 1000) }),
-    ...(input.profileVersion !== undefined &&
-      input.profileVersion !== null && { profileVersion: input.profileVersion }),
-    ...(input.reason !== undefined && input.reason !== null && { reason: input.reason }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      effectiveTime: (_) => Math.round(_.getTime() / 1000),
+      profileVersion: [],
+      reason: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -572,7 +560,43 @@ export const serializeAws_restJson1RevokeSigningProfileCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartSigningJobCommand = async (
+/**
+ * serializeAws_restJson1SignPayloadCommand
+ */
+export const se_SignPayloadCommand = async (
+  input: SignPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/with-payload";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      payload: (_) => context.base64Encoder(_),
+      payloadFormat: [],
+      profileName: [],
+      profileOwner: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartSigningJobCommand
+ */
+export const se_StartSigningJobCommand = async (
   input: StartSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -582,15 +606,15 @@ export const serializeAws_restJson1StartSigningJobCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs";
   let body: any;
-  body = JSON.stringify({
-    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
-    ...(input.destination !== undefined &&
-      input.destination !== null && { destination: serializeAws_restJson1Destination(input.destination, context) }),
-    ...(input.profileName !== undefined && input.profileName !== null && { profileName: input.profileName }),
-    ...(input.profileOwner !== undefined && input.profileOwner !== null && { profileOwner: input.profileOwner }),
-    ...(input.source !== undefined &&
-      input.source !== null && { source: serializeAws_restJson1Source(input.source, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destination: (_) => _json(_),
+      profileName: [],
+      profileOwner: [],
+      source: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -602,7 +626,10 @@ export const serializeAws_restJson1StartSigningJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1TagResourceCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -611,19 +638,13 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -635,25 +656,23 @@ export const serializeAws_restJson1TagResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1UntagResourceCommand = async (
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
-  const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -667,2263 +686,1463 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
-export const deserializeAws_restJson1AddProfilePermissionCommand = async (
+/**
+ * deserializeAws_restJson1AddProfilePermissionCommand
+ */
+export const de_AddProfilePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddProfilePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1AddProfilePermissionCommandError(output, context);
+    return de_AddProfilePermissionCommandError(output, context);
   }
-  const contents: AddProfilePermissionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    revisionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.revisionId !== undefined && data.revisionId !== null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1AddProfilePermissionCommandError = async (
+/**
+ * deserializeAws_restJson1AddProfilePermissionCommandError
+ */
+const de_AddProfilePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddProfilePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.signer#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.signer#ServiceLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1CancelSigningProfileCommand = async (
+/**
+ * deserializeAws_restJson1CancelSigningProfileCommand
+ */
+export const de_CancelSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1CancelSigningProfileCommandError(output, context);
+    return de_CancelSigningProfileCommandError(output, context);
   }
-  const contents: CancelSigningProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1CancelSigningProfileCommandError = async (
+/**
+ * deserializeAws_restJson1CancelSigningProfileCommandError
+ */
+const de_CancelSigningProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSigningProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeSigningJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeSigningJobCommand
+ */
+export const de_DescribeSigningJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSigningJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeSigningJobCommandError(output, context);
+    return de_DescribeSigningJobCommandError(output, context);
   }
-  const contents: DescribeSigningJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    completedAt: undefined,
-    createdAt: undefined,
-    jobId: undefined,
-    jobInvoker: undefined,
-    jobOwner: undefined,
-    overrides: undefined,
-    platformDisplayName: undefined,
-    platformId: undefined,
-    profileName: undefined,
-    profileVersion: undefined,
-    requestedBy: undefined,
-    revocationRecord: undefined,
-    signatureExpiresAt: undefined,
-    signedObject: undefined,
-    signingMaterial: undefined,
-    signingParameters: undefined,
-    source: undefined,
-    status: undefined,
-    statusReason: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.completedAt !== undefined && data.completedAt !== null) {
-    contents.completedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.completedAt)));
-  }
-  if (data.createdAt !== undefined && data.createdAt !== null) {
-    contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
-  }
-  if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.jobInvoker !== undefined && data.jobInvoker !== null) {
-    contents.jobInvoker = __expectString(data.jobInvoker);
-  }
-  if (data.jobOwner !== undefined && data.jobOwner !== null) {
-    contents.jobOwner = __expectString(data.jobOwner);
-  }
-  if (data.overrides !== undefined && data.overrides !== null) {
-    contents.overrides = deserializeAws_restJson1SigningPlatformOverrides(data.overrides, context);
-  }
-  if (data.platformDisplayName !== undefined && data.platformDisplayName !== null) {
-    contents.platformDisplayName = __expectString(data.platformDisplayName);
-  }
-  if (data.platformId !== undefined && data.platformId !== null) {
-    contents.platformId = __expectString(data.platformId);
-  }
-  if (data.profileName !== undefined && data.profileName !== null) {
-    contents.profileName = __expectString(data.profileName);
-  }
-  if (data.profileVersion !== undefined && data.profileVersion !== null) {
-    contents.profileVersion = __expectString(data.profileVersion);
-  }
-  if (data.requestedBy !== undefined && data.requestedBy !== null) {
-    contents.requestedBy = __expectString(data.requestedBy);
-  }
-  if (data.revocationRecord !== undefined && data.revocationRecord !== null) {
-    contents.revocationRecord = deserializeAws_restJson1SigningJobRevocationRecord(data.revocationRecord, context);
-  }
-  if (data.signatureExpiresAt !== undefined && data.signatureExpiresAt !== null) {
-    contents.signatureExpiresAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.signatureExpiresAt)));
-  }
-  if (data.signedObject !== undefined && data.signedObject !== null) {
-    contents.signedObject = deserializeAws_restJson1SignedObject(data.signedObject, context);
-  }
-  if (data.signingMaterial !== undefined && data.signingMaterial !== null) {
-    contents.signingMaterial = deserializeAws_restJson1SigningMaterial(data.signingMaterial, context);
-  }
-  if (data.signingParameters !== undefined && data.signingParameters !== null) {
-    contents.signingParameters = deserializeAws_restJson1SigningParameters(data.signingParameters, context);
-  }
-  if (data.source !== undefined && data.source !== null) {
-    contents.source = deserializeAws_restJson1Source(data.source, context);
-  }
-  if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusReason !== undefined && data.statusReason !== null) {
-    contents.statusReason = __expectString(data.statusReason);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    completedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    jobId: __expectString,
+    jobInvoker: __expectString,
+    jobOwner: __expectString,
+    overrides: _json,
+    platformDisplayName: __expectString,
+    platformId: __expectString,
+    profileName: __expectString,
+    profileVersion: __expectString,
+    requestedBy: __expectString,
+    revocationRecord: (_) => de_SigningJobRevocationRecord(_, context),
+    signatureExpiresAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    signedObject: _json,
+    signingMaterial: _json,
+    signingParameters: _json,
+    source: _json,
+    status: __expectString,
+    statusReason: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeSigningJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeSigningJobCommandError
+ */
+const de_DescribeSigningJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSigningJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetSigningPlatformCommand = async (
+/**
+ * deserializeAws_restJson1GetRevocationStatusCommand
+ */
+export const de_GetRevocationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRevocationStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRevocationStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    revokedEntities: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRevocationStatusCommandError
+ */
+const de_GetRevocationStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRevocationStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.signer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.signer#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.signer#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.signer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetSigningPlatformCommand
+ */
+export const de_GetSigningPlatformCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningPlatformCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSigningPlatformCommandError(output, context);
+    return de_GetSigningPlatformCommandError(output, context);
   }
-  const contents: GetSigningPlatformCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    category: undefined,
-    displayName: undefined,
-    maxSizeInMB: undefined,
-    partner: undefined,
-    platformId: undefined,
-    revocationSupported: undefined,
-    signingConfiguration: undefined,
-    signingImageFormat: undefined,
-    target: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.category !== undefined && data.category !== null) {
-    contents.category = __expectString(data.category);
-  }
-  if (data.displayName !== undefined && data.displayName !== null) {
-    contents.displayName = __expectString(data.displayName);
-  }
-  if (data.maxSizeInMB !== undefined && data.maxSizeInMB !== null) {
-    contents.maxSizeInMB = __expectInt32(data.maxSizeInMB);
-  }
-  if (data.partner !== undefined && data.partner !== null) {
-    contents.partner = __expectString(data.partner);
-  }
-  if (data.platformId !== undefined && data.platformId !== null) {
-    contents.platformId = __expectString(data.platformId);
-  }
-  if (data.revocationSupported !== undefined && data.revocationSupported !== null) {
-    contents.revocationSupported = __expectBoolean(data.revocationSupported);
-  }
-  if (data.signingConfiguration !== undefined && data.signingConfiguration !== null) {
-    contents.signingConfiguration = deserializeAws_restJson1SigningConfiguration(data.signingConfiguration, context);
-  }
-  if (data.signingImageFormat !== undefined && data.signingImageFormat !== null) {
-    contents.signingImageFormat = deserializeAws_restJson1SigningImageFormat(data.signingImageFormat, context);
-  }
-  if (data.target !== undefined && data.target !== null) {
-    contents.target = __expectString(data.target);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    category: __expectString,
+    displayName: __expectString,
+    maxSizeInMB: __expectInt32,
+    partner: __expectString,
+    platformId: __expectString,
+    revocationSupported: __expectBoolean,
+    signingConfiguration: _json,
+    signingImageFormat: _json,
+    target: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSigningPlatformCommandError = async (
+/**
+ * deserializeAws_restJson1GetSigningPlatformCommandError
+ */
+const de_GetSigningPlatformCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningPlatformCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1GetSigningProfileCommand = async (
+/**
+ * deserializeAws_restJson1GetSigningProfileCommand
+ */
+export const de_GetSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetSigningProfileCommandError(output, context);
+    return de_GetSigningProfileCommandError(output, context);
   }
-  const contents: GetSigningProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    arn: undefined,
-    overrides: undefined,
-    platformDisplayName: undefined,
-    platformId: undefined,
-    profileName: undefined,
-    profileVersion: undefined,
-    profileVersionArn: undefined,
-    revocationRecord: undefined,
-    signatureValidityPeriod: undefined,
-    signingMaterial: undefined,
-    signingParameters: undefined,
-    status: undefined,
-    statusReason: undefined,
-    tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.overrides !== undefined && data.overrides !== null) {
-    contents.overrides = deserializeAws_restJson1SigningPlatformOverrides(data.overrides, context);
-  }
-  if (data.platformDisplayName !== undefined && data.platformDisplayName !== null) {
-    contents.platformDisplayName = __expectString(data.platformDisplayName);
-  }
-  if (data.platformId !== undefined && data.platformId !== null) {
-    contents.platformId = __expectString(data.platformId);
-  }
-  if (data.profileName !== undefined && data.profileName !== null) {
-    contents.profileName = __expectString(data.profileName);
-  }
-  if (data.profileVersion !== undefined && data.profileVersion !== null) {
-    contents.profileVersion = __expectString(data.profileVersion);
-  }
-  if (data.profileVersionArn !== undefined && data.profileVersionArn !== null) {
-    contents.profileVersionArn = __expectString(data.profileVersionArn);
-  }
-  if (data.revocationRecord !== undefined && data.revocationRecord !== null) {
-    contents.revocationRecord = deserializeAws_restJson1SigningProfileRevocationRecord(data.revocationRecord, context);
-  }
-  if (data.signatureValidityPeriod !== undefined && data.signatureValidityPeriod !== null) {
-    contents.signatureValidityPeriod = deserializeAws_restJson1SignatureValidityPeriod(
-      data.signatureValidityPeriod,
-      context
-    );
-  }
-  if (data.signingMaterial !== undefined && data.signingMaterial !== null) {
-    contents.signingMaterial = deserializeAws_restJson1SigningMaterial(data.signingMaterial, context);
-  }
-  if (data.signingParameters !== undefined && data.signingParameters !== null) {
-    contents.signingParameters = deserializeAws_restJson1SigningParameters(data.signingParameters, context);
-  }
-  if (data.status !== undefined && data.status !== null) {
-    contents.status = __expectString(data.status);
-  }
-  if (data.statusReason !== undefined && data.statusReason !== null) {
-    contents.statusReason = __expectString(data.statusReason);
-  }
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    overrides: _json,
+    platformDisplayName: __expectString,
+    platformId: __expectString,
+    profileName: __expectString,
+    profileVersion: __expectString,
+    profileVersionArn: __expectString,
+    revocationRecord: (_) => de_SigningProfileRevocationRecord(_, context),
+    signatureValidityPeriod: _json,
+    signingMaterial: _json,
+    signingParameters: _json,
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1GetSigningProfileCommandError = async (
+/**
+ * deserializeAws_restJson1GetSigningProfileCommandError
+ */
+const de_GetSigningProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListProfilePermissionsCommand = async (
+/**
+ * deserializeAws_restJson1ListProfilePermissionsCommand
+ */
+export const de_ListProfilePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListProfilePermissionsCommandError(output, context);
+    return de_ListProfilePermissionsCommandError(output, context);
   }
-  const contents: ListProfilePermissionsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    permissions: undefined,
-    policySizeBytes: undefined,
-    revisionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.permissions !== undefined && data.permissions !== null) {
-    contents.permissions = deserializeAws_restJson1Permissions(data.permissions, context);
-  }
-  if (data.policySizeBytes !== undefined && data.policySizeBytes !== null) {
-    contents.policySizeBytes = __expectInt32(data.policySizeBytes);
-  }
-  if (data.revisionId !== undefined && data.revisionId !== null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    permissions: _json,
+    policySizeBytes: __expectInt32,
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListProfilePermissionsCommandError = async (
+/**
+ * deserializeAws_restJson1ListProfilePermissionsCommandError
+ */
+const de_ListProfilePermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProfilePermissionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListSigningJobsCommand = async (
+/**
+ * deserializeAws_restJson1ListSigningJobsCommand
+ */
+export const de_ListSigningJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSigningJobsCommandError(output, context);
+    return de_ListSigningJobsCommandError(output, context);
   }
-  const contents: ListSigningJobsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    jobs: undefined,
-    nextToken: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobs !== undefined && data.jobs !== null) {
-    contents.jobs = deserializeAws_restJson1SigningJobs(data.jobs, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobs: (_) => de_SigningJobs(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListSigningJobsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSigningJobsCommandError
+ */
+const de_ListSigningJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListSigningPlatformsCommand = async (
+/**
+ * deserializeAws_restJson1ListSigningPlatformsCommand
+ */
+export const de_ListSigningPlatformsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningPlatformsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSigningPlatformsCommandError(output, context);
+    return de_ListSigningPlatformsCommandError(output, context);
   }
-  const contents: ListSigningPlatformsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    platforms: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.platforms !== undefined && data.platforms !== null) {
-    contents.platforms = deserializeAws_restJson1SigningPlatforms(data.platforms, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    platforms: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListSigningPlatformsCommandError = async (
+/**
+ * deserializeAws_restJson1ListSigningPlatformsCommandError
+ */
+const de_ListSigningPlatformsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningPlatformsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListSigningProfilesCommand = async (
+/**
+ * deserializeAws_restJson1ListSigningProfilesCommand
+ */
+export const de_ListSigningProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListSigningProfilesCommandError(output, context);
+    return de_ListSigningProfilesCommandError(output, context);
   }
-  const contents: ListSigningProfilesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    profiles: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.profiles !== undefined && data.profiles !== null) {
-    contents.profiles = deserializeAws_restJson1SigningProfiles(data.profiles, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    profiles: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListSigningProfilesCommandError = async (
+/**
+ * deserializeAws_restJson1ListSigningProfilesCommandError
+ */
+const de_ListSigningProfilesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningProfilesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+    return de_ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    tags: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags !== undefined && data.tags !== null) {
-    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.signer#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.signer#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1PutSigningProfileCommand = async (
+/**
+ * deserializeAws_restJson1PutSigningProfileCommand
+ */
+export const de_PutSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1PutSigningProfileCommandError(output, context);
+    return de_PutSigningProfileCommandError(output, context);
   }
-  const contents: PutSigningProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    arn: undefined,
-    profileVersion: undefined,
-    profileVersionArn: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = __expectString(data.arn);
-  }
-  if (data.profileVersion !== undefined && data.profileVersion !== null) {
-    contents.profileVersion = __expectString(data.profileVersion);
-  }
-  if (data.profileVersionArn !== undefined && data.profileVersionArn !== null) {
-    contents.profileVersionArn = __expectString(data.profileVersionArn);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    profileVersion: __expectString,
+    profileVersionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1PutSigningProfileCommandError = async (
+/**
+ * deserializeAws_restJson1PutSigningProfileCommandError
+ */
+const de_PutSigningProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSigningProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1RemoveProfilePermissionCommand = async (
+/**
+ * deserializeAws_restJson1RemoveProfilePermissionCommand
+ */
+export const de_RemoveProfilePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveProfilePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RemoveProfilePermissionCommandError(output, context);
+    return de_RemoveProfilePermissionCommandError(output, context);
   }
-  const contents: RemoveProfilePermissionCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    revisionId: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.revisionId !== undefined && data.revisionId !== null) {
-    contents.revisionId = __expectString(data.revisionId);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    revisionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1RemoveProfilePermissionCommandError = async (
+/**
+ * deserializeAws_restJson1RemoveProfilePermissionCommandError
+ */
+const de_RemoveProfilePermissionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveProfilePermissionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.signer#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1RevokeSignatureCommand = async (
+/**
+ * deserializeAws_restJson1RevokeSignatureCommand
+ */
+export const de_RevokeSignatureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeSignatureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RevokeSignatureCommandError(output, context);
+    return de_RevokeSignatureCommandError(output, context);
   }
-  const contents: RevokeSignatureCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1RevokeSignatureCommandError = async (
+/**
+ * deserializeAws_restJson1RevokeSignatureCommandError
+ */
+const de_RevokeSignatureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeSignatureCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1RevokeSigningProfileCommand = async (
+/**
+ * deserializeAws_restJson1RevokeSigningProfileCommand
+ */
+export const de_RevokeSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1RevokeSigningProfileCommandError(output, context);
+    return de_RevokeSigningProfileCommandError(output, context);
   }
-  const contents: RevokeSigningProfileCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1RevokeSigningProfileCommandError = async (
+/**
+ * deserializeAws_restJson1RevokeSigningProfileCommandError
+ */
+const de_RevokeSigningProfileCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeSigningProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartSigningJobCommand = async (
+/**
+ * deserializeAws_restJson1SignPayloadCommand
+ */
+export const de_SignPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SignPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SignPayloadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobId: __expectString,
+    jobOwner: __expectString,
+    metadata: _json,
+    signature: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SignPayloadCommandError
+ */
+const de_SignPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SignPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.signer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.signer#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.signer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.signer#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.signer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartSigningJobCommand
+ */
+export const de_StartSigningJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSigningJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartSigningJobCommandError(output, context);
+    return de_StartSigningJobCommandError(output, context);
   }
-  const contents: StartSigningJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    jobId: undefined,
-    jobOwner: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.jobOwner !== undefined && data.jobOwner !== null) {
-    contents.jobOwner = __expectString(data.jobOwner);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobId: __expectString,
+    jobOwner: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartSigningJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartSigningJobCommandError
+ */
+const de_StartSigningJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSigningJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.signer#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.signer#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.signer#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.signer#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1TagResourceCommand = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1TagResourceCommandError(output, context);
+    return de_TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1TagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.signer#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.signer#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1UntagResourceCommand = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+    return de_UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
-const deserializeAws_restJson1UntagResourceCommandError = async (
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.signer#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.signer#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.signer#NotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.signer#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: AccessDeniedException = {
-    name: "AccessDeniedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1BadRequestExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<BadRequestException> => {
-  const contents: BadRequestException = {
-    name: "BadRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1BadRequestExceptionRes
+ */
+const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ConflictExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ConflictException> => {
-  const contents: ConflictException = {
-    name: "ConflictException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceErrorExceptionRes
+ */
+const de_InternalServiceErrorExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
-  const contents: InternalServiceErrorException = {
-    name: "InternalServiceErrorException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServiceErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1NotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<NotFoundException> => {
-  const contents: NotFoundException = {
-    name: "NotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1NotFoundExceptionRes
+ */
+const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new NotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceLimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceLimitExceededExceptionRes
+ */
+const de_ServiceLimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceLimitExceededException> => {
-  const contents: ServiceLimitExceededException = {
-    name: "ServiceLimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: TooManyRequestsException = {
-    name: "TooManyRequestsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
-};
-
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const contents: ValidationException = {
-    name: "ValidationException",
-    $fault: "client",
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
-    code: undefined,
-    message: undefined,
-  };
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.code !== undefined && data.code !== null) {
-    contents.code = __expectString(data.code);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    code: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1Destination = (input: Destination, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_restJson1S3Destination(input.s3, context) }),
-  };
+// se_Destination omitted.
+
+// se_S3Destination omitted.
+
+// se_S3Source omitted.
+
+// se_SignatureValidityPeriod omitted.
+
+// se_SigningConfigurationOverrides omitted.
+
+// se_SigningMaterial omitted.
+
+// se_SigningParameters omitted.
+
+// se_SigningPlatformOverrides omitted.
+
+// se_Source omitted.
+
+// se_TagMap omitted.
+
+// de_EncryptionAlgorithmOptions omitted.
+
+// de_EncryptionAlgorithms omitted.
+
+// de_HashAlgorithmOptions omitted.
+
+// de_HashAlgorithms omitted.
+
+// de_ImageFormats omitted.
+
+// de_Metadata omitted.
+
+// de_Permission omitted.
+
+// de_Permissions omitted.
+
+// de_RevokedEntities omitted.
+
+// de_S3SignedObject omitted.
+
+// de_S3Source omitted.
+
+// de_SignatureValidityPeriod omitted.
+
+// de_SignedObject omitted.
+
+// de_SigningConfiguration omitted.
+
+// de_SigningConfigurationOverrides omitted.
+
+// de_SigningImageFormat omitted.
+
+/**
+ * deserializeAws_restJson1SigningJob
+ */
+const de_SigningJob = (output: any, context: __SerdeContext): SigningJob => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    isRevoked: __expectBoolean,
+    jobId: __expectString,
+    jobInvoker: __expectString,
+    jobOwner: __expectString,
+    platformDisplayName: __expectString,
+    platformId: __expectString,
+    profileName: __expectString,
+    profileVersion: __expectString,
+    signatureExpiresAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    signedObject: _json,
+    signingMaterial: _json,
+    source: _json,
+    status: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1S3Destination = (input: S3Destination, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
-    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
-  };
+/**
+ * deserializeAws_restJson1SigningJobRevocationRecord
+ */
+const de_SigningJobRevocationRecord = (output: any, context: __SerdeContext): SigningJobRevocationRecord => {
+  return take(output, {
+    reason: __expectString,
+    revokedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    revokedBy: __expectString,
+  }) as any;
 };
 
-const serializeAws_restJson1S3Source = (input: S3Source, context: __SerdeContext): any => {
-  return {
-    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
-    ...(input.key !== undefined && input.key !== null && { key: input.key }),
-    ...(input.version !== undefined && input.version !== null && { version: input.version }),
-  };
-};
-
-const serializeAws_restJson1SignatureValidityPeriod = (
-  input: SignatureValidityPeriod,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-    ...(input.value !== undefined && input.value !== null && { value: input.value }),
-  };
-};
-
-const serializeAws_restJson1SigningConfigurationOverrides = (
-  input: SigningConfigurationOverrides,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.encryptionAlgorithm !== undefined &&
-      input.encryptionAlgorithm !== null && { encryptionAlgorithm: input.encryptionAlgorithm }),
-    ...(input.hashAlgorithm !== undefined && input.hashAlgorithm !== null && { hashAlgorithm: input.hashAlgorithm }),
-  };
-};
-
-const serializeAws_restJson1SigningMaterial = (input: SigningMaterial, context: __SerdeContext): any => {
-  return {
-    ...(input.certificateArn !== undefined &&
-      input.certificateArn !== null && { certificateArn: input.certificateArn }),
-  };
-};
-
-const serializeAws_restJson1SigningParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const serializeAws_restJson1SigningPlatformOverrides = (
-  input: SigningPlatformOverrides,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.signingConfiguration !== undefined &&
-      input.signingConfiguration !== null && {
-        signingConfiguration: serializeAws_restJson1SigningConfigurationOverrides(input.signingConfiguration, context),
-      }),
-    ...(input.signingImageFormat !== undefined &&
-      input.signingImageFormat !== null && { signingImageFormat: input.signingImageFormat }),
-  };
-};
-
-const serializeAws_restJson1Source = (input: Source, context: __SerdeContext): any => {
-  return {
-    ...(input.s3 !== undefined && input.s3 !== null && { s3: serializeAws_restJson1S3Source(input.s3, context) }),
-  };
-};
-
-const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1EncryptionAlgorithmOptions = (
-  output: any,
-  context: __SerdeContext
-): EncryptionAlgorithmOptions => {
-  return {
-    allowedValues:
-      output.allowedValues !== undefined && output.allowedValues !== null
-        ? deserializeAws_restJson1EncryptionAlgorithms(output.allowedValues, context)
-        : undefined,
-    defaultValue: __expectString(output.defaultValue),
-  } as any;
-};
-
-const deserializeAws_restJson1EncryptionAlgorithms = (
-  output: any,
-  context: __SerdeContext
-): (EncryptionAlgorithm | string)[] => {
-  return (output || [])
+/**
+ * deserializeAws_restJson1SigningJobs
+ */
+const de_SigningJobs = (output: any, context: __SerdeContext): SigningJob[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_SigningJob(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __SerdeContext): HashAlgorithmOptions => {
-  return {
-    allowedValues:
-      output.allowedValues !== undefined && output.allowedValues !== null
-        ? deserializeAws_restJson1HashAlgorithms(output.allowedValues, context)
-        : undefined,
-    defaultValue: __expectString(output.defaultValue),
-  } as any;
+// de_SigningMaterial omitted.
+
+// de_SigningParameters omitted.
+
+// de_SigningPlatform omitted.
+
+// de_SigningPlatformOverrides omitted.
+
+// de_SigningPlatforms omitted.
+
+// de_SigningProfile omitted.
+
+/**
+ * deserializeAws_restJson1SigningProfileRevocationRecord
+ */
+const de_SigningProfileRevocationRecord = (output: any, context: __SerdeContext): SigningProfileRevocationRecord => {
+  return take(output, {
+    revocationEffectiveFrom: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    revokedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    revokedBy: __expectString,
+  }) as any;
 };
 
-const deserializeAws_restJson1HashAlgorithms = (output: any, context: __SerdeContext): (HashAlgorithm | string)[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
+// de_SigningProfiles omitted.
 
-const deserializeAws_restJson1ImageFormats = (output: any, context: __SerdeContext): (ImageFormat | string)[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
+// de_Source omitted.
 
-const deserializeAws_restJson1Permission = (output: any, context: __SerdeContext): Permission => {
-  return {
-    action: __expectString(output.action),
-    principal: __expectString(output.principal),
-    profileVersion: __expectString(output.profileVersion),
-    statementId: __expectString(output.statementId),
-  } as any;
-};
-
-const deserializeAws_restJson1Permissions = (output: any, context: __SerdeContext): Permission[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Permission(entry, context);
-    });
-};
-
-const deserializeAws_restJson1S3SignedObject = (output: any, context: __SerdeContext): S3SignedObject => {
-  return {
-    bucketName: __expectString(output.bucketName),
-    key: __expectString(output.key),
-  } as any;
-};
-
-const deserializeAws_restJson1S3Source = (output: any, context: __SerdeContext): S3Source => {
-  return {
-    bucketName: __expectString(output.bucketName),
-    key: __expectString(output.key),
-    version: __expectString(output.version),
-  } as any;
-};
-
-const deserializeAws_restJson1SignatureValidityPeriod = (
-  output: any,
-  context: __SerdeContext
-): SignatureValidityPeriod => {
-  return {
-    type: __expectString(output.type),
-    value: __expectInt32(output.value),
-  } as any;
-};
-
-const deserializeAws_restJson1SignedObject = (output: any, context: __SerdeContext): SignedObject => {
-  return {
-    s3:
-      output.s3 !== undefined && output.s3 !== null
-        ? deserializeAws_restJson1S3SignedObject(output.s3, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SigningConfiguration = (output: any, context: __SerdeContext): SigningConfiguration => {
-  return {
-    encryptionAlgorithmOptions:
-      output.encryptionAlgorithmOptions !== undefined && output.encryptionAlgorithmOptions !== null
-        ? deserializeAws_restJson1EncryptionAlgorithmOptions(output.encryptionAlgorithmOptions, context)
-        : undefined,
-    hashAlgorithmOptions:
-      output.hashAlgorithmOptions !== undefined && output.hashAlgorithmOptions !== null
-        ? deserializeAws_restJson1HashAlgorithmOptions(output.hashAlgorithmOptions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SigningConfigurationOverrides = (
-  output: any,
-  context: __SerdeContext
-): SigningConfigurationOverrides => {
-  return {
-    encryptionAlgorithm: __expectString(output.encryptionAlgorithm),
-    hashAlgorithm: __expectString(output.hashAlgorithm),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningImageFormat = (output: any, context: __SerdeContext): SigningImageFormat => {
-  return {
-    defaultFormat: __expectString(output.defaultFormat),
-    supportedFormats:
-      output.supportedFormats !== undefined && output.supportedFormats !== null
-        ? deserializeAws_restJson1ImageFormats(output.supportedFormats, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext): SigningJob => {
-  return {
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
-        : undefined,
-    isRevoked: __expectBoolean(output.isRevoked),
-    jobId: __expectString(output.jobId),
-    jobInvoker: __expectString(output.jobInvoker),
-    jobOwner: __expectString(output.jobOwner),
-    platformDisplayName: __expectString(output.platformDisplayName),
-    platformId: __expectString(output.platformId),
-    profileName: __expectString(output.profileName),
-    profileVersion: __expectString(output.profileVersion),
-    signatureExpiresAt:
-      output.signatureExpiresAt !== undefined && output.signatureExpiresAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.signatureExpiresAt)))
-        : undefined,
-    signedObject:
-      output.signedObject !== undefined && output.signedObject !== null
-        ? deserializeAws_restJson1SignedObject(output.signedObject, context)
-        : undefined,
-    signingMaterial:
-      output.signingMaterial !== undefined && output.signingMaterial !== null
-        ? deserializeAws_restJson1SigningMaterial(output.signingMaterial, context)
-        : undefined,
-    source:
-      output.source !== undefined && output.source !== null
-        ? deserializeAws_restJson1Source(output.source, context)
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningJobRevocationRecord = (
-  output: any,
-  context: __SerdeContext
-): SigningJobRevocationRecord => {
-  return {
-    reason: __expectString(output.reason),
-    revokedAt:
-      output.revokedAt !== undefined && output.revokedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
-        : undefined,
-    revokedBy: __expectString(output.revokedBy),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningJobs = (output: any, context: __SerdeContext): SigningJob[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SigningJob(entry, context);
-    });
-};
-
-const deserializeAws_restJson1SigningMaterial = (output: any, context: __SerdeContext): SigningMaterial => {
-  return {
-    certificateArn: __expectString(output.certificateArn),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeContext): SigningPlatform => {
-  return {
-    category: __expectString(output.category),
-    displayName: __expectString(output.displayName),
-    maxSizeInMB: __expectInt32(output.maxSizeInMB),
-    partner: __expectString(output.partner),
-    platformId: __expectString(output.platformId),
-    revocationSupported: __expectBoolean(output.revocationSupported),
-    signingConfiguration:
-      output.signingConfiguration !== undefined && output.signingConfiguration !== null
-        ? deserializeAws_restJson1SigningConfiguration(output.signingConfiguration, context)
-        : undefined,
-    signingImageFormat:
-      output.signingImageFormat !== undefined && output.signingImageFormat !== null
-        ? deserializeAws_restJson1SigningImageFormat(output.signingImageFormat, context)
-        : undefined,
-    target: __expectString(output.target),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningPlatformOverrides = (
-  output: any,
-  context: __SerdeContext
-): SigningPlatformOverrides => {
-  return {
-    signingConfiguration:
-      output.signingConfiguration !== undefined && output.signingConfiguration !== null
-        ? deserializeAws_restJson1SigningConfigurationOverrides(output.signingConfiguration, context)
-        : undefined,
-    signingImageFormat: __expectString(output.signingImageFormat),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningPlatforms = (output: any, context: __SerdeContext): SigningPlatform[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SigningPlatform(entry, context);
-    });
-};
-
-const deserializeAws_restJson1SigningProfile = (output: any, context: __SerdeContext): SigningProfile => {
-  return {
-    arn: __expectString(output.arn),
-    platformDisplayName: __expectString(output.platformDisplayName),
-    platformId: __expectString(output.platformId),
-    profileName: __expectString(output.profileName),
-    profileVersion: __expectString(output.profileVersion),
-    profileVersionArn: __expectString(output.profileVersionArn),
-    signatureValidityPeriod:
-      output.signatureValidityPeriod !== undefined && output.signatureValidityPeriod !== null
-        ? deserializeAws_restJson1SignatureValidityPeriod(output.signatureValidityPeriod, context)
-        : undefined,
-    signingMaterial:
-      output.signingMaterial !== undefined && output.signingMaterial !== null
-        ? deserializeAws_restJson1SigningMaterial(output.signingMaterial, context)
-        : undefined,
-    signingParameters:
-      output.signingParameters !== undefined && output.signingParameters !== null
-        ? deserializeAws_restJson1SigningParameters(output.signingParameters, context)
-        : undefined,
-    status: __expectString(output.status),
-    tags:
-      output.tags !== undefined && output.tags !== null
-        ? deserializeAws_restJson1TagMap(output.tags, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1SigningProfileRevocationRecord = (
-  output: any,
-  context: __SerdeContext
-): SigningProfileRevocationRecord => {
-  return {
-    revocationEffectiveFrom:
-      output.revocationEffectiveFrom !== undefined && output.revocationEffectiveFrom !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revocationEffectiveFrom)))
-        : undefined,
-    revokedAt:
-      output.revokedAt !== undefined && output.revokedAt !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.revokedAt)))
-        : undefined,
-    revokedBy: __expectString(output.revokedBy),
-  } as any;
-};
-
-const deserializeAws_restJson1SigningProfiles = (output: any, context: __SerdeContext): SigningProfile[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1SigningProfile(entry, context);
-    });
-};
-
-const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
-  return {
-    s3:
-      output.s3 !== undefined && output.s3 !== null ? deserializeAws_restJson1S3Source(output.s3, context) : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
+// de_TagMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -2944,14 +2163,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -2973,6 +2204,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

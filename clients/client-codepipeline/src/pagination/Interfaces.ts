@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { CodePipeline } from "../CodePipeline";
 import { CodePipelineClient } from "../CodePipelineClient";
 
+/**
+ * @public
+ */
 export interface CodePipelinePaginationConfiguration extends PaginationConfiguration {
-  client: CodePipeline | CodePipelineClient;
+  client: CodePipelineClient;
 }

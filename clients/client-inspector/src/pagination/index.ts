@@ -1,4 +1,5 @@
 export * from "./GetExclusionsPreviewPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAssessmentRunAgentsPaginator";
 export * from "./ListAssessmentRunsPaginator";

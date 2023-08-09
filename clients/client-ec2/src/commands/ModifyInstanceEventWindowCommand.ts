@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_5";
-import {
-  deserializeAws_ec2ModifyInstanceEventWindowCommand,
-  serializeAws_ec2ModifyInstanceEventWindowCommand,
-} from "../protocols/Aws_ec2";
+import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_6";
+import { de_ModifyInstanceEventWindowCommand, se_ModifyInstanceEventWindowCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceEventWindowCommand}.
+ */
 export interface ModifyInstanceEventWindowCommandInput extends ModifyInstanceEventWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceEventWindowCommand}.
+ */
 export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEventWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Modifies the specified event window.</p>
  *          <p>You can define either a set of time ranges or a cron expression when modifying the event
  *          window, but not both.</p>
@@ -36,13 +50,69 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * import { EC2Client, ModifyInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyInstanceEventWindowRequest
+ *   DryRun: true || false,
+ *   Name: "STRING_VALUE",
+ *   InstanceEventWindowId: "STRING_VALUE", // required
+ *   TimeRanges: [ // InstanceEventWindowTimeRangeRequestSet
+ *     { // InstanceEventWindowTimeRangeRequest
+ *       StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ *       StartHour: Number("int"),
+ *       EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ *       EndHour: Number("int"),
+ *     },
+ *   ],
+ *   CronExpression: "STRING_VALUE",
+ * };
  * const command = new ModifyInstanceEventWindowCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyInstanceEventWindowResult
+ * //   InstanceEventWindow: { // InstanceEventWindow
+ * //     InstanceEventWindowId: "STRING_VALUE",
+ * //     TimeRanges: [ // InstanceEventWindowTimeRangeList
+ * //       { // InstanceEventWindowTimeRange
+ * //         StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         StartHour: Number("int"),
+ * //         EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ * //         EndHour: Number("int"),
+ * //       },
+ * //     ],
+ * //     Name: "STRING_VALUE",
+ * //     CronExpression: "STRING_VALUE",
+ * //     AssociationTarget: { // InstanceEventWindowAssociationTarget
+ * //       InstanceIds: [ // InstanceIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Tags: [ // TagList
+ * //         { // Tag
+ * //           Key: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       DedicatedHostIds: [ // DedicatedHostIdList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //     State: "creating" || "deleting" || "active" || "deleted",
+ * //     Tags: [
+ * //       {
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ModifyInstanceEventWindowCommandInput - {@link ModifyInstanceEventWindowCommandInput}
+ * @returns {@link ModifyInstanceEventWindowCommandOutput}
  * @see {@link ModifyInstanceEventWindowCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyInstanceEventWindowCommand extends $Command<
@@ -53,6 +123,18 @@ export class ModifyInstanceEventWindowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceEventWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +150,9 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstanceEventWindowCommandInput, ModifyInstanceEventWindowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyInstanceEventWindowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +163,8 @@ export class ModifyInstanceEventWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceEventWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceEventWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,15 +174,21 @@ export class ModifyInstanceEventWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceEventWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyInstanceEventWindowCommand(input, context);
+    return se_ModifyInstanceEventWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyInstanceEventWindowCommandOutput> {
-    return deserializeAws_ec2ModifyInstanceEventWindowCommand(output, context);
+    return de_ModifyInstanceEventWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

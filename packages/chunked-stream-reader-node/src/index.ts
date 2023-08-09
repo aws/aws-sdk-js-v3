@@ -1,4 +1,7 @@
 import { Readable } from "stream";
+/**
+ * @internal
+ */
 export function streamReader(
   stream: Readable,
   onChunk: (chunk: Uint8Array) => void,

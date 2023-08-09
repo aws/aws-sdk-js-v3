@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { ListUserProfilesRequest, ListUserProfilesResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1ListUserProfilesCommand,
-  serializeAws_json1_1ListUserProfilesCommand,
-} from "../protocols/Aws_json1_1";
+  ListUserProfilesRequest,
+  ListUserProfilesResult,
+  ListUserProfilesResultFilterSensitiveLog,
+} from "../models/models_0";
+import { de_ListUserProfilesCommand, se_ListUserProfilesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListUserProfilesCommand}.
+ */
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +47,40 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * import { CodeStarClient, ListUserProfilesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListUserProfilesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = { // ListUserProfilesRequest
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUserProfilesCommand(input);
  * const response = await client.send(command);
+ * // { // ListUserProfilesResult
+ * //   userProfiles: [ // UserProfilesList // required
+ * //     { // UserProfileSummary
+ * //       userArn: "STRING_VALUE",
+ * //       displayName: "STRING_VALUE",
+ * //       emailAddress: "STRING_VALUE",
+ * //       sshPublicKey: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListUserProfilesCommandInput - {@link ListUserProfilesCommandInput}
+ * @returns {@link ListUserProfilesCommandOutput}
  * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ * @throws {@link CodeStarServiceException}
+ * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
  */
 export class ListUserProfilesCommand extends $Command<
@@ -46,6 +91,18 @@ export class ListUserProfilesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListUserProfilesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +118,9 @@ export class ListUserProfilesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListUserProfilesCommandInput, ListUserProfilesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListUserProfilesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +131,8 @@ export class ListUserProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListUserProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ListUserProfilesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +142,18 @@ export class ListUserProfilesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListUserProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUserProfilesCommand(input, context);
+    return se_ListUserProfilesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserProfilesCommandOutput> {
-    return deserializeAws_json1_1ListUserProfilesCommand(output, context);
+    return de_ListUserProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

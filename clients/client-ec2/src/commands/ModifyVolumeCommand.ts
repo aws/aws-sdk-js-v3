@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,16 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_5";
-import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
+import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_6";
+import { de_ModifyVolumeCommand, se_ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ModifyVolumeCommand}.
+ */
 export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyVolumeCommand}.
+ */
 export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
  *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
  *       type, you might be able to apply these changes without stopping the instance or detaching the
@@ -33,21 +50,57 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p>
  *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
  *       reattaching the volume or stopping and restarting the instance.</p>
- *          <p>If you reach the maximum volume modification rate per volume limit, you must wait
- *       at least six hours before applying further modifications to the affected EBS volume.</p>
+ *          <p>After modifying a volume, you must wait at least six hours and ensure that the volume
+ *       is in the <code>in-use</code> or <code>available</code> state before you can modify the same
+ *       volume. This is sometimes referred to as a cooldown period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = { // ModifyVolumeRequest
+ *   DryRun: true || false,
+ *   VolumeId: "STRING_VALUE", // required
+ *   Size: Number("int"),
+ *   VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *   Iops: Number("int"),
+ *   Throughput: Number("int"),
+ *   MultiAttachEnabled: true || false,
+ * };
  * const command = new ModifyVolumeCommand(input);
  * const response = await client.send(command);
+ * // { // ModifyVolumeResult
+ * //   VolumeModification: { // VolumeModification
+ * //     VolumeId: "STRING_VALUE",
+ * //     ModificationState: "modifying" || "optimizing" || "completed" || "failed",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     TargetSize: Number("int"),
+ * //     TargetIops: Number("int"),
+ * //     TargetVolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //     TargetThroughput: Number("int"),
+ * //     TargetMultiAttachEnabled: true || false,
+ * //     OriginalSize: Number("int"),
+ * //     OriginalIops: Number("int"),
+ * //     OriginalVolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ * //     OriginalThroughput: Number("int"),
+ * //     OriginalMultiAttachEnabled: true || false,
+ * //     Progress: Number("long"),
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ModifyVolumeCommandInput - {@link ModifyVolumeCommandInput}
+ * @returns {@link ModifyVolumeCommandOutput}
  * @see {@link ModifyVolumeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ * @throws {@link EC2ServiceException}
+ * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
 export class ModifyVolumeCommand extends $Command<
@@ -58,6 +111,18 @@ export class ModifyVolumeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,6 +138,7 @@ export class ModifyVolumeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyVolumeCommandInput, ModifyVolumeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ModifyVolumeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -83,8 +149,8 @@ export class ModifyVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVolumeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVolumeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,12 +160,18 @@ export class ModifyVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_ec2ModifyVolumeCommand(input, context);
+    return se_ModifyVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVolumeCommandOutput> {
-    return deserializeAws_ec2ModifyVolumeCommand(output, context);
+    return de_ModifyVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -7,7 +7,7 @@
 ## Options
 
 ```
-Runs downlevel-dts npm script (if present) in each workspace of monorepo, and
+Runs build:types:downlevel npm script (if present) in each workspace of monorepo, and
 strips comments from *.d.ts files.
 
 Usage: index.mjs
@@ -19,6 +19,6 @@ Options:
 
 ## Examples
 
-- Run downlevel-dts for workspaces in monorepo:
+- Run build:types:downlevel for workspaces in monorepo:
 
-  `yarn downlevel-dts`
+  `yarn build:types:downlevel`

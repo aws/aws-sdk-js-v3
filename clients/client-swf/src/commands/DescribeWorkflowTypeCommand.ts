@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeWorkflowTypeInput, WorkflowTypeDetail } from "../models/models_0";
-import {
-  deserializeAws_json1_0DescribeWorkflowTypeCommand,
-  serializeAws_json1_0DescribeWorkflowTypeCommand,
-} from "../protocols/Aws_json1_0";
+import { de_DescribeWorkflowTypeCommand, se_DescribeWorkflowTypeCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkflowTypeCommand}.
+ */
 export interface DescribeWorkflowTypeCommandInput extends DescribeWorkflowTypeInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkflowTypeCommand}.
+ */
 export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about the specified <i>workflow type</i>. This
  *       includes configuration settings specified when the type was registered and other information
  *       such as creation date, current status, etc.</p>
@@ -67,13 +81,54 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * import { SWFClient, DescribeWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = { // DescribeWorkflowTypeInput
+ *   domain: "STRING_VALUE", // required
+ *   workflowType: { // WorkflowType
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeWorkflowTypeCommand(input);
  * const response = await client.send(command);
+ * // { // WorkflowTypeDetail
+ * //   typeInfo: { // WorkflowTypeInfo
+ * //     workflowType: { // WorkflowType
+ * //       name: "STRING_VALUE", // required
+ * //       version: "STRING_VALUE", // required
+ * //     },
+ * //     status: "REGISTERED" || "DEPRECATED", // required
+ * //     description: "STRING_VALUE",
+ * //     creationDate: new Date("TIMESTAMP"), // required
+ * //     deprecationDate: new Date("TIMESTAMP"),
+ * //   },
+ * //   configuration: { // WorkflowTypeConfiguration
+ * //     defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ * //     defaultExecutionStartToCloseTimeout: "STRING_VALUE",
+ * //     defaultTaskList: { // TaskList
+ * //       name: "STRING_VALUE", // required
+ * //     },
+ * //     defaultTaskPriority: "STRING_VALUE",
+ * //     defaultChildPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ * //     defaultLambdaRole: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeWorkflowTypeCommandInput - {@link DescribeWorkflowTypeCommandInput}
+ * @returns {@link DescribeWorkflowTypeCommandOutput}
  * @see {@link DescribeWorkflowTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowTypeCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link SWFServiceException}
+ * <p>Base exception class for all service exceptions from SWF service.</p>
  *
  */
 export class DescribeWorkflowTypeCommand extends $Command<
@@ -84,6 +139,18 @@ export class DescribeWorkflowTypeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkflowTypeCommandInput) {
     // Start section: command_constructor
     super();
@@ -99,6 +166,9 @@ export class DescribeWorkflowTypeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeWorkflowTypeCommandInput, DescribeWorkflowTypeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeWorkflowTypeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -109,8 +179,8 @@ export class DescribeWorkflowTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkflowTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowTypeDetail.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -120,12 +190,18 @@ export class DescribeWorkflowTypeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeWorkflowTypeCommand(input, context);
+    return se_DescribeWorkflowTypeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0DescribeWorkflowTypeCommand(output, context);
+    return de_DescribeWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

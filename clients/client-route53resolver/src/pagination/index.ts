@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListFirewallConfigsPaginator";
 export * from "./ListFirewallDomainListsPaginator";
@@ -5,6 +6,7 @@ export * from "./ListFirewallDomainsPaginator";
 export * from "./ListFirewallRuleGroupAssociationsPaginator";
 export * from "./ListFirewallRuleGroupsPaginator";
 export * from "./ListFirewallRulesPaginator";
+export * from "./ListOutpostResolversPaginator";
 export * from "./ListResolverConfigsPaginator";
 export * from "./ListResolverDnssecConfigsPaginator";
 export * from "./ListResolverEndpointIpAddressesPaginator";

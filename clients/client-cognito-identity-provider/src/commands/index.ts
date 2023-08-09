@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddCustomAttributesCommand";
 export * from "./AdminAddUserToGroupCommand";
 export * from "./AdminConfirmSignUpCommand";
@@ -58,6 +59,7 @@ export * from "./GetCSVHeaderCommand";
 export * from "./GetDeviceCommand";
 export * from "./GetGroupCommand";
 export * from "./GetIdentityProviderByIdentifierCommand";
+export * from "./GetLogDeliveryConfigurationCommand";
 export * from "./GetSigningCertificateCommand";
 export * from "./GetUICustomizationCommand";
 export * from "./GetUserAttributeVerificationCodeCommand";
@@ -78,6 +80,7 @@ export * from "./ListUsersInGroupCommand";
 export * from "./ResendConfirmationCodeCommand";
 export * from "./RespondToAuthChallengeCommand";
 export * from "./RevokeTokenCommand";
+export * from "./SetLogDeliveryConfigurationCommand";
 export * from "./SetRiskConfigurationCommand";
 export * from "./SetUICustomizationCommand";
 export * from "./SetUserMFAPreferenceCommand";

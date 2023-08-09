@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ModifyInstanceGroupsInput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ModifyInstanceGroupsCommand,
-  serializeAws_json1_1ModifyInstanceGroupsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ModifyInstanceGroupsCommand, se_ModifyInstanceGroupsCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ModifyInstanceGroupsCommand}.
+ */
 export interface ModifyInstanceGroupsCommandInput extends ModifyInstanceGroupsInput {}
+/**
+ * @public
+ *
+ * The output of {@link ModifyInstanceGroupsCommand}.
+ */
 export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
  *          instance group. The input parameters include the new target instance count for the group
  *          and the instance group ID. The call will either succeed or fail atomically.</p>
@@ -31,13 +45,66 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = { // ModifyInstanceGroupsInput
+ *   ClusterId: "STRING_VALUE",
+ *   InstanceGroups: [ // InstanceGroupModifyConfigList
+ *     { // InstanceGroupModifyConfig
+ *       InstanceGroupId: "STRING_VALUE", // required
+ *       InstanceCount: Number("int"),
+ *       EC2InstanceIdsToTerminate: [ // EC2InstanceIdsToTerminateList
+ *         "STRING_VALUE",
+ *       ],
+ *       ShrinkPolicy: { // ShrinkPolicy
+ *         DecommissionTimeout: Number("int"),
+ *         InstanceResizePolicy: { // InstanceResizePolicy
+ *           InstancesToTerminate: [ // EC2InstanceIdsList
+ *             "STRING_VALUE",
+ *           ],
+ *           InstancesToProtect: [
+ *             "STRING_VALUE",
+ *           ],
+ *           InstanceTerminationTimeout: Number("int"),
+ *         },
+ *       },
+ *       ReconfigurationType: "OVERWRITE" || "MERGE",
+ *       Configurations: [ // ConfigurationList
+ *         { // Configuration
+ *           Classification: "STRING_VALUE",
+ *           Configurations: [
+ *             {
+ *               Classification: "STRING_VALUE",
+ *               Configurations: "<ConfigurationList>",
+ *               Properties: { // StringMap
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           Properties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ModifyInstanceGroupsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param ModifyInstanceGroupsCommandInput - {@link ModifyInstanceGroupsCommandInput}
+ * @returns {@link ModifyInstanceGroupsCommandOutput}
  * @see {@link ModifyInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ModifyInstanceGroupsCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ * @throws {@link EMRServiceException}
+ * <p>Base exception class for all service exceptions from EMR service.</p>
  *
  */
 export class ModifyInstanceGroupsCommand extends $Command<
@@ -48,6 +115,18 @@ export class ModifyInstanceGroupsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ModifyInstanceGroupsCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +142,9 @@ export class ModifyInstanceGroupsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstanceGroupsCommandInput, ModifyInstanceGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ModifyInstanceGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +155,8 @@ export class ModifyInstanceGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceGroupsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +166,18 @@ export class ModifyInstanceGroupsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ModifyInstanceGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyInstanceGroupsCommand(input, context);
+    return se_ModifyInstanceGroupsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyInstanceGroupsCommandOutput> {
-    return deserializeAws_json1_1ModifyInstanceGroupsCommand(output, context);
+    return de_ModifyInstanceGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

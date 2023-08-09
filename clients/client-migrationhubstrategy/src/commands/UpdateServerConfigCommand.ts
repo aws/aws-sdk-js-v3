@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   MigrationHubStrategyClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
 import { UpdateServerConfigRequest, UpdateServerConfigResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateServerConfigCommand,
-  serializeAws_restJson1UpdateServerConfigCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateServerConfigCommand, se_UpdateServerConfigCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateServerConfigCommand}.
+ */
 export interface UpdateServerConfigCommandInput extends UpdateServerConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateServerConfigCommand}.
+ */
 export interface UpdateServerConfigCommandOutput extends UpdateServerConfigResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p> Updates the configuration of the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,41 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * import { MigrationHubStrategyClient, UpdateServerConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateServerConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = { // UpdateServerConfigRequest
+ *   serverId: "STRING_VALUE", // required
+ *   strategyOption: { // StrategyOption
+ *     strategy: "STRING_VALUE",
+ *     toolName: "STRING_VALUE",
+ *     targetDestination: "STRING_VALUE",
+ *     isPreferred: true || false,
+ *   },
+ * };
  * const command = new UpdateServerConfigCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UpdateServerConfigCommandInput - {@link UpdateServerConfigCommandInput}
+ * @returns {@link UpdateServerConfigCommandOutput}
  * @see {@link UpdateServerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateServerConfigCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
+ * @throws {@link MigrationHubStrategyServiceException}
+ * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
  */
 export class UpdateServerConfigCommand extends $Command<
@@ -50,6 +92,18 @@ export class UpdateServerConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateServerConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +119,9 @@ export class UpdateServerConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateServerConfigCommandInput, UpdateServerConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateServerConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +132,8 @@ export class UpdateServerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServerConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +143,18 @@ export class UpdateServerConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateServerConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateServerConfigCommand(input, context);
+    return se_UpdateServerConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerConfigCommandOutput> {
-    return deserializeAws_restJson1UpdateServerConfigCommand(output, context);
+    return de_UpdateServerConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,10 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
+  BlobPayloadInputTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,25 +12,44 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
 import { PublishRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1PublishCommand,
-  serializeAws_restJson1PublishCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PublishCommand, se_PublishCommand } from "../protocols/Aws_restJson1";
 
-export interface PublishCommandInput extends PublishRequest {}
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ */
+export type PublishCommandInputType = Omit<PublishRequest, "payload"> & {
+  payload?: BlobPayloadInputTypes;
+};
+
+/**
+ * @public
+ *
+ * The input for {@link PublishCommand}.
+ */
+export interface PublishCommandInput extends PublishCommandInputType {}
+/**
+ * @public
+ *
+ * The output of {@link PublishCommand}.
+ */
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Publishes an MQTT message.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p>
  *          <p>For more information about MQTT messages, see
  *       <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the
  *        IoT Developer Guide.</p>
- *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core
+ *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core
  *       pricing - Messaging</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -35,13 +57,47 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * import { IoTDataPlaneClient, PublishCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, PublishCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = { // PublishRequest
+ *   topic: "STRING_VALUE", // required
+ *   qos: Number("int"),
+ *   retain: true || false,
+ *   payload: "BLOB_VALUE",
+ *   userProperties: "STRING_VALUE",
+ *   payloadFormatIndicator: "UNSPECIFIED_BYTES" || "UTF8_DATA",
+ *   contentType: "STRING_VALUE",
+ *   responseTopic: "STRING_VALUE",
+ *   correlationData: "STRING_VALUE",
+ *   messageExpiry: Number("long"),
+ * };
  * const command = new PublishCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param PublishCommandInput - {@link PublishCommandInput}
+ * @returns {@link PublishCommandOutput}
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link MethodNotAllowedException} (client fault)
+ *  <p>The specified combination of HTTP verb and URI is not supported.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You are not authorized to perform this operation.</p>
+ *
+ * @throws {@link IoTDataPlaneServiceException}
+ * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
  */
 export class PublishCommand extends $Command<
@@ -52,6 +108,18 @@ export class PublishCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PublishCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +135,7 @@ export class PublishCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PublishCommandInput, PublishCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, PublishCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +146,8 @@ export class PublishCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +157,18 @@ export class PublishCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PublishCommand(input, context);
+    return se_PublishCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput> {
-    return deserializeAws_restJson1PublishCommand(output, context);
+    return de_PublishCommand(output, context);
   }
 
   // Start section: command_body_extra

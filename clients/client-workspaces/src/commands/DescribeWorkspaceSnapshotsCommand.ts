@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeWorkspaceSnapshotsRequest, DescribeWorkspaceSnapshotsResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand,
-  serializeAws_json1_1DescribeWorkspaceSnapshotsCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeWorkspaceSnapshotsCommand, se_DescribeWorkspaceSnapshotsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeWorkspaceSnapshotsCommand}.
+ */
 export interface DescribeWorkspaceSnapshotsCommandInput extends DescribeWorkspaceSnapshotsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeWorkspaceSnapshotsCommand}.
+ */
 export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspaceSnapshotsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the snapshots for the specified WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,43 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * import { WorkSpacesClient, DescribeWorkspaceSnapshotsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceSnapshotsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = { // DescribeWorkspaceSnapshotsRequest
+ *   WorkspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkspaceSnapshotsCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeWorkspaceSnapshotsResult
+ * //   RebuildSnapshots: [ // SnapshotList
+ * //     { // Snapshot
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   RestoreSnapshots: [
+ * //     {
+ * //       SnapshotTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeWorkspaceSnapshotsCommandInput - {@link DescribeWorkspaceSnapshotsCommandInput}
+ * @returns {@link DescribeWorkspaceSnapshotsCommandOutput}
  * @see {@link DescribeWorkspaceSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link WorkSpacesServiceException}
+ * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
  */
 export class DescribeWorkspaceSnapshotsCommand extends $Command<
@@ -46,6 +90,18 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeWorkspaceSnapshotsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +117,9 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeWorkspaceSnapshotsCommandInput, DescribeWorkspaceSnapshotsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeWorkspaceSnapshotsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +130,8 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceSnapshotsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceSnapshotsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +141,21 @@ export class DescribeWorkspaceSnapshotsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeWorkspaceSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(input, context);
+    return se_DescribeWorkspaceSnapshotsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeWorkspaceSnapshotsCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(output, context);
+    return de_DescribeWorkspaceSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

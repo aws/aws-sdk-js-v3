@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAlarmModelCommand";
 export * from "./CreateDetectorModelCommand";
 export * from "./CreateInputCommand";

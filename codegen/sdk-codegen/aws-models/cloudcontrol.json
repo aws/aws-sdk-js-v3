@@ -1,33 +1,5 @@
 {
-  "smithy": "1.0",
-  "metadata": {
-    "suppressions": [
-      {
-        "id": "HttpMethodSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpResponseCodeSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "PaginatedTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpHeaderTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpUriConflict",
-        "namespace": "*"
-      },
-      {
-        "id": "Service",
-        "namespace": "*"
-      }
-    ]
-  },
+  "smithy": "2.0",
   "shapes": {
     "com.amazonaws.cloudcontrol#AlreadyExistsException": {
       "type": "structure",
@@ -63,7 +35,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Cancels the specified resource operation request. For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel\">Canceling resource operation requests</a> in the\n        <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <p>Only resource operations requests with a status of <code>PENDING</code> or\n        <code>IN_PROGRESS</code> can be cancelled.</p>",
+        "smithy.api#documentation": "<p>Cancels the specified resource operation request. For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel\">Canceling resource operation requests</a> in the\n        <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <p>Only resource operations requests with a status of <code>PENDING</code> or\n        <code>IN_PROGRESS</code> can be canceled.</p>",
         "smithy.api#idempotent": {}
       }
     },
@@ -109,7 +81,7 @@
           "code": "ClientTokenConflictException",
           "httpResponseCode": 409
         },
-        "smithy.api#documentation": "<p>The specified client token has already been used in another resource request.</p>\n         <p>It is best practice for client tokens to be unique for each resource operation request.\n      However, client token expire after 36 hours.</p>",
+        "smithy.api#documentation": "<p>The specified client token has already been used in another resource request.</p>\n         <p>It's best practice for client tokens to be unique for each resource operation request.\n      However, client token expire after 36 hours.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -146,17 +118,1043 @@
       "traits": {
         "aws.api#service": {
           "sdkId": "CloudControl",
-          "arnNamespace": "cloudcontrolapi",
-          "cloudFormationName": "CloudControl",
-          "cloudTrailEventSource": "cloudcontrol.amazonaws.com",
+          "cloudTrailEventSource": "cloudcontrolapi.amazonaws.com",
           "endpointPrefix": "cloudcontrolapi"
         },
         "aws.auth#sigv4": {
           "name": "cloudcontrolapi"
         },
         "aws.protocols#awsJson1_0": {},
-        "smithy.api#documentation": "<p>Use Amazon Web Services Cloud Control API to create, read, update, delete, and list (CRUD-L) your cloud resources that\n      belong to a wide range of services--both Amazon Web Services and third-party.  With the Cloud Control API\n      standardized set of application programming interfaces (APIs), you can perform CRUD-L operations\n      on any supported resources in your Amazon Web Services account. Using Cloud Control API, you won't have to generate code\n      or scripts specific to each individual service responsible for those resources.</p>\n         <p>For more information about Amazon Web Services Cloud Control API, see the <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html\">Amazon Web Services Cloud Control API User\n        Guide</a>.</p>",
-        "smithy.api#title": "AWS Cloud Control API"
+        "smithy.api#documentation": "<p>For more information about Amazon Web Services Cloud Control API, see the <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html\">Amazon Web Services Cloud Control API User\n        Guide</a>.</p>",
+        "smithy.api#title": "AWS Cloud Control API",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://cloudcontrolapi-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://cloudcontrolapi-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://cloudcontrolapi.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://cloudcontrolapi.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://cloudcontrolapi.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
+            }
+          ],
+          "version": "1.0"
+        }
       }
     },
     "com.amazonaws.cloudcontrol#ConcurrentModificationException": {
@@ -277,26 +1275,26 @@
         "TypeVersionId": {
           "target": "com.amazonaws.cloudcontrol#TypeVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>"
+            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource\n                                     operation. If you do not specify a resource version, CloudFormation\n                                     uses the default version.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cloudcontrol#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management\n                                    (IAM) role for Cloud Control API to use when performing this resource\n                                    operation. The role specified must have the permissions required for this\n                                    operation. The necessary permissions for each event handler are defined in the\n                                    <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code>\n                                    section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type\n                                    definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using\n                                    your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying\n                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
           }
         },
         "ClientToken": {
           "target": "com.amazonaws.cloudcontrol#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p>\n         <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p>\n         <p>If you do not specify a client token, one is generated for inclusion in the request.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>A unique identifier to ensure the idempotency of the resource request. As a\n                                     best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can\n                                     accurately distinguish between request retries and new resource requests. You\n                                     might retry a resource request to ensure that it was successfully received.</p>\n         <p>A client token is valid for 36 hours once used. After that, a resource\n                                     request with the same client token is treated as a new request.</p>\n         <p>If you\n                                     do not specify a client token, one is generated for inclusion in the request.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring\n                                     resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User\n                                     Guide</i>.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
         "DesiredState": {
           "target": "com.amazonaws.cloudcontrol#Properties",
           "traits": {
-            "smithy.api#documentation": "<p>Structured data format representing the desired state of the resource, consisting of that\n      resource's properties and their desired values. </p>\n         <note>\n            <p>Cloud Control API currently supports JSON as a structured data format.</p>\n         </note>\n    \n         <p>Specify the desired state as one of the following:</p>\n         <ul>\n            <li>\n               <p>A JSON blob</p>\n            </li>\n            <li>\n               <p>A local path containing the desired state in JSON data format</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate\">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User\n        Guide</i>.</p>\n         <p>For more information about the properties of a specific resource, refer to the related\n      topic for the resource in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Resource and property types reference</a> in the <i>Amazon Web Services\n        CloudFormation Users Guide</i>.</p>",
+            "smithy.api#documentation": "<p>Structured data format representing the desired state of the resource, consisting of that\n      resource's properties and their desired values.</p>\n         <note>\n            <p>Cloud Control API currently supports JSON as a structured data format.</p>\n         </note>\n         <p>Specify the desired state as one of the following:</p>\n         <ul>\n            <li>\n               <p>A JSON blob</p>\n            </li>\n            <li>\n               <p>A local path containing the desired state in JSON data format</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate\">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User\n        Guide</i>.</p>\n         <p>For more information about the properties of a specific resource, refer to the related\n      topic for the resource in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -397,26 +1395,26 @@
         "TypeVersionId": {
           "target": "com.amazonaws.cloudcontrol#TypeVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>"
+            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource\n                                     operation. If you do not specify a resource version, CloudFormation\n                                     uses the default version.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cloudcontrol#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management\n                                    (IAM) role for Cloud Control API to use when performing this resource\n                                    operation. The role specified must have the permissions required for this\n                                    operation. The necessary permissions for each event handler are defined in the\n                                    <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code>\n                                    section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type\n                                    definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using\n                                    your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying\n                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
           }
         },
         "ClientToken": {
           "target": "com.amazonaws.cloudcontrol#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p>\n         <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p>\n         <p>If you do not specify a client token, one is generated for inclusion in the request.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>A unique identifier to ensure the idempotency of the resource request. As a\n                                     best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can\n                                     accurately distinguish between request retries and new resource requests. You\n                                     might retry a resource request to ensure that it was successfully received.</p>\n         <p>A client token is valid for 36 hours once used. After that, a resource\n                                     request with the same client token is treated as a new request.</p>\n         <p>If you\n                                     do not specify a client token, one is generated for inclusion in the request.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring\n                                     resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User\n                                     Guide</i>.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
         "Identifier": {
           "target": "com.amazonaws.cloudcontrol#Identifier",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the resource.</p>\n         <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>\n         <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The identifier for the resource.</p>\n         <p>You can specify the primary identifier, or any secondary identifier\n                                            defined for the resource type in its resource schema. You can only specify\n                                            one identifier. Primary identifiers can be specified as a string or JSON;\n                                            secondary identifiers must be specified as JSON.</p>\n         <p>For compound primary identifiers (that is, one that consists of\n                                            multiple resource properties strung together), to specify the primary\n                                            identifier as a string, list the property values <i>in the order\n                                            they are specified</i> in the primary identifier definition,\n                                            separated by <code>|</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying\n                                            resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -439,7 +1437,8 @@
         "smithy.api#length": {
           "min": 1,
           "max": 1024
-        }
+        },
+        "smithy.api#pattern": "^.+$"
       }
     },
     "com.amazonaws.cloudcontrol#GeneralServiceException": {
@@ -454,7 +1453,7 @@
           "code": "GeneralServiceException",
           "httpResponseCode": 400
         },
-        "smithy.api#documentation": "<p>The resource handler has returned that the downstream service generated an error that does\n      not map to any other handler error code.</p>",
+        "smithy.api#documentation": "<p>The resource handler has returned that the downstream service generated an error that\n      doesn't map to any other handler error code.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -521,7 +1520,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about the current state of the specified resource. For details, see\n        <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html\">Reading a resource's current state</a>.</p>\n         <p>You can use this action to return information about an existing resource in your account\n      and Amazon Web Services Region, whether or not those resources were provisioned using Cloud Control API.</p>"
+        "smithy.api#documentation": "<p>Returns information about the current state of the specified resource. For details, see\n        <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html\">Reading a resource's current state</a>.</p>\n         <p>You can use this action to return information about an existing resource in your account\n      and Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>"
       }
     },
     "com.amazonaws.cloudcontrol#GetResourceInput": {
@@ -537,19 +1536,19 @@
         "TypeVersionId": {
           "target": "com.amazonaws.cloudcontrol#TypeVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>"
+            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource\n                                     operation. If you do not specify a resource version, CloudFormation\n                                     uses the default version.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cloudcontrol#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management\n                                    (IAM) role for Cloud Control API to use when performing this resource\n                                    operation. The role specified must have the permissions required for this\n                                    operation. The necessary permissions for each event handler are defined in the\n                                    <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code>\n                                    section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type\n                                    definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using\n                                    your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying\n                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
           }
         },
         "Identifier": {
           "target": "com.amazonaws.cloudcontrol#Identifier",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the resource.</p>\n         <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>\n         <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The identifier for the resource.</p>\n         <p>You can specify the primary identifier, or any secondary identifier\n                                            defined for the resource type in its resource schema. You can only specify\n                                            one identifier. Primary identifiers can be specified as a string or JSON;\n                                            secondary identifiers must be specified as JSON.</p>\n         <p>For compound primary identifiers (that is, one that consists of\n                                            multiple resource properties strung together), to specify the primary\n                                            identifier as a string, list the property values <i>in the order\n                                            they are specified</i> in the primary identifier definition,\n                                            separated by <code>|</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying\n                                            resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -811,11 +1810,12 @@
         "target": "com.amazonaws.cloudcontrol#ListResourceRequestsOutput"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns existing resource operation requests. This includes requests of all status types.\n      For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list\">Listing active resource operation requests</a> in the\n        <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <note>\n            <p>Resource operation requests expire after seven days.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns existing resource operation requests. This includes requests of all status types.\n      For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list\">Listing active resource operation requests</a> in the\n        <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <note>\n            <p>Resource operation requests expire after 7 days.</p>\n         </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
-          "pageSize": "MaxResults"
+          "pageSize": "MaxResults",
+          "items": "ResourceRequestStatusSummaries"
         }
       }
     },
@@ -831,7 +1831,7 @@
         "NextToken": {
           "target": "com.amazonaws.cloudcontrol#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>"
+            "smithy.api#documentation": "<p>If the previous paginated request didn't return all of the remaining results,\n                                   the response object's <code>NextToken</code> parameter value is set to a token.\n                                   To retrieve the next set of results, call this action again and assign that token to\n                                   the request object's <code>NextToken</code> parameter. If there are no remaining\n                                   results, the previous response object's <code>NextToken</code> parameter is set to\n                                   <code>null</code>.</p>"
           }
         },
         "ResourceRequestStatusFilter": {
@@ -854,9 +1854,12 @@
         "NextToken": {
           "target": "com.amazonaws.cloudcontrol#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call <code>ListResources</code> again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to null.</p>"
+            "smithy.api#documentation": "<p>If the request doesn't return all of the remaining results,\n                                    <code>NextToken</code> is set to a token. To retrieve the next set of results, call\n                                    <code>ListResources</code> again and assign that token to the request object's\n                                    <code>NextToken</code> parameter. If the request returns all results,\n                                    <code>NextToken</code> is set to null.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudcontrol#ListResources": {
@@ -921,11 +1924,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about the specified resources. For more information, see <a href=\"cloudcontrolapi/latest/userguide/resource-operations-list.html\">Discovering\n        resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <p>You can use this action to return information about existing resources in your account and\n      Amazon Web Services Region, whether or not those resources were provisioned using Cloud Control API.</p>",
+        "smithy.api#documentation": "<p>Returns information about the specified resources. For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html\">Discovering resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <p>You can use this action to return information about existing resources in your account and\n      Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
-          "pageSize": "MaxResults"
+          "pageSize": "MaxResults",
+          "items": "ResourceDescriptions"
         }
       }
     },
@@ -942,25 +1946,25 @@
         "TypeVersionId": {
           "target": "com.amazonaws.cloudcontrol#TypeVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>"
+            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource\n                                     operation. If you do not specify a resource version, CloudFormation\n                                     uses the default version.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cloudcontrol#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management\n                                    (IAM) role for Cloud Control API to use when performing this resource\n                                    operation. The role specified must have the permissions required for this\n                                    operation. The necessary permissions for each event handler are defined in the\n                                    <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code>\n                                    section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type\n                                    definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using\n                                    your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying\n                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cloudcontrol#HandlerNextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>"
+            "smithy.api#documentation": "<p>If the previous paginated request didn't return all of the remaining results,\n                                   the response object's <code>NextToken</code> parameter value is set to a token.\n                                   To retrieve the next set of results, call this action again and assign that token to\n                                   the request object's <code>NextToken</code> parameter. If there are no remaining\n                                   results, the previous response object's <code>NextToken</code> parameter is set to\n                                   <code>null</code>.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.cloudcontrol#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of results to be returned with a single call. If the number of\n      available results exceeds this maximum, the response includes a <code>NextToken</code> value\n      that you can assign to the <code>NextToken</code> request parameter to get the next set of\n      results.</p>\n         <p>The default is <code>20</code>.</p>"
+            "smithy.api#documentation": "<p>Reserved.</p>"
           }
         },
         "ResourceModel": {
@@ -989,15 +1993,17 @@
         "NextToken": {
           "target": "com.amazonaws.cloudcontrol#HandlerNextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call <code>ListResources</code> again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to null.</p>"
+            "smithy.api#documentation": "<p>If the request doesn't return all of the remaining results,\n                                    <code>NextToken</code> is set to a token. To retrieve the next set of results, call\n                                    <code>ListResources</code> again and assign that token to the request object's\n                                    <code>NextToken</code> parameter. If the request returns all results,\n                                    <code>NextToken</code> is set to null.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudcontrol#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -1016,7 +2022,7 @@
           "code": "NetworkFailureException",
           "httpResponseCode": 502
         },
-        "smithy.api#documentation": "<p>The resource handler has returned that the request could not be completed due to\n      networking issues, such as a failure to receive a response from the server.</p>",
+        "smithy.api#documentation": "<p>The resource handler has returned that the request couldn't be completed due to networking\n      issues, such as a failure to receive a response from the server.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 502
       }
@@ -1060,7 +2066,7 @@
           "code": "NotUpdatableException",
           "httpResponseCode": 400
         },
-        "smithy.api#documentation": "<p>One or more properties included in this resource operation are defined as create-only, and\n      therefore cannot be updated.</p>",
+        "smithy.api#documentation": "<p>One or more properties included in this resource operation are defined as create-only, and\n      therefore can't be updated.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1134,7 +2140,7 @@
           "min": 1,
           "max": 65536
         },
-        "smithy.api#pattern": "^(.|\\s)*$",
+        "smithy.api#pattern": "^[\\s\\S]*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -1150,7 +2156,7 @@
           "code": "PrivateTypeException",
           "httpResponseCode": 400
         },
-        "smithy.api#documentation": "<p>Cloud Control API has not received a valid response from the resource handler, due to a\n      configuration error. This includes issues such as the resource handler returning an invalid\n      response, or timing out.</p>",
+        "smithy.api#documentation": "<p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration\n      error. This includes issues such as the resource handler returning an invalid response, or\n      timing out.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1185,7 +2191,7 @@
         "OperationStatus": {
           "target": "com.amazonaws.cloudcontrol#OperationStatus",
           "traits": {
-            "smithy.api#documentation": "<p>The current status of the resource operation request.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PENDING</code>: The resource operation has not yet started.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>: The resource operation is currently in progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SUCCESS</code>: The resource operation has successfully completed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>: The resource operation has failed. Refer to the error code and\n          status message for more information.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_IN_PROGRESS</code>: The resource operation is in the process of being\n          canceled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_COMPLETE</code>: The resource operation has been canceled.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The current status of the resource operation request.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PENDING</code>: The resource operation hasn't yet started.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>: The resource operation is currently in progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SUCCESS</code>: The resource operation has successfully completed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>: The resource operation has failed. Refer to the error code and\n          status message for more information.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_IN_PROGRESS</code>: The resource operation is in the process of being\n          canceled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_COMPLETE</code>: The resource operation has been canceled.</p>\n            </li>\n         </ul>"
           }
         },
         "EventTime": {
@@ -1228,9 +2234,9 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 16384
+          "max": 65536
         },
-        "smithy.api#pattern": "^(.|\\s)*$",
+        "smithy.api#pattern": "^[\\s\\S]*$",
         "smithy.api#sensitive": {}
       }
     },
@@ -1256,7 +2262,7 @@
           "code": "RequestTokenNotFoundException",
           "httpResponseCode": 404
         },
-        "smithy.api#documentation": "<p>A resource operation with the specified request token cannot be found.</p>",
+        "smithy.api#documentation": "<p>A resource operation with the specified request token can't be found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1273,7 +2279,7 @@
           "code": "ResourceConflictException",
           "httpResponseCode": 409
         },
-        "smithy.api#documentation": "<p>The resource is temporarily unavailable to be acted upon. For example, if the resource is\n      currently undergoing an operation and cannot be acted upon until that operation is\n      finished.</p>",
+        "smithy.api#documentation": "<p>The resource is temporarily unavailable to be acted upon. For example, if the resource is\n      currently undergoing an operation and can't be acted upon until that operation is\n      finished.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -1316,7 +2322,7 @@
           "code": "ResourceNotFoundException",
           "httpResponseCode": 404
         },
-        "smithy.api#documentation": "<p>A resource with the specified identifier cannot be found.</p>",
+        "smithy.api#documentation": "<p>A resource with the specified identifier can't be found.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1333,7 +2339,7 @@
         "OperationStatuses": {
           "target": "com.amazonaws.cloudcontrol#OperationStatuses",
           "traits": {
-            "smithy.api#documentation": "<p>The operation statuses to include in the filter.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PENDING</code>: The operation has been requested, but not yet initiated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>: The operation is currently in progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SUCCESS</code>: The operation has successfully completed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>: The operation has failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_IN_PROGRESS</code>: The operation is currently in the process of being\n          canceled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_COMPLETE</code>: The operation has been canceled.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The operation statuses to include in the filter.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PENDING</code>: The operation has been requested, but not yet initiated.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code>: The operation is in progress.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SUCCESS</code>: The operation completed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>FAILED</code>: The operation failed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_IN_PROGRESS</code>: The operation is in the process of being\n          canceled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CANCEL_COMPLETE</code>: The operation has been canceled.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -1398,7 +2404,7 @@
           "min": 0,
           "max": 1024
         },
-        "smithy.api#pattern": "^(.|\\s)*$"
+        "smithy.api#pattern": "^[\\s\\S]*$"
       }
     },
     "com.amazonaws.cloudcontrol#ThrottlingException": {
@@ -1443,7 +2449,7 @@
           "code": "TypeNotFoundException",
           "httpResponseCode": 404
         },
-        "smithy.api#documentation": "<p>The specified extension does not exist in the CloudFormation registry.</p>",
+        "smithy.api#documentation": "<p>The specified extension doesn't exist in the CloudFormation registry.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1470,7 +2476,7 @@
           "code": "UnsupportedActionException",
           "httpResponseCode": 405
         },
-        "smithy.api#documentation": "<p>The specified resource does not support this resource operation.</p>",
+        "smithy.api#documentation": "<p>The specified resource doesn't support this resource operation.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 405
       }
@@ -1543,7 +2549,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the specified property values in the resource.</p>\n         <p>You specify your resource property updates as a list of patch operations contained in a\n      JSON patch document that adheres to the <a href=\"https://datatracker.ietf.org/doc/html/rfc6902\">\n               <i>RFC 6902 - JavaScript Object\n          Notation (JSON) Patch</i>\n            </a> standard.</p>\n         <p>For details on how Cloud Control API performs resource update operations, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html\">Updating a resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <p>After you have initiated a resource update request, you can monitor the progress of your\n      request by calling <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html\">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the\n        <code>ProgressEvent</code> returned by <code>UpdateResource</code>.</p>\n         <p>For more information about the properties of a specific resource, refer to the related\n      topic for the resource in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Resource and property types reference</a> in the <i>Amazon Web Services\n        CloudFormation Users Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Updates the specified property values in the resource.</p>\n         <p>You specify your resource property updates as a list of patch operations contained in a\n      JSON patch document that adheres to the <a href=\"https://datatracker.ietf.org/doc/html/rfc6902\">\n               <i>RFC 6902 - JavaScript Object\n          Notation (JSON) Patch</i>\n            </a> standard.</p>\n         <p>For details on how Cloud Control API performs resource update operations, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html\">Updating a resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>\n         <p>After you have initiated a resource update request, you can monitor the progress of your\n      request by calling <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html\">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the\n        <code>ProgressEvent</code> returned by <code>UpdateResource</code>.</p>\n         <p>For more information about the properties of a specific resource, refer to the related\n      topic for the resource in the <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html\">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>"
       }
     },
     "com.amazonaws.cloudcontrol#UpdateResourceInput": {
@@ -1559,26 +2565,26 @@
         "TypeVersionId": {
           "target": "com.amazonaws.cloudcontrol#TypeVersionId",
           "traits": {
-            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource operation. If you do not specify a resource version, CloudFormation uses the default version.</p>"
+            "smithy.api#documentation": "<p>For private resource types, the type version to use in this resource\n                                     operation. If you do not specify a resource version, CloudFormation\n                                     uses the default version.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cloudcontrol#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code> section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management\n                                    (IAM) role for Cloud Control API to use when performing this resource\n                                    operation. The role specified must have the permissions required for this\n                                    operation. The necessary permissions for each event handler are defined in the\n                                    <code>\n               <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers\">handlers</a>\n            </code>\n                                    section of the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html\">resource type\n                                    definition schema</a>.</p>\n         <p>If you do not specify a role, Cloud Control API uses a temporary session created using\n                                    your Amazon Web Services user credentials.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions\">Specifying\n                                    credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"
           }
         },
         "ClientToken": {
           "target": "com.amazonaws.cloudcontrol#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique identifier to ensure the idempotency of the resource request. As a best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can accurately distinguish between request retries and new resource requests. You might retry a resource request to ensure that it was successfully received.</p>\n         <p>A client token is valid for 36 hours once used. After that, a resource request with the same client token is treated as a new request.</p>\n         <p>If you do not specify a client token, one is generated for inclusion in the request.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>A unique identifier to ensure the idempotency of the resource request. As a\n                                     best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can\n                                     accurately distinguish between request retries and new resource requests. You\n                                     might retry a resource request to ensure that it was successfully received.</p>\n         <p>A client token is valid for 36 hours once used. After that, a resource\n                                     request with the same client token is treated as a new request.</p>\n         <p>If you\n                                     do not specify a client token, one is generated for inclusion in the request.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency\">Ensuring\n                                     resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User\n                                     Guide</i>.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
         "Identifier": {
           "target": "com.amazonaws.cloudcontrol#Identifier",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the resource.</p>\n         <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>\n         <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>. </p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The identifier for the resource.</p>\n         <p>You can specify the primary identifier, or any secondary identifier\n                                            defined for the resource type in its resource schema. You can only specify\n                                            one identifier. Primary identifiers can be specified as a string or JSON;\n                                            secondary identifiers must be specified as JSON.</p>\n         <p>For compound primary identifiers (that is, one that consists of\n                                            multiple resource properties strung together), to specify the primary\n                                            identifier as a string, list the property values <i>in the order\n                                            they are specified</i> in the primary identifier definition,\n                                            separated by <code>|</code>.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying\n                                            resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },

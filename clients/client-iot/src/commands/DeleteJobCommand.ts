@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteJobRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteJobCommand,
-  serializeAws_restJson1DeleteJobCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteJobRequest } from "../models/models_1";
+import { de_DeleteJobCommand, se_DeleteJobCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteJobCommand}.
+ */
 export interface DeleteJobCommandInput extends DeleteJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteJobCommand}.
+ */
 export interface DeleteJobCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a job and its related job executions.</p>
  *          <p>Deleting a job may take time, depending on the number of job
  *         executions created for the job and various other factors. While the job
@@ -37,19 +51,63 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeleteJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // DeleteJobRequest
+ *   jobId: "STRING_VALUE", // required
+ *   force: true || false,
+ *   namespaceId: "STRING_VALUE",
+ * };
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteJobCommandInput - {@link DeleteJobCommandInput}
+ * @returns {@link DeleteJobCommandOutput}
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>An attempt was made to change to an invalid state, for example by deleting a job or a
+ *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
+ *          parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteJobCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +123,7 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
     options?: __HttpHandlerOptions
   ): Handler<DeleteJobCommandInput, DeleteJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteJobCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +134,8 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +145,18 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteJobCommand(input, context);
+    return se_DeleteJobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobCommandOutput> {
-    return deserializeAws_restJson1DeleteJobCommand(output, context);
+    return de_DeleteJobCommand(output, context);
   }
 
   // Start section: command_body_extra

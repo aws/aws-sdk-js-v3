@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1UnlabelParameterVersionCommand,
-  serializeAws_json1_1UnlabelParameterVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnlabelParameterVersionCommand, se_UnlabelParameterVersionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UnlabelParameterVersionCommand}.
+ */
 export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnlabelParameterVersionCommand}.
+ */
 export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Remove a label or labels from a parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,47 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * import { SSMClient, UnlabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UnlabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // UnlabelParameterVersionRequest
+ *   Name: "STRING_VALUE", // required
+ *   ParameterVersion: Number("long"), // required
+ *   Labels: [ // ParameterLabelList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UnlabelParameterVersionCommand(input);
  * const response = await client.send(command);
+ * // { // UnlabelParameterVersionResult
+ * //   RemovedLabels: [ // ParameterLabelList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   InvalidLabels: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param UnlabelParameterVersionCommandInput - {@link UnlabelParameterVersionCommandInput}
+ * @returns {@link UnlabelParameterVersionCommandOutput}
  * @see {@link UnlabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link UnlabelParameterVersionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ParameterNotFound} (client fault)
+ *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *
+ * @throws {@link ParameterVersionNotFound} (client fault)
+ *  <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
+ *    again.</p>
+ *
+ * @throws {@link TooManyUpdates} (client fault)
+ *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class UnlabelParameterVersionCommand extends $Command<
@@ -46,6 +94,18 @@ export class UnlabelParameterVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UnlabelParameterVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +121,9 @@ export class UnlabelParameterVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UnlabelParameterVersionCommandInput, UnlabelParameterVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UnlabelParameterVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +134,8 @@ export class UnlabelParameterVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnlabelParameterVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnlabelParameterVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +145,18 @@ export class UnlabelParameterVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnlabelParameterVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnlabelParameterVersionCommand(input, context);
+    return se_UnlabelParameterVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnlabelParameterVersionCommandOutput> {
-    return deserializeAws_json1_1UnlabelParameterVersionCommand(output, context);
+    return de_UnlabelParameterVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

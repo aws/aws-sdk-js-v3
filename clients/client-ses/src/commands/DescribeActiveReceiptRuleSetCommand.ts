@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeActiveReceiptRuleSetCommand,
-  serializeAws_queryDescribeActiveReceiptRuleSetCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeActiveReceiptRuleSetCommand, se_DescribeActiveReceiptRuleSetCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeActiveReceiptRuleSetCommand}.
+ */
 export interface DescribeActiveReceiptRuleSetCommandInput extends DescribeActiveReceiptRuleSetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeActiveReceiptRuleSetCommand}.
+ */
 export interface DescribeActiveReceiptRuleSetCommandOutput
   extends DescribeActiveReceiptRuleSetResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
  *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
@@ -35,13 +49,108 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * import { SESClient, DescribeActiveReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, DescribeActiveReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new DescribeActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeActiveReceiptRuleSetResponse
+ * //   Metadata: { // ReceiptRuleSetMetadata
+ * //     Name: "STRING_VALUE",
+ * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //   },
+ * //   Rules: [ // ReceiptRulesList
+ * //     { // ReceiptRule
+ * //       Name: "STRING_VALUE", // required
+ * //       Enabled: true || false,
+ * //       TlsPolicy: "STRING_VALUE",
+ * //       Recipients: [ // RecipientsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Actions: [ // ReceiptActionsList
+ * //         { // ReceiptAction
+ * //           S3Action: { // S3Action
+ * //             TopicArn: "STRING_VALUE",
+ * //             BucketName: "STRING_VALUE", // required
+ * //             ObjectKeyPrefix: "STRING_VALUE",
+ * //             KmsKeyArn: "STRING_VALUE",
+ * //           },
+ * //           BounceAction: { // BounceAction
+ * //             TopicArn: "STRING_VALUE",
+ * //             SmtpReplyCode: "STRING_VALUE", // required
+ * //             StatusCode: "STRING_VALUE",
+ * //             Message: "STRING_VALUE", // required
+ * //             Sender: "STRING_VALUE", // required
+ * //           },
+ * //           WorkmailAction: { // WorkmailAction
+ * //             TopicArn: "STRING_VALUE",
+ * //             OrganizationArn: "STRING_VALUE", // required
+ * //           },
+ * //           LambdaAction: { // LambdaAction
+ * //             TopicArn: "STRING_VALUE",
+ * //             FunctionArn: "STRING_VALUE", // required
+ * //             InvocationType: "STRING_VALUE",
+ * //           },
+ * //           StopAction: { // StopAction
+ * //             Scope: "STRING_VALUE", // required
+ * //             TopicArn: "STRING_VALUE",
+ * //           },
+ * //           AddHeaderAction: { // AddHeaderAction
+ * //             HeaderName: "STRING_VALUE", // required
+ * //             HeaderValue: "STRING_VALUE", // required
+ * //           },
+ * //           SNSAction: { // SNSAction
+ * //             TopicArn: "STRING_VALUE", // required
+ * //             Encoding: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
+ * //       ScanEnabled: true || false,
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeActiveReceiptRuleSetCommandInput - {@link DescribeActiveReceiptRuleSetCommandInput}
+ * @returns {@link DescribeActiveReceiptRuleSetCommandOutput}
  * @see {@link DescribeActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link DescribeActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example DescribeActiveReceiptRuleSet
+ * ```javascript
+ * // The following example returns the metadata and receipt rules for the receipt rule set that is currently active:
+ * const input = {};
+ * const command = new DescribeActiveReceiptRuleSetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Metadata": {
+ *     "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
+ *     "Name": "default-rule-set"
+ *   },
+ *   "Rules": [
+ *     {
+ *       "Actions": [
+ *         {
+ *           "S3Action": {
+ *             "BucketName": "MyBucket",
+ *             "ObjectKeyPrefix": "email"
+ *           }
+ *         }
+ *       ],
+ *       "Enabled": true,
+ *       "Name": "MyRule",
+ *       "ScanEnabled": true,
+ *       "TlsPolicy": "Optional"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describeactivereceiptruleset-1469121611502
+ * ```
  *
  */
 export class DescribeActiveReceiptRuleSetCommand extends $Command<
@@ -52,6 +161,18 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeActiveReceiptRuleSetCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +188,9 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeActiveReceiptRuleSetCommandInput, DescribeActiveReceiptRuleSetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeActiveReceiptRuleSetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +201,8 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeActiveReceiptRuleSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeActiveReceiptRuleSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,15 +212,21 @@ export class DescribeActiveReceiptRuleSetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeActiveReceiptRuleSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeActiveReceiptRuleSetCommand(input, context);
+    return se_DescribeActiveReceiptRuleSetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeActiveReceiptRuleSetCommandOutput> {
-    return deserializeAws_queryDescribeActiveReceiptRuleSetCommand(output, context);
+    return de_DescribeActiveReceiptRuleSetCommand(output, context);
   }
 
   // Start section: command_body_extra

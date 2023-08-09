@@ -1,54 +1,75 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
-import { Readable } from "stream";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { StreamingBlobTypes } from "@smithy/types";
+
+import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";
 
 /**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ClientLimitExceededException";
-  $fault: "client";
+export class ClientLimitExceededException extends __BaseException {
+  readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ClientLimitExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ClientLimitExceededException, __BaseException>) {
+    super({
+      name: "ClientLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
  */
-export interface ConnectionLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ConnectionLimitExceededException";
-  $fault: "client";
+export class ConnectionLimitExceededException extends __BaseException {
+  readonly name: "ConnectionLimitExceededException" = "ConnectionLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ConnectionLimitExceededException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConnectionLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
-export enum StartSelectorType {
-  CONTINUATION_TOKEN = "CONTINUATION_TOKEN",
-  EARLIEST = "EARLIEST",
-  FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
-  NOW = "NOW",
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
+  constructor(opts: __ExceptionOptionType<ConnectionLimitExceededException, __BaseException>) {
+    super({
+      name: "ConnectionLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConnectionLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const StartSelectorType = {
+  CONTINUATION_TOKEN: "CONTINUATION_TOKEN",
+  EARLIEST: "EARLIEST",
+  FRAGMENT_NUMBER: "FRAGMENT_NUMBER",
+  NOW: "NOW",
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type StartSelectorType = (typeof StartSelectorType)[keyof typeof StartSelectorType];
+
+/**
+ * @public
  * <p>Identifies the chunk on the Kinesis video stream where you want the
  *         <code>GetMedia</code> API to start returning media data. You have the following options to
  *       identify the starting chunk: </p>
@@ -71,6 +92,7 @@ export enum StartSelectorType {
  */
 export interface StartSelector {
   /**
+   * @public
    * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
    *       data from.</p>
    *          <ul>
@@ -102,12 +124,14 @@ export interface StartSelector {
   StartSelectorType: StartSelectorType | string | undefined;
 
   /**
+   * @public
    * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
    *       start returning the fragments. </p>
    */
   AfterFragmentNumber?: string;
 
   /**
+   * @public
    * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
    *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
    *       starts with the chunk containing the fragment that has the specified timestamp.</p>
@@ -115,6 +139,7 @@ export interface StartSelector {
   StartTimestamp?: Date;
 
   /**
+   * @public
    * <p>Continuation token that Kinesis Video Streams returned in the previous
    *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
    *       identified by the continuation token.</p>
@@ -122,17 +147,12 @@ export interface StartSelector {
   ContinuationToken?: string;
 }
 
-export namespace StartSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSelector): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetMediaInput {
   /**
+   * @public
    * <p>The Kinesis video stream name from where you want to get the media content. If you
    *       don't specify the <code>streamName</code>, you must specify the
    *       <code>streamARN</code>.</p>
@@ -140,33 +160,31 @@ export interface GetMediaInput {
   StreamName?: string;
 
   /**
+   * @public
    * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
    */
   StreamARN?: string;
 
   /**
+   * @public
    * <p>Identifies the starting chunk to get from the specified stream. </p>
    */
   StartSelector: StartSelector | undefined;
 }
 
-export namespace GetMediaInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetMediaOutput {
   /**
+   * @public
    * <p>The content type of the requested media.</p>
    */
   ContentType?: string;
 
   /**
+   * @public
    * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
    *       stream. For information about the chunks, see . The
    *       chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the
@@ -236,90 +254,104 @@ export interface GetMediaOutput {
    *             </li>
    *          </ul>
    */
-  Payload?: Readable | ReadableStream | Blob;
-}
-
-export namespace GetMediaOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaOutput): any => ({
-    ...obj,
-  });
+  Payload?: StreamingBlobTypes;
 }
 
 /**
+ * @public
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidArgumentException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
  *       such an exception, the user must call <code>GetDataEndpoint</code> with
  *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
  *         <code>GetMedia</code> call. </p>
  */
-export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEndpointException";
-  $fault: "client";
+export class InvalidEndpointException extends __BaseException {
+  readonly name: "InvalidEndpointException" = "InvalidEndpointException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace InvalidEndpointException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidEndpointException, __BaseException>) {
+    super({
+      name: "InvalidEndpointException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEndpointException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace NotAuthorizedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
+ * @public
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
+
+/**
+ * @internal
+ */
+export const GetMediaOutputFilterSensitiveLog = (obj: GetMediaOutput): any => ({
+  ...obj,
+});

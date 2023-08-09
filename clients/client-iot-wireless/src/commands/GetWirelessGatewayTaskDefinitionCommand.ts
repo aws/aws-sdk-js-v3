@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import { GetWirelessGatewayTaskDefinitionRequest, GetWirelessGatewayTaskDefinitionResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand,
-  serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand,
+  de_GetWirelessGatewayTaskDefinitionCommand,
+  se_GetWirelessGatewayTaskDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetWirelessGatewayTaskDefinitionCommand}.
+ */
 export interface GetWirelessGatewayTaskDefinitionCommandInput extends GetWirelessGatewayTaskDefinitionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetWirelessGatewayTaskDefinitionCommand}.
+ */
 export interface GetWirelessGatewayTaskDefinitionCommandOutput
   extends GetWirelessGatewayTaskDefinitionResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets information about a wireless gateway task definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +48,60 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
  * import { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = { // GetWirelessGatewayTaskDefinitionRequest
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetWirelessGatewayTaskDefinitionCommand(input);
  * const response = await client.send(command);
+ * // { // GetWirelessGatewayTaskDefinitionResponse
+ * //   AutoCreateTasks: true || false,
+ * //   Name: "STRING_VALUE",
+ * //   Update: { // UpdateWirelessGatewayTaskCreate
+ * //     UpdateDataSource: "STRING_VALUE",
+ * //     UpdateDataRole: "STRING_VALUE",
+ * //     LoRaWAN: { // LoRaWANUpdateGatewayTaskCreate
+ * //       UpdateSignature: "STRING_VALUE",
+ * //       SigKeyCrc: Number("long"),
+ * //       CurrentVersion: { // LoRaWANGatewayVersion
+ * //         PackageVersion: "STRING_VALUE",
+ * //         Model: "STRING_VALUE",
+ * //         Station: "STRING_VALUE",
+ * //       },
+ * //       UpdateVersion: {
+ * //         PackageVersion: "STRING_VALUE",
+ * //         Model: "STRING_VALUE",
+ * //         Station: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * //   Arn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetWirelessGatewayTaskDefinitionCommandInput - {@link GetWirelessGatewayTaskDefinitionCommandInput}
+ * @returns {@link GetWirelessGatewayTaskDefinitionCommandOutput}
  * @see {@link GetWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input did not meet the specified constraints.</p>
+ *
+ * @throws {@link IoTWirelessServiceException}
+ * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
  */
 export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
@@ -48,6 +112,18 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetWirelessGatewayTaskDefinitionCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +139,9 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetWirelessGatewayTaskDefinitionCommandInput, GetWirelessGatewayTaskDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetWirelessGatewayTaskDefinitionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +152,8 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayTaskDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayTaskDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,18 +163,24 @@ export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: GetWirelessGatewayTaskDefinitionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand(input, context);
+    return se_GetWirelessGatewayTaskDefinitionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetWirelessGatewayTaskDefinitionCommandOutput> {
-    return deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand(output, context);
+    return de_GetWirelessGatewayTaskDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

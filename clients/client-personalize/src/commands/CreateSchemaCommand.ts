@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,42 +11,54 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
-import {
-  deserializeAws_json1_1CreateSchemaCommand,
-  serializeAws_json1_1CreateSchemaCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateSchemaCommand, se_CreateSchemaCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateSchemaCommand}.
+ */
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
  *       must be in Avro JSON format.</p>
  *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
- *       type and has a set of required field and keywords.
- *       You specify a schema when you call <a>CreateDataset</a>.</p>
- *
+ *       type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you
+ *     provide the domain of the Domain dataset group.
+ *     You specify a schema when you call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
  *          <p class="title">
  *             <b>Related APIs</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListSchemas</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html">ListSchemas</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeSchema</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteSchema</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html">DeleteSchema</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -54,13 +68,36 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * import { PersonalizeClient, CreateSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = { // CreateSchemaRequest
+ *   name: "STRING_VALUE", // required
+ *   schema: "STRING_VALUE", // required
+ *   domain: "ECOMMERCE" || "VIDEO_ON_DEMAND",
+ * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
+ * // { // CreateSchemaResponse
+ * //   schemaArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateSchemaCommandInput - {@link CreateSchemaCommandInput}
+ * @returns {@link CreateSchemaCommandOutput}
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link PersonalizeServiceException}
+ * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
 export class CreateSchemaCommand extends $Command<
@@ -71,6 +108,18 @@ export class CreateSchemaCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateSchemaCommandInput) {
     // Start section: command_constructor
     super();
@@ -86,6 +135,7 @@ export class CreateSchemaCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateSchemaCommandInput, CreateSchemaCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateSchemaCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -96,8 +146,8 @@ export class CreateSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSchemaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +157,18 @@ export class CreateSchemaCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateSchemaCommand(input, context);
+    return se_CreateSchemaCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSchemaCommandOutput> {
-    return deserializeAws_json1_1CreateSchemaCommand(output, context);
+    return de_CreateSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetPartitionIndexesCommand,
   GetPartitionIndexesCommandInput,
   GetPartitionIndexesCommandOutput,
 } from "../commands/GetPartitionIndexesCommand";
-import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: GlueClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetPartitionIndexesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Glue,
-  input: GetPartitionIndexesCommandInput,
-  ...args: any
-): Promise<GetPartitionIndexesCommandOutput> => {
-  // @ts-ignore
-  return await client.getPartitionIndexes(input, ...args);
-};
 export async function* paginateGetPartitionIndexes(
   config: GluePaginationConfiguration,
   input: GetPartitionIndexesCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateGetPartitionIndexes(
   let page: GetPartitionIndexesCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    if (config.client instanceof Glue) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof GlueClient) {
+    if (config.client instanceof GlueClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -1,393 +1,537 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { ServiceCatalogAppRegistryServiceException as __BaseException } from "./ServiceCatalogAppRegistryServiceException";
 
 /**
+ * @public
  * <p>Represents a Amazon Web Services Service Catalog AppRegistry application that is the top-level node in a hierarchy of related
  *        cloud resource abstractions.</p>
  */
 export interface Application {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace Application {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Application): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
  * <p>Summary of a Amazon Web Services Service Catalog AppRegistry application.</p>
  */
 export interface ApplicationSummary {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
 }
 
-export namespace ApplicationSummary {
+/**
+ * @public
+ * <p>
+ *       The
+ *       definition
+ *       of <code>tagQuery</code>.
+ *       Specifies which resources are associated with an
+ *       application.
+ *     </p>
+ */
+export interface TagQueryConfiguration {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       Condition
+   *       in the IAM policy
+   *       that associates resources
+   *       to an application.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-  });
+  tagKey?: string;
 }
 
+/**
+ * @public
+ * <p>
+ *       Includes all
+ *       of the AppRegistry settings.
+ *     </p>
+ */
+export interface AppRegistryConfiguration {
+  /**
+   * @public
+   * <p>
+   *       Includes the definition
+   *       of a <code>tagQuery</code>.
+   *     </p>
+   */
+  tagQueryConfiguration?: TagQueryConfiguration;
+}
+
+/**
+ * @public
+ */
 export interface AssociateAttributeGroupRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
 
-export namespace AssociateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateAttributeGroupResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the attribute group that contains the application's new attributes.</p>
    */
   attributeGroupArn?: string;
 }
 
-export namespace AssociateAttributeGroupResponse {
+/**
+ * @public
+ * <p>There was a conflict when processing the request (for example, a resource with the given
+ *       name already exists within the account).</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AssociateAttributeGroupResponse): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The service is experiencing internal problems.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalServerException {
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
- * <p>The maximum number of resources per account has been reached.</p>
+ * @public
+ * <p>
+ *       The maximum number
+ *       of resources per account
+ *       has been reached.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The request has invalid or missing parameters.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ValidationException {
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
-export enum ResourceType {
-  CFN_STACK = "CFN_STACK",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  CFN_STACK: "CFN_STACK",
+  RESOURCE_TAG_VALUE: "RESOURCE_TAG_VALUE",
+} as const;
 
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ */
 export interface AssociateResourceRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The name or ID of the resource of which the application will be associated.</p>
    */
   resource: string | undefined;
 }
 
-export namespace AssociateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface AssociateResourceResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
 }
 
-export namespace AssociateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>There was a conflict when processing the request (for example, a resource with the given name already
- *       exists within the account).</p>
+ * @public
+ * <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
-}
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The originating service code.</p>
+   */
+  serviceCode?: string;
 
-export namespace ConflictException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+  }
 }
 
 /**
+ * @public
  * <p>Represents a Amazon Web Services Service Catalog AppRegistry attribute group that is rich metadata which describes an application and its components.</p>
  */
 export interface AttributeGroup {
   /**
+   * @public
    * <p>The globally unique attribute group identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
    */
-  tags?: { [key: string]: string };
-}
-
-export namespace AttributeGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeGroup): any => ({
-    ...obj,
-  });
+  tags?: Record<string, string>;
 }
 
 /**
+ * @public
+ * <p>
+ *       The details related to a specific AttributeGroup.
+ *     </p>
+ */
+export interface AttributeGroupDetails {
+  /**
+   * @public
+   * <p>The unique identifier of the attribute group.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * @deprecated
+   *
+   * <important>
+   *             <p>
+   *         This field is no longer supported.
+   *         We recommend
+   *         you don't use the field when using <code>ListAttributeGroupsForApplication</code>.
+   *       </p>
+   *          </important>
+   *          <p>
+   *       The name of the attribute group.
+   *     </p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The service principal that created the attribute group.</p>
+   */
+  createdBy?: string;
+}
+
+/**
+ * @public
  * <p>Summary of a Amazon Web Services Service Catalog AppRegistry attribute group.</p>
  */
 export interface AttributeGroupSummary {
   /**
+   * @public
    * <p>The globally unique attribute group identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
-}
 
-export namespace AttributeGroupSummary {
   /**
-   * @internal
+   * @public
+   * <p>The service principal that created the attribute group.</p>
    */
-  export const filterSensitiveLog = (obj: AttributeGroupSummary): any => ({
-    ...obj,
-  });
+  createdBy?: string;
 }
 
+/**
+ * @public
+ */
 export interface CreateApplicationRequest {
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
    *       completed successfully using the same client token and the same parameters, the retry succeeds
    *       without performing any further actions. If you retry a successful request using the same
@@ -396,53 +540,47 @@ export interface CreateApplicationRequest {
   clientToken?: string;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateApplicationResponse {
   /**
+   * @public
    * <p>Information about the application.</p>
    */
   application?: Application;
 }
 
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAttributeGroupRequest {
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name: string | undefined;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes: string | undefined;
 
   /**
+   * @public
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
    *       completed successfully using the same client token and the same parameters, the retry succeeds
    *       without performing any further actions. If you retry a successful request using the same
@@ -451,214 +589,190 @@ export interface CreateAttributeGroupRequest {
   clientToken?: string;
 }
 
-export namespace CreateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface CreateAttributeGroupResponse {
   /**
+   * @public
    * <p>Information about the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;
 }
 
-export namespace CreateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttributeGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteApplicationRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteApplicationResponse {
   /**
+   * @public
    * <p>Information about the deleted application.</p>
    */
   application?: ApplicationSummary;
 }
 
-export namespace DeleteApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteAttributeGroupRequest {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
 
-export namespace DeleteAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DeleteAttributeGroupResponse {
   /**
+   * @public
    * <p>Information about the deleted attribute group.</p>
    */
   attributeGroup?: AttributeGroupSummary;
 }
 
-export namespace DeleteAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttributeGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateAttributeGroupRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
 
-export namespace DisassociateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateAttributeGroupResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
    */
   attributeGroupArn?: string;
 }
 
-export namespace DisassociateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAttributeGroupResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateResourceRequest {
   /**
+   * @public
    * <p>The name or ID of the application.</p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The type of the resource that is being disassociated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The name or ID of the resource.</p>
    */
   resource: string | undefined;
 }
 
-export namespace DisassociateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface DisassociateResourceResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
 }
 
-export namespace DisassociateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetApplicationRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 }
 
-export namespace GetApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ResourceGroupState {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+/**
+ * @public
+ * @enum
+ */
+export const ResourceGroupState = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
 
 /**
+ * @public
+ */
+export type ResourceGroupState = (typeof ResourceGroupState)[keyof typeof ResourceGroupState];
+
+/**
+ * @public
  * <p>The information about the resource group integration.</p>
  */
 export interface ResourceGroup {
   /**
+   * @public
    * <p>The state of the propagation process for the resource group. The states includes:</p>
    *          <p>
    *             <code>CREATING </code>if the resource group is in the process of being created.</p>
@@ -676,699 +790,729 @@ export interface ResourceGroup {
   state?: ResourceGroupState | string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the resource group.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The error message that generates when the propagation process for the resource group fails.</p>
    */
   errorMessage?: string;
 }
 
-export namespace ResourceGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> The information about the service integration.</p>
  */
 export interface Integrations {
   /**
+   * @public
    * <p> The information about the resource group integration.</p>
    */
   resourceGroup?: ResourceGroup;
 }
 
-export namespace Integrations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Integrations): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetApplicationResponse {
   /**
+   * @public
    * <p>The identifier of the application.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the application.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>The number of top-level resources that were registered as part of this application.</p>
    */
   associatedResourceCount?: number;
 
   /**
+   * @public
    * <p>Key-value pairs associated with the application.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
-   * <p>The information about the integration of the application with other services, such as Resource Groups.</p>
+   * @public
+   * <p>
+   *        The information
+   *        about the integration
+   *        of the application
+   *        with other services,
+   *        such as
+   *         Resource Groups.
+   *      </p>
    */
   integrations?: Integrations;
 }
 
-export namespace GetApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetAssociatedResourceRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The type of resource associated with the application.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>The name or ID of the resource associated with the application.</p>
    */
   resource: string | undefined;
 }
 
-export namespace GetAssociatedResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociatedResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The service integration information about the resource.</p>
  */
 export interface ResourceIntegrations {
   /**
+   * @public
    * <p>The information about the integration of Resource Groups.</p>
    */
   resourceGroup?: ResourceGroup;
 }
 
-export namespace ResourceIntegrations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIntegrations): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p> The information about the resource.</p>
  */
 export interface Resource {
   /**
+   * @public
    * <p>The name of the resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) of the resource.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The time the resource was associated with the application.</p>
    */
   associationTime?: Date;
 
   /**
+   * @public
    * <p>The service integration information about the resource.
    *      </p>
    */
   integrations?: ResourceIntegrations;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetAssociatedResourceResponse {
   /**
+   * @public
    * <p>The resource associated with the application.</p>
    */
   resource?: Resource;
 }
 
-export namespace GetAssociatedResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociatedResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetAttributeGroupRequest {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
 
-export namespace GetAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface GetAttributeGroupResponse {
   /**
+   * @public
    * <p>The identifier of the attribute group.</p>
    */
   id?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
 
   /**
+   * @public
    * <p>The name of the attribute group.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes?: string;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
    */
   creationTime?: Date;
 
   /**
+   * @public
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
 
   /**
+   * @public
    * <p>Key-value pairs associated with the attribute group.</p>
    */
-  tags?: { [key: string]: string };
-}
+  tags?: Record<string, string>;
 
-export namespace GetAttributeGroupResponse {
   /**
-   * @internal
+   * @public
+   * <p>The service principal that created the attribute group.</p>
    */
-  export const filterSensitiveLog = (obj: GetAttributeGroupResponse): any => ({
-    ...obj,
-  });
+  createdBy?: string;
 }
 
+/**
+ * @public
+ */
+export interface GetConfigurationResponse {
+  /**
+   * @public
+   * <p>
+   *       Retrieves <code>TagKey</code> configuration
+   *       from an account.
+   *     </p>
+   */
+  configuration?: AppRegistryConfiguration;
+}
+
+/**
+ * @public
+ */
 export interface ListApplicationsRequest {
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListApplicationsResponse {
   /**
+   * @public
    * <p>This list of applications.</p>
    */
   applications?: ApplicationSummary[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 }
 
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAssociatedAttributeGroupsRequest {
   /**
+   * @public
    * <p>The name or ID of the application.</p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListAssociatedAttributeGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedAttributeGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAssociatedAttributeGroupsResponse {
   /**
+   * @public
    * <p>A list of attribute group IDs.</p>
    */
   attributeGroups?: string[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 }
 
-export namespace ListAssociatedAttributeGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedAttributeGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAssociatedResourcesRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListAssociatedResourcesRequest {
+/**
+ * @public
+ * <p>
+ *       The details
+ *       related
+ *       to the
+ *       resource.
+ *     </p>
+ */
+export interface ResourceDetails {
   /**
-   * @internal
+   * @public
+   * <p>The value of the tag.</p>
    */
-  export const filterSensitiveLog = (obj: ListAssociatedResourcesRequest): any => ({
-    ...obj,
-  });
+  tagValue?: string;
 }
 
 /**
+ * @public
  * <p>The information about the resource.</p>
  */
 export interface ResourceInfo {
   /**
+   * @public
    * <p>The name of the resource.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource across services.</p>
    */
   arn?: string;
-}
 
-export namespace ResourceInfo {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       Provides information
+   *       about the Service Catalog App Registry resource type.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: ResourceInfo): any => ({
-    ...obj,
-  });
+  resourceType?: ResourceType | string;
+
+  /**
+   * @public
+   * <p>
+   *       The details related
+   *       to
+   *       the resource.
+   *     </p>
+   */
+  resourceDetails?: ResourceDetails;
 }
 
+/**
+ * @public
+ */
 export interface ListAssociatedResourcesResponse {
   /**
+   * @public
    * <p>Information about the resources.</p>
    */
   resources?: ResourceInfo[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 }
 
-export namespace ListAssociatedResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedResourcesResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAttributeGroupsRequest {
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListAttributeGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributeGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListAttributeGroupsResponse {
   /**
+   * @public
    * <p>This list of attribute groups.</p>
    */
   attributeGroups?: AttributeGroupSummary[];
 
   /**
+   * @public
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
 }
 
-export namespace ListAttributeGroupsResponse {
+/**
+ * @public
+ */
+export interface ListAttributeGroupsForApplicationRequest {
   /**
-   * @internal
+   * @public
+   * <p>The name or ID of the application.</p>
    */
-  export const filterSensitiveLog = (obj: ListAttributeGroupsResponse): any => ({
-    ...obj,
-  });
+  application: string | undefined;
+
+  /**
+   * @public
+   * <p>This token retrieves the next page of results after a previous API call.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The upper bound of the number of results to return. The value cannot exceed 25. If you omit this parameter, it defaults to 25. This value is optional.</p>
+   */
+  maxResults?: number;
 }
 
+/**
+ * @public
+ */
+export interface ListAttributeGroupsForApplicationResponse {
+  /**
+   * @public
+   * <p> The details related to a specific attribute group. </p>
+   */
+  attributeGroupsDetails?: AttributeGroupDetails[];
+
+  /**
+   * @public
+   * <p>The token to use to get the next page of results after a previous API call.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceResponse {
   /**
+   * @public
    * <p>The tags on the resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
+/**
+ * @public
+ */
+export interface PutConfigurationRequest {
   /**
-   * @internal
+   * @public
+   * <p>
+   *       Associates a <code>TagKey</code> configuration
+   *       to an account.
+   *     </p>
    */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
+  configuration: AppRegistryConfiguration | undefined;
 }
 
+/**
+ * @public
+ */
 export interface SyncResourceRequest {
   /**
+   * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
   resourceType: ResourceType | string | undefined;
 
   /**
+   * @public
    * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.</p>
    */
   resource: string | undefined;
 }
 
-export namespace SyncResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SyncResourceRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @public
+ * @enum
+ */
+export const SyncAction = {
+  NO_ACTION: "NO_ACTION",
+  START_SYNC: "START_SYNC",
+} as const;
 
-export enum SyncAction {
-  NO_ACTION = "NO_ACTION",
-  START_SYNC = "START_SYNC",
-}
+/**
+ * @public
+ */
+export type SyncAction = (typeof SyncAction)[keyof typeof SyncAction];
 
+/**
+ * @public
+ */
 export interface SyncResourceResponse {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
    */
   applicationArn?: string;
 
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
 
   /**
+   * @public
    * <p>The results of the output if an application is associated with an ARN value, which could be <code>syncStarted</code> or None.</p>
    */
   actionTaken?: SyncAction | string;
 }
 
-export namespace SyncResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SyncResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The new or modified tags for the resource.</p>
    */
-  tags: { [key: string]: string } | undefined;
+  tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface TagResourceResponse {}
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
+   * @public
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>A list of the tag keys to remove from the specified resource.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The name or ID of the application that will be updated.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application
+   *        that will be updated.
+   *      </p>
    */
   application: string | undefined;
 
   /**
-   * <p>The new name of the application. The name must be unique in the region in which you are updating the application.</p>
+   * @public
+   * @deprecated
+   *
+   * <p>Deprecated: The new name of the application. The name must be unique in the region in which you are
+   *        updating the application. Please do not use this field as we have stopped supporting name updates.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The new description of the application.</p>
    */
   description?: string;
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApplicationResponse {
   /**
+   * @public
    * <p>The updated information of the application.</p>
    */
   application?: Application;
 }
 
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAttributeGroupRequest {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * @public
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 
   /**
-   * <p>The new name of the attribute group. The name must be unique in the region in which you are
-   *        updating the attribute group.</p>
+   * @public
+   * @deprecated
+   *
+   * <p>Deprecated: The new name of the attribute group. The name must be unique in the region in which you are
+   *        updating the attribute group. Please do not use this field as we have stopped supporting name updates.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>The description of the attribute group that the user provides.</p>
    */
   description?: string;
 
   /**
+   * @public
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes?: string;
 }
 
-export namespace UpdateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateAttributeGroupResponse {
   /**
+   * @public
    * <p>The updated information of the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;
-}
-
-export namespace UpdateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttributeGroupResponse): any => ({
-    ...obj,
-  });
 }

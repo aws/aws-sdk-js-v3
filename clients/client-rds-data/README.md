@@ -1,7 +1,6 @@
-# @aws-sdk/client-rds-data
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-rds-data/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds-data)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-rds-data.svg)](https://www.npmjs.com/package/@aws-sdk/client-rds-data)
+# @aws-sdk/client-rds-data
 
 ## Description
 
@@ -9,11 +8,14 @@ AWS SDK for JavaScript RDSData Client for Node.js, Browser and React Native.
 
 <fullname>Amazon RDS Data Service</fullname>
 
-<p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora
-Serverless DB cluster. To run these statements, you work with the Data Service
-API.</p>
-<p>For more information about the Data Service API, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora
-Serverless</a> in the <i>Amazon Aurora User Guide</i>.</p>
+<p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless v1 DB cluster. To run these
+statements, you work with the Data Service API.</p>
+<note>
+<p>The Data Service API isn't supported on Amazon Aurora Serverless v2 DB clusters.</p>
+</note>
+<p>For more information about the Data Service API, see
+<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
+in the <i>Amazon Aurora User Guide</i>.</p>
 
 ## Installing
 
@@ -121,7 +123,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -155,7 +157,7 @@ client
 
 // callbacks.
 client.batchExecuteStatement(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -169,7 +171,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -207,3 +209,54 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+BatchExecuteStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/batchexecutestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/batchexecutestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/batchexecutestatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+BeginTransaction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/begintransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/begintransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/begintransactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+CommitTransaction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/committransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/committransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/committransactioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExecuteSql
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/executesqlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executesqlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executesqlcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ExecuteStatement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/executestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executestatementcommandoutput.html)
+
+</details>
+<details>
+<summary>
+RollbackTransaction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/rollbacktransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/rollbacktransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/rollbacktransactioncommandoutput.html)
+
+</details>

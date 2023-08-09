@@ -1,5 +1,5 @@
 {
-  "smithy": "1.0",
+  "smithy": "2.0",
   "metadata": {
     "suppressions": [
       {
@@ -85,6 +85,9 @@
           "target": "com.amazonaws.shield#DescribeSubscription"
         },
         {
+          "target": "com.amazonaws.shield#DisableApplicationLayerAutomaticResponse"
+        },
+        {
           "target": "com.amazonaws.shield#DisableProactiveEngagement"
         },
         {
@@ -95,6 +98,9 @@
         },
         {
           "target": "com.amazonaws.shield#DisassociateHealthCheck"
+        },
+        {
+          "target": "com.amazonaws.shield#EnableApplicationLayerAutomaticResponse"
         },
         {
           "target": "com.amazonaws.shield#EnableProactiveEngagement"
@@ -124,6 +130,9 @@
           "target": "com.amazonaws.shield#UntagResource"
         },
         {
+          "target": "com.amazonaws.shield#UpdateApplicationLayerAutomaticResponse"
+        },
+        {
           "target": "com.amazonaws.shield#UpdateEmergencyContactSettings"
         },
         {
@@ -145,10 +154,685 @@
           "name": "shield"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>Shield Advanced</fullname>\n         <p>This is the <i>Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the Shield Advanced API actions, \n         data types, and errors. For detailed information about WAF and Shield Advanced features and an overview of how to use the WAF and Shield Advanced APIs, see the \n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">WAF and Shield Developer Guide</a>.</p>",
+        "smithy.api#documentation": "<fullname>Shield Advanced</fullname>\n         <p>This is the <i>Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the Shield Advanced API actions,\n         data types, and errors. For detailed information about WAF and Shield Advanced features and an overview of how to use the WAF and Shield Advanced APIs, see the\n         <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">WAF and Shield Developer Guide</a>.</p>",
         "smithy.api#title": "AWS Shield",
         "smithy.api#xmlNamespace": {
           "uri": "http://ddp.amazonaws.com/doc/2016-06-02/"
+        },
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "String"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "Boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "Boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "aws.partition",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ],
+                  "assign": "PartitionResult"
+                }
+              ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "fn": "parseURL",
+                      "argv": [
+                        {
+                          "ref": "Endpoint"
+                        }
+                      ],
+                      "assign": "url"
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "type": "error"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": {
+                              "ref": "Endpoint"
+                            },
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "stringEquals",
+                      "argv": [
+                        {
+                          "fn": "getAttr",
+                          "argv": [
+                            {
+                              "ref": "PartitionResult"
+                            },
+                            "name"
+                          ]
+                        },
+                        "aws"
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://shield-fips.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "shield",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://shield-fips.us-east-1.amazonaws.com",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "shield",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://shield.{Region}.api.aws",
+                                "properties": {
+                                  "authSchemes": [
+                                    {
+                                      "name": "sigv4",
+                                      "signingName": "shield",
+                                      "signingRegion": "us-east-1"
+                                    }
+                                  ]
+                                },
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://shield.us-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "shield",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    },
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://shield-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsFIPS"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "ref": "Region"
+                                    },
+                                    "aws-global"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://shield-fips.us-east-1.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://shield-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "FIPS is enabled but this partition does not support FIPS",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            true,
+                            {
+                              "fn": "getAttr",
+                              "argv": [
+                                {
+                                  "ref": "PartitionResult"
+                                },
+                                "supportsDualStack"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "type": "tree",
+                      "rules": [
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://shield.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                            "properties": {},
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [],
+                      "error": "DualStack is enabled but this partition does not support DualStack",
+                      "type": "error"
+                    }
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "aws-global"
+                          ]
+                        }
+                      ],
+                      "endpoint": {
+                        "url": "https://shield.us-east-1.amazonaws.com",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "shield",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://shield.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "smithy.rules#endpointTests": {
+          "testCases": [
+            {
+              "documentation": "For region aws-global with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingName": "shield",
+                        "signingRegion": "us-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://shield.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "aws-global",
+                "UseDualStack": false,
+                "UseFIPS": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
+              "expect": {
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": false,
+                "UseFIPS": true,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseDualStack": true,
+                "UseFIPS": false,
+                "Endpoint": "https://example.com"
+              }
+            }
+          ],
+          "version": "1.0"
         }
       }
     },
@@ -174,6 +858,43 @@
       "traits": {
         "smithy.api#documentation": "<p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.shield#ApplicationLayerAutomaticResponseConfiguration": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.shield#ApplicationLayerAutomaticResponseStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether automatic application layer DDoS mitigation is enabled for the protection. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.shield#ResponseAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the\n   protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,\n   when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The automatic application layer DDoS mitigation settings for a <a>Protection</a>.\n       This configuration determines whether Shield Advanced automatically\n       manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>"
+      }
+    },
+    "com.amazonaws.shield#ApplicationLayerAutomaticResponseStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENABLED",
+            "name": "ENABLED"
+          },
+          {
+            "value": "DISABLED",
+            "name": "DISABLED"
+          }
+        ]
       }
     },
     "com.amazonaws.shield#AssociateDRTLogBucket": {
@@ -211,7 +932,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</p>\n\t        <p>To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
+        "smithy.api#documentation": "<p>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</p>\n         <p>To use the services of the SRT and make an <code>AssociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"http://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"http://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
       }
     },
     "com.amazonaws.shield#AssociateDRTLogBucketRequest": {
@@ -259,7 +980,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Authorizes the Shield Response Team (SRT) using the specified role, to access your Amazon Web Services account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your WAF configuration and create or update WAF rules and web ACLs.</p>\n         <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>\n         <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a> managed policy to the role you will specify in the request. For more information see <a href=\" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Attaching and Detaching IAM Policies</a>. The role must also trust the service principal <code> drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON Policy Elements: Principal</a>.</p>\n\n         <p>The SRT will have access only to your WAF and Shield resources. By submitting this request, you authorize the SRT to inspect your WAF and Shield configuration and create and update WAF rules and web ACLs on your behalf. The SRT takes these actions only if explicitly authorized by you.</p>\n         <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>\n         <p>To use the services of the SRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
+        "smithy.api#documentation": "<p>Authorizes the Shield Response Team (SRT) using the specified role, to access your Amazon Web Services account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your WAF configuration and create or update WAF rules and web ACLs.</p>\n         <p>You can associate only one <code>RoleArn</code> with your subscription. If you submit an <code>AssociateDRTRole</code> request for an account that already has an associated role, the new <code>RoleArn</code> will replace the existing <code>RoleArn</code>. </p>\n         <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <code>AWSShieldDRTAccessPolicy</code> managed policy to the role that you'll specify in the request. You can access this policy in the IAM console at <a href=\"https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy\">AWSShieldDRTAccessPolicy</a>. For more information see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html\">Adding and removing IAM identity permissions</a>. The role must also trust the service principal\n<code>drt.shield.amazonaws.com</code>. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html\">IAM JSON policy elements: Principal</a>.</p>\n\n         <p>The SRT will have access only to your WAF and Shield resources. By submitting this request, you authorize the SRT to inspect your WAF and Shield configuration and create and update WAF rules and web ACLs on your behalf. The SRT takes these actions only if explicitly authorized by you.</p>\n         <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">Granting a user permissions to pass a role to an Amazon Web Services service</a>. </p>\n         <p>To use the services of the SRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href=\"http://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"http://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>.</p>"
       }
     },
     "com.amazonaws.shield#AssociateDRTRoleRequest": {
@@ -294,6 +1015,9 @@
           "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
+          "target": "com.amazonaws.shield#InvalidResourceException"
+        },
+        {
           "target": "com.amazonaws.shield#LimitsExceededException"
         },
         {
@@ -304,7 +1028,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and mitigation.  </p>\n         <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option\">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>"
+        "smithy.api#documentation": "<p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and response.  </p>\n         <p>You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option\">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>"
       }
     },
     "com.amazonaws.shield#AssociateHealthCheckRequest": {
@@ -399,13 +1123,13 @@
         "StartTime": {
           "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The time the attack started, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The time the attack started, in Unix time in seconds. </p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The time the attack ended, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The time the attack ended, in Unix time in seconds. </p>"
           }
         },
         "AttackCounters": {
@@ -417,7 +1141,7 @@
         "AttackProperties": {
           "target": "com.amazonaws.shield#AttackProperties",
           "traits": {
-            "smithy.api#documentation": "<p>The array of objects that provide details of the Shield event. </p>\n         <p>For infrastructure  \n  layer events (L3 and L4 events) after January 25, 2021, you can view metrics for top contributors in Amazon CloudWatch metrics. \n           For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms\">Shield metrics and alarms</a> \n               in the <i>WAF Developer Guide</i>. </p>"
+            "smithy.api#documentation": "<p>The array of objects that provide details of the Shield event. </p>\n         <p>For infrastructure\n  layer events (L3 and L4 events), you can view metrics for top contributors in Amazon CloudWatch metrics.\n           For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms\">Shield metrics and alarms</a>\n               in the <i>WAF Developer Guide</i>. </p>"
           }
         },
         "Mitigations": {
@@ -468,7 +1192,7 @@
         "AttackLayer": {
           "target": "com.amazonaws.shield#AttackLayer",
           "traits": {
-            "smithy.api#documentation": "<p>The type of Shield event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>\n         indicates layer 7 events.</p>\n         <p>For infrastructure  \n  layer events (L3 and L4 events) after January 25, 2021, you can view metrics for top contributors in Amazon CloudWatch metrics. \n           For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms\">Shield metrics and alarms</a> \n               in the <i>WAF Developer Guide</i>. </p>"
+            "smithy.api#documentation": "<p>The type of Shield event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code>\n         indicates layer 7 events.</p>\n         <p>For infrastructure\n  layer events (L3 and L4 events), you can view metrics for top contributors in Amazon CloudWatch metrics.\n           For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms\">Shield metrics and alarms</a>\n               in the <i>WAF Developer Guide</i>. </p>"
           }
         },
         "AttackPropertyIdentifier": {
@@ -480,7 +1204,7 @@
         "TopContributors": {
           "target": "com.amazonaws.shield#TopContributors",
           "traits": {
-            "smithy.api#documentation": "<p>Contributor objects for the top five contributors to a Shield event. </p>"
+            "smithy.api#documentation": "<p>Contributor objects for the top five contributors to a Shield event. A contributor is a source of traffic that Shield Advanced identifies as responsible for some or all of an event.</p>"
           }
         },
         "Unit": {
@@ -492,6 +1216,7 @@
         "Total": {
           "target": "com.amazonaws.shield#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total contributions made to this Shield event by all contributors.</p>"
           }
         }
@@ -551,6 +1276,7 @@
         "AttackCount": {
           "target": "com.amazonaws.shield#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of attacks detected during the time period. This is always present, but might be zero. </p>",
             "smithy.api#required": {}
           }
@@ -590,13 +1316,13 @@
         "StartTime": {
           "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The start time of the attack, in Unix time in seconds. </p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.shield#AttackTimestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end time of the attack, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The end time of the attack, in Unix time in seconds. </p>"
           }
         },
         "AttackVectors": {
@@ -666,6 +1392,7 @@
         "Max": {
           "target": "com.amazonaws.shield#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum attack volume observed for the given unit.</p>",
             "smithy.api#required": {}
           }
@@ -690,6 +1417,13 @@
         ]
       }
     },
+    "com.amazonaws.shield#BlockAction": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>\n            <p>This is only used in the context of the <code>ResponseAction</code> setting. </p> \n         <p>JSON specification: <code>\"Block\": {}</code>\n         </p>"
+      }
+    },
     "com.amazonaws.shield#ContactNotes": {
       "type": "string",
       "traits": {
@@ -706,18 +1440,26 @@
         "Name": {
           "target": "com.amazonaws.shield#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the contributor. This is dependent on the <code>AttackPropertyIdentifier</code>. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>"
+            "smithy.api#documentation": "<p>The name of the contributor. The type of name that you'll find here depends on the <code>AttackPropertyIdentifier</code> setting in the <code>AttackProperty</code> where this contributor is defined. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>"
           }
         },
         "Value": {
           "target": "com.amazonaws.shield#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A contributor to the attack and their contribution.</p>"
+        "smithy.api#documentation": "<p>A contributor to the attack and their contribution. </p>"
+      }
+    },
+    "com.amazonaws.shield#CountAction": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>\n            <p>This is only used in the context of the <code>ResponseAction</code> setting. </p> \n         <p>JSON specification: <code>\"Count\": {}</code>\n         </p>"
       }
     },
     "com.amazonaws.shield#CreateProtection": {
@@ -755,7 +1497,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.</p>\n         <p>You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <a href=\"https://console.aws.amazon.com/waf/\">WAF console</a>. For more information see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with Shield Advanced</a> and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Add Shield Advanced Protection to more Amazon Web Services Resources</a>.</p>"
+        "smithy.api#documentation": "<p>Enables Shield Advanced for a specific Amazon Web Services resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.</p>\n         <p>You can add protection to only a single resource with each <code>CreateProtection</code> request. You can add protection to multiple resources\n          at once through the Shield Advanced console at <a href=\"https://console.aws.amazon.com/wafv2/shieldv2#/\">https://console.aws.amazon.com/wafv2/shieldv2#/</a>.\n              For more information see\n          <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with Shield Advanced</a>\n              and <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html\">Adding Shield Advanced protection to Amazon Web Services resources</a>.</p>"
       }
     },
     "com.amazonaws.shield#CreateProtectionGroup": {
@@ -817,7 +1559,7 @@
         "ResourceType": {
           "target": "com.amazonaws.shield#ProtectedResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. \n           You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>"
+            "smithy.api#documentation": "<p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group.\n           You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>"
           }
         },
         "Members": {
@@ -851,7 +1593,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource to be protected.</p>\n         <p>The ARN should be in one of the following formats:</p>\n         <ul>\n            <li>\n               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>\n                  </code>\n               </p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource to be protected.</p>\n         <p>The ARN should be in one of the following formats:</p>\n         <ul>\n            <li>\n               <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Amazon CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For Amazon Route 53: <code>arn:aws:route53:::hostedzone/<i>hosted-zone-id</i>\n                  </code>\n               </p>\n            </li>\n            <li>\n               <p>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i>\n                  </code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -891,7 +1633,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Activates Shield Advanced for an account.</p>\n      \n         <p>When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>"
+        "smithy.api#documentation": "<p>Activates Shield Advanced for an account.</p>\n         <note>\n            <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,\n              regardless of whether the payer account itself is subscribed. </p> \n         </note>\n         <p>When you initially create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>"
       }
     },
     "com.amazonaws.shield#CreateSubscriptionRequest": {
@@ -1044,7 +1786,7 @@
         "AttackId": {
           "target": "com.amazonaws.shield#AttackId",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the attack that to be described.</p>",
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the attack.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1056,7 +1798,7 @@
         "Attack": {
           "target": "com.amazonaws.shield#AttackDetail",
           "traits": {
-            "smithy.api#documentation": "<p>The attack that is described.</p>"
+            "smithy.api#documentation": "<p>The attack that you requested. </p>"
           }
         }
       }
@@ -1088,6 +1830,7 @@
         "TimeRange": {
           "target": "com.amazonaws.shield#TimeRange",
           "traits": {
+            "smithy.api#documentation": "<p>The time range of the attack.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1249,13 +1992,13 @@
         "ProtectionId": {
           "target": "com.amazonaws.shield#ProtectionId",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the <a>Protection</a> object to describe. \n           You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>"
           }
         },
         "ResourceArn": {
           "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the Amazon Web Services resource for the <a>Protection</a> object that is\n         described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>"
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the protected Amazon Web Services resource. \n           You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>"
           }
         }
       }
@@ -1266,7 +2009,7 @@
         "Protection": {
           "target": "com.amazonaws.shield#Protection",
           "traits": {
-            "smithy.api#documentation": "<p>The <a>Protection</a> object that is described.</p>"
+            "smithy.api#documentation": "<p>The <a>Protection</a> that you requested. </p>"
           }
         }
       }
@@ -1305,6 +2048,51 @@
           }
         }
       }
+    },
+    "com.amazonaws.shield#DisableApplicationLayerAutomaticResponse": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.shield#DisableApplicationLayerAutomaticResponseRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.shield#DisableApplicationLayerAutomaticResponseResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.shield#InternalErrorException"
+        },
+        {
+          "target": "com.amazonaws.shield#InvalidOperationException"
+        },
+        {
+          "target": "com.amazonaws.shield#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.shield#OptimisticLockException"
+        },
+        {
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the protected resource. This\n       stops Shield Advanced from creating, verifying, and applying WAF rules for attacks that it detects for the resource. </p>"
+      }
+    },
+    "com.amazonaws.shield#DisableApplicationLayerAutomaticResponseRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.shield#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the protected resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.shield#DisableApplicationLayerAutomaticResponseResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.shield#DisableProactiveEngagement": {
       "type": "operation",
@@ -1372,7 +2160,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>\n\t        <p>To make a <code>DisassociateDRTLogBucket</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the SRT access to your account, you can submit a <code>DisassociateDRTLogBucket</code> request to remove this access.</p>"
+        "smithy.api#documentation": "<p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>"
       }
     },
     "com.amazonaws.shield#DisassociateDRTLogBucketRequest": {
@@ -1414,7 +2202,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>\n\t        <p>To make a <code>DisassociateDRTRole</code> request, you must be subscribed to the <a href=\"https://aws.amazon.com/premiumsupport/business-support/\">Business Support plan</a> or the <a href=\"https://aws.amazon.com/premiumsupport/enterprise-support/\">Enterprise Support plan</a>. However, if you are not subscribed to one of these support plans, but had been previously and had granted the SRT access to your account, you can submit a <code>DisassociateDRTRole</code> request to remove this access.</p>"
+        "smithy.api#documentation": "<p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.shield#DisassociateDRTRoleRequest": {
@@ -1441,6 +2229,9 @@
           "target": "com.amazonaws.shield#InvalidParameterException"
         },
         {
+          "target": "com.amazonaws.shield#InvalidResourceException"
+        },
+        {
           "target": "com.amazonaws.shield#OptimisticLockException"
         },
         {
@@ -1448,7 +2239,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and mitigation. </p>\n         <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option\">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>"
+        "smithy.api#documentation": "<p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your Amazon Web Services resource to improve responsiveness and accuracy in attack detection and response. </p>\n         <p>You define the health check in Route 53 and then associate or disassociate it with your Shield Advanced protection. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option\">Shield Advanced Health-Based Detection</a> in the <i>WAF Developer Guide</i>. </p>"
       }
     },
     "com.amazonaws.shield#DisassociateHealthCheckRequest": {
@@ -1475,11 +2266,15 @@
       "members": {}
     },
     "com.amazonaws.shield#Double": {
-      "type": "double"
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.shield#DurationInSeconds": {
       "type": "long",
       "traits": {
+        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0
         }
@@ -1533,6 +2328,61 @@
           "max": 10
         }
       }
+    },
+    "com.amazonaws.shield#EnableApplicationLayerAutomaticResponse": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.shield#EnableApplicationLayerAutomaticResponseRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.shield#EnableApplicationLayerAutomaticResponseResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.shield#InternalErrorException"
+        },
+        {
+          "target": "com.amazonaws.shield#InvalidOperationException"
+        },
+        {
+          "target": "com.amazonaws.shield#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.shield#LimitsExceededException"
+        },
+        {
+          "target": "com.amazonaws.shield#OptimisticLockException"
+        },
+        {
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Enable the Shield Advanced automatic application layer DDoS mitigation for the protected resource. </p>\n         <note>\n            <p>This feature is available for Amazon CloudFront distributions and Application Load Balancers only.</p>\n         </note>\n         <p>This causes Shield Advanced to create, verify, and apply WAF rules for DDoS attacks that it detects for the\n       resource. Shield Advanced applies the rules in a Shield rule group inside the web ACL that you've associated\n           with the resource. For information about how automatic mitigation works and the requirements for using it, see\n   <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-automatic-app-layer-response.html\">Shield Advanced automatic application layer DDoS mitigation</a>.</p>\n         <note>\n            <p>Don't use this action to make changes to automatic mitigation settings when it's already enabled for a resource. Instead, use <a>UpdateApplicationLayerAutomaticResponse</a>.</p>\n         </note>\n         <p>To use this feature, you must associate a web ACL with the protected resource. The web ACL must be created using the latest version of WAF (v2). You can associate the web ACL through the Shield Advanced console\n           at <a href=\"https://console.aws.amazon.com/wafv2/shieldv2#/\">https://console.aws.amazon.com/wafv2/shieldv2#/</a>. For more information,\n               see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html\">Getting Started with Shield Advanced</a>. You can also associate the web ACL to the resource through the WAF console or the WAF API, but you must manage Shield Advanced automatic mitigation through Shield Advanced. For information about WAF, see\n       <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/\">WAF Developer Guide</a>.</p>"
+      }
+    },
+    "com.amazonaws.shield#EnableApplicationLayerAutomaticResponseRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.shield#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the protected resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.shield#ResponseAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the\n   protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,\n   when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.shield#EnableApplicationLayerAutomaticResponseResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.shield#EnableProactiveEngagement": {
       "type": "operation",
@@ -1623,8 +2473,69 @@
         "target": "com.amazonaws.shield#HealthCheckId"
       }
     },
+    "com.amazonaws.shield#InclusionProtectionFilters": {
+      "type": "structure",
+      "members": {
+        "ResourceArns": {
+          "target": "com.amazonaws.shield#ResourceArnFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource whose protection you want to retrieve.  </p>"
+          }
+        },
+        "ProtectionNames": {
+          "target": "com.amazonaws.shield#ProtectionNameFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the protection that you want to retrieve.  </p>"
+          }
+        },
+        "ResourceTypes": {
+          "target": "com.amazonaws.shield#ProtectedResourceTypeFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of protected resource whose protections you want to retrieve.  </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>"
+      }
+    },
+    "com.amazonaws.shield#InclusionProtectionGroupFilters": {
+      "type": "structure",
+      "members": {
+        "ProtectionGroupIds": {
+          "target": "com.amazonaws.shield#ProtectionGroupIdFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the protection group that you want to retrieve.  </p>"
+          }
+        },
+        "Patterns": {
+          "target": "com.amazonaws.shield#ProtectionGroupPatternFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The pattern specification of the protection groups that you want to retrieve.  </p>"
+          }
+        },
+        "ResourceTypes": {
+          "target": "com.amazonaws.shield#ProtectedResourceTypeFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type configuration of the protection groups that you want to retrieve. In the protection group configuration, you specify the resource type when you set the group's <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code>. </p>"
+          }
+        },
+        "Aggregations": {
+          "target": "com.amazonaws.shield#ProtectionGroupAggregationFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The aggregation setting of the protection groups that you want to retrieve.  </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with a specific pattern, aggregation, or resource type. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>"
+      }
+    },
     "com.amazonaws.shield#Integer": {
-      "type": "integer"
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.shield#InternalErrorException": {
       "type": "structure",
@@ -1634,7 +2545,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Exception that indicates that a problem occurred with the service infrastructure. You\n         can retry the request.</p>",
+        "smithy.api#documentation": "<p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -1658,7 +2569,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>",
+        "smithy.api#documentation": "<p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1710,6 +2621,7 @@
         "Max": {
           "target": "com.amazonaws.shield#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>"
           }
         }
@@ -1719,7 +2631,10 @@
       }
     },
     "com.amazonaws.shield#LimitNumber": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.shield#LimitType": {
       "type": "string"
@@ -1745,6 +2660,7 @@
         "Limit": {
           "target": "com.amazonaws.shield#LimitNumber",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The threshold that would be exceeded.</p>"
           }
         }
@@ -1789,31 +2705,31 @@
         "ResourceArns": {
           "target": "com.amazonaws.shield#ResourceArnFilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left\n         blank, all applicable resources for this account will be included.</p>"
+            "smithy.api#documentation": "<p>The ARNs (Amazon Resource Names) of the resources that were attacked. If you leave this\n         blank, all applicable resources for this account will be included.</p>"
           }
         },
         "StartTime": {
           "target": "com.amazonaws.shield#TimeRange",
           "traits": {
-            "smithy.api#documentation": "<p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
+            "smithy.api#documentation": "<p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type,\n           but you can provide the time in any valid <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp\">timestamp format</a> setting.  </p>"
           }
         },
         "EndTime": {
           "target": "com.amazonaws.shield#TimeRange",
           "traits": {
-            "smithy.api#documentation": "<p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp format</a>  is allowed.  </p>"
+            "smithy.api#documentation": "<p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The request syntax listing for this call indicates a <code>number</code> type,\n           but you can provide the time in any valid <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp\">timestamp format</a> setting.  </p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> \n         <p>On your first call to a list operation, leave this setting empty.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.shield#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank, \n         Shield Advanced returns the first 20 results.</p>\n         <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects\n         than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value\n         in the response.</p> \n         <p>The default setting is 20.</p>"
           }
         }
       }
@@ -1830,7 +2746,7 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to indicate that there is more data available.\n         If not null, more results are available. Pass this value for the <code>NextMarker</code>\n         parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of\n         items.</p>\n         <p>Shield Advanced might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more attack summary objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -1855,7 +2771,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the <a>ProtectionGroup</a> objects for the account.</p>",
+        "smithy.api#documentation": "<p>Retrieves <a>ProtectionGroup</a> objects for the account. You can retrieve all protection groups or you can provide \n       filtering criteria and retrieve just the subset of protection groups that match the criteria. </p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1869,13 +2785,19 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call.</p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> \n         <p>On your first call to a list operation, leave this setting empty.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.shield#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of <a>ProtectionGroup</a> objects to return. If you leave this blank, \n         Shield Advanced returns the first 20 results.</p>\n         <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects\n         than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value\n         in the response.</p> \n         <p>The default setting is 20.</p>"
+          }
+        },
+        "InclusionFilters": {
+          "target": "com.amazonaws.shield#InclusionProtectionGroupFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with specific pattern or aggregation settings. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>"
           }
         }
       }
@@ -1893,7 +2815,7 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -1918,7 +2840,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all <a>Protection</a> objects for the account.</p>",
+        "smithy.api#documentation": "<p>Retrieves <a>Protection</a> objects for the account. You can retrieve all protections or you can provide \n       filtering criteria and retrieve just the subset of protections that match the criteria. </p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -1933,13 +2855,19 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> \n         <p>On your first call to a list operation, leave this setting empty.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.shield#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of <a>Protection</a> objects to return. If you leave this blank, \n         Shield Advanced returns the first 20 results.</p>\n         <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects\n         than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value\n         in the response.</p> \n         <p>The default setting is 20.</p>"
+          }
+        },
+        "InclusionFilters": {
+          "target": "com.amazonaws.shield#InclusionProtectionFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>"
           }
         }
       }
@@ -1956,7 +2884,7 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>\n         <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -2002,13 +2930,13 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>The next token value from a previous call to <code>ListResourcesInProtectionGroup</code>. Pass null if this is the first call.</p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p> \n         <p>On your first call to a list operation, leave this setting empty.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.shield#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of resource ARN objects to return. If you leave this blank, \n         Shield Advanced returns the first 20 results.</p>\n         <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>"
+            "smithy.api#documentation": "<p>The greatest number of objects that you want Shield Advanced to return to the list request. Shield Advanced might return fewer objects\n         than you indicate in this setting, even if more objects are available. If there are more objects remaining, Shield Advanced will always also return a <code>NextToken</code> value\n         in the response.</p> \n         <p>The default setting is 20.</p>"
           }
         }
       }
@@ -2026,7 +2954,7 @@
         "NextToken": {
           "target": "com.amazonaws.shield#Token",
           "traits": {
-            "smithy.api#documentation": "<p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>"
+            "smithy.api#documentation": "<p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,\n           Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and\n           providing the token that was returned by the prior call in your request. </p>\n           <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>\n           setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>\n           <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>"
           }
         }
       }
@@ -2112,12 +3040,14 @@
       }
     },
     "com.amazonaws.shield#Long": {
-      "type": "long"
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
     },
     "com.amazonaws.shield#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 0,
           "max": 10000
@@ -2152,7 +3082,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The ARN of the role that you specifed does not exist.</p>",
+        "smithy.api#documentation": "<p>The ARN of the role that you specified does not exist.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -2228,6 +3158,18 @@
         ]
       }
     },
+    "com.amazonaws.shield#ProtectedResourceTypeFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.shield#ProtectedResourceType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.shield#Protection": {
       "type": "structure",
       "members": {
@@ -2252,13 +3194,19 @@
         "HealthCheckIds": {
           "target": "com.amazonaws.shield#HealthCheckIds",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>"
+            "smithy.api#documentation": "<p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>"
           }
         },
         "ProtectionArn": {
           "target": "com.amazonaws.shield#ResourceArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the protection.</p>"
+          }
+        },
+        "ApplicationLayerAutomaticResponseConfiguration": {
+          "target": "com.amazonaws.shield#ApplicationLayerAutomaticResponseConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The automatic application layer DDoS mitigation settings for the protection.\n       This configuration determines whether Shield Advanced automatically\n       manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks. </p>"
           }
         }
       },
@@ -2286,20 +3234,20 @@
         "Pattern": {
           "target": "com.amazonaws.shield#ProtectionGroupPattern",
           "traits": {
-            "smithy.api#documentation": "<p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>",
+            "smithy.api#documentation": "<p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource ARNs (Amazon Resource Names), or include all resources of a specified resource type.</p>",
             "smithy.api#required": {}
           }
         },
         "ResourceType": {
           "target": "com.amazonaws.shield#ProtectedResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. \n           You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>"
+            "smithy.api#documentation": "<p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.\n           You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>"
           }
         },
         "Members": {
           "target": "com.amazonaws.shield#ProtectionGroupMembers",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>",
+            "smithy.api#documentation": "<p>The ARNs (Amazon Resource Names) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>",
             "smithy.api#required": {}
           }
         },
@@ -2333,12 +3281,25 @@
         ]
       }
     },
+    "com.amazonaws.shield#ProtectionGroupAggregationFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.shield#ProtectionGroupAggregation"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.shield#ProtectionGroupArbitraryPatternLimits": {
       "type": "structure",
       "members": {
         "MaxMembers": {
           "target": "com.amazonaws.shield#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of resources you can specify for a single arbitrary pattern in a protection group.</p>",
             "smithy.api#required": {}
           }
@@ -2358,12 +3319,25 @@
         "smithy.api#pattern": "^[a-zA-Z0-9\\\\-]*$"
       }
     },
+    "com.amazonaws.shield#ProtectionGroupIdFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.shield#ProtectionGroupId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.shield#ProtectionGroupLimits": {
       "type": "structure",
       "members": {
         "MaxProtectionGroups": {
           "target": "com.amazonaws.shield#Long",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of protection groups that you can have at one time. </p>",
             "smithy.api#required": {}
           }
@@ -2411,6 +3385,18 @@
         ]
       }
     },
+    "com.amazonaws.shield#ProtectionGroupPatternFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.shield#ProtectionGroupPattern"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.shield#ProtectionGroupPatternTypeLimits": {
       "type": "structure",
       "members": {
@@ -2436,7 +3422,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 1,
+          "min": 36,
           "max": 36
         },
         "smithy.api#pattern": "^[a-zA-Z0-9\\\\-]*$"
@@ -2465,6 +3451,18 @@
           "max": 128
         },
         "smithy.api#pattern": "^[ a-zA-Z0-9_\\\\.\\\\-]*$"
+      }
+    },
+    "com.amazonaws.shield#ProtectionNameFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.shield#ProtectionName"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
       }
     },
     "com.amazonaws.shield#Protections": {
@@ -2507,6 +3505,18 @@
         "target": "com.amazonaws.shield#ResourceArn"
       }
     },
+    "com.amazonaws.shield#ResourceArnFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.shield#ResourceArn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.shield#ResourceArnList": {
       "type": "list",
       "member": {
@@ -2529,6 +3539,26 @@
       "traits": {
         "smithy.api#documentation": "<p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.shield#ResponseAction": {
+      "type": "structure",
+      "members": {
+        "Block": {
+          "target": "com.amazonaws.shield#BlockAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>\n         <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>"
+          }
+        },
+        "Count": {
+          "target": "com.amazonaws.shield#CountAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>\n         <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the\n   protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,\n   when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>"
       }
     },
     "com.amazonaws.shield#RoleArn": {
@@ -2603,7 +3633,7 @@
         "StartTime": {
           "target": "com.amazonaws.shield#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start time of the subscription, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The start time of the subscription, in Unix time in seconds. </p>"
           }
         },
         "EndTime": {
@@ -2615,6 +3645,7 @@
         "TimeCommitmentInSeconds": {
           "target": "com.amazonaws.shield#DurationInSeconds",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The length, in seconds, of the Shield Advanced subscription for the account.</p>"
           }
         },
@@ -2730,24 +3761,28 @@
         "Max": {
           "target": "com.amazonaws.shield#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum value of the counter for a specified time period.</p>"
           }
         },
         "Average": {
           "target": "com.amazonaws.shield#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The average value of the counter for a specified time period.</p>"
           }
         },
         "Sum": {
           "target": "com.amazonaws.shield#Double",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total of counter values for a specified time period.</p>"
           }
         },
         "N": {
           "target": "com.amazonaws.shield#Integer",
           "traits": {
+            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of counters for a specified time period.</p>"
           }
         },
@@ -2883,15 +3918,15 @@
       "type": "structure",
       "members": {
         "FromInclusive": {
-          "target": "com.amazonaws.shield#AttackTimestamp",
+          "target": "com.amazonaws.shield#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The start time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The start time, in Unix time in seconds. </p>"
           }
         },
         "ToExclusive": {
-          "target": "com.amazonaws.shield#AttackTimestamp",
+          "target": "com.amazonaws.shield#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The end time, in Unix time in seconds. For more information see <a href=\"http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types\">timestamp</a>.</p>"
+            "smithy.api#documentation": "<p>The end time, in Unix time in seconds. </p>"
           }
         }
       },
@@ -2990,6 +4025,58 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.shield#UpdateApplicationLayerAutomaticResponse": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.shield#UpdateApplicationLayerAutomaticResponseRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.shield#UpdateApplicationLayerAutomaticResponseResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.shield#InternalErrorException"
+        },
+        {
+          "target": "com.amazonaws.shield#InvalidOperationException"
+        },
+        {
+          "target": "com.amazonaws.shield#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.shield#OptimisticLockException"
+        },
+        {
+          "target": "com.amazonaws.shield#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates an existing Shield Advanced automatic application layer DDoS mitigation configuration for the specified resource.</p>"
+      }
+    },
+    "com.amazonaws.shield#UpdateApplicationLayerAutomaticResponseRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.shield#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN (Amazon Resource Name) of the resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Action": {
+          "target": "com.amazonaws.shield#ResponseAction",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the\n   protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature,\n   when you enable or update automatic mitigation. Shield Advanced creates the WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.shield#UpdateApplicationLayerAutomaticResponseResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.shield#UpdateEmergencyContactSettings": {
       "type": "operation",
       "input": {
@@ -3084,7 +4171,7 @@
         "ResourceType": {
           "target": "com.amazonaws.shield#ProtectedResourceType",
           "traits": {
-            "smithy.api#documentation": "<p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. \n           You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>"
+            "smithy.api#documentation": "<p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.\n           You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>"
           }
         },
         "Members": {
@@ -3125,7 +4212,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>"
+        "smithy.api#documentation": "<p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>\n         <note>\n            <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,\n              regardless of whether the payer account itself is subscribed. </p> \n         </note>"
       }
     },
     "com.amazonaws.shield#UpdateSubscriptionRequest": {

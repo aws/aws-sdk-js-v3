@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteProjectVersionCommand,
-  serializeAws_json1_1DeleteProjectVersionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteProjectVersionCommand, se_DeleteProjectVersionCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteProjectVersionCommand}.
+ */
 export interface DeleteProjectVersionCommandInput extends DeleteProjectVersionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteProjectVersionCommand}.
+ */
 export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an Amazon Rekognition Custom Labels model.  </p>
  *          <p>You can't delete a model if it is running or if it is training.
  *           To check the status of a model, use the <code>Status</code> field returned
@@ -36,13 +50,64 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * import { RekognitionClient, DeleteProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DeleteProjectVersionRequest
+ *   ProjectVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteProjectVersionResponse
+ * //   Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * // };
+ *
  * ```
  *
+ * @param DeleteProjectVersionCommandInput - {@link DeleteProjectVersionCommandInput}
+ * @returns {@link DeleteProjectVersionCommandOutput}
  * @see {@link DeleteProjectVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectVersionCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is already being used.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
+ *
+ * @example To delete an Amazon Rekognition Custom Labels model
+ * ```javascript
+ * // Deletes a version of an Amazon Rekognition Custom Labels model.
+ * const input = {
+ *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
+ * };
+ * const command = new DeleteProjectVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Status": "DELETING"
+ * }
+ * *\/
+ * // example id: to-delete-an-amazon-rekognition-custom-labels-model-1690827562055
+ * ```
  *
  */
 export class DeleteProjectVersionCommand extends $Command<
@@ -53,6 +118,18 @@ export class DeleteProjectVersionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteProjectVersionCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +145,9 @@ export class DeleteProjectVersionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteProjectVersionCommandInput, DeleteProjectVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteProjectVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +158,8 @@ export class DeleteProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +169,18 @@ export class DeleteProjectVersionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteProjectVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteProjectVersionCommand(input, context);
+    return se_DeleteProjectVersionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectVersionCommandOutput> {
-    return deserializeAws_json1_1DeleteProjectVersionCommand(output, context);
+    return de_DeleteProjectVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

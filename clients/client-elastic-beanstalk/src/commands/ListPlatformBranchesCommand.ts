@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { ListPlatformBranchesRequest, ListPlatformBranchesResult } from "../models/models_0";
-import {
-  deserializeAws_queryListPlatformBranchesCommand,
-  serializeAws_queryListPlatformBranchesCommand,
-} from "../protocols/Aws_query";
+import { de_ListPlatformBranchesCommand, se_ListPlatformBranchesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListPlatformBranchesCommand}.
+ */
 export interface ListPlatformBranchesCommandInput extends ListPlatformBranchesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListPlatformBranchesCommand}.
+ */
 export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the platform branches available for your account in an AWS Region. Provides
  *       summary information about each platform branch.</p>
  *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -32,13 +46,46 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * import { ElasticBeanstalkClient, ListPlatformBranchesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListPlatformBranchesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = { // ListPlatformBranchesRequest
+ *   Filters: [ // SearchFilters
+ *     { // SearchFilter
+ *       Attribute: "STRING_VALUE",
+ *       Operator: "STRING_VALUE",
+ *       Values: [ // SearchFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlatformBranchesCommand(input);
  * const response = await client.send(command);
+ * // { // ListPlatformBranchesResult
+ * //   PlatformBranchSummaryList: [ // PlatformBranchSummaryList
+ * //     { // PlatformBranchSummary
+ * //       PlatformName: "STRING_VALUE",
+ * //       BranchName: "STRING_VALUE",
+ * //       LifecycleState: "STRING_VALUE",
+ * //       BranchOrder: Number("int"),
+ * //       SupportedTierList: [ // SupportedTierList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListPlatformBranchesCommandInput - {@link ListPlatformBranchesCommandInput}
+ * @returns {@link ListPlatformBranchesCommandOutput}
  * @see {@link ListPlatformBranchesCommandInput} for command's `input` shape.
  * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
+ *
+ * @throws {@link ElasticBeanstalkServiceException}
+ * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
  */
 export class ListPlatformBranchesCommand extends $Command<
@@ -49,6 +96,18 @@ export class ListPlatformBranchesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListPlatformBranchesCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +123,9 @@ export class ListPlatformBranchesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListPlatformBranchesCommandInput, ListPlatformBranchesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListPlatformBranchesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +136,8 @@ export class ListPlatformBranchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlatformBranchesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPlatformBranchesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,12 +147,18 @@ export class ListPlatformBranchesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListPlatformBranchesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryListPlatformBranchesCommand(input, context);
+    return se_ListPlatformBranchesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPlatformBranchesCommandOutput> {
-    return deserializeAws_queryListPlatformBranchesCommand(output, context);
+    return de_ListPlatformBranchesCommand(output, context);
   }
 
   // Start section: command_body_extra

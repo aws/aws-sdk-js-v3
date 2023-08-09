@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { AssociateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
-import {
-  deserializeAws_json1_1AssociateVirtualInterfaceCommand,
-  serializeAws_json1_1AssociateVirtualInterfaceCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AssociateVirtualInterfaceCommand, se_AssociateVirtualInterfaceCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateVirtualInterfaceCommand}.
+ */
 export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualInterfaceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateVirtualInterfaceCommand}.
+ */
 export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
  *       connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is
  *       being migrated. If the target connection or LAG has an associated virtual interface with
@@ -38,13 +52,79 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * import { DirectConnectClient, AssociateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // AssociateVirtualInterfaceRequest
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   connectionId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
+ * // { // VirtualInterface
+ * //   ownerAccount: "STRING_VALUE",
+ * //   virtualInterfaceId: "STRING_VALUE",
+ * //   location: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
+ * //   virtualInterfaceType: "STRING_VALUE",
+ * //   virtualInterfaceName: "STRING_VALUE",
+ * //   vlan: Number("int"),
+ * //   asn: Number("int"),
+ * //   amazonSideAsn: Number("long"),
+ * //   authKey: "STRING_VALUE",
+ * //   amazonAddress: "STRING_VALUE",
+ * //   customerAddress: "STRING_VALUE",
+ * //   addressFamily: "ipv4" || "ipv6",
+ * //   virtualInterfaceState: "confirming" || "verifying" || "pending" || "available" || "down" || "deleting" || "deleted" || "rejected" || "unknown",
+ * //   customerRouterConfig: "STRING_VALUE",
+ * //   mtu: Number("int"),
+ * //   jumboFrameCapable: true || false,
+ * //   virtualGatewayId: "STRING_VALUE",
+ * //   directConnectGatewayId: "STRING_VALUE",
+ * //   routeFilterPrefixes: [ // RouteFilterPrefixList
+ * //     { // RouteFilterPrefix
+ * //       cidr: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   bgpPeers: [ // BGPPeerList
+ * //     { // BGPPeer
+ * //       bgpPeerId: "STRING_VALUE",
+ * //       asn: Number("int"),
+ * //       authKey: "STRING_VALUE",
+ * //       addressFamily: "ipv4" || "ipv6",
+ * //       amazonAddress: "STRING_VALUE",
+ * //       customerAddress: "STRING_VALUE",
+ * //       bgpPeerState: "verifying" || "pending" || "available" || "deleting" || "deleted",
+ * //       bgpStatus: "up" || "down" || "unknown",
+ * //       awsDeviceV2: "STRING_VALUE",
+ * //       awsLogicalDeviceId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   region: "STRING_VALUE",
+ * //   awsDeviceV2: "STRING_VALUE",
+ * //   awsLogicalDeviceId: "STRING_VALUE",
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   siteLinkEnabled: true || false,
+ * // };
+ *
  * ```
  *
+ * @param AssociateVirtualInterfaceCommandInput - {@link AssociateVirtualInterfaceCommandInput}
+ * @returns {@link AssociateVirtualInterfaceCommandOutput}
  * @see {@link AssociateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class AssociateVirtualInterfaceCommand extends $Command<
@@ -55,6 +135,18 @@ export class AssociateVirtualInterfaceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateVirtualInterfaceCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +162,9 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateVirtualInterfaceCommandInput, AssociateVirtualInterfaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateVirtualInterfaceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +175,8 @@ export class AssociateVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,15 +186,21 @@ export class AssociateVirtualInterfaceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateVirtualInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateVirtualInterfaceCommand(input, context);
+    return se_AssociateVirtualInterfaceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AssociateVirtualInterfaceCommand(output, context);
+    return de_AssociateVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

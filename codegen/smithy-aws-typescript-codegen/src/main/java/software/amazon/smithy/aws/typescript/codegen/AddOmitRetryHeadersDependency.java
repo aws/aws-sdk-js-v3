@@ -32,6 +32,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of(
         "ConnectParticipant", // P43593766
+        "DataBrew", // P55897945
         "IoT", // P39759657
         "Kinesis Video Signaling"
     );

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeClusterVersionsCommand,
-  serializeAws_queryDescribeClusterVersionsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeClusterVersionsCommand, se_DescribeClusterVersionsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeClusterVersionsCommand}.
+ */
 export interface DescribeClusterVersionsCommandInput extends DescribeClusterVersionsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeClusterVersionsCommand}.
+ */
 export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
  *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
  *
@@ -34,13 +48,35 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * import { RedshiftClient, DescribeClusterVersionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterVersionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = { // DescribeClusterVersionsMessage
+ *   ClusterVersion: "STRING_VALUE",
+ *   ClusterParameterGroupFamily: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeClusterVersionsCommand(input);
  * const response = await client.send(command);
+ * // { // ClusterVersionsMessage
+ * //   Marker: "STRING_VALUE",
+ * //   ClusterVersions: [ // ClusterVersionList
+ * //     { // ClusterVersion
+ * //       ClusterVersion: "STRING_VALUE",
+ * //       ClusterParameterGroupFamily: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeClusterVersionsCommandInput - {@link DescribeClusterVersionsCommandInput}
+ * @returns {@link DescribeClusterVersionsCommandOutput}
  * @see {@link DescribeClusterVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
+ *
+ * @throws {@link RedshiftServiceException}
+ * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
 export class DescribeClusterVersionsCommand extends $Command<
@@ -51,6 +87,18 @@ export class DescribeClusterVersionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeClusterVersionsCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +114,9 @@ export class DescribeClusterVersionsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeClusterVersionsCommandInput, DescribeClusterVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeClusterVersionsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +127,8 @@ export class DescribeClusterVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterVersionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ClusterVersionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +138,18 @@ export class DescribeClusterVersionsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeClusterVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeClusterVersionsCommand(input, context);
+    return se_DescribeClusterVersionsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterVersionsCommandOutput> {
-    return deserializeAws_queryDescribeClusterVersionsCommand(output, context);
+    return de_DescribeClusterVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

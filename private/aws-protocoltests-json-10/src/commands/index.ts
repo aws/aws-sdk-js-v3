@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./EmptyInputAndEmptyOutputCommand";
 export * from "./EndpointOperationCommand";
 export * from "./EndpointWithHostLabelOperationCommand";
@@ -6,4 +7,5 @@ export * from "./HostWithPathOperationCommand";
 export * from "./JsonUnionsCommand";
 export * from "./NoInputAndNoOutputCommand";
 export * from "./NoInputAndOutputCommand";
+export * from "./PutWithContentEncodingCommand";
 export * from "./SimpleScalarPropertiesCommand";

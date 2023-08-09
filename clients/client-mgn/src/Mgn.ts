@@ -1,16 +1,55 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
+import {
+  ArchiveApplicationCommand,
+  ArchiveApplicationCommandInput,
+  ArchiveApplicationCommandOutput,
+} from "./commands/ArchiveApplicationCommand";
+import { ArchiveWaveCommand, ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "./commands/ArchiveWaveCommand";
+import {
+  AssociateApplicationsCommand,
+  AssociateApplicationsCommandInput,
+  AssociateApplicationsCommandOutput,
+} from "./commands/AssociateApplicationsCommand";
+import {
+  AssociateSourceServersCommand,
+  AssociateSourceServersCommandInput,
+  AssociateSourceServersCommandOutput,
+} from "./commands/AssociateSourceServersCommand";
 import {
   ChangeServerLifeCycleStateCommand,
   ChangeServerLifeCycleStateCommandInput,
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
 import {
+  CreateApplicationCommand,
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateLaunchConfigurationTemplateCommand,
+  CreateLaunchConfigurationTemplateCommandInput,
+  CreateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
+import { CreateWaveCommand, CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
+import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
 import { DeleteJobCommand, DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import {
+  DeleteLaunchConfigurationTemplateCommand,
+  DeleteLaunchConfigurationTemplateCommandInput,
+  DeleteLaunchConfigurationTemplateCommandOutput,
+} from "./commands/DeleteLaunchConfigurationTemplateCommand";
 import {
   DeleteReplicationConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateCommandInput,
@@ -22,6 +61,12 @@ import {
   DeleteSourceServerCommandOutput,
 } from "./commands/DeleteSourceServerCommand";
 import {
+  DeleteVcenterClientCommand,
+  DeleteVcenterClientCommandInput,
+  DeleteVcenterClientCommandOutput,
+} from "./commands/DeleteVcenterClientCommand";
+import { DeleteWaveCommand, DeleteWaveCommandInput, DeleteWaveCommandOutput } from "./commands/DeleteWaveCommand";
+import {
   DescribeJobLogItemsCommand,
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
@@ -32,6 +77,11 @@ import {
   DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
 import {
+  DescribeLaunchConfigurationTemplatesCommand,
+  DescribeLaunchConfigurationTemplatesCommandInput,
+  DescribeLaunchConfigurationTemplatesCommandOutput,
+} from "./commands/DescribeLaunchConfigurationTemplatesCommand";
+import {
   DescribeReplicationConfigurationTemplatesCommand,
   DescribeReplicationConfigurationTemplatesCommandInput,
   DescribeReplicationConfigurationTemplatesCommandOutput,
@@ -41,6 +91,21 @@ import {
   DescribeSourceServersCommandInput,
   DescribeSourceServersCommandOutput,
 } from "./commands/DescribeSourceServersCommand";
+import {
+  DescribeVcenterClientsCommand,
+  DescribeVcenterClientsCommandInput,
+  DescribeVcenterClientsCommandOutput,
+} from "./commands/DescribeVcenterClientsCommand";
+import {
+  DisassociateApplicationsCommand,
+  DisassociateApplicationsCommandInput,
+  DisassociateApplicationsCommandOutput,
+} from "./commands/DisassociateApplicationsCommand";
+import {
+  DisassociateSourceServersCommand,
+  DisassociateSourceServersCommandInput,
+  DisassociateSourceServersCommandOutput,
+} from "./commands/DisassociateSourceServersCommand";
 import {
   DisconnectFromServiceCommand,
   DisconnectFromServiceCommandInput,
@@ -67,15 +132,78 @@ import {
   InitializeServiceCommandOutput,
 } from "./commands/InitializeServiceCommand";
 import {
+  ListApplicationsCommand,
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+} from "./commands/ListApplicationsCommand";
+import {
+  ListExportErrorsCommand,
+  ListExportErrorsCommandInput,
+  ListExportErrorsCommandOutput,
+} from "./commands/ListExportErrorsCommand";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import {
+  ListImportErrorsCommand,
+  ListImportErrorsCommandInput,
+  ListImportErrorsCommandOutput,
+} from "./commands/ListImportErrorsCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListManagedAccountsCommand,
+  ListManagedAccountsCommandInput,
+  ListManagedAccountsCommandOutput,
+} from "./commands/ListManagedAccountsCommand";
+import {
+  ListSourceServerActionsCommand,
+  ListSourceServerActionsCommandInput,
+  ListSourceServerActionsCommandOutput,
+} from "./commands/ListSourceServerActionsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTemplateActionsCommand,
+  ListTemplateActionsCommandInput,
+  ListTemplateActionsCommandOutput,
+} from "./commands/ListTemplateActionsCommand";
+import { ListWavesCommand, ListWavesCommandInput, ListWavesCommandOutput } from "./commands/ListWavesCommand";
+import {
   MarkAsArchivedCommand,
   MarkAsArchivedCommandInput,
   MarkAsArchivedCommandOutput,
 } from "./commands/MarkAsArchivedCommand";
+import {
+  PauseReplicationCommand,
+  PauseReplicationCommandInput,
+  PauseReplicationCommandOutput,
+} from "./commands/PauseReplicationCommand";
+import {
+  PutSourceServerActionCommand,
+  PutSourceServerActionCommandInput,
+  PutSourceServerActionCommandOutput,
+} from "./commands/PutSourceServerActionCommand";
+import {
+  PutTemplateActionCommand,
+  PutTemplateActionCommandInput,
+  PutTemplateActionCommandOutput,
+} from "./commands/PutTemplateActionCommand";
+import {
+  RemoveSourceServerActionCommand,
+  RemoveSourceServerActionCommandInput,
+  RemoveSourceServerActionCommandOutput,
+} from "./commands/RemoveSourceServerActionCommand";
+import {
+  RemoveTemplateActionCommand,
+  RemoveTemplateActionCommandInput,
+  RemoveTemplateActionCommandOutput,
+} from "./commands/RemoveTemplateActionCommand";
+import {
+  ResumeReplicationCommand,
+  ResumeReplicationCommandInput,
+  ResumeReplicationCommandOutput,
+} from "./commands/ResumeReplicationCommand";
 import {
   RetryDataReplicationCommand,
   RetryDataReplicationCommandInput,
@@ -86,7 +214,19 @@ import {
   StartCutoverCommandInput,
   StartCutoverCommandOutput,
 } from "./commands/StartCutoverCommand";
+import { StartExportCommand, StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StartReplicationCommand,
+  StartReplicationCommandInput,
+  StartReplicationCommandOutput,
+} from "./commands/StartReplicationCommand";
 import { StartTestCommand, StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
+import {
+  StopReplicationCommand,
+  StopReplicationCommandInput,
+  StopReplicationCommandOutput,
+} from "./commands/StopReplicationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateTargetInstancesCommand,
@@ -94,15 +234,35 @@ import {
   TerminateTargetInstancesCommandOutput,
 } from "./commands/TerminateTargetInstancesCommand";
 import {
+  UnarchiveApplicationCommand,
+  UnarchiveApplicationCommandInput,
+  UnarchiveApplicationCommandOutput,
+} from "./commands/UnarchiveApplicationCommand";
+import {
+  UnarchiveWaveCommand,
+  UnarchiveWaveCommandInput,
+  UnarchiveWaveCommandOutput,
+} from "./commands/UnarchiveWaveCommand";
+import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateApplicationCommand,
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
+} from "./commands/UpdateApplicationCommand";
+import {
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
 } from "./commands/UpdateLaunchConfigurationCommand";
+import {
+  UpdateLaunchConfigurationTemplateCommand,
+  UpdateLaunchConfigurationTemplateCommandInput,
+  UpdateLaunchConfigurationTemplateCommandOutput,
+} from "./commands/UpdateLaunchConfigurationTemplateCommand";
 import {
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationCommandInput,
@@ -113,793 +273,1087 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
-import { MgnClient } from "./MgnClient";
+import {
+  UpdateSourceServerReplicationTypeCommand,
+  UpdateSourceServerReplicationTypeCommandInput,
+  UpdateSourceServerReplicationTypeCommandOutput,
+} from "./commands/UpdateSourceServerReplicationTypeCommand";
+import { UpdateWaveCommand, UpdateWaveCommandInput, UpdateWaveCommandOutput } from "./commands/UpdateWaveCommand";
+import { MgnClient, MgnClientConfig } from "./MgnClient";
 
-/**
- * <p>The Application Migration Service service.</p>
- */
-export class Mgn extends MgnClient {
+const commands = {
+  ArchiveApplicationCommand,
+  ArchiveWaveCommand,
+  AssociateApplicationsCommand,
+  AssociateSourceServersCommand,
+  ChangeServerLifeCycleStateCommand,
+  CreateApplicationCommand,
+  CreateLaunchConfigurationTemplateCommand,
+  CreateReplicationConfigurationTemplateCommand,
+  CreateWaveCommand,
+  DeleteApplicationCommand,
+  DeleteJobCommand,
+  DeleteLaunchConfigurationTemplateCommand,
+  DeleteReplicationConfigurationTemplateCommand,
+  DeleteSourceServerCommand,
+  DeleteVcenterClientCommand,
+  DeleteWaveCommand,
+  DescribeJobLogItemsCommand,
+  DescribeJobsCommand,
+  DescribeLaunchConfigurationTemplatesCommand,
+  DescribeReplicationConfigurationTemplatesCommand,
+  DescribeSourceServersCommand,
+  DescribeVcenterClientsCommand,
+  DisassociateApplicationsCommand,
+  DisassociateSourceServersCommand,
+  DisconnectFromServiceCommand,
+  FinalizeCutoverCommand,
+  GetLaunchConfigurationCommand,
+  GetReplicationConfigurationCommand,
+  InitializeServiceCommand,
+  ListApplicationsCommand,
+  ListExportErrorsCommand,
+  ListExportsCommand,
+  ListImportErrorsCommand,
+  ListImportsCommand,
+  ListManagedAccountsCommand,
+  ListSourceServerActionsCommand,
+  ListTagsForResourceCommand,
+  ListTemplateActionsCommand,
+  ListWavesCommand,
+  MarkAsArchivedCommand,
+  PauseReplicationCommand,
+  PutSourceServerActionCommand,
+  PutTemplateActionCommand,
+  RemoveSourceServerActionCommand,
+  RemoveTemplateActionCommand,
+  ResumeReplicationCommand,
+  RetryDataReplicationCommand,
+  StartCutoverCommand,
+  StartExportCommand,
+  StartImportCommand,
+  StartReplicationCommand,
+  StartTestCommand,
+  StopReplicationCommand,
+  TagResourceCommand,
+  TerminateTargetInstancesCommand,
+  UnarchiveApplicationCommand,
+  UnarchiveWaveCommand,
+  UntagResourceCommand,
+  UpdateApplicationCommand,
+  UpdateLaunchConfigurationCommand,
+  UpdateLaunchConfigurationTemplateCommand,
+  UpdateReplicationConfigurationCommand,
+  UpdateReplicationConfigurationTemplateCommand,
+  UpdateSourceServerReplicationTypeCommand,
+  UpdateWaveCommand,
+};
+
+export interface Mgn {
   /**
-   * <p>Allows the user to set the SourceServer.LifeCycle.state property for specific Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER. This command only works if the Source Server is already launchable (dataReplicationInfo.lagDuration is not null.)</p>
+   * @see {@link ArchiveApplicationCommand}
    */
-  public changeServerLifeCycleState(
+  archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ArchiveApplicationCommandOutput>;
+  archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    cb: (err: any, data?: ArchiveApplicationCommandOutput) => void
+  ): void;
+  archiveApplication(
+    args: ArchiveApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ArchiveApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ArchiveWaveCommand}
+   */
+  archiveWave(args: ArchiveWaveCommandInput, options?: __HttpHandlerOptions): Promise<ArchiveWaveCommandOutput>;
+  archiveWave(args: ArchiveWaveCommandInput, cb: (err: any, data?: ArchiveWaveCommandOutput) => void): void;
+  archiveWave(
+    args: ArchiveWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ArchiveWaveCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateApplicationsCommand}
+   */
+  associateApplications(
+    args: AssociateApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApplicationsCommandOutput>;
+  associateApplications(
+    args: AssociateApplicationsCommandInput,
+    cb: (err: any, data?: AssociateApplicationsCommandOutput) => void
+  ): void;
+  associateApplications(
+    args: AssociateApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSourceServersCommand}
+   */
+  associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceServersCommandOutput>;
+  associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    cb: (err: any, data?: AssociateSourceServersCommandOutput) => void
+  ): void;
+  associateSourceServers(
+    args: AssociateSourceServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceServersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ChangeServerLifeCycleStateCommand}
+   */
+  changeServerLifeCycleState(
     args: ChangeServerLifeCycleStateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ChangeServerLifeCycleStateCommandOutput>;
-  public changeServerLifeCycleState(
+  changeServerLifeCycleState(
     args: ChangeServerLifeCycleStateCommandInput,
     cb: (err: any, data?: ChangeServerLifeCycleStateCommandOutput) => void
   ): void;
-  public changeServerLifeCycleState(
+  changeServerLifeCycleState(
     args: ChangeServerLifeCycleStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ChangeServerLifeCycleStateCommandOutput) => void
   ): void;
-  public changeServerLifeCycleState(
-    args: ChangeServerLifeCycleStateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChangeServerLifeCycleStateCommandOutput) => void),
-    cb?: (err: any, data?: ChangeServerLifeCycleStateCommandOutput) => void
-  ): Promise<ChangeServerLifeCycleStateCommandOutput> | void {
-    const command = new ChangeServerLifeCycleStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a new ReplicationConfigurationTemplate.</p>
+   * @see {@link CreateApplicationCommand}
    */
-  public createReplicationConfigurationTemplate(
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLaunchConfigurationTemplateCommand}
+   */
+  createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
+  createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  createLaunchConfigurationTemplate(
+    args: CreateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateReplicationConfigurationTemplateCommand}
+   */
+  createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateReplicationConfigurationTemplateCommandOutput>;
-  public createReplicationConfigurationTemplate(
+  createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
     cb: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public createReplicationConfigurationTemplate(
+  createReplicationConfigurationTemplate(
     args: CreateReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public createReplicationConfigurationTemplate(
-    args: CreateReplicationConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateReplicationConfigurationTemplateCommandOutput) => void
-  ): Promise<CreateReplicationConfigurationTemplateCommandOutput> | void {
-    const command = new CreateReplicationConfigurationTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single Job by ID.</p>
+   * @see {@link CreateWaveCommand}
    */
-  public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
-  public deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
-  public deleteJob(
+  createWave(args: CreateWaveCommandInput, options?: __HttpHandlerOptions): Promise<CreateWaveCommandOutput>;
+  createWave(args: CreateWaveCommandInput, cb: (err: any, data?: CreateWaveCommandOutput) => void): void;
+  createWave(
+    args: CreateWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWaveCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteJobCommand}
+   */
+  deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
+  deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
+  deleteJob(
     args: DeleteJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
   ): void;
-  public deleteJob(
-    args: DeleteJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJobCommandOutput) => void
-  ): Promise<DeleteJobCommandOutput> | void {
-    const command = new DeleteJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single Replication Configuration Template by ID</p>
+   * @see {@link DeleteLaunchConfigurationTemplateCommand}
    */
-  public deleteReplicationConfigurationTemplate(
+  deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput>;
+  deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  deleteLaunchConfigurationTemplate(
+    args: DeleteLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteReplicationConfigurationTemplateCommand}
+   */
+  deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteReplicationConfigurationTemplateCommandOutput>;
-  public deleteReplicationConfigurationTemplate(
+  deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
     cb: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public deleteReplicationConfigurationTemplate(
+  deleteReplicationConfigurationTemplate(
     args: DeleteReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public deleteReplicationConfigurationTemplate(
-    args: DeleteReplicationConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteReplicationConfigurationTemplateCommandOutput) => void
-  ): Promise<DeleteReplicationConfigurationTemplateCommandOutput> | void {
-    const command = new DeleteReplicationConfigurationTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a single source server by ID.</p>
+   * @see {@link DeleteSourceServerCommand}
    */
-  public deleteSourceServer(
+  deleteSourceServer(
     args: DeleteSourceServerCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteSourceServerCommandOutput>;
-  public deleteSourceServer(
+  deleteSourceServer(
     args: DeleteSourceServerCommandInput,
     cb: (err: any, data?: DeleteSourceServerCommandOutput) => void
   ): void;
-  public deleteSourceServer(
+  deleteSourceServer(
     args: DeleteSourceServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSourceServerCommandOutput) => void
   ): void;
-  public deleteSourceServer(
-    args: DeleteSourceServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSourceServerCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSourceServerCommandOutput) => void
-  ): Promise<DeleteSourceServerCommandOutput> | void {
-    const command = new DeleteSourceServerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves detailed Job log with paging.</p>
+   * @see {@link DeleteVcenterClientCommand}
    */
-  public describeJobLogItems(
+  deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVcenterClientCommandOutput>;
+  deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    cb: (err: any, data?: DeleteVcenterClientCommandOutput) => void
+  ): void;
+  deleteVcenterClient(
+    args: DeleteVcenterClientCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVcenterClientCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWaveCommand}
+   */
+  deleteWave(args: DeleteWaveCommandInput, options?: __HttpHandlerOptions): Promise<DeleteWaveCommandOutput>;
+  deleteWave(args: DeleteWaveCommandInput, cb: (err: any, data?: DeleteWaveCommandOutput) => void): void;
+  deleteWave(
+    args: DeleteWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWaveCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeJobLogItemsCommand}
+   */
+  describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeJobLogItemsCommandOutput>;
-  public describeJobLogItems(
+  describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
     cb: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
   ): void;
-  public describeJobLogItems(
+  describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
   ): void;
-  public describeJobLogItems(
-    args: DescribeJobLogItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobLogItemsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobLogItemsCommandOutput) => void
-  ): Promise<DescribeJobLogItemsCommandOutput> | void {
-    const command = new DescribeJobLogItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normaly created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
+   * @see {@link DescribeJobsCommand}
    */
-  public describeJobs(
-    args: DescribeJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeJobsCommandOutput>;
-  public describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
-  public describeJobs(
+  describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
+  describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
+  describeJobs(
     args: DescribeJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeJobsCommandOutput) => void
   ): void;
-  public describeJobs(
-    args: DescribeJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobsCommandOutput) => void
-  ): Promise<DescribeJobsCommandOutput> | void {
-    const command = new DescribeJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
+   * @see {@link DescribeLaunchConfigurationTemplatesCommand}
    */
-  public describeReplicationConfigurationTemplates(
+  describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
+  describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+  describeLaunchConfigurationTemplates(
+    args: DescribeLaunchConfigurationTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLaunchConfigurationTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeReplicationConfigurationTemplatesCommand}
+   */
+  describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput>;
-  public describeReplicationConfigurationTemplates(
+  describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     cb: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
   ): void;
-  public describeReplicationConfigurationTemplates(
+  describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
   ): void;
-  public describeReplicationConfigurationTemplates(
-    args: DescribeReplicationConfigurationTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReplicationConfigurationTemplatesCommandOutput) => void
-  ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> | void {
-    const command = new DescribeReplicationConfigurationTemplatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves all SourceServers or multiple SourceServers by ID.</p>
+   * @see {@link DescribeSourceServersCommand}
    */
-  public describeSourceServers(
+  describeSourceServers(
     args: DescribeSourceServersCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeSourceServersCommandOutput>;
-  public describeSourceServers(
+  describeSourceServers(
     args: DescribeSourceServersCommandInput,
     cb: (err: any, data?: DescribeSourceServersCommandOutput) => void
   ): void;
-  public describeSourceServers(
+  describeSourceServers(
     args: DescribeSourceServersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSourceServersCommandOutput) => void
   ): void;
-  public describeSourceServers(
-    args: DescribeSourceServersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSourceServersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSourceServersCommandOutput) => void
-  ): Promise<DescribeSourceServersCommandOutput> | void {
-    const command = new DescribeSourceServersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communciating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be nullified.</p>
+   * @see {@link DescribeVcenterClientsCommand}
    */
-  public disconnectFromService(
+  describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVcenterClientsCommandOutput>;
+  describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    cb: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
+  ): void;
+  describeVcenterClients(
+    args: DescribeVcenterClientsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVcenterClientsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateApplicationsCommand}
+   */
+  disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApplicationsCommandOutput>;
+  disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    cb: (err: any, data?: DisassociateApplicationsCommandOutput) => void
+  ): void;
+  disassociateApplications(
+    args: DisassociateApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateSourceServersCommand}
+   */
+  disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSourceServersCommandOutput>;
+  disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    cb: (err: any, data?: DisassociateSourceServersCommandOutput) => void
+  ): void;
+  disassociateSourceServers(
+    args: DisassociateSourceServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSourceServersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisconnectFromServiceCommand}
+   */
+  disconnectFromService(
     args: DisconnectFromServiceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DisconnectFromServiceCommandOutput>;
-  public disconnectFromService(
+  disconnectFromService(
     args: DisconnectFromServiceCommandInput,
     cb: (err: any, data?: DisconnectFromServiceCommandOutput) => void
   ): void;
-  public disconnectFromService(
+  disconnectFromService(
     args: DisconnectFromServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisconnectFromServiceCommandOutput) => void
   ): void;
-  public disconnectFromService(
-    args: DisconnectFromServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisconnectFromServiceCommandOutput) => void),
-    cb?: (err: any, data?: DisconnectFromServiceCommandOutput) => void
-  ): Promise<DisconnectFromServiceCommandOutput> | void {
-    const command = new DisconnectFromServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be nullified.</p>
+   * @see {@link FinalizeCutoverCommand}
    */
-  public finalizeCutover(
+  finalizeCutover(
     args: FinalizeCutoverCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<FinalizeCutoverCommandOutput>;
-  public finalizeCutover(
-    args: FinalizeCutoverCommandInput,
-    cb: (err: any, data?: FinalizeCutoverCommandOutput) => void
-  ): void;
-  public finalizeCutover(
+  finalizeCutover(args: FinalizeCutoverCommandInput, cb: (err: any, data?: FinalizeCutoverCommandOutput) => void): void;
+  finalizeCutover(
     args: FinalizeCutoverCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: FinalizeCutoverCommandOutput) => void
   ): void;
-  public finalizeCutover(
-    args: FinalizeCutoverCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FinalizeCutoverCommandOutput) => void),
-    cb?: (err: any, data?: FinalizeCutoverCommandOutput) => void
-  ): Promise<FinalizeCutoverCommandOutput> | void {
-    const command = new FinalizeCutoverCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all LaunchConfigurations available, filtered by Source Server IDs.</p>
+   * @see {@link GetLaunchConfigurationCommand}
    */
-  public getLaunchConfiguration(
+  getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetLaunchConfigurationCommandOutput>;
-  public getLaunchConfiguration(
+  getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
     cb: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
   ): void;
-  public getLaunchConfiguration(
+  getLaunchConfiguration(
     args: GetLaunchConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
   ): void;
-  public getLaunchConfiguration(
-    args: GetLaunchConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLaunchConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetLaunchConfigurationCommandOutput) => void
-  ): Promise<GetLaunchConfigurationCommandOutput> | void {
-    const command = new GetLaunchConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all ReplicationConfigurations, filtered by Source Server ID.</p>
+   * @see {@link GetReplicationConfigurationCommand}
    */
-  public getReplicationConfiguration(
+  getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetReplicationConfigurationCommandOutput>;
-  public getReplicationConfiguration(
+  getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
     cb: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
   ): void;
-  public getReplicationConfiguration(
+  getReplicationConfiguration(
     args: GetReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
   ): void;
-  public getReplicationConfiguration(
-    args: GetReplicationConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReplicationConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetReplicationConfigurationCommandOutput) => void
-  ): Promise<GetReplicationConfigurationCommandOutput> | void {
-    const command = new GetReplicationConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Initialize Application Migration Service.</p>
+   * @see {@link InitializeServiceCommand}
    */
-  public initializeService(
+  initializeService(
     args: InitializeServiceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<InitializeServiceCommandOutput>;
-  public initializeService(
+  initializeService(
     args: InitializeServiceCommandInput,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
   ): void;
-  public initializeService(
+  initializeService(
     args: InitializeServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InitializeServiceCommandOutput) => void
   ): void;
-  public initializeService(
-    args: InitializeServiceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitializeServiceCommandOutput) => void),
-    cb?: (err: any, data?: InitializeServiceCommandOutput) => void
-  ): Promise<InitializeServiceCommandOutput> | void {
-    const command = new InitializeServiceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>List all tags for your Application Migration Service resources.</p>
+   * @see {@link ListApplicationsCommand}
    */
-  public listTagsForResource(
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExportErrorsCommand}
+   */
+  listExportErrors(
+    args: ListExportErrorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportErrorsCommandOutput>;
+  listExportErrors(
+    args: ListExportErrorsCommandInput,
+    cb: (err: any, data?: ListExportErrorsCommandOutput) => void
+  ): void;
+  listExportErrors(
+    args: ListExportErrorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportErrorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExportsCommand}
+   */
+  listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
+  listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  listExports(
+    args: ListExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListImportErrorsCommand}
+   */
+  listImportErrors(
+    args: ListImportErrorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportErrorsCommandOutput>;
+  listImportErrors(
+    args: ListImportErrorsCommandInput,
+    cb: (err: any, data?: ListImportErrorsCommandOutput) => void
+  ): void;
+  listImportErrors(
+    args: ListImportErrorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportErrorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListImportsCommand}
+   */
+  listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListManagedAccountsCommand}
+   */
+  listManagedAccounts(
+    args: ListManagedAccountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedAccountsCommandOutput>;
+  listManagedAccounts(
+    args: ListManagedAccountsCommandInput,
+    cb: (err: any, data?: ListManagedAccountsCommandOutput) => void
+  ): void;
+  listManagedAccounts(
+    args: ListManagedAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSourceServerActionsCommand}
+   */
+  listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSourceServerActionsCommandOutput>;
+  listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    cb: (err: any, data?: ListSourceServerActionsCommandOutput) => void
+  ): void;
+  listSourceServerActions(
+    args: ListSourceServerActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSourceServerActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle.state which equals DISCONNECTED or CUTOVER.</p>
+   * @see {@link ListTemplateActionsCommand}
    */
-  public markAsArchived(
+  listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateActionsCommandOutput>;
+  listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    cb: (err: any, data?: ListTemplateActionsCommandOutput) => void
+  ): void;
+  listTemplateActions(
+    args: ListTemplateActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWavesCommand}
+   */
+  listWaves(args: ListWavesCommandInput, options?: __HttpHandlerOptions): Promise<ListWavesCommandOutput>;
+  listWaves(args: ListWavesCommandInput, cb: (err: any, data?: ListWavesCommandOutput) => void): void;
+  listWaves(
+    args: ListWavesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWavesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link MarkAsArchivedCommand}
+   */
+  markAsArchived(
     args: MarkAsArchivedCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<MarkAsArchivedCommandOutput>;
-  public markAsArchived(
-    args: MarkAsArchivedCommandInput,
-    cb: (err: any, data?: MarkAsArchivedCommandOutput) => void
-  ): void;
-  public markAsArchived(
+  markAsArchived(args: MarkAsArchivedCommandInput, cb: (err: any, data?: MarkAsArchivedCommandOutput) => void): void;
+  markAsArchived(
     args: MarkAsArchivedCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: MarkAsArchivedCommandOutput) => void
   ): void;
-  public markAsArchived(
-    args: MarkAsArchivedCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MarkAsArchivedCommandOutput) => void),
-    cb?: (err: any, data?: MarkAsArchivedCommandOutput) => void
-  ): Promise<MarkAsArchivedCommandOutput> | void {
-    const command = new MarkAsArchivedCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for specified SourceServer IDs, regardless of when the previous initiation started. This command will not work if the SourceServer is not stalled or is in a DISCONNECTED or STOPPED state.</p>
+   * @see {@link PauseReplicationCommand}
    */
-  public retryDataReplication(
+  pauseReplication(
+    args: PauseReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PauseReplicationCommandOutput>;
+  pauseReplication(
+    args: PauseReplicationCommandInput,
+    cb: (err: any, data?: PauseReplicationCommandOutput) => void
+  ): void;
+  pauseReplication(
+    args: PauseReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PauseReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSourceServerActionCommand}
+   */
+  putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSourceServerActionCommandOutput>;
+  putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    cb: (err: any, data?: PutSourceServerActionCommandOutput) => void
+  ): void;
+  putSourceServerAction(
+    args: PutSourceServerActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSourceServerActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTemplateActionCommand}
+   */
+  putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTemplateActionCommandOutput>;
+  putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    cb: (err: any, data?: PutTemplateActionCommandOutput) => void
+  ): void;
+  putTemplateAction(
+    args: PutTemplateActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTemplateActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveSourceServerActionCommand}
+   */
+  removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveSourceServerActionCommandOutput>;
+  removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    cb: (err: any, data?: RemoveSourceServerActionCommandOutput) => void
+  ): void;
+  removeSourceServerAction(
+    args: RemoveSourceServerActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveSourceServerActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveTemplateActionCommand}
+   */
+  removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTemplateActionCommandOutput>;
+  removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    cb: (err: any, data?: RemoveTemplateActionCommandOutput) => void
+  ): void;
+  removeTemplateAction(
+    args: RemoveTemplateActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTemplateActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumeReplicationCommand}
+   */
+  resumeReplication(
+    args: ResumeReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResumeReplicationCommandOutput>;
+  resumeReplication(
+    args: ResumeReplicationCommandInput,
+    cb: (err: any, data?: ResumeReplicationCommandOutput) => void
+  ): void;
+  resumeReplication(
+    args: ResumeReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RetryDataReplicationCommand}
+   */
+  retryDataReplication(
     args: RetryDataReplicationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RetryDataReplicationCommandOutput>;
-  public retryDataReplication(
+  retryDataReplication(
     args: RetryDataReplicationCommandInput,
     cb: (err: any, data?: RetryDataReplicationCommandOutput) => void
   ): void;
-  public retryDataReplication(
+  retryDataReplication(
     args: RetryDataReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetryDataReplicationCommandOutput) => void
   ): void;
-  public retryDataReplication(
-    args: RetryDataReplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetryDataReplicationCommandOutput) => void),
-    cb?: (err: any, data?: RetryDataReplicationCommandOutput) => void
-  ): Promise<RetryDataReplicationCommandOutput> | void {
-    const command = new RetryDataReplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
+   * @see {@link StartCutoverCommand}
    */
-  public startCutover(
-    args: StartCutoverCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartCutoverCommandOutput>;
-  public startCutover(args: StartCutoverCommandInput, cb: (err: any, data?: StartCutoverCommandOutput) => void): void;
-  public startCutover(
+  startCutover(args: StartCutoverCommandInput, options?: __HttpHandlerOptions): Promise<StartCutoverCommandOutput>;
+  startCutover(args: StartCutoverCommandInput, cb: (err: any, data?: StartCutoverCommandOutput) => void): void;
+  startCutover(
     args: StartCutoverCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartCutoverCommandOutput) => void
   ): void;
-  public startCutover(
-    args: StartCutoverCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCutoverCommandOutput) => void),
-    cb?: (err: any, data?: StartCutoverCommandOutput) => void
-  ): Promise<StartCutoverCommandOutput> | void {
-    const command = new StartCutoverCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
+   * @see {@link StartExportCommand}
    */
-  public startTest(args: StartTestCommandInput, options?: __HttpHandlerOptions): Promise<StartTestCommandOutput>;
-  public startTest(args: StartTestCommandInput, cb: (err: any, data?: StartTestCommandOutput) => void): void;
-  public startTest(
+  startExport(args: StartExportCommandInput, options?: __HttpHandlerOptions): Promise<StartExportCommandOutput>;
+  startExport(args: StartExportCommandInput, cb: (err: any, data?: StartExportCommandOutput) => void): void;
+  startExport(
+    args: StartExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartImportCommand}
+   */
+  startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  startImport(
+    args: StartImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartReplicationCommand}
+   */
+  startReplication(
+    args: StartReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReplicationCommandOutput>;
+  startReplication(
+    args: StartReplicationCommandInput,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+  startReplication(
+    args: StartReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTestCommand}
+   */
+  startTest(args: StartTestCommandInput, options?: __HttpHandlerOptions): Promise<StartTestCommandOutput>;
+  startTest(args: StartTestCommandInput, cb: (err: any, data?: StartTestCommandOutput) => void): void;
+  startTest(
     args: StartTestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTestCommandOutput) => void
   ): void;
-  public startTest(
-    args: StartTestCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTestCommandOutput) => void),
-    cb?: (err: any, data?: StartTestCommandOutput) => void
-  ): Promise<StartTestCommandOutput> | void {
-    const command = new StartTestCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Adds or overwrites only the specified tags for the specified Application Migration Service resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value.</p>
+   * @see {@link StopReplicationCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  stopReplication(
+    args: StopReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopReplicationCommandOutput>;
+  stopReplication(args: StopReplicationCommandInput, cb: (err: any, data?: StopReplicationCommandOutput) => void): void;
+  stopReplication(
+    args: StopReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Starts a job that terminates specific launched EC2 Test and Cutover instances. This command will not work for any Source Server with a lifecycle.state of TESTING, CUTTING_OVER, or CUTOVER.</p>
+   * @see {@link TerminateTargetInstancesCommand}
    */
-  public terminateTargetInstances(
+  terminateTargetInstances(
     args: TerminateTargetInstancesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<TerminateTargetInstancesCommandOutput>;
-  public terminateTargetInstances(
+  terminateTargetInstances(
     args: TerminateTargetInstancesCommandInput,
     cb: (err: any, data?: TerminateTargetInstancesCommandOutput) => void
   ): void;
-  public terminateTargetInstances(
+  terminateTargetInstances(
     args: TerminateTargetInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TerminateTargetInstancesCommandOutput) => void
   ): void;
-  public terminateTargetInstances(
-    args: TerminateTargetInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateTargetInstancesCommandOutput) => void),
-    cb?: (err: any, data?: TerminateTargetInstancesCommandOutput) => void
-  ): Promise<TerminateTargetInstancesCommandOutput> | void {
-    const command = new TerminateTargetInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified set of tags from the specified set of Application Migration Service resources.</p>
+   * @see {@link UnarchiveApplicationCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
+  unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UnarchiveApplicationCommandOutput>;
+  unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
+    cb: (err: any, data?: UnarchiveApplicationCommandOutput) => void
   ): void;
-  public untagResource(
+  unarchiveApplication(
+    args: UnarchiveApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnarchiveApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UnarchiveWaveCommand}
+   */
+  unarchiveWave(args: UnarchiveWaveCommandInput, options?: __HttpHandlerOptions): Promise<UnarchiveWaveCommandOutput>;
+  unarchiveWave(args: UnarchiveWaveCommandInput, cb: (err: any, data?: UnarchiveWaveCommandOutput) => void): void;
+  unarchiveWave(
+    args: UnarchiveWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnarchiveWaveCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
+   * @see {@link UpdateApplicationCommand}
    */
-  public updateLaunchConfiguration(
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationCommandOutput>;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+  updateApplication(
+    args: UpdateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLaunchConfigurationCommand}
+   */
+  updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateLaunchConfigurationCommandOutput>;
-  public updateLaunchConfiguration(
+  updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
     cb: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
   ): void;
-  public updateLaunchConfiguration(
+  updateLaunchConfiguration(
     args: UpdateLaunchConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
   ): void;
-  public updateLaunchConfiguration(
-    args: UpdateLaunchConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLaunchConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLaunchConfigurationCommandOutput) => void
-  ): Promise<UpdateLaunchConfigurationCommandOutput> | void {
-    const command = new UpdateLaunchConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
+   * @see {@link UpdateLaunchConfigurationTemplateCommand}
    */
-  public updateReplicationConfiguration(
+  updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLaunchConfigurationTemplateCommandOutput>;
+  updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+  updateLaunchConfigurationTemplate(
+    args: UpdateLaunchConfigurationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReplicationConfigurationCommand}
+   */
+  updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateReplicationConfigurationCommandOutput>;
-  public updateReplicationConfiguration(
+  updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
     cb: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
   ): void;
-  public updateReplicationConfiguration(
+  updateReplicationConfiguration(
     args: UpdateReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
   ): void;
-  public updateReplicationConfiguration(
-    args: UpdateReplicationConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReplicationConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateReplicationConfigurationCommandOutput) => void
-  ): Promise<UpdateReplicationConfigurationCommandOutput> | void {
-    const command = new UpdateReplicationConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>
+   * @see {@link UpdateReplicationConfigurationTemplateCommand}
    */
-  public updateReplicationConfigurationTemplate(
+  updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateReplicationConfigurationTemplateCommandOutput>;
-  public updateReplicationConfigurationTemplate(
+  updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public updateReplicationConfigurationTemplate(
+  updateReplicationConfigurationTemplate(
     args: UpdateReplicationConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
   ): void;
-  public updateReplicationConfigurationTemplate(
-    args: UpdateReplicationConfigurationTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateReplicationConfigurationTemplateCommandOutput) => void
-  ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> | void {
-    const command = new UpdateReplicationConfigurationTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
+
+  /**
+   * @see {@link UpdateSourceServerReplicationTypeCommand}
+   */
+  updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSourceServerReplicationTypeCommandOutput>;
+  updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    cb: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
+  ): void;
+  updateSourceServerReplicationType(
+    args: UpdateSourceServerReplicationTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSourceServerReplicationTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWaveCommand}
+   */
+  updateWave(args: UpdateWaveCommandInput, options?: __HttpHandlerOptions): Promise<UpdateWaveCommandOutput>;
+  updateWave(args: UpdateWaveCommandInput, cb: (err: any, data?: UpdateWaveCommandOutput) => void): void;
+  updateWave(
+    args: UpdateWaveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWaveCommandOutput) => void
+  ): void;
 }
+
+/**
+ * @public
+ * <p>The Application Migration Service service.</p>
+ */
+export class Mgn extends MgnClient implements Mgn {}
+createAggregatedClient(commands, Mgn);

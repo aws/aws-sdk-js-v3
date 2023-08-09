@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DBClusterEndpointMessage, DescribeDBClusterEndpointsMessage } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
-import {
-  deserializeAws_queryDescribeDBClusterEndpointsCommand,
-  serializeAws_queryDescribeDBClusterEndpointsCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeDBClusterEndpointsCommand, se_DescribeDBClusterEndpointsCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDBClusterEndpointsCommand}.
+ */
 export interface DescribeDBClusterEndpointsCommandInput extends DescribeDBClusterEndpointsMessage {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDBClusterEndpointsCommand}.
+ */
 export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpointMessage, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Returns information about endpoints for an Amazon Neptune DB cluster.</p>
  *          <note>
  *             <p>This operation can also return information for Amazon RDS clusters
@@ -33,13 +47,58 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * import { NeptuneClient, DescribeDBClusterEndpointsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBClusterEndpointsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = { // DescribeDBClusterEndpointsMessage
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   DBClusterEndpointIdentifier: "STRING_VALUE",
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // FilterValueList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBClusterEndpointsCommand(input);
  * const response = await client.send(command);
+ * // { // DBClusterEndpointMessage
+ * //   Marker: "STRING_VALUE",
+ * //   DBClusterEndpoints: [ // DBClusterEndpointList
+ * //     { // DBClusterEndpoint
+ * //       DBClusterEndpointIdentifier: "STRING_VALUE",
+ * //       DBClusterIdentifier: "STRING_VALUE",
+ * //       DBClusterEndpointResourceIdentifier: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       EndpointType: "STRING_VALUE",
+ * //       CustomEndpointType: "STRING_VALUE",
+ * //       StaticMembers: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ExcludedMembers: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       DBClusterEndpointArn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param DescribeDBClusterEndpointsCommandInput - {@link DescribeDBClusterEndpointsCommandInput}
+ * @returns {@link DescribeDBClusterEndpointsCommandOutput}
  * @see {@link DescribeDBClusterEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterEndpointsCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link NeptuneServiceException}
+ * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
 export class DescribeDBClusterEndpointsCommand extends $Command<
@@ -50,6 +109,18 @@ export class DescribeDBClusterEndpointsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDBClusterEndpointsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +136,9 @@ export class DescribeDBClusterEndpointsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDBClusterEndpointsCommandInput, DescribeDBClusterEndpointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDBClusterEndpointsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +149,8 @@ export class DescribeDBClusterEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterEndpointsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterEndpointMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,15 +160,21 @@ export class DescribeDBClusterEndpointsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDBClusterEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBClusterEndpointsCommand(input, context);
+    return se_DescribeDBClusterEndpointsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBClusterEndpointsCommandOutput> {
-    return deserializeAws_queryDescribeDBClusterEndpointsCommand(output, context);
+    return de_DescribeDBClusterEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

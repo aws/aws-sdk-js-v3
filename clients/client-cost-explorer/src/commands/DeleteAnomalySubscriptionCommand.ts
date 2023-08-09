@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import { DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteAnomalySubscriptionCommand,
-  serializeAws_json1_1DeleteAnomalySubscriptionCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteAnomalySubscriptionCommand, se_DeleteAnomalySubscriptionCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteAnomalySubscriptionCommand}.
+ */
 export interface DeleteAnomalySubscriptionCommandInput extends DeleteAnomalySubscriptionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAnomalySubscriptionCommand}.
+ */
 export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes a cost anomaly subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,29 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * import { CostExplorerClient, DeleteAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = { // DeleteAnomalySubscriptionRequest
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteAnomalySubscriptionCommandInput - {@link DeleteAnomalySubscriptionCommandInput}
+ * @returns {@link DeleteAnomalySubscriptionCommandOutput}
  * @see {@link DeleteAnomalySubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalySubscriptionCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownSubscriptionException} (client fault)
+ *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
+ * @throws {@link CostExplorerServiceException}
+ * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
 export class DeleteAnomalySubscriptionCommand extends $Command<
@@ -46,6 +76,18 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAnomalySubscriptionCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +103,9 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAnomalySubscriptionCommandInput, DeleteAnomalySubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteAnomalySubscriptionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +116,8 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnomalySubscriptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnomalySubscriptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +127,21 @@ export class DeleteAnomalySubscriptionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAnomalySubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAnomalySubscriptionCommand(input, context);
+    return se_DeleteAnomalySubscriptionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAnomalySubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteAnomalySubscriptionCommand(output, context);
+    return de_DeleteAnomalySubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

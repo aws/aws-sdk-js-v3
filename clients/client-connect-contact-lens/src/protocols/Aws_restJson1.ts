@@ -1,38 +1,39 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
-  expectInt32 as __expectInt32,
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-} from "@aws-sdk/smithy-client";
+  map,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ListRealtimeContactAnalysisSegmentsCommandInput,
   ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "../commands/ListRealtimeContactAnalysisSegmentsCommand";
+import { ConnectContactLensServiceException as __BaseException } from "../models/ConnectContactLensServiceException";
 import {
   AccessDeniedException,
-  Categories,
-  CategoryDetails,
-  CharacterOffsets,
   InternalServiceException,
   InvalidRequestException,
-  IssueDetected,
-  PointOfInterest,
-  RealtimeContactAnalysisSegment,
   ResourceNotFoundException,
   ThrottlingException,
-  Transcript,
 } from "../models/models_0";
 
-export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = async (
+/**
+ * serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand
+ */
+export const se_ListRealtimeContactAnalysisSegmentsCommand = async (
   input: ListRealtimeContactAnalysisSegmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -44,12 +45,14 @@ export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/realtime-contact-analysis/analysis-segments";
   let body: any;
-  body = JSON.stringify({
-    ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
-    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      ContactId: [],
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -61,335 +64,195 @@ export const serializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = 
   });
 };
 
-export const deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand = async (
+/**
+ * deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand
+ */
+export const de_ListRealtimeContactAnalysisSegmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRealtimeContactAnalysisSegmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommandError(output, context);
+    return de_ListRealtimeContactAnalysisSegmentsCommandError(output, context);
   }
-  const contents: ListRealtimeContactAnalysisSegmentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextToken: undefined,
-    Segments: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = __expectString(data.NextToken);
-  }
-  if (data.Segments !== undefined && data.Segments !== null) {
-    contents.Segments = deserializeAws_restJson1RealtimeContactAnalysisSegments(data.Segments, context);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Segments: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommandError = async (
+/**
+ * deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommandError
+ */
+const de_ListRealtimeContactAnalysisSegmentsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRealtimeContactAnalysisSegmentsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.connectcontactlens#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.connectcontactlens#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connectcontactlens#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcontactlens#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcontactlens#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: AccessDeniedException = {
-    name: "AccessDeniedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  return contents;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServiceExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServiceExceptionRes
+ */
+const de_InternalServiceExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
-  const contents: InternalServiceException = {
-    name: "InternalServiceException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  return contents;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServiceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InvalidRequestExceptionRes
+ */
+const de_InvalidRequestExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  return contents;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  return contents;
-};
-
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = __expectString(data.Message);
-  }
-  return contents;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1Categories = (output: any, context: __SerdeContext): Categories => {
-  return {
-    MatchedCategories:
-      output.MatchedCategories !== undefined && output.MatchedCategories !== null
-        ? deserializeAws_restJson1MatchedCategories(output.MatchedCategories, context)
-        : undefined,
-    MatchedDetails:
-      output.MatchedDetails !== undefined && output.MatchedDetails !== null
-        ? deserializeAws_restJson1MatchedDetails(output.MatchedDetails, context)
-        : undefined,
-  } as any;
-};
+// de_Categories omitted.
 
-const deserializeAws_restJson1CategoryDetails = (output: any, context: __SerdeContext): CategoryDetails => {
-  return {
-    PointsOfInterest:
-      output.PointsOfInterest !== undefined && output.PointsOfInterest !== null
-        ? deserializeAws_restJson1PointsOfInterest(output.PointsOfInterest, context)
-        : undefined,
-  } as any;
-};
+// de_CategoryDetails omitted.
 
-const deserializeAws_restJson1CharacterOffsets = (output: any, context: __SerdeContext): CharacterOffsets => {
-  return {
-    BeginOffsetChar: __expectInt32(output.BeginOffsetChar),
-    EndOffsetChar: __expectInt32(output.EndOffsetChar),
-  } as any;
-};
+// de_CharacterOffsets omitted.
 
-const deserializeAws_restJson1IssueDetected = (output: any, context: __SerdeContext): IssueDetected => {
-  return {
-    CharacterOffsets:
-      output.CharacterOffsets !== undefined && output.CharacterOffsets !== null
-        ? deserializeAws_restJson1CharacterOffsets(output.CharacterOffsets, context)
-        : undefined,
-  } as any;
-};
+// de_IssueDetected omitted.
 
-const deserializeAws_restJson1IssuesDetected = (output: any, context: __SerdeContext): IssueDetected[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1IssueDetected(entry, context);
-    });
-};
+// de_IssuesDetected omitted.
 
-const deserializeAws_restJson1MatchedCategories = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
+// de_MatchedCategories omitted.
 
-const deserializeAws_restJson1MatchedDetails = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: CategoryDetails } => {
-  return Object.entries(output).reduce((acc: { [key: string]: CategoryDetails }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1CategoryDetails(value, context),
-    };
-  }, {});
-};
+// de_MatchedDetails omitted.
 
-const deserializeAws_restJson1PointOfInterest = (output: any, context: __SerdeContext): PointOfInterest => {
-  return {
-    BeginOffsetMillis: __expectInt32(output.BeginOffsetMillis),
-    EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
-  } as any;
-};
+// de_PointOfInterest omitted.
 
-const deserializeAws_restJson1PointsOfInterest = (output: any, context: __SerdeContext): PointOfInterest[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1PointOfInterest(entry, context);
-    });
-};
+// de_PointsOfInterest omitted.
 
-const deserializeAws_restJson1RealtimeContactAnalysisSegment = (
-  output: any,
-  context: __SerdeContext
-): RealtimeContactAnalysisSegment => {
-  return {
-    Categories:
-      output.Categories !== undefined && output.Categories !== null
-        ? deserializeAws_restJson1Categories(output.Categories, context)
-        : undefined,
-    Transcript:
-      output.Transcript !== undefined && output.Transcript !== null
-        ? deserializeAws_restJson1Transcript(output.Transcript, context)
-        : undefined,
-  } as any;
-};
+// de_RealtimeContactAnalysisSegment omitted.
 
-const deserializeAws_restJson1RealtimeContactAnalysisSegments = (
-  output: any,
-  context: __SerdeContext
-): RealtimeContactAnalysisSegment[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1RealtimeContactAnalysisSegment(entry, context);
-    });
-};
+// de_RealtimeContactAnalysisSegments omitted.
 
-const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
-  return {
-    BeginOffsetMillis: __expectInt32(output.BeginOffsetMillis),
-    Content: __expectString(output.Content),
-    EndOffsetMillis: __expectInt32(output.EndOffsetMillis),
-    Id: __expectString(output.Id),
-    IssuesDetected:
-      output.IssuesDetected !== undefined && output.IssuesDetected !== null
-        ? deserializeAws_restJson1IssuesDetected(output.IssuesDetected, context)
-        : undefined,
-    ParticipantId: __expectString(output.ParticipantId),
-    ParticipantRole: __expectString(output.ParticipantRole),
-    Sentiment: __expectString(output.Sentiment),
-  } as any;
-};
+// de_Transcript omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -410,14 +273,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -439,6 +314,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

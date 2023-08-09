@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeDomainControllersCommand,
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
 } from "../commands/DescribeDomainControllersCommand";
-import { DirectoryService } from "../DirectoryService";
 import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: DirectoryServiceClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeDomainControllersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: DirectoryService,
-  input: DescribeDomainControllersCommandInput,
-  ...args: any
-): Promise<DescribeDomainControllersCommandOutput> => {
-  // @ts-ignore
-  return await client.describeDomainControllers(input, ...args);
-};
 export async function* paginateDescribeDomainControllers(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeDomainControllersCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeDomainControllers(
   while (hasNext) {
     input.NextToken = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DirectoryService) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DirectoryServiceClient) {
+    if (config.client instanceof DirectoryServiceClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

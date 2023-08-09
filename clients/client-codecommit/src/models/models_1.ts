@@ -1,5 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
 import {
   ApprovalRule,
   ApprovalRuleTemplate,
@@ -16,21 +18,41 @@ import {
   RepositoryTrigger,
 } from "./models_0";
 
-export enum OrderEnum {
-  ASCENDING = "ascending",
-  DESCENDING = "descending",
-}
-
-export enum SortByEnum {
-  MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName",
-}
+/**
+ * @public
+ * @enum
+ */
+export const OrderEnum = {
+  ASCENDING: "ascending",
+  DESCENDING: "descending",
+} as const;
 
 /**
+ * @public
+ */
+export type OrderEnum = (typeof OrderEnum)[keyof typeof OrderEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortByEnum = {
+  MODIFIED_DATE: "lastModifiedDate",
+  REPOSITORY_NAME: "repositoryName",
+} as const;
+
+/**
+ * @public
+ */
+export type SortByEnum = (typeof SortByEnum)[keyof typeof SortByEnum];
+
+/**
+ * @public
  * <p>Represents the input of a list repositories operation.</p>
  */
 export interface ListRepositoriesInput {
   /**
+   * @public
    * <p>An enumeration token that allows the operation to batch the results of the operation.
    *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
@@ -38,59 +60,49 @@ export interface ListRepositoriesInput {
   nextToken?: string;
 
   /**
+   * @public
    * <p>The criteria used to sort the results of a list repositories operation.</p>
    */
   sortBy?: SortByEnum | string;
 
   /**
+   * @public
    * <p>The order in which to sort the results of a list repositories operation.</p>
    */
   order?: OrderEnum | string;
 }
 
-export namespace ListRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Information about a repository name and ID.</p>
  */
 export interface RepositoryNameIdPair {
   /**
+   * @public
    * <p>The name associated with the repository.</p>
    */
   repositoryName?: string;
 
   /**
+   * @public
    * <p>The ID associated with the repository.</p>
    */
   repositoryId?: string;
 }
 
-export namespace RepositoryNameIdPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNameIdPair): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a list repositories operation.</p>
  */
 export interface ListRepositoriesOutput {
   /**
+   * @public
    * <p>Lists the repositories called by the list repositories operation.</p>
    */
   repositories?: RepositoryNameIdPair[];
 
   /**
+   * @public
    * <p>An enumeration token that allows the operation to batch the results of the operation.
    *             Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit,
    *             another page of 1,000 records is retrieved.</p>
@@ -98,252 +110,227 @@ export interface ListRepositoriesOutput {
   nextToken?: string;
 }
 
-export namespace ListRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListRepositoriesForApprovalRuleTemplateInput {
   /**
+   * @public
    * <p>The name of the approval rule template for which you want to list repositories that are associated with that template.</p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
+   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
   nextToken?: string;
 
   /**
+   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    */
   maxResults?: number;
 }
 
-export namespace ListRepositoriesForApprovalRuleTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListRepositoriesForApprovalRuleTemplateOutput {
   /**
+   * @public
    * <p>A list of repository names that are associated with the specified approval rule template.</p>
    */
   repositoryNames?: string[];
 
   /**
+   * @public
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListRepositoriesForApprovalRuleTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The value for the resource ARN is not valid. For more information about resources in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
  */
-export interface InvalidResourceArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceArnException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidResourceArnException {
+export class InvalidResourceArnException extends __BaseException {
+  readonly name: "InvalidResourceArnException" = "InvalidResourceArnException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidResourceArnException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidResourceArnException, __BaseException>) {
+    super({
+      name: "InvalidResourceArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceArnException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface ListTagsForResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
    *             about tags, if any.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface ListTagsForResourceOutput {
   /**
+   * @public
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
-  tags?: { [key: string]: string };
+  tags?: Record<string, string>;
 
   /**
+   * @public
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
 }
 
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A valid Amazon Resource Name (ARN) for an AWS CodeCommit resource is required. For a list of valid resources in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit Resources and Operations</a>
  *             in the AWS CodeCommit User Guide.</p>
  */
-export interface ResourceArnRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ResourceArnRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceArnRequiredException {
+export class ResourceArnRequiredException extends __BaseException {
+  readonly name: "ResourceArnRequiredException" = "ResourceArnRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceArnRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ResourceArnRequiredException, __BaseException>) {
+    super({
+      name: "ResourceArnRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceArnRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The specified target branch is not valid.</p>
  */
-export interface InvalidTargetBranchException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTargetBranchException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidTargetBranchException {
+export class InvalidTargetBranchException extends __BaseException {
+  readonly name: "InvalidTargetBranchException" = "InvalidTargetBranchException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidTargetBranchException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidTargetBranchException, __BaseException>) {
+    super({
+      name: "InvalidTargetBranchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetBranchException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface MergeBranchesByFastForwardInput {
   /**
+   * @public
    * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
+   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
+   * @public
    * <p>The branch where the merge is applied.</p>
    */
   targetBranch?: string;
 }
 
-export namespace MergeBranchesByFastForwardInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergeBranchesByFastForwardOutput {
   /**
+   * @public
    * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
 
   /**
+   * @public
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
 }
 
-export namespace MergeBranchesByFastForwardOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergeBranchesBySquashInput {
   /**
+   * @public
    * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
+   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
+   * @public
    * <p>The branch where the merge is applied. </p>
    */
   targetBranch?: string;
 
   /**
+   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
@@ -352,6 +339,7 @@ export interface MergeBranchesBySquashInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
+   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
@@ -359,23 +347,27 @@ export interface MergeBranchesBySquashInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
+   * @public
    * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
    */
   authorName?: string;
 
   /**
+   * @public
    * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
    */
   email?: string;
 
   /**
+   * @public
    * <p>The commit message for the merge.</p>
    */
   commitMessage?: string;
 
   /**
+   * @public
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
    *             created for empty folders. The default is false.</p>
@@ -383,66 +375,62 @@ export interface MergeBranchesBySquashInput {
   keepEmptyFolders?: boolean;
 
   /**
+   * @public
    * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
    */
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergeBranchesBySquashInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergeBranchesBySquashOutput {
   /**
+   * @public
    * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
 
   /**
+   * @public
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
 }
 
-export namespace MergeBranchesBySquashOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergeBranchesByThreeWayInput {
   /**
+   * @public
    * <p>The name of the repository where you want to merge two branches.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
+   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
+   * @public
    * <p>The branch where the merge is applied. </p>
    */
   targetBranch?: string;
 
   /**
+   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
@@ -451,6 +439,7 @@ export interface MergeBranchesByThreeWayInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
+   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
@@ -458,23 +447,27 @@ export interface MergeBranchesByThreeWayInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
+   * @public
    * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
    */
   authorName?: string;
 
   /**
+   * @public
    * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
    */
   email?: string;
 
   /**
+   * @public
    * <p>The commit message to include in the commit information for the merge.</p>
    */
   commitMessage?: string;
 
   /**
+   * @public
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
    *             The default is false.</p>
@@ -482,146 +475,131 @@ export interface MergeBranchesByThreeWayInput {
   keepEmptyFolders?: boolean;
 
   /**
+   * @public
    * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
    */
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergeBranchesByThreeWayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergeBranchesByThreeWayOutput {
   /**
+   * @public
    * <p>The commit ID of the merge in the destination or target branch.</p>
    */
   commitId?: string;
 
   /**
+   * @public
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
 }
 
-export namespace MergeBranchesByThreeWayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergePullRequestByFastForwardInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *         exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
    */
   sourceCommitId?: string;
 }
 
-export namespace MergePullRequestByFastForwardInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergePullRequestByFastForwardOutput {
   /**
+   * @public
    * <p>Information about the specified pull request, including the merge.</p>
    */
   pullRequest?: PullRequest;
 }
 
-export namespace MergePullRequestByFastForwardOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
  */
-export interface PullRequestApprovalRulesNotSatisfiedException extends __SmithyException, $MetadataBearer {
-  name: "PullRequestApprovalRulesNotSatisfiedException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace PullRequestApprovalRulesNotSatisfiedException {
+export class PullRequestApprovalRulesNotSatisfiedException extends __BaseException {
+  readonly name: "PullRequestApprovalRulesNotSatisfiedException" = "PullRequestApprovalRulesNotSatisfiedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PullRequestApprovalRulesNotSatisfiedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PullRequestApprovalRulesNotSatisfiedException, __BaseException>) {
+    super({
+      name: "PullRequestApprovalRulesNotSatisfiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullRequestApprovalRulesNotSatisfiedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
  */
-export interface TipOfSourceReferenceIsDifferentException extends __SmithyException, $MetadataBearer {
-  name: "TipOfSourceReferenceIsDifferentException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace TipOfSourceReferenceIsDifferentException {
+export class TipOfSourceReferenceIsDifferentException extends __BaseException {
+  readonly name: "TipOfSourceReferenceIsDifferentException" = "TipOfSourceReferenceIsDifferentException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TipOfSourceReferenceIsDifferentException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TipOfSourceReferenceIsDifferentException, __BaseException>) {
+    super({
+      name: "TipOfSourceReferenceIsDifferentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TipOfSourceReferenceIsDifferentException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface MergePullRequestBySquashInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
    */
   sourceCommitId?: string;
 
   /**
+   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
@@ -630,6 +608,7 @@ export interface MergePullRequestBySquashInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
+   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
@@ -637,23 +616,27 @@ export interface MergePullRequestBySquashInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
+   * @public
    * <p>The commit message to include in the commit information for the merge.</p>
    */
   commitMessage?: string;
 
   /**
+   * @public
    * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
    */
   authorName?: string;
 
   /**
+   * @public
    * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
    */
   email?: string;
 
   /**
+   * @public
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
    *             The default is false.</p>
@@ -661,55 +644,49 @@ export interface MergePullRequestBySquashInput {
   keepEmptyFolders?: boolean;
 
   /**
+   * @public
    * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
    */
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergePullRequestBySquashInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergePullRequestBySquashOutput {
   /**
+   * @public
    * <p>Returns information about a pull request.</p>
    */
   pullRequest?: PullRequest;
 }
 
-export namespace MergePullRequestBySquashOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergePullRequestByThreeWayInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the repository where the pull request was created.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an
    *             exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.</p>
    */
   sourceCommitId?: string;
 
   /**
+   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
@@ -718,6 +695,7 @@ export interface MergePullRequestByThreeWayInput {
   conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
 
   /**
+   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
@@ -725,23 +703,27 @@ export interface MergePullRequestByThreeWayInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 
   /**
+   * @public
    * <p>The commit message to include in the commit information for the merge.</p>
    */
   commitMessage?: string;
 
   /**
+   * @public
    * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
    */
   authorName?: string;
 
   /**
+   * @public
    * <p>The email address of the person merging the branches. This information is used in the
    *             commit information for the merge.</p>
    */
   email?: string;
 
   /**
+   * @public
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a .gitkeep file is created for empty folders.
    *             The default is false.</p>
@@ -749,81 +731,70 @@ export interface MergePullRequestByThreeWayInput {
   keepEmptyFolders?: boolean;
 
   /**
+   * @public
    * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
    */
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergePullRequestByThreeWayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface MergePullRequestByThreeWayOutput {
   /**
+   * @public
    * <p>Returns information about a pull request.</p>
    */
   pullRequest?: PullRequest;
 }
 
-export namespace MergePullRequestByThreeWayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
  */
-export interface InvalidOverrideStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOverrideStatusException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidOverrideStatusException {
+export class InvalidOverrideStatusException extends __BaseException {
+  readonly name: "InvalidOverrideStatusException" = "InvalidOverrideStatusException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidOverrideStatusException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidOverrideStatusException, __BaseException>) {
+    super({
+      name: "InvalidOverrideStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOverrideStatusException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The pull request has already had its approval rules set to override.</p>
  */
-export interface OverrideAlreadySetException extends __SmithyException, $MetadataBearer {
-  name: "OverrideAlreadySetException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace OverrideAlreadySetException {
+export class OverrideAlreadySetException extends __BaseException {
+  readonly name: "OverrideAlreadySetException" = "OverrideAlreadySetException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: OverrideAlreadySetException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<OverrideAlreadySetException, __BaseException>) {
+    super({
+      name: "OverrideAlreadySetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OverrideAlreadySetException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface OverridePullRequestApprovalRulesInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request for which you want to override all
    *             approval rule requirements. To get this information, use
    *             <a>GetPullRequest</a>.</p>
@@ -831,161 +802,153 @@ export interface OverridePullRequestApprovalRulesInput {
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The system-generated ID of the most recent revision of the pull request. You cannot override approval rules for anything but the most recent revision of a pull request.
    *             To get the revision ID, use GetPullRequest.</p>
    */
   revisionId: string | undefined;
 
   /**
+   * @public
    * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
    *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
    */
   overrideStatus: OverrideStatus | string | undefined;
 }
 
-export namespace OverridePullRequestApprovalRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverridePullRequestApprovalRulesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
  */
-export interface OverrideStatusRequiredException extends __SmithyException, $MetadataBearer {
-  name: "OverrideStatusRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace OverrideStatusRequiredException {
+export class OverrideStatusRequiredException extends __BaseException {
+  readonly name: "OverrideStatusRequiredException" = "OverrideStatusRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: OverrideStatusRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<OverrideStatusRequiredException, __BaseException>) {
+    super({
+      name: "OverrideStatusRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OverrideStatusRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  */
-export interface CommentContentRequiredException extends __SmithyException, $MetadataBearer {
-  name: "CommentContentRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace CommentContentRequiredException {
+export class CommentContentRequiredException extends __BaseException {
+  readonly name: "CommentContentRequiredException" = "CommentContentRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CommentContentRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CommentContentRequiredException, __BaseException>) {
+    super({
+      name: "CommentContentRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommentContentRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
  */
-export interface CommentContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "CommentContentSizeLimitExceededException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace CommentContentSizeLimitExceededException {
+export class CommentContentSizeLimitExceededException extends __BaseException {
+  readonly name: "CommentContentSizeLimitExceededException" = "CommentContentSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CommentContentSizeLimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CommentContentSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "CommentContentSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommentContentSizeLimitExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The location of the file is not valid. Make sure that you include the file name and
  *             extension.</p>
  */
-export interface InvalidFileLocationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFileLocationException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidFileLocationException {
+export class InvalidFileLocationException extends __BaseException {
+  readonly name: "InvalidFileLocationException" = "InvalidFileLocationException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidFileLocationException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidFileLocationException, __BaseException>) {
+    super({
+      name: "InvalidFileLocationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFileLocationException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  */
-export interface InvalidFilePositionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFilePositionException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidFilePositionException {
+export class InvalidFilePositionException extends __BaseException {
+  readonly name: "InvalidFilePositionException" = "InvalidFilePositionException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidFilePositionException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidFilePositionException, __BaseException>) {
+    super({
+      name: "InvalidFilePositionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFilePositionException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
  */
-export interface InvalidRelativeFileVersionEnumException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRelativeFileVersionEnumException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRelativeFileVersionEnumException {
+export class InvalidRelativeFileVersionEnumException extends __BaseException {
+  readonly name: "InvalidRelativeFileVersionEnumException" = "InvalidRelativeFileVersionEnumException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRelativeFileVersionEnumException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRelativeFileVersionEnumException, __BaseException>) {
+    super({
+      name: "InvalidRelativeFileVersionEnumException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRelativeFileVersionEnumException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface PostCommentForComparedCommitInput {
   /**
+   * @public
    * <p>The name of the repository where you want to post a comment on the comparison between commits.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>To establish the directionality of the comparison, the full commit ID of the before
    *             commit. Required for commenting on any commit unless that commit is the initial
    *             commit.</p>
@@ -993,22 +956,26 @@ export interface PostCommentForComparedCommitInput {
   beforeCommitId?: string;
 
   /**
+   * @public
    * <p>To establish the directionality of the comparison, the full commit ID of the after
    *             commit.</p>
    */
   afterCommitId: string | undefined;
 
   /**
+   * @public
    * <p>The location of the comparison where you want to comment.</p>
    */
   location?: Location;
 
   /**
+   * @public
    * <p>The content of the comment you want to make.</p>
    */
   content: string | undefined;
 
   /**
+   * @public
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
@@ -1017,83 +984,83 @@ export interface PostCommentForComparedCommitInput {
   clientRequestToken?: string;
 }
 
-export namespace PostCommentForComparedCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PostCommentForComparedCommitOutput {
   /**
+   * @public
    * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
    */
   repositoryName?: string;
 
   /**
+   * @public
    * <p>In the directionality you established, the full commit ID of the before commit.</p>
    */
   beforeCommitId?: string;
 
   /**
+   * @public
    * <p>In the directionality you established, the full commit ID of the after commit.</p>
    */
   afterCommitId?: string;
 
   /**
+   * @public
    * <p>In the directionality you established, the blob ID of the before blob.</p>
    */
   beforeBlobId?: string;
 
   /**
+   * @public
    * <p>In the directionality you established, the blob ID of the after blob.</p>
    */
   afterBlobId?: string;
 
   /**
+   * @public
    * <p>The location of the comment in the comparison between the two commits.</p>
    */
   location?: Location;
 
   /**
+   * @public
    * <p>The content of the comment you posted.</p>
    */
   comment?: Comment;
 }
 
-export namespace PostCommentForComparedCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PostCommentForPullRequestInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the repository where you want to post a comment on a pull request.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.</p>
    */
   beforeCommitId: string | undefined;
 
   /**
+   * @public
    * <p>The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.</p>
    */
   afterCommitId: string | undefined;
 
   /**
+   * @public
    * <p>The location of the change where you want to post your comment. If no location is
    *             provided, the comment is posted as a general comment on the pull request difference
    *             between the before commit ID and the after commit ID.</p>
@@ -1101,11 +1068,13 @@ export interface PostCommentForPullRequestInput {
   location?: Location;
 
   /**
+   * @public
    * <p>The content of your comment on the change.</p>
    */
   content: string | undefined;
 
   /**
+   * @public
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
@@ -1114,76 +1083,74 @@ export interface PostCommentForPullRequestInput {
   clientRequestToken?: string;
 }
 
-export namespace PostCommentForPullRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PostCommentForPullRequestOutput {
   /**
+   * @public
    * <p>The name of the repository where you posted a comment on a pull request.</p>
    */
   repositoryName?: string;
 
   /**
+   * @public
    * <p>The system-generated ID of the pull request. </p>
    */
   pullRequestId?: string;
 
   /**
+   * @public
    * <p>The full commit ID of the commit in the source branch used to create the pull request,
    *             or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.</p>
    */
   beforeCommitId?: string;
 
   /**
+   * @public
    * <p>The full commit ID of the commit in the destination branch where the pull request is
    *             merged.</p>
    */
   afterCommitId?: string;
 
   /**
+   * @public
    * <p>In the directionality of the pull request, the blob ID of the before blob.</p>
    */
   beforeBlobId?: string;
 
   /**
+   * @public
    * <p>In the directionality of the pull request, the blob ID of the after blob.</p>
    */
   afterBlobId?: string;
 
   /**
+   * @public
    * <p>The location of the change where you posted your comment.</p>
    */
   location?: Location;
 
   /**
+   * @public
    * <p>The content of the comment you posted.</p>
    */
   comment?: Comment;
 }
 
-export namespace PostCommentForPullRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PostCommentReplyInput {
   /**
+   * @public
    * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
    *         or <a>GetCommentsForPullRequest</a>.</p>
    */
   inReplyTo: string | undefined;
 
   /**
+   * @public
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
@@ -1192,160 +1159,146 @@ export interface PostCommentReplyInput {
   clientRequestToken?: string;
 
   /**
+   * @public
    * <p>The contents of your reply to a comment.</p>
    */
   content: string | undefined;
 }
 
-export namespace PostCommentReplyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentReplyInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PostCommentReplyOutput {
   /**
+   * @public
    * <p>Information about the reply to a comment.</p>
    */
   comment?: Comment;
 }
 
-export namespace PostCommentReplyOutput {
+/**
+ * @public
+ * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+ */
+export class InvalidReactionValueException extends __BaseException {
+  readonly name: "InvalidReactionValueException" = "InvalidReactionValueException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidReactionValueException, __BaseException>) {
+    super({
+      name: "InvalidReactionValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReactionValueException.prototype);
+  }
 }
 
 /**
- * <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+ * @public
  */
-export interface InvalidReactionValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidReactionValueException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidReactionValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReactionValueException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutCommentReactionInput {
   /**
+   * @public
    * <p>The ID of the comment to which you want to add or update a reaction.</p>
    */
   commentId: string | undefined;
 
   /**
+   * @public
    * <p>The emoji reaction you want to add or update. To remove a reaction, provide a value of blank or null. You can also provide the value of none.
    *             For information about emoji reaction values supported in AWS CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">AWS CodeCommit User Guide</a>.</p>
    */
   reactionValue: string | undefined;
 }
 
-export namespace PutCommentReactionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCommentReactionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
  */
-export interface ReactionLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ReactionLimitExceededException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ReactionLimitExceededException {
+export class ReactionLimitExceededException extends __BaseException {
+  readonly name: "ReactionLimitExceededException" = "ReactionLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ReactionLimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ReactionLimitExceededException, __BaseException>) {
+    super({
+      name: "ReactionLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReactionLimitExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A reaction value is required. </p>
  */
-export interface ReactionValueRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ReactionValueRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ReactionValueRequiredException {
+export class ReactionValueRequiredException extends __BaseException {
+  readonly name: "ReactionValueRequiredException" = "ReactionValueRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ReactionValueRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ReactionValueRequiredException, __BaseException>) {
+    super({
+      name: "ReactionValueRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReactionValueRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
-export interface FileContentRequiredException extends __SmithyException, $MetadataBearer {
-  name: "FileContentRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace FileContentRequiredException {
+export class FileContentRequiredException extends __BaseException {
+  readonly name: "FileContentRequiredException" = "FileContentRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FileContentRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<FileContentRequiredException, __BaseException>) {
+    super({
+      name: "FileContentRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileContentRequiredException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface PutFileInput {
   /**
+   * @public
    * <p>The name of the repository where you want to add or update the file.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the branch where you want to add or update the file. If this is an empty
    *             repository, this branch is created.</p>
    */
   branchName: string | undefined;
 
   /**
+   * @public
    * <p>The content of the file, in binary object format. </p>
    */
   fileContent: Uint8Array | undefined;
 
   /**
+   * @public
    * <p>The name of the file you want to add or update, including the relative path to the file in the repository.</p>
    *         <note>
    *             <p>If the path does not currently exist in the repository, the path is created as part of adding
@@ -1355,12 +1308,14 @@ export interface PutFileInput {
   filePath: string | undefined;
 
   /**
+   * @public
    * <p>The file mode permissions of the blob. Valid file mode permissions are listed
    *             here.</p>
    */
   fileMode?: FileModeTypeEnum | string;
 
   /**
+   * @public
    * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
    *             no commit ID is required. If this is not an empty repository, a commit ID is required. </p>
    *         <p>The commit ID must match the ID of the head commit at the time of the operation.
@@ -1369,612 +1324,554 @@ export interface PutFileInput {
   parentCommitId?: string;
 
   /**
+   * @public
    * <p>A message about why this file was added or updated. Although it is optional, a message
    *             makes the commit history for your repository more useful.</p>
    */
   commitMessage?: string;
 
   /**
+   * @public
    * <p>The name of the person adding or updating the file. Although it is optional, a name
    *             makes the commit history for your repository more useful.</p>
    */
   name?: string;
 
   /**
+   * @public
    * <p>An email address for the person adding or updating the file.</p>
    */
   email?: string;
 }
 
-export namespace PutFileInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface PutFileOutput {
   /**
+   * @public
    * <p>The full SHA ID of the commit that contains this file change.</p>
    */
   commitId: string | undefined;
 
   /**
+   * @public
    * <p>The ID of the blob, which is its SHA-1 pointer.</p>
    */
   blobId: string | undefined;
 
   /**
+   * @public
    * <p>The full SHA-1 pointer of the tree information for the commit that contains this file change.</p>
    */
   treeId: string | undefined;
 }
 
-export namespace PutFileOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The file was not added or updated because the content of the file is exactly the same as the content of that file in the repository and branch
  *         that you specified.</p>
  */
-export interface SameFileContentException extends __SmithyException, $MetadataBearer {
-  name: "SameFileContentException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace SameFileContentException {
+export class SameFileContentException extends __BaseException {
+  readonly name: "SameFileContentException" = "SameFileContentException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SameFileContentException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<SameFileContentException, __BaseException>) {
+    super({
+      name: "SameFileContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SameFileContentException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>One or more branch names specified for the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerBranchNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryTriggerBranchNameException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRepositoryTriggerBranchNameException {
+export class InvalidRepositoryTriggerBranchNameException extends __BaseException {
+  readonly name: "InvalidRepositoryTriggerBranchNameException" = "InvalidRepositoryTriggerBranchNameException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerBranchNameException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryTriggerBranchNameException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryTriggerBranchNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryTriggerBranchNameException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The custom data provided for the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerCustomDataException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryTriggerCustomDataException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRepositoryTriggerCustomDataException {
+export class InvalidRepositoryTriggerCustomDataException extends __BaseException {
+  readonly name: "InvalidRepositoryTriggerCustomDataException" = "InvalidRepositoryTriggerCustomDataException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerCustomDataException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryTriggerCustomDataException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryTriggerCustomDataException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryTriggerCustomDataException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
  */
-export interface InvalidRepositoryTriggerDestinationArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryTriggerDestinationArnException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRepositoryTriggerDestinationArnException {
+export class InvalidRepositoryTriggerDestinationArnException extends __BaseException {
+  readonly name: "InvalidRepositoryTriggerDestinationArnException" = "InvalidRepositoryTriggerDestinationArnException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerDestinationArnException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryTriggerDestinationArnException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryTriggerDestinationArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryTriggerDestinationArnException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
  */
-export interface InvalidRepositoryTriggerEventsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryTriggerEventsException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRepositoryTriggerEventsException {
+export class InvalidRepositoryTriggerEventsException extends __BaseException {
+  readonly name: "InvalidRepositoryTriggerEventsException" = "InvalidRepositoryTriggerEventsException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerEventsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryTriggerEventsException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryTriggerEventsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryTriggerEventsException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The name of the trigger is not valid.</p>
  */
-export interface InvalidRepositoryTriggerNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryTriggerNameException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRepositoryTriggerNameException {
+export class InvalidRepositoryTriggerNameException extends __BaseException {
+  readonly name: "InvalidRepositoryTriggerNameException" = "InvalidRepositoryTriggerNameException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerNameException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryTriggerNameException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryTriggerNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryTriggerNameException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The AWS Region for the trigger target does not match the AWS Region for the
  *             repository. Triggers must be created in the same Region as the target for the
  *             trigger.</p>
  */
-export interface InvalidRepositoryTriggerRegionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryTriggerRegionException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRepositoryTriggerRegionException {
+export class InvalidRepositoryTriggerRegionException extends __BaseException {
+  readonly name: "InvalidRepositoryTriggerRegionException" = "InvalidRepositoryTriggerRegionException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerRegionException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryTriggerRegionException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryTriggerRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryTriggerRegionException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The number of branches for the trigger was exceeded.</p>
  */
-export interface MaximumBranchesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumBranchesExceededException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace MaximumBranchesExceededException {
+export class MaximumBranchesExceededException extends __BaseException {
+  readonly name: "MaximumBranchesExceededException" = "MaximumBranchesExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MaximumBranchesExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MaximumBranchesExceededException, __BaseException>) {
+    super({
+      name: "MaximumBranchesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumBranchesExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The number of triggers allowed for the repository was exceeded.</p>
  */
-export interface MaximumRepositoryTriggersExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumRepositoryTriggersExceededException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace MaximumRepositoryTriggersExceededException {
+export class MaximumRepositoryTriggersExceededException extends __BaseException {
+  readonly name: "MaximumRepositoryTriggersExceededException" = "MaximumRepositoryTriggersExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MaximumRepositoryTriggersExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MaximumRepositoryTriggersExceededException, __BaseException>) {
+    super({
+      name: "MaximumRepositoryTriggersExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumRepositoryTriggersExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Represents the input of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersInput {
   /**
+   * @public
    * <p>The name of the repository where you want to create or update the trigger.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The JSON block of configuration information for each trigger.</p>
    */
   triggers: RepositoryTrigger[] | undefined;
 }
 
-export namespace PutRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a put repository triggers operation.</p>
  */
 export interface PutRepositoryTriggersOutput {
   /**
+   * @public
    * <p>The system-generated unique ID for the create or update operation.</p>
    */
   configurationId?: string;
 }
 
-export namespace PutRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>At least one branch name is required, but was not specified in the trigger
  *             configuration.</p>
  */
-export interface RepositoryTriggerBranchNameListRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryTriggerBranchNameListRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RepositoryTriggerBranchNameListRequiredException {
+export class RepositoryTriggerBranchNameListRequiredException extends __BaseException {
+  readonly name: "RepositoryTriggerBranchNameListRequiredException" =
+    "RepositoryTriggerBranchNameListRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RepositoryTriggerBranchNameListRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RepositoryTriggerBranchNameListRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryTriggerBranchNameListRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryTriggerBranchNameListRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A destination ARN for the target service for the trigger is required, but was not
  *             specified.</p>
  */
-export interface RepositoryTriggerDestinationArnRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryTriggerDestinationArnRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RepositoryTriggerDestinationArnRequiredException {
+export class RepositoryTriggerDestinationArnRequiredException extends __BaseException {
+  readonly name: "RepositoryTriggerDestinationArnRequiredException" =
+    "RepositoryTriggerDestinationArnRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RepositoryTriggerDestinationArnRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RepositoryTriggerDestinationArnRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryTriggerDestinationArnRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryTriggerDestinationArnRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>At least one event for the trigger is required, but was not specified.</p>
  */
-export interface RepositoryTriggerEventsListRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryTriggerEventsListRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RepositoryTriggerEventsListRequiredException {
+export class RepositoryTriggerEventsListRequiredException extends __BaseException {
+  readonly name: "RepositoryTriggerEventsListRequiredException" = "RepositoryTriggerEventsListRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RepositoryTriggerEventsListRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RepositoryTriggerEventsListRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryTriggerEventsListRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryTriggerEventsListRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A name for the trigger is required, but was not specified.</p>
  */
-export interface RepositoryTriggerNameRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryTriggerNameRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RepositoryTriggerNameRequiredException {
+export class RepositoryTriggerNameRequiredException extends __BaseException {
+  readonly name: "RepositoryTriggerNameRequiredException" = "RepositoryTriggerNameRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RepositoryTriggerNameRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RepositoryTriggerNameRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryTriggerNameRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryTriggerNameRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The list of triggers for the repository is required, but was not specified.</p>
  */
-export interface RepositoryTriggersListRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryTriggersListRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RepositoryTriggersListRequiredException {
+export class RepositoryTriggersListRequiredException extends __BaseException {
+  readonly name: "RepositoryTriggersListRequiredException" = "RepositoryTriggersListRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: RepositoryTriggersListRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<RepositoryTriggersListRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryTriggersListRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryTriggersListRequiredException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface TagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The key-value pair to use when tagging this repository.</p>
    */
-  tags: { [key: string]: string } | undefined;
-}
-
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
+  tags: Record<string, string> | undefined;
 }
 
 /**
+ * @public
  * <p>A map of tags is required.</p>
  */
-export interface TagsMapRequiredException extends __SmithyException, $MetadataBearer {
-  name: "TagsMapRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace TagsMapRequiredException {
+export class TagsMapRequiredException extends __BaseException {
+  readonly name: "TagsMapRequiredException" = "TagsMapRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TagsMapRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TagsMapRequiredException, __BaseException>) {
+    super({
+      name: "TagsMapRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagsMapRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>Represents the input of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersInput {
   /**
+   * @public
    * <p>The name of the repository in which to test the triggers.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The list of triggers to test.</p>
    */
   triggers: RepositoryTrigger[] | undefined;
 }
 
-export namespace TestRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>A trigger failed to run.</p>
  */
 export interface RepositoryTriggerExecutionFailure {
   /**
+   * @public
    * <p>The name of the trigger that did not run.</p>
    */
   trigger?: string;
 
   /**
+   * @public
    * <p>Message information about the trigger that did not run.</p>
    */
   failureMessage?: string;
 }
 
-export namespace RepositoryTriggerExecutionFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the output of a test repository triggers operation.</p>
  */
 export interface TestRepositoryTriggersOutput {
   /**
+   * @public
    * <p>The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.</p>
    */
   successfulExecutions?: string[];
 
   /**
+   * @public
    * <p>The list of triggers that were not tested. This list provides the names of the
    *             triggers that could not be tested, separated by commas.</p>
    */
   failedExecutions?: RepositoryTriggerExecutionFailure[];
 }
 
-export namespace TestRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The list of tags is not valid.</p>
  */
-export interface InvalidTagKeysListException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagKeysListException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidTagKeysListException {
+export class InvalidTagKeysListException extends __BaseException {
+  readonly name: "InvalidTagKeysListException" = "InvalidTagKeysListException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidTagKeysListException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidTagKeysListException, __BaseException>) {
+    super({
+      name: "InvalidTagKeysListException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagKeysListException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A list of tag keys is required. The list cannot be empty or null.</p>
  */
-export interface TagKeysListRequiredException extends __SmithyException, $MetadataBearer {
-  name: "TagKeysListRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace TagKeysListRequiredException {
+export class TagKeysListRequiredException extends __BaseException {
+  readonly name: "TagKeysListRequiredException" = "TagKeysListRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TagKeysListRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TagKeysListRequiredException, __BaseException>) {
+    super({
+      name: "TagKeysListRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagKeysListRequiredException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface UntagResourceInput {
   /**
+   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>
    */
   resourceArn: string | undefined;
 
   /**
+   * @public
    * <p>The tag key for each tag that you want to remove from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
+/**
+ * @public
+ * <p>The SHA-256 hash signature for the rule content is not valid.</p>
+ */
+export class InvalidRuleContentSha256Exception extends __BaseException {
+  readonly name: "InvalidRuleContentSha256Exception" = "InvalidRuleContentSha256Exception";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidRuleContentSha256Exception, __BaseException>) {
+    super({
+      name: "InvalidRuleContentSha256Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRuleContentSha256Exception.prototype);
+  }
 }
 
 /**
- * <p>The SHA-256 hash signature for the rule content is not valid.</p>
+ * @public
  */
-export interface InvalidRuleContentSha256Exception extends __SmithyException, $MetadataBearer {
-  name: "InvalidRuleContentSha256Exception";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRuleContentSha256Exception {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRuleContentSha256Exception): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApprovalRuleTemplateContentInput {
   /**
+   * @public
    * <p>The name of the approval rule template where you want to update the content of the rule. </p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
+   * @public
    * <p>The content that replaces the existing content of the rule. Content statements must be
    *             complete. You cannot provide only the changes.</p>
    */
   newRuleContent: string | undefined;
 
   /**
+   * @public
    * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
    *             information by using
    *             <a>GetPullRequest</a>.</p>
@@ -1982,200 +1879,158 @@ export interface UpdateApprovalRuleTemplateContentInput {
   existingRuleContentSha256?: string;
 }
 
-export namespace UpdateApprovalRuleTemplateContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateContentOutput {
   /**
+   * @public
    * <p>Returns information about an approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateDescriptionInput {
   /**
+   * @public
    * <p>The name of the template for which you want to update the description.</p>
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
+   * @public
    * <p>The updated description of the approval rule template.</p>
    */
   approvalRuleTemplateDescription: string | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateDescriptionOutput {
   /**
+   * @public
    * <p>The structure and content of the updated approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateDescriptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateNameInput {
   /**
+   * @public
    * <p>The current name of the approval rule template.</p>
    */
   oldApprovalRuleTemplateName: string | undefined;
 
   /**
+   * @public
    * <p>The new name you want to apply to the approval rule template.</p>
    */
   newApprovalRuleTemplateName: string | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateNameInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateApprovalRuleTemplateNameOutput {
   /**
+   * @public
    * <p>The structure and content of the updated approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateNameOutput {
+/**
+ * @public
+ * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
+ */
+export class CommentNotCreatedByCallerException extends __BaseException {
+  readonly name: "CommentNotCreatedByCallerException" = "CommentNotCreatedByCallerException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameOutput): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<CommentNotCreatedByCallerException, __BaseException>) {
+    super({
+      name: "CommentNotCreatedByCallerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommentNotCreatedByCallerException.prototype);
+  }
 }
 
 /**
- * <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
+ * @public
  */
-export interface CommentNotCreatedByCallerException extends __SmithyException, $MetadataBearer {
-  name: "CommentNotCreatedByCallerException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace CommentNotCreatedByCallerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentNotCreatedByCallerException): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCommentInput {
   /**
+   * @public
    * <p>The system-generated ID of the comment you want to update. To get this ID, use <a>GetCommentsForComparedCommit</a>
    *             or <a>GetCommentsForPullRequest</a>.</p>
    */
   commentId: string | undefined;
 
   /**
+   * @public
    * <p>The updated content to replace the existing content of the comment.</p>
    */
   content: string | undefined;
 }
 
-export namespace UpdateCommentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCommentInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdateCommentOutput {
   /**
+   * @public
    * <p>Information about the updated comment.</p>
    */
   comment?: Comment;
 }
 
-export namespace UpdateCommentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCommentOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of an update default branch operation.</p>
  */
 export interface UpdateDefaultBranchInput {
   /**
+   * @public
    * <p>The name of the repository to set or change the default branch for.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The name of the branch to set as the default.</p>
    */
   defaultBranchName: string | undefined;
 }
 
-export namespace UpdateDefaultBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestApprovalRuleContentInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The name of the approval rule you want to update.</p>
    */
   approvalRuleName: string | undefined;
 
   /**
+   * @public
    * <p>The SHA-256 hash signature for the content of the approval rule. You can retrieve this
    *             information by using
    *             <a>GetPullRequest</a>.</p>
@@ -2183,6 +2038,7 @@ export interface UpdatePullRequestApprovalRuleContentInput {
   existingRuleContentSha256?: string;
 
   /**
+   * @public
    * <p>The updated content for the approval rule.</p>
    *         <note>
    *             <p>When you update the content of the approval rule, you can specify approvers in an
@@ -2228,208 +2084,182 @@ export interface UpdatePullRequestApprovalRuleContentInput {
   newRuleContent: string | undefined;
 }
 
-export namespace UpdatePullRequestApprovalRuleContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestApprovalRuleContentOutput {
   /**
+   * @public
    * <p>Information about the updated approval rule.</p>
    */
   approvalRule: ApprovalRule | undefined;
 }
 
-export namespace UpdatePullRequestApprovalRuleContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
  */
-export interface InvalidApprovalStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalStateException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidApprovalStateException {
+export class InvalidApprovalStateException extends __BaseException {
+  readonly name: "InvalidApprovalStateException" = "InvalidApprovalStateException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidApprovalStateException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidApprovalStateException, __BaseException>) {
+    super({
+      name: "InvalidApprovalStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalStateException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
  */
-export interface MaximumNumberOfApprovalsExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumNumberOfApprovalsExceededException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace MaximumNumberOfApprovalsExceededException {
+export class MaximumNumberOfApprovalsExceededException extends __BaseException {
+  readonly name: "MaximumNumberOfApprovalsExceededException" = "MaximumNumberOfApprovalsExceededException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MaximumNumberOfApprovalsExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<MaximumNumberOfApprovalsExceededException, __BaseException>) {
+    super({
+      name: "MaximumNumberOfApprovalsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumNumberOfApprovalsExceededException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
  *         request that you created.</p>
  */
-export interface PullRequestCannotBeApprovedByAuthorException extends __SmithyException, $MetadataBearer {
-  name: "PullRequestCannotBeApprovedByAuthorException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace PullRequestCannotBeApprovedByAuthorException {
+export class PullRequestCannotBeApprovedByAuthorException extends __BaseException {
+  readonly name: "PullRequestCannotBeApprovedByAuthorException" = "PullRequestCannotBeApprovedByAuthorException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PullRequestCannotBeApprovedByAuthorException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PullRequestCannotBeApprovedByAuthorException, __BaseException>) {
+    super({
+      name: "PullRequestCannotBeApprovedByAuthorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullRequestCannotBeApprovedByAuthorException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestApprovalStateInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The system-generated ID of the revision.</p>
    */
   revisionId: string | undefined;
 
   /**
+   * @public
    * <p>The approval state to associate with the user on the pull request.</p>
    */
   approvalState: ApprovalState | string | undefined;
 }
 
-export namespace UpdatePullRequestApprovalStateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalStateInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestDescriptionInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The updated content of the description for the pull request. This content replaces the
    *             existing description.</p>
    */
   description: string | undefined;
 }
 
-export namespace UpdatePullRequestDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestDescriptionOutput {
   /**
+   * @public
    * <p>Information about the updated pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
 
-export namespace UpdatePullRequestDescriptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
  */
-export interface InvalidPullRequestStatusUpdateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPullRequestStatusUpdateException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidPullRequestStatusUpdateException {
+export class InvalidPullRequestStatusUpdateException extends __BaseException {
+  readonly name: "InvalidPullRequestStatusUpdateException" = "InvalidPullRequestStatusUpdateException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidPullRequestStatusUpdateException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InvalidPullRequestStatusUpdateException, __BaseException>) {
+    super({
+      name: "InvalidPullRequestStatusUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPullRequestStatusUpdateException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>A pull request status is required, but none was provided.</p>
  */
-export interface PullRequestStatusRequiredException extends __SmithyException, $MetadataBearer {
-  name: "PullRequestStatusRequiredException";
-  $fault: "client";
-  /**
-   * <p>Any message associated with the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace PullRequestStatusRequiredException {
+export class PullRequestStatusRequiredException extends __BaseException {
+  readonly name: "PullRequestStatusRequiredException" = "PullRequestStatusRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PullRequestStatusRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<PullRequestStatusRequiredException, __BaseException>) {
+    super({
+      name: "PullRequestStatusRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullRequestStatusRequiredException.prototype);
+  }
 }
 
+/**
+ * @public
+ */
 export interface UpdatePullRequestStatusInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The status of the pull request. The only valid operations are to update the status
    *             from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or
    *             from <code>CLOSED</code> to <code>CLOSED</code>.</p>
@@ -2437,112 +2267,77 @@ export interface UpdatePullRequestStatusInput {
   pullRequestStatus: PullRequestStatusEnum | string | undefined;
 }
 
-export namespace UpdatePullRequestStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestStatusOutput {
   /**
+   * @public
    * <p>Information about the pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
 
-export namespace UpdatePullRequestStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestTitleInput {
   /**
+   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
    */
   pullRequestId: string | undefined;
 
   /**
+   * @public
    * <p>The updated title of the pull request. This replaces the existing title.</p>
    */
   title: string | undefined;
 }
 
-export namespace UpdatePullRequestTitleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * @public
+ */
 export interface UpdatePullRequestTitleOutput {
   /**
+   * @public
    * <p>Information about the updated pull request.</p>
    */
   pullRequest: PullRequest | undefined;
 }
 
-export namespace UpdatePullRequestTitleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryDescriptionInput {
   /**
+   * @public
    * <p>The name of the repository to set or change the comment or description for.</p>
    */
   repositoryName: string | undefined;
 
   /**
+   * @public
    * <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
    */
   repositoryDescription?: string;
 }
 
-export namespace UpdateRepositoryDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>Represents the input of an update repository description operation.</p>
  */
 export interface UpdateRepositoryNameInput {
   /**
+   * @public
    * <p>The current name of the repository.</p>
    */
   oldName: string | undefined;
 
   /**
+   * @public
    * <p>The new name for the repository.</p>
    */
   newName: string | undefined;
-}
-
-export namespace UpdateRepositoryNameInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
-    ...obj,
-  });
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { ListTrialsRequest, ListTrialsResponse } from "../models/models_2";
-import {
-  deserializeAws_json1_1ListTrialsCommand,
-  serializeAws_json1_1ListTrialsCommand,
-} from "../protocols/Aws_json1_1";
+import { ListTrialsRequest, ListTrialsResponse } from "../models/models_3";
+import { de_ListTrialsCommand, se_ListTrialsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListTrialsCommand}.
+ */
 export interface ListTrialsCommandInput extends ListTrialsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListTrialsCommand}.
+ */
 export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
  *       trials that are part of that experiment. Specify a trial component name to limit the list to
  *       the trials that associated with that trial component. The list can be filtered to show only
@@ -33,13 +47,48 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * import { SageMakerClient, ListTrialsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrialsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = { // ListTrialsRequest
+ *   ExperimentName: "STRING_VALUE",
+ *   TrialComponentName: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTrialsCommand(input);
  * const response = await client.send(command);
+ * // { // ListTrialsResponse
+ * //   TrialSummaries: [ // TrialSummaries
+ * //     { // TrialSummary
+ * //       TrialArn: "STRING_VALUE",
+ * //       TrialName: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //       TrialSource: { // TrialSource
+ * //         SourceArn: "STRING_VALUE", // required
+ * //         SourceType: "STRING_VALUE",
+ * //       },
+ * //       CreationTime: new Date("TIMESTAMP"),
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListTrialsCommandInput - {@link ListTrialsCommandInput}
+ * @returns {@link ListTrialsCommandOutput}
  * @see {@link ListTrialsCommandInput} for command's `input` shape.
  * @see {@link ListTrialsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ * @throws {@link SageMakerServiceException}
+ * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
 export class ListTrialsCommand extends $Command<
@@ -50,6 +99,18 @@ export class ListTrialsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListTrialsCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +126,7 @@ export class ListTrialsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListTrialsCommandInput, ListTrialsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListTrialsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +137,8 @@ export class ListTrialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTrialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +148,18 @@ export class ListTrialsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListTrialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListTrialsCommand(input, context);
+    return se_ListTrialsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTrialsCommandOutput> {
-    return deserializeAws_json1_1ListTrialsCommand(output, context);
+    return de_ListTrialsCommand(output, context);
   }
 
   // Start section: command_body_extra

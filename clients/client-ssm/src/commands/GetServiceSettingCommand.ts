@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetServiceSettingRequest, GetServiceSettingResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1GetServiceSettingCommand,
-  serializeAws_json1_1GetServiceSettingCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetServiceSettingCommand, se_GetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetServiceSettingCommand}.
+ */
 export interface GetServiceSettingCommandInput extends GetServiceSettingRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetServiceSettingCommand}.
+ */
 export interface GetServiceSettingCommandOutput extends GetServiceSettingResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -42,13 +56,39 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * import { SSMClient, GetServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // GetServiceSettingRequest
+ *   SettingId: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceSettingCommand(input);
  * const response = await client.send(command);
+ * // { // GetServiceSettingResult
+ * //   ServiceSetting: { // ServiceSetting
+ * //     SettingId: "STRING_VALUE",
+ * //     SettingValue: "STRING_VALUE",
+ * //     LastModifiedDate: new Date("TIMESTAMP"),
+ * //     LastModifiedUser: "STRING_VALUE",
+ * //     ARN: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetServiceSettingCommandInput - {@link GetServiceSettingCommandInput}
+ * @returns {@link GetServiceSettingCommandOutput}
  * @see {@link GetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ServiceSettingNotFound} (client fault)
+ *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
+ *    been provisioned by the Amazon Web Services service team.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class GetServiceSettingCommand extends $Command<
@@ -59,6 +99,18 @@ export class GetServiceSettingCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetServiceSettingCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +126,9 @@ export class GetServiceSettingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetServiceSettingCommandInput, GetServiceSettingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetServiceSettingCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +139,8 @@ export class GetServiceSettingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceSettingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceSettingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,12 +150,18 @@ export class GetServiceSettingCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetServiceSettingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetServiceSettingCommand(input, context);
+    return se_GetServiceSettingCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceSettingCommandOutput> {
-    return deserializeAws_json1_1GetServiceSettingCommand(output, context);
+    return de_GetServiceSettingCommand(output, context);
   }
 
   // Start section: command_body_extra

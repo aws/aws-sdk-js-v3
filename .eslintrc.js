@@ -8,7 +8,7 @@ module.exports = {
     // Uses the recommended rules from the @typescript-eslint/eslint-plugin
     "plugin:@typescript-eslint/recommended",
   ],
-  plugins: ["@typescript-eslint", "simple-import-sort", "eslint-plugin-sort-export-all"],
+  plugins: ["@typescript-eslint", "simple-import-sort", "eslint-plugin-sort-export-all", "eslint-plugin-tsdoc"],
   rules: {
     /** Turn off strict enforcement */
     "@typescript-eslint/ban-types": "off",
@@ -23,6 +23,7 @@ module.exports = {
 
     /** Warnings */
     "@typescript-eslint/no-namespace": "warn",
+    "tsdoc/syntax": "warn",
 
     /** Errors */
     "simple-import-sort/imports": "error",

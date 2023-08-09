@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListFHIRExportJobsCommand,
   ListFHIRExportJobsCommandInput,
   ListFHIRExportJobsCommandOutput,
 } from "../commands/ListFHIRExportJobsCommand";
-import { HealthLake } from "../HealthLake";
 import { HealthLakeClient } from "../HealthLakeClient";
 import { HealthLakePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: HealthLakeClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListFHIRExportJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: HealthLake,
-  input: ListFHIRExportJobsCommandInput,
-  ...args: any
-): Promise<ListFHIRExportJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.listFHIRExportJobs(input, ...args);
-};
 export async function* paginateListFHIRExportJobs(
   config: HealthLakePaginationConfiguration,
   input: ListFHIRExportJobsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListFHIRExportJobs(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof HealthLake) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof HealthLakeClient) {
+    if (config.client instanceof HealthLakeClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected HealthLake | HealthLakeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

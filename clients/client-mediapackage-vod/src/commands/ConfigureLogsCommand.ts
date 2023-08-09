@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
 import { ConfigureLogsRequest, ConfigureLogsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureLogsCommand,
-  serializeAws_restJson1ConfigureLogsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureLogsCommand, se_ConfigureLogsCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ConfigureLogsCommand}.
+ */
 export interface ConfigureLogsCommandInput extends ConfigureLogsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConfigureLogsCommand}.
+ */
 export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __MetadataBearer {}
 
 /**
+ * @public
  * Changes the packaging group's properities to configure log subscription
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,59 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * import { MediaPackageVodClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
+ * const input = { // ConfigureLogsRequest
+ *   EgressAccessLogs: { // EgressAccessLogs
+ *     LogGroupName: "STRING_VALUE",
+ *   },
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new ConfigureLogsCommand(input);
  * const response = await client.send(command);
+ * // { // ConfigureLogsResponse
+ * //   Arn: "STRING_VALUE",
+ * //   Authorization: { // Authorization
+ * //     CdnIdentifierSecret: "STRING_VALUE", // required
+ * //     SecretsRoleArn: "STRING_VALUE", // required
+ * //   },
+ * //   CreatedAt: "STRING_VALUE",
+ * //   DomainName: "STRING_VALUE",
+ * //   EgressAccessLogs: { // EgressAccessLogs
+ * //     LogGroupName: "STRING_VALUE",
+ * //   },
+ * //   Id: "STRING_VALUE",
+ * //   Tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ConfigureLogsCommandInput - {@link ConfigureLogsCommandInput}
+ * @returns {@link ConfigureLogsCommandOutput}
  * @see {@link ConfigureLogsCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsCommandOutput} for command's `response` shape.
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  The client is not authorized to access the requested resource.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  The requested resource does not exist.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  An unexpected error occurred.
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  The client has exceeded their resource or throttling limits.
+ *
+ * @throws {@link UnprocessableEntityException} (client fault)
+ *  The parameters sent in the request are not valid.
+ *
+ * @throws {@link MediaPackageVodServiceException}
+ * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
  */
 export class ConfigureLogsCommand extends $Command<
@@ -46,6 +106,18 @@ export class ConfigureLogsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureLogsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +133,7 @@ export class ConfigureLogsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ConfigureLogsCommandInput, ConfigureLogsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ConfigureLogsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +144,8 @@ export class ConfigureLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureLogsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureLogsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +155,18 @@ export class ConfigureLogsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureLogsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureLogsCommand(input, context);
+    return se_ConfigureLogsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureLogsCommandOutput> {
-    return deserializeAws_restJson1ConfigureLogsCommand(output, context);
+    return de_ConfigureLogsCommand(output, context);
   }
 
   // Start section: command_body_extra

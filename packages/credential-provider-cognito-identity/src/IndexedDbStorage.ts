@@ -2,6 +2,9 @@ import { Storage } from "./Storage";
 
 const STORE_NAME = "IdentityIds";
 
+/**
+ * @internal
+ */
 export class IndexedDbStorage implements Storage {
   constructor(private readonly dbName: string = "aws:cognito-identity-ids") {}
 

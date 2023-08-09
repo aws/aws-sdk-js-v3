@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,25 +11,40 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   SetIdentityHeadersInNotificationsEnabledRequest,
   SetIdentityHeadersInNotificationsEnabledResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
-  serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
+  de_SetIdentityHeadersInNotificationsEnabledCommand,
+  se_SetIdentityHeadersInNotificationsEnabledCommand,
 } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link SetIdentityHeadersInNotificationsEnabledCommand}.
+ */
 export interface SetIdentityHeadersInNotificationsEnabledCommandInput
   extends SetIdentityHeadersInNotificationsEnabledRequest {}
+/**
+ * @public
+ *
+ * The output of {@link SetIdentityHeadersInNotificationsEnabledCommand}.
+ */
 export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
   extends SetIdentityHeadersInNotificationsEnabledResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
  *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
  *             type.</p>
@@ -40,13 +57,38 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * import { SESClient, SetIdentityHeadersInNotificationsEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityHeadersInNotificationsEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = { // SetIdentityHeadersInNotificationsEnabledRequest
+ *   Identity: "STRING_VALUE", // required
+ *   NotificationType: "STRING_VALUE", // required
+ *   Enabled: true || false, // required
+ * };
  * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param SetIdentityHeadersInNotificationsEnabledCommandInput - {@link SetIdentityHeadersInNotificationsEnabledCommandInput}
+ * @returns {@link SetIdentityHeadersInNotificationsEnabledCommandOutput}
  * @see {@link SetIdentityHeadersInNotificationsEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityHeadersInNotificationsEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
+ *
+ * @throws {@link SESServiceException}
+ * <p>Base exception class for all service exceptions from SES service.</p>
+ *
+ * @example SetIdentityHeadersInNotificationsEnabled
+ * ```javascript
+ * // The following example configures Amazon SES to include the original email headers in the Amazon SNS bounce notifications for an identity:
+ * const input = {
+ *   "Enabled": true,
+ *   "Identity": "user@example.com",
+ *   "NotificationType": "Bounce"
+ * };
+ * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);
+ * await client.send(command);
+ * // example id: setidentityheadersinnotificationsenabled-1469057295001
+ * ```
  *
  */
 export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
@@ -57,6 +99,18 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: SetIdentityHeadersInNotificationsEnabledCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +129,12 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     SetIdentityHeadersInNotificationsEnabledCommandOutput
   > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(
+        configuration,
+        SetIdentityHeadersInNotificationsEnabledCommand.getEndpointParameterInstructions()
+      )
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +145,8 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityHeadersInNotificationsEnabledRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityHeadersInNotificationsEnabledResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,18 +156,24 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: SetIdentityHeadersInNotificationsEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(input, context);
+    return se_SetIdentityHeadersInNotificationsEnabledCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(output, context);
+    return de_SetIdentityHeadersInNotificationsEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

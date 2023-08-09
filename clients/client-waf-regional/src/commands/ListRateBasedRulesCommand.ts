@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListRateBasedRulesRequest, ListRateBasedRulesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListRateBasedRulesCommand,
-  serializeAws_json1_1ListRateBasedRulesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListRateBasedRulesCommand, se_ListRateBasedRulesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListRateBasedRulesCommand}.
+ */
 export interface ListRateBasedRulesCommandInput extends ListRateBasedRulesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListRateBasedRulesCommand}.
+ */
 export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -37,13 +51,38 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * import { WAFRegionalClient, ListRateBasedRulesCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRateBasedRulesCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = { // ListRateBasedRulesRequest
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRateBasedRulesCommand(input);
  * const response = await client.send(command);
+ * // { // ListRateBasedRulesResponse
+ * //   NextMarker: "STRING_VALUE",
+ * //   Rules: [ // RuleSummaries
+ * //     { // RuleSummary
+ * //       RuleId: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListRateBasedRulesCommandInput - {@link ListRateBasedRulesCommandInput}
+ * @returns {@link ListRateBasedRulesCommandOutput}
  * @see {@link ListRateBasedRulesCommandInput} for command's `input` shape.
  * @see {@link ListRateBasedRulesCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFInvalidAccountException} (client fault)
+ *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * @throws {@link WAFRegionalServiceException}
+ * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
 export class ListRateBasedRulesCommand extends $Command<
@@ -54,6 +93,18 @@ export class ListRateBasedRulesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListRateBasedRulesCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +120,9 @@ export class ListRateBasedRulesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListRateBasedRulesCommandInput, ListRateBasedRulesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRateBasedRulesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +133,8 @@ export class ListRateBasedRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRateBasedRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRateBasedRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +144,18 @@ export class ListRateBasedRulesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListRateBasedRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRateBasedRulesCommand(input, context);
+    return se_ListRateBasedRulesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRateBasedRulesCommandOutput> {
-    return deserializeAws_json1_1ListRateBasedRulesCommand(output, context);
+    return de_ListRateBasedRulesCommand(output, context);
   }
 
   // Start section: command_body_extra

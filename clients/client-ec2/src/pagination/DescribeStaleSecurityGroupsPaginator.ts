@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeStaleSecurityGroupsCommand,
   DescribeStaleSecurityGroupsCommandInput,
   DescribeStaleSecurityGroupsCommandOutput,
 } from "../commands/DescribeStaleSecurityGroupsCommand";
-import { EC2 } from "../EC2";
 import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: EC2Client,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeStaleSecurityGroupsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: EC2,
-  input: DescribeStaleSecurityGroupsCommandInput,
-  ...args: any
-): Promise<DescribeStaleSecurityGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeStaleSecurityGroups(input, ...args);
-};
 export async function* paginateDescribeStaleSecurityGroups(
   config: EC2PaginationConfiguration,
   input: DescribeStaleSecurityGroupsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeStaleSecurityGroups(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof EC2) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof EC2Client) {
+    if (config.client instanceof EC2Client) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected EC2 | EC2Client");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

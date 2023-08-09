@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,38 +11,71 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { DeleteUserPermissionsBoundaryRequest } from "../models/models_0";
 import {
-  deserializeAws_queryDeleteUserPermissionsBoundaryCommand,
-  serializeAws_queryDeleteUserPermissionsBoundaryCommand,
+  de_DeleteUserPermissionsBoundaryCommand,
+  se_DeleteUserPermissionsBoundaryCommand,
 } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteUserPermissionsBoundaryCommand}.
+ */
 export interface DeleteUserPermissionsBoundaryCommandInput extends DeleteUserPermissionsBoundaryRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteUserPermissionsBoundaryCommand}.
+ */
 export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the permissions boundary for the specified IAM user.</p>
- *         <important>
+ *          <important>
  *             <p>Deleting the permissions boundary for a user might increase its permissions by
  *                 allowing the user to perform all the actions granted in its permissions policies.
  *             </p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeleteUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = { // DeleteUserPermissionsBoundaryRequest
+ *   UserName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteUserPermissionsBoundaryCommandInput - {@link DeleteUserPermissionsBoundaryCommandInput}
+ * @returns {@link DeleteUserPermissionsBoundaryCommandOutput}
  * @see {@link DeleteUserPermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link DeleteUserPermissionsBoundaryCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ * @throws {@link IAMServiceException}
+ * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  */
 export class DeleteUserPermissionsBoundaryCommand extends $Command<
@@ -51,6 +86,18 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteUserPermissionsBoundaryCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +113,9 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserPermissionsBoundaryCommandInput, DeleteUserPermissionsBoundaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteUserPermissionsBoundaryCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +126,8 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserPermissionsBoundaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,15 +137,21 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteUserPermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteUserPermissionsBoundaryCommand(input, context);
+    return se_DeleteUserPermissionsBoundaryCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteUserPermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryDeleteUserPermissionsBoundaryCommand(output, context);
+    return de_DeleteUserPermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

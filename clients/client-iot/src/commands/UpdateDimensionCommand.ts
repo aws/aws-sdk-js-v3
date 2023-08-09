@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { UpdateDimensionRequest, UpdateDimensionResponse } from "../models/models_2";
-import {
-  deserializeAws_restJson1UpdateDimensionCommand,
-  serializeAws_restJson1UpdateDimensionCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateDimensionCommand, se_UpdateDimensionCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateDimensionCommand}.
+ */
 export interface UpdateDimensionCommandInput extends UpdateDimensionRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateDimensionCommand}.
+ */
 export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates the definition for a dimension. You
  *       cannot
  *       change the type of a dimension after
@@ -35,13 +49,47 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * import { IoTClient, UpdateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = { // UpdateDimensionRequest
+ *   name: "STRING_VALUE", // required
+ *   stringValues: [ // DimensionStringValues // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateDimensionCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateDimensionResponse
+ * //   name: "STRING_VALUE",
+ * //   arn: "STRING_VALUE",
+ * //   type: "TOPIC_FILTER",
+ * //   stringValues: [ // DimensionStringValues
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   creationDate: new Date("TIMESTAMP"),
+ * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * // };
+ *
  * ```
  *
+ * @param UpdateDimensionCommandInput - {@link UpdateDimensionCommandInput}
+ * @returns {@link UpdateDimensionCommandOutput}
  * @see {@link UpdateDimensionCommandInput} for command's `input` shape.
  * @see {@link UpdateDimensionCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link IoTServiceException}
+ * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
 export class UpdateDimensionCommand extends $Command<
@@ -52,6 +100,18 @@ export class UpdateDimensionCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateDimensionCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +127,9 @@ export class UpdateDimensionCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDimensionCommandInput, UpdateDimensionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDimensionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +140,8 @@ export class UpdateDimensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDimensionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDimensionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,12 +151,18 @@ export class UpdateDimensionCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateDimensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateDimensionCommand(input, context);
+    return se_UpdateDimensionCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDimensionCommandOutput> {
-    return deserializeAws_restJson1UpdateDimensionCommand(output, context);
+    return de_UpdateDimensionCommand(output, context);
   }
 
   // Start section: command_body_extra

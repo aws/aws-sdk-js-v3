@@ -1,63 +1,62 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
+import { MobileServiceException as __BaseException } from "./MobileServiceException";
 
 /**
+ * @public
  * <p>
  *             Account Action is required in order to continue the request.
  *         </p>
  */
-export interface AccountActionRequiredException extends __SmithyException, $MetadataBearer {
-  name: "AccountActionRequiredException";
-  $fault: "client";
-  /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace AccountActionRequiredException {
+export class AccountActionRequiredException extends __BaseException {
+  readonly name: "AccountActionRequiredException" = "AccountActionRequiredException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AccountActionRequiredException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<AccountActionRequiredException, __BaseException>) {
+    super({
+      name: "AccountActionRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountActionRequiredException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>
  *             The request cannot be processed because some parameter is not valid or the project
  *             state prevents the operation from being performed.
  *         </p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace BadRequestException {
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request a project be created.
  *         </p>
  */
 export interface CreateProjectRequest {
   /**
+   * @public
    * <p>
    *             Name of the project.
    *         </p>
@@ -65,6 +64,7 @@ export interface CreateProjectRequest {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             Default region where project resources should be created.
    *         </p>
@@ -72,6 +72,7 @@ export interface CreateProjectRequest {
   region?: string;
 
   /**
+   * @public
    * <p>
    *             ZIP or YAML file which contains configuration settings to be used when creating
    *             the project. This may be the contents of the file downloaded from the URL provided
@@ -81,6 +82,7 @@ export interface CreateProjectRequest {
   contents?: Uint8Array;
 
   /**
+   * @public
    * <p>
    *             Unique identifier for an exported snapshot of project configuration. This
    *             snapshot identifier is included in the share URL when a project is exported.
@@ -89,22 +91,15 @@ export interface CreateProjectRequest {
   snapshotId?: string;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Information about an instance of an AWS resource associated with a project.
  *         </p>
  */
 export interface Resource {
   /**
+   * @public
    * <p>
    *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
    *         </p>
@@ -112,6 +107,7 @@ export interface Resource {
   type?: string;
 
   /**
+   * @public
    * <p>
    *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
    *         </p>
@@ -119,6 +115,7 @@ export interface Resource {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             AWS resource name which uniquely identifies the resource in AWS systems.
    *         </p>
@@ -126,6 +123,7 @@ export interface Resource {
   arn?: string;
 
   /**
+   * @public
    * <p>
    *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
    *         </p>
@@ -133,35 +131,38 @@ export interface Resource {
   feature?: string;
 
   /**
+   * @public
    * <p>
    *             Key-value attribute pairs.
    *         </p>
    */
-  attributes?: { [key: string]: string };
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
-export enum ProjectState {
-  IMPORTING = "IMPORTING",
-  NORMAL = "NORMAL",
-  SYNCING = "SYNCING",
+  attributes?: Record<string, string>;
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ProjectState = {
+  IMPORTING: "IMPORTING",
+  NORMAL: "NORMAL",
+  SYNCING: "SYNCING",
+} as const;
+
+/**
+ * @public
+ */
+export type ProjectState = (typeof ProjectState)[keyof typeof ProjectState];
+
+/**
+ * @public
  * <p>
  *             Detailed information about an AWS Mobile Hub project.
  *         </p>
  */
 export interface ProjectDetails {
   /**
+   * @public
    * <p>
    *             Name of the project.
    *         </p>
@@ -169,6 +170,7 @@ export interface ProjectDetails {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -176,6 +178,7 @@ export interface ProjectDetails {
   projectId?: string;
 
   /**
+   * @public
    * <p>
    *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
    *         </p>
@@ -183,6 +186,7 @@ export interface ProjectDetails {
   region?: string;
 
   /**
+   * @public
    * <p>
    *             Synchronization state for a project.
    *         </p>
@@ -190,6 +194,7 @@ export interface ProjectDetails {
   state?: ProjectState | string;
 
   /**
+   * @public
    * <p>
    *             Date the project was created.
    *         </p>
@@ -197,6 +202,7 @@ export interface ProjectDetails {
   createdDate?: Date;
 
   /**
+   * @public
    * <p>
    *             Date of the last modification of the project.
    *         </p>
@@ -204,6 +210,7 @@ export interface ProjectDetails {
   lastUpdatedDate?: Date;
 
   /**
+   * @public
    * <p>
    *             Website URL for this project in the AWS Mobile Hub console.
    *         </p>
@@ -211,6 +218,7 @@ export interface ProjectDetails {
   consoleUrl?: string;
 
   /**
+   * @public
    * <p>
    *             List of AWS resources associated with a project.
    *         </p>
@@ -218,22 +226,15 @@ export interface ProjectDetails {
   resources?: Resource[];
 }
 
-export namespace ProjectDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure used in response to a request to create a project.
  *         </p>
  */
 export interface CreateProjectResult {
   /**
+   * @public
    * <p>
    *             Detailed information about the created AWS Mobile Hub project.
    *         </p>
@@ -241,42 +242,31 @@ export interface CreateProjectResult {
   details?: ProjectDetails;
 }
 
-export namespace CreateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             The service has encountered an unexpected error condition which prevents it from
  *             servicing the request.
  *         </p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>
  *             There are too many AWS Mobile Hub projects in the account or the account has
  *             exceeded the maximum number of resources in some AWS service. You should create
@@ -284,10 +274,11 @@ export namespace InternalFailureException {
  *             your request.
  *         </p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
@@ -295,57 +286,53 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   retryAfterSeconds?: string;
 
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
+ * @public
  * <p>
  *             No entity can be found with the specified identifier.
  *         </p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace NotFoundException {
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>
  *             The service is temporarily unavailable. The request should be retried after some
  *             time delay.
  *         </p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
+   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
@@ -353,32 +340,31 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   retryAfterSeconds?: string;
 
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
+ * @public
  * <p>
  *             Too many requests have been received for this AWS account in too short a time. The
  *             request should be retried after some time delay.
  *         </p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
+   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
@@ -386,54 +372,50 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   retryAfterSeconds?: string;
 
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
+ * @public
  * <p>
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
-  /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
-   */
-  message?: string;
-}
-
-export namespace UnauthorizedException {
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
 }
 
 /**
+ * @public
  * <p>
  *             Request structure used to request a project be deleted.
  *         </p>
  */
 export interface DeleteProjectRequest {
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -441,22 +423,15 @@ export interface DeleteProjectRequest {
   projectId: string | undefined;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure used in response to request to delete a project.
  *         </p>
  */
 export interface DeleteProjectResult {
   /**
+   * @public
    * <p>
    *             Resources which were deleted.
    *         </p>
@@ -464,6 +439,7 @@ export interface DeleteProjectResult {
   deletedResources?: Resource[];
 
   /**
+   * @public
    * <p>
    *             Resources which were not deleted, due to a risk of losing potentially
    *             important data or files.
@@ -472,22 +448,15 @@ export interface DeleteProjectResult {
   orphanedResources?: Resource[];
 }
 
-export namespace DeleteProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure to request the details of a specific bundle.
  *         </p>
  */
 export interface DescribeBundleRequest {
   /**
+   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
@@ -495,32 +464,34 @@ export interface DescribeBundleRequest {
   bundleId: string | undefined;
 }
 
-export namespace DescribeBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBundleRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum Platform {
-  ANDROID = "ANDROID",
-  JAVASCRIPT = "JAVASCRIPT",
-  LINUX = "LINUX",
-  OBJC = "OBJC",
-  OSX = "OSX",
-  SWIFT = "SWIFT",
-  WINDOWS = "WINDOWS",
-}
+/**
+ * @public
+ * @enum
+ */
+export const Platform = {
+  ANDROID: "ANDROID",
+  JAVASCRIPT: "JAVASCRIPT",
+  LINUX: "LINUX",
+  OBJC: "OBJC",
+  OSX: "OSX",
+  SWIFT: "SWIFT",
+  WINDOWS: "WINDOWS",
+} as const;
 
 /**
+ * @public
+ */
+export type Platform = (typeof Platform)[keyof typeof Platform];
+
+/**
+ * @public
  * <p>
  *             The details of the bundle.
  *         </p>
  */
 export interface BundleDetails {
   /**
+   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
@@ -528,6 +499,7 @@ export interface BundleDetails {
   bundleId?: string;
 
   /**
+   * @public
    * <p>
    *             Title of the download bundle.
    *         </p>
@@ -535,6 +507,7 @@ export interface BundleDetails {
   title?: string;
 
   /**
+   * @public
    * <p>
    *             Version of the download bundle.
    *         </p>
@@ -542,6 +515,7 @@ export interface BundleDetails {
   version?: string;
 
   /**
+   * @public
    * <p>
    *             Description of the download bundle.
    *         </p>
@@ -549,6 +523,7 @@ export interface BundleDetails {
   description?: string;
 
   /**
+   * @public
    * <p>
    *             Icon for the download bundle.
    *         </p>
@@ -556,6 +531,7 @@ export interface BundleDetails {
   iconUrl?: string;
 
   /**
+   * @public
    * <p>
    *             Developer desktop or mobile app or website platforms.
    *         </p>
@@ -563,22 +539,15 @@ export interface BundleDetails {
   availablePlatforms?: (Platform | string)[];
 }
 
-export namespace BundleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BundleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure contains the details of the bundle.
  *         </p>
  */
 export interface DescribeBundleResult {
   /**
+   * @public
    * <p>
    *             The details of the bundle.
    *         </p>
@@ -586,22 +555,15 @@ export interface DescribeBundleResult {
   details?: BundleDetails;
 }
 
-export namespace DescribeBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure used to request details about a project.
  *         </p>
  */
 export interface DescribeProjectRequest {
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -609,6 +571,7 @@ export interface DescribeProjectRequest {
   projectId: string | undefined;
 
   /**
+   * @public
    * <p>
    *             If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
    *         </p>
@@ -616,22 +579,15 @@ export interface DescribeProjectRequest {
   syncFromResources?: boolean;
 }
 
-export namespace DescribeProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure used for requests of project details.
  *         </p>
  */
 export interface DescribeProjectResult {
   /**
+   * @public
    * <p>
    *             Detailed information about an AWS Mobile Hub project.
    *         </p>
@@ -639,16 +595,8 @@ export interface DescribeProjectResult {
   details?: ProjectDetails;
 }
 
-export namespace DescribeProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure used to request generation of custom SDK and tool packages
  *             required to integrate mobile web or app clients with backed AWS resources.
@@ -656,6 +604,7 @@ export namespace DescribeProjectResult {
  */
 export interface ExportBundleRequest {
   /**
+   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
@@ -663,6 +612,7 @@ export interface ExportBundleRequest {
   bundleId: string | undefined;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -670,6 +620,7 @@ export interface ExportBundleRequest {
   projectId?: string;
 
   /**
+   * @public
    * <p>
    *             Developer desktop or target application platform.
    *         </p>
@@ -677,16 +628,8 @@ export interface ExportBundleRequest {
   platform?: Platform | string;
 }
 
-export namespace ExportBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure which contains link to download custom-generated SDK and
  *             tool packages used to integrate mobile web or app clients with backed
@@ -695,6 +638,7 @@ export namespace ExportBundleRequest {
  */
 export interface ExportBundleResult {
   /**
+   * @public
    * <p>
    *             URL which contains the custom-generated SDK and tool packages used
    *             to integrate the client mobile app or web app with the AWS resources
@@ -704,22 +648,15 @@ export interface ExportBundleResult {
   downloadUrl?: string;
 }
 
-export namespace ExportBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportBundleResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure used in requests to export project configuration details.
  *         </p>
  */
 export interface ExportProjectRequest {
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -727,22 +664,15 @@ export interface ExportProjectRequest {
   projectId: string | undefined;
 }
 
-export namespace ExportProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure used for requests to export project configuration details.
  *         </p>
  */
 export interface ExportProjectResult {
   /**
+   * @public
    * <p>
    *             URL which can be used to download the exported project configuation file(s).
    *         </p>
@@ -750,6 +680,7 @@ export interface ExportProjectResult {
   downloadUrl?: string;
 
   /**
+   * @public
    * <p>
    *             URL which can be shared to allow other AWS users to create their own project
    *             in AWS Mobile Hub with the same configuration as the specified project. This
@@ -762,6 +693,7 @@ export interface ExportProjectResult {
   shareUrl?: string;
 
   /**
+   * @public
    * <p>
    *             Unique identifier for the exported snapshot of the project configuration. This
    *             snapshot identifier is included in the share URL.
@@ -770,22 +702,15 @@ export interface ExportProjectResult {
   snapshotId?: string;
 }
 
-export namespace ExportProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure to request all available bundles.
  *         </p>
  */
 export interface ListBundlesRequest {
   /**
+   * @public
    * <p>
    *             Maximum number of records to list in a single response.
    *         </p>
@@ -793,6 +718,7 @@ export interface ListBundlesRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>
    *             Pagination token. Set to null to start listing bundles from start.
    *             If non-null pagination token is returned in a result, then pass its
@@ -802,22 +728,15 @@ export interface ListBundlesRequest {
   nextToken?: string;
 }
 
-export namespace ListBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBundlesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure contains a list of all available bundles with details.
  *         </p>
  */
 export interface ListBundlesResult {
   /**
+   * @public
    * <p>
    *             A list of bundles.
    *         </p>
@@ -825,6 +744,7 @@ export interface ListBundlesResult {
   bundleList?: BundleDetails[];
 
   /**
+   * @public
    * <p>
    *             Pagination token. If non-null pagination token is returned in a result,
    *             then pass its value in another request to fetch more entries.
@@ -833,22 +753,15 @@ export interface ListBundlesResult {
   nextToken?: string;
 }
 
-export namespace ListBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure used to request projects list in AWS Mobile Hub.
  *         </p>
  */
 export interface ListProjectsRequest {
   /**
+   * @public
    * <p>
    *             Maximum number of records to list in a single response.
    *         </p>
@@ -856,6 +769,7 @@ export interface ListProjectsRequest {
   maxResults?: number;
 
   /**
+   * @public
    * <p>
    *             Pagination token. Set to null to start listing projects from start.
    *             If non-null pagination token is returned in a result, then pass its
@@ -865,22 +779,15 @@ export interface ListProjectsRequest {
   nextToken?: string;
 }
 
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Summary information about an AWS Mobile Hub project.
  *         </p>
  */
 export interface ProjectSummary {
   /**
+   * @public
    * <p>
    *             Name of the project.
    *         </p>
@@ -888,6 +795,7 @@ export interface ProjectSummary {
   name?: string;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -895,22 +803,15 @@ export interface ProjectSummary {
   projectId?: string;
 }
 
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure used for requests to list projects in AWS Mobile Hub.
  *         </p>
  */
 export interface ListProjectsResult {
   /**
+   * @public
    * <p>
    *             List of projects.
    *         </p>
@@ -918,6 +819,7 @@ export interface ListProjectsResult {
   projects?: ProjectSummary[];
 
   /**
+   * @public
    * <p>
    *             Pagination token. Set to null to start listing records from start.
    *             If non-null pagination token is returned in a result, then pass its
@@ -927,22 +829,15 @@ export interface ListProjectsResult {
   nextToken?: string;
 }
 
-export namespace ListProjectsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Request structure used for requests to update project configuration.
  *         </p>
  */
 export interface UpdateProjectRequest {
   /**
+   * @public
    * <p>
    *             ZIP or YAML file which contains project configuration to be updated. This should
    *             be the contents of the file downloaded from the URL provided in an export project
@@ -952,6 +847,7 @@ export interface UpdateProjectRequest {
   contents?: Uint8Array;
 
   /**
+   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
@@ -959,34 +855,18 @@ export interface UpdateProjectRequest {
   projectId: string | undefined;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
+ * @public
  * <p>
  *             Result structure used for requests to updated project configuration.
  *         </p>
  */
 export interface UpdateProjectResult {
   /**
+   * @public
    * <p>
    *             Detailed information about the updated AWS Mobile Hub project.
    *         </p>
    */
   details?: ProjectDetails;
-}
-
-export namespace UpdateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj,
-  });
 }

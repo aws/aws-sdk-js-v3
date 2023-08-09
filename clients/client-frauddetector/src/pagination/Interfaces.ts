@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { FraudDetector } from "../FraudDetector";
 import { FraudDetectorClient } from "../FraudDetectorClient";
 
+/**
+ * @public
+ */
 export interface FraudDetectorPaginationConfiguration extends PaginationConfiguration {
-  client: FraudDetector | FraudDetectorClient;
+  client: FraudDetectorClient;
 }

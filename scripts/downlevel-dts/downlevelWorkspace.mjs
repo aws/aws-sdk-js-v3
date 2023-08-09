@@ -1,8 +1,9 @@
 // @ts-check
 import { exec } from "child_process";
+import decomment from "decomment";
 import { access, readFile, writeFile } from "fs/promises";
 import { join } from "path";
-import stripComments from "strip-comments";
+import prettier from "prettier";
 import { promisify } from "util";
 
 import { getAllFiles } from "./getAllFiles.mjs";
@@ -20,10 +21,8 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   try {
     await access(declarationDir);
   } catch (error) {
-    throw new Error(
-      `The types for "${workspaceName}" do not exist.\n` +
-        `Please build types for workspace "${workspaceDir}" before running downlevel-dts script.`
-    );
+    console.log(`The types for "${workspaceName}" do not exist.\n`);
+    return;
   }
 
   const downlevelDir = join(declarationDir, downlevelDirname);
@@ -31,7 +30,7 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   try {
     await access(downlevelDir);
   } catch (error) {
-    await execPromise(["yarn", "downlevel-dts"].join(" "), { cwd: workspaceDir });
+    await execPromise(["yarn", "build:types:downlevel"].join(" "), { cwd: workspaceDir });
   }
 
   // Strip comments from downlevel-dts files
@@ -41,7 +40,13 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
     for (const downlevelTypesFilepath of files) {
       try {
         const content = await readFile(downlevelTypesFilepath, "utf8");
-        await writeFile(downlevelTypesFilepath, stripComments(content));
+        const decommentedContent = decomment(content);
+        try {
+          const formatted = prettier.format(decommentedContent, { parser: "typescript" });
+          await writeFile(downlevelTypesFilepath, formatted);
+        } catch (error) {
+          console.warn(`Failed to format "${downlevelTypesFilepath}". Skipping...`);
+        }
       } catch (error) {
         console.error(`Error while stripping comments from "${downlevelTypesFilepath.replace(process.cwd(), "")}"`);
         console.error(error);

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import { ListLicensesRequest, ListLicensesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListLicensesCommand,
-  serializeAws_json1_1ListLicensesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListLicensesCommand, se_ListLicensesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListLicensesCommand}.
+ */
 export interface ListLicensesCommandInput extends ListLicensesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListLicensesCommand}.
+ */
 export interface ListLicensesCommandOutput extends ListLicensesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists the licenses for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,104 @@ export interface ListLicensesCommandOutput extends ListLicensesResponse, __Metad
  * import { LicenseManagerClient, ListLicensesCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, ListLicensesCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = { // ListLicensesRequest
+ *   LicenseArns: [ // ArnList
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [ // FilterList
+ *     { // Filter
+ *       Name: "STRING_VALUE",
+ *       Values: [ // FilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLicensesCommand(input);
  * const response = await client.send(command);
+ * // { // ListLicensesResponse
+ * //   Licenses: [ // LicenseList
+ * //     { // License
+ * //       LicenseArn: "STRING_VALUE",
+ * //       LicenseName: "STRING_VALUE",
+ * //       ProductName: "STRING_VALUE",
+ * //       ProductSKU: "STRING_VALUE",
+ * //       Issuer: { // IssuerDetails
+ * //         Name: "STRING_VALUE",
+ * //         SignKey: "STRING_VALUE",
+ * //         KeyFingerprint: "STRING_VALUE",
+ * //       },
+ * //       HomeRegion: "STRING_VALUE",
+ * //       Status: "AVAILABLE" || "PENDING_AVAILABLE" || "DEACTIVATED" || "SUSPENDED" || "EXPIRED" || "PENDING_DELETE" || "DELETED",
+ * //       Validity: { // DatetimeRange
+ * //         Begin: "STRING_VALUE", // required
+ * //         End: "STRING_VALUE",
+ * //       },
+ * //       Beneficiary: "STRING_VALUE",
+ * //       Entitlements: [ // EntitlementList
+ * //         { // Entitlement
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE",
+ * //           MaxCount: Number("long"),
+ * //           Overage: true || false,
+ * //           Unit: "Count" || "None" || "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second", // required
+ * //           AllowCheckIn: true || false,
+ * //         },
+ * //       ],
+ * //       ConsumptionConfiguration: { // ConsumptionConfiguration
+ * //         RenewType: "None" || "Weekly" || "Monthly",
+ * //         ProvisionalConfiguration: { // ProvisionalConfiguration
+ * //           MaxTimeToLiveInMinutes: Number("int"), // required
+ * //         },
+ * //         BorrowConfiguration: { // BorrowConfiguration
+ * //           AllowEarlyCheckIn: true || false, // required
+ * //           MaxTimeToLiveInMinutes: Number("int"), // required
+ * //         },
+ * //       },
+ * //       LicenseMetadata: [ // MetadataList
+ * //         { // Metadata
+ * //           Name: "STRING_VALUE",
+ * //           Value: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreateTime: "STRING_VALUE",
+ * //       Version: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListLicensesCommandInput - {@link ListLicensesCommandInput}
+ * @returns {@link ListLicensesCommandOutput}
  * @see {@link ListLicensesCommandInput} for command's `input` shape.
  * @see {@link ListLicensesCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to resource denied.</p>
+ *
+ * @throws {@link AuthorizationException} (client fault)
+ *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
+ *          policy associated with this account.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link RateLimitExceededException} (client fault)
+ *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * @throws {@link LicenseManagerServiceException}
+ * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
  */
 export class ListLicensesCommand extends $Command<
@@ -46,6 +151,18 @@ export class ListLicensesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListLicensesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +178,7 @@ export class ListLicensesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListLicensesCommandInput, ListLicensesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListLicensesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +189,8 @@ export class ListLicensesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicensesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLicensesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +200,18 @@ export class ListLicensesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListLicensesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicensesCommand(input, context);
+    return se_ListLicensesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLicensesCommandOutput> {
-    return deserializeAws_json1_1ListLicensesCommand(output, context);
+    return de_ListLicensesCommand(output, context);
   }
 
   // Start section: command_body_extra

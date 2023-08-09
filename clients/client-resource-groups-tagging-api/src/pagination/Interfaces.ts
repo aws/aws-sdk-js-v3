@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ResourceGroupsTaggingAPI } from "../ResourceGroupsTaggingAPI";
 import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
 
+/**
+ * @public
+ */
 export interface ResourceGroupsTaggingAPIPaginationConfiguration extends PaginationConfiguration {
-  client: ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient;
+  client: ResourceGroupsTaggingAPIClient;
 }

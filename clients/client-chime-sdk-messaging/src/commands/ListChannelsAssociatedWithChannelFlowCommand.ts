@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ChimeSDKMessagingClientResolvedConfig,
@@ -18,20 +20,37 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   ListChannelsAssociatedWithChannelFlowRequest,
+  ListChannelsAssociatedWithChannelFlowRequestFilterSensitiveLog,
   ListChannelsAssociatedWithChannelFlowResponse,
+  ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
-  serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
+  de_ListChannelsAssociatedWithChannelFlowCommand,
+  se_ListChannelsAssociatedWithChannelFlowCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListChannelsAssociatedWithChannelFlowCommand}.
+ */
 export interface ListChannelsAssociatedWithChannelFlowCommandInput
   extends ListChannelsAssociatedWithChannelFlowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListChannelsAssociatedWithChannelFlowCommand}.
+ */
 export interface ListChannelsAssociatedWithChannelFlowCommandOutput
   extends ListChannelsAssociatedWithChannelFlowResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -39,13 +58,54 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
  * import { ChimeSDKMessagingClient, ListChannelsAssociatedWithChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelsAssociatedWithChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = { // ListChannelsAssociatedWithChannelFlowRequest
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListChannelsAssociatedWithChannelFlowCommand(input);
  * const response = await client.send(command);
+ * // { // ListChannelsAssociatedWithChannelFlowResponse
+ * //   Channels: [ // ChannelAssociatedWithFlowSummaryList
+ * //     { // ChannelAssociatedWithFlowSummary
+ * //       Name: "STRING_VALUE",
+ * //       ChannelArn: "STRING_VALUE",
+ * //       Mode: "UNRESTRICTED" || "RESTRICTED",
+ * //       Privacy: "PUBLIC" || "PRIVATE",
+ * //       Metadata: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListChannelsAssociatedWithChannelFlowCommandInput - {@link ListChannelsAssociatedWithChannelFlowCommandInput}
+ * @returns {@link ListChannelsAssociatedWithChannelFlowCommandOutput}
  * @see {@link ListChannelsAssociatedWithChannelFlowCommandInput} for command's `input` shape.
  * @see {@link ListChannelsAssociatedWithChannelFlowCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottledClientException} (client fault)
+ *  <p>The client exceeded its request rate limit.</p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * @throws {@link ChimeSDKMessagingServiceException}
+ * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
 export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
@@ -56,6 +116,18 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListChannelsAssociatedWithChannelFlowCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +143,9 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListChannelsAssociatedWithChannelFlowCommandInput, ListChannelsAssociatedWithChannelFlowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListChannelsAssociatedWithChannelFlowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +156,8 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,18 +167,24 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: ListChannelsAssociatedWithChannelFlowCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand(input, context);
+    return se_ListChannelsAssociatedWithChannelFlowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> {
-    return deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand(output, context);
+    return de_ListChannelsAssociatedWithChannelFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetFileUploadURLRequest, GetFileUploadURLResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
-import {
-  deserializeAws_json1_1GetFileUploadURLCommand,
-  serializeAws_json1_1GetFileUploadURLCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetFileUploadURLCommand, se_GetFileUploadURLCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetFileUploadURLCommand}.
+ */
 export interface GetFileUploadURLCommandInput extends GetFileUploadURLRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetFileUploadURLCommand}.
+ */
 export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *             The
  *             <code>GetFileUploadURL</code>
@@ -46,13 +60,32 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * import { MTurkClient, GetFileUploadURLCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetFileUploadURLCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = { // GetFileUploadURLRequest
+ *   AssignmentId: "STRING_VALUE", // required
+ *   QuestionIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new GetFileUploadURLCommand(input);
  * const response = await client.send(command);
+ * // { // GetFileUploadURLResponse
+ * //   FileUploadURL: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetFileUploadURLCommandInput - {@link GetFileUploadURLCommandInput}
+ * @returns {@link GetFileUploadURLCommandOutput}
  * @see {@link GetFileUploadURLCommandInput} for command's `input` shape.
  * @see {@link GetFileUploadURLCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
+ *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * @throws {@link MTurkServiceException}
+ * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
  */
 export class GetFileUploadURLCommand extends $Command<
@@ -63,6 +96,18 @@ export class GetFileUploadURLCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetFileUploadURLCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,6 +123,9 @@ export class GetFileUploadURLCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetFileUploadURLCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -88,8 +136,8 @@ export class GetFileUploadURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFileUploadURLRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFileUploadURLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +147,18 @@ export class GetFileUploadURLCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetFileUploadURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetFileUploadURLCommand(input, context);
+    return se_GetFileUploadURLCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFileUploadURLCommandOutput> {
-    return deserializeAws_json1_1GetFileUploadURLCommand(output, context);
+    return de_GetFileUploadURLCommand(output, context);
   }
 
   // Start section: command_body_extra

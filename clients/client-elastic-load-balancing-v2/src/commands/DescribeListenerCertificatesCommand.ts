@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticLoadBalancingV2ClientResolvedConfig,
@@ -17,17 +19,29 @@ import {
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
 import { DescribeListenerCertificatesInput, DescribeListenerCertificatesOutput } from "../models/models_0";
-import {
-  deserializeAws_queryDescribeListenerCertificatesCommand,
-  serializeAws_queryDescribeListenerCertificatesCommand,
-} from "../protocols/Aws_query";
+import { de_DescribeListenerCertificatesCommand, se_DescribeListenerCertificatesCommand } from "../protocols/Aws_query";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeListenerCertificatesCommand}.
+ */
 export interface DescribeListenerCertificatesCommandInput extends DescribeListenerCertificatesInput {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeListenerCertificatesCommand}.
+ */
 export interface DescribeListenerCertificatesCommandOutput
   extends DescribeListenerCertificatesOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  *          <p>If the default certificate is also in the certificate list, it appears twice in the
@@ -42,13 +56,36 @@ export interface DescribeListenerCertificatesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = { // DescribeListenerCertificatesInput
+ *   ListenerArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribeListenerCertificatesCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeListenerCertificatesOutput
+ * //   Certificates: [ // CertificateList
+ * //     { // Certificate
+ * //       CertificateArn: "STRING_VALUE",
+ * //       IsDefault: true || false,
+ * //     },
+ * //   ],
+ * //   NextMarker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeListenerCertificatesCommandInput - {@link DescribeListenerCertificatesCommandInput}
+ * @returns {@link DescribeListenerCertificatesCommandOutput}
  * @see {@link DescribeListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ * @throws {@link ElasticLoadBalancingV2ServiceException}
+ * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
  */
 export class DescribeListenerCertificatesCommand extends $Command<
@@ -59,6 +96,18 @@ export class DescribeListenerCertificatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeListenerCertificatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +123,9 @@ export class DescribeListenerCertificatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeListenerCertificatesCommandInput, DescribeListenerCertificatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeListenerCertificatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +136,8 @@ export class DescribeListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeListenerCertificatesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeListenerCertificatesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,15 +147,21 @@ export class DescribeListenerCertificatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeListenerCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeListenerCertificatesCommand(input, context);
+    return se_DescribeListenerCertificatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeListenerCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeListenerCertificatesCommand(output, context);
+    return de_DescribeListenerCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

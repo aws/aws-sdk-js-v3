@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetAssociatedResourceRequest, GetAssociatedResourceResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAssociatedResourceCommand,
-  serializeAws_restJson1GetAssociatedResourceCommand,
-} from "../protocols/Aws_restJson1";
+import { de_GetAssociatedResourceCommand, se_GetAssociatedResourceCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetAssociatedResourceCommand}.
+ */
 export interface GetAssociatedResourceCommandInput extends GetAssociatedResourceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetAssociatedResourceCommand}.
+ */
 export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets the resource associated with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -33,13 +47,47 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * import { ServiceCatalogAppRegistryClient, GetAssociatedResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, GetAssociatedResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = { // GetAssociatedResourceRequest
+ *   application: "STRING_VALUE", // required
+ *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
+ *   resource: "STRING_VALUE", // required
+ * };
  * const command = new GetAssociatedResourceCommand(input);
  * const response = await client.send(command);
+ * // { // GetAssociatedResourceResponse
+ * //   resource: { // Resource
+ * //     name: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
+ * //     associationTime: new Date("TIMESTAMP"),
+ * //     integrations: { // ResourceIntegrations
+ * //       resourceGroup: { // ResourceGroup
+ * //         state: "CREATING" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATING" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
+ * //         arn: "STRING_VALUE",
+ * //         errorMessage: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param GetAssociatedResourceCommandInput - {@link GetAssociatedResourceCommandInput}
+ * @returns {@link GetAssociatedResourceCommandOutput}
  * @see {@link GetAssociatedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAssociatedResourceCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service is experiencing internal problems.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
+ * @throws {@link ServiceCatalogAppRegistryServiceException}
+ * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
 export class GetAssociatedResourceCommand extends $Command<
@@ -50,6 +98,18 @@ export class GetAssociatedResourceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetAssociatedResourceCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +125,9 @@ export class GetAssociatedResourceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetAssociatedResourceCommandInput, GetAssociatedResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetAssociatedResourceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +138,8 @@ export class GetAssociatedResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +149,18 @@ export class GetAssociatedResourceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetAssociatedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetAssociatedResourceCommand(input, context);
+    return se_GetAssociatedResourceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedResourceCommandOutput> {
-    return deserializeAws_restJson1GetAssociatedResourceCommand(output, context);
+    return de_GetAssociatedResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

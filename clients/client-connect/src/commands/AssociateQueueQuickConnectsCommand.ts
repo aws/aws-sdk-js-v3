@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { AssociateQueueQuickConnectsRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateQueueQuickConnectsCommand,
-  serializeAws_restJson1AssociateQueueQuickConnectsCommand,
+  de_AssociateQueueQuickConnectsCommand,
+  se_AssociateQueueQuickConnectsCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AssociateQueueQuickConnectsCommand}.
+ */
 export interface AssociateQueueQuickConnectsCommandInput extends AssociateQueueQuickConnectsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AssociateQueueQuickConnectsCommand}.
+ */
 export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a set of quick connects with a queue.</p>
  * @example
@@ -30,13 +47,45 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * import { ConnectClient, AssociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // AssociateQueueQuickConnectsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   QuickConnectIds: [ // QuickConnectsList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AssociateQueueQuickConnectsCommandInput - {@link AssociateQueueQuickConnectsCommandInput}
+ * @returns {@link AssociateQueueQuickConnectsCommandOutput}
  * @see {@link AssociateQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link AssociateQueueQuickConnectsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class AssociateQueueQuickConnectsCommand extends $Command<
@@ -47,6 +96,18 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AssociateQueueQuickConnectsCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +123,9 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AssociateQueueQuickConnectsCommandInput, AssociateQueueQuickConnectsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AssociateQueueQuickConnectsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +136,8 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateQueueQuickConnectsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +147,21 @@ export class AssociateQueueQuickConnectsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AssociateQueueQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateQueueQuickConnectsCommand(input, context);
+    return se_AssociateQueueQuickConnectsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AssociateQueueQuickConnectsCommandOutput> {
-    return deserializeAws_restJson1AssociateQueueQuickConnectsCommand(output, context);
+    return de_AssociateQueueQuickConnectsCommand(output, context);
   }
 
   // Start section: command_body_extra

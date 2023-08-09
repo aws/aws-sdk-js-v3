@@ -1,12 +1,12 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand";
-import { Transfer } from "../Transfer";
 import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: TransferClient,
@@ -17,16 +17,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListServersCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Transfer,
-  input: ListServersCommandInput,
-  ...args: any
-): Promise<ListServersCommandOutput> => {
-  // @ts-ignore
-  return await client.listServers(input, ...args);
-};
 export async function* paginateListServers(
   config: TransferPaginationConfiguration,
   input: ListServersCommandInput,
@@ -39,16 +31,15 @@ export async function* paginateListServers(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Transfer) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof TransferClient) {
+    if (config.client instanceof TransferClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Transfer | TransferClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

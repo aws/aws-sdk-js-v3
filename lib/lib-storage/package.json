@@ -1,20 +1,23 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.42.0",
+  "version": "3.388.0",
   "description": "Storage higher order operation",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "extract:docs": "api-extractor run --local",
     "test": "jest"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">=14.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -22,30 +25,28 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@smithy/abort-controller": "^2.0.1",
+    "@smithy/middleware-endpoint": "^2.0.2",
+    "@smithy/smithy-client": "^2.0.2",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.5.0"
   },
   "peerDependencies": {
-    "@aws-sdk/abort-controller": "^3.0.0",
     "@aws-sdk/client-s3": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "3.40.0",
-    "@aws-sdk/client-s3": "3.42.0",
-    "@types/jest": "^26.0.4",
-    "@types/node": "^14.11.2",
-    "jasmine-core": "^3.6.0",
-    "jest": "^26.4.2",
-    "karma": "^5.2.3",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-jasmine": "^4.0.1",
-    "karma-spec-reporter": "^0.0.32",
-    "karma-typescript": "^5.2.0",
-    "ts-jest": "^26.4.1",
-    "typescript": "~4.3.5",
-    "web-streams-polyfill": "^3.0.0"
+    "@aws-sdk/client-s3": "*",
+    "@smithy/types": "^2.1.0",
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^14.14.31",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "rimraf": "3.0.2",
+    "typedoc": "0.23.23",
+    "typescript": "~4.9.5",
+    "web-streams-polyfill": "3.2.1"
   },
   "typesVersions": {
     "<4.0": {
@@ -55,20 +56,23 @@
     }
   },
   "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
     "fs": false,
-    "stream": "stream-browserify",
-    "./runtimeConfig": "./src/runtimeConfig.browser"
+    "stream": "stream-browserify"
   },
   "react-native": {
-    "./runtimeConfig": "./src/runtimeConfig.native"
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "files": [
-    "dist-*"
+    "dist-*/**"
   ],
-  "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/main/lib/lib-storage",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "lib/lib-storage"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

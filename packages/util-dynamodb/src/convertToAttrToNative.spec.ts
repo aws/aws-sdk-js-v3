@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { convertToAttr } from "./convertToAttr";
 import { convertToNative } from "./convertToNative";
 import { NativeAttributeValue } from "./models";
@@ -194,7 +197,7 @@ describe("convertToAttrToNative", () => {
           binarySet: new Set([uint8Arr, biguintArr]),
           stringSet: new Set(["one", "two", "three"]),
         },
-      ] as { [key: string]: NativeAttributeValue }[]
+      ] as Record<string, NativeAttributeValue>[]
     ).forEach((input) => {
       it(`testing map: ${input}`, () => {
         expect(convertToNative(convertToAttr(input))).toEqual(input);

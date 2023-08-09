@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
 import { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ConfigureAgentCommand,
-  serializeAws_restJson1ConfigureAgentCommand,
-} from "../protocols/Aws_restJson1";
+import { de_ConfigureAgentCommand, se_ConfigureAgentCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ConfigureAgentCommand}.
+ */
 export interface ConfigureAgentCommandInput extends ConfigureAgentRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ConfigureAgentCommand}.
+ */
 export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  *           Used by profiler agents to report their current state and to receive remote
  *           configuration updates. For example, <code>ConfigureAgent</code> can be used
@@ -33,13 +47,47 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * import { CodeGuruProfilerClient, ConfigureAgentCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ConfigureAgentCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = { // ConfigureAgentRequest
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   fleetInstanceId: "STRING_VALUE",
+ *   metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ConfigureAgentCommand(input);
  * const response = await client.send(command);
+ * // { // ConfigureAgentResponse
+ * //   configuration: { // AgentConfiguration
+ * //     shouldProfile: true || false, // required
+ * //     periodInSeconds: Number("int"), // required
+ * //     agentParameters: { // AgentParameters
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ConfigureAgentCommandInput - {@link ConfigureAgentCommandInput}
+ * @returns {@link ConfigureAgentCommandOutput}
  * @see {@link ConfigureAgentCommandInput} for command's `input` shape.
  * @see {@link ConfigureAgentCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ * @throws {@link CodeGuruProfilerServiceException}
+ * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
  */
 export class ConfigureAgentCommand extends $Command<
@@ -50,6 +98,18 @@ export class ConfigureAgentCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ConfigureAgentCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +125,9 @@ export class ConfigureAgentCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ConfigureAgentCommandInput, ConfigureAgentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ConfigureAgentCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +138,8 @@ export class ConfigureAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureAgentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureAgentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +149,18 @@ export class ConfigureAgentCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ConfigureAgentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ConfigureAgentCommand(input, context);
+    return se_ConfigureAgentCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfigureAgentCommandOutput> {
-    return deserializeAws_restJson1ConfigureAgentCommand(output, context);
+    return de_ConfigureAgentCommand(output, context);
   }
 
   // Start section: command_body_extra

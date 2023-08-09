@@ -1,22 +1,26 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map,
   parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
+  resolvedPath as __resolvedPath,
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchCreateTableRowsCommandInput,
@@ -46,49 +50,48 @@ import {
 import { ListTableColumnsCommandInput, ListTableColumnsCommandOutput } from "../commands/ListTableColumnsCommand";
 import { ListTableRowsCommandInput, ListTableRowsCommandOutput } from "../commands/ListTableRowsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { QueryTableRowsCommandInput, QueryTableRowsCommandOutput } from "../commands/QueryTableRowsCommand";
 import {
   StartTableDataImportJobCommandInput,
   StartTableDataImportJobCommandOutput,
 } from "../commands/StartTableDataImportJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { HoneycodeServiceException as __BaseException } from "../models/HoneycodeServiceException";
 import {
   AccessDeniedException,
   AutomationExecutionException,
   AutomationExecutionTimeoutException,
-  Cell,
   CellInput,
-  ColumnMetadata,
   CreateRowData,
-  DataItem,
   DelimitedTextImportOptions,
   DestinationOptions,
-  FailedBatchItem,
   Filter,
   ImportDataSource,
   ImportDataSourceConfig,
-  ImportJobSubmitter,
   ImportOptions,
   InternalServerException,
   RequestTimeoutException,
   ResourceNotFoundException,
-  ResultRow,
-  ResultSet,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   SourceDataColumnProperties,
-  Table,
-  TableColumn,
   TableDataImportJobMetadata,
-  TableRow,
   ThrottlingException,
   UpdateRowData,
   UpsertRowData,
-  UpsertRowsResult,
   ValidationException,
   VariableValue,
 } from "../models/models_0";
 
-export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
+/**
+ * serializeAws_restJson1BatchCreateTableRowsCommand
+ */
+export const se_BatchCreateTableRowsCommand = async (
   input: BatchCreateTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -99,33 +102,15 @@ export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToCreate !== undefined &&
-      input.rowsToCreate !== null && {
-        rowsToCreate: serializeAws_restJson1CreateRowDataList(input.rowsToCreate, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowsToCreate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -137,7 +122,10 @@ export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
+/**
+ * serializeAws_restJson1BatchDeleteTableRowsCommand
+ */
+export const se_BatchDeleteTableRowsCommand = async (
   input: BatchDeleteTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -148,31 +136,15 @@ export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowIds !== undefined &&
-      input.rowIds !== null && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -184,7 +156,10 @@ export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
+/**
+ * serializeAws_restJson1BatchUpdateTableRowsCommand
+ */
+export const se_BatchUpdateTableRowsCommand = async (
   input: BatchUpdateTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -195,33 +170,15 @@ export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToUpdate !== undefined &&
-      input.rowsToUpdate !== null && {
-        rowsToUpdate: serializeAws_restJson1UpdateRowDataList(input.rowsToUpdate, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowsToUpdate: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -233,7 +190,10 @@ export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
+/**
+ * serializeAws_restJson1BatchUpsertTableRowsCommand
+ */
+export const se_BatchUpsertTableRowsCommand = async (
   input: BatchUpsertTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -244,33 +204,15 @@ export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToUpsert !== undefined &&
-      input.rowsToUpsert !== null && {
-        rowsToUpsert: serializeAws_restJson1UpsertRowDataList(input.rowsToUpsert, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowsToUpsert: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -282,7 +224,10 @@ export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeTableDataImportJobCommand = async (
+/**
+ * serializeAws_restJson1DescribeTableDataImportJobCommand
+ */
+export const se_DescribeTableDataImportJobCommand = async (
   input: DescribeTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -291,33 +236,9 @@ export const serializeAws_restJson1DescribeTableDataImportJobCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/import/{jobId}";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -330,7 +251,10 @@ export const serializeAws_restJson1DescribeTableDataImportJobCommand = async (
   });
 };
 
-export const serializeAws_restJson1GetScreenDataCommand = async (
+/**
+ * serializeAws_restJson1GetScreenDataCommand
+ */
+export const se_GetScreenDataCommand = async (
   input: GetScreenDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -340,15 +264,16 @@ export const serializeAws_restJson1GetScreenDataCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/screendata";
   let body: any;
-  body = JSON.stringify({
-    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.screenId !== undefined && input.screenId !== null && { screenId: input.screenId }),
-    ...(input.variables !== undefined &&
-      input.variables !== null && { variables: serializeAws_restJson1VariableValueMap(input.variables, context) }),
-    ...(input.workbookId !== undefined && input.workbookId !== null && { workbookId: input.workbookId }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      appId: [],
+      maxResults: [],
+      nextToken: [],
+      screenId: [],
+      variables: (_) => _json(_),
+      workbookId: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -360,7 +285,10 @@ export const serializeAws_restJson1GetScreenDataCommand = async (
   });
 };
 
-export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
+/**
+ * serializeAws_restJson1InvokeScreenAutomationCommand
+ */
+export const se_InvokeScreenAutomationCommand = async (
   input: InvokeScreenAutomationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -371,50 +299,25 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
-  if (input.screenId !== undefined) {
-    const labelValue: string = input.screenId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: screenId.");
-    }
-    resolvedPath = resolvedPath.replace("{screenId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: screenId.");
-  }
-  if (input.screenAutomationId !== undefined) {
-    const labelValue: string = input.screenAutomationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: screenAutomationId.");
-    }
-    resolvedPath = resolvedPath.replace("{screenAutomationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: screenAutomationId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "screenId", () => input.screenId!, "{screenId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "screenAutomationId",
+    () => input.screenAutomationId!,
+    "{screenAutomationId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowId !== undefined && input.rowId !== null && { rowId: input.rowId }),
-    ...(input.variables !== undefined &&
-      input.variables !== null && { variables: serializeAws_restJson1VariableValueMap(input.variables, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      rowId: [],
+      variables: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -426,7 +329,10 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTableColumnsCommand = async (
+/**
+ * serializeAws_restJson1ListTableColumnsCommand
+ */
+export const se_ListTableColumnsCommand = async (
   input: ListTableColumnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -435,27 +341,11 @@ export const serializeAws_restJson1ListTableColumnsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/columns";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
-  const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -469,7 +359,10 @@ export const serializeAws_restJson1ListTableColumnsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTableRowsCommand = async (
+/**
+ * serializeAws_restJson1ListTableRowsCommand
+ */
+export const se_ListTableRowsCommand = async (
   input: ListTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -480,31 +373,16 @@ export const serializeAws_restJson1ListTableRowsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/rows/list";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.rowIds !== undefined &&
-      input.rowIds !== null && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      rowIds: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -516,7 +394,10 @@ export const serializeAws_restJson1ListTableRowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTablesCommand = async (
+/**
+ * serializeAws_restJson1ListTablesCommand
+ */
+export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -524,19 +405,11 @@ export const serializeAws_restJson1ListTablesCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workbooks/{workbookId}/tables";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -550,7 +423,33 @@ export const serializeAws_restJson1ListTablesCommand = async (
   });
 };
 
-export const serializeAws_restJson1QueryTableRowsCommand = async (
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1QueryTableRowsCommand
+ */
+export const se_QueryTableRowsCommand = async (
   input: QueryTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -561,31 +460,16 @@ export const serializeAws_restJson1QueryTableRowsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{tableId}/rows/query";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.tableId !== undefined) {
-    const labelValue: string = input.tableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: tableId.");
-    }
-    resolvedPath = resolvedPath.replace("{tableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: tableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
-  body = JSON.stringify({
-    ...(input.filterFormula !== undefined &&
-      input.filterFormula !== null && { filterFormula: serializeAws_restJson1Filter(input.filterFormula, context) }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      filterFormula: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -597,7 +481,10 @@ export const serializeAws_restJson1QueryTableRowsCommand = async (
   });
 };
 
-export const serializeAws_restJson1StartTableDataImportJobCommand = async (
+/**
+ * serializeAws_restJson1StartTableDataImportJobCommand
+ */
+export const se_StartTableDataImportJobCommand = async (
   input: StartTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
@@ -608,36 +495,24 @@ export const serializeAws_restJson1StartTableDataImportJobCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/workbooks/{workbookId}/tables/{destinationTableId}/import";
-  if (input.workbookId !== undefined) {
-    const labelValue: string = input.workbookId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: workbookId.");
-    }
-    resolvedPath = resolvedPath.replace("{workbookId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: workbookId.");
-  }
-  if (input.destinationTableId !== undefined) {
-    const labelValue: string = input.destinationTableId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: destinationTableId.");
-    }
-    resolvedPath = resolvedPath.replace("{destinationTableId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: destinationTableId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "destinationTableId",
+    () => input.destinationTableId!,
+    "{destinationTableId}",
+    false
+  );
   let body: any;
-  body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined &&
-      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
-    ...(input.dataFormat !== undefined && input.dataFormat !== null && { dataFormat: input.dataFormat }),
-    ...(input.dataSource !== undefined &&
-      input.dataSource !== null && { dataSource: serializeAws_restJson1ImportDataSource(input.dataSource, context) }),
-    ...(input.importOptions !== undefined &&
-      input.importOptions !== null && {
-        importOptions: serializeAws_restJson1ImportOptions(input.importOptions, context),
-      }),
-  });
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [],
+      dataFormat: [],
+      dataSource: (_) => _json(_),
+      importOptions: (_) => _json(_),
+    })
+  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -649,2073 +524,1396 @@ export const serializeAws_restJson1StartTableDataImportJobCommand = async (
   });
 };
 
-export const deserializeAws_restJson1BatchCreateTableRowsCommand = async (
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * deserializeAws_restJson1BatchCreateTableRowsCommand
+ */
+export const de_BatchCreateTableRowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateTableRowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchCreateTableRowsCommandError(output, context);
+    return de_BatchCreateTableRowsCommandError(output, context);
   }
-  const contents: BatchCreateTableRowsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    createdRows: undefined,
-    failedBatchItems: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.createdRows !== undefined && data.createdRows !== null) {
-    contents.createdRows = deserializeAws_restJson1CreatedRowsMap(data.createdRows, context);
-  }
-  if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
-    contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdRows: _json,
+    failedBatchItems: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchCreateTableRowsCommandError = async (
+/**
+ * deserializeAws_restJson1BatchCreateTableRowsCommandError
+ */
+const de_BatchCreateTableRowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateTableRowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.honeycode#ServiceQuotaExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1BatchDeleteTableRowsCommand = async (
+/**
+ * deserializeAws_restJson1BatchDeleteTableRowsCommand
+ */
+export const de_BatchDeleteTableRowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteTableRowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchDeleteTableRowsCommandError(output, context);
+    return de_BatchDeleteTableRowsCommandError(output, context);
   }
-  const contents: BatchDeleteTableRowsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    failedBatchItems: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
-    contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedBatchItems: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchDeleteTableRowsCommandError = async (
+/**
+ * deserializeAws_restJson1BatchDeleteTableRowsCommandError
+ */
+const de_BatchDeleteTableRowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteTableRowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1BatchUpdateTableRowsCommand = async (
+/**
+ * deserializeAws_restJson1BatchUpdateTableRowsCommand
+ */
+export const de_BatchUpdateTableRowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateTableRowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchUpdateTableRowsCommandError(output, context);
+    return de_BatchUpdateTableRowsCommandError(output, context);
   }
-  const contents: BatchUpdateTableRowsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    failedBatchItems: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
-    contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedBatchItems: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchUpdateTableRowsCommandError = async (
+/**
+ * deserializeAws_restJson1BatchUpdateTableRowsCommandError
+ */
+const de_BatchUpdateTableRowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateTableRowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1BatchUpsertTableRowsCommand = async (
+/**
+ * deserializeAws_restJson1BatchUpsertTableRowsCommand
+ */
+export const de_BatchUpsertTableRowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpsertTableRowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1BatchUpsertTableRowsCommandError(output, context);
+    return de_BatchUpsertTableRowsCommandError(output, context);
   }
-  const contents: BatchUpsertTableRowsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    failedBatchItems: undefined,
-    rows: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.failedBatchItems !== undefined && data.failedBatchItems !== null) {
-    contents.failedBatchItems = deserializeAws_restJson1FailedBatchItems(data.failedBatchItems, context);
-  }
-  if (data.rows !== undefined && data.rows !== null) {
-    contents.rows = deserializeAws_restJson1UpsertRowsResultMap(data.rows, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedBatchItems: _json,
+    rows: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1BatchUpsertTableRowsCommandError = async (
+/**
+ * deserializeAws_restJson1BatchUpsertTableRowsCommandError
+ */
+const de_BatchUpsertTableRowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpsertTableRowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.honeycode#ServiceQuotaExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1DescribeTableDataImportJobCommand = async (
+/**
+ * deserializeAws_restJson1DescribeTableDataImportJobCommand
+ */
+export const de_DescribeTableDataImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTableDataImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1DescribeTableDataImportJobCommandError(output, context);
+    return de_DescribeTableDataImportJobCommandError(output, context);
   }
-  const contents: DescribeTableDataImportJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    jobMetadata: undefined,
-    jobStatus: undefined,
-    message: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobMetadata !== undefined && data.jobMetadata !== null) {
-    contents.jobMetadata = deserializeAws_restJson1TableDataImportJobMetadata(data.jobMetadata, context);
-  }
-  if (data.jobStatus !== undefined && data.jobStatus !== null) {
-    contents.jobStatus = __expectString(data.jobStatus);
-  }
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errorCode: __expectString,
+    jobMetadata: (_) => de_TableDataImportJobMetadata(_, context),
+    jobStatus: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1DescribeTableDataImportJobCommandError = async (
+/**
+ * deserializeAws_restJson1DescribeTableDataImportJobCommandError
+ */
+const de_DescribeTableDataImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTableDataImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ServiceUnavailableException":
-    case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ThrottlingException":
-    case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ValidationException":
-    case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1GetScreenDataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetScreenDataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1GetScreenDataCommandError(output, context);
-  }
-  const contents: GetScreenDataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    results: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.results !== undefined && data.results !== null) {
-    contents.results = deserializeAws_restJson1ResultSetMap(data.results, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1GetScreenDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetScreenDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InternalServerException":
-    case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1InvokeScreenAutomationCommand = async (
+/**
+ * deserializeAws_restJson1GetScreenDataCommand
+ */
+export const de_GetScreenDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScreenDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetScreenDataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetScreenDataCommandError
+ */
+const de_GetScreenDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScreenDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.honeycode#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.honeycode#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.honeycode#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.honeycode#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.honeycode#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.honeycode#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.honeycode#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1InvokeScreenAutomationCommand
+ */
+export const de_InvokeScreenAutomationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeScreenAutomationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InvokeScreenAutomationCommandError(output, context);
+    return de_InvokeScreenAutomationCommandError(output, context);
   }
-  const contents: InvokeScreenAutomationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1InvokeScreenAutomationCommandError = async (
+/**
+ * deserializeAws_restJson1InvokeScreenAutomationCommandError
+ */
+const de_InvokeScreenAutomationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeScreenAutomationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AutomationExecutionException":
     case "com.amazonaws.honeycode#AutomationExecutionException":
-      response = {
-        ...(await deserializeAws_restJson1AutomationExecutionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AutomationExecutionExceptionRes(parsedOutput, context);
     case "AutomationExecutionTimeoutException":
     case "com.amazonaws.honeycode#AutomationExecutionTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1AutomationExecutionTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AutomationExecutionTimeoutExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.honeycode#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTableColumnsCommand = async (
+/**
+ * deserializeAws_restJson1ListTableColumnsCommand
+ */
+export const de_ListTableColumnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTableColumnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTableColumnsCommandError(output, context);
+    return de_ListTableColumnsCommandError(output, context);
   }
-  const contents: ListTableColumnsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    tableColumns: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tableColumns !== undefined && data.tableColumns !== null) {
-    contents.tableColumns = deserializeAws_restJson1TableColumns(data.tableColumns, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    tableColumns: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTableColumnsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTableColumnsCommandError
+ */
+const de_ListTableColumnsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTableColumnsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTableRowsCommand = async (
+/**
+ * deserializeAws_restJson1ListTableRowsCommand
+ */
+export const de_ListTableRowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTableRowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTableRowsCommandError(output, context);
+    return de_ListTableRowsCommandError(output, context);
   }
-  const contents: ListTableRowsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    columnIds: undefined,
-    nextToken: undefined,
-    rowIdsNotFound: undefined,
-    rows: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.columnIds !== undefined && data.columnIds !== null) {
-    contents.columnIds = deserializeAws_restJson1ResourceIds(data.columnIds, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.rowIdsNotFound !== undefined && data.rowIdsNotFound !== null) {
-    contents.rowIdsNotFound = deserializeAws_restJson1RowIdList(data.rowIdsNotFound, context);
-  }
-  if (data.rows !== undefined && data.rows !== null) {
-    contents.rows = deserializeAws_restJson1TableRows(data.rows, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    columnIds: _json,
+    nextToken: __expectString,
+    rowIdsNotFound: _json,
+    rows: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTableRowsCommandError = async (
+/**
+ * deserializeAws_restJson1ListTableRowsCommandError
+ */
+const de_ListTableRowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTableRowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTablesCommand = async (
+/**
+ * deserializeAws_restJson1ListTablesCommand
+ */
+export const de_ListTablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTablesCommandError(output, context);
+    return de_ListTablesCommandError(output, context);
   }
-  const contents: ListTablesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    tables: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.tables !== undefined && data.tables !== null) {
-    contents.tables = deserializeAws_restJson1Tables(data.tables, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    tables: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1ListTablesCommandError = async (
+/**
+ * deserializeAws_restJson1ListTablesCommandError
+ */
+const de_ListTablesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1QueryTableRowsCommand = async (
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.honeycode#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.honeycode#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.honeycode#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.honeycode#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.honeycode#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.honeycode#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.honeycode#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1QueryTableRowsCommand
+ */
+export const de_QueryTableRowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryTableRowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1QueryTableRowsCommandError(output, context);
+    return de_QueryTableRowsCommandError(output, context);
   }
-  const contents: QueryTableRowsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    columnIds: undefined,
-    nextToken: undefined,
-    rows: undefined,
-    workbookCursor: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.columnIds !== undefined && data.columnIds !== null) {
-    contents.columnIds = deserializeAws_restJson1ResourceIds(data.columnIds, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = __expectString(data.nextToken);
-  }
-  if (data.rows !== undefined && data.rows !== null) {
-    contents.rows = deserializeAws_restJson1TableRows(data.rows, context);
-  }
-  if (data.workbookCursor !== undefined && data.workbookCursor !== null) {
-    contents.workbookCursor = __expectLong(data.workbookCursor);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    columnIds: _json,
+    nextToken: __expectString,
+    rows: _json,
+    workbookCursor: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1QueryTableRowsCommandError = async (
+/**
+ * deserializeAws_restJson1QueryTableRowsCommandError
+ */
+const de_QueryTableRowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryTableRowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.honeycode#RequestTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1RequestTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1StartTableDataImportJobCommand = async (
+/**
+ * deserializeAws_restJson1StartTableDataImportJobCommand
+ */
+export const de_StartTableDataImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTableDataImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1StartTableDataImportJobCommandError(output, context);
+    return de_StartTableDataImportJobCommandError(output, context);
   }
-  const contents: StartTableDataImportJobCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    jobId: undefined,
-    jobStatus: undefined,
-  };
-  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobId !== undefined && data.jobId !== null) {
-    contents.jobId = __expectString(data.jobId);
-  }
-  if (data.jobStatus !== undefined && data.jobStatus !== null) {
-    contents.jobStatus = __expectString(data.jobStatus);
-  }
-  return Promise.resolve(contents);
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobId: __expectString,
+    jobStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
-const deserializeAws_restJson1StartTableDataImportJobCommandError = async (
+/**
+ * deserializeAws_restJson1StartTableDataImportJobCommandError
+ */
+const de_StartTableDataImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTableDataImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.honeycode#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.honeycode#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.honeycode#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.honeycode#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.honeycode#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.honeycode#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.honeycode#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.honeycode#ValidationException":
-      response = {
-        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.honeycode#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.honeycode#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.honeycode#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.honeycode#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.honeycode#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.honeycode#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.honeycode#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.honeycode#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.honeycode#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.honeycode#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.honeycode#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.honeycode#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.honeycode#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.honeycode#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: AccessDeniedException = {
-    name: "AccessDeniedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AutomationExecutionExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AutomationExecutionExceptionRes
+ */
+const de_AutomationExecutionExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AutomationExecutionException> => {
-  const contents: AutomationExecutionException = {
-    name: "AutomationExecutionException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AutomationExecutionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1AutomationExecutionTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1AutomationExecutionTimeoutExceptionRes
+ */
+const de_AutomationExecutionTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AutomationExecutionTimeoutException> => {
-  const contents: AutomationExecutionTimeoutException = {
-    name: "AutomationExecutionTimeoutException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AutomationExecutionTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1InternalServerExceptionResponse = async (
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: InternalServerException = {
-    name: "InternalServerException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
+/**
+ * deserializeAws_restJson1RequestTimeoutExceptionRes
+ */
+const de_RequestTimeoutExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestTimeoutException> => {
-  const contents: RequestTimeoutException = {
-    name: "RequestTimeoutException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new RequestTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: ServiceQuotaExceededException = {
-    name: "ServiceQuotaExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
+/**
+ * deserializeAws_restJson1ServiceUnavailableExceptionRes
+ */
+const de_ServiceUnavailableExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
-};
-
-const deserializeAws_restJson1ThrottlingExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ThrottlingException> => {
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
-  const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const deserializeAws_restJson1ValidationExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ValidationException> => {
-  const contents: ValidationException = {
-    name: "ValidationException",
-    $fault: "client",
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = __expectString(data.message);
-  }
-  return contents;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CellInput = (input: CellInput, context: __SerdeContext): any => {
-  return {
-    ...(input.fact !== undefined && input.fact !== null && { fact: input.fact }),
-  };
+// se_CellInput omitted.
+
+// se_CreateRowData omitted.
+
+// se_CreateRowDataList omitted.
+
+// se_DelimitedTextImportOptions omitted.
+
+// se_DestinationOptions omitted.
+
+// se_FactList omitted.
+
+// se_Filter omitted.
+
+// se_ImportColumnMap omitted.
+
+// se_ImportDataSource omitted.
+
+// se_ImportDataSourceConfig omitted.
+
+// se_ImportOptions omitted.
+
+// se_RowDataInput omitted.
+
+// se_RowIdList omitted.
+
+// se_SourceDataColumnProperties omitted.
+
+// se_TagsMap omitted.
+
+// se_UpdateRowData omitted.
+
+// se_UpdateRowDataList omitted.
+
+// se_UpsertRowData omitted.
+
+// se_UpsertRowDataList omitted.
+
+// se_VariableValue omitted.
+
+// se_VariableValueMap omitted.
+
+// de_Cell omitted.
+
+// de_Cells omitted.
+
+// de_ColumnMetadata omitted.
+
+// de_CreatedRowsMap omitted.
+
+// de_DataItem omitted.
+
+// de_DataItems omitted.
+
+// de_DelimitedTextImportOptions omitted.
+
+// de_DestinationOptions omitted.
+
+// de_FailedBatchItem omitted.
+
+// de_FailedBatchItems omitted.
+
+// de_FormattedValuesList omitted.
+
+// de_ImportColumnMap omitted.
+
+// de_ImportDataSource omitted.
+
+// de_ImportDataSourceConfig omitted.
+
+// de_ImportJobSubmitter omitted.
+
+// de_ImportOptions omitted.
+
+// de_ResourceIds omitted.
+
+// de_ResultHeader omitted.
+
+// de_ResultRow omitted.
+
+// de_ResultRows omitted.
+
+// de_ResultSet omitted.
+
+// de_ResultSetMap omitted.
+
+// de_RowIdList omitted.
+
+// de_SourceDataColumnProperties omitted.
+
+// de_Table omitted.
+
+// de_TableColumn omitted.
+
+// de_TableColumns omitted.
+
+/**
+ * deserializeAws_restJson1TableDataImportJobMetadata
+ */
+const de_TableDataImportJobMetadata = (output: any, context: __SerdeContext): TableDataImportJobMetadata => {
+  return take(output, {
+    dataSource: _json,
+    importOptions: _json,
+    submitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    submitter: _json,
+  }) as any;
 };
 
-const serializeAws_restJson1CreateRowData = (input: CreateRowData, context: __SerdeContext): any => {
-  return {
-    ...(input.batchItemId !== undefined && input.batchItemId !== null && { batchItemId: input.batchItemId }),
-    ...(input.cellsToCreate !== undefined &&
-      input.cellsToCreate !== null && {
-        cellsToCreate: serializeAws_restJson1RowDataInput(input.cellsToCreate, context),
-      }),
-  };
-};
+// de_TableRow omitted.
 
-const serializeAws_restJson1CreateRowDataList = (input: CreateRowData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1CreateRowData(entry, context);
-    });
-};
+// de_TableRows omitted.
 
-const serializeAws_restJson1DelimitedTextImportOptions = (
-  input: DelimitedTextImportOptions,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.dataCharacterEncoding !== undefined &&
-      input.dataCharacterEncoding !== null && { dataCharacterEncoding: input.dataCharacterEncoding }),
-    ...(input.delimiter !== undefined && input.delimiter !== null && { delimiter: input.delimiter }),
-    ...(input.hasHeaderRow !== undefined && input.hasHeaderRow !== null && { hasHeaderRow: input.hasHeaderRow }),
-    ...(input.ignoreEmptyRows !== undefined &&
-      input.ignoreEmptyRows !== null && { ignoreEmptyRows: input.ignoreEmptyRows }),
-  };
-};
+// de_Tables omitted.
 
-const serializeAws_restJson1DestinationOptions = (input: DestinationOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.columnMap !== undefined &&
-      input.columnMap !== null && { columnMap: serializeAws_restJson1ImportColumnMap(input.columnMap, context) }),
-  };
-};
+// de_TagsMap omitted.
 
-const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
-  return {
-    ...(input.contextRowId !== undefined && input.contextRowId !== null && { contextRowId: input.contextRowId }),
-    ...(input.formula !== undefined && input.formula !== null && { formula: input.formula }),
-  };
-};
+// de_UpsertRowsResult omitted.
 
-const serializeAws_restJson1ImportColumnMap = (
-  input: { [key: string]: SourceDataColumnProperties },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SourceDataColumnProperties(value, context),
-    };
-  }, {});
-};
-
-const serializeAws_restJson1ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.dataSourceConfig !== undefined &&
-      input.dataSourceConfig !== null && {
-        dataSourceConfig: serializeAws_restJson1ImportDataSourceConfig(input.dataSourceConfig, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1ImportDataSourceConfig = (input: ImportDataSourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.dataSourceUrl !== undefined && input.dataSourceUrl !== null && { dataSourceUrl: input.dataSourceUrl }),
-  };
-};
-
-const serializeAws_restJson1ImportOptions = (input: ImportOptions, context: __SerdeContext): any => {
-  return {
-    ...(input.delimitedTextOptions !== undefined &&
-      input.delimitedTextOptions !== null && {
-        delimitedTextOptions: serializeAws_restJson1DelimitedTextImportOptions(input.delimitedTextOptions, context),
-      }),
-    ...(input.destinationOptions !== undefined &&
-      input.destinationOptions !== null && {
-        destinationOptions: serializeAws_restJson1DestinationOptions(input.destinationOptions, context),
-      }),
-  };
-};
-
-const serializeAws_restJson1RowDataInput = (input: { [key: string]: CellInput }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1CellInput(value, context),
-    };
-  }, {});
-};
-
-const serializeAws_restJson1RowIdList = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
-
-const serializeAws_restJson1SourceDataColumnProperties = (
-  input: SourceDataColumnProperties,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.columnIndex !== undefined && input.columnIndex !== null && { columnIndex: input.columnIndex }),
-  };
-};
-
-const serializeAws_restJson1UpdateRowData = (input: UpdateRowData, context: __SerdeContext): any => {
-  return {
-    ...(input.cellsToUpdate !== undefined &&
-      input.cellsToUpdate !== null && {
-        cellsToUpdate: serializeAws_restJson1RowDataInput(input.cellsToUpdate, context),
-      }),
-    ...(input.rowId !== undefined && input.rowId !== null && { rowId: input.rowId }),
-  };
-};
-
-const serializeAws_restJson1UpdateRowDataList = (input: UpdateRowData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1UpdateRowData(entry, context);
-    });
-};
-
-const serializeAws_restJson1UpsertRowData = (input: UpsertRowData, context: __SerdeContext): any => {
-  return {
-    ...(input.batchItemId !== undefined && input.batchItemId !== null && { batchItemId: input.batchItemId }),
-    ...(input.cellsToUpdate !== undefined &&
-      input.cellsToUpdate !== null && {
-        cellsToUpdate: serializeAws_restJson1RowDataInput(input.cellsToUpdate, context),
-      }),
-    ...(input.filter !== undefined &&
-      input.filter !== null && { filter: serializeAws_restJson1Filter(input.filter, context) }),
-  };
-};
-
-const serializeAws_restJson1UpsertRowDataList = (input: UpsertRowData[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_restJson1UpsertRowData(entry, context);
-    });
-};
-
-const serializeAws_restJson1VariableValue = (input: VariableValue, context: __SerdeContext): any => {
-  return {
-    ...(input.rawValue !== undefined && input.rawValue !== null && { rawValue: input.rawValue }),
-  };
-};
-
-const serializeAws_restJson1VariableValueMap = (
-  input: { [key: string]: VariableValue },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1VariableValue(value, context),
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cell => {
-  return {
-    format: __expectString(output.format),
-    formattedValue: __expectString(output.formattedValue),
-    formula: __expectString(output.formula),
-    rawValue: __expectString(output.rawValue),
-  } as any;
-};
-
-const deserializeAws_restJson1Cells = (output: any, context: __SerdeContext): Cell[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Cell(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
-  return {
-    format: __expectString(output.format),
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_restJson1CreatedRowsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1DataItem = (output: any, context: __SerdeContext): DataItem => {
-  return {
-    formattedValue: __expectString(output.formattedValue),
-    overrideFormat: __expectString(output.overrideFormat),
-    rawValue: __expectString(output.rawValue),
-  } as any;
-};
-
-const deserializeAws_restJson1DataItems = (output: any, context: __SerdeContext): DataItem[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1DataItem(entry, context);
-    });
-};
-
-const deserializeAws_restJson1DelimitedTextImportOptions = (
-  output: any,
-  context: __SerdeContext
-): DelimitedTextImportOptions => {
-  return {
-    dataCharacterEncoding: __expectString(output.dataCharacterEncoding),
-    delimiter: __expectString(output.delimiter),
-    hasHeaderRow: __expectBoolean(output.hasHeaderRow),
-    ignoreEmptyRows: __expectBoolean(output.ignoreEmptyRows),
-  } as any;
-};
-
-const deserializeAws_restJson1DestinationOptions = (output: any, context: __SerdeContext): DestinationOptions => {
-  return {
-    columnMap:
-      output.columnMap !== undefined && output.columnMap !== null
-        ? deserializeAws_restJson1ImportColumnMap(output.columnMap, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1FailedBatchItem = (output: any, context: __SerdeContext): FailedBatchItem => {
-  return {
-    errorMessage: __expectString(output.errorMessage),
-    id: __expectString(output.id),
-  } as any;
-};
-
-const deserializeAws_restJson1FailedBatchItems = (output: any, context: __SerdeContext): FailedBatchItem[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1FailedBatchItem(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ImportColumnMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: SourceDataColumnProperties } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1SourceDataColumnProperties(value, context),
-      };
-    },
-    {}
-  );
-};
-
-const deserializeAws_restJson1ImportDataSource = (output: any, context: __SerdeContext): ImportDataSource => {
-  return {
-    dataSourceConfig:
-      output.dataSourceConfig !== undefined && output.dataSourceConfig !== null
-        ? deserializeAws_restJson1ImportDataSourceConfig(output.dataSourceConfig, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ImportDataSourceConfig = (
-  output: any,
-  context: __SerdeContext
-): ImportDataSourceConfig => {
-  return {
-    dataSourceUrl: __expectString(output.dataSourceUrl),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportJobSubmitter = (output: any, context: __SerdeContext): ImportJobSubmitter => {
-  return {
-    email: __expectString(output.email),
-    userArn: __expectString(output.userArn),
-  } as any;
-};
-
-const deserializeAws_restJson1ImportOptions = (output: any, context: __SerdeContext): ImportOptions => {
-  return {
-    delimitedTextOptions:
-      output.delimitedTextOptions !== undefined && output.delimitedTextOptions !== null
-        ? deserializeAws_restJson1DelimitedTextImportOptions(output.delimitedTextOptions, context)
-        : undefined,
-    destinationOptions:
-      output.destinationOptions !== undefined && output.destinationOptions !== null
-        ? deserializeAws_restJson1DestinationOptions(output.destinationOptions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ResourceIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1ResultHeader = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ColumnMetadata(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
-  return {
-    dataItems:
-      output.dataItems !== undefined && output.dataItems !== null
-        ? deserializeAws_restJson1DataItems(output.dataItems, context)
-        : undefined,
-    rowId: __expectString(output.rowId),
-  } as any;
-};
-
-const deserializeAws_restJson1ResultRows = (output: any, context: __SerdeContext): ResultRow[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1ResultRow(entry, context);
-    });
-};
-
-const deserializeAws_restJson1ResultSet = (output: any, context: __SerdeContext): ResultSet => {
-  return {
-    headers:
-      output.headers !== undefined && output.headers !== null
-        ? deserializeAws_restJson1ResultHeader(output.headers, context)
-        : undefined,
-    rows:
-      output.rows !== undefined && output.rows !== null
-        ? deserializeAws_restJson1ResultRows(output.rows, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1ResultSetMap = (output: any, context: __SerdeContext): { [key: string]: ResultSet } => {
-  return Object.entries(output).reduce((acc: { [key: string]: ResultSet }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ResultSet(value, context),
-    };
-  }, {});
-};
-
-const deserializeAws_restJson1RowIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
-    });
-};
-
-const deserializeAws_restJson1SourceDataColumnProperties = (
-  output: any,
-  context: __SerdeContext
-): SourceDataColumnProperties => {
-  return {
-    columnIndex: __expectInt32(output.columnIndex),
-  } as any;
-};
-
-const deserializeAws_restJson1Table = (output: any, context: __SerdeContext): Table => {
-  return {
-    tableId: __expectString(output.tableId),
-    tableName: __expectString(output.tableName),
-  } as any;
-};
-
-const deserializeAws_restJson1TableColumn = (output: any, context: __SerdeContext): TableColumn => {
-  return {
-    format: __expectString(output.format),
-    tableColumnId: __expectString(output.tableColumnId),
-    tableColumnName: __expectString(output.tableColumnName),
-  } as any;
-};
-
-const deserializeAws_restJson1TableColumns = (output: any, context: __SerdeContext): TableColumn[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TableColumn(entry, context);
-    });
-};
-
-const deserializeAws_restJson1TableDataImportJobMetadata = (
-  output: any,
-  context: __SerdeContext
-): TableDataImportJobMetadata => {
-  return {
-    dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? deserializeAws_restJson1ImportDataSource(output.dataSource, context)
-        : undefined,
-    importOptions:
-      output.importOptions !== undefined && output.importOptions !== null
-        ? deserializeAws_restJson1ImportOptions(output.importOptions, context)
-        : undefined,
-    submitTime:
-      output.submitTime !== undefined && output.submitTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.submitTime)))
-        : undefined,
-    submitter:
-      output.submitter !== undefined && output.submitter !== null
-        ? deserializeAws_restJson1ImportJobSubmitter(output.submitter, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TableRow = (output: any, context: __SerdeContext): TableRow => {
-  return {
-    cells:
-      output.cells !== undefined && output.cells !== null
-        ? deserializeAws_restJson1Cells(output.cells, context)
-        : undefined,
-    rowId: __expectString(output.rowId),
-  } as any;
-};
-
-const deserializeAws_restJson1TableRows = (output: any, context: __SerdeContext): TableRow[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TableRow(entry, context);
-    });
-};
-
-const deserializeAws_restJson1Tables = (output: any, context: __SerdeContext): Table[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1Table(entry, context);
-    });
-};
-
-const deserializeAws_restJson1UpsertRowsResult = (output: any, context: __SerdeContext): UpsertRowsResult => {
-  return {
-    rowIds:
-      output.rowIds !== undefined && output.rowIds !== null
-        ? deserializeAws_restJson1RowIdList(output.rowIds, context)
-        : undefined,
-    upsertAction: __expectString(output.upsertAction),
-  } as any;
-};
-
-const deserializeAws_restJson1UpsertRowsResultMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: UpsertRowsResult } => {
-  return Object.entries(output).reduce((acc: { [key: string]: UpsertRowsResult }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1UpsertRowsResult(value, context),
-    };
-  }, {});
-};
+// de_UpsertRowsResultMap omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
@@ -2736,14 +1934,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -2765,6 +1975,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

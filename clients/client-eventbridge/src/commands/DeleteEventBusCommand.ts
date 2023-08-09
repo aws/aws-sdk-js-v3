@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DeleteEventBusRequest } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteEventBusCommand,
-  serializeAws_json1_1DeleteEventBusCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DeleteEventBusCommand, se_DeleteEventBusCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteEventBusCommand}.
+ */
 export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteEventBusCommand}.
+ */
 export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
  *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
  * @example
@@ -30,13 +44,29 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * import { EventBridgeClient, DeleteEventBusCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteEventBusCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = { // DeleteEventBusRequest
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventBusCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteEventBusCommandInput - {@link DeleteEventBusCommandInput}
+ * @returns {@link DeleteEventBusCommandOutput}
  * @see {@link DeleteEventBusCommandInput} for command's `input` shape.
  * @see {@link DeleteEventBusCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link EventBridgeServiceException}
+ * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
 export class DeleteEventBusCommand extends $Command<
@@ -47,6 +77,18 @@ export class DeleteEventBusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteEventBusCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +104,9 @@ export class DeleteEventBusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteEventBusCommandInput, DeleteEventBusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteEventBusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +117,8 @@ export class DeleteEventBusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventBusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +128,18 @@ export class DeleteEventBusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteEventBusCommand(input, context);
+    return se_DeleteEventBusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEventBusCommandOutput> {
-    return deserializeAws_json1_1DeleteEventBusCommand(output, context);
+    return de_DeleteEventBusCommand(output, context);
   }
 
   // Start section: command_body_extra

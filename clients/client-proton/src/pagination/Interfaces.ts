@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { Proton } from "../Proton";
 import { ProtonClient } from "../ProtonClient";
 
+/**
+ * @public
+ */
 export interface ProtonPaginationConfiguration extends PaginationConfiguration {
-  client: Proton | ProtonClient;
+  client: ProtonClient;
 }

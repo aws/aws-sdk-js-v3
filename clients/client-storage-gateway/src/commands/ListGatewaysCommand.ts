@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListGatewaysCommand,
-  serializeAws_json1_1ListGatewaysCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListGatewaysCommand, se_ListGatewaysCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListGatewaysCommand}.
+ */
 export interface ListGatewaysCommandInput extends ListGatewaysInput {}
+/**
+ * @public
+ *
+ * The output of {@link ListGatewaysCommand}.
+ */
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
  *          specified in the request. The returned list is ordered by gateway Amazon Resource Name
  *          (ARN).</p>
@@ -39,13 +53,72 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * import { StorageGatewayClient, ListGatewaysCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListGatewaysCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = { // ListGatewaysInput
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
+ * // { // ListGatewaysOutput
+ * //   Gateways: [ // Gateways
+ * //     { // GatewayInfo
+ * //       GatewayId: "STRING_VALUE",
+ * //       GatewayARN: "STRING_VALUE",
+ * //       GatewayType: "STRING_VALUE",
+ * //       GatewayOperationalState: "STRING_VALUE",
+ * //       GatewayName: "STRING_VALUE",
+ * //       Ec2InstanceId: "STRING_VALUE",
+ * //       Ec2InstanceRegion: "STRING_VALUE",
+ * //       HostEnvironment: "STRING_VALUE",
+ * //       HostEnvironmentId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   Marker: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param ListGatewaysCommandInput - {@link ListGatewaysCommandInput}
+ * @returns {@link ListGatewaysCommandOutput}
  * @see {@link ListGatewaysCommandInput} for command's `input` shape.
  * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ * @throws {@link StorageGatewayServiceException}
+ * <p>Base exception class for all service exceptions from StorageGateway service.</p>
+ *
+ * @example To lists region specific gateways per AWS account
+ * ```javascript
+ * // Lists gateways owned by an AWS account in a specified region as requested. Results are sorted by gateway ARN up to a maximum of 100 gateways.
+ * const input = {
+ *   "Limit": 2,
+ *   "Marker": "1"
+ * };
+ * const command = new ListGatewaysCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Gateways": [
+ *     {
+ *       "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *     },
+ *     {
+ *       "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-23A4567C"
+ *     }
+ *   ],
+ *   "Marker": "1"
+ * }
+ * *\/
+ * // example id: to-lists-region-specific-gateways-per-aws-account-1472077860657
+ * ```
  *
  */
 export class ListGatewaysCommand extends $Command<
@@ -56,6 +129,18 @@ export class ListGatewaysCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListGatewaysCommandInput) {
     // Start section: command_constructor
     super();
@@ -71,6 +156,7 @@ export class ListGatewaysCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListGatewaysCommandInput, ListGatewaysCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListGatewaysCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -81,8 +167,8 @@ export class ListGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGatewaysInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGatewaysOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,12 +178,18 @@ export class ListGatewaysCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListGatewaysCommand(input, context);
+    return se_ListGatewaysCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewaysCommandOutput> {
-    return deserializeAws_json1_1ListGatewaysCommand(output, context);
+    return de_ListGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateBrokerCommand";
 export * from "./CreateConfigurationCommand";
 export * from "./CreateTagsCommand";
@@ -16,6 +17,7 @@ export * from "./ListConfigurationRevisionsCommand";
 export * from "./ListConfigurationsCommand";
 export * from "./ListTagsCommand";
 export * from "./ListUsersCommand";
+export * from "./PromoteCommand";
 export * from "./RebootBrokerCommand";
 export * from "./UpdateBrokerCommand";
 export * from "./UpdateConfigurationCommand";

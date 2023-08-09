@@ -1,125 +1,202 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
-import { AccountClient } from "./AccountClient";
+import { AccountClient, AccountClientConfig } from "./AccountClient";
 import {
   DeleteAlternateContactCommand,
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "./commands/DeleteAlternateContactCommand";
 import {
+  DisableRegionCommand,
+  DisableRegionCommandInput,
+  DisableRegionCommandOutput,
+} from "./commands/DisableRegionCommand";
+import {
+  EnableRegionCommand,
+  EnableRegionCommandInput,
+  EnableRegionCommandOutput,
+} from "./commands/EnableRegionCommand";
+import {
   GetAlternateContactCommand,
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
 } from "./commands/GetAlternateContactCommand";
 import {
+  GetContactInformationCommand,
+  GetContactInformationCommandInput,
+  GetContactInformationCommandOutput,
+} from "./commands/GetContactInformationCommand";
+import {
+  GetRegionOptStatusCommand,
+  GetRegionOptStatusCommandInput,
+  GetRegionOptStatusCommandOutput,
+} from "./commands/GetRegionOptStatusCommand";
+import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
+import {
   PutAlternateContactCommand,
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
 } from "./commands/PutAlternateContactCommand";
+import {
+  PutContactInformationCommand,
+  PutContactInformationCommandInput,
+  PutContactInformationCommandOutput,
+} from "./commands/PutContactInformationCommand";
 
-/**
- * <p>Operations for Amazon Web Services Account Management</p>
- */
-export class Account extends AccountClient {
+const commands = {
+  DeleteAlternateContactCommand,
+  DisableRegionCommand,
+  EnableRegionCommand,
+  GetAlternateContactCommand,
+  GetContactInformationCommand,
+  GetRegionOptStatusCommand,
+  ListRegionsCommand,
+  PutAlternateContactCommand,
+  PutContactInformationCommand,
+};
+
+export interface Account {
   /**
-   * <p>Deletes the specified alternate contact from an Amazon Web Services account.</p>
-   *         <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
-   *                 updating the alternate contacts</a>.</p>
+   * @see {@link DeleteAlternateContactCommand}
    */
-  public deleteAlternateContact(
+  deleteAlternateContact(
     args: DeleteAlternateContactCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteAlternateContactCommandOutput>;
-  public deleteAlternateContact(
+  deleteAlternateContact(
     args: DeleteAlternateContactCommandInput,
     cb: (err: any, data?: DeleteAlternateContactCommandOutput) => void
   ): void;
-  public deleteAlternateContact(
+  deleteAlternateContact(
     args: DeleteAlternateContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAlternateContactCommandOutput) => void
   ): void;
-  public deleteAlternateContact(
-    args: DeleteAlternateContactCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlternateContactCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAlternateContactCommandOutput) => void
-  ): Promise<DeleteAlternateContactCommandOutput> | void {
-    const command = new DeleteAlternateContactCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p>
-   *         <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
-   *             updating the alternate contacts</a>.</p>
+   * @see {@link DisableRegionCommand}
    */
-  public getAlternateContact(
+  disableRegion(args: DisableRegionCommandInput, options?: __HttpHandlerOptions): Promise<DisableRegionCommandOutput>;
+  disableRegion(args: DisableRegionCommandInput, cb: (err: any, data?: DisableRegionCommandOutput) => void): void;
+  disableRegion(
+    args: DisableRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableRegionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableRegionCommand}
+   */
+  enableRegion(args: EnableRegionCommandInput, options?: __HttpHandlerOptions): Promise<EnableRegionCommandOutput>;
+  enableRegion(args: EnableRegionCommandInput, cb: (err: any, data?: EnableRegionCommandOutput) => void): void;
+  enableRegion(
+    args: EnableRegionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableRegionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAlternateContactCommand}
+   */
+  getAlternateContact(
     args: GetAlternateContactCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetAlternateContactCommandOutput>;
-  public getAlternateContact(
+  getAlternateContact(
     args: GetAlternateContactCommandInput,
     cb: (err: any, data?: GetAlternateContactCommandOutput) => void
   ): void;
-  public getAlternateContact(
+  getAlternateContact(
     args: GetAlternateContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAlternateContactCommandOutput) => void
   ): void;
-  public getAlternateContact(
-    args: GetAlternateContactCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAlternateContactCommandOutput) => void),
-    cb?: (err: any, data?: GetAlternateContactCommandOutput) => void
-  ): Promise<GetAlternateContactCommandOutput> | void {
-    const command = new GetAlternateContactCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p>
-   *         <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
-   *             updating the alternate contacts</a>.</p>
+   * @see {@link GetContactInformationCommand}
    */
-  public putAlternateContact(
+  getContactInformation(
+    args: GetContactInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContactInformationCommandOutput>;
+  getContactInformation(
+    args: GetContactInformationCommandInput,
+    cb: (err: any, data?: GetContactInformationCommandOutput) => void
+  ): void;
+  getContactInformation(
+    args: GetContactInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContactInformationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRegionOptStatusCommand}
+   */
+  getRegionOptStatus(
+    args: GetRegionOptStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRegionOptStatusCommandOutput>;
+  getRegionOptStatus(
+    args: GetRegionOptStatusCommandInput,
+    cb: (err: any, data?: GetRegionOptStatusCommandOutput) => void
+  ): void;
+  getRegionOptStatus(
+    args: GetRegionOptStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRegionOptStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRegionsCommand}
+   */
+  listRegions(args: ListRegionsCommandInput, options?: __HttpHandlerOptions): Promise<ListRegionsCommandOutput>;
+  listRegions(args: ListRegionsCommandInput, cb: (err: any, data?: ListRegionsCommandOutput) => void): void;
+  listRegions(
+    args: ListRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAlternateContactCommand}
+   */
+  putAlternateContact(
     args: PutAlternateContactCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutAlternateContactCommandOutput>;
-  public putAlternateContact(
+  putAlternateContact(
     args: PutAlternateContactCommandInput,
     cb: (err: any, data?: PutAlternateContactCommandOutput) => void
   ): void;
-  public putAlternateContact(
+  putAlternateContact(
     args: PutAlternateContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAlternateContactCommandOutput) => void
   ): void;
-  public putAlternateContact(
-    args: PutAlternateContactCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAlternateContactCommandOutput) => void),
-    cb?: (err: any, data?: PutAlternateContactCommandOutput) => void
-  ): Promise<PutAlternateContactCommandOutput> | void {
-    const command = new PutAlternateContactCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
+
+  /**
+   * @see {@link PutContactInformationCommand}
+   */
+  putContactInformation(
+    args: PutContactInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutContactInformationCommandOutput>;
+  putContactInformation(
+    args: PutContactInformationCommandInput,
+    cb: (err: any, data?: PutContactInformationCommandOutput) => void
+  ): void;
+  putContactInformation(
+    args: PutContactInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutContactInformationCommandOutput) => void
+  ): void;
 }
+
+/**
+ * @public
+ * <p>Operations for Amazon Web Services Account Management</p>
+ */
+export class Account extends AccountClient implements Account {}
+createAggregatedClient(commands, Account);

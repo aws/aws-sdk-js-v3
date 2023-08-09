@@ -1,4 +1,6 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   BatchCreateVariableCommand,
@@ -35,6 +37,7 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
+import { CreateListCommand, CreateListCommandInput, CreateListCommandOutput } from "./commands/CreateListCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateModelVersionCommand,
@@ -89,6 +92,7 @@ import {
   DeleteExternalModelCommandOutput,
 } from "./commands/DeleteExternalModelCommand";
 import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteListCommand, DeleteListCommandInput, DeleteListCommandOutput } from "./commands/DeleteListCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelVersionCommand,
@@ -153,6 +157,11 @@ import {
   GetEventPredictionCommandOutput,
 } from "./commands/GetEventPredictionCommand";
 import {
+  GetEventPredictionMetadataCommand,
+  GetEventPredictionMetadataCommandInput,
+  GetEventPredictionMetadataCommandOutput,
+} from "./commands/GetEventPredictionMetadataCommand";
+import {
   GetEventTypesCommand,
   GetEventTypesCommandInput,
   GetEventTypesCommandOutput,
@@ -168,6 +177,16 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "./commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from "./commands/GetLabelsCommand";
+import {
+  GetListElementsCommand,
+  GetListElementsCommandInput,
+  GetListElementsCommandOutput,
+} from "./commands/GetListElementsCommand";
+import {
+  GetListsMetadataCommand,
+  GetListsMetadataCommandInput,
+  GetListsMetadataCommandOutput,
+} from "./commands/GetListsMetadataCommand";
 import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetModelVersionCommand,
@@ -181,6 +200,11 @@ import {
   GetVariablesCommandInput,
   GetVariablesCommandOutput,
 } from "./commands/GetVariablesCommand";
+import {
+  ListEventPredictionsCommand,
+  ListEventPredictionsCommandInput,
+  ListEventPredictionsCommandOutput,
+} from "./commands/ListEventPredictionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -236,6 +260,7 @@ import {
   UpdateEventLabelCommandInput,
   UpdateEventLabelCommandOutput,
 } from "./commands/UpdateEventLabelCommand";
+import { UpdateListCommand, UpdateListCommandInput, UpdateListCommandOutput } from "./commands/UpdateListCommand";
 import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
   UpdateModelVersionCommand,
@@ -262,2093 +287,1153 @@ import {
   UpdateVariableCommandInput,
   UpdateVariableCommandOutput,
 } from "./commands/UpdateVariableCommand";
-import { FraudDetectorClient } from "./FraudDetectorClient";
+import { FraudDetectorClient, FraudDetectorClientConfig } from "./FraudDetectorClient";
 
-/**
- * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
- *             detailed information about Amazon Fraud Detector API actions, data types, and errors. For
- *             more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
- */
-export class FraudDetector extends FraudDetectorClient {
+const commands = {
+  BatchCreateVariableCommand,
+  BatchGetVariableCommand,
+  CancelBatchImportJobCommand,
+  CancelBatchPredictionJobCommand,
+  CreateBatchImportJobCommand,
+  CreateBatchPredictionJobCommand,
+  CreateDetectorVersionCommand,
+  CreateListCommand,
+  CreateModelCommand,
+  CreateModelVersionCommand,
+  CreateRuleCommand,
+  CreateVariableCommand,
+  DeleteBatchImportJobCommand,
+  DeleteBatchPredictionJobCommand,
+  DeleteDetectorCommand,
+  DeleteDetectorVersionCommand,
+  DeleteEntityTypeCommand,
+  DeleteEventCommand,
+  DeleteEventsByEventTypeCommand,
+  DeleteEventTypeCommand,
+  DeleteExternalModelCommand,
+  DeleteLabelCommand,
+  DeleteListCommand,
+  DeleteModelCommand,
+  DeleteModelVersionCommand,
+  DeleteOutcomeCommand,
+  DeleteRuleCommand,
+  DeleteVariableCommand,
+  DescribeDetectorCommand,
+  DescribeModelVersionsCommand,
+  GetBatchImportJobsCommand,
+  GetBatchPredictionJobsCommand,
+  GetDeleteEventsByEventTypeStatusCommand,
+  GetDetectorsCommand,
+  GetDetectorVersionCommand,
+  GetEntityTypesCommand,
+  GetEventCommand,
+  GetEventPredictionCommand,
+  GetEventPredictionMetadataCommand,
+  GetEventTypesCommand,
+  GetExternalModelsCommand,
+  GetKMSEncryptionKeyCommand,
+  GetLabelsCommand,
+  GetListElementsCommand,
+  GetListsMetadataCommand,
+  GetModelsCommand,
+  GetModelVersionCommand,
+  GetOutcomesCommand,
+  GetRulesCommand,
+  GetVariablesCommand,
+  ListEventPredictionsCommand,
+  ListTagsForResourceCommand,
+  PutDetectorCommand,
+  PutEntityTypeCommand,
+  PutEventTypeCommand,
+  PutExternalModelCommand,
+  PutKMSEncryptionKeyCommand,
+  PutLabelCommand,
+  PutOutcomeCommand,
+  SendEventCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateDetectorVersionCommand,
+  UpdateDetectorVersionMetadataCommand,
+  UpdateDetectorVersionStatusCommand,
+  UpdateEventLabelCommand,
+  UpdateListCommand,
+  UpdateModelCommand,
+  UpdateModelVersionCommand,
+  UpdateModelVersionStatusCommand,
+  UpdateRuleMetadataCommand,
+  UpdateRuleVersionCommand,
+  UpdateVariableCommand,
+};
+
+export interface FraudDetector {
   /**
-   * <p>Creates a batch of variables.</p>
+   * @see {@link BatchCreateVariableCommand}
    */
-  public batchCreateVariable(
+  batchCreateVariable(
     args: BatchCreateVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchCreateVariableCommandOutput>;
-  public batchCreateVariable(
+  batchCreateVariable(
     args: BatchCreateVariableCommandInput,
     cb: (err: any, data?: BatchCreateVariableCommandOutput) => void
   ): void;
-  public batchCreateVariable(
+  batchCreateVariable(
     args: BatchCreateVariableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchCreateVariableCommandOutput) => void
   ): void;
-  public batchCreateVariable(
-    args: BatchCreateVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateVariableCommandOutput) => void),
-    cb?: (err: any, data?: BatchCreateVariableCommandOutput) => void
-  ): Promise<BatchCreateVariableCommandOutput> | void {
-    const command = new BatchCreateVariableCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a batch of variables.</p>
+   * @see {@link BatchGetVariableCommand}
    */
-  public batchGetVariable(
+  batchGetVariable(
     args: BatchGetVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<BatchGetVariableCommandOutput>;
-  public batchGetVariable(
+  batchGetVariable(
     args: BatchGetVariableCommandInput,
     cb: (err: any, data?: BatchGetVariableCommandOutput) => void
   ): void;
-  public batchGetVariable(
+  batchGetVariable(
     args: BatchGetVariableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetVariableCommandOutput) => void
   ): void;
-  public batchGetVariable(
-    args: BatchGetVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetVariableCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetVariableCommandOutput) => void
-  ): Promise<BatchGetVariableCommandOutput> | void {
-    const command = new BatchGetVariableCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p> Cancels an in-progress batch import job.</p>
+   * @see {@link CancelBatchImportJobCommand}
    */
-  public cancelBatchImportJob(
+  cancelBatchImportJob(
     args: CancelBatchImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelBatchImportJobCommandOutput>;
-  public cancelBatchImportJob(
+  cancelBatchImportJob(
     args: CancelBatchImportJobCommandInput,
     cb: (err: any, data?: CancelBatchImportJobCommandOutput) => void
   ): void;
-  public cancelBatchImportJob(
+  cancelBatchImportJob(
     args: CancelBatchImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelBatchImportJobCommandOutput) => void
   ): void;
-  public cancelBatchImportJob(
-    args: CancelBatchImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelBatchImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelBatchImportJobCommandOutput) => void
-  ): Promise<CancelBatchImportJobCommandOutput> | void {
-    const command = new CancelBatchImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Cancels the specified batch prediction job.</p>
+   * @see {@link CancelBatchPredictionJobCommand}
    */
-  public cancelBatchPredictionJob(
+  cancelBatchPredictionJob(
     args: CancelBatchPredictionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CancelBatchPredictionJobCommandOutput>;
-  public cancelBatchPredictionJob(
+  cancelBatchPredictionJob(
     args: CancelBatchPredictionJobCommandInput,
     cb: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
   ): void;
-  public cancelBatchPredictionJob(
+  cancelBatchPredictionJob(
     args: CancelBatchPredictionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
   ): void;
-  public cancelBatchPredictionJob(
-    args: CancelBatchPredictionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelBatchPredictionJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
-  ): Promise<CancelBatchPredictionJobCommandOutput> | void {
-    const command = new CancelBatchPredictionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a batch import job. </p>
+   * @see {@link CreateBatchImportJobCommand}
    */
-  public createBatchImportJob(
+  createBatchImportJob(
     args: CreateBatchImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBatchImportJobCommandOutput>;
-  public createBatchImportJob(
+  createBatchImportJob(
     args: CreateBatchImportJobCommandInput,
     cb: (err: any, data?: CreateBatchImportJobCommandOutput) => void
   ): void;
-  public createBatchImportJob(
+  createBatchImportJob(
     args: CreateBatchImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBatchImportJobCommandOutput) => void
   ): void;
-  public createBatchImportJob(
-    args: CreateBatchImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchImportJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateBatchImportJobCommandOutput) => void
-  ): Promise<CreateBatchImportJobCommandOutput> | void {
-    const command = new CreateBatchImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a batch prediction job.</p>
+   * @see {@link CreateBatchPredictionJobCommand}
    */
-  public createBatchPredictionJob(
+  createBatchPredictionJob(
     args: CreateBatchPredictionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateBatchPredictionJobCommandOutput>;
-  public createBatchPredictionJob(
+  createBatchPredictionJob(
     args: CreateBatchPredictionJobCommandInput,
     cb: (err: any, data?: CreateBatchPredictionJobCommandOutput) => void
   ): void;
-  public createBatchPredictionJob(
+  createBatchPredictionJob(
     args: CreateBatchPredictionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBatchPredictionJobCommandOutput) => void
   ): void;
-  public createBatchPredictionJob(
-    args: CreateBatchPredictionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchPredictionJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateBatchPredictionJobCommandOutput) => void
-  ): Promise<CreateBatchPredictionJobCommandOutput> | void {
-    const command = new CreateBatchPredictionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
+   * @see {@link CreateDetectorVersionCommand}
    */
-  public createDetectorVersion(
+  createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateDetectorVersionCommandOutput>;
-  public createDetectorVersion(
+  createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
     cb: (err: any, data?: CreateDetectorVersionCommandOutput) => void
   ): void;
-  public createDetectorVersion(
+  createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDetectorVersionCommandOutput) => void
   ): void;
-  public createDetectorVersion(
-    args: CreateDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDetectorVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateDetectorVersionCommandOutput) => void
-  ): Promise<CreateDetectorVersionCommandOutput> | void {
-    const command = new CreateDetectorVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a model using the specified model type.</p>
+   * @see {@link CreateListCommand}
    */
-  public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
-  public createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
-  public createModel(
+  createList(args: CreateListCommandInput, options?: __HttpHandlerOptions): Promise<CreateListCommandOutput>;
+  createList(args: CreateListCommandInput, cb: (err: any, data?: CreateListCommandOutput) => void): void;
+  createList(
+    args: CreateListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateModelCommand}
+   */
+  createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
+  createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
+  createModel(
     args: CreateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
   ): void;
-  public createModel(
-    args: CreateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
-    cb?: (err: any, data?: CreateModelCommandOutput) => void
-  ): Promise<CreateModelCommandOutput> | void {
-    const command = new CreateModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a version of the model using the specified model type and model id.
-   *         </p>
+   * @see {@link CreateModelVersionCommand}
    */
-  public createModelVersion(
+  createModelVersion(
     args: CreateModelVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateModelVersionCommandOutput>;
-  public createModelVersion(
+  createModelVersion(
     args: CreateModelVersionCommandInput,
     cb: (err: any, data?: CreateModelVersionCommandOutput) => void
   ): void;
-  public createModelVersion(
+  createModelVersion(
     args: CreateModelVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelVersionCommandOutput) => void
   ): void;
-  public createModelVersion(
-    args: CreateModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateModelVersionCommandOutput) => void
-  ): Promise<CreateModelVersionCommandOutput> | void {
-    const command = new CreateModelVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a rule for use with the specified detector. </p>
+   * @see {@link CreateRuleCommand}
    */
-  public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
-  public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
-  public createRule(
+  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateRuleCommandOutput) => void
   ): void;
-  public createRule(
-    args: CreateRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateRuleCommandOutput) => void
-  ): Promise<CreateRuleCommandOutput> | void {
-    const command = new CreateRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates a variable.</p>
+   * @see {@link CreateVariableCommand}
    */
-  public createVariable(
+  createVariable(
     args: CreateVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateVariableCommandOutput>;
-  public createVariable(
-    args: CreateVariableCommandInput,
-    cb: (err: any, data?: CreateVariableCommandOutput) => void
-  ): void;
-  public createVariable(
+  createVariable(args: CreateVariableCommandInput, cb: (err: any, data?: CreateVariableCommandOutput) => void): void;
+  createVariable(
     args: CreateVariableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVariableCommandOutput) => void
   ): void;
-  public createVariable(
-    args: CreateVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVariableCommandOutput) => void),
-    cb?: (err: any, data?: CreateVariableCommandOutput) => void
-  ): Promise<CreateVariableCommandOutput> | void {
-    const command = new CreateVariableCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes data that was batch imported to Amazon Fraud Detector. </p>
+   * @see {@link DeleteBatchImportJobCommand}
    */
-  public deleteBatchImportJob(
+  deleteBatchImportJob(
     args: DeleteBatchImportJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBatchImportJobCommandOutput>;
-  public deleteBatchImportJob(
+  deleteBatchImportJob(
     args: DeleteBatchImportJobCommandInput,
     cb: (err: any, data?: DeleteBatchImportJobCommandOutput) => void
   ): void;
-  public deleteBatchImportJob(
+  deleteBatchImportJob(
     args: DeleteBatchImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBatchImportJobCommandOutput) => void
   ): void;
-  public deleteBatchImportJob(
-    args: DeleteBatchImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBatchImportJobCommandOutput) => void),
-    cb?: (err: any, data?: DeleteBatchImportJobCommandOutput) => void
-  ): Promise<DeleteBatchImportJobCommandOutput> | void {
-    const command = new DeleteBatchImportJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a batch prediction job.</p>
+   * @see {@link DeleteBatchPredictionJobCommand}
    */
-  public deleteBatchPredictionJob(
+  deleteBatchPredictionJob(
     args: DeleteBatchPredictionJobCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteBatchPredictionJobCommandOutput>;
-  public deleteBatchPredictionJob(
+  deleteBatchPredictionJob(
     args: DeleteBatchPredictionJobCommandInput,
     cb: (err: any, data?: DeleteBatchPredictionJobCommandOutput) => void
   ): void;
-  public deleteBatchPredictionJob(
+  deleteBatchPredictionJob(
     args: DeleteBatchPredictionJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBatchPredictionJobCommandOutput) => void
   ): void;
-  public deleteBatchPredictionJob(
-    args: DeleteBatchPredictionJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBatchPredictionJobCommandOutput) => void),
-    cb?: (err: any, data?: DeleteBatchPredictionJobCommandOutput) => void
-  ): Promise<DeleteBatchPredictionJobCommandOutput> | void {
-    const command = new DeleteBatchPredictionJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
-   * 	        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteDetectorCommand}
    */
-  public deleteDetector(
+  deleteDetector(
     args: DeleteDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDetectorCommandOutput>;
-  public deleteDetector(
-    args: DeleteDetectorCommandInput,
-    cb: (err: any, data?: DeleteDetectorCommandOutput) => void
-  ): void;
-  public deleteDetector(
+  deleteDetector(args: DeleteDetectorCommandInput, cb: (err: any, data?: DeleteDetectorCommandOutput) => void): void;
+  deleteDetector(
     args: DeleteDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDetectorCommandOutput) => void
   ): void;
-  public deleteDetector(
-    args: DeleteDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDetectorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDetectorCommandOutput) => void
-  ): Promise<DeleteDetectorCommandOutput> | void {
-    const command = new DeleteDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
-   * 	  	     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteDetectorVersionCommand}
    */
-  public deleteDetectorVersion(
+  deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteDetectorVersionCommandOutput>;
-  public deleteDetectorVersion(
+  deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
     cb: (err: any, data?: DeleteDetectorVersionCommandOutput) => void
   ): void;
-  public deleteDetectorVersion(
+  deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDetectorVersionCommandOutput) => void
   ): void;
-  public deleteDetectorVersion(
-    args: DeleteDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDetectorVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDetectorVersionCommandOutput) => void
-  ): Promise<DeleteDetectorVersionCommandOutput> | void {
-    const command = new DeleteDetectorVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an entity type.</p>
-   * 	        <p>You cannot delete an entity type that is included in an event type.</p>
-   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteEntityTypeCommand}
    */
-  public deleteEntityType(
+  deleteEntityType(
     args: DeleteEntityTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEntityTypeCommandOutput>;
-  public deleteEntityType(
+  deleteEntityType(
     args: DeleteEntityTypeCommandInput,
     cb: (err: any, data?: DeleteEntityTypeCommandOutput) => void
   ): void;
-  public deleteEntityType(
+  deleteEntityType(
     args: DeleteEntityTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEntityTypeCommandOutput) => void
   ): void;
-  public deleteEntityType(
-    args: DeleteEntityTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEntityTypeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEntityTypeCommandOutput) => void
-  ): Promise<DeleteEntityTypeCommandOutput> | void {
-    const command = new DeleteEntityTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the specified event.</p>
-   * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteEventCommand}
    */
-  public deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
-  public deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
-  public deleteEvent(
+  deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
+  deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
+  deleteEvent(
     args: DeleteEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEventCommandOutput) => void
   ): void;
-  public deleteEvent(
-    args: DeleteEventCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEventCommandOutput) => void
-  ): Promise<DeleteEventCommandOutput> | void {
-    const command = new DeleteEventCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes all events of a particular event type.</p>
+   * @see {@link DeleteEventsByEventTypeCommand}
    */
-  public deleteEventsByEventType(
+  deleteEventsByEventType(
     args: DeleteEventsByEventTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEventsByEventTypeCommandOutput>;
-  public deleteEventsByEventType(
+  deleteEventsByEventType(
     args: DeleteEventsByEventTypeCommandInput,
     cb: (err: any, data?: DeleteEventsByEventTypeCommandOutput) => void
   ): void;
-  public deleteEventsByEventType(
+  deleteEventsByEventType(
     args: DeleteEventsByEventTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEventsByEventTypeCommandOutput) => void
   ): void;
-  public deleteEventsByEventType(
-    args: DeleteEventsByEventTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventsByEventTypeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEventsByEventTypeCommandOutput) => void
-  ): Promise<DeleteEventsByEventTypeCommandOutput> | void {
-    const command = new DeleteEventsByEventTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an event type.</p>
-   * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
-   * 	        <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteEventTypeCommand}
    */
-  public deleteEventType(
+  deleteEventType(
     args: DeleteEventTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteEventTypeCommandOutput>;
-  public deleteEventType(
-    args: DeleteEventTypeCommandInput,
-    cb: (err: any, data?: DeleteEventTypeCommandOutput) => void
-  ): void;
-  public deleteEventType(
+  deleteEventType(args: DeleteEventTypeCommandInput, cb: (err: any, data?: DeleteEventTypeCommandOutput) => void): void;
+  deleteEventType(
     args: DeleteEventTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEventTypeCommandOutput) => void
   ): void;
-  public deleteEventType(
-    args: DeleteEventTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventTypeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEventTypeCommandOutput) => void
-  ): Promise<DeleteEventTypeCommandOutput> | void {
-    const command = new DeleteEventTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
-   * 	        <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
+   * @see {@link DeleteExternalModelCommand}
    */
-  public deleteExternalModel(
+  deleteExternalModel(
     args: DeleteExternalModelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteExternalModelCommandOutput>;
-  public deleteExternalModel(
+  deleteExternalModel(
     args: DeleteExternalModelCommandInput,
     cb: (err: any, data?: DeleteExternalModelCommandOutput) => void
   ): void;
-  public deleteExternalModel(
+  deleteExternalModel(
     args: DeleteExternalModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteExternalModelCommandOutput) => void
   ): void;
-  public deleteExternalModel(
-    args: DeleteExternalModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExternalModelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteExternalModelCommandOutput) => void
-  ): Promise<DeleteExternalModelCommandOutput> | void {
-    const command = new DeleteExternalModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a label.</p>
-   * 	        <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
-   *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
-   *
-   *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteLabelCommand}
    */
-  public deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
-  public deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
-  public deleteLabel(
+  deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
+  deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
+  deleteLabel(
     args: DeleteLabelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLabelCommandOutput) => void
   ): void;
-  public deleteLabel(
-    args: DeleteLabelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLabelCommandOutput) => void
-  ): Promise<DeleteLabelCommandOutput> | void {
-    const command = new DeleteLabelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a model.</p>
-   * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
-   * 	        <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteListCommand}
    */
-  public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
-  public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
-  public deleteModel(
+  deleteList(args: DeleteListCommandInput, options?: __HttpHandlerOptions): Promise<DeleteListCommandOutput>;
+  deleteList(args: DeleteListCommandInput, cb: (err: any, data?: DeleteListCommandOutput) => void): void;
+  deleteList(
+    args: DeleteListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteModelCommand}
+   */
+  deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
+  deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
+  deleteModel(
     args: DeleteModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteModelCommandOutput) => void
   ): void;
-  public deleteModel(
-    args: DeleteModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteModelCommandOutput) => void
-  ): Promise<DeleteModelCommandOutput> | void {
-    const command = new DeleteModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a model version.</p>
-   * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
-   * 	        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteModelVersionCommand}
    */
-  public deleteModelVersion(
+  deleteModelVersion(
     args: DeleteModelVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteModelVersionCommandOutput>;
-  public deleteModelVersion(
+  deleteModelVersion(
     args: DeleteModelVersionCommandInput,
     cb: (err: any, data?: DeleteModelVersionCommandOutput) => void
   ): void;
-  public deleteModelVersion(
+  deleteModelVersion(
     args: DeleteModelVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteModelVersionCommandOutput) => void
   ): void;
-  public deleteModelVersion(
-    args: DeleteModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteModelVersionCommandOutput) => void
-  ): Promise<DeleteModelVersionCommandOutput> | void {
-    const command = new DeleteModelVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes an outcome.</p>
-   * 	        <p>You cannot delete an outcome that is used in a rule version.</p>
-   * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteOutcomeCommand}
    */
-  public deleteOutcome(
-    args: DeleteOutcomeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteOutcomeCommandOutput>;
-  public deleteOutcome(
-    args: DeleteOutcomeCommandInput,
-    cb: (err: any, data?: DeleteOutcomeCommandOutput) => void
-  ): void;
-  public deleteOutcome(
+  deleteOutcome(args: DeleteOutcomeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteOutcomeCommandOutput>;
+  deleteOutcome(args: DeleteOutcomeCommandInput, cb: (err: any, data?: DeleteOutcomeCommandOutput) => void): void;
+  deleteOutcome(
     args: DeleteOutcomeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOutcomeCommandOutput) => void
   ): void;
-  public deleteOutcome(
-    args: DeleteOutcomeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOutcomeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteOutcomeCommandOutput) => void
-  ): Promise<DeleteOutcomeCommandOutput> | void {
-    const command = new DeleteOutcomeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
-   * 	  	     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteRuleCommand}
    */
-  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
-  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
-  public deleteRule(
+  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRuleCommandOutput) => void
-  ): Promise<DeleteRuleCommandOutput> | void {
-    const command = new DeleteRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Deletes a variable.</p>
-   * 	        <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
-   * 	        <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
-   * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>
+   * @see {@link DeleteVariableCommand}
    */
-  public deleteVariable(
+  deleteVariable(
     args: DeleteVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteVariableCommandOutput>;
-  public deleteVariable(
-    args: DeleteVariableCommandInput,
-    cb: (err: any, data?: DeleteVariableCommandOutput) => void
-  ): void;
-  public deleteVariable(
+  deleteVariable(args: DeleteVariableCommandInput, cb: (err: any, data?: DeleteVariableCommandOutput) => void): void;
+  deleteVariable(
     args: DeleteVariableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVariableCommandOutput) => void
   ): void;
-  public deleteVariable(
-    args: DeleteVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVariableCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVariableCommandOutput) => void
-  ): Promise<DeleteVariableCommandOutput> | void {
-    const command = new DeleteVariableCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all versions for a specified detector.</p>
+   * @see {@link DescribeDetectorCommand}
    */
-  public describeDetector(
+  describeDetector(
     args: DescribeDetectorCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeDetectorCommandOutput>;
-  public describeDetector(
+  describeDetector(
     args: DescribeDetectorCommandInput,
     cb: (err: any, data?: DescribeDetectorCommandOutput) => void
   ): void;
-  public describeDetector(
+  describeDetector(
     args: DescribeDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDetectorCommandOutput) => void
   ): void;
-  public describeDetector(
-    args: DescribeDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDetectorCommandOutput) => void
-  ): Promise<DescribeDetectorCommandOutput> | void {
-    const command = new DescribeDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
+   * @see {@link DescribeModelVersionsCommand}
    */
-  public describeModelVersions(
+  describeModelVersions(
     args: DescribeModelVersionsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeModelVersionsCommandOutput>;
-  public describeModelVersions(
+  describeModelVersions(
     args: DescribeModelVersionsCommandInput,
     cb: (err: any, data?: DescribeModelVersionsCommandOutput) => void
   ): void;
-  public describeModelVersions(
+  describeModelVersions(
     args: DescribeModelVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeModelVersionsCommandOutput) => void
   ): void;
-  public describeModelVersions(
-    args: DescribeModelVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelVersionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeModelVersionsCommandOutput) => void
-  ): Promise<DescribeModelVersionsCommandOutput> | void {
-    const command = new DescribeModelVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all batch import jobs or a specific job of the specified ID. This is a paginated API. If you provide a null <code>maxResults</code>,
-   *          this action retrieves a maximum of 50 records per page. If you provide a <code>maxResults</code>, the value must be between 1 and 50.
-   *          To get the next page results, provide the pagination token from the <code>GetBatchImportJobsResponse</code> as part of your request.
-   *          A null pagination token fetches the records from the beginning.</p>
+   * @see {@link GetBatchImportJobsCommand}
    */
-  public getBatchImportJobs(
+  getBatchImportJobs(
     args: GetBatchImportJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBatchImportJobsCommandOutput>;
-  public getBatchImportJobs(
+  getBatchImportJobs(
     args: GetBatchImportJobsCommandInput,
     cb: (err: any, data?: GetBatchImportJobsCommandOutput) => void
   ): void;
-  public getBatchImportJobs(
+  getBatchImportJobs(
     args: GetBatchImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBatchImportJobsCommandOutput) => void
   ): void;
-  public getBatchImportJobs(
-    args: GetBatchImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBatchImportJobsCommandOutput) => void),
-    cb?: (err: any, data?: GetBatchImportJobsCommandOutput) => void
-  ): Promise<GetBatchImportJobsCommandOutput> | void {
-    const command = new GetBatchImportJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all batch prediction jobs or a specific job if you specify a job ID. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 50 records per page. If you provide a maxResults, the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchPredictionJobsResponse as part of your request. A null pagination token fetches the records from the beginning.</p>
+   * @see {@link GetBatchPredictionJobsCommand}
    */
-  public getBatchPredictionJobs(
+  getBatchPredictionJobs(
     args: GetBatchPredictionJobsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetBatchPredictionJobsCommandOutput>;
-  public getBatchPredictionJobs(
+  getBatchPredictionJobs(
     args: GetBatchPredictionJobsCommandInput,
     cb: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
   ): void;
-  public getBatchPredictionJobs(
+  getBatchPredictionJobs(
     args: GetBatchPredictionJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
   ): void;
-  public getBatchPredictionJobs(
-    args: GetBatchPredictionJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBatchPredictionJobsCommandOutput) => void),
-    cb?: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
-  ): Promise<GetBatchPredictionJobsCommandOutput> | void {
-    const command = new GetBatchPredictionJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves the status of a <code>DeleteEventsByEventType</code> action.</p>
+   * @see {@link GetDeleteEventsByEventTypeStatusCommand}
    */
-  public getDeleteEventsByEventTypeStatus(
+  getDeleteEventsByEventTypeStatus(
     args: GetDeleteEventsByEventTypeStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDeleteEventsByEventTypeStatusCommandOutput>;
-  public getDeleteEventsByEventTypeStatus(
+  getDeleteEventsByEventTypeStatus(
     args: GetDeleteEventsByEventTypeStatusCommandInput,
     cb: (err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void
   ): void;
-  public getDeleteEventsByEventTypeStatus(
+  getDeleteEventsByEventTypeStatus(
     args: GetDeleteEventsByEventTypeStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void
   ): void;
-  public getDeleteEventsByEventTypeStatus(
-    args: GetDeleteEventsByEventTypeStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void),
-    cb?: (err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void
-  ): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> | void {
-    const command = new GetDeleteEventsByEventTypeStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all detectors or a single detector if a <code>detectorId</code> is specified. This is a paginated API. If you
-   *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
-   *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
-   *          To get the next page results, provide the pagination token from the
-   *             <code>GetDetectorsResponse</code> as part of your request. A null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link GetDetectorsCommand}
    */
-  public getDetectors(
-    args: GetDetectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDetectorsCommandOutput>;
-  public getDetectors(args: GetDetectorsCommandInput, cb: (err: any, data?: GetDetectorsCommandOutput) => void): void;
-  public getDetectors(
+  getDetectors(args: GetDetectorsCommandInput, options?: __HttpHandlerOptions): Promise<GetDetectorsCommandOutput>;
+  getDetectors(args: GetDetectorsCommandInput, cb: (err: any, data?: GetDetectorsCommandOutput) => void): void;
+  getDetectors(
     args: GetDetectorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDetectorsCommandOutput) => void
   ): void;
-  public getDetectors(
-    args: GetDetectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorsCommandOutput) => void),
-    cb?: (err: any, data?: GetDetectorsCommandOutput) => void
-  ): Promise<GetDetectorsCommandOutput> | void {
-    const command = new GetDetectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets a particular detector version. </p>
+   * @see {@link GetDetectorVersionCommand}
    */
-  public getDetectorVersion(
+  getDetectorVersion(
     args: GetDetectorVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetDetectorVersionCommandOutput>;
-  public getDetectorVersion(
+  getDetectorVersion(
     args: GetDetectorVersionCommandInput,
     cb: (err: any, data?: GetDetectorVersionCommandOutput) => void
   ): void;
-  public getDetectorVersion(
+  getDetectorVersion(
     args: GetDetectorVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDetectorVersionCommandOutput) => void
   ): void;
-  public getDetectorVersion(
-    args: GetDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetDetectorVersionCommandOutput) => void
-  ): Promise<GetDetectorVersionCommandOutput> | void {
-    const command = new GetDetectorVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all entity types or a specific entity type if a name is specified. This is a paginated API. If you
-   *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
-   *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
-   *          To get the next page results, provide the pagination token from the
-   *          <code>GetEntityTypesResponse</code> as part of your request. A null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link GetEntityTypesCommand}
    */
-  public getEntityTypes(
+  getEntityTypes(
     args: GetEntityTypesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEntityTypesCommandOutput>;
-  public getEntityTypes(
-    args: GetEntityTypesCommandInput,
-    cb: (err: any, data?: GetEntityTypesCommandOutput) => void
-  ): void;
-  public getEntityTypes(
+  getEntityTypes(args: GetEntityTypesCommandInput, cb: (err: any, data?: GetEntityTypesCommandOutput) => void): void;
+  getEntityTypes(
     args: GetEntityTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEntityTypesCommandOutput) => void
   ): void;
-  public getEntityTypes(
-    args: GetEntityTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEntityTypesCommandOutput) => void),
-    cb?: (err: any, data?: GetEntityTypesCommandOutput) => void
-  ): Promise<GetEntityTypesCommandOutput> | void {
-    const command = new GetEntityTypesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Retrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.</p>
+   * @see {@link GetEventCommand}
    */
-  public getEvent(args: GetEventCommandInput, options?: __HttpHandlerOptions): Promise<GetEventCommandOutput>;
-  public getEvent(args: GetEventCommandInput, cb: (err: any, data?: GetEventCommandOutput) => void): void;
-  public getEvent(
+  getEvent(args: GetEventCommandInput, options?: __HttpHandlerOptions): Promise<GetEventCommandOutput>;
+  getEvent(args: GetEventCommandInput, cb: (err: any, data?: GetEventCommandOutput) => void): void;
+  getEvent(
     args: GetEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventCommandOutput) => void
   ): void;
-  public getEvent(
-    args: GetEventCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventCommandOutput) => void),
-    cb?: (err: any, data?: GetEventCommandOutput) => void
-  ): Promise<GetEventCommandOutput> | void {
-    const command = new GetEventCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>
+   * @see {@link GetEventPredictionCommand}
    */
-  public getEventPrediction(
+  getEventPrediction(
     args: GetEventPredictionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetEventPredictionCommandOutput>;
-  public getEventPrediction(
+  getEventPrediction(
     args: GetEventPredictionCommandInput,
     cb: (err: any, data?: GetEventPredictionCommandOutput) => void
   ): void;
-  public getEventPrediction(
+  getEventPrediction(
     args: GetEventPredictionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventPredictionCommandOutput) => void
   ): void;
-  public getEventPrediction(
-    args: GetEventPredictionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventPredictionCommandOutput) => void),
-    cb?: (err: any, data?: GetEventPredictionCommandOutput) => void
-  ): Promise<GetEventPredictionCommandOutput> | void {
-    const command = new GetEventPredictionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all event types or a specific event type if name is provided. This is a paginated API. If you
-   *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
-   *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
-   *          To get the next page results, provide the pagination token from the
-   *             <code>GetEventTypesResponse</code> as part of your request. A null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link GetEventPredictionMetadataCommand}
    */
-  public getEventTypes(
-    args: GetEventTypesCommandInput,
+  getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetEventTypesCommandOutput>;
-  public getEventTypes(
-    args: GetEventTypesCommandInput,
-    cb: (err: any, data?: GetEventTypesCommandOutput) => void
+  ): Promise<GetEventPredictionMetadataCommandOutput>;
+  getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
+    cb: (err: any, data?: GetEventPredictionMetadataCommandOutput) => void
   ): void;
-  public getEventTypes(
+  getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventPredictionMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventTypesCommand}
+   */
+  getEventTypes(args: GetEventTypesCommandInput, options?: __HttpHandlerOptions): Promise<GetEventTypesCommandOutput>;
+  getEventTypes(args: GetEventTypesCommandInput, cb: (err: any, data?: GetEventTypesCommandOutput) => void): void;
+  getEventTypes(
     args: GetEventTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventTypesCommandOutput) => void
   ): void;
-  public getEventTypes(
-    args: GetEventTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventTypesCommandOutput) => void),
-    cb?: (err: any, data?: GetEventTypesCommandOutput) => void
-  ): Promise<GetEventTypesCommandOutput> | void {
-    const command = new GetEventTypesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the details for one or more Amazon SageMaker models that have been imported into the
-   *          service. This is a paginated API. If you provide a null <code>maxResults</code>, this
-   *          actions retrieves a maximum of 10 records per page. If you provide a
-   *             <code>maxResults</code>, the value must be between 5 and 10. To get the next page
-   *          results, provide the pagination token from the <code>GetExternalModelsResult</code> as part
-   *          of your request. A null pagination token fetches the records from the beginning. </p>
+   * @see {@link GetExternalModelsCommand}
    */
-  public getExternalModels(
+  getExternalModels(
     args: GetExternalModelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetExternalModelsCommandOutput>;
-  public getExternalModels(
+  getExternalModels(
     args: GetExternalModelsCommandInput,
     cb: (err: any, data?: GetExternalModelsCommandOutput) => void
   ): void;
-  public getExternalModels(
+  getExternalModels(
     args: GetExternalModelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetExternalModelsCommandOutput) => void
   ): void;
-  public getExternalModels(
-    args: GetExternalModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExternalModelsCommandOutput) => void),
-    cb?: (err: any, data?: GetExternalModelsCommandOutput) => void
-  ): Promise<GetExternalModelsCommandOutput> | void {
-    const command = new GetExternalModelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
+   * @see {@link GetKMSEncryptionKeyCommand}
    */
-  public getKMSEncryptionKey(
+  getKMSEncryptionKey(
     args: GetKMSEncryptionKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetKMSEncryptionKeyCommandOutput>;
-  public getKMSEncryptionKey(
+  getKMSEncryptionKey(
     args: GetKMSEncryptionKeyCommandInput,
     cb: (err: any, data?: GetKMSEncryptionKeyCommandOutput) => void
   ): void;
-  public getKMSEncryptionKey(
+  getKMSEncryptionKey(
     args: GetKMSEncryptionKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetKMSEncryptionKeyCommandOutput) => void
   ): void;
-  public getKMSEncryptionKey(
-    args: GetKMSEncryptionKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKMSEncryptionKeyCommandOutput) => void),
-    cb?: (err: any, data?: GetKMSEncryptionKeyCommandOutput) => void
-  ): Promise<GetKMSEncryptionKeyCommandOutput> | void {
-    const command = new GetKMSEncryptionKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all labels or a specific label if name is provided. This is a paginated API. If you
-   *          provide a null <code>maxResults</code>, this action retrieves a maximum of 50 records
-   *          per page. If you provide a <code>maxResults</code>, the value must be between 10 and 50.
-   *          To get the next page results, provide the pagination token from the
-   *          <code>GetGetLabelsResponse</code> as part of your request. A null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link GetLabelsCommand}
    */
-  public getLabels(args: GetLabelsCommandInput, options?: __HttpHandlerOptions): Promise<GetLabelsCommandOutput>;
-  public getLabels(args: GetLabelsCommandInput, cb: (err: any, data?: GetLabelsCommandOutput) => void): void;
-  public getLabels(
+  getLabels(args: GetLabelsCommandInput, options?: __HttpHandlerOptions): Promise<GetLabelsCommandOutput>;
+  getLabels(args: GetLabelsCommandInput, cb: (err: any, data?: GetLabelsCommandOutput) => void): void;
+  getLabels(
     args: GetLabelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLabelsCommandOutput) => void
   ): void;
-  public getLabels(
-    args: GetLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLabelsCommandOutput) => void),
-    cb?: (err: any, data?: GetLabelsCommandOutput) => void
-  ): Promise<GetLabelsCommandOutput> | void {
-    const command = new GetLabelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
-   *          <p>This is a paginated API. If you
-   *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
-   *          per page. If you provide a <code>maxResults</code>, the value must be between 1 and 10.
-   *          To get the next page results, provide the pagination token from the
-   *             response as part of your request. A null pagination token
-   *          fetches the records from the beginning.</p>
+   * @see {@link GetListElementsCommand}
    */
-  public getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
-  public getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
-  public getModels(
+  getListElements(
+    args: GetListElementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListElementsCommandOutput>;
+  getListElements(args: GetListElementsCommandInput, cb: (err: any, data?: GetListElementsCommandOutput) => void): void;
+  getListElements(
+    args: GetListElementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetListElementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetListsMetadataCommand}
+   */
+  getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetListsMetadataCommandOutput>;
+  getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    cb: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): void;
+  getListsMetadata(
+    args: GetListsMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetListsMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetModelsCommand}
+   */
+  getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
+  getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
+  getModels(
     args: GetModelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetModelsCommandOutput) => void
   ): void;
-  public getModels(
-    args: GetModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
-    cb?: (err: any, data?: GetModelsCommandOutput) => void
-  ): Promise<GetModelsCommandOutput> | void {
-    const command = new GetModelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets the details of the specified model version.</p>
+   * @see {@link GetModelVersionCommand}
    */
-  public getModelVersion(
+  getModelVersion(
     args: GetModelVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetModelVersionCommandOutput>;
-  public getModelVersion(
-    args: GetModelVersionCommandInput,
-    cb: (err: any, data?: GetModelVersionCommandOutput) => void
-  ): void;
-  public getModelVersion(
+  getModelVersion(args: GetModelVersionCommandInput, cb: (err: any, data?: GetModelVersionCommandOutput) => void): void;
+  getModelVersion(
     args: GetModelVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetModelVersionCommandOutput) => void
   ): void;
-  public getModelVersion(
-    args: GetModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetModelVersionCommandOutput) => void
-  ): Promise<GetModelVersionCommandOutput> | void {
-    const command = new GetModelVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets one or more outcomes. This is a paginated
-   *          API. If you provide a null <code>maxResults</code>, this actions retrieves a maximum of
-   *          100 records per page. If you provide a <code>maxResults</code>, the value must be
-   *          between 50 and 100. To get the next page results, provide the pagination token from the
-   *         <code>GetOutcomesResult</code> as part of your request. A null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link GetOutcomesCommand}
    */
-  public getOutcomes(args: GetOutcomesCommandInput, options?: __HttpHandlerOptions): Promise<GetOutcomesCommandOutput>;
-  public getOutcomes(args: GetOutcomesCommandInput, cb: (err: any, data?: GetOutcomesCommandOutput) => void): void;
-  public getOutcomes(
+  getOutcomes(args: GetOutcomesCommandInput, options?: __HttpHandlerOptions): Promise<GetOutcomesCommandOutput>;
+  getOutcomes(args: GetOutcomesCommandInput, cb: (err: any, data?: GetOutcomesCommandOutput) => void): void;
+  getOutcomes(
     args: GetOutcomesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOutcomesCommandOutput) => void
   ): void;
-  public getOutcomes(
-    args: GetOutcomesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOutcomesCommandOutput) => void),
-    cb?: (err: any, data?: GetOutcomesCommandOutput) => void
-  ): Promise<GetOutcomesCommandOutput> | void {
-    const command = new GetOutcomesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Get all rules for a detector (paginated) if <code>ruleId</code> and <code>ruleVersion</code> are not specified. Gets all rules for the detector and the <code>ruleId</code> if present (paginated). Gets a specific rule if both the <code>ruleId</code> and the <code>ruleVersion</code> are specified.</p>
-   *          <p>This is a paginated API. Providing null maxResults results in retrieving maximum of 100 records per page. If you provide maxResults the value must be between 50 and 100. To get the next page result, a provide a pagination token from GetRulesResult as part of your request. Null pagination token fetches the records from the beginning.</p>
+   * @see {@link GetRulesCommand}
    */
-  public getRules(args: GetRulesCommandInput, options?: __HttpHandlerOptions): Promise<GetRulesCommandOutput>;
-  public getRules(args: GetRulesCommandInput, cb: (err: any, data?: GetRulesCommandOutput) => void): void;
-  public getRules(
+  getRules(args: GetRulesCommandInput, options?: __HttpHandlerOptions): Promise<GetRulesCommandOutput>;
+  getRules(args: GetRulesCommandInput, cb: (err: any, data?: GetRulesCommandOutput) => void): void;
+  getRules(
     args: GetRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRulesCommandOutput) => void
   ): void;
-  public getRules(
-    args: GetRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRulesCommandOutput) => void),
-    cb?: (err: any, data?: GetRulesCommandOutput) => void
-  ): Promise<GetRulesCommandOutput> | void {
-    const command = new GetRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Gets all of the variables or the specific variable. This is a
-   *          paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of
-   *          100 records per page. If you provide <code>maxSizePerPage</code> the value must be between
-   *          50 and 100. To get the next page result, a provide a pagination token from
-   *         <code>GetVariablesResult</code> as part of your request. Null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link GetVariablesCommand}
    */
-  public getVariables(
-    args: GetVariablesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVariablesCommandOutput>;
-  public getVariables(args: GetVariablesCommandInput, cb: (err: any, data?: GetVariablesCommandOutput) => void): void;
-  public getVariables(
+  getVariables(args: GetVariablesCommandInput, options?: __HttpHandlerOptions): Promise<GetVariablesCommandOutput>;
+  getVariables(args: GetVariablesCommandInput, cb: (err: any, data?: GetVariablesCommandOutput) => void): void;
+  getVariables(
     args: GetVariablesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetVariablesCommandOutput) => void
   ): void;
-  public getVariables(
-    args: GetVariablesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVariablesCommandOutput) => void),
-    cb?: (err: any, data?: GetVariablesCommandOutput) => void
-  ): Promise<GetVariablesCommandOutput> | void {
-    const command = new GetVariablesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Lists all tags associated with the resource. This is a paginated API. To get the next page results, provide the pagination token from the
-   *             response as part of your request. A null pagination token
-   *          fetches the records from the beginning. </p>
+   * @see {@link ListEventPredictionsCommand}
    */
-  public listTagsForResource(
+  listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventPredictionsCommandOutput>;
+  listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    cb: (err: any, data?: ListEventPredictionsCommandOutput) => void
+  ): void;
+  listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventPredictionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
+  listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates a detector. </p>
+   * @see {@link PutDetectorCommand}
    */
-  public putDetector(args: PutDetectorCommandInput, options?: __HttpHandlerOptions): Promise<PutDetectorCommandOutput>;
-  public putDetector(args: PutDetectorCommandInput, cb: (err: any, data?: PutDetectorCommandOutput) => void): void;
-  public putDetector(
+  putDetector(args: PutDetectorCommandInput, options?: __HttpHandlerOptions): Promise<PutDetectorCommandOutput>;
+  putDetector(args: PutDetectorCommandInput, cb: (err: any, data?: PutDetectorCommandOutput) => void): void;
+  putDetector(
     args: PutDetectorCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDetectorCommandOutput) => void
   ): void;
-  public putDetector(
-    args: PutDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDetectorCommandOutput) => void),
-    cb?: (err: any, data?: PutDetectorCommandOutput) => void
-  ): Promise<PutDetectorCommandOutput> | void {
-    const command = new PutDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.</p>
+   * @see {@link PutEntityTypeCommand}
    */
-  public putEntityType(
-    args: PutEntityTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEntityTypeCommandOutput>;
-  public putEntityType(
-    args: PutEntityTypeCommandInput,
-    cb: (err: any, data?: PutEntityTypeCommandOutput) => void
-  ): void;
-  public putEntityType(
+  putEntityType(args: PutEntityTypeCommandInput, options?: __HttpHandlerOptions): Promise<PutEntityTypeCommandOutput>;
+  putEntityType(args: PutEntityTypeCommandInput, cb: (err: any, data?: PutEntityTypeCommandOutput) => void): void;
+  putEntityType(
     args: PutEntityTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutEntityTypeCommandOutput) => void
   ): void;
-  public putEntityType(
-    args: PutEntityTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEntityTypeCommandOutput) => void),
-    cb?: (err: any, data?: PutEntityTypeCommandOutput) => void
-  ): Promise<PutEntityTypeCommandOutput> | void {
-    const command = new PutEntityTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.</p>
+   * @see {@link PutEventTypeCommand}
    */
-  public putEventType(
-    args: PutEventTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEventTypeCommandOutput>;
-  public putEventType(args: PutEventTypeCommandInput, cb: (err: any, data?: PutEventTypeCommandOutput) => void): void;
-  public putEventType(
+  putEventType(args: PutEventTypeCommandInput, options?: __HttpHandlerOptions): Promise<PutEventTypeCommandOutput>;
+  putEventType(args: PutEventTypeCommandInput, cb: (err: any, data?: PutEventTypeCommandOutput) => void): void;
+  putEventType(
     args: PutEventTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutEventTypeCommandOutput) => void
   ): void;
-  public putEventType(
-    args: PutEventTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventTypeCommandOutput) => void),
-    cb?: (err: any, data?: PutEventTypeCommandOutput) => void
-  ): Promise<PutEventTypeCommandOutput> | void {
-    const command = new PutEventTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
+   * @see {@link PutExternalModelCommand}
    */
-  public putExternalModel(
+  putExternalModel(
     args: PutExternalModelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutExternalModelCommandOutput>;
-  public putExternalModel(
+  putExternalModel(
     args: PutExternalModelCommandInput,
     cb: (err: any, data?: PutExternalModelCommandOutput) => void
   ): void;
-  public putExternalModel(
+  putExternalModel(
     args: PutExternalModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutExternalModelCommandOutput) => void
   ): void;
-  public putExternalModel(
-    args: PutExternalModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutExternalModelCommandOutput) => void),
-    cb?: (err: any, data?: PutExternalModelCommandOutput) => void
-  ): Promise<PutExternalModelCommandOutput> | void {
-    const command = new PutExternalModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.</p>
+   * @see {@link PutKMSEncryptionKeyCommand}
    */
-  public putKMSEncryptionKey(
+  putKMSEncryptionKey(
     args: PutKMSEncryptionKeyCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<PutKMSEncryptionKeyCommandOutput>;
-  public putKMSEncryptionKey(
+  putKMSEncryptionKey(
     args: PutKMSEncryptionKeyCommandInput,
     cb: (err: any, data?: PutKMSEncryptionKeyCommandOutput) => void
   ): void;
-  public putKMSEncryptionKey(
+  putKMSEncryptionKey(
     args: PutKMSEncryptionKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutKMSEncryptionKeyCommandOutput) => void
   ): void;
-  public putKMSEncryptionKey(
-    args: PutKMSEncryptionKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutKMSEncryptionKeyCommandOutput) => void),
-    cb?: (err: any, data?: PutKMSEncryptionKeyCommandOutput) => void
-  ): Promise<PutKMSEncryptionKeyCommandOutput> | void {
-    const command = new PutKMSEncryptionKeyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector. </p>
+   * @see {@link PutLabelCommand}
    */
-  public putLabel(args: PutLabelCommandInput, options?: __HttpHandlerOptions): Promise<PutLabelCommandOutput>;
-  public putLabel(args: PutLabelCommandInput, cb: (err: any, data?: PutLabelCommandOutput) => void): void;
-  public putLabel(
+  putLabel(args: PutLabelCommandInput, options?: __HttpHandlerOptions): Promise<PutLabelCommandOutput>;
+  putLabel(args: PutLabelCommandInput, cb: (err: any, data?: PutLabelCommandOutput) => void): void;
+  putLabel(
     args: PutLabelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutLabelCommandOutput) => void
   ): void;
-  public putLabel(
-    args: PutLabelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLabelCommandOutput) => void),
-    cb?: (err: any, data?: PutLabelCommandOutput) => void
-  ): Promise<PutLabelCommandOutput> | void {
-    const command = new PutLabelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Creates or updates an outcome. </p>
+   * @see {@link PutOutcomeCommand}
    */
-  public putOutcome(args: PutOutcomeCommandInput, options?: __HttpHandlerOptions): Promise<PutOutcomeCommandOutput>;
-  public putOutcome(args: PutOutcomeCommandInput, cb: (err: any, data?: PutOutcomeCommandOutput) => void): void;
-  public putOutcome(
+  putOutcome(args: PutOutcomeCommandInput, options?: __HttpHandlerOptions): Promise<PutOutcomeCommandOutput>;
+  putOutcome(args: PutOutcomeCommandInput, cb: (err: any, data?: PutOutcomeCommandOutput) => void): void;
+  putOutcome(
     args: PutOutcomeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutOutcomeCommandOutput) => void
   ): void;
-  public putOutcome(
-    args: PutOutcomeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutOutcomeCommandOutput) => void),
-    cb?: (err: any, data?: PutOutcomeCommandOutput) => void
-  ): Promise<PutOutcomeCommandOutput> | void {
-    const command = new PutOutcomeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Stores events in Amazon Fraud Detector without generating fraud predictions for those events. For example, you can use <code>SendEvent</code> to upload a historical dataset, which you can then later use to train a model.</p>
+   * @see {@link SendEventCommand}
    */
-  public sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
-  public sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
-  public sendEvent(
+  sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
+  sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
+  sendEvent(
     args: SendEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendEventCommandOutput) => void
   ): void;
-  public sendEvent(
-    args: SendEventCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEventCommandOutput) => void),
-    cb?: (err: any, data?: SendEventCommandOutput) => void
-  ): Promise<SendEventCommandOutput> | void {
-    const command = new SendEventCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Assigns tags to a resource.</p>
+   * @see {@link TagResourceCommand}
    */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Removes tags from a resource.</p>
+   * @see {@link UntagResourceCommand}
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a <code>DRAFT</code> detector version.</p>
+   * @see {@link UpdateDetectorVersionCommand}
    */
-  public updateDetectorVersion(
+  updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorVersionCommandOutput>;
-  public updateDetectorVersion(
+  updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
     cb: (err: any, data?: UpdateDetectorVersionCommandOutput) => void
   ): void;
-  public updateDetectorVersion(
+  updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDetectorVersionCommandOutput) => void
   ): void;
-  public updateDetectorVersion(
-    args: UpdateDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDetectorVersionCommandOutput) => void
-  ): Promise<UpdateDetectorVersionCommandOutput> | void {
-    const command = new UpdateDetectorVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
-   *                 <code>INACTIVE</code>). </p>
+   * @see {@link UpdateDetectorVersionMetadataCommand}
    */
-  public updateDetectorVersionMetadata(
+  updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorVersionMetadataCommandOutput>;
-  public updateDetectorVersionMetadata(
+  updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
     cb: (err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void
   ): void;
-  public updateDetectorVersionMetadata(
+  updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void
   ): void;
-  public updateDetectorVersionMetadata(
-    args: UpdateDetectorVersionMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void
-  ): Promise<UpdateDetectorVersionMetadataCommandOutput> | void {
-    const command = new UpdateDetectorVersionMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the detector version’s status. You can perform the following promotions or
-   *             demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>
+   * @see {@link UpdateDetectorVersionStatusCommand}
    */
-  public updateDetectorVersionStatus(
+  updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorVersionStatusCommandOutput>;
-  public updateDetectorVersionStatus(
+  updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
     cb: (err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void
   ): void;
-  public updateDetectorVersionStatus(
+  updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void
   ): void;
-  public updateDetectorVersionStatus(
-    args: UpdateDetectorVersionStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void
-  ): Promise<UpdateDetectorVersionStatusCommandOutput> | void {
-    const command = new UpdateDetectorVersionStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the specified event with a new label.</p>
+   * @see {@link UpdateEventLabelCommand}
    */
-  public updateEventLabel(
+  updateEventLabel(
     args: UpdateEventLabelCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateEventLabelCommandOutput>;
-  public updateEventLabel(
+  updateEventLabel(
     args: UpdateEventLabelCommandInput,
     cb: (err: any, data?: UpdateEventLabelCommandOutput) => void
   ): void;
-  public updateEventLabel(
+  updateEventLabel(
     args: UpdateEventLabelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEventLabelCommandOutput) => void
   ): void;
-  public updateEventLabel(
-    args: UpdateEventLabelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventLabelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEventLabelCommandOutput) => void
-  ): Promise<UpdateEventLabelCommandOutput> | void {
-    const command = new UpdateEventLabelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates model description.</p>
+   * @see {@link UpdateListCommand}
    */
-  public updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
-  public updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
-  public updateModel(
+  updateList(args: UpdateListCommandInput, options?: __HttpHandlerOptions): Promise<UpdateListCommandOutput>;
+  updateList(args: UpdateListCommandInput, cb: (err: any, data?: UpdateListCommandOutput) => void): void;
+  updateList(
+    args: UpdateListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateModelCommand}
+   */
+  updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
+  updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
+  updateModel(
     args: UpdateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateModelCommandOutput) => void
   ): void;
-  public updateModel(
-    args: UpdateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateModelCommandOutput) => void
-  ): Promise<UpdateModelCommandOutput> | void {
-    const command = new UpdateModelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.</p>
+   * @see {@link UpdateModelVersionCommand}
    */
-  public updateModelVersion(
+  updateModelVersion(
     args: UpdateModelVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateModelVersionCommandOutput>;
-  public updateModelVersion(
+  updateModelVersion(
     args: UpdateModelVersionCommandInput,
     cb: (err: any, data?: UpdateModelVersionCommandOutput) => void
   ): void;
-  public updateModelVersion(
+  updateModelVersion(
     args: UpdateModelVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateModelVersionCommandOutput) => void
   ): void;
-  public updateModelVersion(
-    args: UpdateModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateModelVersionCommandOutput) => void
-  ): Promise<UpdateModelVersionCommandOutput> | void {
-    const command = new UpdateModelVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates the status of a model version.</p>
-   *          <p>You can perform the following status updates:</p>
-   *          <ol>
-   *             <li>
-   *                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Change <code>ACTIVE</code> to <code>INACTIVE</code>.</p>
-   *             </li>
-   *          </ol>
+   * @see {@link UpdateModelVersionStatusCommand}
    */
-  public updateModelVersionStatus(
+  updateModelVersionStatus(
     args: UpdateModelVersionStatusCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateModelVersionStatusCommandOutput>;
-  public updateModelVersionStatus(
+  updateModelVersionStatus(
     args: UpdateModelVersionStatusCommandInput,
     cb: (err: any, data?: UpdateModelVersionStatusCommandOutput) => void
   ): void;
-  public updateModelVersionStatus(
+  updateModelVersionStatus(
     args: UpdateModelVersionStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateModelVersionStatusCommandOutput) => void
   ): void;
-  public updateModelVersionStatus(
-    args: UpdateModelVersionStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelVersionStatusCommandOutput) => void),
-    cb?: (err: any, data?: UpdateModelVersionStatusCommandOutput) => void
-  ): Promise<UpdateModelVersionStatusCommandOutput> | void {
-    const command = new UpdateModelVersionStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a rule's metadata. The description attribute can be updated.</p>
+   * @see {@link UpdateRuleMetadataCommand}
    */
-  public updateRuleMetadata(
+  updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRuleMetadataCommandOutput>;
-  public updateRuleMetadata(
+  updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
     cb: (err: any, data?: UpdateRuleMetadataCommandOutput) => void
   ): void;
-  public updateRuleMetadata(
+  updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRuleMetadataCommandOutput) => void
   ): void;
-  public updateRuleMetadata(
-    args: UpdateRuleMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleMetadataCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRuleMetadataCommandOutput) => void
-  ): Promise<UpdateRuleMetadataCommandOutput> | void {
-    const command = new UpdateRuleMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...). </p>
+   * @see {@link UpdateRuleVersionCommand}
    */
-  public updateRuleVersion(
+  updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRuleVersionCommandOutput>;
-  public updateRuleVersion(
+  updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
     cb: (err: any, data?: UpdateRuleVersionCommandOutput) => void
   ): void;
-  public updateRuleVersion(
+  updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRuleVersionCommandOutput) => void
   ): void;
-  public updateRuleVersion(
-    args: UpdateRuleVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRuleVersionCommandOutput) => void
-  ): Promise<UpdateRuleVersionCommandOutput> | void {
-    const command = new UpdateRuleVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Updates a variable.</p>
+   * @see {@link UpdateVariableCommand}
    */
-  public updateVariable(
+  updateVariable(
     args: UpdateVariableCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateVariableCommandOutput>;
-  public updateVariable(
-    args: UpdateVariableCommandInput,
-    cb: (err: any, data?: UpdateVariableCommandOutput) => void
-  ): void;
-  public updateVariable(
+  updateVariable(args: UpdateVariableCommandInput, cb: (err: any, data?: UpdateVariableCommandOutput) => void): void;
+  updateVariable(
     args: UpdateVariableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateVariableCommandOutput) => void
   ): void;
-  public updateVariable(
-    args: UpdateVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVariableCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVariableCommandOutput) => void
-  ): Promise<UpdateVariableCommandOutput> | void {
-    const command = new UpdateVariableCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
+ *             detailed information about Amazon Fraud Detector API actions, data types, and errors. For
+ *             more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
+ *          <p>We provide the Query API as well as AWS software development kits (SDK) for Amazon Fraud Detector in Java and Python programming languages.</p>
+ *          <p>The Amazon Fraud Detector Query API provides HTTPS requests that use the HTTP verb GET or POST and a Query parameter <code>Action</code>. AWS SDK provides libraries,
+ *             sample code, tutorials, and other resources for software developers who prefer to build applications using language-specific APIs instead of submitting a request over
+ *             HTTP or HTTPS. These libraries provide basic functions that automatically take care of tasks such as cryptographically signing your requests, retrying requests, and
+ *             handling error responses, so that it is easier for you to get started. For more information about the AWS SDKs, go to <a href="https://aws.amazon.com/developer/tools/">Tools to build on AWS</a> page,
+ *             scroll down to the <b>SDK</b> section, and choose plus (+) sign to expand the section.
+ *             </p>
+ */
+export class FraudDetector extends FraudDetectorClient implements FraudDetector {}
+createAggregatedClient(commands, FraudDetector);

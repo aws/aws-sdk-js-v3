@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeDatasetCommand,
-  serializeAws_json1_1DescribeDatasetCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeDatasetCommand, se_DescribeDatasetCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeDatasetCommand}.
+ */
 export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeDatasetCommand}.
+ */
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>
  * Describes an Amazon Rekognition Custom Labels dataset. You can get information such as the current status of a dataset and
  * statistics about the images and labels in a dataset.
@@ -33,13 +47,85 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { RekognitionClient, DescribeDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = { // DescribeDatasetRequest
+ *   DatasetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeDatasetResponse
+ * //   DatasetDescription: { // DatasetDescription
+ * //     CreationTimestamp: new Date("TIMESTAMP"),
+ * //     LastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //     Status: "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED" || "DELETE_IN_PROGRESS",
+ * //     StatusMessage: "STRING_VALUE",
+ * //     StatusMessageCode: "SUCCESS" || "SERVICE_ERROR" || "CLIENT_ERROR",
+ * //     DatasetStats: { // DatasetStats
+ * //       LabeledEntries: Number("int"),
+ * //       TotalEntries: Number("int"),
+ * //       TotalLabels: Number("int"),
+ * //       ErrorEntries: Number("int"),
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
+ * @returns {@link DescribeDatasetCommandOutput}
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You are not authorized to perform the action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
+ *       operation again.</p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this
+ *       limit, contact Amazon Rekognition.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * @throws {@link RekognitionServiceException}
+ * <p>Base exception class for all service exceptions from Rekognition service.</p>
+ *
+ * @example To describe an Amazon Rekognition Custom Labels dataset
+ * ```javascript
+ * // Describes an Amazon Rekognition Custom Labels dataset.
+ * const input = {
+ *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/train/1690476084535"
+ * };
+ * const command = new DescribeDatasetCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DatasetDescription": {
+ *     "CreationTimestamp": "2023-07-27T09:41:24.738000-07:00",
+ *     "DatasetStats": {
+ *       "ErrorEntries": 0,
+ *       "LabeledEntries": 15,
+ *       "TotalEntries": 15,
+ *       "TotalLabels": 9
+ *     },
+ *     "LastUpdatedTimestamp": "2023-07-28T09:46:45.406000-07:00",
+ *     "Status": "UPDATE_FAILED",
+ *     "StatusMessage": "The manifest file contains images from multiple S3 buckets.",
+ *     "StatusMessageCode": "CLIENT_ERROR"
+ *   }
+ * }
+ * *\/
+ * // example id: to-describe-an-amazon-rekognition-custom-labels-dataset-1690827075604
+ * ```
  *
  */
 export class DescribeDatasetCommand extends $Command<
@@ -50,6 +136,18 @@ export class DescribeDatasetCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeDatasetCommandInput) {
     // Start section: command_constructor
     super();
@@ -65,6 +163,9 @@ export class DescribeDatasetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDatasetCommandInput, DescribeDatasetCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeDatasetCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,8 +176,8 @@ export class DescribeDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -86,12 +187,18 @@ export class DescribeDatasetCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDatasetCommand(input, context);
+    return se_DescribeDatasetCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetCommand(output, context);
+    return de_DescribeDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

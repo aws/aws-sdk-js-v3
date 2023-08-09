@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddTagsToCertificateCommand";
 export * from "./DeleteCertificateCommand";
 export * from "./DescribeCertificateCommand";

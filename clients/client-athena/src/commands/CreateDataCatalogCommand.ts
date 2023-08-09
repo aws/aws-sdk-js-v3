@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import { CreateDataCatalogInput, CreateDataCatalogOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateDataCatalogCommand,
-  serializeAws_json1_1CreateDataCatalogCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateDataCatalogCommand, se_CreateDataCatalogCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDataCatalogCommand}.
+ */
 export interface CreateDataCatalogCommandInput extends CreateDataCatalogInput {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDataCatalogCommand}.
+ */
 export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
  *             created are visible to all users of the same Amazon Web Services account.</p>
  * @example
@@ -30,13 +44,42 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * import { AthenaClient, CreateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, CreateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = { // CreateDataCatalogInput
+ *   Name: "STRING_VALUE", // required
+ *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
+ *   Description: "STRING_VALUE",
+ *   Parameters: { // ParametersMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDataCatalogCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param CreateDataCatalogCommandInput - {@link CreateDataCatalogCommandInput}
+ * @returns {@link CreateDataCatalogCommandOutput}
  * @see {@link CreateDataCatalogCommandInput} for command's `input` shape.
  * @see {@link CreateDataCatalogCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates a platform issue, which may be due to a transient condition or
+ *             outage.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a
+ *             required parameter may be missing or out of range.</p>
+ *
+ * @throws {@link AthenaServiceException}
+ * <p>Base exception class for all service exceptions from Athena service.</p>
  *
  */
 export class CreateDataCatalogCommand extends $Command<
@@ -47,6 +90,18 @@ export class CreateDataCatalogCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDataCatalogCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +117,9 @@ export class CreateDataCatalogCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDataCatalogCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +130,8 @@ export class CreateDataCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataCatalogInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataCatalogOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +141,18 @@ export class CreateDataCatalogCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDataCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDataCatalogCommand(input, context);
+    return se_CreateDataCatalogCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataCatalogCommandOutput> {
-    return deserializeAws_json1_1CreateDataCatalogCommand(output, context);
+    return de_CreateDataCatalogCommand(output, context);
   }
 
   // Start section: command_body_extra

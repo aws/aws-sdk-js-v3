@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateServiceQuotaTemplateCommand";
 export * from "./DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
 export * from "./DisassociateServiceQuotaTemplateCommand";

@@ -1,4 +1,5 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   AbsoluteLocation,
   BuildHandler,
@@ -9,10 +10,18 @@ import {
   MetadataBearer,
   Pluggable,
   UserAgentPair,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UserAgentResolvedConfig } from "./configurations";
-import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
+import {
+  SPACE,
+  UA_ESCAPE_CHAR,
+  UA_NAME_ESCAPE_REGEX,
+  UA_NAME_SEPARATOR,
+  UA_VALUE_ESCAPE_REGEX,
+  USER_AGENT,
+  X_AMZ_USER_AGENT,
+} from "./constants";
 
 /**
  * Build user agent header sections from:
@@ -39,9 +48,13 @@ export const userAgentMiddleware =
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
     const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
+    const prefix = getUserAgentPrefix();
 
     // Set value to AWS-specific user agent header
-    const sdkUserAgentValue = [...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
+    const sdkUserAgentValue = (prefix ? [prefix] : [])
+      .concat([...defaultUserAgent, ...userAgent, ...customUserAgent])
+      .join(SPACE);
+
     // Get value to be sent with non-AWS-specific user agent header.
     const normalUAValue = [
       ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),
@@ -70,17 +83,33 @@ export const userAgentMiddleware =
  * User agent name may include prefix like `md/`, `api/`, `os/` etc., we should not escape the `/` after the prefix.
  * @private
  */
-const escapeUserAgent = ([name, version]: UserAgentPair): string => {
-  const prefixSeparatorIndex = name.indexOf("/");
+const escapeUserAgent = (userAgentPair: UserAgentPair): string => {
+  const name = userAgentPair[0]
+    .split(UA_NAME_SEPARATOR)
+    .map((part) => part.replace(UA_NAME_ESCAPE_REGEX, UA_ESCAPE_CHAR))
+    .join(UA_NAME_SEPARATOR);
+  const version = userAgentPair[1]?.replace(UA_VALUE_ESCAPE_REGEX, UA_ESCAPE_CHAR);
+
+  const prefixSeparatorIndex = name.indexOf(UA_NAME_SEPARATOR);
   const prefix = name.substring(0, prefixSeparatorIndex); // If no prefix, prefix is just ""
+
   let uaName = name.substring(prefixSeparatorIndex + 1);
   if (prefix === "api") {
     uaName = uaName.toLowerCase();
   }
+
   return [prefix, uaName, version]
     .filter((item) => item && item.length > 0)
-    .map((item) => item?.replace(UA_ESCAPE_REGEX, "_"))
-    .join("/");
+    .reduce((acc, item, index) => {
+      switch (index) {
+        case 0:
+          return item;
+        case 1:
+          return `${acc}/${item}`;
+        default:
+          return `${acc}#${item}`;
+      }
+    }, "") as string;
 };
 
 export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {

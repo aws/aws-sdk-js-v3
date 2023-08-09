@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListImagePipelinesCommand,
   ListImagePipelinesCommandInput,
   ListImagePipelinesCommandOutput,
 } from "../commands/ListImagePipelinesCommand";
-import { Imagebuilder } from "../Imagebuilder";
 import { ImagebuilderClient } from "../ImagebuilderClient";
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ImagebuilderClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListImagePipelinesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Imagebuilder,
-  input: ListImagePipelinesCommandInput,
-  ...args: any
-): Promise<ListImagePipelinesCommandOutput> => {
-  // @ts-ignore
-  return await client.listImagePipelines(input, ...args);
-};
 export async function* paginateListImagePipelines(
   config: ImagebuilderPaginationConfiguration,
   input: ListImagePipelinesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListImagePipelines(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Imagebuilder) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ImagebuilderClient) {
+    if (config.client instanceof ImagebuilderClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Imagebuilder | ImagebuilderClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

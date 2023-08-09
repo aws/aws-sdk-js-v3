@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { ElasticInference } from "../ElasticInference";
 import { ElasticInferenceClient } from "../ElasticInferenceClient";
 
+/**
+ * @public
+ */
 export interface ElasticInferencePaginationConfiguration extends PaginationConfiguration {
-  client: ElasticInference | ElasticInferenceClient;
+  client: ElasticInferenceClient;
 }

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
-import { CreateMaintenanceWindowRequest, CreateMaintenanceWindowResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateMaintenanceWindowCommand,
-  serializeAws_json1_1CreateMaintenanceWindowCommand,
-} from "../protocols/Aws_json1_1";
+  CreateMaintenanceWindowRequest,
+  CreateMaintenanceWindowRequestFilterSensitiveLog,
+  CreateMaintenanceWindowResult,
+} from "../models/models_0";
+import { de_CreateMaintenanceWindowCommand, se_CreateMaintenanceWindowCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateMaintenanceWindowCommand}.
+ */
 export interface CreateMaintenanceWindowCommandInput extends CreateMaintenanceWindowRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateMaintenanceWindowCommand}.
+ */
 export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a new maintenance window.</p>
  *          <note>
  *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -37,13 +55,54 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * import { SSMClient, CreateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = { // CreateMaintenanceWindowRequest
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   StartDate: "STRING_VALUE",
+ *   EndDate: "STRING_VALUE",
+ *   Schedule: "STRING_VALUE", // required
+ *   ScheduleTimezone: "STRING_VALUE",
+ *   ScheduleOffset: Number("int"),
+ *   Duration: Number("int"), // required
+ *   Cutoff: Number("int"), // required
+ *   AllowUnassociatedTargets: true || false, // required
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
+ * // { // CreateMaintenanceWindowResult
+ * //   WindowId: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateMaintenanceWindowCommandInput - {@link CreateMaintenanceWindowCommandInput}
+ * @returns {@link CreateMaintenanceWindowCommandOutput}
  * @see {@link CreateMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link CreateMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
+ *
+ * @throws {@link IdempotentParameterMismatch} (client fault)
+ *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
+ *    original call to the API with the same idempotency token. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Error returned when the caller has exceeded the default resource quotas. For example, too
+ *    many maintenance windows or patch baselines have been created.</p>
+ *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
+ *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * @throws {@link SSMServiceException}
+ * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
 export class CreateMaintenanceWindowCommand extends $Command<
@@ -54,6 +113,18 @@ export class CreateMaintenanceWindowCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateMaintenanceWindowCommandInput) {
     // Start section: command_constructor
     super();
@@ -69,6 +140,9 @@ export class CreateMaintenanceWindowCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateMaintenanceWindowCommandInput, CreateMaintenanceWindowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateMaintenanceWindowCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -79,8 +153,8 @@ export class CreateMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMaintenanceWindowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,12 +164,18 @@ export class CreateMaintenanceWindowCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateMaintenanceWindowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateMaintenanceWindowCommand(input, context);
+    return se_CreateMaintenanceWindowCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1CreateMaintenanceWindowCommand(output, context);
+    return de_CreateMaintenanceWindowCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListEulaAcceptancesCommand,
   ListEulaAcceptancesCommandInput,
   ListEulaAcceptancesCommandOutput,
 } from "../commands/ListEulaAcceptancesCommand";
-import { Nimble } from "../Nimble";
 import { NimbleClient } from "../NimbleClient";
 import { NimblePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: NimbleClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListEulaAcceptancesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Nimble,
-  input: ListEulaAcceptancesCommandInput,
-  ...args: any
-): Promise<ListEulaAcceptancesCommandOutput> => {
-  // @ts-ignore
-  return await client.listEulaAcceptances(input, ...args);
-};
 export async function* paginateListEulaAcceptances(
   config: NimblePaginationConfiguration,
   input: ListEulaAcceptancesCommandInput,
@@ -42,16 +34,15 @@ export async function* paginateListEulaAcceptances(
   let page: ListEulaAcceptancesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
-    if (config.client instanceof Nimble) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof NimbleClient) {
+    if (config.client instanceof NimbleClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Nimble | NimbleClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

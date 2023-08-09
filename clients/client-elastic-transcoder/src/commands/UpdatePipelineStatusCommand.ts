@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   ElasticTranscoderClientResolvedConfig,
@@ -17,15 +19,27 @@ import {
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
 import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdatePipelineStatusCommand,
-  serializeAws_restJson1UpdatePipelineStatusCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdatePipelineStatusCommand, se_UpdatePipelineStatusCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdatePipelineStatusCommand}.
+ */
 export interface UpdatePipelineStatusCommandInput extends UpdatePipelineStatusRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdatePipelineStatusCommand}.
+ */
 export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
  *             stops or restarts the processing of jobs.</p>
  *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
@@ -38,13 +52,86 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * import { ElasticTranscoderClient, UpdatePipelineStatusCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineStatusCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = { // UpdatePipelineStatusRequest
+ *   Id: "STRING_VALUE", // required
+ *   Status: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePipelineStatusCommand(input);
  * const response = await client.send(command);
+ * // { // UpdatePipelineStatusResponse
+ * //   Pipeline: { // Pipeline
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
+ * //     Status: "STRING_VALUE",
+ * //     InputBucket: "STRING_VALUE",
+ * //     OutputBucket: "STRING_VALUE",
+ * //     Role: "STRING_VALUE",
+ * //     AwsKmsKeyArn: "STRING_VALUE",
+ * //     Notifications: { // Notifications
+ * //       Progressing: "STRING_VALUE",
+ * //       Completed: "STRING_VALUE",
+ * //       Warning: "STRING_VALUE",
+ * //       Error: "STRING_VALUE",
+ * //     },
+ * //     ContentConfig: { // PipelineOutputConfig
+ * //       Bucket: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       Permissions: [ // Permissions
+ * //         { // Permission
+ * //           GranteeType: "STRING_VALUE",
+ * //           Grantee: "STRING_VALUE",
+ * //           Access: [ // AccessControls
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     ThumbnailConfig: {
+ * //       Bucket: "STRING_VALUE",
+ * //       StorageClass: "STRING_VALUE",
+ * //       Permissions: [
+ * //         {
+ * //           GranteeType: "STRING_VALUE",
+ * //           Grantee: "STRING_VALUE",
+ * //           Access: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdatePipelineStatusCommandInput - {@link UpdatePipelineStatusCommandInput}
+ * @returns {@link UpdatePipelineStatusCommandOutput}
  * @see {@link UpdatePipelineStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineStatusCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource you are attempting to change is in use. For example, you are attempting
+ *             to delete a pipeline that is currently in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist or is not available. For example, the pipeline
+ *             to which you're trying to add a job doesn't exist or is still being created.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
+ * @throws {@link ElasticTranscoderServiceException}
+ * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
  */
 export class UpdatePipelineStatusCommand extends $Command<
@@ -55,6 +142,18 @@ export class UpdatePipelineStatusCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdatePipelineStatusCommandInput) {
     // Start section: command_constructor
     super();
@@ -70,6 +169,9 @@ export class UpdatePipelineStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdatePipelineStatusCommandInput, UpdatePipelineStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdatePipelineStatusCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -80,8 +182,8 @@ export class UpdatePipelineStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePipelineStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePipelineStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,12 +193,18 @@ export class UpdatePipelineStatusCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdatePipelineStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePipelineStatusCommand(input, context);
+    return se_UpdatePipelineStatusCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePipelineStatusCommandOutput> {
-    return deserializeAws_restJson1UpdatePipelineStatusCommand(output, context);
+    return de_UpdatePipelineStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

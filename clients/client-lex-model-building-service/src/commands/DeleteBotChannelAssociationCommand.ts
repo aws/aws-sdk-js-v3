@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   LexModelBuildingServiceClientResolvedConfig,
@@ -18,14 +20,29 @@ import {
 } from "../LexModelBuildingServiceClient";
 import { DeleteBotChannelAssociationRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteBotChannelAssociationCommand,
-  serializeAws_restJson1DeleteBotChannelAssociationCommand,
+  de_DeleteBotChannelAssociationCommand,
+  se_DeleteBotChannelAssociationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteBotChannelAssociationCommand}.
+ */
 export interface DeleteBotChannelAssociationCommandInput extends DeleteBotChannelAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteBotChannelAssociationCommand}.
+ */
 export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes the association between an Amazon Lex bot and a messaging
  *       platform.</p>
  *          <p>This operation requires permission for the
@@ -36,13 +53,44 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  * import { LexModelBuildingServiceClient, DeleteBotChannelAssociationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteBotChannelAssociationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = { // DeleteBotChannelAssociationRequest
+ *   name: "STRING_VALUE", // required
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBotChannelAssociationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteBotChannelAssociationCommandInput - {@link DeleteBotChannelAssociationCommandInput}
+ * @returns {@link DeleteBotChannelAssociationCommandOutput}
  * @see {@link DeleteBotChannelAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteBotChannelAssociationCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict processing the request. Try your request
+ *       again. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
+ * @throws {@link LexModelBuildingServiceServiceException}
+ * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
 export class DeleteBotChannelAssociationCommand extends $Command<
@@ -53,6 +101,18 @@ export class DeleteBotChannelAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteBotChannelAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +128,9 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteBotChannelAssociationCommandInput, DeleteBotChannelAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteBotChannelAssociationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +141,8 @@ export class DeleteBotChannelAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotChannelAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,15 +152,21 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteBotChannelAssociationCommand(input, context);
+    return se_DeleteBotChannelAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBotChannelAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteBotChannelAssociationCommand(output, context);
+    return de_DeleteBotChannelAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

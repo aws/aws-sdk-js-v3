@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateDirectoryConfigRequest, CreateDirectoryConfigResult } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateDirectoryConfigCommand,
-  serializeAws_json1_1CreateDirectoryConfigCommand,
-} from "../protocols/Aws_json1_1";
+  CreateDirectoryConfigRequest,
+  CreateDirectoryConfigRequestFilterSensitiveLog,
+  CreateDirectoryConfigResult,
+  CreateDirectoryConfigResultFilterSensitiveLog,
+} from "../models/models_0";
+import { de_CreateDirectoryConfigCommand, se_CreateDirectoryConfigCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateDirectoryConfigCommand}.
+ */
 export interface CreateDirectoryConfigCommandInput extends CreateDirectoryConfigRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateDirectoryConfigCommand}.
+ */
 export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfigResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +48,68 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * import { AppStreamClient, CreateDirectoryConfigCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateDirectoryConfigCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = { // CreateDirectoryConfigRequest
+ *   DirectoryName: "STRING_VALUE", // required
+ *   OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceAccountCredentials: { // ServiceAccountCredentials
+ *     AccountName: "STRING_VALUE", // required
+ *     AccountPassword: "STRING_VALUE", // required
+ *   },
+ *   CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ *     Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ *     CertificateAuthorityArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDirectoryConfigCommand(input);
  * const response = await client.send(command);
+ * // { // CreateDirectoryConfigResult
+ * //   DirectoryConfig: { // DirectoryConfig
+ * //     DirectoryName: "STRING_VALUE", // required
+ * //     OrganizationalUnitDistinguishedNames: [ // OrganizationalUnitDistinguishedNamesList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     ServiceAccountCredentials: { // ServiceAccountCredentials
+ * //       AccountName: "STRING_VALUE", // required
+ * //       AccountPassword: "STRING_VALUE", // required
+ * //     },
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     CertificateBasedAuthProperties: { // CertificateBasedAuthProperties
+ * //       Status: "DISABLED" || "ENABLED" || "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+ * //       CertificateAuthorityArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param CreateDirectoryConfigCommandInput - {@link CreateDirectoryConfigCommandInput}
+ * @returns {@link CreateDirectoryConfigCommandOutput}
  * @see {@link CreateDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
+ *
+ * @throws {@link InvalidAccountStatusException} (client fault)
+ *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The specified role is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link AppStreamServiceException}
+ * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
 export class CreateDirectoryConfigCommand extends $Command<
@@ -46,6 +120,18 @@ export class CreateDirectoryConfigCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateDirectoryConfigCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +147,9 @@ export class CreateDirectoryConfigCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateDirectoryConfigCommandInput, CreateDirectoryConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateDirectoryConfigCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +160,8 @@ export class CreateDirectoryConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectoryConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectoryConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDirectoryConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDirectoryConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +171,18 @@ export class CreateDirectoryConfigCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateDirectoryConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectoryConfigCommand(input, context);
+    return se_CreateDirectoryConfigCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDirectoryConfigCommandOutput> {
-    return deserializeAws_json1_1CreateDirectoryConfigCommand(output, context);
+    return de_CreateDirectoryConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

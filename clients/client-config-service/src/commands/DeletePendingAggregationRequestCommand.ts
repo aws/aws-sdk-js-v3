@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,34 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeletePendingAggregationRequestRequest } from "../models/models_0";
 import {
-  deserializeAws_json1_1DeletePendingAggregationRequestCommand,
-  serializeAws_json1_1DeletePendingAggregationRequestCommand,
+  de_DeletePendingAggregationRequestCommand,
+  se_DeletePendingAggregationRequestCommand,
 } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeletePendingAggregationRequestCommand}.
+ */
 export interface DeletePendingAggregationRequestCommandInput extends DeletePendingAggregationRequestRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeletePendingAggregationRequestCommand}.
+ */
 export interface DeletePendingAggregationRequestCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes pending authorization requests for a specified
  * 			aggregator account in a specified region.</p>
  * @example
@@ -30,13 +47,28 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * import { ConfigServiceClient, DeletePendingAggregationRequestCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeletePendingAggregationRequestCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = { // DeletePendingAggregationRequestRequest
+ *   RequesterAccountId: "STRING_VALUE", // required
+ *   RequesterAwsRegion: "STRING_VALUE", // required
+ * };
  * const command = new DeletePendingAggregationRequestCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeletePendingAggregationRequestCommandInput - {@link DeletePendingAggregationRequestCommandInput}
+ * @returns {@link DeletePendingAggregationRequestCommandOutput}
  * @see {@link DeletePendingAggregationRequestCommandInput} for command's `input` shape.
  * @see {@link DeletePendingAggregationRequestCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are not valid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link ConfigServiceServiceException}
+ * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
 export class DeletePendingAggregationRequestCommand extends $Command<
@@ -47,6 +79,18 @@ export class DeletePendingAggregationRequestCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeletePendingAggregationRequestCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +106,9 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePendingAggregationRequestCommandInput, DeletePendingAggregationRequestCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeletePendingAggregationRequestCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +119,8 @@ export class DeletePendingAggregationRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePendingAggregationRequestRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,18 +130,24 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeletePendingAggregationRequestCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeletePendingAggregationRequestCommand(input, context);
+    return se_DeletePendingAggregationRequestCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeletePendingAggregationRequestCommandOutput> {
-    return deserializeAws_json1_1DeletePendingAggregationRequestCommand(output, context);
+    return de_DeletePendingAggregationRequestCommand(output, context);
   }
 
   // Start section: command_body_extra

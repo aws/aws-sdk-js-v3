@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +11,36 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DeleteAutoScalingConfigurationCommand,
-  serializeAws_json1_0DeleteAutoScalingConfigurationCommand,
+  de_DeleteAutoScalingConfigurationCommand,
+  se_DeleteAutoScalingConfigurationCommand,
 } from "../protocols/Aws_json1_0";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteAutoScalingConfigurationCommand}.
+ */
 export interface DeleteAutoScalingConfigurationCommandInput extends DeleteAutoScalingConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAutoScalingConfigurationCommand}.
+ */
 export interface DeleteAutoScalingConfigurationCommandOutput
   extends DeleteAutoScalingConfigurationResponse,
     __MetadataBearer {}
 
 /**
+ * @public
  * <p>Delete an App Runner automatic scaling configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
  *       configuration that's used by one or more App Runner services.</p>
  * @example
@@ -32,13 +49,45 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * import { AppRunnerClient, DeleteAutoScalingConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteAutoScalingConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = { // DeleteAutoScalingConfigurationRequest
+ *   AutoScalingConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAutoScalingConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // DeleteAutoScalingConfigurationResponse
+ * //   AutoScalingConfiguration: { // AutoScalingConfiguration
+ * //     AutoScalingConfigurationArn: "STRING_VALUE",
+ * //     AutoScalingConfigurationName: "STRING_VALUE",
+ * //     AutoScalingConfigurationRevision: Number("int"),
+ * //     Latest: true || false,
+ * //     Status: "ACTIVE" || "INACTIVE",
+ * //     MaxConcurrency: Number("int"),
+ * //     MinSize: Number("int"),
+ * //     MaxSize: Number("int"),
+ * //     CreatedAt: new Date("TIMESTAMP"),
+ * //     DeletedAt: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DeleteAutoScalingConfigurationCommandInput - {@link DeleteAutoScalingConfigurationCommandInput}
+ * @returns {@link DeleteAutoScalingConfigurationCommandOutput}
  * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
+ * @throws {@link AppRunnerServiceException}
+ * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
 export class DeleteAutoScalingConfigurationCommand extends $Command<
@@ -49,6 +98,18 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAutoScalingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,6 +125,9 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAutoScalingConfigurationCommandInput, DeleteAutoScalingConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteAutoScalingConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,8 +138,8 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutoScalingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAutoScalingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,18 +149,24 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: DeleteAutoScalingConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DeleteAutoScalingConfigurationCommand(input, context);
+    return se_DeleteAutoScalingConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAutoScalingConfigurationCommandOutput> {
-    return deserializeAws_json1_0DeleteAutoScalingConfigurationCommand(output, context);
+    return de_DeleteAutoScalingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

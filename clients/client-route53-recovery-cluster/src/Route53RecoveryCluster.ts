@@ -1,10 +1,17 @@
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { createAggregatedClient } from "@smithy/smithy-client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
   GetRoutingControlStateCommand,
   GetRoutingControlStateCommandInput,
   GetRoutingControlStateCommandOutput,
 } from "./commands/GetRoutingControlStateCommand";
+import {
+  ListRoutingControlsCommand,
+  ListRoutingControlsCommandInput,
+  ListRoutingControlsCommandOutput,
+} from "./commands/ListRoutingControlsCommand";
 import {
   UpdateRoutingControlStateCommand,
   UpdateRoutingControlStateCommandInput,
@@ -15,143 +22,127 @@ import {
   UpdateRoutingControlStatesCommandInput,
   UpdateRoutingControlStatesCommandOutput,
 } from "./commands/UpdateRoutingControlStatesCommand";
-import { Route53RecoveryClusterClient } from "./Route53RecoveryClusterClient";
+import { Route53RecoveryClusterClient, Route53RecoveryClusterClientConfig } from "./Route53RecoveryClusterClient";
 
-/**
- * <p>Welcome to the Amazon Route 53 Application Recovery Controller API Reference Guide for Recovery Control Data Plane .</p>
- * 			      <p>Recovery control in Route 53 Application Recovery Controller includes extremely reliable routing controls that enable you to recover applications
- * 				by rerouting traffic, for example, across Availability Zones or AWS Regions. Routing controls are simple on/off switches
- * 				hosted on a cluster. A cluster is a set of five redundant regional endpoints against which you can execute API calls to update or
- * 				get the state of routing controls. You use routing controls to failover traffic to recover your application
- * 				across Availability Zones or Regions.</p>
- * 			      <p>This API guide includes information about how to get and update routing control states in Route 53 Application Recovery Controller.</p>
- * 			      <p>For more information about Route 53 Application Recovery Controller, see the following:</p>
- * 			      <ul>
- *             <li>
- *                <p>You can create clusters, routing controls, and control panels by using the control plane API for Recovery
- * 					Control. For more information, see <a href="https://docs.aws.amazon.com/recovery-cluster/latest/api/">Amazon Route 53 Application Recovery Controller Recovery Control API Reference</a>.</p>
- *             </li>
- *             <li>
- *                <p>Route 53 Application Recovery Controller also provides continuous readiness checks to ensure that your applications are scaled to handle failover traffic.
- * 					For more information about the related API actions, see <a href="https://docs.aws.amazon.com/recovery-readiness/latest/api/">Amazon Route 53 Application Recovery Controller Recovery Readiness API Reference</a>.</p>
- *             </li>
- *             <li>
- *                <p>For more information about creating resilient applications and preparing for recovery readiness with Route 53 Application Recovery Controller,
- * 					see the <a href="r53recovery/latest/dg/">Amazon Route 53 Application Recovery Controller Developer Guide</a>.</p>
- *             </li>
- *          </ul>
- */
-export class Route53RecoveryCluster extends Route53RecoveryClusterClient {
+const commands = {
+  GetRoutingControlStateCommand,
+  ListRoutingControlsCommand,
+  UpdateRoutingControlStateCommand,
+  UpdateRoutingControlStatesCommand,
+};
+
+export interface Route53RecoveryCluster {
   /**
-   * <p>Get the state for a routing control. A routing control is a simple on/off switch
-   * 				that you can use to route traffic to cells. When the state is On, traffic flows to a cell. When it's off, traffic does not flow. </p>
-   * 			      <p>Before you can create a routing control, you first must create a cluster to host the control.
-   * 				For more information, see
-   * 				<a href="https://docs.aws.amazon.com/recovery-cluster/latest/api/cluster.html">CreateCluster</a>.
-   * 				Access one of the endpoints for the cluster to get or update the routing control state to
-   * 				redirect traffic.</p>
-   * 			      <p>For more information about working with routing controls, see
-   * 				<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Routing control</a>
-   * 				in the Route 53 Application Recovery Controller Developer Guide.</p>
+   * @see {@link GetRoutingControlStateCommand}
    */
-  public getRoutingControlState(
+  getRoutingControlState(
     args: GetRoutingControlStateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRoutingControlStateCommandOutput>;
-  public getRoutingControlState(
+  getRoutingControlState(
     args: GetRoutingControlStateCommandInput,
     cb: (err: any, data?: GetRoutingControlStateCommandOutput) => void
   ): void;
-  public getRoutingControlState(
+  getRoutingControlState(
     args: GetRoutingControlStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRoutingControlStateCommandOutput) => void
   ): void;
-  public getRoutingControlState(
-    args: GetRoutingControlStateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoutingControlStateCommandOutput) => void),
-    cb?: (err: any, data?: GetRoutingControlStateCommandOutput) => void
-  ): Promise<GetRoutingControlStateCommandOutput> | void {
-    const command = new GetRoutingControlStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Set the state of the routing control to reroute traffic. You can set the value to be On or Off.
-   * 				When the state is On, traffic flows to a cell. When it's off, traffic does not flow.</p>
-   * 			      <p>For more information about working with routing controls, see
-   * 				<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Routing control</a>
-   * 				in the Route 53 Application Recovery Controller Developer Guide.</p>
+   * @see {@link ListRoutingControlsCommand}
    */
-  public updateRoutingControlState(
+  listRoutingControls(
+    args: ListRoutingControlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutingControlsCommandOutput>;
+  listRoutingControls(
+    args: ListRoutingControlsCommandInput,
+    cb: (err: any, data?: ListRoutingControlsCommandOutput) => void
+  ): void;
+  listRoutingControls(
+    args: ListRoutingControlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoutingControlsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRoutingControlStateCommand}
+   */
+  updateRoutingControlState(
     args: UpdateRoutingControlStateCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRoutingControlStateCommandOutput>;
-  public updateRoutingControlState(
+  updateRoutingControlState(
     args: UpdateRoutingControlStateCommandInput,
     cb: (err: any, data?: UpdateRoutingControlStateCommandOutput) => void
   ): void;
-  public updateRoutingControlState(
+  updateRoutingControlState(
     args: UpdateRoutingControlStateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoutingControlStateCommandOutput) => void
   ): void;
-  public updateRoutingControlState(
-    args: UpdateRoutingControlStateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoutingControlStateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRoutingControlStateCommandOutput) => void
-  ): Promise<UpdateRoutingControlStateCommandOutput> | void {
-    const command = new UpdateRoutingControlStateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 
   /**
-   * <p>Set multiple routing control states. You can set the value for each state to be On or Off.
-   * 			When the state is On, traffic flows to a cell. When it's off, traffic does not flow.</p>
-   * 			      <p>For more information about working with routing controls, see
-   * 				<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Routing control</a>
-   * 				in the Route 53 Application Recovery Controller Developer Guide.</p>
+   * @see {@link UpdateRoutingControlStatesCommand}
    */
-  public updateRoutingControlStates(
+  updateRoutingControlStates(
     args: UpdateRoutingControlStatesCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateRoutingControlStatesCommandOutput>;
-  public updateRoutingControlStates(
+  updateRoutingControlStates(
     args: UpdateRoutingControlStatesCommandInput,
     cb: (err: any, data?: UpdateRoutingControlStatesCommandOutput) => void
   ): void;
-  public updateRoutingControlStates(
+  updateRoutingControlStates(
     args: UpdateRoutingControlStatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRoutingControlStatesCommandOutput) => void
   ): void;
-  public updateRoutingControlStates(
-    args: UpdateRoutingControlStatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoutingControlStatesCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRoutingControlStatesCommandOutput) => void
-  ): Promise<UpdateRoutingControlStatesCommandOutput> | void {
-    const command = new UpdateRoutingControlStatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
 }
+
+/**
+ * @public
+ * <p>Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller.</p>
+ * 			      <p>With Route 53 ARC, you can use routing control with extreme reliability to
+ * 			recover applications by rerouting traffic across
+ * 			Availability Zones or Amazon Web Services Regions. Routing controls are simple on/off switches hosted
+ * 			on a highly available cluster in Route 53 ARC. A cluster provides a set of five redundant Regional endpoints against which you
+ * 			can run API calls to get or update the state of routing controls. To implement failover, you set
+ * 			one routing control On and another one Off, to reroute traffic from one Availability Zone or Amazon Web Services Region
+ * 			to another. </p>
+ * 			      <p>
+ *             <i>Be aware that you must specify a Regional endpoint for a cluster when you work with API cluster operations
+ * 				to get or update routing control states in Route 53 ARC.</i> In addition, you must specify the US West (Oregon) Region
+ * 				for Route 53 ARC API calls. For example, use the parameter <code>--region us-west-2</code> with AWS CLI commands.
+ * 				For more information, see
+ * 				<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.api.html">
+ * 					Get and update routing control states using the API</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+ * 		       <p>This API guide includes information about the API operations for how to get and update routing control states
+ * 			in Route 53 ARC. To work with routing control in Route 53 ARC, you must first create the required components (clusters, control
+ * 			panels, and routing controls) using the recovery cluster configuration API.</p>
+ * 			      <p>For more information about working with routing control in Route 53 ARC, see the following:</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>Create clusters, control panels, and routing controls by using API operations. For more information,
+ * 					see the <a href="https://docs.aws.amazon.com/recovery-cluster/latest/api/">Recovery Control Configuration API Reference Guide for Amazon Route 53 Application Recovery Controller</a>.</p>
+ * 			         </li>
+ *             <li>
+ *                <p>Learn about the components in recovery control, including clusters,
+ * 				routing controls, and control panels, and how to work with Route 53 ARC in the Amazon Web Services console. For more
+ * 				information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/introduction-components.html#introduction-components-routing">
+ * 					Recovery control components</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+ *             </li>
+ *             <li>
+ * 				           <p>Route 53 ARC also provides readiness checks that continually audit resources to help make sure that your
+ * 					applications are scaled and ready to handle failover traffic. For more information about
+ * 					the related API operations, see the <a href="https://docs.aws.amazon.com/recovery-readiness/latest/api/">Recovery Readiness API Reference Guide for Amazon Route 53 Application Recovery Controller</a>.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>For more information about creating resilient applications and preparing for
+ * 					recovery readiness with Route 53 ARC, see the <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/">Amazon Route 53 Application Recovery Controller Developer Guide</a>.</p>
+ * 			         </li>
+ *          </ul>
+ */
+export class Route53RecoveryCluster extends Route53RecoveryClusterClient implements Route53RecoveryCluster {}
+createAggregatedClient(commands, Route53RecoveryCluster);

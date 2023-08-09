@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,23 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_1";
-import {
-  deserializeAws_restXmlListCachePoliciesCommand,
-  serializeAws_restXmlListCachePoliciesCommand,
-} from "../protocols/Aws_restXml";
+import { de_ListCachePoliciesCommand, se_ListCachePoliciesCommand } from "../protocols/Aws_restXml";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListCachePoliciesCommand}.
+ */
 export interface ListCachePoliciesCommandInput extends ListCachePoliciesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListCachePoliciesCommand}.
+ */
 export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Gets a list of cache policies.</p>
- * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
- * 			only the custom policies created in your Amazon Web Services account.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally apply a filter to return only the managed policies created by
+ * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
@@ -36,13 +50,87 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * import { CloudFrontClient, ListCachePoliciesCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListCachePoliciesCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = { // ListCachePoliciesRequest
+ *   Type: "managed" || "custom",
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListCachePoliciesCommand(input);
  * const response = await client.send(command);
+ * // { // ListCachePoliciesResult
+ * //   CachePolicyList: { // CachePolicyList
+ * //     NextMarker: "STRING_VALUE",
+ * //     MaxItems: Number("int"), // required
+ * //     Quantity: Number("int"), // required
+ * //     Items: [ // CachePolicySummaryList
+ * //       { // CachePolicySummary
+ * //         Type: "managed" || "custom", // required
+ * //         CachePolicy: { // CachePolicy
+ * //           Id: "STRING_VALUE", // required
+ * //           LastModifiedTime: new Date("TIMESTAMP"), // required
+ * //           CachePolicyConfig: { // CachePolicyConfig
+ * //             Comment: "STRING_VALUE",
+ * //             Name: "STRING_VALUE", // required
+ * //             DefaultTTL: Number("long"),
+ * //             MaxTTL: Number("long"),
+ * //             MinTTL: Number("long"), // required
+ * //             ParametersInCacheKeyAndForwardedToOrigin: { // ParametersInCacheKeyAndForwardedToOrigin
+ * //               EnableAcceptEncodingGzip: true || false, // required
+ * //               EnableAcceptEncodingBrotli: true || false,
+ * //               HeadersConfig: { // CachePolicyHeadersConfig
+ * //                 HeaderBehavior: "none" || "whitelist", // required
+ * //                 Headers: { // Headers
+ * //                   Quantity: Number("int"), // required
+ * //                   Items: [ // HeaderList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               CookiesConfig: { // CachePolicyCookiesConfig
+ * //                 CookieBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //                 Cookies: { // CookieNames
+ * //                   Quantity: Number("int"), // required
+ * //                   Items: [ // CookieNameList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               QueryStringsConfig: { // CachePolicyQueryStringsConfig
+ * //                 QueryStringBehavior: "none" || "whitelist" || "allExcept" || "all", // required
+ * //                 QueryStrings: { // QueryStringNames
+ * //                   Quantity: Number("int"), // required
+ * //                   Items: [ // QueryStringNamesList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param ListCachePoliciesCommandInput - {@link ListCachePoliciesCommandInput}
+ * @returns {@link ListCachePoliciesCommandOutput}
  * @see {@link ListCachePoliciesCommandInput} for command's `input` shape.
  * @see {@link ListCachePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchCachePolicy} (client fault)
+ *  <p>The cache policy does not exist.</p>
+ *
+ * @throws {@link CloudFrontServiceException}
+ * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
 export class ListCachePoliciesCommand extends $Command<
@@ -53,6 +141,18 @@ export class ListCachePoliciesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListCachePoliciesCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +168,9 @@ export class ListCachePoliciesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListCachePoliciesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +181,8 @@ export class ListCachePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCachePoliciesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCachePoliciesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +192,18 @@ export class ListCachePoliciesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListCachePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlListCachePoliciesCommand(input, context);
+    return se_ListCachePoliciesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCachePoliciesCommandOutput> {
-    return deserializeAws_restXmlListCachePoliciesCommand(output, context);
+    return de_ListCachePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

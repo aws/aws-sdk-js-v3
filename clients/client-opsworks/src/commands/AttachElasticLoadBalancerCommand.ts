@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { AttachElasticLoadBalancerRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1AttachElasticLoadBalancerCommand,
-  serializeAws_json1_1AttachElasticLoadBalancerCommand,
-} from "../protocols/Aws_json1_1";
+import { de_AttachElasticLoadBalancerCommand, se_AttachElasticLoadBalancerCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link AttachElasticLoadBalancerCommand}.
+ */
 export interface AttachElasticLoadBalancerCommandInput extends AttachElasticLoadBalancerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link AttachElasticLoadBalancerCommand}.
+ */
 export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support
  *           Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks.
  *           For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html">Elastic Load
@@ -42,13 +56,30 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * import { OpsWorksClient, AttachElasticLoadBalancerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AttachElasticLoadBalancerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // AttachElasticLoadBalancerRequest
+ *   ElasticLoadBalancerName: "STRING_VALUE", // required
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new AttachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param AttachElasticLoadBalancerCommandInput - {@link AttachElasticLoadBalancerCommandInput}
+ * @returns {@link AttachElasticLoadBalancerCommandOutput}
  * @see {@link AttachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachElasticLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class AttachElasticLoadBalancerCommand extends $Command<
@@ -59,6 +90,18 @@ export class AttachElasticLoadBalancerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: AttachElasticLoadBalancerCommandInput) {
     // Start section: command_constructor
     super();
@@ -74,6 +117,9 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AttachElasticLoadBalancerCommandInput, AttachElasticLoadBalancerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AttachElasticLoadBalancerCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -84,8 +130,8 @@ export class AttachElasticLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachElasticLoadBalancerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,15 +141,21 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: AttachElasticLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1AttachElasticLoadBalancerCommand(input, context);
+    return se_AttachElasticLoadBalancerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachElasticLoadBalancerCommandOutput> {
-    return deserializeAws_json1_1AttachElasticLoadBalancerCommand(output, context);
+    return de_AttachElasticLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

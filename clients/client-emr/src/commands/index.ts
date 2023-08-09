@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddInstanceFleetCommand";
 export * from "./AddInstanceGroupsCommand";
 export * from "./AddJobFlowStepsCommand";
@@ -18,6 +19,7 @@ export * from "./DescribeStepCommand";
 export * from "./DescribeStudioCommand";
 export * from "./GetAutoTerminationPolicyCommand";
 export * from "./GetBlockPublicAccessConfigurationCommand";
+export * from "./GetClusterSessionCredentialsCommand";
 export * from "./GetManagedScalingPolicyCommand";
 export * from "./GetStudioSessionMappingCommand";
 export * from "./ListBootstrapActionsCommand";
@@ -31,6 +33,7 @@ export * from "./ListSecurityConfigurationsCommand";
 export * from "./ListStepsCommand";
 export * from "./ListStudioSessionMappingsCommand";
 export * from "./ListStudiosCommand";
+export * from "./ListSupportedInstanceTypesCommand";
 export * from "./ModifyClusterCommand";
 export * from "./ModifyInstanceFleetCommand";
 export * from "./ModifyInstanceGroupsCommand";

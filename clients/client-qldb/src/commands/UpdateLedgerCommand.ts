@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UpdateLedgerRequest, UpdateLedgerResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateLedgerCommand,
-  serializeAws_restJson1UpdateLedgerCommand,
-} from "../protocols/Aws_restJson1";
+import { de_UpdateLedgerCommand, se_UpdateLedgerCommand } from "../protocols/Aws_restJson1";
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateLedgerCommand}.
+ */
 export interface UpdateLedgerCommandInput extends UpdateLedgerRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateLedgerCommand}.
+ */
 export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Updates properties on a ledger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,42 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * import { QLDBClient, UpdateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = { // UpdateLedgerRequest
+ *   Name: "STRING_VALUE", // required
+ *   DeletionProtection: true || false,
+ *   KmsKey: "STRING_VALUE",
+ * };
  * const command = new UpdateLedgerCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateLedgerResponse
+ * //   Name: "STRING_VALUE",
+ * //   Arn: "STRING_VALUE",
+ * //   State: "CREATING" || "ACTIVE" || "DELETING" || "DELETED",
+ * //   CreationDateTime: new Date("TIMESTAMP"),
+ * //   DeletionProtection: true || false,
+ * //   EncryptionDescription: { // LedgerEncryptionDescription
+ * //     KmsKeyArn: "STRING_VALUE", // required
+ * //     EncryptionStatus: "ENABLED" || "UPDATING" || "KMS_KEY_INACCESSIBLE", // required
+ * //     InaccessibleKmsKeyDateTime: new Date("TIMESTAMP"),
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param UpdateLedgerCommandInput - {@link UpdateLedgerCommandInput}
+ * @returns {@link UpdateLedgerCommandOutput}
  * @see {@link UpdateLedgerCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link QLDBServiceException}
+ * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
  */
 export class UpdateLedgerCommand extends $Command<
@@ -46,6 +89,18 @@ export class UpdateLedgerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateLedgerCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +116,7 @@ export class UpdateLedgerCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateLedgerCommandInput, UpdateLedgerCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateLedgerCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +127,8 @@ export class UpdateLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLedgerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLedgerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +138,18 @@ export class UpdateLedgerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UpdateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateLedgerCommand(input, context);
+    return se_UpdateLedgerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLedgerCommandOutput> {
-    return deserializeAws_restJson1UpdateLedgerCommand(output, context);
+    return de_UpdateLedgerCommand(output, context);
   }
 
   // Start section: command_body_extra

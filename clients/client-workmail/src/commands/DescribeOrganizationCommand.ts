@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DescribeOrganizationRequest, DescribeOrganizationResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeOrganizationCommand,
-  serializeAws_json1_1DescribeOrganizationCommand,
-} from "../protocols/Aws_json1_1";
+import { de_DescribeOrganizationCommand, se_DescribeOrganizationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeOrganizationCommand}.
+ */
 export interface DescribeOrganizationCommandInput extends DescribeOrganizationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeOrganizationCommand}.
+ */
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Provides more information regarding a given organization based on its
  *          identifier.</p>
  * @example
@@ -30,13 +44,40 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * import { WorkMailClient, DescribeOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = { // DescribeOrganizationRequest
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeOrganizationResponse
+ * //   OrganizationId: "STRING_VALUE",
+ * //   Alias: "STRING_VALUE",
+ * //   State: "STRING_VALUE",
+ * //   DirectoryId: "STRING_VALUE",
+ * //   DirectoryType: "STRING_VALUE",
+ * //   DefaultMailDomain: "STRING_VALUE",
+ * //   CompletedDate: new Date("TIMESTAMP"),
+ * //   ErrorMessage: "STRING_VALUE",
+ * //   ARN: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param DescribeOrganizationCommandInput - {@link DescribeOrganizationCommandInput}
+ * @returns {@link DescribeOrganizationCommandOutput}
  * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link WorkMailServiceException}
+ * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
 export class DescribeOrganizationCommand extends $Command<
@@ -47,6 +88,18 @@ export class DescribeOrganizationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeOrganizationCommandInput) {
     // Start section: command_constructor
     super();
@@ -62,6 +115,9 @@ export class DescribeOrganizationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeOrganizationCommandInput, DescribeOrganizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeOrganizationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,8 +128,8 @@ export class DescribeOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +139,18 @@ export class DescribeOrganizationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeOrganizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeOrganizationCommand(input, context);
+    return se_DescribeOrganizationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOrganizationCommandOutput> {
-    return deserializeAws_json1_1DescribeOrganizationCommand(output, context);
+    return de_DescribeOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

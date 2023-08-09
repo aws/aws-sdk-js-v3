@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { UnassignVolumeRequest } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
-import {
-  deserializeAws_json1_1UnassignVolumeCommand,
-  serializeAws_json1_1UnassignVolumeCommand,
-} from "../protocols/Aws_json1_1";
+import { de_UnassignVolumeCommand, se_UnassignVolumeCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UnassignVolumeCommand}.
+ */
 export interface UnassignVolumeCommandInput extends UnassignVolumeRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UnassignVolumeCommand}.
+ */
 export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -36,13 +50,29 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UnassignVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UnassignVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = { // UnassignVolumeRequest
+ *   VolumeId: "STRING_VALUE", // required
+ * };
  * const command = new UnassignVolumeCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param UnassignVolumeCommandInput - {@link UnassignVolumeCommandInput}
+ * @returns {@link UnassignVolumeCommandOutput}
  * @see {@link UnassignVolumeCommandInput} for command's `input` shape.
  * @see {@link UnassignVolumeCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ * @throws {@link OpsWorksServiceException}
+ * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
  */
 export class UnassignVolumeCommand extends $Command<
@@ -53,6 +83,18 @@ export class UnassignVolumeCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UnassignVolumeCommandInput) {
     // Start section: command_constructor
     super();
@@ -68,6 +110,9 @@ export class UnassignVolumeCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UnassignVolumeCommandInput, UnassignVolumeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UnassignVolumeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -78,8 +123,8 @@ export class UnassignVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignVolumeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +134,18 @@ export class UnassignVolumeCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: UnassignVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UnassignVolumeCommand(input, context);
+    return se_UnassignVolumeCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnassignVolumeCommandOutput> {
-    return deserializeAws_json1_1UnassignVolumeCommand(output, context);
+    return de_UnassignVolumeCommand(output, context);
   }
 
   // Start section: command_body_extra

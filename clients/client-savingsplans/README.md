@@ -1,7 +1,6 @@
-# @aws-sdk/client-savingsplans
+<!-- generated file, do not edit directly -->
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-savingsplans/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-savingsplans)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-savingsplans.svg)](https://www.npmjs.com/package/@aws-sdk/client-savingsplans)
+# @aws-sdk/client-savingsplans
 
 ## Description
 
@@ -118,7 +117,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -152,7 +151,7 @@ client
 
 // callbacks.
 client.createSavingsPlan(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -166,7 +165,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -204,3 +203,78 @@ To contribute to client you can check our [generate clients scripts](https://git
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.
+
+## Client Commands (Operations List)
+
+<details>
+<summary>
+CreateSavingsPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/createsavingsplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/createsavingsplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/createsavingsplancommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteQueuedSavingsPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/deletequeuedsavingsplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/deletequeuedsavingsplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/deletequeuedsavingsplancommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSavingsPlanRates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/describesavingsplanratescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplanratescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplanratescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSavingsPlans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/describesavingsplanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplanscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSavingsPlansOfferingRates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/describesavingsplansofferingratescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplansofferingratescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplansofferingratescommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeSavingsPlansOfferings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/describesavingsplansofferingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplansofferingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/describesavingsplansofferingscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-savingsplans/interfaces/untagresourcecommandoutput.html)
+
+</details>

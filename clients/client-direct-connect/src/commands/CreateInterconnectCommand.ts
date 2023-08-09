@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { CreateInterconnectRequest, Interconnect } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateInterconnectCommand,
-  serializeAws_json1_1CreateInterconnectCommand,
-} from "../protocols/Aws_json1_1";
+import { de_CreateInterconnectCommand, se_CreateInterconnectCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateInterconnectCommand}.
+ */
 export interface CreateInterconnectCommandInput extends CreateInterconnectRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateInterconnectCommand}.
+ */
 export interface CreateInterconnectCommandOutput extends Interconnect, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Creates an interconnect between an Direct Connect Partner's network and a specific Direct Connect location.</p>
  *          <p>An interconnect is a connection that is capable of hosting other connections. The
  *       Direct Connect Partner can use an interconnect to provide Direct Connect hosted
@@ -44,13 +58,66 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * import { DirectConnectClient, CreateInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = { // CreateInterconnectRequest
+ *   interconnectName: "STRING_VALUE", // required
+ *   bandwidth: "STRING_VALUE", // required
+ *   location: "STRING_VALUE", // required
+ *   lagId: "STRING_VALUE",
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   providerName: "STRING_VALUE",
+ * };
  * const command = new CreateInterconnectCommand(input);
  * const response = await client.send(command);
+ * // { // Interconnect
+ * //   interconnectId: "STRING_VALUE",
+ * //   interconnectName: "STRING_VALUE",
+ * //   interconnectState: "requested" || "pending" || "available" || "down" || "deleting" || "deleted" || "unknown",
+ * //   region: "STRING_VALUE",
+ * //   location: "STRING_VALUE",
+ * //   bandwidth: "STRING_VALUE",
+ * //   loaIssueTime: new Date("TIMESTAMP"),
+ * //   lagId: "STRING_VALUE",
+ * //   awsDevice: "STRING_VALUE",
+ * //   jumboFrameCapable: true || false,
+ * //   awsDeviceV2: "STRING_VALUE",
+ * //   awsLogicalDeviceId: "STRING_VALUE",
+ * //   hasLogicalRedundancy: "unknown" || "yes" || "no",
+ * //   tags: [ // TagList
+ * //     { // Tag
+ * //       key: "STRING_VALUE", // required
+ * //       value: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   providerName: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param CreateInterconnectCommandInput - {@link CreateInterconnectCommandInput}
+ * @returns {@link CreateInterconnectCommandOutput}
  * @see {@link CreateInterconnectCommandInput} for command's `input` shape.
  * @see {@link CreateInterconnectCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
+ *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * @throws {@link DirectConnectServiceException}
+ * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  */
 export class CreateInterconnectCommand extends $Command<
@@ -61,6 +128,18 @@ export class CreateInterconnectCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: CreateInterconnectCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,6 +155,9 @@ export class CreateInterconnectCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateInterconnectCommandInput, CreateInterconnectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateInterconnectCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -86,8 +168,8 @@ export class CreateInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInterconnectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Interconnect.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -97,12 +179,18 @@ export class CreateInterconnectCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: CreateInterconnectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateInterconnectCommand(input, context);
+    return se_CreateInterconnectCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInterconnectCommandOutput> {
-    return deserializeAws_json1_1CreateInterconnectCommand(output, context);
+    return de_CreateInterconnectCommand(output, context);
   }
 
   // Start section: command_body_extra

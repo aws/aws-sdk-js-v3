@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
 import { ListAllowedNodeTypeUpdatesRequest, ListAllowedNodeTypeUpdatesResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
-  serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand,
-} from "../protocols/Aws_json1_1";
+import { de_ListAllowedNodeTypeUpdatesCommand, se_ListAllowedNodeTypeUpdatesCommand } from "../protocols/Aws_json1_1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListAllowedNodeTypeUpdatesCommand}.
+ */
 export interface ListAllowedNodeTypeUpdatesCommandInput extends ListAllowedNodeTypeUpdatesRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListAllowedNodeTypeUpdatesCommand}.
+ */
 export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNodeTypeUpdatesResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Lists all available node types that you can scale to from your cluster's current node type.
  *
  *          When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.</p>
@@ -31,13 +45,42 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * import { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, ListAllowedNodeTypeUpdatesCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = { // ListAllowedNodeTypeUpdatesRequest
+ *   ClusterName: "STRING_VALUE", // required
+ * };
  * const command = new ListAllowedNodeTypeUpdatesCommand(input);
  * const response = await client.send(command);
+ * // { // ListAllowedNodeTypeUpdatesResponse
+ * //   ScaleUpNodeTypes: [ // NodeTypeList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ScaleDownNodeTypes: [
+ * //     "STRING_VALUE",
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param ListAllowedNodeTypeUpdatesCommandInput - {@link ListAllowedNodeTypeUpdatesCommandInput}
+ * @returns {@link ListAllowedNodeTypeUpdatesCommandOutput}
  * @see {@link ListAllowedNodeTypeUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListAllowedNodeTypeUpdatesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link MemoryDBServiceException}
+ * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
  */
 export class ListAllowedNodeTypeUpdatesCommand extends $Command<
@@ -48,6 +91,18 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: ListAllowedNodeTypeUpdatesCommandInput) {
     // Start section: command_constructor
     super();
@@ -63,6 +118,9 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListAllowedNodeTypeUpdatesCommandInput, ListAllowedNodeTypeUpdatesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAllowedNodeTypeUpdatesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -73,8 +131,8 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAllowedNodeTypeUpdatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAllowedNodeTypeUpdatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +142,21 @@ export class ListAllowedNodeTypeUpdatesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: ListAllowedNodeTypeUpdatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAllowedNodeTypeUpdatesCommand(input, context);
+    return se_ListAllowedNodeTypeUpdatesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAllowedNodeTypeUpdatesCommandOutput> {
-    return deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand(output, context);
+    return de_ListAllowedNodeTypeUpdatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,9 +1,9 @@
-import exec from "execa";
+import { execa as exec } from "execa";
 import { promises as fsPromise } from "fs";
 import { join } from "path";
 
-import { PROJECT_ROOT } from "./constants";
-import { isFile } from "./utils";
+import { PROJECT_ROOT } from "./constants.js";
+import { isFile } from "./utils.js";
 
 export interface WorkspacePackage {
   name: string;
@@ -87,12 +87,11 @@ export const validatePackagesAlreadyBuilt = async (packages: WorkspacePackage[])
     return true;
   };
 
-  const notBuilt: string[] = [];
-  for (const pkg of packages) {
-    if (!(await isBuilt(pkg.location))) {
-      notBuilt.push(pkg.name);
-    }
-  }
+  const notBuilt: string[] = await (
+    await Promise.all(packages.map(async (pkg) => ({ ...pkg, isBuilt: await isBuilt(pkg.location) })))
+  )
+    .filter((pkg) => !pkg.isBuilt)
+    .map((pkg) => pkg.name);
   if (notBuilt.length > 0) {
     throw new Error(`Please make sure these packages are fully built: ${notBuilt.join(", ")}`);
   }

@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,27 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
-  Credentials as __Credentials,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   BatchDetectDominantLanguageCommandInput,
@@ -66,11 +67,16 @@ import {
   BatchDetectSentimentCommandOutput,
 } from "./commands/BatchDetectSentimentCommand";
 import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "./commands/BatchDetectSyntaxCommand";
+import {
+  BatchDetectTargetedSentimentCommandInput,
+  BatchDetectTargetedSentimentCommandOutput,
+} from "./commands/BatchDetectTargetedSentimentCommand";
 import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand";
 import {
   ContainsPiiEntitiesCommandInput,
   ContainsPiiEntitiesCommandOutput,
 } from "./commands/ContainsPiiEntitiesCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
@@ -80,6 +86,7 @@ import {
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput,
 } from "./commands/CreateEntityRecognizerCommand";
+import { CreateFlywheelCommandInput, CreateFlywheelCommandOutput } from "./commands/CreateFlywheelCommand";
 import {
   DeleteDocumentClassifierCommandInput,
   DeleteDocumentClassifierCommandOutput,
@@ -89,6 +96,12 @@ import {
   DeleteEntityRecognizerCommandInput,
   DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
+import { DeleteFlywheelCommandInput, DeleteFlywheelCommandOutput } from "./commands/DeleteFlywheelCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
@@ -114,6 +127,11 @@ import {
   DescribeEventsDetectionJobCommandInput,
   DescribeEventsDetectionJobCommandOutput,
 } from "./commands/DescribeEventsDetectionJobCommand";
+import { DescribeFlywheelCommandInput, DescribeFlywheelCommandOutput } from "./commands/DescribeFlywheelCommand";
+import {
+  DescribeFlywheelIterationCommandInput,
+  DescribeFlywheelIterationCommandOutput,
+} from "./commands/DescribeFlywheelIterationCommand";
 import {
   DescribeKeyPhrasesDetectionJobCommandInput,
   DescribeKeyPhrasesDetectionJobCommandOutput,
@@ -123,9 +141,17 @@ import {
   DescribePiiEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribePiiEntitiesDetectionJobCommand";
 import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
+import {
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand";
+import {
+  DescribeTargetedSentimentDetectionJobCommandInput,
+  DescribeTargetedSentimentDetectionJobCommandOutput,
+} from "./commands/DescribeTargetedSentimentDetectionJobCommand";
 import {
   DescribeTopicsDetectionJobCommandInput,
   DescribeTopicsDetectionJobCommandOutput,
@@ -139,6 +165,12 @@ import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./c
 import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "./commands/DetectPiiEntitiesCommand";
 import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand";
 import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand";
+import {
+  DetectTargetedSentimentCommandInput,
+  DetectTargetedSentimentCommandOutput,
+} from "./commands/DetectTargetedSentimentCommand";
+import { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
@@ -173,6 +205,11 @@ import {
   ListEventsDetectionJobsCommandOutput,
 } from "./commands/ListEventsDetectionJobsCommand";
 import {
+  ListFlywheelIterationHistoryCommandInput,
+  ListFlywheelIterationHistoryCommandOutput,
+} from "./commands/ListFlywheelIterationHistoryCommand";
+import { ListFlywheelsCommandInput, ListFlywheelsCommandOutput } from "./commands/ListFlywheelsCommand";
+import {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand";
@@ -189,9 +226,14 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTargetedSentimentDetectionJobsCommandInput,
+  ListTargetedSentimentDetectionJobsCommandOutput,
+} from "./commands/ListTargetedSentimentDetectionJobsCommand";
+import {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   StartDocumentClassificationJobCommandInput,
   StartDocumentClassificationJobCommandOutput,
@@ -209,6 +251,10 @@ import {
   StartEventsDetectionJobCommandOutput,
 } from "./commands/StartEventsDetectionJobCommand";
 import {
+  StartFlywheelIterationCommandInput,
+  StartFlywheelIterationCommandOutput,
+} from "./commands/StartFlywheelIterationCommand";
+import {
   StartKeyPhrasesDetectionJobCommandInput,
   StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand";
@@ -220,6 +266,10 @@ import {
   StartSentimentDetectionJobCommandInput,
   StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand";
+import {
+  StartTargetedSentimentDetectionJobCommandInput,
+  StartTargetedSentimentDetectionJobCommandOutput,
+} from "./commands/StartTargetedSentimentDetectionJobCommand";
 import {
   StartTopicsDetectionJobCommandInput,
   StartTopicsDetectionJobCommandOutput,
@@ -249,6 +299,10 @@ import {
   StopSentimentDetectionJobCommandOutput,
 } from "./commands/StopSentimentDetectionJobCommand";
 import {
+  StopTargetedSentimentDetectionJobCommandInput,
+  StopTargetedSentimentDetectionJobCommandOutput,
+} from "./commands/StopTargetedSentimentDetectionJobCommand";
+import {
   StopTrainingDocumentClassifierCommandInput,
   StopTrainingDocumentClassifierCommandOutput,
 } from "./commands/StopTrainingDocumentClassifierCommand";
@@ -259,22 +313,40 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
+import { UpdateFlywheelCommandInput, UpdateFlywheelCommandOutput } from "./commands/UpdateFlywheelCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | BatchDetectDominantLanguageCommandInput
   | BatchDetectEntitiesCommandInput
   | BatchDetectKeyPhrasesCommandInput
   | BatchDetectSentimentCommandInput
   | BatchDetectSyntaxCommandInput
+  | BatchDetectTargetedSentimentCommandInput
   | ClassifyDocumentCommandInput
   | ContainsPiiEntitiesCommandInput
+  | CreateDatasetCommandInput
   | CreateDocumentClassifierCommandInput
   | CreateEndpointCommandInput
   | CreateEntityRecognizerCommandInput
+  | CreateFlywheelCommandInput
   | DeleteDocumentClassifierCommandInput
   | DeleteEndpointCommandInput
   | DeleteEntityRecognizerCommandInput
+  | DeleteFlywheelCommandInput
+  | DeleteResourcePolicyCommandInput
+  | DescribeDatasetCommandInput
   | DescribeDocumentClassificationJobCommandInput
   | DescribeDocumentClassifierCommandInput
   | DescribeDominantLanguageDetectionJobCommandInput
@@ -282,9 +354,13 @@ export type ServiceInputTypes =
   | DescribeEntitiesDetectionJobCommandInput
   | DescribeEntityRecognizerCommandInput
   | DescribeEventsDetectionJobCommandInput
+  | DescribeFlywheelCommandInput
+  | DescribeFlywheelIterationCommandInput
   | DescribeKeyPhrasesDetectionJobCommandInput
   | DescribePiiEntitiesDetectionJobCommandInput
+  | DescribeResourcePolicyCommandInput
   | DescribeSentimentDetectionJobCommandInput
+  | DescribeTargetedSentimentDetectionJobCommandInput
   | DescribeTopicsDetectionJobCommandInput
   | DetectDominantLanguageCommandInput
   | DetectEntitiesCommandInput
@@ -292,6 +368,9 @@ export type ServiceInputTypes =
   | DetectPiiEntitiesCommandInput
   | DetectSentimentCommandInput
   | DetectSyntaxCommandInput
+  | DetectTargetedSentimentCommandInput
+  | ImportModelCommandInput
+  | ListDatasetsCommandInput
   | ListDocumentClassificationJobsCommandInput
   | ListDocumentClassifierSummariesCommandInput
   | ListDocumentClassifiersCommandInput
@@ -301,18 +380,24 @@ export type ServiceInputTypes =
   | ListEntityRecognizerSummariesCommandInput
   | ListEntityRecognizersCommandInput
   | ListEventsDetectionJobsCommandInput
+  | ListFlywheelIterationHistoryCommandInput
+  | ListFlywheelsCommandInput
   | ListKeyPhrasesDetectionJobsCommandInput
   | ListPiiEntitiesDetectionJobsCommandInput
   | ListSentimentDetectionJobsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTargetedSentimentDetectionJobsCommandInput
   | ListTopicsDetectionJobsCommandInput
+  | PutResourcePolicyCommandInput
   | StartDocumentClassificationJobCommandInput
   | StartDominantLanguageDetectionJobCommandInput
   | StartEntitiesDetectionJobCommandInput
   | StartEventsDetectionJobCommandInput
+  | StartFlywheelIterationCommandInput
   | StartKeyPhrasesDetectionJobCommandInput
   | StartPiiEntitiesDetectionJobCommandInput
   | StartSentimentDetectionJobCommandInput
+  | StartTargetedSentimentDetectionJobCommandInput
   | StartTopicsDetectionJobCommandInput
   | StopDominantLanguageDetectionJobCommandInput
   | StopEntitiesDetectionJobCommandInput
@@ -320,26 +405,37 @@ export type ServiceInputTypes =
   | StopKeyPhrasesDetectionJobCommandInput
   | StopPiiEntitiesDetectionJobCommandInput
   | StopSentimentDetectionJobCommandInput
+  | StopTargetedSentimentDetectionJobCommandInput
   | StopTrainingDocumentClassifierCommandInput
   | StopTrainingEntityRecognizerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateEndpointCommandInput;
+  | UpdateEndpointCommandInput
+  | UpdateFlywheelCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | BatchDetectDominantLanguageCommandOutput
   | BatchDetectEntitiesCommandOutput
   | BatchDetectKeyPhrasesCommandOutput
   | BatchDetectSentimentCommandOutput
   | BatchDetectSyntaxCommandOutput
+  | BatchDetectTargetedSentimentCommandOutput
   | ClassifyDocumentCommandOutput
   | ContainsPiiEntitiesCommandOutput
+  | CreateDatasetCommandOutput
   | CreateDocumentClassifierCommandOutput
   | CreateEndpointCommandOutput
   | CreateEntityRecognizerCommandOutput
+  | CreateFlywheelCommandOutput
   | DeleteDocumentClassifierCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEntityRecognizerCommandOutput
+  | DeleteFlywheelCommandOutput
+  | DeleteResourcePolicyCommandOutput
+  | DescribeDatasetCommandOutput
   | DescribeDocumentClassificationJobCommandOutput
   | DescribeDocumentClassifierCommandOutput
   | DescribeDominantLanguageDetectionJobCommandOutput
@@ -347,9 +443,13 @@ export type ServiceOutputTypes =
   | DescribeEntitiesDetectionJobCommandOutput
   | DescribeEntityRecognizerCommandOutput
   | DescribeEventsDetectionJobCommandOutput
+  | DescribeFlywheelCommandOutput
+  | DescribeFlywheelIterationCommandOutput
   | DescribeKeyPhrasesDetectionJobCommandOutput
   | DescribePiiEntitiesDetectionJobCommandOutput
+  | DescribeResourcePolicyCommandOutput
   | DescribeSentimentDetectionJobCommandOutput
+  | DescribeTargetedSentimentDetectionJobCommandOutput
   | DescribeTopicsDetectionJobCommandOutput
   | DetectDominantLanguageCommandOutput
   | DetectEntitiesCommandOutput
@@ -357,6 +457,9 @@ export type ServiceOutputTypes =
   | DetectPiiEntitiesCommandOutput
   | DetectSentimentCommandOutput
   | DetectSyntaxCommandOutput
+  | DetectTargetedSentimentCommandOutput
+  | ImportModelCommandOutput
+  | ListDatasetsCommandOutput
   | ListDocumentClassificationJobsCommandOutput
   | ListDocumentClassifierSummariesCommandOutput
   | ListDocumentClassifiersCommandOutput
@@ -366,18 +469,24 @@ export type ServiceOutputTypes =
   | ListEntityRecognizerSummariesCommandOutput
   | ListEntityRecognizersCommandOutput
   | ListEventsDetectionJobsCommandOutput
+  | ListFlywheelIterationHistoryCommandOutput
+  | ListFlywheelsCommandOutput
   | ListKeyPhrasesDetectionJobsCommandOutput
   | ListPiiEntitiesDetectionJobsCommandOutput
   | ListSentimentDetectionJobsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTargetedSentimentDetectionJobsCommandOutput
   | ListTopicsDetectionJobsCommandOutput
+  | PutResourcePolicyCommandOutput
   | StartDocumentClassificationJobCommandOutput
   | StartDominantLanguageDetectionJobCommandOutput
   | StartEntitiesDetectionJobCommandOutput
   | StartEventsDetectionJobCommandOutput
+  | StartFlywheelIterationCommandOutput
   | StartKeyPhrasesDetectionJobCommandOutput
   | StartPiiEntitiesDetectionJobCommandOutput
   | StartSentimentDetectionJobCommandOutput
+  | StartTargetedSentimentDetectionJobCommandOutput
   | StartTopicsDetectionJobCommandOutput
   | StopDominantLanguageDetectionJobCommandOutput
   | StopEntitiesDetectionJobCommandOutput
@@ -385,12 +494,17 @@ export type ServiceOutputTypes =
   | StopKeyPhrasesDetectionJobCommandOutput
   | StopPiiEntitiesDetectionJobCommandOutput
   | StopSentimentDetectionJobCommandOutput
+  | StopTargetedSentimentDetectionJobCommandOutput
   | StopTrainingDocumentClassifierCommandOutput
   | StopTrainingEntityRecognizerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateEndpointCommandOutput;
+  | UpdateEndpointCommandOutput
+  | UpdateFlywheelCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -398,11 +512,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -414,7 +528,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * A function that can calculate the length of a request body.
    * @internal
    */
-  bodyLengthChecker?: (body: any) => number | undefined;
+  bodyLengthChecker?: __BodyLengthCalculator;
 
   /**
    * A function that converts a stream into an array of bytes.
@@ -453,10 +567,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -474,73 +621,52 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type ComprehendClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type ComprehendClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of ComprehendClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of ComprehendClient class constructor that set the region, credentials and other options.
  */
 export interface ComprehendClientConfig extends ComprehendClientConfigType {}
 
-type ComprehendClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type ComprehendClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of ComprehendClient class. This is resolved and normalized from the {@link ComprehendClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of ComprehendClient class. This is resolved and normalized from the {@link ComprehendClientConfig | constructor configuration interface}.
  */
 export interface ComprehendClientResolvedConfig extends ComprehendClientResolvedConfigType {}
 
 /**
- * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents.
+ * @public
+ * <p>Amazon Comprehend is an Amazon Web Services service for gaining insight into the content of documents.
  *       Use these actions to determine the topics contained in your documents, the topics they
  *       discuss, the predominant sentiment expressed in them, the predominant language used, and
  *       more.</p>
@@ -556,20 +682,22 @@ export class ComprehendClient extends __Client<
    */
   readonly config: ComprehendClientResolvedConfig;
 
-  constructor(configuration: ComprehendClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<ComprehendClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

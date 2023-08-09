@@ -1,6 +1,7 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,21 +10,33 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { FlattenedXmlMapWithXmlNameInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand,
-  serializeAws_restXmlFlattenedXmlMapWithXmlNameCommand,
-} from "../protocols/Aws_restXml";
+import { de_FlattenedXmlMapWithXmlNameCommand, se_FlattenedXmlMapWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link FlattenedXmlMapWithXmlNameCommand}.
+ */
 export interface FlattenedXmlMapWithXmlNameCommandInput extends FlattenedXmlMapWithXmlNameInputOutput {}
+/**
+ * @public
+ *
+ * The output of {@link FlattenedXmlMapWithXmlNameCommand}.
+ */
 export interface FlattenedXmlMapWithXmlNameCommandOutput
   extends FlattenedXmlMapWithXmlNameInputOutput,
     __MetadataBearer {}
 
 /**
+ * @public
  * Flattened maps with @xmlName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -31,13 +44,29 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput
  * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = { // FlattenedXmlMapWithXmlNameInputOutput
+ *   myMap: { // FlattenedXmlMapWithXmlNameInputOutputMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);
+ * // { // FlattenedXmlMapWithXmlNameInputOutput
+ * //   myMap: { // FlattenedXmlMapWithXmlNameInputOutputMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param FlattenedXmlMapWithXmlNameCommandInput - {@link FlattenedXmlMapWithXmlNameCommandInput}
+ * @returns {@link FlattenedXmlMapWithXmlNameCommandOutput}
  * @see {@link FlattenedXmlMapWithXmlNameCommandInput} for command's `input` shape.
  * @see {@link FlattenedXmlMapWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
+ *
+ * @throws {@link RestXmlProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command<
@@ -48,6 +77,9 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: FlattenedXmlMapWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -73,8 +105,8 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FlattenedXmlMapWithXmlNameInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: FlattenedXmlMapWithXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,15 +116,21 @@ export class FlattenedXmlMapWithXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: FlattenedXmlMapWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlFlattenedXmlMapWithXmlNameCommand(input, context);
+    return se_FlattenedXmlMapWithXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> {
-    return deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand(output, context);
+    return de_FlattenedXmlMapWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,9 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
+  BlobPayloadInputTypes,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
@@ -9,19 +11,46 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
+import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { TestPayloadBlobInputOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1TestPayloadBlobCommand,
-  serializeAws_restJson1TestPayloadBlobCommand,
-} from "../protocols/Aws_restJson1";
+import { de_TestPayloadBlobCommand, se_TestPayloadBlobCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface TestPayloadBlobCommandInput extends TestPayloadBlobInputOutput {}
-export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput, __MetadataBearer {}
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ */
+export type TestPayloadBlobCommandInputType = Omit<TestPayloadBlobInputOutput, "data"> & {
+  data?: BlobPayloadInputTypes;
+};
 
 /**
+ * @public
+ *
+ * The input for {@link TestPayloadBlobCommand}.
+ */
+export interface TestPayloadBlobCommandInput extends TestPayloadBlobCommandInputType {}
+/**
+ * @public
+ */
+export type TestPayloadBlobCommandOutputType = Omit<TestPayloadBlobInputOutput, "data"> & {
+  data?: Uint8ArrayBlobAdapter;
+};
+
+/**
+ * @public
+ *
+ * The output of {@link TestPayloadBlobCommand}.
+ */
+export interface TestPayloadBlobCommandOutput extends TestPayloadBlobCommandOutputType, __MetadataBearer {}
+
+/**
+ * @public
  * This example operation serializes a payload targeting a blob.
  *
  * The Blob shape is not structured content and we cannot
@@ -36,13 +65,27 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput
  * import { RestJsonProtocolClient, TestPayloadBlobCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TestPayloadBlobCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = { // TestPayloadBlobInputOutput
+ *   contentType: "STRING_VALUE",
+ *   data: "BLOB_VALUE",
+ * };
  * const command = new TestPayloadBlobCommand(input);
  * const response = await client.send(command);
+ * // { // TestPayloadBlobInputOutput
+ * //   contentType: "STRING_VALUE",
+ * //   data: "BLOB_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param TestPayloadBlobCommandInput - {@link TestPayloadBlobCommandInput}
+ * @returns {@link TestPayloadBlobCommandOutput}
  * @see {@link TestPayloadBlobCommandInput} for command's `input` shape.
  * @see {@link TestPayloadBlobCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
 export class TestPayloadBlobCommand extends $Command<
@@ -53,6 +96,9 @@ export class TestPayloadBlobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestPayloadBlobCommandInput) {
     // Start section: command_constructor
     super();
@@ -78,8 +124,8 @@ export class TestPayloadBlobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestPayloadBlobInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: TestPayloadBlobInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +135,18 @@ export class TestPayloadBlobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestPayloadBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1TestPayloadBlobCommand(input, context);
+    return se_TestPayloadBlobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestPayloadBlobCommandOutput> {
-    return deserializeAws_restJson1TestPayloadBlobCommand(output, context);
+    return de_TestPayloadBlobCommand(output, context);
   }
 
   // Start section: command_body_extra

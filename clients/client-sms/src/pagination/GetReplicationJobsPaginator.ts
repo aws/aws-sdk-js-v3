@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   GetReplicationJobsCommand,
   GetReplicationJobsCommandInput,
   GetReplicationJobsCommandOutput,
 } from "../commands/GetReplicationJobsCommand";
-import { SMS } from "../SMS";
 import { SMSClient } from "../SMSClient";
 import { SMSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SMSClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new GetReplicationJobsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SMS,
-  input: GetReplicationJobsCommandInput,
-  ...args: any
-): Promise<GetReplicationJobsCommandOutput> => {
-  // @ts-ignore
-  return await client.getReplicationJobs(input, ...args);
-};
 export async function* paginateGetReplicationJobs(
   config: SMSPaginationConfiguration,
   input: GetReplicationJobsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateGetReplicationJobs(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof SMS) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SMSClient) {
+    if (config.client instanceof SMSClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SMS | SMSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

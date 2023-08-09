@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,7 +11,7 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import {
@@ -17,31 +19,115 @@ import {
   UpdateInfrastructureConfigurationResponse,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateInfrastructureConfigurationCommand,
-  serializeAws_restJson1UpdateInfrastructureConfigurationCommand,
+  de_UpdateInfrastructureConfigurationCommand,
+  se_UpdateInfrastructureConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link UpdateInfrastructureConfigurationCommand}.
+ */
 export interface UpdateInfrastructureConfigurationCommandInput extends UpdateInfrastructureConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link UpdateInfrastructureConfigurationCommand}.
+ */
 export interface UpdateInfrastructureConfigurationCommandOutput
   extends UpdateInfrastructureConfigurationResponse,
     __MetadataBearer {}
 
 /**
- * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
- * 			environment in which your image will be built and tested.</p>
+ * @public
+ * <p>Updates a new infrastructure configuration. An infrastructure configuration defines
+ * 			the environment in which your image will be built and tested.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = { // UpdateInfrastructureConfigurationRequest
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   instanceTypes: [ // InstanceTypeList
+ *     "STRING_VALUE",
+ *   ],
+ *   instanceProfileName: "STRING_VALUE", // required
+ *   securityGroupIds: [ // SecurityGroupIds
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetId: "STRING_VALUE",
+ *   logging: { // Logging
+ *     s3Logs: { // S3Logs
+ *       s3BucketName: "STRING_VALUE",
+ *       s3KeyPrefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   keyPair: "STRING_VALUE",
+ *   terminateInstanceOnFailure: true || false,
+ *   snsTopicArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE", // required
+ *   resourceTags: { // ResourceTagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   instanceMetadataOptions: { // InstanceMetadataOptions
+ *     httpTokens: "STRING_VALUE",
+ *     httpPutResponseHopLimit: Number("int"),
+ *   },
+ * };
  * const command = new UpdateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
+ * // { // UpdateInfrastructureConfigurationResponse
+ * //   requestId: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
+ * //   infrastructureConfigurationArn: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param UpdateInfrastructureConfigurationCommandInput - {@link UpdateInfrastructureConfigurationCommandInput}
+ * @returns {@link UpdateInfrastructureConfigurationCommandOutput}
  * @see {@link UpdateInfrastructureConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateInfrastructureConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
+ *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or
+ * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource that you are trying to operate on is currently in use. Review the message
+ * 			details and retry later.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable
+ * 			exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
+ * @throws {@link ImagebuilderServiceException}
+ * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command<
@@ -52,6 +138,18 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: UpdateInfrastructureConfigurationCommandInput) {
     // Start section: command_constructor
     super();
@@ -67,6 +165,9 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateInfrastructureConfigurationCommandInput, UpdateInfrastructureConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateInfrastructureConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -77,8 +178,8 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInfrastructureConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInfrastructureConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -88,18 +189,24 @@ export class UpdateInfrastructureConfigurationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: UpdateInfrastructureConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateInfrastructureConfigurationCommand(input, context);
+    return se_UpdateInfrastructureConfigurationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateInfrastructureConfigurationCommandOutput> {
-    return deserializeAws_restJson1UpdateInfrastructureConfigurationCommand(output, context);
+    return de_UpdateInfrastructureConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

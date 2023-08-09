@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   DescribeActionTargetsCommand,
   DescribeActionTargetsCommandInput,
   DescribeActionTargetsCommandOutput,
 } from "../commands/DescribeActionTargetsCommand";
-import { SecurityHub } from "../SecurityHub";
 import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: SecurityHubClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new DescribeActionTargetsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: SecurityHub,
-  input: DescribeActionTargetsCommandInput,
-  ...args: any
-): Promise<DescribeActionTargetsCommandOutput> => {
-  // @ts-ignore
-  return await client.describeActionTargets(input, ...args);
-};
 export async function* paginateDescribeActionTargets(
   config: SecurityHubPaginationConfiguration,
   input: DescribeActionTargetsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateDescribeActionTargets(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SecurityHub) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof SecurityHubClient) {
+    if (config.client instanceof SecurityHubClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

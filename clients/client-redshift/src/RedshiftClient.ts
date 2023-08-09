@@ -1,12 +1,4 @@
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+// smithy-typescript generated code
 import {
   getHostHeaderPlugin,
   HostHeaderInputConfig,
@@ -14,7 +6,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -27,27 +19,36 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
+import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode as __DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
+} from "@smithy/smithy-client";
 import {
-  Credentials as __Credentials,
+  BodyLengthCalculator as __BodyLengthCalculator,
+  CheckOptionalClientConfig as __CheckOptionalClientConfig,
+  Checksum as __Checksum,
+  ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   AcceptReservedNodeExchangeCommandInput,
@@ -106,6 +107,10 @@ import {
   CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
 import {
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "./commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
@@ -160,6 +165,10 @@ import {
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "./commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommandInput,
   DeleteEndpointAccessCommandOutput,
@@ -232,6 +241,10 @@ import {
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput,
 } from "./commands/DescribeClusterVersionsCommand";
+import {
+  DescribeCustomDomainAssociationsCommandInput,
+  DescribeCustomDomainAssociationsCommandOutput,
+} from "./commands/DescribeCustomDomainAssociationsCommand";
 import { DescribeDataSharesCommandInput, DescribeDataSharesCommandOutput } from "./commands/DescribeDataSharesCommand";
 import {
   DescribeDataSharesForConsumerCommandInput,
@@ -284,6 +297,10 @@ import {
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "./commands/DescribePartnersCommand";
 import {
+  DescribeReservedNodeExchangeStatusCommandInput,
+  DescribeReservedNodeExchangeStatusCommandOutput,
+} from "./commands/DescribeReservedNodeExchangeStatusCommand";
+import {
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
 } from "./commands/DescribeReservedNodeOfferingsCommand";
@@ -330,6 +347,14 @@ import {
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
 import {
+  GetClusterCredentialsWithIAMCommandInput,
+  GetClusterCredentialsWithIAMCommandOutput,
+} from "./commands/GetClusterCredentialsWithIAMCommand";
+import {
+  GetReservedNodeExchangeConfigurationOptionsCommandInput,
+  GetReservedNodeExchangeConfigurationOptionsCommandOutput,
+} from "./commands/GetReservedNodeExchangeConfigurationOptionsCommand";
+import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
@@ -370,6 +395,10 @@ import {
   ModifyClusterSubnetGroupCommandInput,
   ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
+import {
+  ModifyCustomDomainAssociationCommandInput,
+  ModifyCustomDomainAssociationCommandOutput,
+} from "./commands/ModifyCustomDomainAssociationCommand";
 import {
   ModifyEndpointAccessCommandInput,
   ModifyEndpointAccessCommandOutput,
@@ -432,8 +461,19 @@ import {
   UpdatePartnerStatusCommandInput,
   UpdatePartnerStatusCommandOutput,
 } from "./commands/UpdatePartnerStatusCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+export { __Client };
+
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AcceptReservedNodeExchangeCommandInput
   | AddPartnerCommandInput
@@ -452,6 +492,7 @@ export type ServiceInputTypes =
   | CreateClusterSecurityGroupCommandInput
   | CreateClusterSnapshotCommandInput
   | CreateClusterSubnetGroupCommandInput
+  | CreateCustomDomainAssociationCommandInput
   | CreateEndpointAccessCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateHsmClientCertificateCommandInput
@@ -468,6 +509,7 @@ export type ServiceInputTypes =
   | DeleteClusterSecurityGroupCommandInput
   | DeleteClusterSnapshotCommandInput
   | DeleteClusterSubnetGroupCommandInput
+  | DeleteCustomDomainAssociationCommandInput
   | DeleteEndpointAccessCommandInput
   | DeleteEventSubscriptionCommandInput
   | DeleteHsmClientCertificateCommandInput
@@ -489,6 +531,7 @@ export type ServiceInputTypes =
   | DescribeClusterTracksCommandInput
   | DescribeClusterVersionsCommandInput
   | DescribeClustersCommandInput
+  | DescribeCustomDomainAssociationsCommandInput
   | DescribeDataSharesCommandInput
   | DescribeDataSharesForConsumerCommandInput
   | DescribeDataSharesForProducerCommandInput
@@ -504,6 +547,7 @@ export type ServiceInputTypes =
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
   | DescribePartnersCommandInput
+  | DescribeReservedNodeExchangeStatusCommandInput
   | DescribeReservedNodeOfferingsCommandInput
   | DescribeReservedNodesCommandInput
   | DescribeResizeCommandInput
@@ -520,6 +564,8 @@ export type ServiceInputTypes =
   | EnableLoggingCommandInput
   | EnableSnapshotCopyCommandInput
   | GetClusterCredentialsCommandInput
+  | GetClusterCredentialsWithIAMCommandInput
+  | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
   | ModifyAquaConfigurationCommandInput
   | ModifyAuthenticationProfileCommandInput
@@ -531,6 +577,7 @@ export type ServiceInputTypes =
   | ModifyClusterSnapshotCommandInput
   | ModifyClusterSnapshotScheduleCommandInput
   | ModifyClusterSubnetGroupCommandInput
+  | ModifyCustomDomainAssociationCommandInput
   | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
   | ModifyScheduledActionCommandInput
@@ -552,6 +599,9 @@ export type ServiceInputTypes =
   | RotateEncryptionKeyCommandInput
   | UpdatePartnerStatusCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AcceptReservedNodeExchangeCommandOutput
   | AddPartnerCommandOutput
@@ -570,6 +620,7 @@ export type ServiceOutputTypes =
   | CreateClusterSecurityGroupCommandOutput
   | CreateClusterSnapshotCommandOutput
   | CreateClusterSubnetGroupCommandOutput
+  | CreateCustomDomainAssociationCommandOutput
   | CreateEndpointAccessCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateHsmClientCertificateCommandOutput
@@ -586,6 +637,7 @@ export type ServiceOutputTypes =
   | DeleteClusterSecurityGroupCommandOutput
   | DeleteClusterSnapshotCommandOutput
   | DeleteClusterSubnetGroupCommandOutput
+  | DeleteCustomDomainAssociationCommandOutput
   | DeleteEndpointAccessCommandOutput
   | DeleteEventSubscriptionCommandOutput
   | DeleteHsmClientCertificateCommandOutput
@@ -607,6 +659,7 @@ export type ServiceOutputTypes =
   | DescribeClusterTracksCommandOutput
   | DescribeClusterVersionsCommandOutput
   | DescribeClustersCommandOutput
+  | DescribeCustomDomainAssociationsCommandOutput
   | DescribeDataSharesCommandOutput
   | DescribeDataSharesForConsumerCommandOutput
   | DescribeDataSharesForProducerCommandOutput
@@ -622,6 +675,7 @@ export type ServiceOutputTypes =
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
   | DescribePartnersCommandOutput
+  | DescribeReservedNodeExchangeStatusCommandOutput
   | DescribeReservedNodeOfferingsCommandOutput
   | DescribeReservedNodesCommandOutput
   | DescribeResizeCommandOutput
@@ -638,6 +692,8 @@ export type ServiceOutputTypes =
   | EnableLoggingCommandOutput
   | EnableSnapshotCopyCommandOutput
   | GetClusterCredentialsCommandOutput
+  | GetClusterCredentialsWithIAMCommandOutput
+  | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
   | ModifyAquaConfigurationCommandOutput
   | ModifyAuthenticationProfileCommandOutput
@@ -649,6 +705,7 @@ export type ServiceOutputTypes =
   | ModifyClusterSnapshotCommandOutput
   | ModifyClusterSnapshotScheduleCommandOutput
   | ModifyClusterSubnetGroupCommandOutput
+  | ModifyCustomDomainAssociationCommandOutput
   | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
   | ModifyScheduledActionCommandOutput
@@ -670,6 +727,9 @@ export type ServiceOutputTypes =
   | RotateEncryptionKeyCommandOutput
   | UpdatePartnerStatusCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -677,11 +737,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Hash} interface
+   * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
-  sha256?: __HashConstructor;
+  sha256?: __ChecksumConstructor | __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
@@ -693,7 +753,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * A function that can calculate the length of a request body.
    * @internal
    */
-  bodyLengthChecker?: (body: any) => number | undefined;
+  bodyLengthChecker?: __BodyLengthCalculator;
 
   /**
    * A function that converts a stream into an array of bytes.
@@ -732,10 +792,43 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   runtime?: string;
 
   /**
-   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * Disable dynamically changing the endpoint of the client based on the hostPrefix
    * trait of an operation.
    */
   disableHostPrefix?: boolean;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -753,77 +846,56 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * Enables IPv6/IPv4 dualstack endpoint.
+   * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
-  useDualstackEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | __Provider<boolean>;
-
-  /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
-   */
-  regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
-type RedshiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+/**
+ * @public
+ */
+export type RedshiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointsInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  ClientInputEndpointParameters;
 /**
- * The configuration interface of RedshiftClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RedshiftClient class constructor that set the region, credentials and other options.
  */
 export interface RedshiftClientConfig extends RedshiftClientConfigType {}
 
-type RedshiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+/**
+ * @public
+ */
+export type RedshiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointsResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
- * The resolved configuration interface of RedshiftClient class. This is resolved and normalized from the {@link RedshiftClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RedshiftClient class. This is resolved and normalized from the {@link RedshiftClientConfig | constructor configuration interface}.
  */
 export interface RedshiftClientResolvedConfig extends RedshiftClientResolvedConfigType {}
 
 /**
+ * @public
  * <fullname>Amazon Redshift</fullname>
- *         <p>
+ *          <p>
  *             <b>Overview</b>
- *         </p>
- *         <p>This is an interface reference for Amazon Redshift. It contains documentation for one of
+ *          </p>
+ *          <p>This is an interface reference for Amazon Redshift. It contains documentation for one of
  *             the programming or command line interfaces you can use to manage Amazon Redshift clusters.
  *             Note that Amazon Redshift is asynchronous, which means that some interfaces may require
  *             techniques, such as polling or asynchronous callback handlers, to determine when a
@@ -832,14 +904,13 @@ export interface RedshiftClientResolvedConfig extends RedshiftClientResolvedConf
  *             maintenance window. For a summary of the Amazon Redshift cluster management interfaces, go to
  *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html">Using the
  *                 Amazon Redshift Management Interfaces</a>.</p>
- *         <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data
+ *          <p>Amazon Redshift manages all the work of setting up, operating, and scaling a data
  *             warehouse: provisioning capacity, monitoring and backing up the cluster, and applying
  *             patches and upgrades to the Amazon Redshift engine. You can focus on using your data to
  *             acquire new insights for your business and customers.</p>
- *         <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading
+ *          <p>If you are a first-time user of Amazon Redshift, we recommend that you begin by reading
  *             the <a href="https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.</p>
- *
- *         <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
+ *          <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
  *             build, query, and maintain the databases that make up your data warehouse. </p>
  */
 export class RedshiftClient extends __Client<
@@ -853,20 +924,22 @@ export class RedshiftClient extends __Client<
    */
   readonly config: RedshiftClientResolvedConfig;
 
-  constructor(configuration: RedshiftClientConfig) {
-    const _config_0 = __getRuntimeConfig(configuration);
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveAwsAuthConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+  constructor(...[configuration]: __CheckOptionalClientConfig<RedshiftClientConfig>) {
+    const _config_0 = __getRuntimeConfig(configuration || {});
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveRegionConfig(_config_1);
+    const _config_3 = resolveEndpointConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveAwsAuthConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }

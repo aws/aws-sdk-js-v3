@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
-import { Mobile } from "../Mobile";
 import { MobileClient } from "../MobileClient";
 import { MobilePaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: MobileClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListProjectsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: Mobile,
-  input: ListProjectsCommandInput,
-  ...args: any
-): Promise<ListProjectsCommandOutput> => {
-  // @ts-ignore
-  return await client.listProjects(input, ...args);
-};
 export async function* paginateListProjects(
   config: MobilePaginationConfiguration,
   input: ListProjectsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListProjects(
   while (hasNext) {
     input.nextToken = token;
     input["maxResults"] = config.pageSize;
-    if (config.client instanceof Mobile) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof MobileClient) {
+    if (config.client instanceof MobileClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected Mobile | MobileClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

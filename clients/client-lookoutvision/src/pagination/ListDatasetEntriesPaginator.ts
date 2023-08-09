@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   ListDatasetEntriesCommand,
   ListDatasetEntriesCommandInput,
   ListDatasetEntriesCommandOutput,
 } from "../commands/ListDatasetEntriesCommand";
-import { LookoutVision } from "../LookoutVision";
 import { LookoutVisionClient } from "../LookoutVisionClient";
 import { LookoutVisionPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: LookoutVisionClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new ListDatasetEntriesCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: LookoutVision,
-  input: ListDatasetEntriesCommandInput,
-  ...args: any
-): Promise<ListDatasetEntriesCommandOutput> => {
-  // @ts-ignore
-  return await client.listDatasetEntries(input, ...args);
-};
 export async function* paginateListDatasetEntries(
   config: LookoutVisionPaginationConfiguration,
   input: ListDatasetEntriesCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateListDatasetEntries(
   while (hasNext) {
     input.NextToken = token;
     input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LookoutVision) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof LookoutVisionClient) {
+    if (config.client instanceof LookoutVisionClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected LookoutVision | LookoutVisionClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

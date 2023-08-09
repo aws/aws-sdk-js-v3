@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./waitForAppExists";
 export * from "./waitForDeploymentSuccessful";
 export * from "./waitForInstanceOnline";

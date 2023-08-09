@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutTraceSegmentsCommand,
-  serializeAws_restJson1PutTraceSegmentsCommand,
-} from "../protocols/Aws_restJson1";
+import { de_PutTraceSegmentsCommand, se_PutTraceSegmentsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link PutTraceSegmentsCommand}.
+ */
 export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link PutTraceSegmentsCommand}.
+ */
 export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
  *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
  *       subsegments.</p>
@@ -91,13 +105,39 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * import { XRayClient, PutTraceSegmentsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutTraceSegmentsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = { // PutTraceSegmentsRequest
+ *   TraceSegmentDocuments: [ // TraceSegmentDocumentList // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutTraceSegmentsCommand(input);
  * const response = await client.send(command);
+ * // { // PutTraceSegmentsResult
+ * //   UnprocessedTraceSegments: [ // UnprocessedTraceSegmentList
+ * //     { // UnprocessedTraceSegment
+ * //       Id: "STRING_VALUE",
+ * //       ErrorCode: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
+ *
  * ```
  *
+ * @param PutTraceSegmentsCommandInput - {@link PutTraceSegmentsCommandInput}
+ * @returns {@link PutTraceSegmentsCommandOutput}
  * @see {@link PutTraceSegmentsCommandInput} for command's `input` shape.
  * @see {@link PutTraceSegmentsCommandOutput} for command's `response` shape.
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * @throws {@link ThrottledException} (client fault)
+ *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * @throws {@link XRayServiceException}
+ * <p>Base exception class for all service exceptions from XRay service.</p>
  *
  */
 export class PutTraceSegmentsCommand extends $Command<
@@ -108,6 +148,18 @@ export class PutTraceSegmentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: PutTraceSegmentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -123,6 +175,9 @@ export class PutTraceSegmentsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, PutTraceSegmentsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -133,8 +188,8 @@ export class PutTraceSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTraceSegmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutTraceSegmentsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -144,12 +199,18 @@ export class PutTraceSegmentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutTraceSegmentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1PutTraceSegmentsCommand(input, context);
+    return se_PutTraceSegmentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTraceSegmentsCommandOutput> {
-    return deserializeAws_restJson1PutTraceSegmentsCommand(output, context);
+    return de_PutTraceSegmentsCommand(output, context);
   }
 
   // Start section: command_body_extra

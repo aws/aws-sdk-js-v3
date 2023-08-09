@@ -1,4 +1,5 @@
-import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+// smithy-typescript generated code
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@smithy/util-waiter";
 
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import { DescribeCodeReviewCommand, DescribeCodeReviewCommandInput } from "../commands/DescribeCodeReviewCommand";
@@ -17,6 +18,14 @@ const checkState = async (
       };
       if (returnComparator() === "Completed") {
         return { state: WaiterState.SUCCESS, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.CodeReview.State;
+      };
+      if (returnComparator() === "Failed") {
+        return { state: WaiterState.FAILURE, reason };
       }
     } catch (e) {}
     try {

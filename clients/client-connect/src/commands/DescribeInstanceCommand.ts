@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,35 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeInstanceRequest, DescribeInstanceResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeInstanceCommand,
-  serializeAws_restJson1DescribeInstanceCommand,
-} from "../protocols/Aws_restJson1";
+  DescribeInstanceRequest,
+  DescribeInstanceResponse,
+  DescribeInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
+import { de_DescribeInstanceCommand, se_DescribeInstanceCommand } from "../protocols/Aws_restJson1";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeInstanceCommand}.
+ */
 export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeInstanceCommand}.
+ */
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns the current state of the specified instance identifier. It tracks the instance while
  *    it is being created and returns an error status, if applicable. </p>
@@ -34,13 +52,48 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * import { ConnectClient, DescribeInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = { // DescribeInstanceRequest
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInstanceCommand(input);
  * const response = await client.send(command);
+ * // { // DescribeInstanceResponse
+ * //   Instance: { // Instance
+ * //     Id: "STRING_VALUE",
+ * //     Arn: "STRING_VALUE",
+ * //     IdentityManagementType: "SAML" || "CONNECT_MANAGED" || "EXISTING_DIRECTORY",
+ * //     InstanceAlias: "STRING_VALUE",
+ * //     CreatedTime: new Date("TIMESTAMP"),
+ * //     ServiceRole: "STRING_VALUE",
+ * //     InstanceStatus: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED",
+ * //     StatusReason: { // InstanceStatusReason
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //     InboundCallsEnabled: true || false,
+ * //     OutboundCallsEnabled: true || false,
+ * //     InstanceAccessUrl: "STRING_VALUE",
+ * //   },
+ * // };
+ *
  * ```
  *
+ * @param DescribeInstanceCommandInput - {@link DescribeInstanceCommandInput}
+ * @returns {@link DescribeInstanceCommandOutput}
  * @see {@link DescribeInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
 export class DescribeInstanceCommand extends $Command<
@@ -51,6 +104,18 @@ export class DescribeInstanceCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DescribeInstanceCommandInput) {
     // Start section: command_constructor
     super();
@@ -66,6 +131,9 @@ export class DescribeInstanceCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeInstanceCommandInput, DescribeInstanceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeInstanceCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,8 +144,8 @@ export class DescribeInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +155,18 @@ export class DescribeInstanceCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DescribeInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeInstanceCommand(input, context);
+    return se_DescribeInstanceCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceCommandOutput> {
-    return deserializeAws_restJson1DescribeInstanceCommand(output, context);
+    return de_DescribeInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

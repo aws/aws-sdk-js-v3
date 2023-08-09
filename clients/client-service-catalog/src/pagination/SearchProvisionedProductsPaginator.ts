@@ -1,16 +1,16 @@
-import { Paginator } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { Paginator } from "@smithy/types";
 
 import {
   SearchProvisionedProductsCommand,
   SearchProvisionedProductsCommandInput,
   SearchProvisionedProductsCommandOutput,
 } from "../commands/SearchProvisionedProductsCommand";
-import { ServiceCatalog } from "../ServiceCatalog";
 import { ServiceCatalogClient } from "../ServiceCatalogClient";
 import { ServiceCatalogPaginationConfiguration } from "./Interfaces";
 
 /**
- * @private
+ * @internal
  */
 const makePagedClientRequest = async (
   client: ServiceCatalogClient,
@@ -21,16 +21,8 @@ const makePagedClientRequest = async (
   return await client.send(new SearchProvisionedProductsCommand(input), ...args);
 };
 /**
- * @private
+ * @public
  */
-const makePagedRequest = async (
-  client: ServiceCatalog,
-  input: SearchProvisionedProductsCommandInput,
-  ...args: any
-): Promise<SearchProvisionedProductsCommandOutput> => {
-  // @ts-ignore
-  return await client.searchProvisionedProducts(input, ...args);
-};
 export async function* paginateSearchProvisionedProducts(
   config: ServiceCatalogPaginationConfiguration,
   input: SearchProvisionedProductsCommandInput,
@@ -43,16 +35,15 @@ export async function* paginateSearchProvisionedProducts(
   while (hasNext) {
     input.PageToken = token;
     input["PageSize"] = config.pageSize;
-    if (config.client instanceof ServiceCatalog) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof ServiceCatalogClient) {
+    if (config.client instanceof ServiceCatalogClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextPageToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

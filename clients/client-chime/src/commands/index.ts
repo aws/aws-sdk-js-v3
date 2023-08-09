@@ -1,4 +1,5 @@
 export * from "./AssociatePhoneNumberWithUserCommand";
+// smithy-typescript generated code
 export * from "./AssociatePhoneNumbersWithVoiceConnectorCommand";
 export * from "./AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
 export * from "./AssociateSigninDelegateGroupsWithAccountCommand";
@@ -188,3 +189,4 @@ export * from "./UpdateUserCommand";
 export * from "./UpdateUserSettingsCommand";
 export * from "./UpdateVoiceConnectorCommand";
 export * from "./UpdateVoiceConnectorGroupCommand";
+export * from "./ValidateE911AddressCommand";

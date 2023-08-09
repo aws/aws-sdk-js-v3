@@ -1,5 +1,9 @@
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+// smithy-typescript generated code
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
+  _json,
+  collectBody,
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -8,20 +12,24 @@ import {
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
+  take,
+  withBaseException,
+} from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import {
   CreateBatchInferenceJobCommandInput,
   CreateBatchInferenceJobCommandOutput,
 } from "../commands/CreateBatchInferenceJobCommand";
+import {
+  CreateBatchSegmentJobCommandInput,
+  CreateBatchSegmentJobCommandOutput,
+} from "../commands/CreateBatchSegmentJobCommand";
 import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "../commands/CreateCampaignCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import {
@@ -35,6 +43,11 @@ import {
 } from "../commands/CreateDatasetImportJobCommand";
 import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "../commands/CreateEventTrackerCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand";
+import {
+  CreateMetricAttributionCommandInput,
+  CreateMetricAttributionCommandOutput,
+} from "../commands/CreateMetricAttributionCommand";
+import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "../commands/CreateRecommenderCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "../commands/CreateSchemaCommand";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "../commands/CreateSolutionCommand";
 import {
@@ -46,6 +59,11 @@ import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../comman
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "../commands/DeleteDatasetGroupCommand";
 import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "../commands/DeleteEventTrackerCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand";
+import {
+  DeleteMetricAttributionCommandInput,
+  DeleteMetricAttributionCommandOutput,
+} from "../commands/DeleteMetricAttributionCommand";
+import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "../commands/DeleteRecommenderCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "../commands/DeleteSchemaCommand";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "../commands/DeleteSolutionCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "../commands/DescribeAlgorithmCommand";
@@ -53,6 +71,10 @@ import {
   DescribeBatchInferenceJobCommandInput,
   DescribeBatchInferenceJobCommandOutput,
 } from "../commands/DescribeBatchInferenceJobCommand";
+import {
+  DescribeBatchSegmentJobCommandInput,
+  DescribeBatchSegmentJobCommandOutput,
+} from "../commands/DescribeBatchSegmentJobCommand";
 import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "../commands/DescribeCampaignCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
@@ -76,7 +98,15 @@ import {
   DescribeFeatureTransformationCommandOutput,
 } from "../commands/DescribeFeatureTransformationCommand";
 import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "../commands/DescribeFilterCommand";
+import {
+  DescribeMetricAttributionCommandInput,
+  DescribeMetricAttributionCommandOutput,
+} from "../commands/DescribeMetricAttributionCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "../commands/DescribeRecipeCommand";
+import {
+  DescribeRecommenderCommandInput,
+  DescribeRecommenderCommandOutput,
+} from "../commands/DescribeRecommenderCommand";
 import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "../commands/DescribeSchemaCommand";
 import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "../commands/DescribeSolutionCommand";
 import {
@@ -88,6 +118,10 @@ import {
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput,
 } from "../commands/ListBatchInferenceJobsCommand";
+import {
+  ListBatchSegmentJobsCommandInput,
+  ListBatchSegmentJobsCommandOutput,
+} from "../commands/ListBatchSegmentJobsCommand";
 import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "../commands/ListCampaignsCommand";
 import {
   ListDatasetExportJobsCommandInput,
@@ -101,7 +135,16 @@ import {
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "../commands/ListEventTrackersCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand";
+import {
+  ListMetricAttributionMetricsCommandInput,
+  ListMetricAttributionMetricsCommandOutput,
+} from "../commands/ListMetricAttributionMetricsCommand";
+import {
+  ListMetricAttributionsCommandInput,
+  ListMetricAttributionsCommandOutput,
+} from "../commands/ListMetricAttributionsCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "../commands/ListRecipesCommand";
+import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "../commands/ListRecommendersCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "../commands/ListSolutionsCommand";
 import {
@@ -109,20 +152,36 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "../commands/ListSolutionVersionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "../commands/StartRecommenderCommand";
+import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "../commands/StopRecommenderCommand";
+import {
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
 } from "../commands/StopSolutionVersionCreationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "../commands/UpdateCampaignCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "../commands/UpdateDatasetCommand";
+import {
+  UpdateMetricAttributionCommandInput,
+  UpdateMetricAttributionCommandOutput,
+} from "../commands/UpdateMetricAttributionCommand";
+import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "../commands/UpdateRecommenderCommand";
 import {
   Algorithm,
-  AlgorithmImage,
   AutoMLConfig,
-  AutoMLResult,
   BatchInferenceJob,
   BatchInferenceJobConfig,
   BatchInferenceJobInput,
   BatchInferenceJobOutput,
   BatchInferenceJobSummary,
+  BatchSegmentJob,
+  BatchSegmentJobInput,
+  BatchSegmentJobOutput,
+  BatchSegmentJobSummary,
   Campaign,
   CampaignConfig,
   CampaignSummary,
@@ -130,27 +189,19 @@ import {
   CategoricalHyperParameterRange,
   ContinuousHyperParameterRange,
   CreateBatchInferenceJobRequest,
-  CreateBatchInferenceJobResponse,
+  CreateBatchSegmentJobRequest,
   CreateCampaignRequest,
-  CreateCampaignResponse,
   CreateDatasetExportJobRequest,
-  CreateDatasetExportJobResponse,
   CreateDatasetGroupRequest,
-  CreateDatasetGroupResponse,
   CreateDatasetImportJobRequest,
-  CreateDatasetImportJobResponse,
   CreateDatasetRequest,
-  CreateDatasetResponse,
   CreateEventTrackerRequest,
-  CreateEventTrackerResponse,
   CreateFilterRequest,
-  CreateFilterResponse,
+  CreateMetricAttributionRequest,
+  CreateRecommenderRequest,
   CreateSchemaRequest,
-  CreateSchemaResponse,
   CreateSolutionRequest,
-  CreateSolutionResponse,
   CreateSolutionVersionRequest,
-  CreateSolutionVersionResponse,
   Dataset,
   DatasetExportJob,
   DatasetExportJobOutput,
@@ -162,22 +213,25 @@ import {
   DatasetSchema,
   DatasetSchemaSummary,
   DatasetSummary,
+  DatasetUpdateSummary,
   DataSource,
-  DefaultCategoricalHyperParameterRange,
   DefaultContinuousHyperParameterRange,
   DefaultHyperParameterRanges,
-  DefaultIntegerHyperParameterRange,
   DeleteCampaignRequest,
   DeleteDatasetGroupRequest,
   DeleteDatasetRequest,
   DeleteEventTrackerRequest,
   DeleteFilterRequest,
+  DeleteMetricAttributionRequest,
+  DeleteRecommenderRequest,
   DeleteSchemaRequest,
   DeleteSolutionRequest,
   DescribeAlgorithmRequest,
   DescribeAlgorithmResponse,
   DescribeBatchInferenceJobRequest,
   DescribeBatchInferenceJobResponse,
+  DescribeBatchSegmentJobRequest,
+  DescribeBatchSegmentJobResponse,
   DescribeCampaignRequest,
   DescribeCampaignResponse,
   DescribeDatasetExportJobRequest,
@@ -194,8 +248,12 @@ import {
   DescribeFeatureTransformationResponse,
   DescribeFilterRequest,
   DescribeFilterResponse,
+  DescribeMetricAttributionRequest,
+  DescribeMetricAttributionResponse,
   DescribeRecipeRequest,
   DescribeRecipeResponse,
+  DescribeRecommenderRequest,
+  DescribeRecommenderResponse,
   DescribeSchemaRequest,
   DescribeSchemaResponse,
   DescribeSolutionRequest,
@@ -219,6 +277,8 @@ import {
   LimitExceededException,
   ListBatchInferenceJobsRequest,
   ListBatchInferenceJobsResponse,
+  ListBatchSegmentJobsRequest,
+  ListBatchSegmentJobsResponse,
   ListCampaignsRequest,
   ListCampaignsResponse,
   ListDatasetExportJobsRequest,
@@ -233,17 +293,31 @@ import {
   ListEventTrackersResponse,
   ListFiltersRequest,
   ListFiltersResponse,
+  ListMetricAttributionMetricsRequest,
+  ListMetricAttributionsRequest,
+  ListMetricAttributionsResponse,
   ListRecipesRequest,
   ListRecipesResponse,
+  ListRecommendersRequest,
+  ListRecommendersResponse,
   ListSchemasRequest,
   ListSchemasResponse,
   ListSolutionsRequest,
   ListSolutionsResponse,
   ListSolutionVersionsRequest,
   ListSolutionVersionsResponse,
+  ListTagsForResourceRequest,
+  MetricAttribute,
+  MetricAttribution,
+  MetricAttributionOutput,
+  MetricAttributionSummary,
   OptimizationObjective,
   Recipe,
   RecipeSummary,
+  Recommender,
+  RecommenderConfig,
+  RecommenderSummary,
+  RecommenderUpdateSummary,
   ResourceAlreadyExistsException,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -253,6228 +327,6098 @@ import {
   SolutionSummary,
   SolutionVersion,
   SolutionVersionSummary,
+  StartRecommenderRequest,
+  StopRecommenderRequest,
   StopSolutionVersionCreationRequest,
-  TunedHPOParams,
+  Tag,
+  TagResourceRequest,
+  TooManyTagKeysException,
+  TooManyTagsException,
+  TrainingDataConfig,
+  UntagResourceRequest,
   UpdateCampaignRequest,
-  UpdateCampaignResponse,
+  UpdateDatasetRequest,
+  UpdateMetricAttributionRequest,
+  UpdateRecommenderRequest,
 } from "../models/models_0";
+import { PersonalizeServiceException as __BaseException } from "../models/PersonalizeServiceException";
 
-export const serializeAws_json1_1CreateBatchInferenceJobCommand = async (
+/**
+ * serializeAws_json1_1CreateBatchInferenceJobCommand
+ */
+export const se_CreateBatchInferenceJobCommand = async (
   input: CreateBatchInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateBatchInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateBatchInferenceJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateBatchInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateCampaignCommand = async (
+/**
+ * serializeAws_json1_1CreateBatchSegmentJobCommand
+ */
+export const se_CreateBatchSegmentJobCommand = async (
+  input: CreateBatchSegmentJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateBatchSegmentJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateCampaignCommand
+ */
+export const se_CreateCampaignCommand = async (
   input: CreateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateCampaign");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDatasetCommand = async (
+/**
+ * serializeAws_json1_1CreateDatasetCommand
+ */
+export const se_CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDataset");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDatasetExportJobCommand = async (
+/**
+ * serializeAws_json1_1CreateDatasetExportJobCommand
+ */
+export const se_CreateDatasetExportJobCommand = async (
   input: CreateDatasetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDatasetExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1CreateDatasetGroupCommand
+ */
+export const se_CreateDatasetGroupCommand = async (
   input: CreateDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
+/**
+ * serializeAws_json1_1CreateDatasetImportJobCommand
+ */
+export const se_CreateDatasetImportJobCommand = async (
   input: CreateDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateDatasetImportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateEventTrackerCommand = async (
+/**
+ * serializeAws_json1_1CreateEventTrackerCommand
+ */
+export const se_CreateEventTrackerCommand = async (
   input: CreateEventTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateEventTracker",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateEventTracker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateEventTrackerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateFilterCommand = async (
+/**
+ * serializeAws_json1_1CreateFilterCommand
+ */
+export const se_CreateFilterCommand = async (
   input: CreateFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSchemaCommand = async (
+/**
+ * serializeAws_json1_1CreateMetricAttributionCommand
+ */
+export const se_CreateMetricAttributionCommand = async (
+  input: CreateMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateMetricAttribution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateRecommenderCommand
+ */
+export const se_CreateRecommenderCommand = async (
+  input: CreateRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateRecommender");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateSchemaCommand
+ */
+export const se_CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSchema");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSchemaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSolutionCommand = async (
+/**
+ * serializeAws_json1_1CreateSolutionCommand
+ */
+export const se_CreateSolutionCommand = async (
   input: CreateSolutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateSolution",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSolution");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSolutionRequest(input, context));
+  body = JSON.stringify(se_CreateSolutionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1CreateSolutionVersionCommand = async (
+/**
+ * serializeAws_json1_1CreateSolutionVersionCommand
+ */
+export const se_CreateSolutionVersionCommand = async (
   input: CreateSolutionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.CreateSolutionVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("CreateSolutionVersion");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateSolutionVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteCampaignCommand = async (
+/**
+ * serializeAws_json1_1DeleteCampaignCommand
+ */
+export const se_DeleteCampaignCommand = async (
   input: DeleteCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteCampaign");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDatasetCommand = async (
+/**
+ * serializeAws_json1_1DeleteDatasetCommand
+ */
+export const se_DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDataset");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1DeleteDatasetGroupCommand
+ */
+export const se_DeleteDatasetGroupCommand = async (
   input: DeleteDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteEventTrackerCommand = async (
+/**
+ * serializeAws_json1_1DeleteEventTrackerCommand
+ */
+export const se_DeleteEventTrackerCommand = async (
   input: DeleteEventTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteEventTracker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteEventTracker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteEventTrackerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteFilterCommand = async (
+/**
+ * serializeAws_json1_1DeleteFilterCommand
+ */
+export const se_DeleteFilterCommand = async (
   input: DeleteFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSchemaCommand = async (
+/**
+ * serializeAws_json1_1DeleteMetricAttributionCommand
+ */
+export const se_DeleteMetricAttributionCommand = async (
+  input: DeleteMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMetricAttribution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteRecommenderCommand
+ */
+export const se_DeleteRecommenderCommand = async (
+  input: DeleteRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteRecommender");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteSchemaCommand
+ */
+export const se_DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSchema");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSchemaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DeleteSolutionCommand = async (
+/**
+ * serializeAws_json1_1DeleteSolutionCommand
+ */
+export const se_DeleteSolutionCommand = async (
   input: DeleteSolutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DeleteSolution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DeleteSolution");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteSolutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeAlgorithmCommand = async (
+/**
+ * serializeAws_json1_1DescribeAlgorithmCommand
+ */
+export const se_DescribeAlgorithmCommand = async (
   input: DescribeAlgorithmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeAlgorithm",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeAlgorithm");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeAlgorithmRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeBatchInferenceJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeBatchInferenceJobCommand
+ */
+export const se_DescribeBatchInferenceJobCommand = async (
   input: DescribeBatchInferenceJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeBatchInferenceJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchInferenceJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeBatchInferenceJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeCampaignCommand = async (
+/**
+ * serializeAws_json1_1DescribeBatchSegmentJobCommand
+ */
+export const se_DescribeBatchSegmentJobCommand = async (
+  input: DescribeBatchSegmentJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchSegmentJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeCampaignCommand
+ */
+export const se_DescribeCampaignCommand = async (
   input: DescribeCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeCampaign");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetCommand = async (
+/**
+ * serializeAws_json1_1DescribeDatasetCommand
+ */
+export const se_DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDataset",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDataset");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetExportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeDatasetExportJobCommand
+ */
+export const se_DescribeDatasetExportJobCommand = async (
   input: DescribeDatasetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDatasetExportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetExportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetExportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
+/**
+ * serializeAws_json1_1DescribeDatasetGroupCommand
+ */
+export const se_DescribeDatasetGroupCommand = async (
   input: DescribeDatasetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDatasetGroup",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetGroup");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetGroupRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
+/**
+ * serializeAws_json1_1DescribeDatasetImportJobCommand
+ */
+export const se_DescribeDatasetImportJobCommand = async (
   input: DescribeDatasetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeDatasetImportJob",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeDatasetImportJob");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeDatasetImportJobRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeEventTrackerCommand = async (
+/**
+ * serializeAws_json1_1DescribeEventTrackerCommand
+ */
+export const se_DescribeEventTrackerCommand = async (
   input: DescribeEventTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeEventTracker",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeEventTracker");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeEventTrackerRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeFeatureTransformationCommand = async (
+/**
+ * serializeAws_json1_1DescribeFeatureTransformationCommand
+ */
+export const se_DescribeFeatureTransformationCommand = async (
   input: DescribeFeatureTransformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeFeatureTransformation",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFeatureTransformation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeFeatureTransformationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeFilterCommand = async (
+/**
+ * serializeAws_json1_1DescribeFilterCommand
+ */
+export const se_DescribeFilterCommand = async (
   input: DescribeFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeFilter",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeFilter");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeFilterRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeRecipeCommand = async (
+/**
+ * serializeAws_json1_1DescribeMetricAttributionCommand
+ */
+export const se_DescribeMetricAttributionCommand = async (
+  input: DescribeMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeMetricAttribution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeRecipeCommand
+ */
+export const se_DescribeRecipeCommand = async (
   input: DescribeRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeRecipe",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeRecipe");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeRecipeRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSchemaCommand = async (
+/**
+ * serializeAws_json1_1DescribeRecommenderCommand
+ */
+export const se_DescribeRecommenderCommand = async (
+  input: DescribeRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeRecommender");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeSchemaCommand
+ */
+export const se_DescribeSchemaCommand = async (
   input: DescribeSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeSchema",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSchema");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSchemaRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSolutionCommand = async (
+/**
+ * serializeAws_json1_1DescribeSolutionCommand
+ */
+export const se_DescribeSolutionCommand = async (
   input: DescribeSolutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeSolution",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSolution");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSolutionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1DescribeSolutionVersionCommand = async (
+/**
+ * serializeAws_json1_1DescribeSolutionVersionCommand
+ */
+export const se_DescribeSolutionVersionCommand = async (
   input: DescribeSolutionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.DescribeSolutionVersion",
-  };
+  const headers: __HeaderBag = sharedHeaders("DescribeSolutionVersion");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeSolutionVersionRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1GetSolutionMetricsCommand = async (
+/**
+ * serializeAws_json1_1GetSolutionMetricsCommand
+ */
+export const se_GetSolutionMetricsCommand = async (
   input: GetSolutionMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.GetSolutionMetrics",
-  };
+  const headers: __HeaderBag = sharedHeaders("GetSolutionMetrics");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetSolutionMetricsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListBatchInferenceJobsCommand = async (
+/**
+ * serializeAws_json1_1ListBatchInferenceJobsCommand
+ */
+export const se_ListBatchInferenceJobsCommand = async (
   input: ListBatchInferenceJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListBatchInferenceJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListBatchInferenceJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListBatchInferenceJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListCampaignsCommand = async (
+/**
+ * serializeAws_json1_1ListBatchSegmentJobsCommand
+ */
+export const se_ListBatchSegmentJobsCommand = async (
+  input: ListBatchSegmentJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListBatchSegmentJobs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListCampaignsCommand
+ */
+export const se_ListCampaignsCommand = async (
   input: ListCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListCampaigns",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListCampaigns");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListCampaignsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetExportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetExportJobsCommand
+ */
+export const se_ListDatasetExportJobsCommand = async (
   input: ListDatasetExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasetExportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetExportJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetExportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetGroupsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetGroupsCommand
+ */
+export const se_ListDatasetGroupsCommand = async (
   input: ListDatasetGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasetGroups",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetGroups");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetGroupsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetImportJobsCommand
+ */
+export const se_ListDatasetImportJobsCommand = async (
   input: ListDatasetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasetImportJobs",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasetImportJobs");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetImportJobsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListDatasetsCommand = async (
+/**
+ * serializeAws_json1_1ListDatasetsCommand
+ */
+export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListDatasets",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListDatasets");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListDatasetsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListEventTrackersCommand = async (
+/**
+ * serializeAws_json1_1ListEventTrackersCommand
+ */
+export const se_ListEventTrackersCommand = async (
   input: ListEventTrackersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListEventTrackers",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListEventTrackers");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListEventTrackersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListFiltersCommand = async (
+/**
+ * serializeAws_json1_1ListFiltersCommand
+ */
+export const se_ListFiltersCommand = async (
   input: ListFiltersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListFilters",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListFilters");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListFiltersRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListRecipesCommand = async (
+/**
+ * serializeAws_json1_1ListMetricAttributionMetricsCommand
+ */
+export const se_ListMetricAttributionMetricsCommand = async (
+  input: ListMetricAttributionMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMetricAttributionMetrics");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListMetricAttributionsCommand
+ */
+export const se_ListMetricAttributionsCommand = async (
+  input: ListMetricAttributionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMetricAttributions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListRecipesCommand
+ */
+export const se_ListRecipesCommand = async (
   input: ListRecipesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListRecipes",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListRecipes");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListRecipesRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSchemasCommand = async (
+/**
+ * serializeAws_json1_1ListRecommendersCommand
+ */
+export const se_ListRecommendersCommand = async (
+  input: ListRecommendersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListRecommenders");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListSchemasCommand
+ */
+export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListSchemas",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSchemas");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSchemasRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSolutionsCommand = async (
+/**
+ * serializeAws_json1_1ListSolutionsCommand
+ */
+export const se_ListSolutionsCommand = async (
   input: ListSolutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListSolutions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSolutions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSolutionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1ListSolutionVersionsCommand = async (
+/**
+ * serializeAws_json1_1ListSolutionVersionsCommand
+ */
+export const se_ListSolutionVersionsCommand = async (
   input: ListSolutionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.ListSolutionVersions",
-  };
+  const headers: __HeaderBag = sharedHeaders("ListSolutionVersions");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListSolutionVersionsRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1StopSolutionVersionCreationCommand = async (
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartRecommenderCommand
+ */
+export const se_StartRecommenderCommand = async (
+  input: StartRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartRecommender");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopRecommenderCommand
+ */
+export const se_StopRecommenderCommand = async (
+  input: StopRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopRecommender");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopSolutionVersionCreationCommand
+ */
+export const se_StopSolutionVersionCreationCommand = async (
   input: StopSolutionVersionCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.StopSolutionVersionCreation",
-  };
+  const headers: __HeaderBag = sharedHeaders("StopSolutionVersionCreation");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1StopSolutionVersionCreationRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const serializeAws_json1_1UpdateCampaignCommand = async (
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateCampaignCommand
+ */
+export const se_UpdateCampaignCommand = async (
   input: UpdateCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "content-type": "application/x-amz-json-1.1",
-    "x-amz-target": "AmazonPersonalize.UpdateCampaign",
-  };
+  const headers: __HeaderBag = sharedHeaders("UpdateCampaign");
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1UpdateCampaignRequest(input, context));
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
-export const deserializeAws_json1_1CreateBatchInferenceJobCommand = async (
+/**
+ * serializeAws_json1_1UpdateDatasetCommand
+ */
+export const se_UpdateDatasetCommand = async (
+  input: UpdateDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDataset");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateMetricAttributionCommand
+ */
+export const se_UpdateMetricAttributionCommand = async (
+  input: UpdateMetricAttributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateMetricAttribution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateRecommenderCommand
+ */
+export const se_UpdateRecommenderCommand = async (
+  input: UpdateRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateRecommender");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1CreateBatchInferenceJobCommand
+ */
+export const de_CreateBatchInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBatchInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateBatchInferenceJobCommandError(output, context);
+    return de_CreateBatchInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBatchInferenceJobResponse(data, context);
+  contents = _json(data);
   const response: CreateBatchInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateBatchInferenceJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreateBatchInferenceJobCommandError
+ */
+const de_CreateBatchInferenceJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBatchInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateCampaignCommand = async (
+/**
+ * deserializeAws_json1_1CreateBatchSegmentJobCommand
+ */
+export const de_CreateBatchSegmentJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchSegmentJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateBatchSegmentJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateBatchSegmentJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateBatchSegmentJobCommandError
+ */
+const de_CreateBatchSegmentJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchSegmentJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateCampaignCommand
+ */
+export const de_CreateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateCampaignCommandError(output, context);
+    return de_CreateCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCampaignResponse(data, context);
+  contents = _json(data);
   const response: CreateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateCampaignCommandError = async (
+/**
+ * deserializeAws_json1_1CreateCampaignCommandError
+ */
+const de_CreateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateDatasetCommand = async (
+/**
+ * deserializeAws_json1_1CreateDatasetCommand
+ */
+export const de_CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetCommandError(output, context);
+    return de_CreateDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetCommandError
+ */
+const de_CreateDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateDatasetExportJobCommand = async (
+/**
+ * deserializeAws_json1_1CreateDatasetExportJobCommand
+ */
+export const de_CreateDatasetExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetExportJobCommandError(output, context);
+    return de_CreateDatasetExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetExportJobResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetExportJobCommandError
+ */
+const de_CreateDatasetExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1CreateDatasetGroupCommand
+ */
+export const de_CreateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetGroupCommandError(output, context);
+    return de_CreateDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetGroupResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetGroupCommandError
+ */
+const de_CreateDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateDatasetImportJobCommand = async (
+/**
+ * deserializeAws_json1_1CreateDatasetImportJobCommand
+ */
+export const de_CreateDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateDatasetImportJobCommandError(output, context);
+    return de_CreateDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatasetImportJobResponse(data, context);
+  contents = _json(data);
   const response: CreateDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1CreateDatasetImportJobCommandError
+ */
+const de_CreateDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateEventTrackerCommand = async (
+/**
+ * deserializeAws_json1_1CreateEventTrackerCommand
+ */
+export const de_CreateEventTrackerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventTrackerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateEventTrackerCommandError(output, context);
+    return de_CreateEventTrackerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEventTrackerResponse(data, context);
+  contents = _json(data);
   const response: CreateEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateEventTrackerCommandError = async (
+/**
+ * deserializeAws_json1_1CreateEventTrackerCommandError
+ */
+const de_CreateEventTrackerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateFilterCommand = async (
+/**
+ * deserializeAws_json1_1CreateFilterCommand
+ */
+export const de_CreateFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateFilterCommandError(output, context);
+    return de_CreateFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFilterResponse(data, context);
+  contents = _json(data);
   const response: CreateFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateFilterCommandError = async (
+/**
+ * deserializeAws_json1_1CreateFilterCommandError
+ */
+const de_CreateFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateSchemaCommand = async (
+/**
+ * deserializeAws_json1_1CreateMetricAttributionCommand
+ */
+export const de_CreateMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateMetricAttributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateMetricAttributionCommandError
+ */
+const de_CreateMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetricAttributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateRecommenderCommand
+ */
+export const de_CreateRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateRecommenderCommandError
+ */
+const de_CreateRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateSchemaCommand
+ */
+export const de_CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSchemaCommandError(output, context);
+    return de_CreateSchemaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSchemaResponse(data, context);
+  contents = _json(data);
   const response: CreateSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateSchemaCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSchemaCommandError
+ */
+const de_CreateSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateSolutionCommand = async (
+/**
+ * deserializeAws_json1_1CreateSolutionCommand
+ */
+export const de_CreateSolutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSolutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSolutionCommandError(output, context);
+    return de_CreateSolutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSolutionResponse(data, context);
+  contents = _json(data);
   const response: CreateSolutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateSolutionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSolutionCommandError
+ */
+const de_CreateSolutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSolutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateSolutionVersionCommand = async (
+/**
+ * deserializeAws_json1_1CreateSolutionVersionCommand
+ */
+export const de_CreateSolutionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSolutionVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateSolutionVersionCommandError(output, context);
+    return de_CreateSolutionVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSolutionVersionResponse(data, context);
+  contents = _json(data);
   const response: CreateSolutionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
+/**
+ * deserializeAws_json1_1CreateSolutionVersionCommandError
+ */
+const de_CreateSolutionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSolutionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.personalize#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteCampaignCommand = async (
+/**
+ * deserializeAws_json1_1DeleteCampaignCommand
+ */
+export const de_DeleteCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteCampaignCommandError(output, context);
+    return de_DeleteCampaignCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteCampaignCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteCampaignCommandError
+ */
+const de_DeleteCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteDatasetCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetCommand
+ */
+export const de_DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
+    return de_DeleteDatasetCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteDatasetCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetCommandError
+ */
+const de_DeleteDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetGroupCommand
+ */
+export const de_DeleteDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteDatasetGroupCommandError(output, context);
+    return de_DeleteDatasetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteDatasetGroupCommandError
+ */
+const de_DeleteDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteEventTrackerCommand = async (
+/**
+ * deserializeAws_json1_1DeleteEventTrackerCommand
+ */
+export const de_DeleteEventTrackerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventTrackerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteEventTrackerCommandError(output, context);
+    return de_DeleteEventTrackerCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteEventTrackerCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteEventTrackerCommandError
+ */
+const de_DeleteEventTrackerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteFilterCommand = async (
+/**
+ * deserializeAws_json1_1DeleteFilterCommand
+ */
+export const de_DeleteFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteFilterCommandError(output, context);
+    return de_DeleteFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteFilterCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteFilterCommandError
+ */
+const de_DeleteFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteSchemaCommand = async (
+/**
+ * deserializeAws_json1_1DeleteMetricAttributionCommand
+ */
+export const de_DeleteMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteMetricAttributionCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMetricAttributionCommandError
+ */
+const de_DeleteMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricAttributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteRecommenderCommand
+ */
+export const de_DeleteRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteRecommenderCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteRecommenderCommandError
+ */
+const de_DeleteRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteSchemaCommand
+ */
+export const de_DeleteSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSchemaCommandError(output, context);
+    return de_DeleteSchemaCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteSchemaCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSchemaCommandError
+ */
+const de_DeleteSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteSolutionCommand = async (
+/**
+ * deserializeAws_json1_1DeleteSolutionCommand
+ */
+export const de_DeleteSolutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSolutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteSolutionCommandError(output, context);
+    return de_DeleteSolutionCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSolutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DeleteSolutionCommandError = async (
+/**
+ * deserializeAws_json1_1DeleteSolutionCommandError
+ */
+const de_DeleteSolutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSolutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeAlgorithmCommand = async (
+/**
+ * deserializeAws_json1_1DescribeAlgorithmCommand
+ */
+export const de_DescribeAlgorithmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAlgorithmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeAlgorithmCommandError(output, context);
+    return de_DescribeAlgorithmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAlgorithmResponse(data, context);
+  contents = de_DescribeAlgorithmResponse(data, context);
   const response: DescribeAlgorithmCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeAlgorithmCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeAlgorithmCommandError
+ */
+const de_DescribeAlgorithmCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAlgorithmCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeBatchInferenceJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeBatchInferenceJobCommand
+ */
+export const de_DescribeBatchInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBatchInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeBatchInferenceJobCommandError(output, context);
+    return de_DescribeBatchInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBatchInferenceJobResponse(data, context);
+  contents = de_DescribeBatchInferenceJobResponse(data, context);
   const response: DescribeBatchInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeBatchInferenceJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeBatchInferenceJobCommandError
+ */
+const de_DescribeBatchInferenceJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBatchInferenceJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeCampaignCommand = async (
+/**
+ * deserializeAws_json1_1DescribeBatchSegmentJobCommand
+ */
+export const de_DescribeBatchSegmentJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchSegmentJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeBatchSegmentJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBatchSegmentJobResponse(data, context);
+  const response: DescribeBatchSegmentJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBatchSegmentJobCommandError
+ */
+const de_DescribeBatchSegmentJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchSegmentJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeCampaignCommand
+ */
+export const de_DescribeCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeCampaignCommandError(output, context);
+    return de_DescribeCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCampaignResponse(data, context);
+  contents = de_DescribeCampaignResponse(data, context);
   const response: DescribeCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeCampaignCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeCampaignCommandError
+ */
+const de_DescribeCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCampaignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetCommand
+ */
+export const de_DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetCommandError(output, context);
+    return de_DescribeDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetResponse(data, context);
+  contents = de_DescribeDatasetResponse(data, context);
   const response: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetCommandError
+ */
+const de_DescribeDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetExportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetExportJobCommand
+ */
+export const de_DescribeDatasetExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetExportJobCommandError(output, context);
+    return de_DescribeDatasetExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetExportJobResponse(data, context);
+  contents = de_DescribeDatasetExportJobResponse(data, context);
   const response: DescribeDatasetExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetExportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetExportJobCommandError
+ */
+const de_DescribeDatasetExportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupCommand
+ */
+export const de_DescribeDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetGroupCommandError(output, context);
+    return de_DescribeDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetGroupResponse(data, context);
+  contents = de_DescribeDatasetGroupResponse(data, context);
   const response: DescribeDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupCommandError
+ */
+const de_DescribeDatasetGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeDatasetImportJobCommand = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobCommand
+ */
+export const de_DescribeDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommandError(output, context);
+    return de_DescribeDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDatasetImportJobResponse(data, context);
+  contents = de_DescribeDatasetImportJobResponse(data, context);
   const response: DescribeDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobCommandError
+ */
+const de_DescribeDatasetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeEventTrackerCommand = async (
+/**
+ * deserializeAws_json1_1DescribeEventTrackerCommand
+ */
+export const de_DescribeEventTrackerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventTrackerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeEventTrackerCommandError(output, context);
+    return de_DescribeEventTrackerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventTrackerResponse(data, context);
+  contents = de_DescribeEventTrackerResponse(data, context);
   const response: DescribeEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeEventTrackerCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeEventTrackerCommandError
+ */
+const de_DescribeEventTrackerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventTrackerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeFeatureTransformationCommand = async (
+/**
+ * deserializeAws_json1_1DescribeFeatureTransformationCommand
+ */
+export const de_DescribeFeatureTransformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFeatureTransformationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeFeatureTransformationCommandError(output, context);
+    return de_DescribeFeatureTransformationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFeatureTransformationResponse(data, context);
+  contents = de_DescribeFeatureTransformationResponse(data, context);
   const response: DescribeFeatureTransformationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeFeatureTransformationCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeFeatureTransformationCommandError
+ */
+const de_DescribeFeatureTransformationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFeatureTransformationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeFilterCommand = async (
+/**
+ * deserializeAws_json1_1DescribeFilterCommand
+ */
+export const de_DescribeFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeFilterCommandError(output, context);
+    return de_DescribeFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFilterResponse(data, context);
+  contents = de_DescribeFilterResponse(data, context);
   const response: DescribeFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeFilterCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeFilterCommandError
+ */
+const de_DescribeFilterCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFilterCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeRecipeCommand = async (
+/**
+ * deserializeAws_json1_1DescribeMetricAttributionCommand
+ */
+export const de_DescribeMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeMetricAttributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMetricAttributionResponse(data, context);
+  const response: DescribeMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMetricAttributionCommandError
+ */
+const de_DescribeMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetricAttributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeRecipeCommand
+ */
+export const de_DescribeRecipeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecipeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeRecipeCommandError(output, context);
+    return de_DescribeRecipeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRecipeResponse(data, context);
+  contents = de_DescribeRecipeResponse(data, context);
   const response: DescribeRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeRecipeCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeRecipeCommandError
+ */
+const de_DescribeRecipeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecipeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeSchemaCommand = async (
+/**
+ * deserializeAws_json1_1DescribeRecommenderCommand
+ */
+export const de_DescribeRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRecommenderResponse(data, context);
+  const response: DescribeRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeRecommenderCommandError
+ */
+const de_DescribeRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeSchemaCommand
+ */
+export const de_DescribeSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSchemaCommandError(output, context);
+    return de_DescribeSchemaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSchemaResponse(data, context);
+  contents = de_DescribeSchemaResponse(data, context);
   const response: DescribeSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeSchemaCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSchemaCommandError
+ */
+const de_DescribeSchemaCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSchemaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeSolutionCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSolutionCommand
+ */
+export const de_DescribeSolutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSolutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSolutionCommandError(output, context);
+    return de_DescribeSolutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSolutionResponse(data, context);
+  contents = de_DescribeSolutionResponse(data, context);
   const response: DescribeSolutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeSolutionCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSolutionCommandError
+ */
+const de_DescribeSolutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSolutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DescribeSolutionVersionCommand = async (
+/**
+ * deserializeAws_json1_1DescribeSolutionVersionCommand
+ */
+export const de_DescribeSolutionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSolutionVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeSolutionVersionCommandError(output, context);
+    return de_DescribeSolutionVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSolutionVersionResponse(data, context);
+  contents = de_DescribeSolutionVersionResponse(data, context);
   const response: DescribeSolutionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1DescribeSolutionVersionCommandError = async (
+/**
+ * deserializeAws_json1_1DescribeSolutionVersionCommandError
+ */
+const de_DescribeSolutionVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSolutionVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1GetSolutionMetricsCommand = async (
+/**
+ * deserializeAws_json1_1GetSolutionMetricsCommand
+ */
+export const de_GetSolutionMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSolutionMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetSolutionMetricsCommandError(output, context);
+    return de_GetSolutionMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSolutionMetricsResponse(data, context);
+  contents = de_GetSolutionMetricsResponse(data, context);
   const response: GetSolutionMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1GetSolutionMetricsCommandError = async (
+/**
+ * deserializeAws_json1_1GetSolutionMetricsCommandError
+ */
+const de_GetSolutionMetricsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSolutionMetricsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListBatchInferenceJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListBatchInferenceJobsCommand
+ */
+export const de_ListBatchInferenceJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchInferenceJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListBatchInferenceJobsCommandError(output, context);
+    return de_ListBatchInferenceJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBatchInferenceJobsResponse(data, context);
+  contents = de_ListBatchInferenceJobsResponse(data, context);
   const response: ListBatchInferenceJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListBatchInferenceJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListBatchInferenceJobsCommandError
+ */
+const de_ListBatchInferenceJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchInferenceJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListCampaignsCommand = async (
+/**
+ * deserializeAws_json1_1ListBatchSegmentJobsCommand
+ */
+export const de_ListBatchSegmentJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBatchSegmentJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListBatchSegmentJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListBatchSegmentJobsResponse(data, context);
+  const response: ListBatchSegmentJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListBatchSegmentJobsCommandError
+ */
+const de_ListBatchSegmentJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBatchSegmentJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListCampaignsCommand
+ */
+export const de_ListCampaignsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListCampaignsCommandError(output, context);
+    return de_ListCampaignsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCampaignsResponse(data, context);
+  contents = de_ListCampaignsResponse(data, context);
   const response: ListCampaignsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListCampaignsCommandError = async (
+/**
+ * deserializeAws_json1_1ListCampaignsCommandError
+ */
+const de_ListCampaignsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetExportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetExportJobsCommand
+ */
+export const de_ListDatasetExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetExportJobsCommandError(output, context);
+    return de_ListDatasetExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetExportJobsResponse(data, context);
+  contents = de_ListDatasetExportJobsResponse(data, context);
   const response: ListDatasetExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetExportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetExportJobsCommandError
+ */
+const de_ListDatasetExportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetGroupsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetGroupsCommand
+ */
+export const de_ListDatasetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetGroupsCommandError(output, context);
+    return de_ListDatasetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetGroupsResponse(data, context);
+  contents = de_ListDatasetGroupsResponse(data, context);
   const response: ListDatasetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetGroupsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetGroupsCommandError
+ */
+const de_ListDatasetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetImportJobsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsCommand
+ */
+export const de_ListDatasetImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetImportJobsCommandError(output, context);
+    return de_ListDatasetImportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetImportJobsResponse(data, context);
+  contents = de_ListDatasetImportJobsResponse(data, context);
   const response: ListDatasetImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsCommandError
+ */
+const de_ListDatasetImportJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListDatasetsCommand = async (
+/**
+ * deserializeAws_json1_1ListDatasetsCommand
+ */
+export const de_ListDatasetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListDatasetsCommandError(output, context);
+    return de_ListDatasetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDatasetsResponse(data, context);
+  contents = de_ListDatasetsResponse(data, context);
   const response: ListDatasetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListDatasetsCommandError = async (
+/**
+ * deserializeAws_json1_1ListDatasetsCommandError
+ */
+const de_ListDatasetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListEventTrackersCommand = async (
+/**
+ * deserializeAws_json1_1ListEventTrackersCommand
+ */
+export const de_ListEventTrackersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventTrackersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListEventTrackersCommandError(output, context);
+    return de_ListEventTrackersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEventTrackersResponse(data, context);
+  contents = de_ListEventTrackersResponse(data, context);
   const response: ListEventTrackersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListEventTrackersCommandError = async (
+/**
+ * deserializeAws_json1_1ListEventTrackersCommandError
+ */
+const de_ListEventTrackersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventTrackersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListFiltersCommand = async (
+/**
+ * deserializeAws_json1_1ListFiltersCommand
+ */
+export const de_ListFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListFiltersCommandError(output, context);
+    return de_ListFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFiltersResponse(data, context);
+  contents = de_ListFiltersResponse(data, context);
   const response: ListFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListFiltersCommandError = async (
+/**
+ * deserializeAws_json1_1ListFiltersCommandError
+ */
+const de_ListFiltersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFiltersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListRecipesCommand = async (
+/**
+ * deserializeAws_json1_1ListMetricAttributionMetricsCommand
+ */
+export const de_ListMetricAttributionMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionMetricsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListMetricAttributionMetricsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListMetricAttributionMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMetricAttributionMetricsCommandError
+ */
+const de_ListMetricAttributionMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListMetricAttributionsCommand
+ */
+export const de_ListMetricAttributionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListMetricAttributionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMetricAttributionsResponse(data, context);
+  const response: ListMetricAttributionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMetricAttributionsCommandError
+ */
+const de_ListMetricAttributionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricAttributionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListRecipesCommand
+ */
+export const de_ListRecipesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecipesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListRecipesCommandError(output, context);
+    return de_ListRecipesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRecipesResponse(data, context);
+  contents = de_ListRecipesResponse(data, context);
   const response: ListRecipesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListRecipesCommandError = async (
+/**
+ * deserializeAws_json1_1ListRecipesCommandError
+ */
+const de_ListRecipesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecipesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListSchemasCommand = async (
+/**
+ * deserializeAws_json1_1ListRecommendersCommand
+ */
+export const de_ListRecommendersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListRecommendersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRecommendersResponse(data, context);
+  const response: ListRecommendersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRecommendersCommandError
+ */
+const de_ListRecommendersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListSchemasCommand
+ */
+export const de_ListSchemasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSchemasCommandError(output, context);
+    return de_ListSchemasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSchemasResponse(data, context);
+  contents = de_ListSchemasResponse(data, context);
   const response: ListSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSchemasCommandError = async (
+/**
+ * deserializeAws_json1_1ListSchemasCommandError
+ */
+const de_ListSchemasCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListSolutionsCommand = async (
+/**
+ * deserializeAws_json1_1ListSolutionsCommand
+ */
+export const de_ListSolutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSolutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSolutionsCommandError(output, context);
+    return de_ListSolutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSolutionsResponse(data, context);
+  contents = de_ListSolutionsResponse(data, context);
   const response: ListSolutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSolutionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSolutionsCommandError
+ */
+const de_ListSolutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSolutionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1ListSolutionVersionsCommand = async (
+/**
+ * deserializeAws_json1_1ListSolutionVersionsCommand
+ */
+export const de_ListSolutionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSolutionVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListSolutionVersionsCommandError(output, context);
+    return de_ListSolutionVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSolutionVersionsResponse(data, context);
+  contents = de_ListSolutionVersionsResponse(data, context);
   const response: ListSolutionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1ListSolutionVersionsCommandError = async (
+/**
+ * deserializeAws_json1_1ListSolutionVersionsCommandError
+ */
+const de_ListSolutionVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSolutionVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.personalize#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1StopSolutionVersionCreationCommand = async (
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartRecommenderCommand
+ */
+export const de_StartRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartRecommenderCommandError
+ */
+const de_StartRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopRecommenderCommand
+ */
+export const de_StopRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StopRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopRecommenderCommandError
+ */
+const de_StopRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopSolutionVersionCreationCommand
+ */
+export const de_StopSolutionVersionCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopSolutionVersionCreationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StopSolutionVersionCreationCommandError(output, context);
+    return de_StopSolutionVersionCreationCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopSolutionVersionCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1StopSolutionVersionCreationCommandError = async (
+/**
+ * deserializeAws_json1_1StopSolutionVersionCreationCommandError
+ */
+const de_StopSolutionVersionCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopSolutionVersionCreationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1UpdateCampaignCommand = async (
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagKeysException":
+    case "com.amazonaws.personalize#TooManyTagKeysException":
+      throw await de_TooManyTagKeysExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateCampaignCommand
+ */
+export const de_UpdateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UpdateCampaignCommandError(output, context);
+    return de_UpdateCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCampaignResponse(data, context);
+  contents = _json(data);
   const response: UpdateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
-  return Promise.resolve(response);
+  return response;
 };
 
-const deserializeAws_json1_1UpdateCampaignCommandError = async (
+/**
+ * deserializeAws_json1_1UpdateCampaignCommandError
+ */
+const de_UpdateCampaignCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   const parsedOutput: any = {
     ...output,
-    body: await parseBody(output.body, context),
+    body: await parseErrorBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
-const deserializeAws_json1_1InvalidInputExceptionResponse = async (
+/**
+ * deserializeAws_json1_1UpdateDatasetCommand
+ */
+export const de_UpdateDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateDatasetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDatasetCommandError
+ */
+const de_UpdateDatasetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateMetricAttributionCommand
+ */
+export const de_UpdateMetricAttributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMetricAttributionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateMetricAttributionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMetricAttributionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMetricAttributionCommandError
+ */
+const de_UpdateMetricAttributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMetricAttributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateRecommenderCommand
+ */
+export const de_UpdateRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateRecommenderCommandError
+ */
+const de_UpdateRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1InvalidInputExceptionRes
+ */
+const de_InvalidInputExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
-  const contents: InvalidInputException = {
-    name: "InvalidInputException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+/**
+ * deserializeAws_json1_1InvalidNextTokenExceptionRes
+ */
+const de_InvalidNextTokenExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+/**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceAlreadyExistsExceptionRes
+ */
+const de_ResourceAlreadyExistsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
-  const contents: ResourceAlreadyExistsException = {
-    name: "ResourceAlreadyExistsException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+/**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const deserialized: any = _json(body);
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
+/**
+ * deserializeAws_json1_1TooManyTagKeysExceptionRes
+ */
+const de_TooManyTagKeysExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagKeysException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TooManyTagKeysException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+// se_ArnList omitted.
+
+// se_AutoMLConfig omitted.
+
+// se_BatchInferenceJobConfig omitted.
+
+// se_BatchInferenceJobInput omitted.
+
+// se_BatchInferenceJobOutput omitted.
+
+// se_BatchSegmentJobInput omitted.
+
+// se_BatchSegmentJobOutput omitted.
+
+// se_CampaignConfig omitted.
+
+// se_CategoricalHyperParameterRange omitted.
+
+// se_CategoricalHyperParameterRanges omitted.
+
+// se_CategoricalValues omitted.
+
+// se_ColumnNamesList omitted.
+
+/**
+ * serializeAws_json1_1ContinuousHyperParameterRange
+ */
+const se_ContinuousHyperParameterRange = (input: ContinuousHyperParameterRange, context: __SerdeContext): any => {
+  return take(input, {
+    maxValue: __serializeFloat,
+    minValue: __serializeFloat,
+    name: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1ContinuousHyperParameterRanges
+ */
+const se_ContinuousHyperParameterRanges = (input: ContinuousHyperParameterRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
+      return se_ContinuousHyperParameterRange(entry, context);
     });
 };
 
-const serializeAws_json1_1AutoMLConfig = (input: AutoMLConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
-    ...(input.recipeList !== undefined &&
-      input.recipeList !== null && { recipeList: serializeAws_json1_1ArnList(input.recipeList, context) }),
-  };
-};
+// se_CreateBatchInferenceJobRequest omitted.
 
-const serializeAws_json1_1BatchInferenceJobConfig = (input: BatchInferenceJobConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.itemExplorationConfig !== undefined &&
-      input.itemExplorationConfig !== null && {
-        itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
-      }),
-  };
-};
+// se_CreateBatchSegmentJobRequest omitted.
 
-const serializeAws_json1_1BatchInferenceJobInput = (input: BatchInferenceJobInput, context: __SerdeContext): any => {
-  return {
-    ...(input.s3DataSource !== undefined &&
-      input.s3DataSource !== null && { s3DataSource: serializeAws_json1_1S3DataConfig(input.s3DataSource, context) }),
-  };
-};
+// se_CreateCampaignRequest omitted.
 
-const serializeAws_json1_1BatchInferenceJobOutput = (input: BatchInferenceJobOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.s3DataDestination !== undefined &&
-      input.s3DataDestination !== null && {
-        s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
-      }),
-  };
-};
+// se_CreateDatasetExportJobRequest omitted.
 
-const serializeAws_json1_1CampaignConfig = (input: CampaignConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.itemExplorationConfig !== undefined &&
-      input.itemExplorationConfig !== null && {
-        itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
-      }),
-  };
-};
+// se_CreateDatasetGroupRequest omitted.
 
-const serializeAws_json1_1CategoricalHyperParameterRange = (
-  input: CategoricalHyperParameterRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.values !== undefined &&
-      input.values !== null && { values: serializeAws_json1_1CategoricalValues(input.values, context) }),
-  };
-};
+// se_CreateDatasetImportJobRequest omitted.
 
-const serializeAws_json1_1CategoricalHyperParameterRanges = (
-  input: CategoricalHyperParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1CategoricalHyperParameterRange(entry, context);
-    });
-};
+// se_CreateDatasetRequest omitted.
 
-const serializeAws_json1_1CategoricalValues = (input: string[], context: __SerdeContext): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return entry;
-    });
-};
+// se_CreateEventTrackerRequest omitted.
 
-const serializeAws_json1_1ContinuousHyperParameterRange = (
-  input: ContinuousHyperParameterRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxValue !== undefined && input.maxValue !== null && { maxValue: __serializeFloat(input.maxValue) }),
-    ...(input.minValue !== undefined && input.minValue !== null && { minValue: __serializeFloat(input.minValue) }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
+// se_CreateFilterRequest omitted.
 
-const serializeAws_json1_1ContinuousHyperParameterRanges = (
-  input: ContinuousHyperParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1ContinuousHyperParameterRange(entry, context);
-    });
-};
+// se_CreateMetricAttributionRequest omitted.
 
-const serializeAws_json1_1CreateBatchInferenceJobRequest = (
-  input: CreateBatchInferenceJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.batchInferenceJobConfig !== undefined &&
-      input.batchInferenceJobConfig !== null && {
-        batchInferenceJobConfig: serializeAws_json1_1BatchInferenceJobConfig(input.batchInferenceJobConfig, context),
-      }),
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
-    ...(input.jobInput !== undefined &&
-      input.jobInput !== null && { jobInput: serializeAws_json1_1BatchInferenceJobInput(input.jobInput, context) }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.jobOutput !== undefined &&
-      input.jobOutput !== null && { jobOutput: serializeAws_json1_1BatchInferenceJobOutput(input.jobOutput, context) }),
-    ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
-};
+// se_CreateRecommenderRequest omitted.
 
-const serializeAws_json1_1CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.campaignConfig !== undefined &&
-      input.campaignConfig !== null && {
-        campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
-      }),
-    ...(input.minProvisionedTPS !== undefined &&
-      input.minProvisionedTPS !== null && { minProvisionedTPS: input.minProvisionedTPS }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
-};
+// se_CreateSchemaRequest omitted.
 
-const serializeAws_json1_1CreateDatasetExportJobRequest = (
-  input: CreateDatasetExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.ingestionMode !== undefined && input.ingestionMode !== null && { ingestionMode: input.ingestionMode }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.jobOutput !== undefined &&
-      input.jobOutput !== null && { jobOutput: serializeAws_json1_1DatasetExportJobOutput(input.jobOutput, context) }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-  };
+/**
+ * serializeAws_json1_1CreateSolutionRequest
+ */
+const se_CreateSolutionRequest = (input: CreateSolutionRequest, context: __SerdeContext): any => {
+  return take(input, {
+    datasetGroupArn: [],
+    eventType: [],
+    name: [],
+    performAutoML: [],
+    performHPO: [],
+    recipeArn: [],
+    solutionConfig: (_) => se_SolutionConfig(_, context),
+    tags: _json,
+  });
 };
 
-const serializeAws_json1_1CreateDatasetGroupRequest = (
-  input: CreateDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-  };
-};
+// se_CreateSolutionVersionRequest omitted.
 
-const serializeAws_json1_1CreateDatasetImportJobRequest = (
-  input: CreateDatasetImportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.dataSource !== undefined &&
-      input.dataSource !== null && { dataSource: serializeAws_json1_1DataSource(input.dataSource, context) }),
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
-    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
-  };
-};
+// se_DatasetExportJobOutput omitted.
 
-const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.datasetType !== undefined && input.datasetType !== null && { datasetType: input.datasetType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
-  };
-};
+// se_DataSource omitted.
 
-const serializeAws_json1_1CreateEventTrackerRequest = (
-  input: CreateEventTrackerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
+// se_DeleteCampaignRequest omitted.
 
-const serializeAws_json1_1CreateFilterRequest = (input: CreateFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.filterExpression !== undefined &&
-      input.filterExpression !== null && { filterExpression: input.filterExpression }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
+// se_DeleteDatasetGroupRequest omitted.
 
-const serializeAws_json1_1CreateSchemaRequest = (input: CreateSchemaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.schema !== undefined && input.schema !== null && { schema: input.schema }),
-  };
-};
+// se_DeleteDatasetRequest omitted.
 
-const serializeAws_json1_1CreateSolutionRequest = (input: CreateSolutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.eventType !== undefined && input.eventType !== null && { eventType: input.eventType }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-    ...(input.performAutoML !== undefined && input.performAutoML !== null && { performAutoML: input.performAutoML }),
-    ...(input.performHPO !== undefined && input.performHPO !== null && { performHPO: input.performHPO }),
-    ...(input.recipeArn !== undefined && input.recipeArn !== null && { recipeArn: input.recipeArn }),
-    ...(input.solutionConfig !== undefined &&
-      input.solutionConfig !== null && {
-        solutionConfig: serializeAws_json1_1SolutionConfig(input.solutionConfig, context),
-      }),
-  };
-};
+// se_DeleteEventTrackerRequest omitted.
 
-const serializeAws_json1_1CreateSolutionVersionRequest = (
-  input: CreateSolutionVersionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
-    ...(input.trainingMode !== undefined && input.trainingMode !== null && { trainingMode: input.trainingMode }),
-  };
-};
+// se_DeleteFilterRequest omitted.
 
-const serializeAws_json1_1DatasetExportJobOutput = (input: DatasetExportJobOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.s3DataDestination !== undefined &&
-      input.s3DataDestination !== null && {
-        s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
-      }),
-  };
-};
+// se_DeleteMetricAttributionRequest omitted.
 
-const serializeAws_json1_1DataSource = (input: DataSource, context: __SerdeContext): any => {
-  return {
-    ...(input.dataLocation !== undefined && input.dataLocation !== null && { dataLocation: input.dataLocation }),
-  };
-};
+// se_DeleteRecommenderRequest omitted.
 
-const serializeAws_json1_1DeleteCampaignRequest = (input: DeleteCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
-  };
-};
+// se_DeleteSchemaRequest omitted.
 
-const serializeAws_json1_1DeleteDatasetGroupRequest = (
-  input: DeleteDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-  };
-};
+// se_DeleteSolutionRequest omitted.
 
-const serializeAws_json1_1DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-  };
-};
+// se_DescribeAlgorithmRequest omitted.
 
-const serializeAws_json1_1DeleteEventTrackerRequest = (
-  input: DeleteEventTrackerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.eventTrackerArn !== undefined &&
-      input.eventTrackerArn !== null && { eventTrackerArn: input.eventTrackerArn }),
-  };
-};
+// se_DescribeBatchInferenceJobRequest omitted.
 
-const serializeAws_json1_1DeleteFilterRequest = (input: DeleteFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
-  };
-};
+// se_DescribeBatchSegmentJobRequest omitted.
 
-const serializeAws_json1_1DeleteSchemaRequest = (input: DeleteSchemaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
-  };
-};
+// se_DescribeCampaignRequest omitted.
 
-const serializeAws_json1_1DeleteSolutionRequest = (input: DeleteSolutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
-  };
-};
+// se_DescribeDatasetExportJobRequest omitted.
 
-const serializeAws_json1_1DescribeAlgorithmRequest = (
-  input: DescribeAlgorithmRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.algorithmArn !== undefined && input.algorithmArn !== null && { algorithmArn: input.algorithmArn }),
-  };
-};
+// se_DescribeDatasetGroupRequest omitted.
 
-const serializeAws_json1_1DescribeBatchInferenceJobRequest = (
-  input: DescribeBatchInferenceJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.batchInferenceJobArn !== undefined &&
-      input.batchInferenceJobArn !== null && { batchInferenceJobArn: input.batchInferenceJobArn }),
-  };
-};
+// se_DescribeDatasetImportJobRequest omitted.
 
-const serializeAws_json1_1DescribeCampaignRequest = (input: DescribeCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
-  };
-};
+// se_DescribeDatasetRequest omitted.
 
-const serializeAws_json1_1DescribeDatasetExportJobRequest = (
-  input: DescribeDatasetExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetExportJobArn !== undefined &&
-      input.datasetExportJobArn !== null && { datasetExportJobArn: input.datasetExportJobArn }),
-  };
-};
+// se_DescribeEventTrackerRequest omitted.
 
-const serializeAws_json1_1DescribeDatasetGroupRequest = (
-  input: DescribeDatasetGroupRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-  };
-};
+// se_DescribeFeatureTransformationRequest omitted.
 
-const serializeAws_json1_1DescribeDatasetImportJobRequest = (
-  input: DescribeDatasetImportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetImportJobArn !== undefined &&
-      input.datasetImportJobArn !== null && { datasetImportJobArn: input.datasetImportJobArn }),
-  };
-};
+// se_DescribeFilterRequest omitted.
 
-const serializeAws_json1_1DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-  };
-};
+// se_DescribeMetricAttributionRequest omitted.
 
-const serializeAws_json1_1DescribeEventTrackerRequest = (
-  input: DescribeEventTrackerRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.eventTrackerArn !== undefined &&
-      input.eventTrackerArn !== null && { eventTrackerArn: input.eventTrackerArn }),
-  };
-};
+// se_DescribeRecipeRequest omitted.
 
-const serializeAws_json1_1DescribeFeatureTransformationRequest = (
-  input: DescribeFeatureTransformationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.featureTransformationArn !== undefined &&
-      input.featureTransformationArn !== null && { featureTransformationArn: input.featureTransformationArn }),
-  };
-};
+// se_DescribeRecommenderRequest omitted.
 
-const serializeAws_json1_1DescribeFilterRequest = (input: DescribeFilterRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.filterArn !== undefined && input.filterArn !== null && { filterArn: input.filterArn }),
-  };
-};
+// se_DescribeSchemaRequest omitted.
 
-const serializeAws_json1_1DescribeRecipeRequest = (input: DescribeRecipeRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.recipeArn !== undefined && input.recipeArn !== null && { recipeArn: input.recipeArn }),
-  };
-};
+// se_DescribeSolutionRequest omitted.
 
-const serializeAws_json1_1DescribeSchemaRequest = (input: DescribeSchemaRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.schemaArn !== undefined && input.schemaArn !== null && { schemaArn: input.schemaArn }),
-  };
-};
+// se_DescribeSolutionVersionRequest omitted.
 
-const serializeAws_json1_1DescribeSolutionRequest = (input: DescribeSolutionRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
-  };
-};
+// se_ExcludedDatasetColumns omitted.
 
-const serializeAws_json1_1DescribeSolutionVersionRequest = (
-  input: DescribeSolutionVersionRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
-};
+// se_FeatureTransformationParameters omitted.
 
-const serializeAws_json1_1FeatureTransformationParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
+// se_GetSolutionMetricsRequest omitted.
 
-const serializeAws_json1_1GetSolutionMetricsRequest = (
-  input: GetSolutionMetricsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
+/**
+ * serializeAws_json1_1HPOConfig
+ */
+const se_HPOConfig = (input: HPOConfig, context: __SerdeContext): any => {
+  return take(input, {
+    algorithmHyperParameterRanges: (_) => se_HyperParameterRanges(_, context),
+    hpoObjective: _json,
+    hpoResourceConfig: _json,
+  });
 };
 
-const serializeAws_json1_1HPOConfig = (input: HPOConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.algorithmHyperParameterRanges !== undefined &&
-      input.algorithmHyperParameterRanges !== null && {
-        algorithmHyperParameterRanges: serializeAws_json1_1HyperParameterRanges(
-          input.algorithmHyperParameterRanges,
-          context
-        ),
-      }),
-    ...(input.hpoObjective !== undefined &&
-      input.hpoObjective !== null && { hpoObjective: serializeAws_json1_1HPOObjective(input.hpoObjective, context) }),
-    ...(input.hpoResourceConfig !== undefined &&
-      input.hpoResourceConfig !== null && {
-        hpoResourceConfig: serializeAws_json1_1HPOResourceConfig(input.hpoResourceConfig, context),
-      }),
-  };
-};
+// se_HPOObjective omitted.
 
-const serializeAws_json1_1HPOObjective = (input: HPOObjective, context: __SerdeContext): any => {
-  return {
-    ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
-    ...(input.metricRegex !== undefined && input.metricRegex !== null && { metricRegex: input.metricRegex }),
-    ...(input.type !== undefined && input.type !== null && { type: input.type }),
-  };
-};
+// se_HPOResourceConfig omitted.
 
-const serializeAws_json1_1HPOResourceConfig = (input: HPOResourceConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.maxNumberOfTrainingJobs !== undefined &&
-      input.maxNumberOfTrainingJobs !== null && { maxNumberOfTrainingJobs: input.maxNumberOfTrainingJobs }),
-    ...(input.maxParallelTrainingJobs !== undefined &&
-      input.maxParallelTrainingJobs !== null && { maxParallelTrainingJobs: input.maxParallelTrainingJobs }),
-  };
+/**
+ * serializeAws_json1_1HyperParameterRanges
+ */
+const se_HyperParameterRanges = (input: HyperParameterRanges, context: __SerdeContext): any => {
+  return take(input, {
+    categoricalHyperParameterRanges: _json,
+    continuousHyperParameterRanges: (_) => se_ContinuousHyperParameterRanges(_, context),
+    integerHyperParameterRanges: _json,
+  });
 };
 
-const serializeAws_json1_1HyperParameterRanges = (input: HyperParameterRanges, context: __SerdeContext): any => {
-  return {
-    ...(input.categoricalHyperParameterRanges !== undefined &&
-      input.categoricalHyperParameterRanges !== null && {
-        categoricalHyperParameterRanges: serializeAws_json1_1CategoricalHyperParameterRanges(
-          input.categoricalHyperParameterRanges,
-          context
-        ),
-      }),
-    ...(input.continuousHyperParameterRanges !== undefined &&
-      input.continuousHyperParameterRanges !== null && {
-        continuousHyperParameterRanges: serializeAws_json1_1ContinuousHyperParameterRanges(
-          input.continuousHyperParameterRanges,
-          context
-        ),
-      }),
-    ...(input.integerHyperParameterRanges !== undefined &&
-      input.integerHyperParameterRanges !== null && {
-        integerHyperParameterRanges: serializeAws_json1_1IntegerHyperParameterRanges(
-          input.integerHyperParameterRanges,
-          context
-        ),
-      }),
-  };
-};
+// se_HyperParameters omitted.
 
-const serializeAws_json1_1HyperParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-};
+// se_IntegerHyperParameterRange omitted.
 
-const serializeAws_json1_1IntegerHyperParameterRange = (
-  input: IntegerHyperParameterRange,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxValue !== undefined && input.maxValue !== null && { maxValue: input.maxValue }),
-    ...(input.minValue !== undefined && input.minValue !== null && { minValue: input.minValue }),
-    ...(input.name !== undefined && input.name !== null && { name: input.name }),
-  };
-};
+// se_IntegerHyperParameterRanges omitted.
 
-const serializeAws_json1_1IntegerHyperParameterRanges = (
-  input: IntegerHyperParameterRange[],
-  context: __SerdeContext
-): any => {
-  return input
-    .filter((e: any) => e != null)
-    .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return serializeAws_json1_1IntegerHyperParameterRange(entry, context);
-    });
-};
+// se_ListBatchInferenceJobsRequest omitted.
 
-const serializeAws_json1_1ListBatchInferenceJobsRequest = (
-  input: ListBatchInferenceJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
-};
+// se_ListBatchSegmentJobsRequest omitted.
 
-const serializeAws_json1_1ListCampaignsRequest = (input: ListCampaignsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
-  };
-};
+// se_ListCampaignsRequest omitted.
 
-const serializeAws_json1_1ListDatasetExportJobsRequest = (
-  input: ListDatasetExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDatasetExportJobsRequest omitted.
 
-const serializeAws_json1_1ListDatasetGroupsRequest = (
-  input: ListDatasetGroupsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDatasetGroupsRequest omitted.
 
-const serializeAws_json1_1ListDatasetImportJobsRequest = (
-  input: ListDatasetImportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDatasetImportJobsRequest omitted.
 
-const serializeAws_json1_1ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListDatasetsRequest omitted.
 
-const serializeAws_json1_1ListEventTrackersRequest = (
-  input: ListEventTrackersRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListEventTrackersRequest omitted.
 
-const serializeAws_json1_1ListFiltersRequest = (input: ListFiltersRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListFiltersRequest omitted.
 
-const serializeAws_json1_1ListRecipesRequest = (input: ListRecipesRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.recipeProvider !== undefined &&
-      input.recipeProvider !== null && { recipeProvider: input.recipeProvider }),
-  };
-};
+// se_ListMetricAttributionMetricsRequest omitted.
 
-const serializeAws_json1_1ListSchemasRequest = (input: ListSchemasRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListMetricAttributionsRequest omitted.
 
-const serializeAws_json1_1ListSolutionsRequest = (input: ListSolutionsRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.datasetGroupArn !== undefined &&
-      input.datasetGroupArn !== null && { datasetGroupArn: input.datasetGroupArn }),
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-  };
-};
+// se_ListRecipesRequest omitted.
 
-const serializeAws_json1_1ListSolutionVersionsRequest = (
-  input: ListSolutionVersionsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
-    ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
-  };
-};
+// se_ListRecommendersRequest omitted.
 
-const serializeAws_json1_1OptimizationObjective = (input: OptimizationObjective, context: __SerdeContext): any => {
-  return {
-    ...(input.itemAttribute !== undefined && input.itemAttribute !== null && { itemAttribute: input.itemAttribute }),
-    ...(input.objectiveSensitivity !== undefined &&
-      input.objectiveSensitivity !== null && { objectiveSensitivity: input.objectiveSensitivity }),
-  };
-};
+// se_ListSchemasRequest omitted.
 
-const serializeAws_json1_1S3DataConfig = (input: S3DataConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
-    ...(input.path !== undefined && input.path !== null && { path: input.path }),
-  };
-};
+// se_ListSolutionsRequest omitted.
 
-const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any => {
-  return {
-    ...(input.algorithmHyperParameters !== undefined &&
-      input.algorithmHyperParameters !== null && {
-        algorithmHyperParameters: serializeAws_json1_1HyperParameters(input.algorithmHyperParameters, context),
-      }),
-    ...(input.autoMLConfig !== undefined &&
-      input.autoMLConfig !== null && { autoMLConfig: serializeAws_json1_1AutoMLConfig(input.autoMLConfig, context) }),
-    ...(input.eventValueThreshold !== undefined &&
-      input.eventValueThreshold !== null && { eventValueThreshold: input.eventValueThreshold }),
-    ...(input.featureTransformationParameters !== undefined &&
-      input.featureTransformationParameters !== null && {
-        featureTransformationParameters: serializeAws_json1_1FeatureTransformationParameters(
-          input.featureTransformationParameters,
-          context
-        ),
-      }),
-    ...(input.hpoConfig !== undefined &&
-      input.hpoConfig !== null && { hpoConfig: serializeAws_json1_1HPOConfig(input.hpoConfig, context) }),
-    ...(input.optimizationObjective !== undefined &&
-      input.optimizationObjective !== null && {
-        optimizationObjective: serializeAws_json1_1OptimizationObjective(input.optimizationObjective, context),
-      }),
-  };
-};
+// se_ListSolutionVersionsRequest omitted.
 
-const serializeAws_json1_1StopSolutionVersionCreationRequest = (
-  input: StopSolutionVersionCreationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
-};
+// se_ListTagsForResourceRequest omitted.
+
+// se_MetricAttribute omitted.
+
+// se_MetricAttributes omitted.
+
+// se_MetricAttributesNamesList omitted.
 
-const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
-    ...(input.campaignConfig !== undefined &&
-      input.campaignConfig !== null && {
-        campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
-      }),
-    ...(input.minProvisionedTPS !== undefined &&
-      input.minProvisionedTPS !== null && { minProvisionedTPS: input.minProvisionedTPS }),
-    ...(input.solutionVersionArn !== undefined &&
-      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
-  };
+// se_MetricAttributionOutput omitted.
+
+// se_OptimizationObjective omitted.
+
+// se_RecommenderConfig omitted.
+
+// se_S3DataConfig omitted.
+
+/**
+ * serializeAws_json1_1SolutionConfig
+ */
+const se_SolutionConfig = (input: SolutionConfig, context: __SerdeContext): any => {
+  return take(input, {
+    algorithmHyperParameters: _json,
+    autoMLConfig: _json,
+    eventValueThreshold: [],
+    featureTransformationParameters: _json,
+    hpoConfig: (_) => se_HPOConfig(_, context),
+    optimizationObjective: _json,
+    trainingDataConfig: _json,
+  });
 };
+
+// se_StartRecommenderRequest omitted.
+
+// se_StopRecommenderRequest omitted.
+
+// se_StopSolutionVersionCreationRequest omitted.
+
+// se_Tag omitted.
+
+// se_TagKeys omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_Tags omitted.
+
+// se_TrainingDataConfig omitted.
 
-const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): Algorithm => {
-  return {
-    algorithmArn: __expectString(output.algorithmArn),
-    algorithmImage:
-      output.algorithmImage !== undefined && output.algorithmImage !== null
-        ? deserializeAws_json1_1AlgorithmImage(output.algorithmImage, context)
-        : undefined,
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    defaultHyperParameterRanges:
-      output.defaultHyperParameterRanges !== undefined && output.defaultHyperParameterRanges !== null
-        ? deserializeAws_json1_1DefaultHyperParameterRanges(output.defaultHyperParameterRanges, context)
-        : undefined,
-    defaultHyperParameters:
-      output.defaultHyperParameters !== undefined && output.defaultHyperParameters !== null
-        ? deserializeAws_json1_1HyperParameters(output.defaultHyperParameters, context)
-        : undefined,
-    defaultResourceConfig:
-      output.defaultResourceConfig !== undefined && output.defaultResourceConfig !== null
-        ? deserializeAws_json1_1ResourceConfig(output.defaultResourceConfig, context)
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    roleArn: __expectString(output.roleArn),
-    trainingInputMode: __expectString(output.trainingInputMode),
-  } as any;
+// se_UntagResourceRequest omitted.
+
+// se_UpdateCampaignRequest omitted.
+
+// se_UpdateDatasetRequest omitted.
+
+// se_UpdateMetricAttributionRequest omitted.
+
+// se_UpdateRecommenderRequest omitted.
+
+/**
+ * deserializeAws_json1_1Algorithm
+ */
+const de_Algorithm = (output: any, context: __SerdeContext): Algorithm => {
+  return take(output, {
+    algorithmArn: __expectString,
+    algorithmImage: _json,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultHyperParameterRanges: (_: any) => de_DefaultHyperParameterRanges(_, context),
+    defaultHyperParameters: _json,
+    defaultResourceConfig: _json,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    roleArn: __expectString,
+    trainingInputMode: __expectString,
+  }) as any;
 };
+
+// de_AlgorithmImage omitted.
 
-const deserializeAws_json1_1AlgorithmImage = (output: any, context: __SerdeContext): AlgorithmImage => {
-  return {
-    dockerURI: __expectString(output.dockerURI),
-    name: __expectString(output.name),
-  } as any;
+// de_ArnList omitted.
+
+// de_AutoMLConfig omitted.
+
+// de_AutoMLResult omitted.
+
+/**
+ * deserializeAws_json1_1BatchInferenceJob
+ */
+const de_BatchInferenceJob = (output: any, context: __SerdeContext): BatchInferenceJob => {
+  return take(output, {
+    batchInferenceJobArn: __expectString,
+    batchInferenceJobConfig: _json,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    filterArn: __expectString,
+    jobInput: _json,
+    jobName: __expectString,
+    jobOutput: _json,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    numResults: __expectInt32,
+    roleArn: __expectString,
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
+
+// de_BatchInferenceJobConfig omitted.
+
+// de_BatchInferenceJobInput omitted.
+
+// de_BatchInferenceJobOutput omitted.
 
-const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1BatchInferenceJobs
+ */
+const de_BatchInferenceJobs = (output: any, context: __SerdeContext): BatchInferenceJobSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_BatchInferenceJobSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext): AutoMLConfig => {
-  return {
-    metricName: __expectString(output.metricName),
-    recipeList:
-      output.recipeList !== undefined && output.recipeList !== null
-        ? deserializeAws_json1_1ArnList(output.recipeList, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1BatchInferenceJobSummary
+ */
+const de_BatchInferenceJobSummary = (output: any, context: __SerdeContext): BatchInferenceJobSummary => {
+  return take(output, {
+    batchInferenceJobArn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1AutoMLResult = (output: any, context: __SerdeContext): AutoMLResult => {
-  return {
-    bestRecipeArn: __expectString(output.bestRecipeArn),
-  } as any;
+/**
+ * deserializeAws_json1_1BatchSegmentJob
+ */
+const de_BatchSegmentJob = (output: any, context: __SerdeContext): BatchSegmentJob => {
+  return take(output, {
+    batchSegmentJobArn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    filterArn: __expectString,
+    jobInput: _json,
+    jobName: __expectString,
+    jobOutput: _json,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    numResults: __expectInt32,
+    roleArn: __expectString,
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeContext): BatchInferenceJob => {
-  return {
-    batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
-    batchInferenceJobConfig:
-      output.batchInferenceJobConfig !== undefined && output.batchInferenceJobConfig !== null
-        ? deserializeAws_json1_1BatchInferenceJobConfig(output.batchInferenceJobConfig, context)
-        : undefined,
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    failureReason: __expectString(output.failureReason),
-    filterArn: __expectString(output.filterArn),
-    jobInput:
-      output.jobInput !== undefined && output.jobInput !== null
-        ? deserializeAws_json1_1BatchInferenceJobInput(output.jobInput, context)
-        : undefined,
-    jobName: __expectString(output.jobName),
-    jobOutput:
-      output.jobOutput !== undefined && output.jobOutput !== null
-        ? deserializeAws_json1_1BatchInferenceJobOutput(output.jobOutput, context)
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    numResults: __expectInt32(output.numResults),
-    roleArn: __expectString(output.roleArn),
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_BatchSegmentJobInput omitted.
 
-const deserializeAws_json1_1BatchInferenceJobConfig = (
-  output: any,
-  context: __SerdeContext
-): BatchInferenceJobConfig => {
-  return {
-    itemExplorationConfig:
-      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
-        ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
-        : undefined,
-  } as any;
-};
+// de_BatchSegmentJobOutput omitted.
 
-const deserializeAws_json1_1BatchInferenceJobInput = (output: any, context: __SerdeContext): BatchInferenceJobInput => {
-  return {
-    s3DataSource:
-      output.s3DataSource !== undefined && output.s3DataSource !== null
-        ? deserializeAws_json1_1S3DataConfig(output.s3DataSource, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1BatchInferenceJobOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchInferenceJobOutput => {
-  return {
-    s3DataDestination:
-      output.s3DataDestination !== undefined && output.s3DataDestination !== null
-        ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1BatchInferenceJobs = (output: any, context: __SerdeContext): BatchInferenceJobSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1BatchSegmentJobs
+ */
+const de_BatchSegmentJobs = (output: any, context: __SerdeContext): BatchSegmentJobSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1BatchInferenceJobSummary(entry, context);
+      return de_BatchSegmentJobSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1BatchInferenceJobSummary = (
-  output: any,
-  context: __SerdeContext
-): BatchInferenceJobSummary => {
-  return {
-    batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    failureReason: __expectString(output.failureReason),
-    jobName: __expectString(output.jobName),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1BatchSegmentJobSummary
+ */
+const de_BatchSegmentJobSummary = (output: any, context: __SerdeContext): BatchSegmentJobSummary => {
+  return take(output, {
+    batchSegmentJobArn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): Campaign => {
-  return {
-    campaignArn: __expectString(output.campaignArn),
-    campaignConfig:
-      output.campaignConfig !== undefined && output.campaignConfig !== null
-        ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
-        : undefined,
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    failureReason: __expectString(output.failureReason),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    latestCampaignUpdate:
-      output.latestCampaignUpdate !== undefined && output.latestCampaignUpdate !== null
-        ? deserializeAws_json1_1CampaignUpdateSummary(output.latestCampaignUpdate, context)
-        : undefined,
-    minProvisionedTPS: __expectInt32(output.minProvisionedTPS),
-    name: __expectString(output.name),
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1Campaign
+ */
+const de_Campaign = (output: any, context: __SerdeContext): Campaign => {
+  return take(output, {
+    campaignArn: __expectString,
+    campaignConfig: _json,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestCampaignUpdate: (_: any) => de_CampaignUpdateSummary(_, context),
+    minProvisionedTPS: __expectInt32,
+    name: __expectString,
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CampaignConfig = (output: any, context: __SerdeContext): CampaignConfig => {
-  return {
-    itemExplorationConfig:
-      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
-        ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
-        : undefined,
-  } as any;
-};
+// de_CampaignConfig omitted.
 
-const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): CampaignSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Campaigns
+ */
+const de_Campaigns = (output: any, context: __SerdeContext): CampaignSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CampaignSummary(entry, context);
+      return de_CampaignSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
-  return {
-    campaignArn: __expectString(output.campaignArn),
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    failureReason: __expectString(output.failureReason),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1CampaignSummary
+ */
+const de_CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
+  return take(output, {
+    campaignArn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __SerdeContext): CampaignUpdateSummary => {
-  return {
-    campaignConfig:
-      output.campaignConfig !== undefined && output.campaignConfig !== null
-        ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
-        : undefined,
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    failureReason: __expectString(output.failureReason),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    minProvisionedTPS: __expectInt32(output.minProvisionedTPS),
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1CampaignUpdateSummary
+ */
+const de_CampaignUpdateSummary = (output: any, context: __SerdeContext): CampaignUpdateSummary => {
+  return take(output, {
+    campaignConfig: _json,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    minProvisionedTPS: __expectInt32,
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CategoricalHyperParameterRange = (
-  output: any,
-  context: __SerdeContext
-): CategoricalHyperParameterRange => {
-  return {
-    name: __expectString(output.name),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_json1_1CategoricalValues(output.values, context)
-        : undefined,
-  } as any;
+// de_CategoricalHyperParameterRange omitted.
+
+// de_CategoricalHyperParameterRanges omitted.
+
+// de_CategoricalValues omitted.
+
+// de_ColumnNamesList omitted.
+
+/**
+ * deserializeAws_json1_1ContinuousHyperParameterRange
+ */
+const de_ContinuousHyperParameterRange = (output: any, context: __SerdeContext): ContinuousHyperParameterRange => {
+  return take(output, {
+    maxValue: __limitedParseDouble,
+    minValue: __limitedParseDouble,
+    name: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CategoricalHyperParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): CategoricalHyperParameterRange[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1ContinuousHyperParameterRanges
+ */
+const de_ContinuousHyperParameterRanges = (output: any, context: __SerdeContext): ContinuousHyperParameterRange[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1CategoricalHyperParameterRange(entry, context);
+      return de_ContinuousHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1CategoricalValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+// de_CreateBatchInferenceJobResponse omitted.
+
+// de_CreateBatchSegmentJobResponse omitted.
+
+// de_CreateCampaignResponse omitted.
+
+// de_CreateDatasetExportJobResponse omitted.
+
+// de_CreateDatasetGroupResponse omitted.
+
+// de_CreateDatasetImportJobResponse omitted.
+
+// de_CreateDatasetResponse omitted.
+
+// de_CreateEventTrackerResponse omitted.
+
+// de_CreateFilterResponse omitted.
+
+// de_CreateMetricAttributionResponse omitted.
+
+// de_CreateRecommenderResponse omitted.
+
+// de_CreateSchemaResponse omitted.
+
+// de_CreateSolutionResponse omitted.
+
+// de_CreateSolutionVersionResponse omitted.
+
+/**
+ * deserializeAws_json1_1Dataset
+ */
+const de_Dataset = (output: any, context: __SerdeContext): Dataset => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetArn: __expectString,
+    datasetGroupArn: __expectString,
+    datasetType: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestDatasetUpdate: (_: any) => de_DatasetUpdateSummary(_, context),
+    name: __expectString,
+    schemaArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DatasetExportJob
+ */
+const de_DatasetExportJob = (output: any, context: __SerdeContext): DatasetExportJob => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetArn: __expectString,
+    datasetExportJobArn: __expectString,
+    failureReason: __expectString,
+    ingestionMode: __expectString,
+    jobName: __expectString,
+    jobOutput: _json,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+// de_DatasetExportJobOutput omitted.
+
+/**
+ * deserializeAws_json1_1DatasetExportJobs
+ */
+const de_DatasetExportJobs = (output: any, context: __SerdeContext): DatasetExportJobSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return __expectString(entry) as any;
+      return de_DatasetExportJobSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1ContinuousHyperParameterRange = (
-  output: any,
-  context: __SerdeContext
-): ContinuousHyperParameterRange => {
-  return {
-    maxValue: __limitedParseDouble(output.maxValue),
-    minValue: __limitedParseDouble(output.minValue),
-    name: __expectString(output.name),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetExportJobSummary
+ */
+const de_DatasetExportJobSummary = (output: any, context: __SerdeContext): DatasetExportJobSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetExportJobArn: __expectString,
+    failureReason: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ContinuousHyperParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): ContinuousHyperParameterRange[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1DatasetGroup
+ */
+const de_DatasetGroup = (output: any, context: __SerdeContext): DatasetGroup => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    domain: __expectString,
+    failureReason: __expectString,
+    kmsKeyArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DatasetGroups
+ */
+const de_DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1ContinuousHyperParameterRange(entry, context);
+      return de_DatasetGroupSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1CreateBatchInferenceJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateBatchInferenceJobResponse => {
-  return {
-    batchInferenceJobArn: __expectString(output.batchInferenceJobArn),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetGroupSummary
+ */
+const de_DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    domain: __expectString,
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateCampaignResponse = (output: any, context: __SerdeContext): CreateCampaignResponse => {
-  return {
-    campaignArn: __expectString(output.campaignArn),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetImportJob
+ */
+const de_DatasetImportJob = (output: any, context: __SerdeContext): DatasetImportJob => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSource: _json,
+    datasetArn: __expectString,
+    datasetImportJobArn: __expectString,
+    failureReason: __expectString,
+    importMode: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    publishAttributionMetricsToS3: __expectBoolean,
+    roleArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1CreateDatasetExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDatasetExportJobResponse => {
-  return {
-    datasetExportJobArn: __expectString(output.datasetExportJobArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateDatasetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDatasetGroupResponse => {
-  return {
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateDatasetImportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateDatasetImportJobResponse => {
-  return {
-    datasetImportJobArn: __expectString(output.datasetImportJobArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
-  return {
-    datasetArn: __expectString(output.datasetArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateEventTrackerResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateEventTrackerResponse => {
-  return {
-    eventTrackerArn: __expectString(output.eventTrackerArn),
-    trackingId: __expectString(output.trackingId),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateFilterResponse = (output: any, context: __SerdeContext): CreateFilterResponse => {
-  return {
-    filterArn: __expectString(output.filterArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateSchemaResponse = (output: any, context: __SerdeContext): CreateSchemaResponse => {
-  return {
-    schemaArn: __expectString(output.schemaArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateSolutionResponse = (output: any, context: __SerdeContext): CreateSolutionResponse => {
-  return {
-    solutionArn: __expectString(output.solutionArn),
-  } as any;
-};
-
-const deserializeAws_json1_1CreateSolutionVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateSolutionVersionResponse => {
-  return {
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-  } as any;
-};
-
-const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Dataset => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetArn: __expectString(output.datasetArn),
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    datasetType: __expectString(output.datasetType),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    schemaArn: __expectString(output.schemaArn),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeContext): DatasetExportJob => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetArn: __expectString(output.datasetArn),
-    datasetExportJobArn: __expectString(output.datasetExportJobArn),
-    failureReason: __expectString(output.failureReason),
-    ingestionMode: __expectString(output.ingestionMode),
-    jobName: __expectString(output.jobName),
-    jobOutput:
-      output.jobOutput !== undefined && output.jobOutput !== null
-        ? deserializeAws_json1_1DatasetExportJobOutput(output.jobOutput, context)
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1DatasetExportJobOutput = (output: any, context: __SerdeContext): DatasetExportJobOutput => {
-  return {
-    s3DataDestination:
-      output.s3DataDestination !== undefined && output.s3DataDestination !== null
-        ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DatasetExportJobs = (output: any, context: __SerdeContext): DatasetExportJobSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1DatasetImportJobs
+ */
+const de_DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImportJobSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetExportJobSummary(entry, context);
+      return de_DatasetImportJobSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1DatasetExportJobSummary = (
-  output: any,
-  context: __SerdeContext
-): DatasetExportJobSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetExportJobArn: __expectString(output.datasetExportJobArn),
-    failureReason: __expectString(output.failureReason),
-    jobName: __expectString(output.jobName),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetImportJobSummary
+ */
+const de_DatasetImportJobSummary = (output: any, context: __SerdeContext): DatasetImportJobSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetImportJobArn: __expectString,
+    failureReason: __expectString,
+    importMode: __expectString,
+    jobName: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext): DatasetGroup => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    failureReason: __expectString(output.failureReason),
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Datasets
+ */
+const de_Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetGroupSummary(entry, context);
+      return de_DatasetSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    failureReason: __expectString(output.failureReason),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetSchema
+ */
+const de_DatasetSchema = (output: any, context: __SerdeContext): DatasetSchema => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    domain: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    schema: __expectString,
+    schemaArn: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeContext): DatasetImportJob => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    dataSource:
-      output.dataSource !== undefined && output.dataSource !== null
-        ? deserializeAws_json1_1DataSource(output.dataSource, context)
-        : undefined,
-    datasetArn: __expectString(output.datasetArn),
-    datasetImportJobArn: __expectString(output.datasetImportJobArn),
-    failureReason: __expectString(output.failureReason),
-    jobName: __expectString(output.jobName),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    roleArn: __expectString(output.roleArn),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetSchemaSummary
+ */
+const de_DatasetSchemaSummary = (output: any, context: __SerdeContext): DatasetSchemaSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    domain: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    schemaArn: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImportJobSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetImportJobSummary(entry, context);
-    });
+/**
+ * deserializeAws_json1_1DatasetSummary
+ */
+const de_DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetArn: __expectString,
+    datasetType: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DatasetImportJobSummary = (
-  output: any,
-  context: __SerdeContext
-): DatasetImportJobSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetImportJobArn: __expectString(output.datasetImportJobArn),
-    failureReason: __expectString(output.failureReason),
-    jobName: __expectString(output.jobName),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1DatasetUpdateSummary
+ */
+const de_DatasetUpdateSummary = (output: any, context: __SerdeContext): DatasetUpdateSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    schemaArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetSummary(entry, context);
-    });
-};
+// de_DataSource omitted.
 
-const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContext): DatasetSchema => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    schema: __expectString(output.schema),
-    schemaArn: __expectString(output.schemaArn),
-  } as any;
-};
+// de_DefaultCategoricalHyperParameterRange omitted.
 
-const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __SerdeContext): DatasetSchemaSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    schemaArn: __expectString(output.schemaArn),
-  } as any;
-};
+// de_DefaultCategoricalHyperParameterRanges omitted.
 
-const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetArn: __expectString(output.datasetArn),
-    datasetType: __expectString(output.datasetType),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
-  return {
-    dataLocation: __expectString(output.dataLocation),
-  } as any;
-};
-
-const deserializeAws_json1_1DefaultCategoricalHyperParameterRange = (
-  output: any,
-  context: __SerdeContext
-): DefaultCategoricalHyperParameterRange => {
-  return {
-    isTunable: __expectBoolean(output.isTunable),
-    name: __expectString(output.name),
-    values:
-      output.values !== undefined && output.values !== null
-        ? deserializeAws_json1_1CategoricalValues(output.values, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DefaultCategoricalHyperParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): DefaultCategoricalHyperParameterRange[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DefaultCategoricalHyperParameterRange(entry, context);
-    });
-};
-
-const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
+/**
+ * deserializeAws_json1_1DefaultContinuousHyperParameterRange
+ */
+const de_DefaultContinuousHyperParameterRange = (
   output: any,
   context: __SerdeContext
 ): DefaultContinuousHyperParameterRange => {
-  return {
-    isTunable: __expectBoolean(output.isTunable),
-    maxValue: __limitedParseDouble(output.maxValue),
-    minValue: __limitedParseDouble(output.minValue),
-    name: __expectString(output.name),
-  } as any;
+  return take(output, {
+    isTunable: __expectBoolean,
+    maxValue: __limitedParseDouble,
+    minValue: __limitedParseDouble,
+    name: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1DefaultContinuousHyperParameterRanges = (
+/**
+ * deserializeAws_json1_1DefaultContinuousHyperParameterRanges
+ */
+const de_DefaultContinuousHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): DefaultContinuousHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DefaultContinuousHyperParameterRange(entry, context);
+      return de_DefaultContinuousHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1DefaultHyperParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): DefaultHyperParameterRanges => {
-  return {
-    categoricalHyperParameterRanges:
-      output.categoricalHyperParameterRanges !== undefined && output.categoricalHyperParameterRanges !== null
-        ? deserializeAws_json1_1DefaultCategoricalHyperParameterRanges(output.categoricalHyperParameterRanges, context)
-        : undefined,
-    continuousHyperParameterRanges:
-      output.continuousHyperParameterRanges !== undefined && output.continuousHyperParameterRanges !== null
-        ? deserializeAws_json1_1DefaultContinuousHyperParameterRanges(output.continuousHyperParameterRanges, context)
-        : undefined,
-    integerHyperParameterRanges:
-      output.integerHyperParameterRanges !== undefined && output.integerHyperParameterRanges !== null
-        ? deserializeAws_json1_1DefaultIntegerHyperParameterRanges(output.integerHyperParameterRanges, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DefaultHyperParameterRanges
+ */
+const de_DefaultHyperParameterRanges = (output: any, context: __SerdeContext): DefaultHyperParameterRanges => {
+  return take(output, {
+    categoricalHyperParameterRanges: _json,
+    continuousHyperParameterRanges: (_: any) => de_DefaultContinuousHyperParameterRanges(_, context),
+    integerHyperParameterRanges: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1DefaultIntegerHyperParameterRange = (
-  output: any,
-  context: __SerdeContext
-): DefaultIntegerHyperParameterRange => {
-  return {
-    isTunable: __expectBoolean(output.isTunable),
-    maxValue: __expectInt32(output.maxValue),
-    minValue: __expectInt32(output.minValue),
-    name: __expectString(output.name),
-  } as any;
+// de_DefaultIntegerHyperParameterRange omitted.
+
+// de_DefaultIntegerHyperParameterRanges omitted.
+
+/**
+ * deserializeAws_json1_1DescribeAlgorithmResponse
+ */
+const de_DescribeAlgorithmResponse = (output: any, context: __SerdeContext): DescribeAlgorithmResponse => {
+  return take(output, {
+    algorithm: (_: any) => de_Algorithm(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DefaultIntegerHyperParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): DefaultIntegerHyperParameterRange[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DefaultIntegerHyperParameterRange(entry, context);
-    });
-};
-
-const deserializeAws_json1_1DescribeAlgorithmResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeAlgorithmResponse => {
-  return {
-    algorithm:
-      output.algorithm !== undefined && output.algorithm !== null
-        ? deserializeAws_json1_1Algorithm(output.algorithm, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeBatchInferenceJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeBatchInferenceJobResponse
+ */
+const de_DescribeBatchInferenceJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBatchInferenceJobResponse => {
-  return {
-    batchInferenceJob:
-      output.batchInferenceJob !== undefined && output.batchInferenceJob !== null
-        ? deserializeAws_json1_1BatchInferenceJob(output.batchInferenceJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    batchInferenceJob: (_: any) => de_BatchInferenceJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeCampaignResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCampaignResponse => {
-  return {
-    campaign:
-      output.campaign !== undefined && output.campaign !== null
-        ? deserializeAws_json1_1Campaign(output.campaign, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeBatchSegmentJobResponse
+ */
+const de_DescribeBatchSegmentJobResponse = (output: any, context: __SerdeContext): DescribeBatchSegmentJobResponse => {
+  return take(output, {
+    batchSegmentJob: (_: any) => de_BatchSegmentJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeDatasetExportJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeCampaignResponse
+ */
+const de_DescribeCampaignResponse = (output: any, context: __SerdeContext): DescribeCampaignResponse => {
+  return take(output, {
+    campaign: (_: any) => de_Campaign(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDatasetExportJobResponse
+ */
+const de_DescribeDatasetExportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDatasetExportJobResponse => {
-  return {
-    datasetExportJob:
-      output.datasetExportJob !== undefined && output.datasetExportJob !== null
-        ? deserializeAws_json1_1DatasetExportJob(output.datasetExportJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    datasetExportJob: (_: any) => de_DatasetExportJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeDatasetGroupResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeDatasetGroupResponse => {
-  return {
-    datasetGroup:
-      output.datasetGroup !== undefined && output.datasetGroup !== null
-        ? deserializeAws_json1_1DatasetGroup(output.datasetGroup, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupResponse
+ */
+const de_DescribeDatasetGroupResponse = (output: any, context: __SerdeContext): DescribeDatasetGroupResponse => {
+  return take(output, {
+    datasetGroup: (_: any) => de_DatasetGroup(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobResponse
+ */
+const de_DescribeDatasetImportJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDatasetImportJobResponse => {
-  return {
-    datasetImportJob:
-      output.datasetImportJob !== undefined && output.datasetImportJob !== null
-        ? deserializeAws_json1_1DatasetImportJob(output.datasetImportJob, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    datasetImportJob: (_: any) => de_DatasetImportJob(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeDatasetResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeDatasetResponse => {
-  return {
-    dataset:
-      output.dataset !== undefined && output.dataset !== null
-        ? deserializeAws_json1_1Dataset(output.dataset, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeDatasetResponse
+ */
+const de_DescribeDatasetResponse = (output: any, context: __SerdeContext): DescribeDatasetResponse => {
+  return take(output, {
+    dataset: (_: any) => de_Dataset(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeEventTrackerResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeEventTrackerResponse => {
-  return {
-    eventTracker:
-      output.eventTracker !== undefined && output.eventTracker !== null
-        ? deserializeAws_json1_1EventTracker(output.eventTracker, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeEventTrackerResponse
+ */
+const de_DescribeEventTrackerResponse = (output: any, context: __SerdeContext): DescribeEventTrackerResponse => {
+  return take(output, {
+    eventTracker: (_: any) => de_EventTracker(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeFeatureTransformationResponse = (
+/**
+ * deserializeAws_json1_1DescribeFeatureTransformationResponse
+ */
+const de_DescribeFeatureTransformationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeFeatureTransformationResponse => {
-  return {
-    featureTransformation:
-      output.featureTransformation !== undefined && output.featureTransformation !== null
-        ? deserializeAws_json1_1FeatureTransformation(output.featureTransformation, context)
-        : undefined,
-  } as any;
+  return take(output, {
+    featureTransformation: (_: any) => de_FeatureTransformation(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeFilterResponse = (output: any, context: __SerdeContext): DescribeFilterResponse => {
-  return {
-    filter:
-      output.filter !== undefined && output.filter !== null
-        ? deserializeAws_json1_1Filter(output.filter, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeFilterResponse
+ */
+const de_DescribeFilterResponse = (output: any, context: __SerdeContext): DescribeFilterResponse => {
+  return take(output, {
+    filter: (_: any) => de_Filter(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeRecipeResponse = (output: any, context: __SerdeContext): DescribeRecipeResponse => {
-  return {
-    recipe:
-      output.recipe !== undefined && output.recipe !== null
-        ? deserializeAws_json1_1Recipe(output.recipe, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeSchemaResponse = (output: any, context: __SerdeContext): DescribeSchemaResponse => {
-  return {
-    schema:
-      output.schema !== undefined && output.schema !== null
-        ? deserializeAws_json1_1DatasetSchema(output.schema, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DescribeSolutionResponse = (
+/**
+ * deserializeAws_json1_1DescribeMetricAttributionResponse
+ */
+const de_DescribeMetricAttributionResponse = (
   output: any,
   context: __SerdeContext
-): DescribeSolutionResponse => {
-  return {
-    solution:
-      output.solution !== undefined && output.solution !== null
-        ? deserializeAws_json1_1Solution(output.solution, context)
-        : undefined,
-  } as any;
+): DescribeMetricAttributionResponse => {
+  return take(output, {
+    metricAttribution: (_: any) => de_MetricAttribution(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1DescribeSolutionVersionResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeSolutionVersionResponse => {
-  return {
-    solutionVersion:
-      output.solutionVersion !== undefined && output.solutionVersion !== null
-        ? deserializeAws_json1_1SolutionVersion(output.solutionVersion, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeRecipeResponse
+ */
+const de_DescribeRecipeResponse = (output: any, context: __SerdeContext): DescribeRecipeResponse => {
+  return take(output, {
+    recipe: (_: any) => de_Recipe(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1EventTracker = (output: any, context: __SerdeContext): EventTracker => {
-  return {
-    accountId: __expectString(output.accountId),
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    eventTrackerArn: __expectString(output.eventTrackerArn),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-    trackingId: __expectString(output.trackingId),
-  } as any;
+/**
+ * deserializeAws_json1_1DescribeRecommenderResponse
+ */
+const de_DescribeRecommenderResponse = (output: any, context: __SerdeContext): DescribeRecommenderResponse => {
+  return take(output, {
+    recommender: (_: any) => de_Recommender(_, context),
+  }) as any;
 };
 
-const deserializeAws_json1_1EventTrackers = (output: any, context: __SerdeContext): EventTrackerSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1DescribeSchemaResponse
+ */
+const de_DescribeSchemaResponse = (output: any, context: __SerdeContext): DescribeSchemaResponse => {
+  return take(output, {
+    schema: (_: any) => de_DatasetSchema(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSolutionResponse
+ */
+const de_DescribeSolutionResponse = (output: any, context: __SerdeContext): DescribeSolutionResponse => {
+  return take(output, {
+    solution: (_: any) => de_Solution(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSolutionVersionResponse
+ */
+const de_DescribeSolutionVersionResponse = (output: any, context: __SerdeContext): DescribeSolutionVersionResponse => {
+  return take(output, {
+    solutionVersion: (_: any) => de_SolutionVersion(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EventTracker
+ */
+const de_EventTracker = (output: any, context: __SerdeContext): EventTracker => {
+  return take(output, {
+    accountId: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    eventTrackerArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    trackingId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1EventTrackers
+ */
+const de_EventTrackers = (output: any, context: __SerdeContext): EventTrackerSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1EventTrackerSummary(entry, context);
+      return de_EventTrackerSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __SerdeContext): EventTrackerSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    eventTrackerArn: __expectString(output.eventTrackerArn),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1EventTrackerSummary
+ */
+const de_EventTrackerSummary = (output: any, context: __SerdeContext): EventTrackerSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    eventTrackerArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1FeatureTransformation = (output: any, context: __SerdeContext): FeatureTransformation => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    defaultParameters:
-      output.defaultParameters !== undefined && output.defaultParameters !== null
-        ? deserializeAws_json1_1FeaturizationParameters(output.defaultParameters, context)
-        : undefined,
-    featureTransformationArn: __expectString(output.featureTransformationArn),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+// de_ExcludedDatasetColumns omitted.
+
+/**
+ * deserializeAws_json1_1FeatureTransformation
+ */
+const de_FeatureTransformation = (output: any, context: __SerdeContext): FeatureTransformation => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultParameters: _json,
+    featureTransformationArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1FeatureTransformationParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+// de_FeatureTransformationParameters omitted.
+
+// de_FeaturizationParameters omitted.
+
+/**
+ * deserializeAws_json1_1Filter
+ */
+const de_Filter = (output: any, context: __SerdeContext): Filter => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    failureReason: __expectString,
+    filterArn: __expectString,
+    filterExpression: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Filters
+ */
+const de_Filters = (output: any, context: __SerdeContext): FilterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FilterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1FilterSummary
+ */
+const de_FilterSummary = (output: any, context: __SerdeContext): FilterSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    failureReason: __expectString,
+    filterArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetSolutionMetricsResponse
+ */
+const de_GetSolutionMetricsResponse = (output: any, context: __SerdeContext): GetSolutionMetricsResponse => {
+  return take(output, {
+    metrics: (_: any) => de_Metrics(_, context),
+    solutionVersionArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1HPOConfig
+ */
+const de_HPOConfig = (output: any, context: __SerdeContext): HPOConfig => {
+  return take(output, {
+    algorithmHyperParameterRanges: (_: any) => de_HyperParameterRanges(_, context),
+    hpoObjective: _json,
+    hpoResourceConfig: _json,
+  }) as any;
+};
+
+// de_HPOObjective omitted.
+
+// de_HPOResourceConfig omitted.
+
+/**
+ * deserializeAws_json1_1HyperParameterRanges
+ */
+const de_HyperParameterRanges = (output: any, context: __SerdeContext): HyperParameterRanges => {
+  return take(output, {
+    categoricalHyperParameterRanges: _json,
+    continuousHyperParameterRanges: (_: any) => de_ContinuousHyperParameterRanges(_, context),
+    integerHyperParameterRanges: _json,
+  }) as any;
+};
+
+// de_HyperParameters omitted.
+
+// de_IntegerHyperParameterRange omitted.
+
+// de_IntegerHyperParameterRanges omitted.
+
+// de_InvalidInputException omitted.
+
+// de_InvalidNextTokenException omitted.
+
+// de_LimitExceededException omitted.
+
+/**
+ * deserializeAws_json1_1ListBatchInferenceJobsResponse
+ */
+const de_ListBatchInferenceJobsResponse = (output: any, context: __SerdeContext): ListBatchInferenceJobsResponse => {
+  return take(output, {
+    batchInferenceJobs: (_: any) => de_BatchInferenceJobs(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListBatchSegmentJobsResponse
+ */
+const de_ListBatchSegmentJobsResponse = (output: any, context: __SerdeContext): ListBatchSegmentJobsResponse => {
+  return take(output, {
+    batchSegmentJobs: (_: any) => de_BatchSegmentJobs(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListCampaignsResponse
+ */
+const de_ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
+  return take(output, {
+    campaigns: (_: any) => de_Campaigns(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetExportJobsResponse
+ */
+const de_ListDatasetExportJobsResponse = (output: any, context: __SerdeContext): ListDatasetExportJobsResponse => {
+  return take(output, {
+    datasetExportJobs: (_: any) => de_DatasetExportJobs(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetGroupsResponse
+ */
+const de_ListDatasetGroupsResponse = (output: any, context: __SerdeContext): ListDatasetGroupsResponse => {
+  return take(output, {
+    datasetGroups: (_: any) => de_DatasetGroups(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsResponse
+ */
+const de_ListDatasetImportJobsResponse = (output: any, context: __SerdeContext): ListDatasetImportJobsResponse => {
+  return take(output, {
+    datasetImportJobs: (_: any) => de_DatasetImportJobs(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetsResponse
+ */
+const de_ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
+  return take(output, {
+    datasets: (_: any) => de_Datasets(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListEventTrackersResponse
+ */
+const de_ListEventTrackersResponse = (output: any, context: __SerdeContext): ListEventTrackersResponse => {
+  return take(output, {
+    eventTrackers: (_: any) => de_EventTrackers(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListFiltersResponse
+ */
+const de_ListFiltersResponse = (output: any, context: __SerdeContext): ListFiltersResponse => {
+  return take(output, {
+    Filters: (_: any) => de_Filters(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+// de_ListMetricAttributionMetricsResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListMetricAttributionsResponse
+ */
+const de_ListMetricAttributionsResponse = (output: any, context: __SerdeContext): ListMetricAttributionsResponse => {
+  return take(output, {
+    metricAttributions: (_: any) => de_MetricAttributions(_, context),
+    nextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListRecipesResponse
+ */
+const de_ListRecipesResponse = (output: any, context: __SerdeContext): ListRecipesResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    recipes: (_: any) => de_Recipes(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListRecommendersResponse
+ */
+const de_ListRecommendersResponse = (output: any, context: __SerdeContext): ListRecommendersResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    recommenders: (_: any) => de_Recommenders(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListSchemasResponse
+ */
+const de_ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    schemas: (_: any) => de_Schemas(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListSolutionsResponse
+ */
+const de_ListSolutionsResponse = (output: any, context: __SerdeContext): ListSolutionsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    solutions: (_: any) => de_Solutions(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListSolutionVersionsResponse
+ */
+const de_ListSolutionVersionsResponse = (output: any, context: __SerdeContext): ListSolutionVersionsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    solutionVersions: (_: any) => de_SolutionVersions(_, context),
+  }) as any;
+};
+
+// de_ListTagsForResourceResponse omitted.
+
+// de_MetricAttribute omitted.
+
+// de_MetricAttributes omitted.
+
+/**
+ * deserializeAws_json1_1MetricAttribution
+ */
+const de_MetricAttribution = (output: any, context: __SerdeContext): MetricAttribution => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricAttributionArn: __expectString,
+    metricsOutputConfig: _json,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+// de_MetricAttributionOutput omitted.
+
+/**
+ * deserializeAws_json1_1MetricAttributions
+ */
+const de_MetricAttributions = (output: any, context: __SerdeContext): MetricAttributionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetricAttributionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1MetricAttributionSummary
+ */
+const de_MetricAttributionSummary = (output: any, context: __SerdeContext): MetricAttributionSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metricAttributionArn: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Metrics
+ */
+const de_Metrics = (output: any, context: __SerdeContext): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
-const deserializeAws_json1_1FeaturizationParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
+// de_OptimizationObjective omitted.
+
+/**
+ * deserializeAws_json1_1Recipe
+ */
+const de_Recipe = (output: any, context: __SerdeContext): Recipe => {
+  return take(output, {
+    algorithmArn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    featureTransformationArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    recipeArn: __expectString,
+    recipeType: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Filter => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    failureReason: __expectString(output.failureReason),
-    filterArn: __expectString(output.filterArn),
-    filterExpression: __expectString(output.filterExpression),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1Filters = (output: any, context: __SerdeContext): FilterSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Recipes
+ */
+const de_Recipes = (output: any, context: __SerdeContext): RecipeSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1FilterSummary(entry, context);
+      return de_RecipeSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContext): FilterSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    failureReason: __expectString(output.failureReason),
-    filterArn: __expectString(output.filterArn),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1RecipeSummary
+ */
+const de_RecipeSummary = (output: any, context: __SerdeContext): RecipeSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    domain: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    recipeArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1GetSolutionMetricsResponse = (
-  output: any,
-  context: __SerdeContext
-): GetSolutionMetricsResponse => {
-  return {
-    metrics:
-      output.metrics !== undefined && output.metrics !== null
-        ? deserializeAws_json1_1Metrics(output.metrics, context)
-        : undefined,
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-  } as any;
+/**
+ * deserializeAws_json1_1Recommender
+ */
+const de_Recommender = (output: any, context: __SerdeContext): Recommender => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestRecommenderUpdate: (_: any) => de_RecommenderUpdateSummary(_, context),
+    modelMetrics: (_: any) => de_Metrics(_, context),
+    name: __expectString,
+    recipeArn: __expectString,
+    recommenderArn: __expectString,
+    recommenderConfig: _json,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1HPOConfig = (output: any, context: __SerdeContext): HPOConfig => {
-  return {
-    algorithmHyperParameterRanges:
-      output.algorithmHyperParameterRanges !== undefined && output.algorithmHyperParameterRanges !== null
-        ? deserializeAws_json1_1HyperParameterRanges(output.algorithmHyperParameterRanges, context)
-        : undefined,
-    hpoObjective:
-      output.hpoObjective !== undefined && output.hpoObjective !== null
-        ? deserializeAws_json1_1HPOObjective(output.hpoObjective, context)
-        : undefined,
-    hpoResourceConfig:
-      output.hpoResourceConfig !== undefined && output.hpoResourceConfig !== null
-        ? deserializeAws_json1_1HPOResourceConfig(output.hpoResourceConfig, context)
-        : undefined,
-  } as any;
-};
+// de_RecommenderConfig omitted.
 
-const deserializeAws_json1_1HPOObjective = (output: any, context: __SerdeContext): HPOObjective => {
-  return {
-    metricName: __expectString(output.metricName),
-    metricRegex: __expectString(output.metricRegex),
-    type: __expectString(output.type),
-  } as any;
-};
-
-const deserializeAws_json1_1HPOResourceConfig = (output: any, context: __SerdeContext): HPOResourceConfig => {
-  return {
-    maxNumberOfTrainingJobs: __expectString(output.maxNumberOfTrainingJobs),
-    maxParallelTrainingJobs: __expectString(output.maxParallelTrainingJobs),
-  } as any;
-};
-
-const deserializeAws_json1_1HyperParameterRanges = (output: any, context: __SerdeContext): HyperParameterRanges => {
-  return {
-    categoricalHyperParameterRanges:
-      output.categoricalHyperParameterRanges !== undefined && output.categoricalHyperParameterRanges !== null
-        ? deserializeAws_json1_1CategoricalHyperParameterRanges(output.categoricalHyperParameterRanges, context)
-        : undefined,
-    continuousHyperParameterRanges:
-      output.continuousHyperParameterRanges !== undefined && output.continuousHyperParameterRanges !== null
-        ? deserializeAws_json1_1ContinuousHyperParameterRanges(output.continuousHyperParameterRanges, context)
-        : undefined,
-    integerHyperParameterRanges:
-      output.integerHyperParameterRanges !== undefined && output.integerHyperParameterRanges !== null
-        ? deserializeAws_json1_1IntegerHyperParameterRanges(output.integerHyperParameterRanges, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_json1_1IntegerHyperParameterRange = (
-  output: any,
-  context: __SerdeContext
-): IntegerHyperParameterRange => {
-  return {
-    maxValue: __expectInt32(output.maxValue),
-    minValue: __expectInt32(output.minValue),
-    name: __expectString(output.name),
-  } as any;
-};
-
-const deserializeAws_json1_1IntegerHyperParameterRanges = (
-  output: any,
-  context: __SerdeContext
-): IntegerHyperParameterRange[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Recommenders
+ */
+const de_Recommenders = (output: any, context: __SerdeContext): RecommenderSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1IntegerHyperParameterRange(entry, context);
+      return de_RecommenderSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1RecommenderSummary
+ */
+const de_RecommenderSummary = (output: any, context: __SerdeContext): RecommenderSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    recipeArn: __expectString,
+    recommenderArn: __expectString,
+    recommenderConfig: _json,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1InvalidNextTokenException = (
-  output: any,
-  context: __SerdeContext
-): InvalidNextTokenException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1RecommenderUpdateSummary
+ */
+const de_RecommenderUpdateSummary = (output: any, context: __SerdeContext): RecommenderUpdateSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    recommenderConfig: _json,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
+// de_ResourceAlreadyExistsException omitted.
 
-const deserializeAws_json1_1ListBatchInferenceJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListBatchInferenceJobsResponse => {
-  return {
-    batchInferenceJobs:
-      output.batchInferenceJobs !== undefined && output.batchInferenceJobs !== null
-        ? deserializeAws_json1_1BatchInferenceJobs(output.batchInferenceJobs, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ResourceConfig omitted.
 
-const deserializeAws_json1_1ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
-  return {
-    campaigns:
-      output.campaigns !== undefined && output.campaigns !== null
-        ? deserializeAws_json1_1Campaigns(output.campaigns, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ResourceInUseException omitted.
 
-const deserializeAws_json1_1ListDatasetExportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDatasetExportJobsResponse => {
-  return {
-    datasetExportJobs:
-      output.datasetExportJobs !== undefined && output.datasetExportJobs !== null
-        ? deserializeAws_json1_1DatasetExportJobs(output.datasetExportJobs, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_ResourceNotFoundException omitted.
 
-const deserializeAws_json1_1ListDatasetGroupsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDatasetGroupsResponse => {
-  return {
-    datasetGroups:
-      output.datasetGroups !== undefined && output.datasetGroups !== null
-        ? deserializeAws_json1_1DatasetGroups(output.datasetGroups, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
+// de_S3DataConfig omitted.
 
-const deserializeAws_json1_1ListDatasetImportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDatasetImportJobsResponse => {
-  return {
-    datasetImportJobs:
-      output.datasetImportJobs !== undefined && output.datasetImportJobs !== null
-        ? deserializeAws_json1_1DatasetImportJobs(output.datasetImportJobs, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
-  return {
-    datasets:
-      output.datasets !== undefined && output.datasets !== null
-        ? deserializeAws_json1_1Datasets(output.datasets, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListEventTrackersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListEventTrackersResponse => {
-  return {
-    eventTrackers:
-      output.eventTrackers !== undefined && output.eventTrackers !== null
-        ? deserializeAws_json1_1EventTrackers(output.eventTrackers, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __SerdeContext): ListFiltersResponse => {
-  return {
-    Filters:
-      output.Filters !== undefined && output.Filters !== null
-        ? deserializeAws_json1_1Filters(output.Filters, context)
-        : undefined,
-    nextToken: __expectString(output.nextToken),
-  } as any;
-};
-
-const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __SerdeContext): ListRecipesResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    recipes:
-      output.recipes !== undefined && output.recipes !== null
-        ? deserializeAws_json1_1Recipes(output.recipes, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    schemas:
-      output.schemas !== undefined && output.schemas !== null
-        ? deserializeAws_json1_1Schemas(output.schemas, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSolutionsResponse = (output: any, context: __SerdeContext): ListSolutionsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    solutions:
-      output.solutions !== undefined && output.solutions !== null
-        ? deserializeAws_json1_1Solutions(output.solutions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListSolutionVersionsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListSolutionVersionsResponse => {
-  return {
-    nextToken: __expectString(output.nextToken),
-    solutionVersions:
-      output.solutionVersions !== undefined && output.solutionVersions !== null
-        ? deserializeAws_json1_1SolutionVersions(output.solutionVersions, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_json1_1OptimizationObjective = (output: any, context: __SerdeContext): OptimizationObjective => {
-  return {
-    itemAttribute: __expectString(output.itemAttribute),
-    objectiveSensitivity: __expectString(output.objectiveSensitivity),
-  } as any;
-};
-
-const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Recipe => {
-  return {
-    algorithmArn: __expectString(output.algorithmArn),
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    description: __expectString(output.description),
-    featureTransformationArn: __expectString(output.featureTransformationArn),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    recipeArn: __expectString(output.recipeArn),
-    recipeType: __expectString(output.recipeType),
-    status: __expectString(output.status),
-  } as any;
-};
-
-const deserializeAws_json1_1Recipes = (output: any, context: __SerdeContext): RecipeSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Schemas
+ */
+const de_Schemas = (output: any, context: __SerdeContext): DatasetSchemaSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1RecipeSummary(entry, context);
+      return de_DatasetSchemaSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContext): RecipeSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    recipeArn: __expectString(output.recipeArn),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1Solution
+ */
+const de_Solution = (output: any, context: __SerdeContext): Solution => {
+  return take(output, {
+    autoMLResult: _json,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    eventType: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    latestSolutionVersion: (_: any) => de_SolutionVersionSummary(_, context),
+    name: __expectString,
+    performAutoML: __expectBoolean,
+    performHPO: __expectBoolean,
+    recipeArn: __expectString,
+    solutionArn: __expectString,
+    solutionConfig: (_: any) => de_SolutionConfig(_, context),
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1ResourceAlreadyExistsException = (
-  output: any,
-  context: __SerdeContext
-): ResourceAlreadyExistsException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
+/**
+ * deserializeAws_json1_1SolutionConfig
+ */
+const de_SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig => {
+  return take(output, {
+    algorithmHyperParameters: _json,
+    autoMLConfig: _json,
+    eventValueThreshold: __expectString,
+    featureTransformationParameters: _json,
+    hpoConfig: (_: any) => de_HPOConfig(_, context),
+    optimizationObjective: _json,
+    trainingDataConfig: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
-  }, {});
-};
-
-const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    message: __expectString(output.message),
-  } as any;
-};
-
-const deserializeAws_json1_1S3DataConfig = (output: any, context: __SerdeContext): S3DataConfig => {
-  return {
-    kmsKeyArn: __expectString(output.kmsKeyArn),
-    path: __expectString(output.path),
-  } as any;
-};
-
-const deserializeAws_json1_1Schemas = (output: any, context: __SerdeContext): DatasetSchemaSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1Solutions
+ */
+const de_Solutions = (output: any, context: __SerdeContext): SolutionSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1DatasetSchemaSummary(entry, context);
+      return de_SolutionSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): Solution => {
-  return {
-    autoMLResult:
-      output.autoMLResult !== undefined && output.autoMLResult !== null
-        ? deserializeAws_json1_1AutoMLResult(output.autoMLResult, context)
-        : undefined,
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    eventType: __expectString(output.eventType),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    latestSolutionVersion:
-      output.latestSolutionVersion !== undefined && output.latestSolutionVersion !== null
-        ? deserializeAws_json1_1SolutionVersionSummary(output.latestSolutionVersion, context)
-        : undefined,
-    name: __expectString(output.name),
-    performAutoML: __expectBoolean(output.performAutoML),
-    performHPO: __expectBoolean(output.performHPO),
-    recipeArn: __expectString(output.recipeArn),
-    solutionArn: __expectString(output.solutionArn),
-    solutionConfig:
-      output.solutionConfig !== undefined && output.solutionConfig !== null
-        ? deserializeAws_json1_1SolutionConfig(output.solutionConfig, context)
-        : undefined,
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1SolutionSummary
+ */
+const de_SolutionSummary = (output: any, context: __SerdeContext): SolutionSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    recipeArn: __expectString,
+    solutionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig => {
-  return {
-    algorithmHyperParameters:
-      output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
-        ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
-        : undefined,
-    autoMLConfig:
-      output.autoMLConfig !== undefined && output.autoMLConfig !== null
-        ? deserializeAws_json1_1AutoMLConfig(output.autoMLConfig, context)
-        : undefined,
-    eventValueThreshold: __expectString(output.eventValueThreshold),
-    featureTransformationParameters:
-      output.featureTransformationParameters !== undefined && output.featureTransformationParameters !== null
-        ? deserializeAws_json1_1FeatureTransformationParameters(output.featureTransformationParameters, context)
-        : undefined,
-    hpoConfig:
-      output.hpoConfig !== undefined && output.hpoConfig !== null
-        ? deserializeAws_json1_1HPOConfig(output.hpoConfig, context)
-        : undefined,
-    optimizationObjective:
-      output.optimizationObjective !== undefined && output.optimizationObjective !== null
-        ? deserializeAws_json1_1OptimizationObjective(output.optimizationObjective, context)
-        : undefined,
-  } as any;
+/**
+ * deserializeAws_json1_1SolutionVersion
+ */
+const de_SolutionVersion = (output: any, context: __SerdeContext): SolutionVersion => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetGroupArn: __expectString,
+    eventType: __expectString,
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    performAutoML: __expectBoolean,
+    performHPO: __expectBoolean,
+    recipeArn: __expectString,
+    solutionArn: __expectString,
+    solutionConfig: (_: any) => de_SolutionConfig(_, context),
+    solutionVersionArn: __expectString,
+    status: __expectString,
+    trainingHours: __limitedParseDouble,
+    trainingMode: __expectString,
+    tunedHPOParams: _json,
+  }) as any;
 };
 
-const deserializeAws_json1_1Solutions = (output: any, context: __SerdeContext): SolutionSummary[] => {
-  return (output || [])
+/**
+ * deserializeAws_json1_1SolutionVersions
+ */
+const de_SolutionVersions = (output: any, context: __SerdeContext): SolutionVersionSummary[] => {
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SolutionSummary(entry, context);
+      return de_SolutionVersionSummary(entry, context);
     });
+  return retVal;
 };
 
-const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeContext): SolutionSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    name: __expectString(output.name),
-    solutionArn: __expectString(output.solutionArn),
-    status: __expectString(output.status),
-  } as any;
+/**
+ * deserializeAws_json1_1SolutionVersionSummary
+ */
+const de_SolutionVersionSummary = (output: any, context: __SerdeContext): SolutionVersionSummary => {
+  return take(output, {
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReason: __expectString,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    solutionVersionArn: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
-const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeContext): SolutionVersion => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    datasetGroupArn: __expectString(output.datasetGroupArn),
-    eventType: __expectString(output.eventType),
-    failureReason: __expectString(output.failureReason),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    performAutoML: __expectBoolean(output.performAutoML),
-    performHPO: __expectBoolean(output.performHPO),
-    recipeArn: __expectString(output.recipeArn),
-    solutionArn: __expectString(output.solutionArn),
-    solutionConfig:
-      output.solutionConfig !== undefined && output.solutionConfig !== null
-        ? deserializeAws_json1_1SolutionConfig(output.solutionConfig, context)
-        : undefined,
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-    status: __expectString(output.status),
-    trainingHours: __limitedParseDouble(output.trainingHours),
-    trainingMode: __expectString(output.trainingMode),
-    tunedHPOParams:
-      output.tunedHPOParams !== undefined && output.tunedHPOParams !== null
-        ? deserializeAws_json1_1TunedHPOParams(output.tunedHPOParams, context)
-        : undefined,
-  } as any;
-};
+// de_StartRecommenderResponse omitted.
 
-const deserializeAws_json1_1SolutionVersions = (output: any, context: __SerdeContext): SolutionVersionSummary[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_json1_1SolutionVersionSummary(entry, context);
-    });
-};
+// de_StopRecommenderResponse omitted.
 
-const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __SerdeContext): SolutionVersionSummary => {
-  return {
-    creationDateTime:
-      output.creationDateTime !== undefined && output.creationDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationDateTime)))
-        : undefined,
-    failureReason: __expectString(output.failureReason),
-    lastUpdatedDateTime:
-      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
-        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
-        : undefined,
-    solutionVersionArn: __expectString(output.solutionVersionArn),
-    status: __expectString(output.status),
-  } as any;
-};
+// de_Tag omitted.
 
-const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeContext): TunedHPOParams => {
-  return {
-    algorithmHyperParameters:
-      output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
-        ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
-        : undefined,
-  } as any;
-};
+// de_TagResourceResponse omitted.
 
-const deserializeAws_json1_1UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
-  return {
-    campaignArn: __expectString(output.campaignArn),
-  } as any;
-};
+// de_Tags omitted.
+
+// de_TooManyTagKeysException omitted.
+
+// de_TooManyTagsException omitted.
+
+// de_TrainingDataConfig omitted.
+
+// de_TunedHPOParams omitted.
+
+// de_UntagResourceResponse omitted.
+
+// de_UpdateCampaignResponse omitted.
+
+// de_UpdateDatasetResponse omitted.
+
+// de_UpdateMetricAttributionResponse omitted.
+
+// de_UpdateRecommenderResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  requestId:
+    output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
   extendedRequestId: output.headers["x-amz-id-2"],
   cfId: output.headers["x-amz-cf-id"],
 });
-
-// Collect low-level response body stream to Uint8Array.
-const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
-  if (streamBody instanceof Uint8Array) {
-    return Promise.resolve(streamBody);
-  }
-  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
-};
 
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const throwDefaultError = withBaseException(__BaseException);
 const buildHttpRpcRequest = async (
   context: __SerdeContext,
   headers: __HeaderBag,
@@ -6499,6 +6443,12 @@ const buildHttpRpcRequest = async (
   }
   return new __HttpRequest(contents);
 };
+function sharedHeaders(operation: string): __HeaderBag {
+  return {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": `AmazonPersonalize.${operation}`,
+  };
+}
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -6508,14 +6458,26 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
+const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
+  const value = await parseBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
 /**
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
-  const sanitizeErrorCode = (rawValue: string): string => {
+  const sanitizeErrorCode = (rawValue: string | number): string => {
     let cleanValue = rawValue;
+    if (typeof cleanValue === "number") {
+      cleanValue = cleanValue.toString();
+    }
+    if (cleanValue.indexOf(",") >= 0) {
+      cleanValue = cleanValue.split(",")[0];
+    }
     if (cleanValue.indexOf(":") >= 0) {
       cleanValue = cleanValue.split(":")[0];
     }
@@ -6537,6 +6499,4 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
   if (data["__type"] !== undefined) {
     return sanitizeErrorCode(data["__type"]);
   }
-
-  return "";
 };

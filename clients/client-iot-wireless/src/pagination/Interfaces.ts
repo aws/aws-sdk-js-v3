@@ -1,8 +1,11 @@
-import { PaginationConfiguration } from "@aws-sdk/types";
+// smithy-typescript generated code
+import { PaginationConfiguration } from "@smithy/types";
 
-import { IoTWireless } from "../IoTWireless";
 import { IoTWirelessClient } from "../IoTWirelessClient";
 
+/**
+ * @public
+ */
 export interface IoTWirelessPaginationConfiguration extends PaginationConfiguration {
-  client: IoTWireless | IoTWirelessClient;
+  client: IoTWirelessClient;
 }

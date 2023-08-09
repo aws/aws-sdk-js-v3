@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { GetChangeTokenRequest, GetChangeTokenResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetChangeTokenCommand,
-  serializeAws_json1_1GetChangeTokenCommand,
-} from "../protocols/Aws_json1_1";
+import { de_GetChangeTokenCommand, se_GetChangeTokenCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetChangeTokenCommand}.
+ */
 export interface GetChangeTokenCommandInput extends GetChangeTokenRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetChangeTokenCommand}.
+ */
 export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -43,13 +57,40 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * import { WAFClient, GetChangeTokenCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetChangeTokenCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {};
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
+ * // { // GetChangeTokenResponse
+ * //   ChangeToken: "STRING_VALUE",
+ * // };
+ *
  * ```
  *
+ * @param GetChangeTokenCommandInput - {@link GetChangeTokenCommandInput}
+ * @returns {@link GetChangeTokenCommandOutput}
  * @see {@link GetChangeTokenCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
+ *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFServiceException}
+ * <p>Base exception class for all service exceptions from WAF service.</p>
+ *
+ * @example To get a change token
+ * ```javascript
+ * // The following example returns a change token to use for a create, update or delete operation.
+ * const input = {};
+ * const command = new GetChangeTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ * }
+ * *\/
+ * // example id: get-change-token-example-1471635120794
+ * ```
  *
  */
 export class GetChangeTokenCommand extends $Command<
@@ -60,6 +101,18 @@ export class GetChangeTokenCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: GetChangeTokenCommandInput) {
     // Start section: command_constructor
     super();
@@ -75,6 +128,9 @@ export class GetChangeTokenCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetChangeTokenCommandInput, GetChangeTokenCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetChangeTokenCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -85,8 +141,8 @@ export class GetChangeTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChangeTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetChangeTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +152,18 @@ export class GetChangeTokenCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GetChangeTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChangeTokenCommand(input, context);
+    return se_GetChangeTokenCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChangeTokenCommandOutput> {
-    return deserializeAws_json1_1GetChangeTokenCommand(output, context);
+    return de_GetChangeTokenCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,6 +1,8 @@
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
+// smithy-typescript generated code
+import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import { Command as $Command } from "@smithy/smithy-client";
 import {
   FinalizeHandlerArguments,
   Handler,
@@ -9,19 +11,31 @@ import {
   MetadataBearer as __MetadataBearer,
   MiddlewareStack,
   SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+} from "@smithy/types";
 
 import { DeleteAssistantAssociationRequest, DeleteAssistantAssociationResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DeleteAssistantAssociationCommand,
-  serializeAws_restJson1DeleteAssistantAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { de_DeleteAssistantAssociationCommand, se_DeleteAssistantAssociationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DeleteAssistantAssociationCommand}.
+ */
 export interface DeleteAssistantAssociationCommandInput extends DeleteAssistantAssociationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DeleteAssistantAssociationCommand}.
+ */
 export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistantAssociationResponse, __MetadataBearer {}
 
 /**
+ * @public
  * <p>Deletes an assistant association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -29,13 +43,33 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * import { WisdomClient, DeleteAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, DeleteAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = { // DeleteAssistantAssociationRequest
+ *   assistantAssociationId: "STRING_VALUE", // required
+ *   assistantId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssistantAssociationCommand(input);
  * const response = await client.send(command);
+ * // {};
+ *
  * ```
  *
+ * @param DeleteAssistantAssociationCommandInput - {@link DeleteAssistantAssociationCommandInput}
+ * @returns {@link DeleteAssistantAssociationCommandOutput}
  * @see {@link DeleteAssistantAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssistantAssociationCommandOutput} for command's `response` shape.
  * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * @throws {@link WisdomServiceException}
+ * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
 export class DeleteAssistantAssociationCommand extends $Command<
@@ -46,6 +80,18 @@ export class DeleteAssistantAssociationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
+    return {
+      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      Endpoint: { type: "builtInParams", name: "endpoint" },
+      Region: { type: "builtInParams", name: "region" },
+      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+    };
+  }
+
+  /**
+   * @public
+   */
   constructor(readonly input: DeleteAssistantAssociationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,6 +107,9 @@ export class DeleteAssistantAssociationCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteAssistantAssociationCommandInput, DeleteAssistantAssociationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteAssistantAssociationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,8 +120,8 @@ export class DeleteAssistantAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssistantAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssistantAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +131,21 @@ export class DeleteAssistantAssociationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DeleteAssistantAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteAssistantAssociationCommand(input, context);
+    return se_DeleteAssistantAssociationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAssistantAssociationCommandOutput> {
-    return deserializeAws_restJson1DeleteAssistantAssociationCommand(output, context);
+    return de_DeleteAssistantAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

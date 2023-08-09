@@ -1,4 +1,4 @@
-import { HttpRequest } from "@aws-sdk/types";
+import { HttpRequest } from "@smithy/types";
 
 export interface TestCase {
   name: string;
