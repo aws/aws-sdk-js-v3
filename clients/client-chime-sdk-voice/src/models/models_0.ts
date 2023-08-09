@@ -459,6 +459,12 @@ export interface UpdatePhoneNumberRequestItem {
    * <p>The outbound calling name to update.</p>
    */
   CallingName?: string;
+
+  /**
+   * @public
+   * <p>The name of the phone number.</p>
+   */
+  Name?: string;
 }
 
 /**
@@ -614,6 +620,12 @@ export interface CreatePhoneNumberOrderRequest {
    * <p>List of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the name assigned to one or more phone numbers.</p>
+   */
+  Name?: string;
 }
 
 /**
@@ -2237,6 +2249,12 @@ export interface PhoneNumber {
    * <p>The phone number's order ID.</p>
    */
   OrderId?: string;
+
+  /**
+   * @public
+   * <p>The name of the phone number.</p>
+   */
+  Name?: string;
 }
 
 /**
@@ -4313,6 +4331,12 @@ export interface UpdatePhoneNumberRequest {
    * <p>The outbound calling name associated with the phone number.</p>
    */
   CallingName?: string;
+
+  /**
+   * @public
+   * <p>Specifies the name assigned to one or more phone numbers.</p>
+   */
+  Name?: string;
 }
 
 /**
@@ -4782,6 +4806,7 @@ export const UpdatePhoneNumberRequestItemFilterSensitiveLog = (obj: UpdatePhoneN
   ...obj,
   ...(obj.PhoneNumberId && { PhoneNumberId: SENSITIVE_STRING }),
   ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -4826,6 +4851,7 @@ export const CandidateAddressFilterSensitiveLog = (obj: CandidateAddress): any =
 export const CreatePhoneNumberOrderRequestFilterSensitiveLog = (obj: CreatePhoneNumberOrderRequest): any => ({
   ...obj,
   ...(obj.E164PhoneNumbers && { E164PhoneNumbers: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -5089,6 +5115,7 @@ export const PhoneNumberFilterSensitiveLog = (obj: PhoneNumber): any => ({
   ...(obj.PhoneNumberId && { PhoneNumberId: SENSITIVE_STRING }),
   ...(obj.E164PhoneNumber && { E164PhoneNumber: SENSITIVE_STRING }),
   ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -5539,6 +5566,7 @@ export const UpdatePhoneNumberRequestFilterSensitiveLog = (obj: UpdatePhoneNumbe
   ...obj,
   ...(obj.PhoneNumberId && { PhoneNumberId: SENSITIVE_STRING }),
   ...(obj.CallingName && { CallingName: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**

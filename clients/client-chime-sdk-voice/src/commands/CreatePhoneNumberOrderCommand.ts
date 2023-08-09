@@ -53,6 +53,7 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  *   E164PhoneNumbers: [ // E164PhoneNumberList // required
  *     "STRING_VALUE",
  *   ],
+ *   Name: "STRING_VALUE",
  * };
  * const command = new CreatePhoneNumberOrderCommand(input);
  * const response = await client.send(command);

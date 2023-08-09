@@ -54,6 +54,7 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  *       PhoneNumberId: "STRING_VALUE", // required
  *       ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
  *       CallingName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
  *     },
  *   ],
  * };

@@ -546,6 +546,7 @@ export const se_CreatePhoneNumberOrderCommand = async (
   body = JSON.stringify(
     take(input, {
       E164PhoneNumbers: (_) => _json(_),
+      Name: [],
       ProductType: [],
     })
   );
@@ -3176,6 +3177,7 @@ export const se_UpdatePhoneNumberCommand = async (
   body = JSON.stringify(
     take(input, {
       CallingName: [],
+      Name: [],
       ProductType: [],
     })
   );
@@ -10072,6 +10074,7 @@ const de_PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
     CreatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     DeletionTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     E164PhoneNumber: __expectString,
+    Name: __expectString,
     OrderId: __expectString,
     PhoneNumberId: __expectString,
     ProductType: __expectString,

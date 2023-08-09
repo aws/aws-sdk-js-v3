@@ -82,6 +82,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     DeletionTimestamp: new Date("TIMESTAMP"),
  * //     OrderId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
  * //   },
  * // };
  *

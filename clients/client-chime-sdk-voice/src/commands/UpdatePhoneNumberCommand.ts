@@ -59,6 +59,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  *   PhoneNumberId: "STRING_VALUE", // required
  *   ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",
  *   CallingName: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
  * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
@@ -91,6 +92,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     DeletionTimestamp: new Date("TIMESTAMP"),
  * //     OrderId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
  * //   },
  * // };
  *

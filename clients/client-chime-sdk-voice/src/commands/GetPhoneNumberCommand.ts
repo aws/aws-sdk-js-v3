@@ -83,6 +83,7 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     DeletionTimestamp: new Date("TIMESTAMP"),
  * //     OrderId: "STRING_VALUE",
+ * //     Name: "STRING_VALUE",
  * //   },
  * // };
  *
