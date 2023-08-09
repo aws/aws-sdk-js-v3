@@ -21,6 +21,14 @@ const root = path.join(__dirname, "..", "..", "..");
   const browserRuntimeConfig = fs.readFileSync(
     path.join(path.dirname(defaultRuntimeConfigFile), "runtimeConfig.browser.ts")
   );
+  const clientPkgJsonPath = path.join(root, "clients", "client-sso-oidc", "package.json");
+  const clientPkgJson = require(clientPkgJsonPath);
+  fs.writeFileSync(
+    clientPkgJsonPath,
+    JSON.stringify({
+      version: clientPkgJson.version,
+    })
+  );
 
   for (const platform of ["browser", "node"]) {
     if (platform === "browser") {
@@ -29,14 +37,7 @@ const root = path.join(__dirname, "..", "..", "..");
       fs.writeFileSync(defaultRuntimeConfigFile, nodeRuntimeConfig);
     }
 
-    const outfile = path.join(
-      root,
-      "packages",
-      "token-providers",
-      "src",
-      "client-sso-oidc-bundle",
-      `dist-${platform}.ts`
-    );
+    const outfile = path.join(root, "packages", "token-providers", "src", "bundle", `client-sso-oidc-${platform}.ts`);
 
     await esbuild.build({
       platform,
@@ -54,4 +55,5 @@ const root = path.join(__dirname, "..", "..", "..");
   }
 
   fs.writeFileSync(defaultRuntimeConfigFile, nodeRuntimeConfig);
+  fs.writeFileSync(clientPkgJsonPath, JSON.stringify(clientPkgJson, null, 2) + "\n");
 })();

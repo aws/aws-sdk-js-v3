@@ -1,6 +1,6 @@
-import { SSOOIDCClient } from "./client-sso-oidc-bundle/dist-node";
+import { SSOOIDCClient } from "./bundle/client-sso-oidc-node";
 
-jest.mock("./client-sso-oidc-bundle/dist-node");
+jest.mock("./bundle/client-sso-oidc-node");
 
 describe("getSsoOidcClient", () => {
   const mockSsoRegion = "mockSsoRegion";
