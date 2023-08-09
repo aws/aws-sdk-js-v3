@@ -75,11 +75,11 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *   Features: [ // OrganizationFeaturesConfigurations
  *     { // OrganizationFeatureConfiguration
  *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
- *       AutoEnable: "NEW" || "NONE",
+ *       AutoEnable: "NEW" || "NONE" || "ALL",
  *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurations
  *         { // OrganizationAdditionalConfiguration
  *           Name: "EKS_ADDON_MANAGEMENT",
- *           AutoEnable: "NEW" || "NONE",
+ *           AutoEnable: "NEW" || "NONE" || "ALL",
  *         },
  *       ],
  *     },

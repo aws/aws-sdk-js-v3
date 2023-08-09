@@ -22,8 +22,8 @@ been used, or unusual API calls like a password policy change to reduce password
 <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing security
 findings that you can view in the GuardDuty console or through Amazon EventBridge. For more
 information, see the <i>
-<a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
-GuardDuty User Guide</a>
+<a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon GuardDuty User
+Guide</a>
 </i>. </p>
 
 ## Installing

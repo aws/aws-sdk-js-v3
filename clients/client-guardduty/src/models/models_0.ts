@@ -2020,10 +2020,43 @@ export interface CreateFilterRequest {
    *                <p>accountId</p>
    *             </li>
    *             <li>
+   *                <p>id</p>
+   *             </li>
+   *             <li>
    *                <p>region</p>
    *             </li>
    *             <li>
-   *                <p>id</p>
+   *                <p>severity</p>
+   *                <p>To filter on the basis of severity, the API and CLI use the following input list for
+   *           the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_FindingCriteria.html">FindingCriteria</a>
+   *           condition:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Low</b>: <code>["1", "2", "3"]</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Medium</b>: <code>["4", "5", "6"]</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>High</b>: <code>["7", "8", "9"]</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity
+   *             levels for GuardDuty findings</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>type</p>
+   *             </li>
+   *             <li>
+   *                <p>updatedAt</p>
+   *                <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ
+   *           depending on whether the value contains milliseconds.</p>
    *             </li>
    *             <li>
    *                <p>resource.accessKeyDetails.accessKeyId</p>
@@ -2047,7 +2080,10 @@ export interface CreateFilterRequest {
    *                <p>resource.instanceDetails.instanceId</p>
    *             </li>
    *             <li>
-   *                <p>resource.instanceDetails.outpostArn</p>
+   *                <p>resource.instanceDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.tags.value</p>
    *             </li>
    *             <li>
    *                <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p>
@@ -2074,13 +2110,25 @@ export interface CreateFilterRequest {
    *                <p>resource.instanceDetails.networkInterfaces.vpcId</p>
    *             </li>
    *             <li>
-   *                <p>resource.instanceDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.value</p>
+   *                <p>resource.instanceDetails.outpostArn</p>
    *             </li>
    *             <li>
    *                <p>resource.resourceType</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.name</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.tags.value</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.type</p>
    *             </li>
    *             <li>
    *                <p>service.action.actionType</p>
@@ -2093,9 +2141,6 @@ export interface CreateFilterRequest {
    *             </li>
    *             <li>
    *                <p>service.action.awsApiCallAction.errorCode</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.userAgent</p>
    *             </li>
    *             <li>
    *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>
@@ -2131,9 +2176,6 @@ export interface CreateFilterRequest {
    *                <p>service.action.networkConnectionAction.protocol</p>
    *             </li>
    *             <li>
-   *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
    *                <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p>
    *             </li>
    *             <li>
@@ -2152,36 +2194,112 @@ export interface CreateFilterRequest {
    *                <p>service.action.networkConnectionAction.remotePortDetails.port</p>
    *             </li>
    *             <li>
+   *                <p>service.action.awsApiCallAction.remoteAccountDetails.affiliated</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.kubernetesApiCallAction.requestUri</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.protocol</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.serviceName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteAccountDetails.accountId</p>
+   *             </li>
+   *             <li>
    *                <p>service.additionalInfo.threatListName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.name</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.tags.value</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.s3BucketDetails.type</p>
    *             </li>
    *             <li>
    *                <p>service.resourceRole</p>
    *             </li>
    *             <li>
-   *                <p>severity</p>
+   *                <p>resource.eksClusterDetails.name</p>
    *             </li>
    *             <li>
-   *                <p>type</p>
+   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.name</p>
    *             </li>
    *             <li>
-   *                <p>updatedAt</p>
-   *                <p>Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ
-   *           depending on whether the value contains milliseconds.</p>
+   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.namespace</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.kubernetesDetails.kubernetesUserDetails.username</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.image</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.kubernetesDetails.kubernetesWorkloadDetails.containers.imagePrefix</p>
+   *             </li>
+   *             <li>
+   *                <p>service.ebsVolumeScanDetails.scanId</p>
+   *             </li>
+   *             <li>
+   *                <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.name</p>
+   *             </li>
+   *             <li>
+   *                <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.severity</p>
+   *             </li>
+   *             <li>
+   *                <p>service.ebsVolumeScanDetails.scanDetections.threatDetectedByName.threatNames.filePaths.hash</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.ecsClusterDetails.name</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.ecsClusterDetails.taskDetails.containers.image</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.ecsClusterDetails.taskDetails.definitionArn</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.containerDetails.image</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.rdsDbInstanceDetails.dbInstanceIdentifier</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.rdsDbInstanceDetails.dbClusterIdentifier</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.rdsDbInstanceDetails.engine</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.rdsDbUserDetails.user</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.rdsDbInstanceDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.rdsDbInstanceDetails.tags.value</p>
+   *             </li>
+   *             <li>
+   *                <p>service.runtimeDetails.process.executableSha256</p>
+   *             </li>
+   *             <li>
+   *                <p>service.runtimeDetails.process.name</p>
+   *             </li>
+   *             <li>
+   *                <p>service.runtimeDetails.process.name</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.lambdaDetails.functionName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.lambdaDetails.functionArn</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.lambdaDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.lambdaDetails.tags.value</p>
    *             </li>
    *          </ul>
    */
@@ -3375,6 +3493,7 @@ export interface OrganizationDataSourceConfigurationsResult {
  * @enum
  */
 export const OrgFeatureStatus = {
+  ALL: "ALL",
   NEW: "NEW",
   NONE: "NONE",
 } as const;
@@ -4597,8 +4716,8 @@ export interface KubernetesUserDetails {
 
   /**
    * @public
-   * <p>Entity that assumes the IAM role
-   *       when Kubernetes RBAC permissions are assigned to that role.</p>
+   * <p>Entity that assumes the IAM role when Kubernetes RBAC permissions are assigned to that
+   *       role.</p>
    */
   SessionName?: string[];
 }
@@ -4719,8 +4838,8 @@ export interface LambdaDetails {
 
   /**
    * @public
-   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string
-   *       format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
+   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date
+   *       string format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
    */
   LastModifiedAt?: Date;
 
@@ -4751,7 +4870,7 @@ export interface LambdaDetails {
   /**
    * @public
    * <p>A list of tags attached to this resource, listed in the format of
-   *       <code>key</code>:<code>value</code> pair.</p>
+   *         <code>key</code>:<code>value</code> pair.</p>
    */
   Tags?: Tag[];
 }
@@ -5206,8 +5325,8 @@ export interface RuntimeContext {
 
   /**
    * @public
-   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC date string
-   *       format.</p>
+   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC
+   *       date string format.</p>
    */
   ModifiedAt?: Date;
 
@@ -5298,14 +5417,15 @@ export interface RuntimeContext {
 
   /**
    * @public
-   * <p>Information about the process that had its memory overwritten by the current process.</p>
+   * <p>Information about the process that had its memory overwritten by the current
+   *       process.</p>
    */
   TargetProcess?: ProcessDetails;
 
   /**
    * @public
-   * <p>Represents the communication protocol associated with the address. For example, the address
-   *       family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
+   * <p>Represents the communication protocol associated with the address. For example, the
+   *       address family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
    */
   AddressFamily?: string;
 
@@ -7363,8 +7483,9 @@ export interface StartMalwareScanRequest {
 export interface StartMalwareScanResponse {
   /**
    * @public
-   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
-   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each
+   *       malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of
+   *       your malware scan.</p>
    */
   ScanId?: string;
 }
