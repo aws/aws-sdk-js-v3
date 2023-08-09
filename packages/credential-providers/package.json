@@ -4,8 +4,8 @@
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": "./dist-es/index.web.js",
-  "react-native": "./dist-es/index.web.js",
+  "browser": "./dist-es/index.browser.js",
+  "react-native": "./dist-es/index.browser.js",
   "sideEffects": false,
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
