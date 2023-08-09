@@ -138,6 +138,10 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  *       AuditLogDestination: "STRING_VALUE",
  *     },
+ *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
  *   },
  *   LustreConfiguration: { // CreateFileSystemLustreConfiguration
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -169,7 +173,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1", // required
  *     EndpointIpAddressRange: "STRING_VALUE",
  *     FsxAdminPassword: "STRING_VALUE",
- *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *     DiskIopsConfiguration: {
  *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
  *       Iops: Number("long"),
  *     },
@@ -186,7 +190,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *     CopyTagsToBackups: true || false,
  *     CopyTagsToVolumes: true || false,
  *     DailyAutomaticBackupStartTime: "STRING_VALUE",
- *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2", // required
+ *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1", // required
  *     ThroughputCapacity: Number("int"), // required
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
  *     DiskIopsConfiguration: {
@@ -218,6 +222,11 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *       CopyTagsToSnapshots: true || false,
  *       ReadOnly: true || false,
  *     },
+ *     PreferredSubnetId: "STRING_VALUE",
+ *     EndpointIpAddressRange: "STRING_VALUE",
+ *     RouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
  *   },
  * };
  * const command = new CreateFileSystemCommand(input);
@@ -284,6 +293,10 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //         FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  * //         AuditLogDestination: "STRING_VALUE",
  * //       },
+ * //       DiskIopsConfiguration: { // DiskIopsConfiguration
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ * //         Iops: Number("long"),
+ * //       },
  * //     },
  * //     LustreConfiguration: { // LustreFileSystemConfiguration
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -318,7 +331,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
  * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -383,6 +396,10 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //               FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  * //               AuditLogDestination: "STRING_VALUE",
  * //             },
+ * //             DiskIopsConfiguration: {
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ * //               Iops: Number("long"),
+ * //             },
  * //           },
  * //           LustreConfiguration: {
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -417,7 +434,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
  * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -550,7 +567,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //                 ],
  * //               },
  * //             },
- * //             DiskIopsConfiguration: { // DiskIopsConfiguration
+ * //             DiskIopsConfiguration: {
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //               Iops: Number("long"),
  * //             },
@@ -568,7 +585,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //             CopyTagsToBackups: true || false,
  * //             CopyTagsToVolumes: true || false,
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //             DiskIopsConfiguration: {
@@ -576,6 +593,12 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //               Iops: Number("long"),
  * //             },
  * //             RootVolumeId: "STRING_VALUE",
+ * //             PreferredSubnetId: "STRING_VALUE",
+ * //             EndpointIpAddressRange: "STRING_VALUE",
+ * //             RouteTableIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             EndpointIpAddress: "STRING_VALUE",
  * //           },
  * //         },
  * //         FailureDetails: {
@@ -721,14 +744,17 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * //       CopyTagsToBackups: true || false,
  * //       CopyTagsToVolumes: true || false,
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
- * //       DiskIopsConfiguration: {
- * //         Mode: "AUTOMATIC" || "USER_PROVISIONED",
- * //         Iops: Number("long"),
- * //       },
+ * //       DiskIopsConfiguration: "<DiskIopsConfiguration>",
  * //       RootVolumeId: "STRING_VALUE",
+ * //       PreferredSubnetId: "STRING_VALUE",
+ * //       EndpointIpAddressRange: "STRING_VALUE",
+ * //       RouteTableIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EndpointIpAddress: "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -73,7 +73,17 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>StorageType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ThroughputCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DiskIopsConfiguration</code>
  *                </p>
  *             </li>
  *             <li>
@@ -249,6 +259,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  *       AuditLogDestination: "STRING_VALUE",
  *     },
+ *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ *       Iops: Number("long"),
+ *     },
  *   },
  *   LustreConfiguration: { // UpdateFileSystemLustreConfiguration
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -272,7 +286,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *     DailyAutomaticBackupStartTime: "STRING_VALUE",
  *     FsxAdminPassword: "STRING_VALUE",
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
- *     DiskIopsConfiguration: { // DiskIopsConfiguration
+ *     DiskIopsConfiguration: {
  *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
  *       Iops: Number("long"),
  *     },
@@ -295,7 +309,14 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *       Mode: "AUTOMATIC" || "USER_PROVISIONED",
  *       Iops: Number("long"),
  *     },
+ *     AddRouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RemoveRouteTableIds: [
+ *       "STRING_VALUE",
+ *     ],
  *   },
+ *   StorageType: "SSD" || "HDD",
  * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
@@ -361,6 +382,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //         FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  * //         AuditLogDestination: "STRING_VALUE",
  * //       },
+ * //       DiskIopsConfiguration: { // DiskIopsConfiguration
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ * //         Iops: Number("long"),
+ * //       },
  * //     },
  * //     LustreConfiguration: { // LustreFileSystemConfiguration
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -395,7 +420,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
  * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -460,6 +485,10 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  * //               AuditLogDestination: "STRING_VALUE",
  * //             },
+ * //             DiskIopsConfiguration: {
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ * //               Iops: Number("long"),
+ * //             },
  * //           },
  * //           LustreConfiguration: {
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -494,7 +523,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
  * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -627,7 +656,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //                 ],
  * //               },
  * //             },
- * //             DiskIopsConfiguration: { // DiskIopsConfiguration
+ * //             DiskIopsConfiguration: {
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //               Iops: Number("long"),
  * //             },
@@ -645,7 +674,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //             CopyTagsToBackups: true || false,
  * //             CopyTagsToVolumes: true || false,
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //             DiskIopsConfiguration: {
@@ -653,6 +682,12 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               Iops: Number("long"),
  * //             },
  * //             RootVolumeId: "STRING_VALUE",
+ * //             PreferredSubnetId: "STRING_VALUE",
+ * //             EndpointIpAddressRange: "STRING_VALUE",
+ * //             RouteTableIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             EndpointIpAddress: "STRING_VALUE",
  * //           },
  * //         },
  * //         FailureDetails: {
@@ -798,14 +833,17 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //       CopyTagsToBackups: true || false,
  * //       CopyTagsToVolumes: true || false,
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
- * //       DiskIopsConfiguration: {
- * //         Mode: "AUTOMATIC" || "USER_PROVISIONED",
- * //         Iops: Number("long"),
- * //       },
+ * //       DiskIopsConfiguration: "<DiskIopsConfiguration>",
  * //       RootVolumeId: "STRING_VALUE",
+ * //       PreferredSubnetId: "STRING_VALUE",
+ * //       EndpointIpAddressRange: "STRING_VALUE",
+ * //       RouteTableIds: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       EndpointIpAddress: "STRING_VALUE",
  * //     },
  * //   },
  * // };

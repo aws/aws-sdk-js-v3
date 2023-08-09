@@ -36,13 +36,18 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
 
 /**
  * @public
- * <p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks
- *             to perform bulk operations between your Amazon FSx file system and its linked data
- *             repositories. An example of a data repository task is exporting any data and metadata
- *             changes, including POSIX metadata, to files, directories, and symbolic links (symlinks)
- *             from your FSx file system to a linked data repository. A <code>CreateDataRepositoryTask</code>
- *             operation will fail if a data repository is not linked to the FSx file system. To learn
- *             more about data repository tasks, see
+ * <p>Creates an Amazon FSx for Lustre data repository task.
+ *             A <code>CreateDataRepositoryTask</code> operation will fail if a data
+ *             repository is not linked to the FSx file system.</p>
+ *          <p>You use import and export data repository tasks to perform bulk operations between your
+ *             FSx for Lustre file system and its linked data repositories. An example of a data repository
+ *             task is exporting any data and metadata changes, including POSIX metadata, to files, directories,
+ *             and symbolic links (symlinks) from your FSx file system to a linked data repository.</p>
+ *          <p>You use release data repository tasks to release data from your file system for files that
+ *             are archived to S3. The metadata of released files remains on the file system so users or applications
+ *             can still access released files by reading the files again, which will restore data from
+ *             Amazon S3 to the FSx for Lustre file system.</p>
+ *          <p>To learn more about data repository tasks, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data Repository Tasks</a>.
  *             To learn more about linking a data repository to your file system, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
@@ -72,6 +77,12 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  *     },
  *   ],
  *   CapacityToRelease: Number("long"),
+ *   ReleaseConfiguration: { // ReleaseConfiguration
+ *     DurationSinceLastAccess: { // DurationSinceLastAccess
+ *       Unit: "DAYS",
+ *       Value: Number("long"),
+ *     },
+ *   },
  * };
  * const command = new CreateDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
@@ -112,6 +123,12 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * //     },
  * //     CapacityToRelease: Number("long"),
  * //     FileCacheId: "STRING_VALUE",
+ * //     ReleaseConfiguration: { // ReleaseConfiguration
+ * //       DurationSinceLastAccess: { // DurationSinceLastAccess
+ * //         Unit: "DAYS",
+ * //         Value: Number("long"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *

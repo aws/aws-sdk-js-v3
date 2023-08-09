@@ -109,6 +109,12 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * //       },
  * //       CapacityToRelease: Number("long"),
  * //       FileCacheId: "STRING_VALUE",
+ * //       ReleaseConfiguration: { // ReleaseConfiguration
+ * //         DurationSinceLastAccess: { // DurationSinceLastAccess
+ * //           Unit: "DAYS",
+ * //           Value: Number("long"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

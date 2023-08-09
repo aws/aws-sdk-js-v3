@@ -160,7 +160,7 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
  * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -225,6 +225,10 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //               FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  * //               AuditLogDestination: "STRING_VALUE",
  * //             },
+ * //             DiskIopsConfiguration: { // DiskIopsConfiguration
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ * //               Iops: Number("long"),
+ * //             },
  * //           },
  * //           LustreConfiguration: { // LustreFileSystemConfiguration
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -259,7 +263,7 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
  * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
@@ -319,6 +323,10 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //                     FileShareAccessAuditLogLevel: "DISABLED" || "SUCCESS_ONLY" || "FAILURE_ONLY" || "SUCCESS_AND_FAILURE", // required
  * //                     AuditLogDestination: "STRING_VALUE",
  * //                   },
+ * //                   DiskIopsConfiguration: {
+ * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED",
+ * //                     Iops: Number("long"),
+ * //                   },
  * //                 },
  * //                 LustreConfiguration: {
  * //                   WeeklyMaintenanceStartTime: "STRING_VALUE",
@@ -371,7 +379,7 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //                       ],
  * //                     },
  * //                   },
- * //                   DiskIopsConfiguration: { // DiskIopsConfiguration
+ * //                   DiskIopsConfiguration: {
  * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED",
  * //                     Iops: Number("long"),
  * //                   },
@@ -389,7 +397,7 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //                   CopyTagsToBackups: true || false,
  * //                   CopyTagsToVolumes: true || false,
  * //                   DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //                   DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //                   DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
  * //                   ThroughputCapacity: Number("int"),
  * //                   WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //                   DiskIopsConfiguration: {
@@ -397,6 +405,12 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //                     Iops: Number("long"),
  * //                   },
  * //                   RootVolumeId: "STRING_VALUE",
+ * //                   PreferredSubnetId: "STRING_VALUE",
+ * //                   EndpointIpAddressRange: "STRING_VALUE",
+ * //                   RouteTableIds: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   EndpointIpAddress: "STRING_VALUE",
  * //                 },
  * //               },
  * //               FailureDetails: { // AdministrativeActionFailureDetails
@@ -542,14 +556,17 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * //             CopyTagsToBackups: true || false,
  * //             CopyTagsToVolumes: true || false,
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
- * //             DiskIopsConfiguration: {
- * //               Mode: "AUTOMATIC" || "USER_PROVISIONED",
- * //               Iops: Number("long"),
- * //             },
+ * //             DiskIopsConfiguration: "<DiskIopsConfiguration>",
  * //             RootVolumeId: "STRING_VALUE",
+ * //             PreferredSubnetId: "STRING_VALUE",
+ * //             EndpointIpAddressRange: "STRING_VALUE",
+ * //             RouteTableIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             EndpointIpAddress: "STRING_VALUE",
  * //           },
  * //         },
  * //         FailureDetails: {

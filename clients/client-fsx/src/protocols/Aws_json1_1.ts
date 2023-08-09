@@ -212,6 +212,7 @@ import {
   DescribeVolumesResponse,
   DisassociateFileSystemAliasesRequest,
   DiskIopsConfiguration,
+  DurationSinceLastAccess,
   EventType,
   FileCache,
   FileCacheCreating,
@@ -244,6 +245,7 @@ import {
   OpenZFSCreateRootVolumeConfiguration,
   OpenZFSNfsExport,
   OpenZFSUserOrGroupQuota,
+  ReleaseConfiguration,
   ReleaseFileSystemNfsV3LocksRequest,
   ReleaseFileSystemNfsV3LocksResponse,
   ResourceDoesNotSupportTagging,
@@ -3843,6 +3845,7 @@ const se_CreateDataRepositoryTaskRequest = (input: CreateDataRepositoryTaskReque
     ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     FileSystemId: [],
     Paths: _json,
+    ReleaseConfiguration: _json,
     Report: _json,
     Tags: _json,
     Type: [],
@@ -4143,6 +4146,8 @@ const se_DisassociateFileSystemAliasesRequest = (
 
 // se_DnsIps omitted.
 
+// se_DurationSinceLastAccess omitted.
+
 // se_EventTypes omitted.
 
 // se_FileCacheDataRepositoryAssociation omitted.
@@ -4184,6 +4189,8 @@ const se_DisassociateFileSystemAliasesRequest = (
 // se_OpenZFSUserAndGroupQuotas omitted.
 
 // se_OpenZFSUserOrGroupQuota omitted.
+
+// se_ReleaseConfiguration omitted.
 
 /**
  * serializeAws_json1_1ReleaseFileSystemNfsV3LocksRequest
@@ -4307,6 +4314,7 @@ const se_UpdateFileSystemRequest = (input: UpdateFileSystemRequest, context: __S
     OntapConfiguration: _json,
     OpenZFSConfiguration: _json,
     StorageCapacity: [],
+    StorageType: [],
     WindowsConfiguration: _json,
   });
 };
@@ -4636,6 +4644,7 @@ const de_DataRepositoryTask = (output: any, context: __SerdeContext): DataReposi
     FileSystemId: __expectString,
     Lifecycle: __expectString,
     Paths: _json,
+    ReleaseConfiguration: _json,
     Report: _json,
     ResourceARN: __expectString,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -4799,6 +4808,8 @@ const de_DescribeVolumesResponse = (output: any, context: __SerdeContext): Descr
 // de_DiskIopsConfiguration omitted.
 
 // de_DnsIps omitted.
+
+// de_DurationSinceLastAccess omitted.
 
 // de_EventTypes omitted.
 
@@ -4994,6 +5005,8 @@ const de_FileSystems = (output: any, context: __SerdeContext): FileSystem[] => {
 // de_OpenZFSUserOrGroupQuota omitted.
 
 // de_OpenZFSVolumeConfiguration omitted.
+
+// de_ReleaseConfiguration omitted.
 
 /**
  * deserializeAws_json1_1ReleaseFileSystemNfsV3LocksResponse
