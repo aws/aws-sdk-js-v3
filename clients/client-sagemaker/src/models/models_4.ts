@@ -2654,7 +2654,7 @@ export interface UpdateInferenceExperimentResponse {
 export interface UpdateModelCardRequest {
   /**
    * @public
-   * <p>The name of the model card to update.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model card to update.</p>
    */
   ModelCardName: string | undefined;
 

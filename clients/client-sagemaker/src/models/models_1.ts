@@ -7447,7 +7447,7 @@ export interface ModelCardExportOutputConfig {
 export interface CreateModelCardExportJobRequest {
   /**
    * @public
-   * <p>The name of the model card to export.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model card to export.</p>
    */
   ModelCardName: string | undefined;
 

@@ -5858,7 +5858,7 @@ export interface DescribeModelBiasJobDefinitionResponse {
 export interface DescribeModelCardRequest {
   /**
    * @public
-   * <p>The name of the model card to describe.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model card to describe.</p>
    */
   ModelCardName: string | undefined;
 
@@ -6083,7 +6083,7 @@ export interface DescribeModelCardExportJobResponse {
 
   /**
    * @public
-   * <p>The name of the model card that the model export job exports.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model card that the model export job exports.</p>
    */
   ModelCardName: string | undefined;
 

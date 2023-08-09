@@ -5153,7 +5153,7 @@ export interface ListModelCardVersionsRequest {
 
   /**
    * @public
-   * <p>List model card versions for the model card with the specified name.</p>
+   * <p>List model card versions for the model card with the specified name or Amazon Resource Name (ARN).</p>
    */
   ModelCardName: string | undefined;
 
