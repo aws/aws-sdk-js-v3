@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Updating CreatePhoneNumberOrder, UpdatePhoneNumber and BatchUpdatePhoneNumbers APIs, adding phone number name ([861a8a8](https://github.com/aws/aws-sdk-js-v3/commit/861a8a859bc4d097ca74874b77040977ff97ddc3))
+
+
+
+
+
 # [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for cross account access for SageMaker Model Cards through AWS RAM. ([1f562b4](https://github.com/aws/aws-sdk-js-v3/commit/1f562b46f097b9a5e34baf51223f09ba4be8a415))
+
+
+
+
+
 # [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
 
 

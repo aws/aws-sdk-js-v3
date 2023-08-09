@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
+
+
+### Bug Fixes
+
+* **token-providers:** declare dependencies from sso-oidc bundle ([#5064](https://github.com/aws/aws-sdk-js-v3/issues/5064)) ([380482b](https://github.com/aws/aws-sdk-js-v3/commit/380482b3db8f92fbd7f1f3e4f2315b2acb199df0))
+* **token-providers:** revert declaring dependencies from sso-oidc bundle ([#5066](https://github.com/aws/aws-sdk-js-v3/issues/5066)) ([f86ff34](https://github.com/aws/aws-sdk-js-v3/commit/f86ff342fcc1d4243b35dae5a6b98f5acc7fb458))
+* **token-providers:** use static version of bundled sso oidc client ([#5067](https://github.com/aws/aws-sdk-js-v3/issues/5067)) ([ba1b145](https://github.com/aws/aws-sdk-js-v3/commit/ba1b1458290b43e1890ea8f13dd433d13987d09b))
+
+
+### Features
+
+* **client-chime-sdk-voice:** Updating CreatePhoneNumberOrder, UpdatePhoneNumber and BatchUpdatePhoneNumbers APIs, adding phone number name ([861a8a8](https://github.com/aws/aws-sdk-js-v3/commit/861a8a859bc4d097ca74874b77040977ff97ddc3))
+* **client-fsx:** For FSx for Lustre, add new data repository task type, RELEASE_DATA_FROM_FILESYSTEM, to release files that have been archived to S3. For FSx for Windows, enable support for configuring and updating SSD IOPS, and for updating storage type. For FSx for OpenZFS, add new deployment type, MULTI_AZ_1. ([9326b4d](https://github.com/aws/aws-sdk-js-v3/commit/9326b4df727833c4ef4ffde41c88fb13827a54ca))
+* **client-guardduty:** Added autoEnable ALL to UpdateOrganizationConfiguration and DescribeOrganizationConfiguration APIs. ([5571771](https://github.com/aws/aws-sdk-js-v3/commit/5571771beab2be07508f88c1e28704116671dd71))
+* **client-sagemaker:** This release adds support for cross account access for SageMaker Model Cards through AWS RAM. ([1f562b4](https://github.com/aws/aws-sdk-js-v3/commit/1f562b46f097b9a5e34baf51223f09ba4be8a415))
+* **clients:** update client endpoints as of 2023-08-09 ([1f056b3](https://github.com/aws/aws-sdk-js-v3/commit/1f056b30a9af6746a7f04e625f0d89d04f2a6495))
+
+
+
+
+
 # [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
 
 

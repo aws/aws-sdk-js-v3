@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.387.0",
+  "version": "3.388.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -48,7 +48,9 @@
     "@smithy/middleware-stack": "^2.0.0",
     "@smithy/node-config-provider": "^2.0.2",
     "@smithy/node-http-handler": "^2.0.2",
+    "@smithy/property-provider": "^2.0.0",
     "@smithy/protocol-http": "^2.0.2",
+    "@smithy/shared-ini-file-loader": "^2.0.0",
     "@smithy/smithy-client": "^2.0.2",
     "@smithy/types": "^2.1.0",
     "@smithy/url-parser": "^2.0.2",
@@ -59,9 +61,7 @@
     "@smithy/util-defaults-mode-node": "^2.0.2",
     "@smithy/util-retry": "^2.0.0",
     "@smithy/util-utf8": "^2.0.0",
-    "tslib": "^2.5.0",
-    "@smithy/property-provider": "^2.0.0",
-    "@smithy/shared-ini-file-loader": "^2.0.0"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
