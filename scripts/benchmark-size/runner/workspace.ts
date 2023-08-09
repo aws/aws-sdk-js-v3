@@ -44,7 +44,7 @@ export const loadWorkspacePackages = async (options?: {
     }
   }
 
-  const { stdout } = await exec("yarn", ["lerna", ...args], {
+  const { stdout } = await exec("yarn", ["--silent", "lerna", ...args], {
     cwd: PROJECT_ROOT,
     encoding: "utf8",
   });

@@ -19,7 +19,7 @@ export const validateRuntime = async () => {
     throw e;
   }
   try {
-    await exec("yarn", ["lerna", "--version"], {
+    await exec("yarn", ["--silent", "lerna", "--version"], {
       cwd: PROJECT_ROOT,
     });
   } catch (e) {
