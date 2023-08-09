@@ -44,7 +44,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * 			addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned,
  * 			it is ready to be advertised using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html">
  * 			AdvertiseByoipCidr</a>.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
  * 			IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -44,7 +44,7 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * 			for a custom routing accelerator. You can deny traffic to all destinations in the VPC endpoint, or deny traffic to a
  * 			specified list of destination IP addresses and ports. Note that you cannot specify IP addresses
  * 			or ports outside of the range that you configured for the endpoint group.</p>
- * 		       <p>After you make changes, you can verify that the updates are complete by checking the status of your
+ *          <p>After you make changes, you can verify that the updates are complete by checking the status of your
  * 			accelerator: the status changes from IN_PROGRESS to DEPLOYED.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

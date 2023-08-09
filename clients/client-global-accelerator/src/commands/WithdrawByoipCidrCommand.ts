@@ -43,9 +43,9 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * <p>Stops advertising an address range that is provisioned as an address pool.
  * 			You can perform this operation at most once every 10 seconds, even if you specify different address
  * 			ranges each time.</p>
- * 	        <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of
+ *          <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services because of
  * 			propagation delays.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
  * 			IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

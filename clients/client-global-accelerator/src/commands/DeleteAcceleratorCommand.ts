@@ -42,11 +42,11 @@ export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
  * 			(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
- * 	        <important>
+ *          <important>
  *             <p>When you create an accelerator, by default, Global Accelerator provides you with a set of two static IP addresses.
  * 	        Alternatively, you can bring your own IP address ranges to Global Accelerator and assign IP addresses from those ranges.
  * 		</p>
- * 		          <p>The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and
+ *             <p>The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and
  * 			it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the
  * 			static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them.
  * 			As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators. You

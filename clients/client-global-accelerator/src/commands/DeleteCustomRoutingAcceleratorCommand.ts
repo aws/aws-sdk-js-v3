@@ -48,7 +48,7 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  *          <important>
  *             <p>When you create a custom routing accelerator, by default, Global Accelerator provides you with a set of two static IP addresses.
  * 	</p>
- * 		          <p>The IP
+ *             <p>The IP
  * 			addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and
  * 			it no longer accepts or routes traffic. However, when you <i>delete</i> an accelerator, you lose the
  * 			static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them.

@@ -45,17 +45,21 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
  * 			or when you update an endpoint group (with the
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html">UpdateEndpointGroup</a> API). </p>
- * 		       <p>There are two advantages to using <code>AddEndpoints</code> to add endpoints:</p>
- * 			      <ul>
+ *          <p>There are two advantages to using <code>AddEndpoints</code> to add endpoints in Global Accelerator:</p>
+ *          <ul>
  *             <li>
  *                <p>It's faster, because Global Accelerator only has to resolve the new endpoints that
- * 					you're adding.</p>
+ * 					you're adding, rather than resolving new and existing endpoints.</p>
  *             </li>
  *             <li>
- *                <p>It's more convenient, because you don't need to specify all of the current
- * 					endpoints that are already in the endpoint group in addition to the new endpoints that you want to add.</p>
+ *                <p>It's more convenient, because you don't need to specify the current
+ * 					endpoints that are already in the endpoint group, in addition to the new endpoints that
+ * 					you want to add.</p>
  *             </li>
  *          </ul>
+ *          <p>For information about endpoint types and requirements for endpoints that you can add
+ * 			to Global Accelerator, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html">
+ * 				Endpoints for standard accelerators</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

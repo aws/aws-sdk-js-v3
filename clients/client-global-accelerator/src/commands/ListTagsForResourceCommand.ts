@@ -41,7 +41,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * @public
  * <p>List all tags for an accelerator. </p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
  * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -52,7 +52,7 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  *          <p>If you remove a subnet from your accelerator, Global Accelerator removes (reclaims) the port mappings. If you add a subnet to
  *         your accelerator, Global Accelerator creates new port mappings (the existing ones don't change). If you add or remove EC2 instances
  *         in your subnet, the port mappings don't change, because the mappings are created when you add the subnet to Global Accelerator.</p>
- * 	        <p>The mappings also include a flag for each destination denoting which destination IP addresses and
+ *          <p>The mappings also include a flag for each destination denoting which destination IP addresses and
  * 		ports are allowed or denied traffic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

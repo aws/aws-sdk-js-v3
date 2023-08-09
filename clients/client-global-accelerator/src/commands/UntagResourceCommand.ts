@@ -42,7 +42,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @public
  * <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value.
  * 			The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
  * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

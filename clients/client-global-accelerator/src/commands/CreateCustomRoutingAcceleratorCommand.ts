@@ -47,15 +47,15 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * @public
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
  * 	    of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p>
- * 	        <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
+ *          <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
  * 			traffic. To enable all destinations to receive traffic, or to specify individual port
  * 			mappings that can receive traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
  * 				AllowCustomRoutingTraffic</a> operation.</p>
- * 	        <important>
- * 		          <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the
+ *          <important>
+ *             <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the
  * 			US West (Oregon) Region to create, update, or otherwise work with accelerators.  That is, for example, specify <code>--region us-west-2</code>
- * 			on AWS CLI commands.</p>
- * 	        </important>
+ * 			on Amazon Web Services CLI commands.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
