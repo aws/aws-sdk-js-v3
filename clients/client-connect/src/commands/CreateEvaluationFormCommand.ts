@@ -15,7 +15,7 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { CreateEvaluationFormResponse } from "../models/models_0";
-import { CreateEvaluationFormRequest } from "../models/models_1";
+import { CreateEvaluationFormRequest } from "../models/models_2";
 import { de_CreateEvaluationFormCommand, se_CreateEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**

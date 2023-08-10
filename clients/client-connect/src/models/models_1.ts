@@ -5,6 +5,7 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 import {
   ActionSummary,
   AgentAvailabilityTimer,
+  AgentConfig,
   AgentContactReference,
   AgentStatusReference,
   AgentStatusState,
@@ -16,19 +17,14 @@ import {
   ContactFlowState,
   ContactFlowType,
   ContactState,
-  CurrentMetric,
-  CurrentMetricName,
   DirectoryType,
+  Distribution,
   EvaluationAnswerData,
-  EvaluationFormQuestion,
-  EvaluationFormScoringStrategy,
   EvaluationFormVersionStatus,
   EvaluationNote,
   EvaluationScore,
   EvaluationStatus,
   EventSourceName,
-  Filters,
-  Grouping,
   HierarchyGroupSummary,
   HoursOfOperation,
   HoursOfOperationConfig,
@@ -63,13 +59,122 @@ import {
   TaskTemplateField,
   TaskTemplateStatus,
   TrafficDistributionGroupStatus,
-  Unit,
   UseCaseType,
-  UserIdentityInfo,
   UserPhoneConfig,
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetContactAttributesResponse {
+  /**
+   * @public
+   * <p>Information about the attributes.</p>
+   */
+  Attributes?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CurrentMetricName = {
+  AGENTS_AFTER_CONTACT_WORK: "AGENTS_AFTER_CONTACT_WORK",
+  AGENTS_AVAILABLE: "AGENTS_AVAILABLE",
+  AGENTS_ERROR: "AGENTS_ERROR",
+  AGENTS_NON_PRODUCTIVE: "AGENTS_NON_PRODUCTIVE",
+  AGENTS_ONLINE: "AGENTS_ONLINE",
+  AGENTS_ON_CALL: "AGENTS_ON_CALL",
+  AGENTS_ON_CONTACT: "AGENTS_ON_CONTACT",
+  AGENTS_STAFFED: "AGENTS_STAFFED",
+  CONTACTS_IN_QUEUE: "CONTACTS_IN_QUEUE",
+  CONTACTS_SCHEDULED: "CONTACTS_SCHEDULED",
+  OLDEST_CONTACT_AGE: "OLDEST_CONTACT_AGE",
+  SLOTS_ACTIVE: "SLOTS_ACTIVE",
+  SLOTS_AVAILABLE: "SLOTS_AVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type CurrentMetricName = (typeof CurrentMetricName)[keyof typeof CurrentMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const Unit = {
+  COUNT: "COUNT",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type Unit = (typeof Unit)[keyof typeof Unit];
+
+/**
+ * @public
+ * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator
+ *     Guide</i>.</p>
+ */
+export interface CurrentMetric {
+  /**
+   * @public
+   * <p>The name of the metric.</p>
+   */
+  Name?: CurrentMetricName | string;
+
+  /**
+   * @public
+   * <p>The unit for the metric.</p>
+   */
+  Unit?: Unit | string;
+}
+
+/**
+ * @public
+ * <p>Contains the filter to apply when retrieving metrics.</p>
+ */
+export interface Filters {
+  /**
+   * @public
+   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can
+   *    specify up to 100 queues per request. The <code>GetCurrentMetricsData</code> API in particular
+   *    requires a queue when you include a <code>Filter</code> in your request. </p>
+   */
+  Queues?: string[];
+
+  /**
+   * @public
+   * <p>The channel to use to filter the metrics.</p>
+   */
+  Channels?: (Channel | string)[];
+
+  /**
+   * @public
+   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
+   */
+  RoutingProfiles?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Grouping = {
+  CHANNEL: "CHANNEL",
+  QUEUE: "QUEUE",
+  ROUTING_PROFILE: "ROUTING_PROFILE",
+} as const;
+
+/**
+ * @public
+ */
+export type Grouping = (typeof Grouping)[keyof typeof Grouping];
 
 /**
  * @public
@@ -725,7 +830,7 @@ export interface GetFederationTokenResponse {
 
   /**
    * @public
-   * <p>The identifier for the user.</p>
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
    */
   UserId?: string;
 }
@@ -1392,7 +1497,7 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid metric filter key: <code>INITIATION_METHOD</code>. For now, this metric only
    *       supports the following as <code>INITIATION_METHOD</code>: <code>INBOUND</code> |
-   *       <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code>
+   *        <code>OUTBOUND</code> | <code>CALLBACK</code> | <code>API</code>
    *                </p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
@@ -1411,7 +1516,8 @@ export interface GetMetricDataV2Request {
    *             </dd>
    *             <dt>AVG_GREETING_TIME_AGENT</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
@@ -1454,19 +1560,22 @@ export interface GetMetricDataV2Request {
    *             </dd>
    *             <dt>AVG_INTERRUPTIONS_AGENT</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Count</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
    *             <dt>AVG_INTERRUPTION_TIME_AGENT</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
    *             <dt>AVG_NON_TALK_TIME</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
@@ -1480,19 +1589,22 @@ export interface GetMetricDataV2Request {
    *             </dd>
    *             <dt>AVG_TALK_TIME</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
    *             <dt>AVG_TALK_TIME_AGENT</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
    *             <dt>AVG_TALK_TIME_CUSTOMER</dt>
    *             <dd>
-   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational analytics.</p>
+   *                <p>This metric is available only for contacts analyzed by Contact Lens conversational
+   *       analytics.</p>
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
@@ -1815,20 +1927,32 @@ export interface GetTrafficDistributionRequest {
 
 /**
  * @public
- * <p>Information about a traffic distribution.</p>
+ * <p>The distribution of sign in traffic between the instance and its replica(s).</p>
  */
-export interface Distribution {
+export interface SignInDistribution {
   /**
    * @public
-   * <p>The Amazon Web Services Region where the traffic is distributed.</p>
+   * <p>The Amazon Web Services Region of the sign in distribution.</p>
    */
   Region: string | undefined;
 
   /**
    * @public
-   * <p>The percentage of the traffic that is distributed, in increments of 10.</p>
+   * <p>Whether sign in distribution is enabled.</p>
    */
-  Percentage: number | undefined;
+  Enabled: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+ */
+export interface SignInConfig {
+  /**
+   * @public
+   * <p>Information about traffic distributions.</p>
+   */
+  Distributions: SignInDistribution[] | undefined;
 }
 
 /**
@@ -1866,6 +1990,18 @@ export interface GetTrafficDistributionResponse {
    * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
    */
   Arn?: string;
+
+  /**
+   * @public
+   * <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+   */
+  SignInConfig?: SignInConfig;
+
+  /**
+   * @public
+   * <p>The distribution of agents between the instance and its replica(s).</p>
+   */
+  AgentConfig?: AgentConfig;
 }
 
 /**
@@ -4521,6 +4657,15 @@ export interface TrafficDistributionGroupSummary {
    *          </ul>
    */
   Status?: TrafficDistributionGroupStatus | string;
+
+  /**
+   * @public
+   * <p>Whether this is the default traffic distribution group created during instance
+   *    replication. The default traffic distribution group cannot be deleted by the
+   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
+   *    part of the process for deleting a replica.</p>
+   */
+  IsDefault?: boolean;
 }
 
 /**
@@ -4538,6 +4683,61 @@ export interface ListTrafficDistributionGroupsResponse {
    * <p>A list of traffic distribution groups.</p>
    */
   TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[];
+}
+
+/**
+ * @public
+ */
+export interface ListTrafficDistributionGroupUsersRequest {
+  /**
+   * @public
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Summary information about a traffic distribution group user.</p>
+ */
+export interface TrafficDistributionGroupUserSummary {
+  /**
+   * @public
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   */
+  UserId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTrafficDistributionGroupUsersResponse {
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>A list of traffic distribution group users.</p>
+   */
+  TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[];
 }
 
 /**
@@ -6739,7 +6939,7 @@ export interface TransferContactRequest {
 
   /**
    * @public
-   * <p>The identifier for the user.</p>
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
    */
   UserId?: string;
 
@@ -7778,11 +7978,9 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerRequest {
 
   /**
    * @public
-   * <p>Whether agents with this routing profile
-   *    will have their routing order calculated based on
-   *    <i>time since their last inbound
-   *     contact</i> or <i>longest idle
-   *      time</i>. </p>
+   * <p>Whether agents with this routing profile will have their routing order calculated based on
+   *     <i>time since their last inbound contact</i> or <i>longest idle
+   *     time</i>. </p>
    */
   AgentAvailabilityTimer: AgentAvailabilityTimer | string | undefined;
 }
@@ -8130,6 +8328,18 @@ export interface UpdateTrafficDistributionRequest {
    * <p>The distribution of traffic between the instance and its replica(s).</p>
    */
   TelephonyConfig?: TelephonyConfig;
+
+  /**
+   * @public
+   * <p>The distribution of allowing signing in to the instance and its replica(s).</p>
+   */
+  SignInConfig?: SignInConfig;
+
+  /**
+   * @public
+   * <p>The distribution of agents between the instance and its replica(s).</p>
+   */
+  AgentConfig?: AgentConfig;
 }
 
 /**
@@ -8193,381 +8403,6 @@ export interface HierarchyLevelUpdate {
    * <p>The name of the user hierarchy level. Must not be more than 50 characters.</p>
    */
   Name: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains information about the level hierarchy to update.</p>
- */
-export interface HierarchyStructureUpdate {
-  /**
-   * @public
-   * <p>The
-   *    update
-   *    for level one.</p>
-   */
-  LevelOne?: HierarchyLevelUpdate;
-
-  /**
-   * @public
-   * <p>The update for level two.</p>
-   */
-  LevelTwo?: HierarchyLevelUpdate;
-
-  /**
-   * @public
-   * <p>The update for level three.</p>
-   */
-  LevelThree?: HierarchyLevelUpdate;
-
-  /**
-   * @public
-   * <p>The update for level four.</p>
-   */
-  LevelFour?: HierarchyLevelUpdate;
-
-  /**
-   * @public
-   * <p>The update for level five.</p>
-   */
-  LevelFive?: HierarchyLevelUpdate;
-}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyStructureRequest {
-  /**
-   * @public
-   * <p>The hierarchy levels to update.</p>
-   */
-  HierarchyStructure: HierarchyStructureUpdate | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserIdentityInfoRequest {
-  /**
-   * @public
-   * <p>The identity information for the user.</p>
-   */
-  IdentityInfo: UserIdentityInfo | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserPhoneConfigRequest {
-  /**
-   * @public
-   * <p>Information about phone configuration settings for the user.</p>
-   */
-  PhoneConfig: UserPhoneConfig | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserRoutingProfileRequest {
-  /**
-   * @public
-   * <p>The identifier of the routing profile for the user.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserSecurityProfilesRequest {
-  /**
-   * @public
-   * <p>The identifiers of the security profiles for the user.</p>
-   */
-  SecurityProfileIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Information about an item from an evaluation form. The item must be either a section or a
- *    question.</p>
- */
-export type EvaluationFormItem =
-  | EvaluationFormItem.QuestionMember
-  | EvaluationFormItem.SectionMember
-  | EvaluationFormItem.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationFormItem {
-  /**
-   * @public
-   * <p>The information of the section.</p>
-   */
-  export interface SectionMember {
-    Section: EvaluationFormSection;
-    Question?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   * <p>The information of the question.</p>
-   */
-  export interface QuestionMember {
-    Section?: never;
-    Question: EvaluationFormQuestion;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Section?: never;
-    Question?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    Section: (value: EvaluationFormSection) => T;
-    Question: (value: EvaluationFormQuestion) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: EvaluationFormItem, visitor: Visitor<T>): T => {
-    if (value.Section !== undefined) return visitor.Section(value.Section);
-    if (value.Question !== undefined) return visitor.Question(value.Question);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * <p>Information about a section from an evaluation form. A section can contain sections and/or
- *    questions. Evaluation forms can only contain sections and subsections (two level nesting).</p>
- */
-export interface EvaluationFormSection {
-  /**
-   * @public
-   * <p>The title of the section.</p>
-   */
-  Title: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the section. An identifier must be unique within the evaluation
-   *    form.</p>
-   */
-  RefId: string | undefined;
-
-  /**
-   * @public
-   * <p>The instructions of the section.</p>
-   */
-  Instructions?: string;
-
-  /**
-   * @public
-   * <p>The items of the section.</p>
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * @public
-   * <p>The scoring weight of the section.</p>
-   */
-  Weight?: number;
-}
-
-/**
- * @public
- */
-export interface CreateEvaluationFormRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>A title of the evaluation form.</p>
-   */
-  Title: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the evaluation form.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * @public
-   * <p>A scoring strategy of the evaluation form.</p>
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
-
-  /**
-   * @public
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- * <p>Information about the evaluation form.</p>
- */
-export interface EvaluationForm {
-  /**
-   * @public
-   * <p>The unique identifier for the evaluation form.</p>
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * @public
-   * <p>A version of the evaluation form.</p>
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * @public
-   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
-   */
-  Locked: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * @public
-   * <p>A title of the evaluation form.</p>
-   */
-  Title: string | undefined;
-
-  /**
-   * @public
-   * <p>The description of the evaluation form.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The status of the evaluation form.</p>
-   */
-  Status: EvaluationFormVersionStatus | string | undefined;
-
-  /**
-   * @public
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * @public
-   * <p>A scoring strategy of the evaluation form.</p>
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
-
-  /**
-   * @public
-   * <p>The timestamp for when the evaluation form was created.</p>
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
-   */
-  CreatedBy: string | undefined;
-
-  /**
-   * @public
-   * <p>The timestamp for when the evaluation form was last updated.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
-   */
-  LastModifiedBy: string | undefined;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
 }
 
 /**

@@ -14,7 +14,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetContactAttributesRequest, GetContactAttributesResponse } from "../models/models_0";
+import { GetContactAttributesRequest } from "../models/models_0";
+import { GetContactAttributesResponse } from "../models/models_1";
 import { de_GetContactAttributesCommand, se_GetContactAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**

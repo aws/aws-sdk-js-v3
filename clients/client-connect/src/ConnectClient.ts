@@ -88,6 +88,10 @@ import {
   AssociateSecurityKeyCommandInput,
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
+import {
+  AssociateTrafficDistributionGroupUserCommandInput,
+  AssociateTrafficDistributionGroupUserCommandOutput,
+} from "./commands/AssociateTrafficDistributionGroupUserCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "./commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
@@ -280,6 +284,10 @@ import {
   DisassociateSecurityKeyCommandInput,
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
+import {
+  DisassociateTrafficDistributionGroupUserCommandInput,
+  DisassociateTrafficDistributionGroupUserCommandOutput,
+} from "./commands/DisassociateTrafficDistributionGroupUserCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "./commands/DismissUserContactCommand";
 import {
   GetContactAttributesCommandInput,
@@ -388,6 +396,10 @@ import {
   ListTrafficDistributionGroupsCommandInput,
   ListTrafficDistributionGroupsCommandOutput,
 } from "./commands/ListTrafficDistributionGroupsCommand";
+import {
+  ListTrafficDistributionGroupUsersCommandInput,
+  ListTrafficDistributionGroupUsersCommandOutput,
+} from "./commands/ListTrafficDistributionGroupUsersCommand";
 import { ListUseCasesCommandInput, ListUseCasesCommandOutput } from "./commands/ListUseCasesCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
@@ -626,6 +638,7 @@ export type ServiceInputTypes =
   | AssociateQueueQuickConnectsCommandInput
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
+  | AssociateTrafficDistributionGroupUserCommandInput
   | ClaimPhoneNumberCommandInput
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
@@ -698,6 +711,7 @@ export type ServiceInputTypes =
   | DisassociateQueueQuickConnectsCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
+  | DisassociateTrafficDistributionGroupUserCommandInput
   | DismissUserContactCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
@@ -739,6 +753,7 @@ export type ServiceInputTypes =
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskTemplatesCommandInput
+  | ListTrafficDistributionGroupUsersCommandInput
   | ListTrafficDistributionGroupsCommandInput
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
@@ -828,6 +843,7 @@ export type ServiceOutputTypes =
   | AssociateQueueQuickConnectsCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
+  | AssociateTrafficDistributionGroupUserCommandOutput
   | ClaimPhoneNumberCommandOutput
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
@@ -900,6 +916,7 @@ export type ServiceOutputTypes =
   | DisassociateQueueQuickConnectsCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
+  | DisassociateTrafficDistributionGroupUserCommandOutput
   | DismissUserContactCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
@@ -941,6 +958,7 @@ export type ServiceOutputTypes =
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskTemplatesCommandOutput
+  | ListTrafficDistributionGroupUsersCommandOutput
   | ListTrafficDistributionGroupsCommandOutput
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput

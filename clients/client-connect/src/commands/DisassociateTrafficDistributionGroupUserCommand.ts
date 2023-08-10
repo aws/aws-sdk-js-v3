@@ -14,8 +14,14 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_1";
-import { de_UpdateTrafficDistributionCommand, se_UpdateTrafficDistributionCommand } from "../protocols/Aws_restJson1";
+import {
+  DisassociateTrafficDistributionGroupUserRequest,
+  DisassociateTrafficDistributionGroupUserResponse,
+} from "../models/models_0";
+import {
+  de_DisassociateTrafficDistributionGroupUserCommand,
+  se_DisassociateTrafficDistributionGroupUserCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,70 +30,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateTrafficDistributionCommand}.
+ * The input for {@link DisassociateTrafficDistributionGroupUserCommand}.
  */
-export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDistributionRequest {}
+export interface DisassociateTrafficDistributionGroupUserCommandInput
+  extends DisassociateTrafficDistributionGroupUserRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateTrafficDistributionCommand}.
+ * The output of {@link DisassociateTrafficDistributionGroupUserCommand}.
  */
-export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
+export interface DisassociateTrafficDistributionGroupUserCommandOutput
+  extends DisassociateTrafficDistributionGroupUserResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the traffic distribution for a given traffic distribution group. </p>
- *          <note>
- *             <p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call
- *     <code>UpdateTrafficDistribution</code>  with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
- *     an <code>InvalidRequestException</code> is returned.</p>
- *          </note>
- *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
- *     traffic distribution across Amazon Web Services Regions
- *    </a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ * <p>Disassociates an agent from a traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateTrafficDistributionGroupUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateTrafficDistributionGroupUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateTrafficDistributionRequest
- *   Id: "STRING_VALUE", // required
- *   TelephonyConfig: { // TelephonyConfig
- *     Distributions: [ // DistributionList // required
- *       { // Distribution
- *         Region: "STRING_VALUE", // required
- *         Percentage: Number("int"), // required
- *       },
- *     ],
- *   },
- *   SignInConfig: { // SignInConfig
- *     Distributions: [ // SignInDistributionList // required
- *       { // SignInDistribution
- *         Region: "STRING_VALUE", // required
- *         Enabled: true || false, // required
- *       },
- *     ],
- *   },
- *   AgentConfig: { // AgentConfig
- *     Distributions: [ // required
- *       {
- *         Region: "STRING_VALUE", // required
- *         Percentage: Number("int"), // required
- *       },
- *     ],
- *   },
+ * const input = { // DisassociateTrafficDistributionGroupUserRequest
+ *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
  * };
- * const command = new UpdateTrafficDistributionCommand(input);
+ * const command = new DisassociateTrafficDistributionGroupUserCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateTrafficDistributionCommandInput - {@link UpdateTrafficDistributionCommandInput}
- * @returns {@link UpdateTrafficDistributionCommandOutput}
- * @see {@link UpdateTrafficDistributionCommandInput} for command's `input` shape.
- * @see {@link UpdateTrafficDistributionCommandOutput} for command's `response` shape.
+ * @param DisassociateTrafficDistributionGroupUserCommandInput - {@link DisassociateTrafficDistributionGroupUserCommandInput}
+ * @returns {@link DisassociateTrafficDistributionGroupUserCommandOutput}
+ * @see {@link DisassociateTrafficDistributionGroupUserCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTrafficDistributionGroupUserCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -112,9 +91,9 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateTrafficDistributionCommand extends $Command<
-  UpdateTrafficDistributionCommandInput,
-  UpdateTrafficDistributionCommandOutput,
+export class DisassociateTrafficDistributionGroupUserCommand extends $Command<
+  DisassociateTrafficDistributionGroupUserCommandInput,
+  DisassociateTrafficDistributionGroupUserCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +111,7 @@ export class UpdateTrafficDistributionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateTrafficDistributionCommandInput) {
+  constructor(readonly input: DisassociateTrafficDistributionGroupUserCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +124,23 @@ export class UpdateTrafficDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateTrafficDistributionCommandInput, UpdateTrafficDistributionCommandOutput> {
+  ): Handler<
+    DisassociateTrafficDistributionGroupUserCommandInput,
+    DisassociateTrafficDistributionGroupUserCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateTrafficDistributionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(
+        configuration,
+        DisassociateTrafficDistributionGroupUserCommand.getEndpointParameterInstructions()
+      )
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateTrafficDistributionCommand";
+    const commandName = "DisassociateTrafficDistributionGroupUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,8 +159,11 @@ export class UpdateTrafficDistributionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateTrafficDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateTrafficDistributionCommand(input, context);
+  private serialize(
+    input: DisassociateTrafficDistributionGroupUserCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_DisassociateTrafficDistributionGroupUserCommand(input, context);
   }
 
   /**
@@ -184,8 +172,8 @@ export class UpdateTrafficDistributionCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateTrafficDistributionCommandOutput> {
-    return de_UpdateTrafficDistributionCommand(output, context);
+  ): Promise<DisassociateTrafficDistributionGroupUserCommandOutput> {
+    return de_DisassociateTrafficDistributionGroupUserCommand(output, context);
   }
 
   // Start section: command_body_extra

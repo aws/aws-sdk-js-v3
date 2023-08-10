@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserPhoneConfigRequest } from "../models/models_1";
+import { UpdateUserPhoneConfigRequest } from "../models/models_2";
 import { de_UpdateUserPhoneConfigCommand, se_UpdateUserPhoneConfigCommand } from "../protocols/Aws_restJson1";
 
 /**

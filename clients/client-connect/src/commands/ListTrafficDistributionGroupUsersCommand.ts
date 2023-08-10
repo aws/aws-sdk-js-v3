@@ -14,8 +14,14 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserSecurityProfilesRequest } from "../models/models_2";
-import { de_UpdateUserSecurityProfilesCommand, se_UpdateUserSecurityProfilesCommand } from "../protocols/Aws_restJson1";
+import {
+  ListTrafficDistributionGroupUsersRequest,
+  ListTrafficDistributionGroupUsersResponse,
+} from "../models/models_1";
+import {
+  de_ListTrafficDistributionGroupUsersCommand,
+  se_ListTrafficDistributionGroupUsersCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,49 +30,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateUserSecurityProfilesCommand}.
+ * The input for {@link ListTrafficDistributionGroupUsersCommand}.
  */
-export interface UpdateUserSecurityProfilesCommandInput extends UpdateUserSecurityProfilesRequest {}
+export interface ListTrafficDistributionGroupUsersCommandInput extends ListTrafficDistributionGroupUsersRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateUserSecurityProfilesCommand}.
+ * The output of {@link ListTrafficDistributionGroupUsersCommand}.
  */
-export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBearer {}
+export interface ListTrafficDistributionGroupUsersCommandOutput
+  extends ListTrafficDistributionGroupUsersResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Assigns the specified security profiles to the specified user.</p>
+ * <p>Lists traffic distribution group users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, UpdateUserSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, UpdateUserSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListTrafficDistributionGroupUsersCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListTrafficDistributionGroupUsersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // UpdateUserSecurityProfilesRequest
- *   SecurityProfileIds: [ // SecurityProfileIds // required
- *     "STRING_VALUE",
- *   ],
- *   UserId: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ * const input = { // ListTrafficDistributionGroupUsersRequest
+ *   TrafficDistributionGroupId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new UpdateUserSecurityProfilesCommand(input);
+ * const command = new ListTrafficDistributionGroupUsersCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListTrafficDistributionGroupUsersResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   TrafficDistributionGroupUserSummaryList: [ // TrafficDistributionGroupUserSummaryList
+ * //     { // TrafficDistributionGroupUserSummary
+ * //       UserId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param UpdateUserSecurityProfilesCommandInput - {@link UpdateUserSecurityProfilesCommandInput}
- * @returns {@link UpdateUserSecurityProfilesCommandOutput}
- * @see {@link UpdateUserSecurityProfilesCommandInput} for command's `input` shape.
- * @see {@link UpdateUserSecurityProfilesCommandOutput} for command's `response` shape.
+ * @param ListTrafficDistributionGroupUsersCommandInput - {@link ListTrafficDistributionGroupUsersCommandInput}
+ * @returns {@link ListTrafficDistributionGroupUsersCommandOutput}
+ * @see {@link ListTrafficDistributionGroupUsersCommandInput} for command's `input` shape.
+ * @see {@link ListTrafficDistributionGroupUsersCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
@@ -81,9 +94,9 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateUserSecurityProfilesCommand extends $Command<
-  UpdateUserSecurityProfilesCommandInput,
-  UpdateUserSecurityProfilesCommandOutput,
+export class ListTrafficDistributionGroupUsersCommand extends $Command<
+  ListTrafficDistributionGroupUsersCommandInput,
+  ListTrafficDistributionGroupUsersCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -101,7 +114,7 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateUserSecurityProfilesCommandInput) {
+  constructor(readonly input: ListTrafficDistributionGroupUsersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -114,17 +127,17 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateUserSecurityProfilesCommandInput, UpdateUserSecurityProfilesCommandOutput> {
+  ): Handler<ListTrafficDistributionGroupUsersCommandInput, ListTrafficDistributionGroupUsersCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateUserSecurityProfilesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListTrafficDistributionGroupUsersCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "UpdateUserSecurityProfilesCommand";
+    const commandName = "ListTrafficDistributionGroupUsersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -143,8 +156,11 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateUserSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateUserSecurityProfilesCommand(input, context);
+  private serialize(
+    input: ListTrafficDistributionGroupUsersCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return se_ListTrafficDistributionGroupUsersCommand(input, context);
   }
 
   /**
@@ -153,8 +169,8 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateUserSecurityProfilesCommandOutput> {
-    return de_UpdateUserSecurityProfilesCommand(output, context);
+  ): Promise<ListTrafficDistributionGroupUsersCommandOutput> {
+    return de_ListTrafficDistributionGroupUsersCommand(output, context);
   }
 
   // Start section: command_body_extra

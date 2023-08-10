@@ -40,11 +40,9 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends
 
 /**
  * @public
- * <p>Whether agents with this routing profile
- *    will have their routing order calculated based on
- *    <i>time since their last inbound
- *     contact</i> or <i>longest idle
- *      time</i>. </p>
+ * <p>Whether agents with this routing profile will have their routing order calculated based on
+ *     <i>time since their last inbound contact</i> or <i>longest idle
+ *     time</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

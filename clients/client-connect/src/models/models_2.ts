@@ -1,9 +1,15 @@
 // smithy-typescript generated code
-import { Evaluation, EvaluationFormScoringStrategy } from "./models_0";
 import {
-  EvaluationForm,
-  EvaluationFormItem,
+  Evaluation,
+  EvaluationFormQuestion,
+  EvaluationFormScoringStrategy,
+  EvaluationFormVersionStatus,
+  UserIdentityInfo,
+  UserPhoneConfig,
+} from "./models_0";
+import {
   HierarchyGroupCondition,
+  HierarchyLevelUpdate,
   HoursOfOperationSearchFilter,
   PromptSearchFilter,
   QueueSearchFilter,
@@ -14,6 +20,381 @@ import {
   StringCondition,
   UserSearchFilter,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Contains information about the level hierarchy to update.</p>
+ */
+export interface HierarchyStructureUpdate {
+  /**
+   * @public
+   * <p>The
+   *    update
+   *    for level one.</p>
+   */
+  LevelOne?: HierarchyLevelUpdate;
+
+  /**
+   * @public
+   * <p>The update for level two.</p>
+   */
+  LevelTwo?: HierarchyLevelUpdate;
+
+  /**
+   * @public
+   * <p>The update for level three.</p>
+   */
+  LevelThree?: HierarchyLevelUpdate;
+
+  /**
+   * @public
+   * <p>The update for level four.</p>
+   */
+  LevelFour?: HierarchyLevelUpdate;
+
+  /**
+   * @public
+   * <p>The update for level five.</p>
+   */
+  LevelFive?: HierarchyLevelUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserHierarchyStructureRequest {
+  /**
+   * @public
+   * <p>The hierarchy levels to update.</p>
+   */
+  HierarchyStructure: HierarchyStructureUpdate | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserIdentityInfoRequest {
+  /**
+   * @public
+   * <p>The identity information for the user.</p>
+   */
+  IdentityInfo: UserIdentityInfo | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserPhoneConfigRequest {
+  /**
+   * @public
+   * <p>Information about phone configuration settings for the user.</p>
+   */
+  PhoneConfig: UserPhoneConfig | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserRoutingProfileRequest {
+  /**
+   * @public
+   * <p>The identifier of the routing profile for the user.</p>
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserSecurityProfilesRequest {
+  /**
+   * @public
+   * <p>The identifiers of the security profiles for the user.</p>
+   */
+  SecurityProfileIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about an item from an evaluation form. The item must be either a section or a
+ *    question.</p>
+ */
+export type EvaluationFormItem =
+  | EvaluationFormItem.QuestionMember
+  | EvaluationFormItem.SectionMember
+  | EvaluationFormItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationFormItem {
+  /**
+   * @public
+   * <p>The information of the section.</p>
+   */
+  export interface SectionMember {
+    Section: EvaluationFormSection;
+    Question?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The information of the question.</p>
+   */
+  export interface QuestionMember {
+    Section?: never;
+    Question: EvaluationFormQuestion;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Section?: never;
+    Question?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Section: (value: EvaluationFormSection) => T;
+    Question: (value: EvaluationFormQuestion) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EvaluationFormItem, visitor: Visitor<T>): T => {
+    if (value.Section !== undefined) return visitor.Section(value.Section);
+    if (value.Question !== undefined) return visitor.Question(value.Question);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Information about a section from an evaluation form. A section can contain sections and/or
+ *    questions. Evaluation forms can only contain sections and subsections (two level nesting).</p>
+ */
+export interface EvaluationFormSection {
+  /**
+   * @public
+   * <p>The title of the section.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the section. An identifier must be unique within the evaluation
+   *    form.</p>
+   */
+  RefId: string | undefined;
+
+  /**
+   * @public
+   * <p>The instructions of the section.</p>
+   */
+  Instructions?: string;
+
+  /**
+   * @public
+   * <p>The items of the section.</p>
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * @public
+   * <p>The scoring weight of the section.</p>
+   */
+  Weight?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateEvaluationFormRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>A title of the evaluation form.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the evaluation form.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * @public
+   * <p>A scoring strategy of the evaluation form.</p>
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the evaluation form.</p>
+ */
+export interface EvaluationForm {
+  /**
+   * @public
+   * <p>The unique identifier for the evaluation form.</p>
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * @public
+   * <p>A version of the evaluation form.</p>
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * @public
+   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
+   */
+  Locked: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A title of the evaluation form.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p>The description of the evaluation form.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The status of the evaluation form.</p>
+   */
+  Status: EvaluationFormVersionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * @public
+   * <p>A scoring strategy of the evaluation form.</p>
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy;
+
+  /**
+   * @public
+   * <p>The timestamp for when the evaluation form was created.</p>
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp for when the evaluation form was last updated.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+   */
+  LastModifiedBy: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+}
 
 /**
  * @public

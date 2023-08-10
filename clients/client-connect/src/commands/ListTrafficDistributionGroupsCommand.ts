@@ -64,6 +64,7 @@ export interface ListTrafficDistributionGroupsCommandOutput
  * //       Name: "STRING_VALUE",
  * //       InstanceArn: "STRING_VALUE",
  * //       Status: "CREATION_IN_PROGRESS" || "ACTIVE" || "CREATION_FAILED" || "PENDING_DELETION" || "DELETION_FAILED" || "UPDATE_IN_PROGRESS",
+ * //       IsDefault: true || false,
  * //     },
  * //   ],
  * // };

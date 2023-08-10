@@ -59,6 +59,22 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * //   },
  * //   Id: "STRING_VALUE",
  * //   Arn: "STRING_VALUE",
+ * //   SignInConfig: { // SignInConfig
+ * //     Distributions: [ // SignInDistributionList // required
+ * //       { // SignInDistribution
+ * //         Region: "STRING_VALUE", // required
+ * //         Enabled: true || false, // required
+ * //       },
+ * //     ],
+ * //   },
+ * //   AgentConfig: { // AgentConfig
+ * //     Distributions: [ // required
+ * //       {
+ * //         Region: "STRING_VALUE", // required
+ * //         Percentage: Number("int"), // required
+ * //       },
+ * //     ],
+ * //   },
  * // };
  *
  * ```

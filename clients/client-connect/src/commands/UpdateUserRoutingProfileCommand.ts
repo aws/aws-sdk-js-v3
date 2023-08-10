@@ -14,7 +14,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserRoutingProfileRequest } from "../models/models_1";
+import { UpdateUserRoutingProfileRequest } from "../models/models_2";
 import { de_UpdateUserRoutingProfileCommand, se_UpdateUserRoutingProfileCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -303,6 +303,14 @@ AssociateSecurityKey
 </details>
 <details>
 <summary>
+AssociateTrafficDistributionGroupUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/associatetrafficdistributiongroupusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/associatetrafficdistributiongroupusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/associatetrafficdistributiongroupusercommandoutput.html)
+
+</details>
+<details>
+<summary>
 ClaimPhoneNumber
 </summary>
 
@@ -879,6 +887,14 @@ DisassociateSecurityKey
 </details>
 <details>
 <summary>
+DisassociateTrafficDistributionGroupUser
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/disassociatetrafficdistributiongroupusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/disassociatetrafficdistributiongroupusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/disassociatetrafficdistributiongroupusercommandoutput.html)
+
+</details>
+<details>
+<summary>
 DismissUserContact
 </summary>
 
@@ -1211,6 +1227,14 @@ ListTrafficDistributionGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listtrafficdistributiongroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listtrafficdistributiongroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listtrafficdistributiongroupscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTrafficDistributionGroupUsers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/listtrafficdistributiongroupuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listtrafficdistributiongroupuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/listtrafficdistributiongroupuserscommandoutput.html)
 
 </details>
 <details>

@@ -238,6 +238,36 @@ export type AgentAvailabilityTimer = (typeof AgentAvailabilityTimer)[keyof typeo
 
 /**
  * @public
+ * <p>Information about a traffic distribution.</p>
+ */
+export interface Distribution {
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where the traffic is distributed.</p>
+   */
+  Region: string | undefined;
+
+  /**
+   * @public
+   * <p>The percentage of the traffic that is distributed, in increments of 10.</p>
+   */
+  Percentage: number | undefined;
+}
+
+/**
+ * @public
+ * <p>The distribution of agents between the instance and its replica(s).</p>
+ */
+export interface AgentConfig {
+  /**
+   * @public
+   * <p>Information about traffic distributions.</p>
+   */
+  Distributions: Distribution[] | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ContactState = {
@@ -1145,6 +1175,36 @@ export interface AssociateSecurityKeyResponse {
    */
   AssociationId?: string;
 }
+
+/**
+ * @public
+ */
+export interface AssociateTrafficDistributionGroupUserRequest {
+  /**
+   * @public
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account. This can be the ID or the ARN of the user. </p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateTrafficDistributionGroupUserResponse {}
 
 /**
  * @public
@@ -2829,11 +2889,9 @@ export interface CreateRoutingProfileRequest {
 
   /**
    * @public
-   * <p>Whether agents with this routing profile
-   *    will have their routing order calculated based on
-   *    <i>time since their last inbound
-   *     contact</i> or <i>longest idle
-   *      time</i>. </p>
+   * <p>Whether agents with this routing profile will have their routing order calculated based on
+   *     <i>longest idle time</i> or <i>time since their last inbound
+   *     contact</i>. </p>
    */
   AgentAvailabilityTimer?: AgentAvailabilityTimer | string;
 }
@@ -6287,11 +6345,9 @@ export interface RoutingProfile {
 
   /**
    * @public
-   * <p>Whether agents with this routing profile
-   *    will have their routing order calculated based on
-   *    <i>time since their last inbound
-   *     contact</i> or <i>longest idle
-   *      time</i>. </p>
+   * <p>Whether agents with this routing profile will have their routing order calculated based on
+   *     <i>time since their last inbound contact</i> or <i>longest idle
+   *     time</i>. </p>
    */
   AgentAvailabilityTimer?: AgentAvailabilityTimer | string;
 }
@@ -6598,6 +6654,20 @@ export interface TrafficDistributionGroup {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Whether this is the default traffic distribution group created during instance
+   *    replication. The default traffic distribution group cannot be deleted by the
+   *    <code>DeleteTrafficDistributionGroup</code> API. The default traffic distribution group is deleted as
+   *    part of the process for deleting a replica.</p>
+   *          <note>
+   *             <p>You can change the <code>SignInConfig</code> only for a default <code>TrafficDistributionGroup</code>. If you call
+   *     <code>UpdateTrafficDistribution</code>  with a modified <code>SignInConfig</code> and a non-default <code>TrafficDistributionGroup</code>,
+   *     an <code>InvalidRequestException</code> is returned.</p>
+   *          </note>
+   */
+  IsDefault?: boolean;
 }
 
 /**
@@ -7200,6 +7270,36 @@ export interface DisassociateSecurityKeyRequest {
 /**
  * @public
  */
+export interface DisassociateTrafficDistributionGroupUserRequest {
+  /**
+   * @public
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   */
+  TrafficDistributionGroupId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTrafficDistributionGroupUserResponse {}
+
+/**
+ * @public
+ */
 export interface DismissUserContactRequest {
   /**
    * @public
@@ -7242,117 +7342,6 @@ export interface GetContactAttributesRequest {
    */
   InitialContactId: string | undefined;
 }
-
-/**
- * @public
- */
-export interface GetContactAttributesResponse {
-  /**
-   * @public
-   * <p>Information about the attributes.</p>
-   */
-  Attributes?: Record<string, string>;
-}
-
-/**
- * @public
- * @enum
- */
-export const CurrentMetricName = {
-  AGENTS_AFTER_CONTACT_WORK: "AGENTS_AFTER_CONTACT_WORK",
-  AGENTS_AVAILABLE: "AGENTS_AVAILABLE",
-  AGENTS_ERROR: "AGENTS_ERROR",
-  AGENTS_NON_PRODUCTIVE: "AGENTS_NON_PRODUCTIVE",
-  AGENTS_ONLINE: "AGENTS_ONLINE",
-  AGENTS_ON_CALL: "AGENTS_ON_CALL",
-  AGENTS_ON_CONTACT: "AGENTS_ON_CONTACT",
-  AGENTS_STAFFED: "AGENTS_STAFFED",
-  CONTACTS_IN_QUEUE: "CONTACTS_IN_QUEUE",
-  CONTACTS_SCHEDULED: "CONTACTS_SCHEDULED",
-  OLDEST_CONTACT_AGE: "OLDEST_CONTACT_AGE",
-  SLOTS_ACTIVE: "SLOTS_ACTIVE",
-  SLOTS_AVAILABLE: "SLOTS_AVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type CurrentMetricName = (typeof CurrentMetricName)[keyof typeof CurrentMetricName];
-
-/**
- * @public
- * @enum
- */
-export const Unit = {
-  COUNT: "COUNT",
-  PERCENT: "PERCENT",
-  SECONDS: "SECONDS",
-} as const;
-
-/**
- * @public
- */
-export type Unit = (typeof Unit)[keyof typeof Unit];
-
-/**
- * @public
- * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator
- *     Guide</i>.</p>
- */
-export interface CurrentMetric {
-  /**
-   * @public
-   * <p>The name of the metric.</p>
-   */
-  Name?: CurrentMetricName | string;
-
-  /**
-   * @public
-   * <p>The unit for the metric.</p>
-   */
-  Unit?: Unit | string;
-}
-
-/**
- * @public
- * <p>Contains the filter to apply when retrieving metrics.</p>
- */
-export interface Filters {
-  /**
-   * @public
-   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can
-   *    specify up to 100 queues per request. The <code>GetCurrentMetricsData</code> API in particular
-   *    requires a queue when you include a <code>Filter</code> in your request. </p>
-   */
-  Queues?: string[];
-
-  /**
-   * @public
-   * <p>The channel to use to filter the metrics.</p>
-   */
-  Channels?: (Channel | string)[];
-
-  /**
-   * @public
-   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
-   */
-  RoutingProfiles?: string[];
-}
-
-/**
- * @public
- * @enum
- */
-export const Grouping = {
-  CHANNEL: "CHANNEL",
-  QUEUE: "QUEUE",
-  ROUTING_PROFILE: "ROUTING_PROFILE",
-} as const;
-
-/**
- * @public
- */
-export type Grouping = (typeof Grouping)[keyof typeof Grouping];
 
 /**
  * @internal

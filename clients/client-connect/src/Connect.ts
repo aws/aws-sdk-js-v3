@@ -58,6 +58,11 @@ import {
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
 import {
+  AssociateTrafficDistributionGroupUserCommand,
+  AssociateTrafficDistributionGroupUserCommandInput,
+  AssociateTrafficDistributionGroupUserCommandOutput,
+} from "./commands/AssociateTrafficDistributionGroupUserCommand";
+import {
   ClaimPhoneNumberCommand,
   ClaimPhoneNumberCommandInput,
   ClaimPhoneNumberCommandOutput,
@@ -394,6 +399,11 @@ import {
   DisassociateSecurityKeyCommandOutput,
 } from "./commands/DisassociateSecurityKeyCommand";
 import {
+  DisassociateTrafficDistributionGroupUserCommand,
+  DisassociateTrafficDistributionGroupUserCommandInput,
+  DisassociateTrafficDistributionGroupUserCommandOutput,
+} from "./commands/DisassociateTrafficDistributionGroupUserCommand";
+import {
   DismissUserContactCommand,
   DismissUserContactCommandInput,
   DismissUserContactCommandOutput,
@@ -583,6 +593,11 @@ import {
   ListTrafficDistributionGroupsCommandInput,
   ListTrafficDistributionGroupsCommandOutput,
 } from "./commands/ListTrafficDistributionGroupsCommand";
+import {
+  ListTrafficDistributionGroupUsersCommand,
+  ListTrafficDistributionGroupUsersCommandInput,
+  ListTrafficDistributionGroupUsersCommandOutput,
+} from "./commands/ListTrafficDistributionGroupUsersCommand";
 import {
   ListUseCasesCommand,
   ListUseCasesCommandInput,
@@ -937,6 +952,7 @@ const commands = {
   AssociateQueueQuickConnectsCommand,
   AssociateRoutingProfileQueuesCommand,
   AssociateSecurityKeyCommand,
+  AssociateTrafficDistributionGroupUserCommand,
   ClaimPhoneNumberCommand,
   CreateAgentStatusCommand,
   CreateContactFlowCommand,
@@ -1009,6 +1025,7 @@ const commands = {
   DisassociateQueueQuickConnectsCommand,
   DisassociateRoutingProfileQueuesCommand,
   DisassociateSecurityKeyCommand,
+  DisassociateTrafficDistributionGroupUserCommand,
   DismissUserContactCommand,
   GetContactAttributesCommand,
   GetCurrentMetricDataCommand,
@@ -1051,6 +1068,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListTaskTemplatesCommand,
   ListTrafficDistributionGroupsCommand,
+  ListTrafficDistributionGroupUsersCommand,
   ListUseCasesCommand,
   ListUserHierarchyGroupsCommand,
   ListUsersCommand,
@@ -1302,6 +1320,23 @@ export interface Connect {
     args: AssociateSecurityKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateSecurityKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateTrafficDistributionGroupUserCommand}
+   */
+  associateTrafficDistributionGroupUser(
+    args: AssociateTrafficDistributionGroupUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTrafficDistributionGroupUserCommandOutput>;
+  associateTrafficDistributionGroupUser(
+    args: AssociateTrafficDistributionGroupUserCommandInput,
+    cb: (err: any, data?: AssociateTrafficDistributionGroupUserCommandOutput) => void
+  ): void;
+  associateTrafficDistributionGroupUser(
+    args: AssociateTrafficDistributionGroupUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTrafficDistributionGroupUserCommandOutput) => void
   ): void;
 
   /**
@@ -2436,6 +2471,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DisassociateTrafficDistributionGroupUserCommand}
+   */
+  disassociateTrafficDistributionGroupUser(
+    args: DisassociateTrafficDistributionGroupUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateTrafficDistributionGroupUserCommandOutput>;
+  disassociateTrafficDistributionGroupUser(
+    args: DisassociateTrafficDistributionGroupUserCommandInput,
+    cb: (err: any, data?: DisassociateTrafficDistributionGroupUserCommandOutput) => void
+  ): void;
+  disassociateTrafficDistributionGroupUser(
+    args: DisassociateTrafficDistributionGroupUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateTrafficDistributionGroupUserCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DismissUserContactCommand}
    */
   dismissUserContact(
@@ -3093,6 +3145,23 @@ export interface Connect {
     args: ListTrafficDistributionGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTrafficDistributionGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTrafficDistributionGroupUsersCommand}
+   */
+  listTrafficDistributionGroupUsers(
+    args: ListTrafficDistributionGroupUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrafficDistributionGroupUsersCommandOutput>;
+  listTrafficDistributionGroupUsers(
+    args: ListTrafficDistributionGroupUsersCommandInput,
+    cb: (err: any, data?: ListTrafficDistributionGroupUsersCommandOutput) => void
+  ): void;
+  listTrafficDistributionGroupUsers(
+    args: ListTrafficDistributionGroupUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrafficDistributionGroupUsersCommandOutput) => void
   ): void;
 
   /**

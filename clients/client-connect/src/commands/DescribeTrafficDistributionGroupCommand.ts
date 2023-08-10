@@ -64,6 +64,7 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     IsDefault: true || false,
  * //   },
  * // };
  *
