@@ -128,6 +128,24 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The parameter name or value is invalid.</p>
  *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>A parameter value is not valid for the current state of the
+ *       resource.</p>
+ *          <p>Possible causes:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The secret is scheduled for deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
+ *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
+ *             </li>
+ *             <li>
+ *                <p>The secret is managed by another service, and you must use that service to update it.
+ *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *

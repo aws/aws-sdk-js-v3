@@ -899,6 +899,9 @@ const de_ListSecretsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
