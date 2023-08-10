@@ -196,12 +196,12 @@ the generated code change to your PR. Here's how to generate clients:
    clients/client-X> yarn generate:client
    ```
 
-### CLI dispatch helper
+### CLI dispatch helpers
 
-There is an optional CLI helper.
-The CLI helper assists in the dispatch of commands to package contexts.
+There are optional CLI helpers.
+The CLI helpers assist in the dispatch of commands to package or subfolder contexts.
 
-To activate the default alias run:
+To activate the default aliases run:
 
 ```
 . ./scripts/cli-dispatcher/set-alias.sh
@@ -209,37 +209,53 @@ To activate the default alias run:
 
 This enables the command bin/exe
 
-```
-b
-```
+`b` and `r`.
 
 #### General Syntax
 
-```
+```sh
 b (package name query) - (npm script query)
+```
+
+```sh
+r (workspace script query)
 ```
 
 #### Syntax Examples:
 
-Usage examples
+Usage examples for `r`:
 
+`r` depends on what files exist in your unversioned `workspace` directory at the repository root.
+It will run the first matching `*.js`, `*.mjs`, or `*.ts` file.
+
+```sh
+r dyn test
 ```
+
+```sh
+npx esbuilder-runner ./workspace/dynamodb/test.ts # (if *.ts file)
+node ./workspace/dynamodb/test.mjs # (if *.mjs file)
+```
+
+Usage examples for `b`:
+
+```sh
 b s3 - b
 ```
 
-yarn **b**uild in clients/client-**s3**
+matches to: yarn **b**uild in clients/client-**s3**
 
-```
+```sh
 b mar ent - doc
 ```
 
-yarn build:**doc**s in clients/client-**mar**ketplace-**ent**itlement-service
+matches to: yarn build:**doc**s in clients/client-**mar**ketplace-**ent**itlement-service
 
-```
+```sh
 b m sign - t
 ```
 
-yarn **t**est in packages/**m**iddleware-**sign**ing
+matches to: yarn **t**est in packages/**m**iddleware-**sign**ing
 
 The package name query is used to find the package within clients, lib, or packages, and the npm script query is used to
 find a command to execute from within `package.json` `scripts`.
