@@ -103,7 +103,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *  <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  *
  * @throws {@link MaxConcurrentQueriesException} (client fault)
- *  <p>You are already running the maximum number of concurrent queries. Wait a minute for some
+ *  <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some
  *          queries to finish, and then run the query again.</p>
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)

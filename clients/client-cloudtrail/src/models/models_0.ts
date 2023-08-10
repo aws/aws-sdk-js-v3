@@ -774,7 +774,17 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::ManagedBlockchain::Network</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::ManagedBlockchain::Node</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::MedicalImaging::Datastore</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -800,6 +810,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::S3Outposts::Object</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SSMMessages::ControlChannel</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::VerifiedPermissions::PolicyStore</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -952,6 +972,16 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Network</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:managedblockchain:::networks/<network_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Node</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -959,6 +989,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:managedblockchain:<region>:<account_ID>:nodes/<node_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::MedicalImaging::Datastore</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:medical-imaging:<region>:<account_ID>:datastore/<data_store_ID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1015,6 +1055,26 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SSMMessages::ControlChannel</code>, and
+   *                      the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                      in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::VerifiedPermissions::PolicyStore</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:verifiedpermissions:<region>:<account_ID>:policy-store/<policy_store_UUID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1611,7 +1671,17 @@ export interface CreateEventDataStoreRequest {
   /**
    * @public
    * <p>The retention period of the event data store, in days. You can set a retention period of
-   *          up to 2557 days, the equivalent of seven years.</p>
+   *          up to 2557 days, the equivalent of seven years. CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
+   *          of the event is within the specified retention period. For example, if you set a retention period of 90 days, CloudTrail will remove events
+   *       when the <code>eventTime</code> is older than 90 days.</p>
+   *          <note>
+   *             <p>If you plan to copy trail events to this event data store, we recommend
+   *             that you consider both the age of the events that you
+   *             want to copy as well as how long you want to keep the copied events
+   *             in your event data store. For example, if you copy trail events that are 5 years old
+   *             and specify a retention period of 7 years, the event data store
+   *             will retain those events for two years.</p>
+   *          </note>
    */
   RetentionPeriod?: number;
 
@@ -3727,7 +3797,17 @@ export interface DataResource {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>AWS::ManagedBlockchain::Network</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>AWS::ManagedBlockchain::Node</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::MedicalImaging::Datastore</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3753,6 +3833,16 @@ export interface DataResource {
    *             <li>
    *                <p>
    *                   <code>AWS::S3Outposts::Object</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::SSMMessages::ControlChannel</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::VerifiedPermissions::PolicyStore</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -6249,7 +6339,7 @@ export class InvalidQueryStatementException extends __BaseException {
 
 /**
  * @public
- * <p>You are already running the maximum number of concurrent queries. Wait a minute for some
+ * <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some
  *          queries to finish, and then run the query again.</p>
  */
 export class MaxConcurrentQueriesException extends __BaseException {
@@ -6527,7 +6617,14 @@ export interface UpdateEventDataStoreRequest {
 
   /**
    * @public
-   * <p>The retention period, in days.</p>
+   * <p>The retention period of the event data store, in days. You can set a retention period of
+   *          up to 2557 days, the equivalent of seven years. CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
+   *          of the event is within the specified retention period. For example, if you set a retention period of 90 days, CloudTrail will remove events
+   *          when the <code>eventTime</code> is older than 90 days.</p>
+   *          <note>
+   *             <p>If you decrease the retention period of an event data store, CloudTrail will remove any events with an <code>eventTime</code> older than the new retention period. For example, if the previous
+   *             retention period was 365 days and you decrease it to 100 days, CloudTrail  will remove events with an <code>eventTime</code> older than 100 days.</p>
+   *          </note>
    */
   RetentionPeriod?: number;
 
