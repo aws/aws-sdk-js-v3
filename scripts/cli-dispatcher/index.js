@@ -115,6 +115,7 @@ async function main() {
     console.info("Location:", target.location);
     await spawnProcess("yarn", [script], {
       cwd: target.location,
+      stdio: "inherit",
     });
     return;
   };
