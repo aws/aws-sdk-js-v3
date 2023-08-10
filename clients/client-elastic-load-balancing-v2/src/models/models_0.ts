@@ -1453,7 +1453,8 @@ export interface CreateLoadBalancerInput {
 
   /**
    * @public
-   * <p>[Application Load Balancers] The IDs of the security groups for the load balancer.</p>
+   * <p>[Application Load Balancers and Network Load Balancers] The IDs of the security groups for
+   *       the load balancer.</p>
    */
   SecurityGroups?: string[];
 
@@ -1629,6 +1630,13 @@ export interface LoadBalancer {
    * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool.</p>
    */
   CustomerOwnedIpv4Pool?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
+   *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
+   */
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string;
 }
 
 /**
@@ -1971,6 +1979,8 @@ export interface SourceIpConditionConfig {
  *         <code>source-ip</code>. Each rule can also optionally include one or more of each of the
  *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
  *       value for a condition cannot be empty.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
+ *         Application Load Balancers</a>.</p>
  */
 export interface RuleCondition {
   /**
@@ -2510,8 +2520,8 @@ export interface TargetGroup {
 
   /**
    * @public
-   * <p>The port on which the targets are listening. Not used if the target is a Lambda
-   *       function.</p>
+   * <p>The port on which the targets are listening. This parameter is not used if the target is
+   *       a Lambda function.</p>
    */
   Port?: number;
 
@@ -2583,8 +2593,8 @@ export interface TargetGroup {
 
   /**
    * @public
-   * <p>The Amazon Resource Names (ARN) of the load balancers that route traffic to this target
-   *       group.</p>
+   * <p>The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target
+   *       group. You can use each target group with only one load balancer.</p>
    */
   LoadBalancerArns?: string[];
 
@@ -2729,8 +2739,8 @@ export interface TargetDescription {
    * @public
    * <p>The port on which the target is listening. If the target group protocol is GENEVE, the
    *       supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load
-   *       Balancer must have at least one listener whose port matches the target group port. Not used if
-   *       the target is a Lambda function.</p>
+   *       Balancer must have at least one listener whose port matches the target group port. This
+   *       parameter is not used if the target is a Lambda function.</p>
    */
   Port?: number;
 
@@ -2824,6 +2834,27 @@ export interface DescribeAccountLimitsInput {
  * @public
  * <p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services
  *       account.</p>
+ *          <p>For more information, see the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
+ *             Application Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your
+ *             Network Load Balancers</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway
+ *             Load Balancers</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export interface Limit {
   /**
@@ -4248,9 +4279,8 @@ export interface SetIpAddressTypeInput {
   /**
    * @public
    * <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and
-   *         <code>dualstack</code> (for IPv4 and IPv6 addresses).
-   *        You can’t specify
-   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
+   *         <code>dualstack</code> (for IPv4 and IPv6 addresses).  You can’t specify <code>dualstack</code> for a load balancer
+   *       with a UDP or TCP_UDP listener.</p>
    */
   IpAddressType: IpAddressType | string | undefined;
 }
@@ -4308,6 +4338,21 @@ export interface SetRulePrioritiesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum = {
+  off: "off",
+  on: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum =
+  (typeof EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum)[keyof typeof EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum];
+
+/**
+ * @public
  */
 export interface SetSecurityGroupsInput {
   /**
@@ -4321,6 +4366,15 @@ export interface SetSecurityGroupsInput {
    * <p>The IDs of the security groups.</p>
    */
   SecurityGroups: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
+   *       Network Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</p>
+   */
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
+    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
+    | string;
 }
 
 /**
@@ -4332,6 +4386,15 @@ export interface SetSecurityGroupsOutput {
    * <p>The IDs of the security groups associated with the load balancer.</p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
+   *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
+   */
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
+    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
+    | string;
 }
 
 /**
@@ -4380,8 +4443,7 @@ export interface SetSubnetsInput {
    * <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
-   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.
-   *       .</p>
+   *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
    */
   IpAddressType?: IpAddressType | string;
 }

@@ -4922,6 +4922,10 @@ const se_SetSecurityGroupsInput = (input: SetSecurityGroupsInput, context: __Ser
       entries[loc] = value;
     });
   }
+  if (input.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic != null) {
+    entries["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] =
+      input.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+  }
   return entries;
 };
 
@@ -6223,6 +6227,11 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
   if (output["CustomerOwnedIpv4Pool"] !== undefined) {
     contents.CustomerOwnedIpv4Pool = __expectString(output["CustomerOwnedIpv4Pool"]);
   }
+  if (output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] !== undefined) {
+    contents.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = __expectString(
+      output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"]
+    );
+  }
   return contents;
 };
 
@@ -6691,6 +6700,11 @@ const de_SetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSe
     contents.SecurityGroupIds = de_SecurityGroups(
       __getArrayIfSingleItem(output["SecurityGroupIds"]["member"]),
       context
+    );
+  }
+  if (output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] !== undefined) {
+    contents.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = __expectString(
+      output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"]
     );
   }
   return contents;

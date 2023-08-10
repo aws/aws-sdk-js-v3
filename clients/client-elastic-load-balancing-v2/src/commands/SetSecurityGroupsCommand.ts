@@ -40,10 +40,12 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
 
 /**
  * @public
- * <p>Associates the specified security groups with the specified Application Load Balancer. The
- *       specified security groups override the previously associated security groups.</p>
- *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
- *       Balancer.</p>
+ * <p>Associates the specified security groups with the specified Application Load Balancer or
+ *       Network Load Balancer. The specified security groups override the previously associated
+ *       security groups.</p>
+ *          <p>You can't perform this operation on a Network Load Balancer unless you specified a
+ *       security group for the load balancer when you created it.</p>
+ *          <p>You can't associate a security group with a Gateway Load Balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +57,7 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  *   SecurityGroups: [ // SecurityGroups // required
  *     "STRING_VALUE",
  *   ],
+ *   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "on" || "off",
  * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
@@ -62,6 +65,7 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * //   SecurityGroupIds: [ // SecurityGroups
  * //     "STRING_VALUE",
  * //   ],
+ * //   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "on" || "off",
  * // };
  *
  * ```

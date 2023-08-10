@@ -134,6 +134,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * //       ],
  * //       IpAddressType: "ipv4" || "dualstack",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

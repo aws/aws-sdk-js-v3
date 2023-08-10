@@ -94,6 +94,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * //       ],
  * //       IpAddressType: "ipv4" || "dualstack",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
+ * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

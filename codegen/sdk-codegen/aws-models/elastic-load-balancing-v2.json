@@ -937,7 +937,7 @@
         "SecurityGroups": {
           "target": "com.amazonaws.elasticloadbalancingv2#SecurityGroups",
           "traits": {
-            "smithy.api#documentation": "<p>[Application Load Balancers] The IDs of the security groups for the load balancer.</p>"
+            "smithy.api#documentation": "<p>[Application Load Balancers and Network Load Balancers] The IDs of the security groups for\n      the load balancer.</p>"
           }
         },
         "Scheme": {
@@ -1459,7 +1459,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deregisters the specified targets from the specified target group. After the targets are\n      deregistered, they no longer receive traffic from the load balancer.</p>"
+        "smithy.api#documentation": "<p>Deregisters the specified targets from the specified target group. After the targets are\n      deregistered, they no longer receive traffic from the load balancer.</p>\n         <p>Note: If the specified target does not exist, the action returns successfully.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#DeregisterTargetsInput": {
@@ -2510,7 +2510,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -2539,15 +2539,67 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
               "type": "tree",
               "rules": [
                 {
@@ -2556,7 +2608,7 @@
                       "fn": "isSet",
                       "argv": [
                         {
-                          "ref": "Endpoint"
+                          "ref": "Region"
                         }
                       ]
                     }
@@ -2566,22 +2618,182 @@
                     {
                       "conditions": [
                         {
-                          "fn": "booleanEquals",
+                          "fn": "aws.partition",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://elasticloadbalancing-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [
+                                        {
+                                          "fn": "stringEquals",
+                                          "argv": [
+                                            "aws-us-gov",
+                                            {
+                                              "fn": "getAttr",
+                                              "argv": [
+                                                {
+                                                  "ref": "PartitionResult"
+                                                },
+                                                "name"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "endpoint": {
+                                        "url": "https://elasticloadbalancing.{Region}.amazonaws.com",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    },
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://elasticloadbalancing-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -2594,223 +2806,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
-                            },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://elasticloadbalancing-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
                           "type": "tree",
                           "rules": [
                             {
                               "conditions": [
                                 {
-                                  "fn": "stringEquals",
+                                  "fn": "booleanEquals",
                                   "argv": [
-                                    "aws-us-gov",
+                                    true,
                                     {
                                       "fn": "getAttr",
                                       "argv": [
                                         {
                                           "ref": "PartitionResult"
                                         },
-                                        "name"
+                                        "supportsDualStack"
                                       ]
                                     }
                                   ]
                                 }
                               ],
-                              "endpoint": {
-                                "url": "https://elasticloadbalancing.{Region}.amazonaws.com",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://elasticloadbalancing.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
                             {
                               "conditions": [],
-                              "endpoint": {
-                                "url": "https://elasticloadbalancing-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
                         },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -2818,7 +2859,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://elasticloadbalancing.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "url": "https://elasticloadbalancing.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -2827,28 +2868,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": "https://elasticloadbalancing.{Region}.{PartitionResult#dnsSuffix}",
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -2857,185 +2883,16 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://elasticloadbalancing.us-iso-east-1.c2s.ic.gov"
+                  "url": "https://elasticloadbalancing.af-south-1.amazonaws.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "af-south-1",
                 "UseFIPS": false,
-                "Region": "us-iso-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-iso-west-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-iso-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-iso-east-1"
-              }
-            },
-            {
-              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.ap-northeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-northeast-3"
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.eu-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-1"
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-2"
-              }
-            },
-            {
-              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.eu-west-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-west-3"
-              }
-            },
-            {
-              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.me-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "me-south-1"
-              }
-            },
-            {
-              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.eu-north-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-north-1"
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-east-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-east-2"
-              }
-            },
-            {
-              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.sa-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "sa-east-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3046,165 +2903,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-east-1",
                 "UseFIPS": false,
-                "Region": "ap-east-1"
-              }
-            },
-            {
-              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.eu-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-south-1"
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "eu-central-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.ap-southeast-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-1"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.ap-southeast-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-2"
-              }
-            },
-            {
-              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.ap-southeast-3.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-southeast-3"
-              }
-            },
-            {
-              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.ca-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ca-central-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-west-2"
-              }
-            },
-            {
-              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.af-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "af-south-1"
-              }
-            },
-            {
-              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.ap-south-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "ap-south-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3215,9 +2916,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-northeast-1",
                 "UseFIPS": false,
-                "Region": "ap-northeast-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3228,9 +2929,295 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "ap-northeast-2",
                 "UseFIPS": false,
-                "Region": "ap-northeast-2"
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -3241,9 +3228,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": true,
-                "Region": "us-east-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3254,126 +3241,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false,
-                "Region": "us-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-gov-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-gov-west-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": true,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
-                "Region": "us-gov-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "us-isob-east-1"
-              }
-            },
-            {
-              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing-fips.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
-                "Region": "us-isob-east-1"
-              }
-            },
-            {
-              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://elasticloadbalancing.cn-northwest-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
-                "Region": "cn-northwest-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3384,9 +3254,22 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "Region": "cn-north-1"
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.cn-northwest-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -3397,9 +3280,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "Region": "cn-north-1"
+                "UseDualStack": true
               }
             },
             {
@@ -3410,9 +3293,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
+                "Region": "cn-north-1",
                 "UseFIPS": true,
-                "Region": "cn-north-1"
+                "UseDualStack": false
               }
             },
             {
@@ -3423,22 +3306,222 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
+                "Region": "cn-north-1",
                 "UseFIPS": false,
-                "Region": "cn-north-1"
+                "UseDualStack": true
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-iso-west-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://elasticloadbalancing-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3448,9 +3531,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
-                "UseFIPS": true,
                 "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3460,14 +3543,40 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
-                "UseFIPS": false,
                 "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
           "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+      "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum": {
+      "type": "enum",
+      "members": {
+        "on": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "on"
+          }
+        },
+        "off": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "off"
+          }
         }
       }
     },
@@ -3817,7 +3926,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services\n      account.</p>"
+        "smithy.api#documentation": "<p>Information about an Elastic Load Balancing resource limit for your Amazon Web Services\n      account.</p>\n         <p>For more information, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n            Application Load Balancers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html\">Quotas for your\n            Network Load Balancers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html\">Quotas for your Gateway\n            Load Balancers</a>\n               </p>\n            </li>\n         </ul>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#Limits": {
@@ -3999,6 +4108,12 @@
           "target": "com.amazonaws.elasticloadbalancingv2#CustomerOwnedIpv4Pool",
           "traits": {
             "smithy.api#documentation": "<p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool.</p>"
+          }
+        },
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to evaluate inbound security group rules for traffic sent to a \n      Network Load Balancer through Amazon Web Services PrivateLink.</p>"
           }
         }
       },
@@ -5245,7 +5360,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about a condition for a rule.</p>\n         <p>Each rule can optionally include up to one of each of the following conditions:\n        <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and\n        <code>source-ip</code>. Each rule can also optionally include one or more of each of the\n      following conditions: <code>http-header</code> and <code>query-string</code>. Note that the\n      value for a condition cannot be empty.</p>"
+        "smithy.api#documentation": "<p>Information about a condition for a rule.</p>\n         <p>Each rule can optionally include up to one of each of the following conditions:\n        <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and\n        <code>source-ip</code>. Each rule can also optionally include one or more of each of the\n      following conditions: <code>http-header</code> and <code>query-string</code>. Note that the\n      value for a condition cannot be empty.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n        Application Load Balancers</a>.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#RuleConditionList": {
@@ -5374,7 +5489,7 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n        <code>dualstack</code> (for IPv4 and IPv6 addresses).\n       You can’t specify\n        <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>",
+            "smithy.api#documentation": "<p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n        <code>dualstack</code> (for IPv4 and IPv6 addresses).  You can’t specify <code>dualstack</code> for a load balancer\n      with a UDP or TCP_UDP listener.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5469,7 +5584,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Associates the specified security groups with the specified Application Load Balancer. The\n      specified security groups override the previously associated security groups.</p>\n         <p>You can't specify a security group for a Network Load Balancer or Gateway Load\n      Balancer.</p>"
+        "smithy.api#documentation": "<p>Associates the specified security groups with the specified Application Load Balancer or\n      Network Load Balancer. The specified security groups override the previously associated\n      security groups.</p>\n         <p>You can't perform this operation on a Network Load Balancer unless you specified a\n      security group for the load balancer when you created it.</p>\n         <p>You can't associate a security group with a Gateway Load Balancer.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#SetSecurityGroupsInput": {
@@ -5488,6 +5603,12 @@
             "smithy.api#documentation": "<p>The IDs of the security groups.</p>",
             "smithy.api#required": {}
           }
+        },
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to evaluate inbound security group rules for traffic sent to a \n      Network Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -5501,6 +5622,12 @@
           "target": "com.amazonaws.elasticloadbalancingv2#SecurityGroups",
           "traits": {
             "smithy.api#documentation": "<p>The IDs of the security groups associated with the load balancer.</p>"
+          }
+        },
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to evaluate inbound security group rules for traffic sent to a \n      Network Load Balancer through Amazon Web Services PrivateLink.</p>"
           }
         }
       },
@@ -5565,7 +5692,7 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>[Network Load Balancers] The type of IP addresses used by the subnets for your load\n      balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n        <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify\n        <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.\n      .</p>"
+            "smithy.api#documentation": "<p>[Network Load Balancers] The type of IP addresses used by the subnets for your load\n      balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n        <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify\n        <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>"
           }
         }
       },
@@ -5833,7 +5960,7 @@
         "Port": {
           "target": "com.amazonaws.elasticloadbalancingv2#Port",
           "traits": {
-            "smithy.api#documentation": "<p>The port on which the target is listening. If the target group protocol is GENEVE, the\n      supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load\n      Balancer must have at least one listener whose port matches the target group port. Not used if\n      the target is a Lambda function.</p>"
+            "smithy.api#documentation": "<p>The port on which the target is listening. If the target group protocol is GENEVE, the\n      supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load\n      Balancer must have at least one listener whose port matches the target group port. This \n      parameter is not used if the target is a Lambda function.</p>"
           }
         },
         "AvailabilityZone": {
@@ -5877,7 +6004,7 @@
         "Port": {
           "target": "com.amazonaws.elasticloadbalancingv2#Port",
           "traits": {
-            "smithy.api#documentation": "<p>The port on which the targets are listening. Not used if the target is a Lambda\n      function.</p>"
+            "smithy.api#documentation": "<p>The port on which the targets are listening. This parameter is not used if the target is \n      a Lambda function.</p>"
           }
         },
         "VpcId": {
@@ -5943,7 +6070,7 @@
         "LoadBalancerArns": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArns",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Names (ARN) of the load balancers that route traffic to this target\n      group.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer that routes traffic to this target\n      group. You can use each target group with only one load balancer.</p>"
           }
         },
         "TargetType": {

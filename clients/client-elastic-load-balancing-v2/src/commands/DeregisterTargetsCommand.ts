@@ -42,6 +42,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @public
  * <p>Deregisters the specified targets from the specified target group. After the targets are
  *       deregistered, they no longer receive traffic from the load balancer.</p>
+ *          <p>Note: If the specified target does not exist, the action returns successfully.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
