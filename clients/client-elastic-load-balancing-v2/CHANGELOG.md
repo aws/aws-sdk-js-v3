@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.389.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.388.0...v3.389.0) (2023-08-10)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release enables configuring security groups for Network Load Balancers ([87ba343](https://github.com/aws/aws-sdk-js-v3/commit/87ba343e9caedc35987fca43cec3858546957763))
+
+
+
+
+
 # [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

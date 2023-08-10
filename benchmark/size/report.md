@@ -43,7 +43,7 @@
 |@aws-sdk/credential-provider-process|3.378.0|21.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-sso|3.387.0|30.9 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-web-identity|3.378.0|28.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/credential-providers|3.387.0|80.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/credential-providers|3.388.0|80.9 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/fetch-http-handler|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/lib-dynamodb|3.387.0|155 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/lib-storage|3.387.0|53.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|

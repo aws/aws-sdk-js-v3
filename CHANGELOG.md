@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.389.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.388.0...v3.389.0) (2023-08-10)
+
+
+### Bug Fixes
+
+* **scripts:** run yarn lerna in silent mode ([#5070](https://github.com/aws/aws-sdk-js-v3/issues/5070)) ([6cdc987](https://github.com/aws/aws-sdk-js-v3/commit/6cdc987b2aa3c5722bcd115e10048fb224db88e6))
+
+
+### Features
+
+* **client-connect:** This release adds APIs to provision agents that are global / available in multiple AWS regions and distribute them across these regions by percentage. ([cda89d3](https://github.com/aws/aws-sdk-js-v3/commit/cda89d3ad2760391e1f1f80df0d412fe2577853b))
+* **client-elastic-load-balancing-v2:** This release enables configuring security groups for Network Load Balancers ([87ba343](https://github.com/aws/aws-sdk-js-v3/commit/87ba343e9caedc35987fca43cec3858546957763))
+* **client-omics:** This release adds instanceType to GetRunTask & ListRunTasks responses. ([0224db7](https://github.com/aws/aws-sdk-js-v3/commit/0224db7c69ff135921fee16fedaeff72e701af0b))
+* **client-secrets-manager:** Add additional InvalidRequestException to list of possible exceptions for ListSecret. ([f80ac69](https://github.com/aws/aws-sdk-js-v3/commit/f80ac692147815db6a460e348c50a559786d4d59))
+* **clients:** update client endpoints as of 2023-08-10 ([f0f32c5](https://github.com/aws/aws-sdk-js-v3/commit/f0f32c53e563c8d847337b080b142fc8ecddc266))
+* **experimentalIdentityAndAuth:** add `experimentalIdentityAndAuth` flag ([#5065](https://github.com/aws/aws-sdk-js-v3/issues/5065)) ([07a70fb](https://github.com/aws/aws-sdk-js-v3/commit/07a70fbf8b09c7aebcd73ae1a0d1f8fc99661a0a)), closes [aws.auth#sigv4](https://github.com/aws.auth/issues/sigv4)
+
+
+
+
+
 # [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
 
 
