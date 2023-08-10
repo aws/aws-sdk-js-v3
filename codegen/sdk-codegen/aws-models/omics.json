@@ -5616,6 +5616,12 @@
               "min": 0
             }
           }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.omics#TaskInstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The instance type for a task. \n    </p>"
+          }
         }
       },
       "traits": {
@@ -6896,7 +6902,7 @@
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>",
+            "smithy.api#documentation": "<p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken",
             "smithy.api#length": {
               "min": 1,
@@ -6927,7 +6933,7 @@
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>A pagination token that's included if more results are available.</p>"
+            "smithy.api#documentation": "<p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>"
           }
         }
       },
@@ -13283,6 +13289,12 @@
         "smithy.api#pattern": "^[0-9]+$"
       }
     },
+    "com.amazonaws.omics#TaskInstanceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+      }
+    },
     "com.amazonaws.omics#TaskList": {
       "type": "list",
       "member": {
@@ -13353,6 +13365,12 @@
             "smithy.api#range": {
               "min": 0
             }
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.omics#TaskInstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The instance type for a task. \n    </p>"
           }
         }
       },

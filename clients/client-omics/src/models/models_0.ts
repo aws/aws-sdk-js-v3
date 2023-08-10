@@ -682,7 +682,7 @@ export interface ListAnnotationImportJobsRequest {
 
   /**
    * @public
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * <p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>
    */
   nextToken?: string;
 
@@ -767,7 +767,7 @@ export interface ListAnnotationImportJobsResponse {
 
   /**
    * @public
-   * <p>A pagination token that's included if more results are available.</p>
+   * <p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>
    */
   nextToken?: string;
 }
@@ -4056,6 +4056,14 @@ export interface GetRunTaskResponse {
    *     </p>
    */
   gpus?: number;
+
+  /**
+   * @public
+   * <p>
+   *       The instance type for a task.
+   *     </p>
+   */
+  instanceType?: string;
 }
 
 /**
@@ -5831,6 +5839,14 @@ export interface TaskListItem {
    *     </p>
    */
   gpus?: number;
+
+  /**
+   * @public
+   * <p>
+   *       The instance type for a task.
+   *     </p>
+   */
+  instanceType?: string;
 }
 
 /**

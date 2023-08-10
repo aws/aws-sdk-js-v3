@@ -63,6 +63,7 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * //       startTime: new Date("TIMESTAMP"),
  * //       stopTime: new Date("TIMESTAMP"),
  * //       gpus: Number("int"),
+ * //       instanceType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
