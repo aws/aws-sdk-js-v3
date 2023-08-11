@@ -216,6 +216,7 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * //         },
  * //         taskPriority: "STRING_VALUE",
  * //         startToCloseTimeout: "STRING_VALUE",
+ * //         scheduleToStartTimeout: "STRING_VALUE",
  * //       },
  * //       decisionTaskStartedEventAttributes: { // DecisionTaskStartedEventAttributes
  * //         identity: "STRING_VALUE",
@@ -225,9 +226,13 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * //         executionContext: "STRING_VALUE",
  * //         scheduledEventId: Number("long"), // required
  * //         startedEventId: Number("long"), // required
+ * //         taskList: {
+ * //           name: "STRING_VALUE", // required
+ * //         },
+ * //         taskListScheduleToStartTimeout: "STRING_VALUE",
  * //       },
  * //       decisionTaskTimedOutEventAttributes: { // DecisionTaskTimedOutEventAttributes
- * //         timeoutType: "START_TO_CLOSE", // required
+ * //         timeoutType: "START_TO_CLOSE" || "SCHEDULE_TO_START", // required
  * //         scheduledEventId: Number("long"), // required
  * //         startedEventId: Number("long"), // required
  * //       },
@@ -323,9 +328,7 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * //         control: "STRING_VALUE",
  * //         input: "STRING_VALUE",
  * //         executionStartToCloseTimeout: "STRING_VALUE",
- * //         taskList: {
- * //           name: "STRING_VALUE", // required
- * //         },
+ * //         taskList: "<TaskList>", // required
  * //         taskPriority: "STRING_VALUE",
  * //         decisionTaskCompletedEventId: Number("long"), // required
  * //         childPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON", // required

@@ -2618,6 +2618,18 @@ export interface DecisionTaskCompletedEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
+
+  /**
+   * @public
+   * <p>Represents a task list.</p>
+   */
+  taskList?: TaskList;
+
+  /**
+   * @public
+   * <p>The maximum amount of time the decision task can wait to be assigned to a worker.</p>
+   */
+  taskListScheduleToStartTimeout?: string;
 }
 
 /**
@@ -2647,6 +2659,12 @@ export interface DecisionTaskScheduledEventAttributes {
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
   startToCloseTimeout?: string;
+
+  /**
+   * @public
+   * <p>The maximum amount of time the decision task can wait to be assigned to a worker.</p>
+   */
+  scheduleToStartTimeout?: string;
 }
 
 /**
@@ -2674,6 +2692,7 @@ export interface DecisionTaskStartedEventAttributes {
  * @enum
  */
 export const DecisionTaskTimeoutType = {
+  SCHEDULE_TO_START: "SCHEDULE_TO_START",
   START_TO_CLOSE: "START_TO_CLOSE",
 } as const;
 
@@ -6699,6 +6718,19 @@ export interface RespondDecisionTaskCompletedInput {
    * <p>User defined context to add to workflow execution.</p>
    */
   executionContext?: string;
+
+  /**
+   * @public
+   * <p>The task list to use for the future decision tasks of this workflow execution. This list overrides the original task list you specified while starting the workflow execution. </p>
+   */
+  taskList?: TaskList;
+
+  /**
+   * @public
+   * <p>Specifies a timeout (in seconds) for the task list override. When this parameter is missing, the task list override is permanent. This parameter makes it possible to temporarily override the task list. If a decision task scheduled on the override task list is not started within the timeout, the decision task will time out. Amazon SWF will revert the override and schedule a new decision task to the original task list.</p>
+   *          <p>If a decision task scheduled on the override task list is started within the timeout, but not completed within the start-to-close timeout, Amazon SWF will also revert the override and schedule a new decision task to the original task list.</p>
+   */
+  taskListScheduleToStartTimeout?: string;
 }
 
 /**

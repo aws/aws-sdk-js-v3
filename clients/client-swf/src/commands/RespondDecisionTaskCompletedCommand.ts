@@ -166,6 +166,10 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *     },
  *   ],
  *   executionContext: "STRING_VALUE",
+ *   taskList: {
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   taskListScheduleToStartTimeout: "STRING_VALUE",
  * };
  * const command = new RespondDecisionTaskCompletedCommand(input);
  * const response = await client.send(command);
