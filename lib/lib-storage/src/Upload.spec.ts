@@ -312,135 +312,136 @@ describe(Upload.name, () => {
     expect(result.Location).toEqual("https://example-bucket.example-host.com/folder/example-key");
   });
 
-  it("should upload using multi-part when parts are larger than part size", async () => {
-    // create a string that's larger than 5MB.
-    const partSize = 1024 * 1024 * 5;
-    const largeBuffer = Buffer.from("#".repeat(partSize + 10));
-    const firstBuffer = largeBuffer.subarray(0, partSize);
-    const secondBuffer = largeBuffer.subarray(partSize);
-    const actionParams = { ...params, Body: largeBuffer };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
-    });
-    await upload.done();
-    expect(sendMock).toHaveBeenCalledTimes(4);
-    // create multipartMock is called correctly.
-    expect(createMultipartMock).toHaveBeenCalledTimes(1);
-    expect(createMultipartMock).toHaveBeenCalledWith({
-      ...actionParams,
-      Body: undefined,
-    });
-    // upload parts is called correctly.
-    expect(uploadPartMock).toHaveBeenCalledTimes(2);
-    expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
-      ...actionParams,
-      // @ts-ignore extended custom matcher
-      Body: expect.toHaveSameHashAsBuffer(firstBuffer),
-      PartNumber: 1,
-      UploadId: "mockuploadId",
-    });
-    expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
-      ...actionParams,
-      // @ts-ignore extended custom matcher
-      Body: expect.toHaveSameHashAsBuffer(secondBuffer),
-      PartNumber: 2,
-      UploadId: "mockuploadId",
-    });
-    // complete multipart upload is called correctly.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(1);
-    expect(completeMultipartMock).toHaveBeenLastCalledWith({
-      ...actionParams,
-      Body: undefined,
-      UploadId: "mockuploadId",
-      MultipartUpload: {
-        Parts: [
-          {
-            ETag: "mock-upload-Etag",
-            PartNumber: 1,
-          },
-          {
-            ETag: "mock-upload-Etag-2",
-            PartNumber: 2,
-          },
-        ],
-      },
+  [
+    { type: "buffer", largeBuffer: Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10)) },
+    { type: "Uint8array", largeBuffer: Uint8Array.from(Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10))) },
+  ].forEach(({ type, largeBuffer }) => {
+    it(`should upload using multi-part when parts are larger than part size ${type}`, async () => {
+      const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
+      const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
+      const actionParams = { ...params, Body: largeBuffer };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({}),
+      });
+      await upload.done();
+      expect(sendMock).toHaveBeenCalledTimes(4);
+      // create multipartMock is called correctly.
+      expect(createMultipartMock).toHaveBeenCalledTimes(1);
+      expect(createMultipartMock).toHaveBeenCalledWith({
+        ...actionParams,
+        Body: undefined,
+      });
+      // upload parts is called correctly.
+      expect(uploadPartMock).toHaveBeenCalledTimes(2);
+      expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
+        ...actionParams,
+        // @ts-ignore extended custom matcher
+        Body: expect.toHaveSameHashAsBuffer(firstBuffer),
+        PartNumber: 1,
+        UploadId: "mockuploadId",
+      });
+      expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
+        ...actionParams,
+        // @ts-ignore extended custom matcher
+        Body: expect.toHaveSameHashAsBuffer(secondBuffer),
+        PartNumber: 2,
+        UploadId: "mockuploadId",
+      });
+      // complete multipart upload is called correctly.
+      expect(completeMultipartMock).toHaveBeenCalledTimes(1);
+      expect(completeMultipartMock).toHaveBeenLastCalledWith({
+        ...actionParams,
+        Body: undefined,
+        UploadId: "mockuploadId",
+        MultipartUpload: {
+          Parts: [
+            {
+              ETag: "mock-upload-Etag",
+              PartNumber: 1,
+            },
+            {
+              ETag: "mock-upload-Etag-2",
+              PartNumber: 2,
+            },
+          ],
+        },
+      });
+
+      // no tags were passed.
+      expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+      // put was not called
+      expect(putObjectMock).toHaveBeenCalledTimes(0);
     });
 
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-    // put was not called
-    expect(putObjectMock).toHaveBeenCalledTimes(0);
-  });
+    it("should upload using multi-part when parts are larger than part size stream", async () => {
+      // create a string that's larger than 5MB.
+      const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
+      const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
+      const streamBody = Readable.from(
+        (function* () {
+          yield largeBuffer;
+        })()
+      );
+      const actionParams = { ...params, Body: streamBody };
+      const upload = new Upload({
+        params: actionParams,
+        client: new S3({}),
+      });
 
-  it("should upload using multi-part when parts are larger than part size stream", async () => {
-    // create a string that's larger than 5MB.
-    const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
-    const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
-    const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
-    const streamBody = Readable.from(
-      (function* () {
-        yield largeBuffer;
-      })()
-    );
-    const actionParams = { ...params, Body: streamBody };
-    const upload = new Upload({
-      params: actionParams,
-      client: new S3({}),
+      await upload.done();
+
+      expect(sendMock).toHaveBeenCalledTimes(4);
+      // create multipartMock is called correctly.
+      expect(createMultipartMock).toHaveBeenCalledTimes(1);
+      expect(createMultipartMock).toHaveBeenCalledWith({
+        ...actionParams,
+        Body: undefined,
+      });
+
+      // upload parts is called correctly.
+      expect(uploadPartMock).toHaveBeenCalledTimes(2);
+      expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
+        ...actionParams,
+        // @ts-ignore extended custom matcher
+        Body: expect.toHaveSameHashAsBuffer(firstBuffer),
+        PartNumber: 1,
+        UploadId: "mockuploadId",
+      });
+
+      expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
+        ...actionParams,
+        // @ts-ignore extended custom matcher
+        Body: expect.toHaveSameHashAsBuffer(secondBuffer),
+        PartNumber: 2,
+        UploadId: "mockuploadId",
+      });
+
+      // complete multipart upload is called correctly.
+      expect(completeMultipartMock).toHaveBeenCalledTimes(1);
+      expect(completeMultipartMock).toHaveBeenLastCalledWith({
+        ...actionParams,
+        Body: undefined,
+        UploadId: "mockuploadId",
+        MultipartUpload: {
+          Parts: [
+            {
+              ETag: "mock-upload-Etag",
+              PartNumber: 1,
+            },
+            {
+              ETag: "mock-upload-Etag-2",
+              PartNumber: 2,
+            },
+          ],
+        },
+      });
+
+      // no tags were passed.
+      expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+      // put was not called
+      expect(putObjectMock).toHaveBeenCalledTimes(0);
     });
-
-    await upload.done();
-
-    expect(sendMock).toHaveBeenCalledTimes(4);
-    // create multipartMock is called correctly.
-    expect(createMultipartMock).toHaveBeenCalledTimes(1);
-    expect(createMultipartMock).toHaveBeenCalledWith({
-      ...actionParams,
-      Body: undefined,
-    });
-
-    // upload parts is called correctly.
-    expect(uploadPartMock).toHaveBeenCalledTimes(2);
-    expect(uploadPartMock).toHaveBeenNthCalledWith(1, {
-      ...actionParams,
-      // @ts-ignore extended custom matcher
-      Body: expect.toHaveSameHashAsBuffer(firstBuffer),
-      PartNumber: 1,
-      UploadId: "mockuploadId",
-    });
-
-    expect(uploadPartMock).toHaveBeenNthCalledWith(2, {
-      ...actionParams,
-      // @ts-ignore extended custom matcher
-      Body: expect.toHaveSameHashAsBuffer(secondBuffer),
-      PartNumber: 2,
-      UploadId: "mockuploadId",
-    });
-
-    // complete multipart upload is called correctly.
-    expect(completeMultipartMock).toHaveBeenCalledTimes(1);
-    expect(completeMultipartMock).toHaveBeenLastCalledWith({
-      ...actionParams,
-      Body: undefined,
-      UploadId: "mockuploadId",
-      MultipartUpload: {
-        Parts: [
-          {
-            ETag: "mock-upload-Etag",
-            PartNumber: 1,
-          },
-          {
-            ETag: "mock-upload-Etag-2",
-            PartNumber: 2,
-          },
-        ],
-      },
-    });
-
-    // no tags were passed.
-    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
-    // put was not called
-    expect(putObjectMock).toHaveBeenCalledTimes(0);
   });
 
   it("should add tags to the object if tags have been added PUT", async () => {
