@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.390.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.389.0...v3.390.0) (2023-08-11)
+
+
+### Features
+
+* **client-amplifybackend:** Adds sensitive trait to required input shapes. ([2d602ba](https://github.com/aws/aws-sdk-js-v3/commit/2d602ba053e9d8cabd4a6472f6561bf177419607))
+
+
+
+
+
 # [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
 
 **Note:** Version bump only for package @aws-sdk/client-amplifybackend

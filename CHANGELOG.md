@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.390.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.389.0...v3.390.0) (2023-08-11)
+
+
+### Features
+
+* **client-amplifybackend:** Adds sensitive trait to required input shapes. ([2d602ba](https://github.com/aws/aws-sdk-js-v3/commit/2d602ba053e9d8cabd4a6472f6561bf177419607))
+* **client-config-service:** Updated ResourceType enum with new resource types onboarded by AWS Config in July 2023. ([09062bb](https://github.com/aws/aws-sdk-js-v3/commit/09062bb56a49339c3f8e23e9464e37bf071e8ff1))
+* **client-ec2:** Amazon EC2 P5 instances, powered by the latest NVIDIA H100 Tensor Core GPUs, deliver the highest performance in EC2 for deep learning (DL) and HPC applications. M7i-flex and M7i instances are next-generation general purpose instances powered by custom 4th Generation Intel Xeon Scalable processors. ([071580d](https://github.com/aws/aws-sdk-js-v3/commit/071580d972d290165090d3f3805dd35961c9ae67))
+* **client-quicksight:** New Authentication method for Account subscription - IAM Identity Center. Hierarchy layout support, default column width support and related style properties for pivot table visuals. Non-additive topic field aggregations for Topic API ([b806760](https://github.com/aws/aws-sdk-js-v3/commit/b806760a9e3d7abd0a8ca9a89a46f6fdbbc7b37d))
+* **client-swf:** This release adds new API parameters to override workflow task list for workflow executions. ([1524521](https://github.com/aws/aws-sdk-js-v3/commit/1524521443156f1d3047c0f1e2961a1948ef7f4e))
+* **clients:** update client endpoints as of 2023-08-11 ([40716ae](https://github.com/aws/aws-sdk-js-v3/commit/40716ae180944c33da84fb889df1a7bf28cac117))
+
+
+
+
+
 # [3.389.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.388.0...v3.389.0) (2023-08-10)
 
 
