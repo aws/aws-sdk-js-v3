@@ -60,6 +60,7 @@ export interface DescribeAccountSubscriptionCommandOutput
  * //     NotificationEmail: "STRING_VALUE",
  * //     AuthenticationType: "STRING_VALUE",
  * //     AccountSubscriptionStatus: "STRING_VALUE",
+ * //     IAMIdentityCenterInstanceArn: "STRING_VALUE",
  * //   },
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",

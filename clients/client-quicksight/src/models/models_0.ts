@@ -122,6 +122,12 @@ export interface AccountInfo {
    * <p>The status of your account subscription.</p>
    */
   AccountSubscriptionStatus?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+   */
+  IAMIdentityCenterInstanceArn?: string;
 }
 
 /**

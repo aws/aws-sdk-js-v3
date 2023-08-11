@@ -56,7 +56,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //     UserName: "STRING_VALUE",
  * //     Email: "STRING_VALUE",
  * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
- * //     IdentityType: "IAM" || "QUICKSIGHT",
+ * //     IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER",
  * //     Active: true || false,
  * //     PrincipalId: "STRING_VALUE",
  * //     CustomPermissionsName: "STRING_VALUE",

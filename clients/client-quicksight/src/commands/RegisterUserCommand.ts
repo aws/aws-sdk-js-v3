@@ -44,7 +44,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const input = { // RegisterUserRequest
- *   IdentityType: "IAM" || "QUICKSIGHT", // required
+ *   IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER", // required
  *   Email: "STRING_VALUE", // required
  *   UserRole: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
  *   IamArn: "STRING_VALUE",
@@ -65,7 +65,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * //     UserName: "STRING_VALUE",
  * //     Email: "STRING_VALUE",
  * //     Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER",
- * //     IdentityType: "IAM" || "QUICKSIGHT",
+ * //     IdentityType: "IAM" || "QUICKSIGHT" || "IAM_IDENTITY_CENTER",
  * //     Active: true || false,
  * //     PrincipalId: "STRING_VALUE",
  * //     CustomPermissionsName: "STRING_VALUE",

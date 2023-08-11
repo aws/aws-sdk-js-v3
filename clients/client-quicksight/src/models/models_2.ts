@@ -29,14 +29,74 @@ import {
   AssetBundleExportJobAnalysisOverrideProperties,
   AssetBundleExportJobDashboardOverrideProperties,
   AssetBundleExportJobDataSetOverrideProperties,
-  AssetBundleExportJobDataSourceOverrideProperties,
-  AssetBundleExportJobRefreshScheduleOverrideProperties,
-  AssetBundleExportJobResourceIdOverrideConfiguration,
+  AssetBundleExportJobDataSourcePropertyToOverride,
   DataSetReference,
   FilterOperator,
   SheetDefinition,
 } from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>Controls how a specific <code>DataSource</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobDataSourceOverrideProperties {
+  /**
+   * @public
+   * <p>The ARN of the specific <code>DataSource</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>DataSource</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobDataSourcePropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobRefreshSchedulePropertyToOverride = {
+  START_AFTER_DATE_TIME: "StartAfterDateTime",
+} as const;
+
+/**
+ * @public
+ */
+export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
+  (typeof AssetBundleExportJobRefreshSchedulePropertyToOverride)[keyof typeof AssetBundleExportJobRefreshSchedulePropertyToOverride];
+
+/**
+ * @public
+ * <p>Controls how a specific <code>RefreshSchedule</code> resource is parameterized in the returned CloudFormation template.</p>
+ */
+export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
+  /**
+   * @public
+   * <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
+   */
+  Properties: (AssetBundleExportJobRefreshSchedulePropertyToOverride | string)[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An optional structure that configures resource ID overrides for the export job.</p>
+ */
+export interface AssetBundleExportJobResourceIdOverrideConfiguration {
+  /**
+   * @public
+   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
+   */
+  PrefixForAllResources?: boolean;
+}
 
 /**
  * @public
@@ -2022,6 +2082,7 @@ export type AssignmentStatus = (typeof AssignmentStatus)[keyof typeof Assignment
 export const AuthenticationMethodOption = {
   ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
   IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
+  IAM_IDENTITY_CENTER: "IAM_IDENTITY_CENTER",
   IAM_ONLY: "IAM_ONLY",
 } as const;
 
@@ -7067,8 +7128,13 @@ export const DefaultAggregation = {
   COUNT: "COUNT",
   DISTINCT_COUNT: "DISTINCT_COUNT",
   MAX: "MAX",
+  MEDIAN: "MEDIAN",
   MIN: "MIN",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
   SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
 } as const;
 
 /**
@@ -7409,6 +7475,12 @@ export interface TopicCalculatedField {
    *          names or aliases for the calculated field cell value.</p>
    */
   CellValueSynonyms?: CellValueSynonym[];
+
+  /**
+   * @public
+   * <p>The non additive for the table style target.</p>
+   */
+  NonAdditive?: boolean;
 }
 
 /**
@@ -7449,9 +7521,7 @@ export interface TopicColumn {
   /**
    * @public
    * <p>The type of aggregation that is performed on the column data when
-   *          it's queried. Valid values for this structure are <code>SUM</code>, <code>MAX</code>,
-   *             <code>MIN</code>, <code>COUNT</code>,
-   *          <code>DISTINCT_COUNT</code>, and <code>AVERAGE</code>.</p>
+   *          it's queried.</p>
    */
   Aggregation?: DefaultAggregation | string;
 
@@ -7527,6 +7597,12 @@ export interface TopicColumn {
    * <p>The other names or aliases for the column cell value.</p>
    */
   CellValueSynonyms?: CellValueSynonym[];
+
+  /**
+   * @public
+   * <p>The non additive value for the column.</p>
+   */
+  NonAdditive?: boolean;
 }
 
 /**
@@ -9325,131 +9401,6 @@ export const DataSourceFilterAttribute = {
  * @public
  */
 export type DataSourceFilterAttribute = (typeof DataSourceFilterAttribute)[keyof typeof DataSourceFilterAttribute];
-
-/**
- * @public
- * <p>A filter that you apply when searching for data sources.</p>
- */
-export interface DataSourceSearchFilter {
-  /**
-   * @public
-   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
-   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
-   */
-  Operator: FilterOperator | string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "DIRECT_QUICKSIGHT_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners or viewers of the data sources are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners if the data source are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as the only owner of the data source are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATASOURCE_NAME</code>: Any data sources whose names have a substring match to the provided value are returned.</p>
-   *             </li>
-   *          </ul>
-   */
-  Name: DataSourceFilterAttribute | string | undefined;
-
-  /**
-   * @public
-   * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
-   *             to use as a filter, for example, <code>"Value":
-   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
- */
-export interface DataSourceSummary {
-  /**
-   * @public
-   * <p>The arn of the datasource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The unique ID of the data source.</p>
-   */
-  DataSourceId?: string;
-
-  /**
-   * @public
-   * <p>The name of the data source.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The type of the data source.</p>
-   */
-  Type?: DataSourceType | string;
-
-  /**
-   * @public
-   * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The date and time the data source was last updated. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountCustomizationRequest {
-  /**
-   * @public
-   * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
-   *             this Amazon Web Services Region.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon QuickSight namespace that you're deleting the customizations from.</p>
-   */
-  Namespace?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountCustomizationResponse {
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
 
 /**
  * @internal

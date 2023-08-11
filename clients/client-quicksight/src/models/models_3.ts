@@ -46,7 +46,6 @@ import {
   DashboardError,
   DashboardPublishOptions,
   DashboardSearchFilter,
-  DashboardSourceEntity,
   DashboardSummary,
   DashboardVersionDefinition,
   DashboardVersionSummary,
@@ -57,8 +56,8 @@ import {
   DataSetSearchFilter,
   DataSetSummary,
   DataSource,
-  DataSourceSearchFilter,
-  DataSourceSummary,
+  DataSourceFilterAttribute,
+  DataSourceType,
   FolderType,
   Group,
   GroupMember,
@@ -79,6 +78,131 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A filter that you apply when searching for data sources.</p>
+ */
+export interface DataSourceSearchFilter {
+  /**
+   * @public
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
+   */
+  Operator: FilterOperator | string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "DIRECT_QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners or viewers of the data sources are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners if the data source are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as the only owner of the data source are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATASOURCE_NAME</code>: Any data sources whose names have a substring match to the provided value are returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: DataSourceFilterAttribute | string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
+ */
+export interface DataSourceSummary {
+  /**
+   * @public
+   * <p>The arn of the datasource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The unique ID of the data source.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The type of the data source.</p>
+   */
+  Type?: DataSourceType | string;
+
+  /**
+   * @public
+   * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time the data source was last updated. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountCustomizationRequest {
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
+   *             this Amazon Web Services Region.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon QuickSight namespace that you're deleting the customizations from.</p>
+   */
+  Namespace?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountCustomizationResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
 
 /**
  * @public
@@ -4523,6 +4647,7 @@ export interface DescribeUserRequest {
  */
 export const IdentityType = {
   IAM: "IAM",
+  IAM_IDENTITY_CENTER: "IAM_IDENTITY_CENTER",
   QUICKSIGHT: "QUICKSIGHT",
 } as const;
 
@@ -8919,217 +9044,6 @@ export interface UpdateAnalysisResponse {
 }
 
 /**
- * @public
- */
-export interface UpdateAnalysisPermissionsRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
-   *             updating. You must be using the Amazon Web Services account that the analysis is in.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the analysis whose permissions you're updating. The ID is part of the
-   *             analysis URL.</p>
-   */
-  AnalysisId: string | undefined;
-
-  /**
-   * @public
-   * <p>A structure that describes the permissions to add and the principal to add them
-   *             to.</p>
-   */
-  GrantPermissions?: ResourcePermission[];
-
-  /**
-   * @public
-   * <p>A structure that describes the permissions to remove and the principal to remove them
-   *             from.</p>
-   */
-  RevokePermissions?: ResourcePermission[];
-}
-
-/**
- * @public
- */
-export interface UpdateAnalysisPermissionsResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
-   */
-  AnalysisArn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the analysis that you updated permissions for.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * @public
-   * <p>A structure that describes the principals and the resource-level permissions on an
-   *             analysis.</p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             updating.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * @public
-   * <p>The display name of the dashboard.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The entity that you are using as a source when you update the dashboard. In
-   *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
-   *             can only update a dashboard from a template, so you use a <code>SourceTemplate</code>
-   *             entity. If you need to update a dashboard from an analysis, first convert the analysis
-   *             to a template by using the <code>
-   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
-   *             </code> API operation. For
-   *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
-   *             Amazon QuickSight-supported Amazon Web Services Region. </p>
-   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
-   *             list the replacement datasets for the placeholders listed in the original. The schema in
-   *             each dataset must match its placeholder. </p>
-   */
-  SourceEntity?: DashboardSourceEntity;
-
-  /**
-   * @public
-   * <p>A structure that contains the parameters of the dashboard. These are parameter
-   *             overrides for a dashboard. A dashboard can have any type of parameters, and some
-   *             parameters might accept multiple values.</p>
-   */
-  Parameters?: _Parameters;
-
-  /**
-   * @public
-   * <p>A description for the first version of the dashboard being created.</p>
-   */
-  VersionDescription?: string;
-
-  /**
-   * @public
-   * <p>Options for publishing the dashboard when you create it:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
-   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *          </ul>
-   */
-  DashboardPublishOptions?: DashboardPublishOptions;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
-   *             you add a value for this field, it overrides the value that was originally associated
-   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where you create the
-   *             dashboard.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * @public
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   */
-  Definition?: DashboardVersionDefinition;
-}
-
-/**
- * @public
- */
-export interface UpdateDashboardResponse {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the dashboard, including the version number.</p>
-   */
-  VersionArn?: string;
-
-  /**
-   * @public
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId?: string;
-
-  /**
-   * @public
-   * <p>The creation status of the request.</p>
-   */
-  CreationStatus?: ResourceStatus | string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-/**
  * @internal
  */
 export const DescribeAnalysisDefinitionResponseFilterSensitiveLog = (obj: DescribeAnalysisDefinitionResponse): any => ({
@@ -9301,14 +9215,6 @@ export const StartDashboardSnapshotJobRequestFilterSensitiveLog = (obj: StartDas
  * @internal
  */
 export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDashboardRequestFilterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
 });

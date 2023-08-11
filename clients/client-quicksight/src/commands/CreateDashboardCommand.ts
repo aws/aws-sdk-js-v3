@@ -852,7 +852,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: { // GlobalTableBorderOptions
@@ -892,7 +892,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -912,6 +912,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     RowAlternateColors: [ // RowAlternateColorList
  *                       "STRING_VALUE",
  *                     ],
+ *                     UsePrimaryBackgroundColor: "ENABLED" || "DISABLED",
  *                   },
  *                 },
  *                 TotalOptions: { // TotalOptions
@@ -924,7 +925,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -1325,7 +1326,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -1345,7 +1346,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -1367,8 +1368,15 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     RowAlternateColors: [
  *                       "STRING_VALUE",
  *                     ],
+ *                     UsePrimaryBackgroundColor: "ENABLED" || "DISABLED",
  *                   },
  *                   CollapsedRowDimensionsVisibility: "HIDDEN" || "VISIBLE",
+ *                   RowsLayout: "TABULAR" || "HIERARCHY",
+ *                   RowsLabelOptions: { // PivotTableRowsLabelOptions
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     CustomLabel: "STRING_VALUE",
+ *                   },
+ *                   DefaultCellWidth: "STRING_VALUE",
  *                 },
  *                 TotalOptions: { // PivotTableTotalOptions
  *                   RowSubtotalOptions: { // SubtotalOptions
@@ -1383,6 +1391,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     StyleTargets: [ // TableStyleTargetList
+ *                       { // TableStyleTarget
+ *                         CellType: "TOTAL" || "METRIC_HEADER" || "VALUE", // required
+ *                       },
+ *                     ],
  *                   },
  *                   ColumnSubtotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
@@ -1396,6 +1409,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     StyleTargets: [
+ *                       {
+ *                         CellType: "TOTAL" || "METRIC_HEADER" || "VALUE", // required
+ *                       },
+ *                     ],
  *                   },
  *                   RowTotalOptions: { // PivotTotalOptions
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",

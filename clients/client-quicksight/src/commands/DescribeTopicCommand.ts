@@ -139,7 +139,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //               "STRING_VALUE",
  * //             ],
  * //             ColumnDataRole: "DIMENSION" || "MEASURE",
- * //             Aggregation: "SUM" || "MAX" || "MIN" || "COUNT" || "DISTINCT_COUNT" || "AVERAGE",
+ * //             Aggregation: "SUM" || "MAX" || "MIN" || "COUNT" || "DISTINCT_COUNT" || "AVERAGE" || "MEDIAN" || "STDEV" || "STDEVP" || "VAR" || "VARP",
  * //             IsIncludedInTopic: true || false,
  * //             DisableIndexing: true || false,
  * //             ComparativeOrder: { // ComparativeOrder
@@ -198,6 +198,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //                 Synonyms: "<StringList>",
  * //               },
  * //             ],
+ * //             NonAdditive: true || false,
  * //           },
  * //         ],
  * //         CalculatedFields: [ // TopicCalculatedFields
@@ -232,7 +233,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //                 CurrencySymbol: "STRING_VALUE",
  * //               },
  * //             },
- * //             Aggregation: "SUM" || "MAX" || "MIN" || "COUNT" || "DISTINCT_COUNT" || "AVERAGE",
+ * //             Aggregation: "SUM" || "MAX" || "MIN" || "COUNT" || "DISTINCT_COUNT" || "AVERAGE" || "MEDIAN" || "STDEV" || "STDEVP" || "VAR" || "VARP",
  * //             ComparativeOrder: {
  * //               UseOrdering: "GREATER_IS_BETTER" || "LESSER_IS_BETTER" || "SPECIFIED",
  * //               SpecifedOrder: "<StringList>",
@@ -266,6 +267,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //                 Synonyms: "<StringList>",
  * //               },
  * //             ],
+ * //             NonAdditive: true || false,
  * //           },
  * //         ],
  * //         NamedEntities: [ // TopicNamedEntities

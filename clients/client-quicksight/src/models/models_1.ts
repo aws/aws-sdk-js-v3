@@ -4593,6 +4593,7 @@ export type TextWrap = (typeof TextWrap)[keyof typeof TextWrap];
  * @enum
  */
 export const VerticalTextAlignment = {
+  AUTO: "AUTO",
   BOTTOM: "BOTTOM",
   MIDDLE: "MIDDLE",
   TOP: "TOP",
@@ -4687,7 +4688,45 @@ export interface RowAlternateColorOptions {
    * <p>Determines the list of row alternate colors.</p>
    */
   RowAlternateColors?: string[];
+
+  /**
+   * @public
+   * <p>The primary background color options for alternate rows.</p>
+   */
+  UsePrimaryBackgroundColor?: WidgetStatus | string;
 }
+
+/**
+ * @public
+ * <p>The options for the label thta is located above the row headers. This option is only applicable when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+ */
+export interface PivotTableRowsLabelOptions {
+  /**
+   * @public
+   * <p>The visibility of the rows label.</p>
+   */
+  Visibility?: Visibility | string;
+
+  /**
+   * @public
+   * <p>The custom label string for the rows label.</p>
+   */
+  CustomLabel?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableRowsLayout = {
+  HIERARCHY: "HIERARCHY",
+  TABULAR: "TABULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableRowsLayout = (typeof PivotTableRowsLayout)[keyof typeof PivotTableRowsLayout];
 
 /**
  * @public
@@ -4753,6 +4792,34 @@ export interface PivotTableOptions {
    * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
    */
   CollapsedRowDimensionsVisibility?: Visibility | string;
+
+  /**
+   * @public
+   * <p>The layout for the row dimension headers of a pivot table. Choose one of the following options.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TABULAR</code>: (Default) Each row field is displayed in a separate column.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY</code>: All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.</p>
+   *             </li>
+   *          </ul>
+   */
+  RowsLayout?: PivotTableRowsLayout | string;
+
+  /**
+   * @public
+   * <p>The options for the label that is located above the row headers. This option is only applicable when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+   */
+  RowsLabelOptions?: PivotTableRowsLabelOptions;
+
+  /**
+   * @public
+   * <p>The default cell width of the pivot table.</p>
+   */
+  DefaultCellWidth?: string;
 }
 
 /**
@@ -4780,6 +4847,33 @@ export interface PivotTableFieldSubtotalOptions {
    * <p>The field ID of the subtotal options.</p>
    */
   FieldId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StyledCellType = {
+  METRIC_HEADER: "METRIC_HEADER",
+  TOTAL: "TOTAL",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type StyledCellType = (typeof StyledCellType)[keyof typeof StyledCellType];
+
+/**
+ * @public
+ * <p>The table style target.</p>
+ */
+export interface TableStyleTarget {
+  /**
+   * @public
+   * <p>The cell type of the table style target.</p>
+   */
+  CellType: StyledCellType | string | undefined;
 }
 
 /**
@@ -4828,6 +4922,12 @@ export interface SubtotalOptions {
    * <p>The cell styling options for the subtotals of header cells.</p>
    */
   MetricHeaderCellStyle?: TableCellStyle;
+
+  /**
+   * @public
+   * <p>The style targets options for subtotals.</p>
+   */
+  StyleTargets?: TableStyleTarget[];
 }
 
 /**
@@ -7471,7 +7571,7 @@ export type SnapshotFileSheetSelectionScope =
 export interface SnapshotFileSheetSelection {
   /**
    * @public
-   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV or PDF format types.</p>
+   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV and PDF format types.</p>
    */
   SheetId: string | undefined;
 
@@ -7494,7 +7594,7 @@ export interface SnapshotFileSheetSelection {
   /**
    * @public
    * <p>
-   *             A structure that lists the IDs of the visuals in the selected sheet. Supported visual types are table, pivot table visuals. This value is required if you are generating a CSV. This value supports a maximum of 1 visual ID.
+   *             A list of visual IDs that are located in the selected sheet. This structure supports tables and pivot tables. This structure is required if you are generating a CSV. You can add a maximum of 1 visual ID to this structure.
    *         </p>
    */
   VisualIds?: string[];
@@ -7513,7 +7613,7 @@ export interface SnapshotFile {
 
   /**
    * @public
-   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code> and <code>PDF</code>.</p>
+   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code> or <code>PDF</code>.</p>
    */
   FormatType: SnapshotFileFormatType | string | undefined;
 }
@@ -7753,68 +7853,6 @@ export const AssetBundleExportJobDataSourcePropertyToOverride = {
  */
 export type AssetBundleExportJobDataSourcePropertyToOverride =
   (typeof AssetBundleExportJobDataSourcePropertyToOverride)[keyof typeof AssetBundleExportJobDataSourcePropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>DataSource</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobDataSourceOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>DataSource</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DataSource</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobDataSourcePropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobRefreshSchedulePropertyToOverride = {
-  START_AFTER_DATE_TIME: "StartAfterDateTime",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
-  (typeof AssetBundleExportJobRefreshSchedulePropertyToOverride)[keyof typeof AssetBundleExportJobRefreshSchedulePropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>RefreshSchedule</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>RefreshSchedule</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>RefreshSchedule</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobRefreshSchedulePropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * <p>An optional structure that configures resource ID overrides for the export job.</p>
- */
-export interface AssetBundleExportJobResourceIdOverrideConfiguration {
-  /**
-   * @public
-   * <p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>
-   */
-  PrefixForAllResources?: boolean;
-}
 
 /**
  * @internal

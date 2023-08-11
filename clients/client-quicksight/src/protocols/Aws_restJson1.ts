@@ -691,11 +691,7 @@ import {
   AssetBundleExportJobDashboardPropertyToOverride,
   AssetBundleExportJobDataSetOverrideProperties,
   AssetBundleExportJobDataSetPropertyToOverride,
-  AssetBundleExportJobDataSourceOverrideProperties,
   AssetBundleExportJobDataSourcePropertyToOverride,
-  AssetBundleExportJobRefreshScheduleOverrideProperties,
-  AssetBundleExportJobRefreshSchedulePropertyToOverride,
-  AssetBundleExportJobResourceIdOverrideConfiguration,
   BinCountOptions,
   BinWidthOptions,
   BoxPlotAggregatedFieldWells,
@@ -833,6 +829,7 @@ import {
   PivotTableFieldWells,
   PivotTableOptions,
   PivotTablePaginatedReportOptions,
+  PivotTableRowsLabelOptions,
   PivotTableSortBy,
   PivotTableSortConfiguration,
   PivotTableTotalOptions,
@@ -890,6 +887,7 @@ import {
   TableRowConditionalFormatting,
   TableSideBorderOptions,
   TableSortConfiguration,
+  TableStyleTarget,
   TableUnaggregatedFieldWells,
   TableVisual,
   TextConditionalFormat,
@@ -925,6 +923,10 @@ import {
 import {
   _Parameters,
   AssetBundleCloudFormationOverridePropertyConfiguration,
+  AssetBundleExportJobDataSourceOverrideProperties,
+  AssetBundleExportJobRefreshScheduleOverrideProperties,
+  AssetBundleExportJobRefreshSchedulePropertyToOverride,
+  AssetBundleExportJobResourceIdOverrideConfiguration,
   AssetBundleExportJobSummary,
   AssetBundleExportJobThemeOverrideProperties,
   AssetBundleExportJobThemePropertyToOverride,
@@ -996,8 +998,6 @@ import {
   DataSource,
   DataSourceCredentials,
   DataSourceParameters,
-  DataSourceSearchFilter,
-  DataSourceSummary,
   DateTimeDatasetParameter,
   DateTimeDatasetParameterDefaultValues,
   DateTimeParameter,
@@ -1112,6 +1112,8 @@ import {
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
+  DataSourceSearchFilter,
+  DataSourceSummary,
   DomainNotWhitelistedException,
   Folder,
   FolderSearchFilter,
@@ -22034,6 +22036,8 @@ const se_PivotTableFieldWells = (input: PivotTableFieldWells, context: __SerdeCo
 
 // se_PivotTablePaginatedReportOptions omitted.
 
+// se_PivotTableRowsLabelOptions omitted.
+
 /**
  * serializeAws_restJson1PivotTableSortBy
  */
@@ -22867,6 +22871,10 @@ const se_TableSortConfiguration = (input: TableSortConfiguration, context: __Ser
     RowSort: (_) => se_RowSortList(_, context),
   });
 };
+
+// se_TableStyleTarget omitted.
+
+// se_TableStyleTargetList omitted.
 
 // se_TableUnaggregatedFieldWells omitted.
 
@@ -27064,6 +27072,8 @@ const de_PivotTableFieldWells = (output: any, context: __SerdeContext): PivotTab
 
 // de_PivotTablePaginatedReportOptions omitted.
 
+// de_PivotTableRowsLabelOptions omitted.
+
 /**
  * deserializeAws_restJson1PivotTableSortBy
  */
@@ -27929,6 +27939,10 @@ const de_TableSortConfiguration = (output: any, context: __SerdeContext): TableS
     RowSort: (_: any) => de_RowSortList(_, context),
   }) as any;
 };
+
+// de_TableStyleTarget omitted.
+
+// de_TableStyleTargetList omitted.
 
 // de_TableUnaggregatedFieldWells omitted.
 

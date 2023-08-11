@@ -3,9 +3,14 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { ResourceStatus } from "./models_0";
 import {
+  _Parameters,
+  _ParametersFilterSensitiveLog,
   AssignmentStatus,
   ColumnGroup,
   ColumnLevelPermissionRule,
+  DashboardPublishOptions,
+  DashboardSourceEntity,
+  DashboardVersionDefinition,
   DataSetImportMode,
   DatasetParameter,
   DataSetUsageConfiguration,
@@ -34,6 +39,217 @@ import {
   VPCConnectionResourceStatus,
 } from "./models_2";
 import { LinkSharingConfiguration, User, UserRole } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisPermissionsRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
+   *             updating. You must be using the Amazon Web Services account that the analysis is in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the analysis whose permissions you're updating. The ID is part of the
+   *             analysis URL.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * @public
+   * <p>A structure that describes the permissions to add and the principal to add them
+   *             to.</p>
+   */
+  GrantPermissions?: ResourcePermission[];
+
+  /**
+   * @public
+   * <p>A structure that describes the permissions to remove and the principal to remove them
+   *             from.</p>
+   */
+  RevokePermissions?: ResourcePermission[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalysisPermissionsResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
+   */
+  AnalysisArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the analysis that you updated permissions for.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * @public
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             updating.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * @public
+   * <p>The display name of the dashboard.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The entity that you are using as a source when you update the dashboard. In
+   *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
+   *             can only update a dashboard from a template, so you use a <code>SourceTemplate</code>
+   *             entity. If you need to update a dashboard from an analysis, first convert the analysis
+   *             to a template by using the <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
+   *             </code> API operation. For
+   *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
+   *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
+   *             Amazon QuickSight-supported Amazon Web Services Region. </p>
+   *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
+   *             list the replacement datasets for the placeholders listed in the original. The schema in
+   *             each dataset must match its placeholder. </p>
+   */
+  SourceEntity?: DashboardSourceEntity;
+
+  /**
+   * @public
+   * <p>A structure that contains the parameters of the dashboard. These are parameter
+   *             overrides for a dashboard. A dashboard can have any type of parameters, and some
+   *             parameters might accept multiple values.</p>
+   */
+  Parameters?: _Parameters;
+
+  /**
+   * @public
+   * <p>A description for the first version of the dashboard being created.</p>
+   */
+  VersionDescription?: string;
+
+  /**
+   * @public
+   * <p>Options for publishing the dashboard when you create it:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon QuickSight disables the left filter pane on the
+   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *          </ul>
+   */
+  DashboardPublishOptions?: DashboardPublishOptions;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+   *             you add a value for this field, it overrides the value that was originally associated
+   *             with the entity. The theme ARN must exist in the same Amazon Web Services account where you create the
+   *             dashboard.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * @public
+   * <p>The definition of a dashboard.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   */
+  Definition?: DashboardVersionDefinition;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the dashboard, including the version number.</p>
+   */
+  VersionArn?: string;
+
+  /**
+   * @public
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId?: string;
+
+  /**
+   * @public
+   * <p>The creation status of the request.</p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
 
 /**
  * @public
@@ -1783,6 +1999,14 @@ export interface UpdateVPCConnectionResponse {
    */
   Status?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateDashboardRequestFilterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
+});
 
 /**
  * @internal

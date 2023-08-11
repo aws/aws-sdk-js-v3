@@ -67,7 +67,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * const client = new QuickSightClient(config);
  * const input = { // CreateAccountSubscriptionRequest
  *   Edition: "STANDARD" || "ENTERPRISE" || "ENTERPRISE_AND_Q", // required
- *   AuthenticationMethod: "IAM_AND_QUICKSIGHT" || "IAM_ONLY" || "ACTIVE_DIRECTORY", // required
+ *   AuthenticationMethod: "IAM_AND_QUICKSIGHT" || "IAM_ONLY" || "ACTIVE_DIRECTORY" || "IAM_IDENTITY_CENTER", // required
  *   AwsAccountId: "STRING_VALUE", // required
  *   AccountName: "STRING_VALUE", // required
  *   NotificationEmail: "STRING_VALUE", // required

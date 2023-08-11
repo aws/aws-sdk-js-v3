@@ -17,7 +17,7 @@ import {
   UpdateDashboardRequest,
   UpdateDashboardRequestFilterSensitiveLog,
   UpdateDashboardResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_UpdateDashboardCommand, se_UpdateDashboardCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -837,7 +837,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: { // GlobalTableBorderOptions
@@ -877,7 +877,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -897,6 +897,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     RowAlternateColors: [ // RowAlternateColorList
  *                       "STRING_VALUE",
  *                     ],
+ *                     UsePrimaryBackgroundColor: "ENABLED" || "DISABLED",
  *                   },
  *                 },
  *                 TotalOptions: { // TotalOptions
@@ -909,7 +910,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -1310,7 +1311,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -1330,7 +1331,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     FontConfiguration: "<FontConfiguration>",
  *                     TextWrap: "NONE" || "WRAP",
  *                     HorizontalTextAlignment: "LEFT" || "CENTER" || "RIGHT" || "AUTO",
- *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM",
+ *                     VerticalTextAlignment: "TOP" || "MIDDLE" || "BOTTOM" || "AUTO",
  *                     BackgroundColor: "STRING_VALUE",
  *                     Height: Number("int"),
  *                     Border: {
@@ -1352,8 +1353,15 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     RowAlternateColors: [
  *                       "STRING_VALUE",
  *                     ],
+ *                     UsePrimaryBackgroundColor: "ENABLED" || "DISABLED",
  *                   },
  *                   CollapsedRowDimensionsVisibility: "HIDDEN" || "VISIBLE",
+ *                   RowsLayout: "TABULAR" || "HIERARCHY",
+ *                   RowsLabelOptions: { // PivotTableRowsLabelOptions
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     CustomLabel: "STRING_VALUE",
+ *                   },
+ *                   DefaultCellWidth: "STRING_VALUE",
  *                 },
  *                 TotalOptions: { // PivotTableTotalOptions
  *                   RowSubtotalOptions: { // SubtotalOptions
@@ -1368,6 +1376,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     StyleTargets: [ // TableStyleTargetList
+ *                       { // TableStyleTarget
+ *                         CellType: "TOTAL" || "METRIC_HEADER" || "VALUE", // required
+ *                       },
+ *                     ],
  *                   },
  *                   ColumnSubtotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
@@ -1381,6 +1394,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     StyleTargets: [
+ *                       {
+ *                         CellType: "TOTAL" || "METRIC_HEADER" || "VALUE", // required
+ *                       },
+ *                     ],
  *                   },
  *                   RowTotalOptions: { // PivotTotalOptions
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
