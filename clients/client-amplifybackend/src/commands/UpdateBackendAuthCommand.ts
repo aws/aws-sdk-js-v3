@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { UpdateBackendAuthRequest, UpdateBackendAuthResponse } from "../models/models_0";
+import {
+  UpdateBackendAuthRequest,
+  UpdateBackendAuthRequestFilterSensitiveLog,
+  UpdateBackendAuthResponse,
+} from "../models/models_0";
 import { de_UpdateBackendAuthCommand, se_UpdateBackendAuthCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -208,7 +212,7 @@ export class UpdateBackendAuthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: UpdateBackendAuthRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
