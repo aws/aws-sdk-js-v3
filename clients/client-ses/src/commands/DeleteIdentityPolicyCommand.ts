@@ -37,17 +37,17 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
 /**
  * @public
  * <p>Deletes the specified sending authorization policy for the given identity (an email
- *             address or a domain). This API returns successfully even if a policy with the specified
- *             name does not exist.</p>
- *         <note>
- *             <p>This API is for the identity owner only. If you have not verified the identity,
- *                 this API will return an error.</p>
- *         </note>
- *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+ *             address or a domain). This operation returns successfully even if a policy with the
+ *             specified name does not exist.</p>
+ *          <note>
+ *             <p>This operation is for the identity owner only. If you have not verified the
+ *                 identity, it returns an error.</p>
+ *          </note>
+ *          <p>Sending authorization is a feature that enables an identity owner to authorize other
  *             senders to use its identities. For information about using sending authorization, see
- *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,8 +36,8 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
 
 /**
  * @public
- * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ * <p>Returns the email sending status of the Amazon SES account for the current Region.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

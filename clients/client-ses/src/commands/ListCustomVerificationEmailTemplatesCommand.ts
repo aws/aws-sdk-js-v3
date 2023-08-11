@@ -45,10 +45,11 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
 /**
  * @public
  * <p>Lists the existing custom verification email templates for your account in the current
- *             AWS Region.</p>
- *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+ *             Amazon Web Services Region.</p>
+ *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+ *                 Custom Verification Email Templates</a> in the <i>Amazon SES Developer
  *                 Guide</i>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

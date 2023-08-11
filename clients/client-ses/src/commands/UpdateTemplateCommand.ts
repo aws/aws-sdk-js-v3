@@ -37,9 +37,9 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
 /**
  * @public
  * <p>Updates an email template. Email templates enable you to send personalized email to
- *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             one or more destinations in a single operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

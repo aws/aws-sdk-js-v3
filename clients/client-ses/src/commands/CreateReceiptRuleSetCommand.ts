@@ -37,9 +37,8 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
 /**
  * @public
  * <p>Creates an empty receipt rule set.</p>
- *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

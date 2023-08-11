@@ -37,9 +37,9 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
 /**
  * @public
  * <p>Returns the details of the specified configuration set. For information about using
- *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +49,7 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * const input = { // DescribeConfigurationSetRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   ConfigurationSetAttributeNames: [ // ConfigurationSetAttributeList
- *     "STRING_VALUE",
+ *     "eventDestinations" || "trackingOptions" || "deliveryOptions" || "reputationOptions",
  *   ],
  * };
  * const command = new DescribeConfigurationSetCommand(input);
@@ -63,7 +63,7 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * //       Name: "STRING_VALUE", // required
  * //       Enabled: true || false,
  * //       MatchingEventTypes: [ // EventTypes // required
- * //         "STRING_VALUE",
+ * //         "send" || "reject" || "bounce" || "complaint" || "delivery" || "open" || "click" || "renderingFailure",
  * //       ],
  * //       KinesisFirehoseDestination: { // KinesisFirehoseDestination
  * //         IAMRoleARN: "STRING_VALUE", // required
@@ -73,7 +73,7 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * //         DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  * //           { // CloudWatchDimensionConfiguration
  * //             DimensionName: "STRING_VALUE", // required
- * //             DimensionValueSource: "STRING_VALUE", // required
+ * //             DimensionValueSource: "messageTag" || "emailHeader" || "linkTag", // required
  * //             DefaultDimensionValue: "STRING_VALUE", // required
  * //           },
  * //         ],
@@ -87,7 +87,7 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * //     CustomRedirectDomain: "STRING_VALUE",
  * //   },
  * //   DeliveryOptions: { // DeliveryOptions
- * //     TlsPolicy: "STRING_VALUE",
+ * //     TlsPolicy: "Require" || "Optional",
  * //   },
  * //   ReputationOptions: { // ReputationOptions
  * //     SendingEnabled: true || false,

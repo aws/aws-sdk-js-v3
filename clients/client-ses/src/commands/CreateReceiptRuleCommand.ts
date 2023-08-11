@@ -37,9 +37,9 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
 /**
  * @public
  * <p>Creates a receipt rule.</p>
- *         <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,7 +52,7 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *   Rule: { // ReceiptRule
  *     Name: "STRING_VALUE", // required
  *     Enabled: true || false,
- *     TlsPolicy: "STRING_VALUE",
+ *     TlsPolicy: "Require" || "Optional",
  *     Recipients: [ // RecipientsList
  *       "STRING_VALUE",
  *     ],
@@ -78,10 +78,10 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *         LambdaAction: { // LambdaAction
  *           TopicArn: "STRING_VALUE",
  *           FunctionArn: "STRING_VALUE", // required
- *           InvocationType: "STRING_VALUE",
+ *           InvocationType: "Event" || "RequestResponse",
  *         },
  *         StopAction: { // StopAction
- *           Scope: "STRING_VALUE", // required
+ *           Scope: "RuleSet", // required
  *           TopicArn: "STRING_VALUE",
  *         },
  *         AddHeaderAction: { // AddHeaderAction
@@ -90,7 +90,7 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *         },
  *         SNSAction: { // SNSAction
  *           TopicArn: "STRING_VALUE", // required
- *           Encoding: "STRING_VALUE",
+ *           Encoding: "UTF-8" || "Base64",
  *         },
  *       },
  *     ],
@@ -113,15 +113,15 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
  *
  * @throws {@link InvalidLambdaFunctionException} (client fault)
- *  <p>Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could
+ *  <p>Indicates that the provided Amazon Web Services Lambda function is invalid, or that Amazon SES could
  *             not execute the provided function, possibly due to permissions issues. For information
  *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  *
  * @throws {@link InvalidS3ConfigurationException} (client fault)
- *  <p>Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or
- *             that Amazon SES could not publish to the bucket, possibly due to permissions issues. For
- *             information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
+ *  <p>Indicates that the provided Amazon S3 bucket or Amazon Web Services KMS encryption key is invalid,
+ *             or that Amazon SES could not publish to the bucket, possibly due to permissions issues.
+ *             For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  *
  * @throws {@link InvalidSnsTopicException} (client fault)

@@ -37,10 +37,10 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
 /**
  * @public
  * <p>Creates a configuration set.</p>
- *         <p>Configuration sets enable you to publish email sending events. For information about
- *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>Configuration sets enable you to publish email sending events. For information about
+ *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

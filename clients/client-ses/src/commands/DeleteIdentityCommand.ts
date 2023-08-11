@@ -38,7 +38,7 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @public
  * <p>Deletes the specified identity (an email address or a domain) from the list of
  *             verified identities.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

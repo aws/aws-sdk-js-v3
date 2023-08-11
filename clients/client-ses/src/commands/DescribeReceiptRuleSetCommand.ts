@@ -37,8 +37,9 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
 /**
  * @public
  * <p>Returns the details of the specified receipt rule set.</p>
- *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +60,7 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * //     { // ReceiptRule
  * //       Name: "STRING_VALUE", // required
  * //       Enabled: true || false,
- * //       TlsPolicy: "STRING_VALUE",
+ * //       TlsPolicy: "Require" || "Optional",
  * //       Recipients: [ // RecipientsList
  * //         "STRING_VALUE",
  * //       ],
@@ -85,10 +86,10 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * //           LambdaAction: { // LambdaAction
  * //             TopicArn: "STRING_VALUE",
  * //             FunctionArn: "STRING_VALUE", // required
- * //             InvocationType: "STRING_VALUE",
+ * //             InvocationType: "Event" || "RequestResponse",
  * //           },
  * //           StopAction: { // StopAction
- * //             Scope: "STRING_VALUE", // required
+ * //             Scope: "RuleSet", // required
  * //             TopicArn: "STRING_VALUE",
  * //           },
  * //           AddHeaderAction: { // AddHeaderAction
@@ -97,7 +98,7 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * //           },
  * //           SNSAction: { // SNSAction
  * //             TopicArn: "STRING_VALUE", // required
- * //             Encoding: "STRING_VALUE",
+ * //             Encoding: "UTF-8" || "Base64",
  * //           },
  * //         },
  * //       ],

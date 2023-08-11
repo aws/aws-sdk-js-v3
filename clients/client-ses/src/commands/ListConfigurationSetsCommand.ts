@@ -37,13 +37,14 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
 /**
  * @public
  * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
- *             current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
+ *             current Amazon Web Services Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Monitoring
+ *                 Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
  *                 Guide.</i>
  *          </p>
- *         <p>You can execute this operation no more than once per second. This operation will
- *             return up to 1,000 configuration sets each time it is run. If your Amazon SES account has
- *             more than 1,000 configuration sets, this operation will also return a NextToken element.
- *             You can then execute the <code>ListConfigurationSets</code> operation again, passing the
+ *          <p>You can execute this operation no more than once per second. This operation returns up
+ *             to 1,000 configuration sets each time it is run. If your Amazon SES account has more than
+ *             1,000 configuration sets, this operation also returns <code>NextToken</code>. You can
+ *             then execute the <code>ListConfigurationSets</code> operation again, passing the
  *                 <code>NextToken</code> parameter and the value of the NextToken element to retrieve
  *             additional results.</p>
  * @example

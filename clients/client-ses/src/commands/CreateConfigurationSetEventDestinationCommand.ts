@@ -46,15 +46,15 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
 /**
  * @public
  * <p>Creates a configuration set event destination.</p>
- *         <note>
+ *          <note>
  *             <p>When you create or update an event destination, you must provide one, and only
  *                 one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p>
- *         </note>
- *         <p>An event destination is the AWS service to which Amazon SES publishes the email sending
+ *          </note>
+ *          <p>An event destination is the Amazon Web Services service to which Amazon SES publishes the email sending
  *             events associated with a configuration set. For information about using configuration
- *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +67,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *     Name: "STRING_VALUE", // required
  *     Enabled: true || false,
  *     MatchingEventTypes: [ // EventTypes // required
- *       "STRING_VALUE",
+ *       "send" || "reject" || "bounce" || "complaint" || "delivery" || "open" || "click" || "renderingFailure",
  *     ],
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       IAMRoleARN: "STRING_VALUE", // required
@@ -77,7 +77,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  *         { // CloudWatchDimensionConfiguration
  *           DimensionName: "STRING_VALUE", // required
- *           DimensionValueSource: "STRING_VALUE", // required
+ *           DimensionValueSource: "messageTag" || "emailHeader" || "linkTag", // required
  *           DefaultDimensionValue: "STRING_VALUE", // required
  *         },
  *       ],

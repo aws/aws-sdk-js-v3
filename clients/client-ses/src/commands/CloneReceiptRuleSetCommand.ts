@@ -39,9 +39,8 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
  *             configurations are copied to the new receipt rule set and are completely independent of
  *             the source rule set.</p>
- *         <p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

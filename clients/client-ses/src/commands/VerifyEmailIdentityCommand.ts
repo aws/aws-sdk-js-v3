@@ -37,9 +37,9 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
 /**
  * @public
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
- *             AWS region and attempts to verify it. As a result of executing this operation, a
+ *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
  *             verification email is sent to the specified address.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

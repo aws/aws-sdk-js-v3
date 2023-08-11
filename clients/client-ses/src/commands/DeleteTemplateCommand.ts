@@ -37,7 +37,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
 /**
  * @public
  * <p>Deletes an email template.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

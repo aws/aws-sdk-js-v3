@@ -44,9 +44,9 @@ export interface SetIdentityNotificationTopicCommandOutput
  *             notifications to the topic you specified. You can send bounce, complaint, or delivery
  *             notifications (or any combination of the three) to the Amazon SNS topic that you
  *             specify.</p>
- *         <p>You can execute this operation no more than once per second.</p>
- *         <p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
+ *          <p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon SES
+ *                 Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +55,7 @@ export interface SetIdentityNotificationTopicCommandOutput
  * const client = new SESClient(config);
  * const input = { // SetIdentityNotificationTopicRequest
  *   Identity: "STRING_VALUE", // required
- *   NotificationType: "STRING_VALUE", // required
+ *   NotificationType: "Bounce" || "Complaint" || "Delivery", // required
  *   SnsTopic: "STRING_VALUE",
  * };
  * const command = new SetIdentityNotificationTopicCommand(input);

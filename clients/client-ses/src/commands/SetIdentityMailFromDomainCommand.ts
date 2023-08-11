@@ -38,14 +38,13 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @public
  * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
  *             email address or a domain).</p>
- *         <important>
+ *          <important>
  *             <p>To send emails using the specified MAIL FROM domain, you must add an MX record to
- *                 your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy
+ *                 your MAIL FROM domain's DNS settings. To ensure that your emails pass Sender Policy
  *                 Framework (SPF) checks, you must also add or update an SPF record. For more
- *                 information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         </important>
- *         <p>You can execute this operation no more than once per second.</p>
+ *                 information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/mail-from.html">Amazon SES Developer Guide</a>.</p>
+ *          </important>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +54,7 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * const input = { // SetIdentityMailFromDomainRequest
  *   Identity: "STRING_VALUE", // required
  *   MailFromDomain: "STRING_VALUE",
- *   BehaviorOnMXFailure: "STRING_VALUE",
+ *   BehaviorOnMXFailure: "UseDefaultValue" || "RejectMessage",
  * };
  * const command = new SetIdentityMailFromDomainCommand(input);
  * const response = await client.send(command);

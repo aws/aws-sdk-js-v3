@@ -48,8 +48,8 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
  *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
  *             type.</p>
- *         <p>You can execute this operation no more than once per second.</p>
- *         <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
+ *          <p>You can execute this operation no more than once per second.</p>
+ *          <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon SES
  *                 Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,7 +59,7 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * const client = new SESClient(config);
  * const input = { // SetIdentityHeadersInNotificationsEnabledRequest
  *   Identity: "STRING_VALUE", // required
- *   NotificationType: "STRING_VALUE", // required
+ *   NotificationType: "Bounce" || "Complaint" || "Delivery", // required
  *   Enabled: true || false, // required
  * };
  * const command = new SetIdentityHeadersInNotificationsEnabledCommand(input);

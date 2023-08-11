@@ -40,9 +40,8 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * @public
  * <p>Returns the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
- *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +60,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * //     { // ReceiptRule
  * //       Name: "STRING_VALUE", // required
  * //       Enabled: true || false,
- * //       TlsPolicy: "STRING_VALUE",
+ * //       TlsPolicy: "Require" || "Optional",
  * //       Recipients: [ // RecipientsList
  * //         "STRING_VALUE",
  * //       ],
@@ -87,10 +86,10 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * //           LambdaAction: { // LambdaAction
  * //             TopicArn: "STRING_VALUE",
  * //             FunctionArn: "STRING_VALUE", // required
- * //             InvocationType: "STRING_VALUE",
+ * //             InvocationType: "Event" || "RequestResponse",
  * //           },
  * //           StopAction: { // StopAction
- * //             Scope: "STRING_VALUE", // required
+ * //             Scope: "RuleSet", // required
  * //             TopicArn: "STRING_VALUE",
  * //           },
  * //           AddHeaderAction: { // AddHeaderAction
@@ -99,7 +98,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * //           },
  * //           SNSAction: { // SNSAction
  * //             TopicArn: "STRING_VALUE", // required
- * //             Encoding: "STRING_VALUE",
+ * //             Encoding: "UTF-8" || "Base64",
  * //           },
  * //         },
  * //       ],

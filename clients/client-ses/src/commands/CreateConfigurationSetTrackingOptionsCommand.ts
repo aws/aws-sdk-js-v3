@@ -47,9 +47,9 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * @public
  * <p>Creates an association between a configuration set and a custom domain for open and
  *             click event tracking. </p>
- *         <p>By default, images and links used for tracking open and click events are hosted on
+ *          <p>By default, images and links used for tracking open and click events are hosted on
  *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
- *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+ *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,12 +80,12 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link InvalidTrackingOptionsException} (client fault)
  *  <p>Indicates that the custom domain to be used for open and click tracking redirects is
  *             invalid. This error appears most often in the following situations:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>When the tracking domain you specified is not verified in Amazon SES.</p>
+ *                <p>When the tracking domain you specified is not verified in Amazon SES.</p>
  *             </li>
  *             <li>
- *                 <p>When the tracking domain you specified is not a valid domain or
+ *                <p>When the tracking domain you specified is not a valid domain or
  *                     subdomain.</p>
  *             </li>
  *          </ul>

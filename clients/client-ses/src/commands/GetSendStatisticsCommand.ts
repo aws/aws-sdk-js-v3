@@ -36,10 +36,10 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
 
 /**
  * @public
- * <p>Provides sending statistics for the current AWS Region. The result is a list of data
+ * <p>Provides sending statistics for the current Amazon Web Services Region. The result is a list of data
  *             points, representing the last two weeks of sending activity. Each data point in the list
  *             contains statistics for a 15-minute period of time.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

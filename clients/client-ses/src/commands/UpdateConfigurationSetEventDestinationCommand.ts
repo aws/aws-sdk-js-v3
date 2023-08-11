@@ -48,15 +48,15 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * <p>Updates the event destination of a configuration set. Event destinations are
  *             associated with configuration sets, which enable you to publish email sending events to
  *             Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets,
- *             see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES
- *                 Sending Activity</a> in the <i>Amazon SES Developer Guide.</i>
+ *             see <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
+ *                 Guide.</i>
  *          </p>
- *         <note>
+ *          <note>
  *             <p>When you create or update an event destination, you must provide one, and only
  *                 one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service
  *                 (Amazon SNS).</p>
- *         </note>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          </note>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +69,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *     Name: "STRING_VALUE", // required
  *     Enabled: true || false,
  *     MatchingEventTypes: [ // EventTypes // required
- *       "STRING_VALUE",
+ *       "send" || "reject" || "bounce" || "complaint" || "delivery" || "open" || "click" || "renderingFailure",
  *     ],
  *     KinesisFirehoseDestination: { // KinesisFirehoseDestination
  *       IAMRoleARN: "STRING_VALUE", // required
@@ -79,7 +79,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *       DimensionConfigurations: [ // CloudWatchDimensionConfigurations // required
  *         { // CloudWatchDimensionConfiguration
  *           DimensionName: "STRING_VALUE", // required
- *           DimensionValueSource: "STRING_VALUE", // required
+ *           DimensionValueSource: "messageTag" || "emailHeader" || "linkTag", // required
  *           DefaultDimensionValue: "STRING_VALUE", // required
  *         },
  *       ],

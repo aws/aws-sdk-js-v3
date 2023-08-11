@@ -37,8 +37,9 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
 /**
  * @public
  * <p>Creates a new IP address filter.</p>
- *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +50,7 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  *   Filter: { // ReceiptFilter
  *     Name: "STRING_VALUE", // required
  *     IpFilter: { // ReceiptIpFilter
- *       Policy: "STRING_VALUE", // required
+ *       Policy: "Block" || "Allow", // required
  *       Cidr: "STRING_VALUE", // required
  *     },
  *   },

@@ -36,13 +36,12 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
 
 /**
  * @public
- * <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS
- *             Region and attempts to verify it. For more information about verifying domains, see
- *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email
- *                 Addresses and Domains</a> in the <i>Amazon SES Developer
- *             Guide.</i>
+ * <p>Adds a domain to the list of identities for your Amazon SES account in the current
+ *             Amazon Web Services Region and attempts to verify it. For more information about verifying domains,
+ *             see <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer
+ *                 Guide.</i>
  *          </p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

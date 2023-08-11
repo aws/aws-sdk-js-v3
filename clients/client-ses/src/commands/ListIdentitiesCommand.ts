@@ -37,8 +37,18 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
 /**
  * @public
  * <p>Returns a list containing all of the identities (email addresses and domains) for your
- *             AWS account in the current AWS Region, regardless of verification status.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             Amazon Web Services account in the current Amazon Web Services Region, regardless of verification status.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
+ *          <note>
+ *             <p>It's recommended that for successive pagination calls of this API, you continue to
+ *                 the use the same parameter/value pairs as used in the original call, e.g., if you
+ *                 used <code>IdentityType=Domain</code> in the the original call and received a
+ *                     <code>NextToken</code> in the response, you should continue providing the
+ *                     <code>IdentityType=Domain</code> parameter for further <code>NextToken</code>
+ *                 calls; however, if you didn't provide the <code>IdentityType</code> parameter in the
+ *                 original call, then continue to not provide it for successive pagination calls.
+ *                 Using this protocol will ensure consistent results.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,7 +56,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * // const { SESClient, ListIdentitiesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
  * const input = { // ListIdentitiesRequest
- *   IdentityType: "STRING_VALUE",
+ *   IdentityType: "EmailAddress" || "Domain",
  *   NextToken: "STRING_VALUE",
  *   MaxItems: Number("int"),
  * };

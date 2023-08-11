@@ -37,7 +37,7 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
 /**
  * @public
  * <p>Provides the sending limits for the Amazon SES account. </p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

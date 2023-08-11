@@ -37,14 +37,15 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
 /**
  * @public
  * <p>Generates and sends a bounce message to the sender of an email you received through
- *             Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
- *         <note>
- *             <p>You cannot use this API to send generic bounces for mail that was not received by
- *                 Amazon SES.</p>
- *         </note>
- *         <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             Amazon SES. You can only use this operation on an email up to 24 hours after you receive
+ *             it.</p>
+ *          <note>
+ *             <p>You cannot use this operation to send generic bounces for mail that was not
+ *                 received by Amazon SES.</p>
+ *          </note>
+ *          <p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email.html">Amazon SES Developer
+ *                 Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,10 +70,10 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  *     { // BouncedRecipientInfo
  *       Recipient: "STRING_VALUE", // required
  *       RecipientArn: "STRING_VALUE",
- *       BounceType: "STRING_VALUE",
+ *       BounceType: "DoesNotExist" || "MessageTooLarge" || "ExceededQuota" || "ContentRejected" || "Undefined" || "TemporaryFailure",
  *       RecipientDsnFields: { // RecipientDsnFields
  *         FinalRecipient: "STRING_VALUE",
- *         Action: "STRING_VALUE", // required
+ *         Action: "failed" || "delayed" || "delivered" || "relayed" || "expanded", // required
  *         RemoteMta: "STRING_VALUE",
  *         Status: "STRING_VALUE", // required
  *         DiagnosticCode: "STRING_VALUE",

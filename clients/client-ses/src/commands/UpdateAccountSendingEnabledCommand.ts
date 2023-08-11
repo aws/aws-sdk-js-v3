@@ -37,11 +37,11 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
 /**
  * @public
  * <p>Enables or disables email sending across your entire Amazon SES account in the current
- *             AWS Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
- *             temporarily pause email sending across your Amazon SES account in a given AWS Region when
+ *             Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
+ *             temporarily pause email sending across your Amazon SES account in a given Amazon Web Services Region when
  *             reputation metrics (such as your bounce or complaint rates) reach certain
  *             thresholds.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

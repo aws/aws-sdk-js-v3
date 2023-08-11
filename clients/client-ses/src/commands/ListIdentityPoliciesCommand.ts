@@ -37,17 +37,17 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
 /**
  * @public
  * <p>Returns a list of sending authorization policies that are attached to the given
- *             identity (an email address or a domain). This API returns only a list. If you want the
- *             actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
- *         <note>
- *             <p>This API is for the identity owner only. If you have not verified the identity,
- *                 this API will return an error.</p>
- *         </note>
- *         <p>Sending authorization is a feature that enables an identity owner to authorize other
+ *             identity (an email address or a domain). This operation returns only a list. To get the
+ *             actual policy content, use <code>GetIdentityPolicies</code>.</p>
+ *          <note>
+ *             <p>This operation is for the identity owner only. If you have not verified the
+ *                 identity, it returns an error.</p>
+ *          </note>
+ *          <p>Sending authorization is a feature that enables an identity owner to authorize other
  *             senders to use its identities. For information about using sending authorization, see
- *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
- *                 Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *             the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

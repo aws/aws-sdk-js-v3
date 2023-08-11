@@ -37,12 +37,13 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
 /**
  * @public
  * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
- *         <note>
- *             <p>To disable your email-receiving through Amazon SES completely, you can call this API
- *                 with RuleSetName set to null.</p>
- *         </note>
- *         <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <note>
+ *             <p>To disable your email-receiving through Amazon SES completely, you can call this
+ *                 operation with <code>RuleSetName</code> set to null.</p>
+ *          </note>
+ *          <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

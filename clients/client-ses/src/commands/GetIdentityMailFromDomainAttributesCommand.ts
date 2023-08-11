@@ -46,7 +46,7 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @public
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
  *             domains).</p>
- *         <p>This operation is throttled at one request per second and can only get custom MAIL
+ *          <p>This operation is throttled at one request per second and can only get custom MAIL
  *             FROM attributes for up to 100 identities at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,8 +65,8 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * //   MailFromDomainAttributes: { // MailFromDomainAttributes // required
  * //     "<keys>": { // IdentityMailFromDomainAttributes
  * //       MailFromDomain: "STRING_VALUE", // required
- * //       MailFromDomainStatus: "STRING_VALUE", // required
- * //       BehaviorOnMXFailure: "STRING_VALUE", // required
+ * //       MailFromDomainStatus: "Pending" || "Success" || "Failed" || "TemporaryFailure", // required
+ * //       BehaviorOnMXFailure: "UseDefaultValue" || "RejectMessage", // required
  * //     },
  * //   },
  * // };

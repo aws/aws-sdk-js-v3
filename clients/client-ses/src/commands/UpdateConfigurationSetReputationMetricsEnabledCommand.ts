@@ -41,10 +41,10 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
 /**
  * @public
  * <p>Enables or disables the publishing of reputation metrics for emails sent using a
- *             specific configuration set in a given AWS Region. Reputation metrics include bounce
+ *             specific configuration set in a given Amazon Web Services Region. Reputation metrics include bounce
  *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
  *             create alarms when bounce or complaint rates exceed certain thresholds.</p>
- *         <p>You can execute this operation no more than once per second.</p>
+ *          <p>You can execute this operation no more than once per second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

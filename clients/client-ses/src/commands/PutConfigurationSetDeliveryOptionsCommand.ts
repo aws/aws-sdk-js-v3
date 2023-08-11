@@ -54,7 +54,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * const input = { // PutConfigurationSetDeliveryOptionsRequest
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   DeliveryOptions: { // DeliveryOptions
- *     TlsPolicy: "STRING_VALUE",
+ *     TlsPolicy: "Require" || "Optional",
  *   },
  * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);

@@ -16,6 +16,31 @@ Guide</a>. </p>
 Amazon SES</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer
 Guide</a>.</p>
 </note>
+<p>This documentation contains reference information related to the following:</p>
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_Operations.html">Amazon SES API Actions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_Types.html">Amazon SES
+API Data Types</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/ses/latest/APIReference/CommonParameters.html">Common
+Parameters</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/ses/latest/APIReference/CommonErrors.html">Common Errors</a>
+</p>
+</li>
+</ul>
 
 ## Installing
 
