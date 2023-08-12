@@ -92,6 +92,34 @@ const { DynamoDB } = require("@aws-sdk/client-dynamodb");
 })();
 ```
 
+A more common scenario would be running the JS SDK v3 client from Lambda. 
+With Lambda Node:18 we can take advantage of the embedded v3 SDK, and support for ES modules so we can get substitute our `require` lines with `import` statements:
+```javascript
+import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts'
+
+/*Initializing a single client per service, in the global scope, outside of the handler's codepath.
+This is done to optimize for Lambda's container reuse.*/
+const client = new STSClient({region: "us-west-2"})
+
+export const handler = async (event) => {
+    const response = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    try {
+        const results = await client.send(new GetCallerIdentityCommand({}));
+        response.statusCode = 200;
+        response.body = JSON.stringify(results.UserId);
+    } catch (err) {
+        response.statusCode = 500;
+        response.body = JSON.stringify("Internal Server Error");
+    }
+    return response;
+};
+```
+
 If you use tree shaking to reduce bundle size, using non-modular interface will increase the bundle size as compared to using modular interface.
 
 <!-- Uncomment when numbers are available for gamma clients
