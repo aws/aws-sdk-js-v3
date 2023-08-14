@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { RotateIngestEndpointCredentialsRequest, RotateIngestEndpointCredentialsResponse } from "../models/models_0";
+import {
+  RotateIngestEndpointCredentialsRequest,
+  RotateIngestEndpointCredentialsResponse,
+  RotateIngestEndpointCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_RotateIngestEndpointCredentialsCommand,
   se_RotateIngestEndpointCredentialsCommand,
@@ -159,7 +163,7 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: RotateIngestEndpointCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

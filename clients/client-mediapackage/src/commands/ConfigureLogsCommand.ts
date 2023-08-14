@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { ConfigureLogsRequest, ConfigureLogsResponse } from "../models/models_0";
+import {
+  ConfigureLogsRequest,
+  ConfigureLogsResponse,
+  ConfigureLogsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ConfigureLogsCommand, se_ConfigureLogsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -157,7 +161,7 @@ export class ConfigureLogsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ConfigureLogsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

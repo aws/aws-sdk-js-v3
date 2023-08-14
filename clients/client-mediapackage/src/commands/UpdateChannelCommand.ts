@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
+import {
+  UpdateChannelRequest,
+  UpdateChannelResponse,
+  UpdateChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -152,7 +156,7 @@ export class UpdateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: UpdateChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,11 @@ import {
 } from "@smithy/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
+import {
+  CreateChannelRequest,
+  CreateChannelResponse,
+  CreateChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -155,7 +159,7 @@ export class CreateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
