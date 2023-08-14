@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
+
+
+### Features
+
+* **client-mediapackage:** Fix SDK logging of certain fields. ([0dc18f1](https://github.com/aws/aws-sdk-js-v3/commit/0dc18f1471be2a19a6f11da845ec0cb8822e8a53))
+
+
+
+
+
 # [3.388.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.387.0...v3.388.0) (2023-08-09)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackage

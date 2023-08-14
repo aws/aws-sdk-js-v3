@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
+
+**Note:** Version bump only for package @aws-sdk/util-user-agent-browser
+
+
+
+
+
 # [3.387.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.386.0...v3.387.0) (2023-08-08)
 
 **Note:** Version bump only for package @aws-sdk/util-user-agent-browser

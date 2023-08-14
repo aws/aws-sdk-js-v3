@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
+
+
+### Features
+
+* **client-mediapackage:** Fix SDK logging of certain fields. ([0dc18f1](https://github.com/aws/aws-sdk-js-v3/commit/0dc18f1471be2a19a6f11da845ec0cb8822e8a53))
+* **client-omics:** This release provides support for annotation store versioning and cross account sharing for Omics Analytics ([31de2c4](https://github.com/aws/aws-sdk-js-v3/commit/31de2c44711378de1d9039a61117d99b78ad3618))
+* **clients:** update client endpoints as of 2023-08-14 ([8239347](https://github.com/aws/aws-sdk-js-v3/commit/8239347a9aab55c2e2646e82b5a94066917a3954))
+
+
+
+
+
 # [3.390.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.389.0...v3.390.0) (2023-08-11)
 
 
