@@ -211,6 +211,88 @@ export type Accelerators = (typeof Accelerators)[keyof typeof Accelerators];
 
 /**
  * @public
+ */
+export interface AcceptShareRequest {
+  /**
+   * @public
+   * <p>
+   * The ID for a share offer for analytics store data.
+   * </p>
+   */
+  shareId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ShareStatus = {
+  /**
+   * The share is activated
+   */
+  ACTIVATING: "ACTIVATING",
+  /**
+   * The share is active and can be used
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * The share has been deleted
+   */
+  DELETED: "DELETED",
+  /**
+   * The share is being deleted
+   */
+  DELETING: "DELETING",
+  /**
+   * The share has failed to activate or delete
+   */
+  FAILED: "FAILED",
+  /**
+   * The share has been created but is not yet active
+   */
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
+
+/**
+ * @public
+ */
+export interface AcceptShareResponse {
+  /**
+   * @public
+   * <p>
+   * The status of an analytics store share.
+   * </p>
+   */
+  status?: ShareStatus | string;
+}
+
+/**
+ * @public
+ * <p>The request cannot be applied to the target resource in its current state.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const ReadSetActivationJobStatus = {
@@ -585,6 +667,14 @@ export interface GetAnnotationImportResponse {
 
   /**
    * @public
+   * <p>
+   * The name of the annotation store version.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
    * <p>The job's service role ARN.</p>
    */
   roleArn: string | undefined;
@@ -712,6 +802,14 @@ export interface AnnotationImportJobItem {
 
   /**
    * @public
+   * <p>
+   * The name of the annotation store version.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
    * <p>The job's service role ARN.</p>
    */
   roleArn: string | undefined;
@@ -796,6 +894,14 @@ export interface StartAnnotationImportRequest {
 
   /**
    * @public
+   * <p>
+   * The name of the annotation store version.
+   * </p>
+   */
+  versionName?: string;
+
+  /**
+   * @public
    * <p>Formatting options for the annotation file.</p>
    */
   formatOptions?: FormatOptions;
@@ -824,26 +930,6 @@ export interface StartAnnotationImportResponse {
    * <p>The job's ID.</p>
    */
   jobId: string | undefined;
-}
-
-/**
- * @public
- * <p>The request cannot be applied to the target resource in its current state.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
 }
 
 /**
@@ -1128,6 +1214,14 @@ export interface CreateAnnotationStoreRequest {
 
   /**
    * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   * </p>
+   */
+  versionName?: string;
+
+  /**
+   * @public
    * <p>Server-side encryption (SSE) settings for the store.</p>
    */
   sseConfig?: SseConfig;
@@ -1216,6 +1310,14 @@ export interface CreateAnnotationStoreResponse {
    * <p>The store's name.</p>
    */
   name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   * </p>
+   */
+  versionName: string | undefined;
 
   /**
    * @public
@@ -1350,6 +1452,14 @@ export interface GetAnnotationStoreResponse {
    * <p>The store's size in bytes.</p>
    */
   storeSizeBytes: number | undefined;
+
+  /**
+   * @public
+   * <p>
+   * An integer indicating how many versions of an annotation store exist.
+   * </p>
+   */
+  numVersions: number | undefined;
 }
 
 /**
@@ -1562,6 +1672,681 @@ export interface UpdateAnnotationStoreResponse {
    * <p>The annotation file format of the store.</p>
    */
   storeFormat?: StoreFormat | string;
+}
+
+/**
+ * @public
+ * <p>
+ * The options for a TSV file.
+ * </p>
+ */
+export interface TsvVersionOptions {
+  /**
+   * @public
+   * <p>
+   * The store version's annotation type.
+   * </p>
+   */
+  annotationType?: AnnotationType | string;
+
+  /**
+   * @public
+   * <p>
+   * The annotation store version's header key to column name mapping.
+   * </p>
+   */
+  formatToHeader?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>
+   * The TSV schema for an annotation store version.
+   * </p>
+   */
+  schema?: Record<string, SchemaValueType | string>[];
+}
+
+/**
+ * @public
+ * <p>
+ * The  options for an annotation store version.
+ * </p>
+ */
+export type VersionOptions = VersionOptions.TsvVersionOptionsMember | VersionOptions.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace VersionOptions {
+  /**
+   * @public
+   * <p>
+   * File settings for a version of a TSV store.
+   * </p>
+   */
+  export interface TsvVersionOptionsMember {
+    tsvVersionOptions: TsvVersionOptions;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    tsvVersionOptions?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tsvVersionOptions: (value: TsvVersionOptions) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VersionOptions, visitor: Visitor<T>): T => {
+    if (value.tsvVersionOptions !== undefined) return visitor.tsvVersionOptions(value.tsvVersionOptions);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateAnnotationStoreVersionRequest {
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store version from which versions are being created.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The description of an annotation store version.
+   * </p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>
+   * The options for an annotation store version.
+   * </p>
+   */
+  versionOptions?: VersionOptions;
+
+  /**
+   * @public
+   * <p>
+   * Any tags added to annotation store version.
+   * </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VersionStatus = {
+  /**
+   * The Version is active
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * The Version is being created
+   */
+  CREATING: "CREATING",
+  /**
+   * The Version is deleting
+   */
+  DELETING: "DELETING",
+  /**
+   * The Version creation failed
+   */
+  FAILED: "FAILED",
+  /**
+   * The Version is updating
+   */
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
+
+/**
+ * @public
+ */
+export interface CreateAnnotationStoreVersionResponse {
+  /**
+   * @public
+   * <p>
+   * A generated ID for the annotation store
+   * </p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The ID for the annotation store from which new versions are being created.
+   * </p>
+   */
+  storeId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The options for an annotation store version.
+   * </p>
+   */
+  versionOptions?: VersionOptions;
+
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from other versions.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The status of a annotation store version.
+   * </p>
+   */
+  status: VersionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for the creation of an annotation store version.
+   * </p>
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnnotationStoreVersionsRequest {
+  /**
+   * @public
+   * <p>
+   * The name of the annotation store from which versions are being deleted.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The versions of an annotation store to be deleted.
+   * </p>
+   */
+  versions: string[] | undefined;
+
+  /**
+   * @public
+   * <p>
+   * Forces the deletion of an annotation store version when imports are in-progress..
+   * </p>
+   */
+  force?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ * The error preventing deletion of the annotation store version.
+ * </p>
+ */
+export interface VersionDeleteError {
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The message explaining the error in annotation store deletion.
+   * </p>
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnnotationStoreVersionsResponse {
+  /**
+   * @public
+   * <p>
+   * Any errors that occur when attempting to delete an annotation store version.
+   * </p>
+   */
+  errors?: VersionDeleteError[];
+}
+
+/**
+ * @public
+ */
+export interface GetAnnotationStoreVersionRequest {
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from others.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from others.
+   * </p>
+   */
+  versionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnnotationStoreVersionResponse {
+  /**
+   * @public
+   * <p>
+   * The store ID for annotation store version.
+   * </p>
+   */
+  storeId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The annotation store version ID.
+   * </p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  status: VersionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The Arn for the annotation store.
+   * </p>
+   */
+  versionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name of the annotation store.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name given to an annotation store version to distinguish it from others.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The description for an annotation store version.
+   * </p>
+   */
+  description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for when an annotation store version was created.
+   * </p>
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for when an annotation store version was updated.
+   * </p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>
+   * Any tags associated with an annotation store version.
+   * </p>
+   */
+  tags: Record<string, string> | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The options for an annotation store version.
+   * </p>
+   */
+  versionOptions?: VersionOptions;
+
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  statusMessage: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The size of the annotation store version in Bytes.
+   * </p>
+   */
+  versionSizeBytes: number | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
+ * </p>
+ */
+export interface ListAnnotationStoreVersionsFilter {
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  status?: VersionStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface ListAnnotationStoreVersionsRequest {
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The maximum number of annotation store versions to return in one page of results.
+   * </p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>
+   * Specifies the pagination token from a previous request to retrieve the next page of results.
+   * </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   * A filter to apply to the list of annotation store versions.
+   * </p>
+   */
+  filter?: ListAnnotationStoreVersionsFilter;
+}
+
+/**
+ * @public
+ * <p>
+ * Annotation store versions.
+ * </p>
+ */
+export interface AnnotationStoreVersionItem {
+  /**
+   * @public
+   * <p>
+   * The store ID for an annotation store version.
+   * </p>
+   */
+  storeId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The annotation store version ID.
+   * </p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  status: VersionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The Arn for an annotation store version.
+   * </p>
+   */
+  versionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * A name given to an annotation store version to distinguish it from others.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store version.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The description of an annotation store version.
+   * </p>
+   */
+  description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for when an annotation store version was created.
+   * </p>
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for when an annotation store version was updated.
+   * </p>
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  statusMessage: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The size of an annotation store version in Bytes.
+   * </p>
+   */
+  versionSizeBytes: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnnotationStoreVersionsResponse {
+  /**
+   * @public
+   * <p>
+   * Lists all versions of an annotation store.
+   * </p>
+   */
+  annotationStoreVersions?: AnnotationStoreVersionItem[];
+
+  /**
+   * @public
+   * <p>
+   * Specifies the pagination token from a previous request to retrieve the next page of results.
+   * </p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnnotationStoreVersionRequest {
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store version.
+   * </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The description of an annotation store.
+   * </p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnnotationStoreVersionResponse {
+  /**
+   * @public
+   * <p>
+   * The annotation store ID.
+   * </p>
+   */
+  storeId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The annotation store version ID.
+   * </p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  status: VersionStatus | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store.
+   * </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The name of an annotation store version. </p>
+   */
+  versionName: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The description of an annotation store version.
+   * </p>
+   */
+  description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for when an annotation store version was created.
+   * </p>
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The time stamp for when an annotation store version was updated.
+   * </p>
+   */
+  updateTime: Date | undefined;
 }
 
 /**
@@ -2167,6 +2952,64 @@ export interface CreateSequenceStoreResponse {
 /**
  * @public
  */
+export interface CreateShareRequest {
+  /**
+   * @public
+   * <p>
+   *       The resource ARN for the analytics store to be shared.
+   *     </p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       The principal subscriber is the account being given access to the analytics store data through the share offer.
+   *     </p>
+   */
+  principalSubscriber: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       A name given to the share.
+   *     </p>
+   */
+  shareName?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateShareResponse {
+  /**
+   * @public
+   * <p>
+   *       An ID generated for the share.
+   *     </p>
+   */
+  shareId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The status of a share.
+   *     </p>
+   */
+  status?: ShareStatus | string;
+
+  /**
+   * @public
+   * <p>
+   *       A name given to the share.
+   *     </p>
+   */
+  shareName?: string;
+}
+
+/**
+ * @public
+ */
 export interface CreateVariantStoreRequest {
   /**
    * @public
@@ -2480,6 +3323,32 @@ export interface DeleteSequenceStoreResponse {}
 /**
  * @public
  */
+export interface DeleteShareRequest {
+  /**
+   * @public
+   * <p>
+   *       The ID for the share request to be deleted.
+   *     </p>
+   */
+  shareId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteShareResponse {
+  /**
+   * @public
+   * <p>
+   *       The status of the share being deleted.
+   *     </p>
+   */
+  status?: ShareStatus | string;
+}
+
+/**
+ * @public
+ */
 export interface DeleteVariantStoreRequest {
   /**
    * @public
@@ -2675,6 +3544,30 @@ export interface FileInformation {
    * <p>The file's content length.</p>
    */
   contentLength?: number;
+}
+
+/**
+ * @public
+ * <p>
+ * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
+ * </p>
+ */
+export interface Filter {
+  /**
+   * @public
+   * <p>
+   * The Amazon Resource Number (Arn) for an analytics store.
+   * </p>
+   */
+  resourceArns?: string[];
+
+  /**
+   * @public
+   * <p>
+   * The status of an annotation store version.
+   * </p>
+   */
+  status?: (ShareStatus | string)[];
 }
 
 /**
@@ -4124,6 +5017,112 @@ export interface GetSequenceStoreResponse {
    *     </p>
    */
   fallbackLocation?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetShareRequest {
+  /**
+   * @public
+   * <p>
+   *       The generated ID for a share.
+   *     </p>
+   */
+  shareId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *       The details of a share.
+ *     </p>
+ */
+export interface ShareDetails {
+  /**
+   * @public
+   * <p>
+   *       The ID for a share offer for an analytics store .
+   *     </p>
+   */
+  shareId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The resource Arn of the analytics store being shared.
+   *     </p>
+   */
+  resourceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The principal subscriber is the account the analytics store data is being shared with.
+   *     </p>
+   */
+  principalSubscriber?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The account ID for the data owner. The owner creates the share offer.
+   *     </p>
+   */
+  ownerId?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The status of a share.
+   *     </p>
+   */
+  status?: ShareStatus | string;
+
+  /**
+   * @public
+   * <p>
+   *       The status message for a share. It provides more details on the status of the share.
+   *     </p>
+   */
+  statusMessage?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The name of the share.
+   *     </p>
+   */
+  shareName?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The timestamp for when the share was created.
+   *     </p>
+   */
+  creationTime?: Date;
+
+  /**
+   * @public
+   * <p>
+   *       The timestamp of the share update.
+   *     </p>
+   */
+  updateTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetShareResponse {
+  /**
+   * @public
+   * <p>
+   *       An analytic store share details object. contains status, resourceArn, ownerId, etc.
+   *     </p>
+   */
+  share?: ShareDetails;
 }
 
 /**
@@ -5978,6 +6977,84 @@ export interface ListSequenceStoresResponse {
    * <p>A list of sequence stores.</p>
    */
   sequenceStores: SequenceStoreDetail[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceOwner = {
+  /**
+   * The resource owner is an account other than the caller
+   */
+  OTHER: "OTHER",
+  /**
+   * The resource owner is the calling account
+   */
+  SELF: "SELF",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
+ */
+export interface ListSharesRequest {
+  /**
+   * @public
+   * <p>
+   *       The account that owns the analytics store shared.
+   *     </p>
+   */
+  resourceOwner: ResourceOwner | string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       Attributes used to filter for a specific subset of shares.
+   *     </p>
+   */
+  filter?: Filter;
+
+  /**
+   * @public
+   * <p>
+   *       Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The maximum number of shares to return in one page of results.
+   *     </p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListSharesResponse {
+  /**
+   * @public
+   * <p>
+   *       The shares available and their meta details.
+   *     </p>
+   */
+  shares: ShareDetails[] | undefined;
+
+  /**
+   * @public
+   * <p>
+   * Next token returned in the response of a previous ListSharesResponse call. Used to get the next page of results.
+   * </p>
+   */
+  nextToken?: string;
 }
 
 /**

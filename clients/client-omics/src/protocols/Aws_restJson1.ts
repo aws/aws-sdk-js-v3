@@ -35,6 +35,7 @@ import {
   AbortMultipartReadSetUploadCommandInput,
   AbortMultipartReadSetUploadCommandOutput,
 } from "../commands/AbortMultipartReadSetUploadCommand";
+import { AcceptShareCommandInput, AcceptShareCommandOutput } from "../commands/AcceptShareCommand";
 import { BatchDeleteReadSetCommandInput, BatchDeleteReadSetCommandOutput } from "../commands/BatchDeleteReadSetCommand";
 import {
   CancelAnnotationImportJobCommandInput,
@@ -54,6 +55,10 @@ import {
   CreateAnnotationStoreCommandOutput,
 } from "../commands/CreateAnnotationStoreCommand";
 import {
+  CreateAnnotationStoreVersionCommandInput,
+  CreateAnnotationStoreVersionCommandOutput,
+} from "../commands/CreateAnnotationStoreVersionCommand";
+import {
   CreateMultipartReadSetUploadCommandInput,
   CreateMultipartReadSetUploadCommandOutput,
 } from "../commands/CreateMultipartReadSetUploadCommand";
@@ -66,12 +71,17 @@ import {
   CreateSequenceStoreCommandInput,
   CreateSequenceStoreCommandOutput,
 } from "../commands/CreateSequenceStoreCommand";
+import { CreateShareCommandInput, CreateShareCommandOutput } from "../commands/CreateShareCommand";
 import { CreateVariantStoreCommandInput, CreateVariantStoreCommandOutput } from "../commands/CreateVariantStoreCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
 import {
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
 } from "../commands/DeleteAnnotationStoreCommand";
+import {
+  DeleteAnnotationStoreVersionsCommandInput,
+  DeleteAnnotationStoreVersionsCommandOutput,
+} from "../commands/DeleteAnnotationStoreVersionsCommand";
 import { DeleteReferenceCommandInput, DeleteReferenceCommandOutput } from "../commands/DeleteReferenceCommand";
 import {
   DeleteReferenceStoreCommandInput,
@@ -83,6 +93,7 @@ import {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
 } from "../commands/DeleteSequenceStoreCommand";
+import { DeleteShareCommandInput, DeleteShareCommandOutput } from "../commands/DeleteShareCommand";
 import { DeleteVariantStoreCommandInput, DeleteVariantStoreCommandOutput } from "../commands/DeleteVariantStoreCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import {
@@ -90,6 +101,10 @@ import {
   GetAnnotationImportJobCommandOutput,
 } from "../commands/GetAnnotationImportJobCommand";
 import { GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput } from "../commands/GetAnnotationStoreCommand";
+import {
+  GetAnnotationStoreVersionCommandInput,
+  GetAnnotationStoreVersionCommandOutput,
+} from "../commands/GetAnnotationStoreVersionCommand";
 import {
   GetReadSetActivationJobCommandInput,
   GetReadSetActivationJobCommandOutput,
@@ -118,6 +133,7 @@ import { GetRunCommandInput, GetRunCommandOutput } from "../commands/GetRunComma
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "../commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "../commands/GetRunTaskCommand";
 import { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "../commands/GetSequenceStoreCommand";
+import { GetShareCommandInput, GetShareCommandOutput } from "../commands/GetShareCommand";
 import {
   GetVariantImportJobCommandInput,
   GetVariantImportJobCommandOutput,
@@ -132,6 +148,10 @@ import {
   ListAnnotationStoresCommandInput,
   ListAnnotationStoresCommandOutput,
 } from "../commands/ListAnnotationStoresCommand";
+import {
+  ListAnnotationStoreVersionsCommandInput,
+  ListAnnotationStoreVersionsCommandOutput,
+} from "../commands/ListAnnotationStoreVersionsCommand";
 import {
   ListMultipartReadSetUploadsCommandInput,
   ListMultipartReadSetUploadsCommandOutput,
@@ -166,6 +186,7 @@ import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "../comman
 import { ListRunsCommandInput, ListRunsCommandOutput } from "../commands/ListRunsCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "../commands/ListRunTasksCommand";
 import { ListSequenceStoresCommandInput, ListSequenceStoresCommandOutput } from "../commands/ListSequenceStoresCommand";
+import { ListSharesCommandInput, ListSharesCommandOutput } from "../commands/ListSharesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -207,6 +228,10 @@ import {
   UpdateAnnotationStoreCommandInput,
   UpdateAnnotationStoreCommandOutput,
 } from "../commands/UpdateAnnotationStoreCommand";
+import {
+  UpdateAnnotationStoreVersionCommandInput,
+  UpdateAnnotationStoreVersionCommandOutput,
+} from "../commands/UpdateAnnotationStoreVersionCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "../commands/UpdateRunGroupCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "../commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "../commands/UpdateWorkflowCommand";
@@ -218,11 +243,13 @@ import {
   AnnotationImportItemSource,
   AnnotationImportJobItem,
   AnnotationStoreItem,
+  AnnotationStoreVersionItem,
   CompleteReadSetUploadPartListItem,
   ConflictException,
   ExportReadSet,
   ExportReadSetFilter,
   ExportReadSetJobDetail,
+  Filter,
   FormatOptions,
   ImportReadSetFilter,
   ImportReadSetJobItem,
@@ -231,6 +258,7 @@ import {
   InternalServerException,
   ListAnnotationImportJobsFilter,
   ListAnnotationStoresFilter,
+  ListAnnotationStoreVersionsFilter,
   ListVariantImportJobsFilter,
   ListVariantStoresFilter,
   MultipartReadSetUploadListItem,
@@ -254,6 +282,8 @@ import {
   SequenceStoreDetail,
   SequenceStoreFilter,
   ServiceQuotaExceededException,
+  ShareDetails,
+  ShareStatus,
   SourceFiles,
   SseConfig,
   StartReadSetActivationJobSourceItem,
@@ -264,11 +294,13 @@ import {
   ThrottlingException,
   TsvOptions,
   TsvStoreOptions,
+  TsvVersionOptions,
   ValidationException,
   VariantImportItemSource,
   VariantImportJobItem,
   VariantStoreItem,
   VcfOptions,
+  VersionOptions,
   WorkflowListItem,
   WorkflowParameter,
 } from "../models/models_0";
@@ -308,6 +340,36 @@ export const se_AbortMultipartReadSetUploadCommand = async (
     hostname: resolvedHostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1AcceptShareCommand
+ */
+export const se_AcceptShareCommand = async (
+  input: AcceptShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share/{shareId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "shareId", () => input.shareId!, "{shareId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -520,6 +582,48 @@ export const se_CreateAnnotationStoreCommand = async (
       storeFormat: [],
       storeOptions: (_) => _json(_),
       tags: (_) => _json(_),
+      versionName: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateAnnotationStoreVersionCommand
+ */
+export const se_CreateAnnotationStoreVersionCommand = async (
+  input: CreateAnnotationStoreVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}/version";
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      tags: (_) => _json(_),
+      versionName: [],
+      versionOptions: (_) => _json(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -717,6 +821,44 @@ export const se_CreateSequenceStoreCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateShareCommand
+ */
+export const se_CreateShareCommand = async (
+  input: CreateShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      principalSubscriber: [],
+      resourceArn: [],
+      shareName: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateVariantStoreCommand
  */
 export const se_CreateVariantStoreCommand = async (
@@ -829,6 +971,48 @@ export const se_DeleteAnnotationStoreCommand = async (
     hostname: resolvedHostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteAnnotationStoreVersionsCommand
+ */
+export const se_DeleteAnnotationStoreVersionsCommand = async (
+  input: DeleteAnnotationStoreVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}/versions/delete";
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  const query: any = map({
+    force: [() => input.force !== void 0, () => input.force!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      versions: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     query,
@@ -997,6 +1181,36 @@ export const se_DeleteSequenceStoreCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteShareCommand
+ */
+export const se_DeleteShareCommand = async (
+  input: DeleteShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share/{shareId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "shareId", () => input.shareId!, "{shareId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteVariantStoreCommand
  */
 export const se_DeleteVariantStoreCommand = async (
@@ -1102,6 +1316,39 @@ export const se_GetAnnotationStoreCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetAnnotationStoreVersionCommand
+ */
+export const se_GetAnnotationStoreVersionCommand = async (
+  input: GetAnnotationStoreVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/annotationStore/{name}/version/{versionName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "versionName", () => input.versionName!, "{versionName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1606,6 +1853,36 @@ export const se_GetSequenceStoreCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetShareCommand
+ */
+export const se_GetShareCommand = async (
+  input: GetShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share/{shareId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "shareId", () => input.shareId!, "{shareId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetVariantImportJobCommand
  */
 export const se_GetVariantImportJobCommand = async (
@@ -1763,6 +2040,49 @@ export const se_ListAnnotationStoresCommand = async (
     take(input, {
       filter: (_) => _json(_),
       ids: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListAnnotationStoreVersionsCommand
+ */
+export const se_ListAnnotationStoreVersionsCommand = async (
+  input: ListAnnotationStoreVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}/versions";
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2376,6 +2696,48 @@ export const se_ListSequenceStoresCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListSharesCommand
+ */
+export const se_ListSharesCommand = async (
+  input: ListSharesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shares";
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      resourceOwner: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -2546,6 +2908,7 @@ export const se_StartAnnotationImportJobCommand = async (
       items: (_) => _json(_),
       roleArn: [],
       runLeftNormalization: [],
+      versionName: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2958,6 +3321,46 @@ export const se_UpdateAnnotationStoreCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAnnotationStoreVersionCommand
+ */
+export const se_UpdateAnnotationStoreVersionCommand = async (
+  input: UpdateAnnotationStoreVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/annotationStore/{name}/version/{versionName}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "versionName", () => input.versionName!, "{versionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateRunGroupCommand
  */
 export const se_UpdateRunGroupCommand = async (
@@ -3166,6 +3569,71 @@ const de_AbortMultipartReadSetUploadCommandError = async (
     case "RequestTimeoutException":
     case "com.amazonaws.omics#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AcceptShareCommand
+ */
+export const de_AcceptShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AcceptShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AcceptShareCommandError
+ */
+const de_AcceptShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.omics#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -3514,6 +3982,7 @@ export const de_CreateAnnotationStoreCommand = async (
     status: __expectString,
     storeFormat: __expectString,
     storeOptions: (_) => _json(__expectUnion(_)),
+    versionName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3526,6 +3995,77 @@ const de_CreateAnnotationStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAnnotationStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateAnnotationStoreVersionCommand
+ */
+export const de_CreateAnnotationStoreVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnnotationStoreVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAnnotationStoreVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    storeId: __expectString,
+    versionName: __expectString,
+    versionOptions: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAnnotationStoreVersionCommandError
+ */
+const de_CreateAnnotationStoreVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnnotationStoreVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3847,6 +4387,73 @@ const de_CreateSequenceStoreCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateShareCommand
+ */
+export const de_CreateShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    shareId: __expectString,
+    shareName: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateShareCommandError
+ */
+const de_CreateShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateVariantStoreCommand
  */
 export const de_CreateVariantStoreCommand = async (
@@ -4014,6 +4621,68 @@ const de_DeleteAnnotationStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAnnotationStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteAnnotationStoreVersionsCommand
+ */
+export const de_DeleteAnnotationStoreVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnnotationStoreVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteAnnotationStoreVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAnnotationStoreVersionsCommandError
+ */
+const de_DeleteAnnotationStoreVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnnotationStoreVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4360,6 +5029,71 @@ const de_DeleteSequenceStoreCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteShareCommand
+ */
+export const de_DeleteShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteShareCommandError
+ */
+const de_DeleteShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteVariantStoreCommand
  */
 export const de_DeleteVariantStoreCommand = async (
@@ -4512,6 +5246,7 @@ export const de_GetAnnotationImportJobCommand = async (
     status: __expectString,
     statusMessage: __expectString,
     updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionName: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4574,6 +5309,7 @@ export const de_GetAnnotationStoreCommand = async (
     description: __expectString,
     id: __expectString,
     name: __expectString,
+    numVersions: __expectInt32,
     reference: (_) => _json(__expectUnion(_)),
     sseConfig: _json,
     status: __expectString,
@@ -4596,6 +5332,77 @@ const de_GetAnnotationStoreCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAnnotationStoreCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetAnnotationStoreVersionCommand
+ */
+export const de_GetAnnotationStoreVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnnotationStoreVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAnnotationStoreVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    storeId: __expectString,
+    tags: _json,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionArn: __expectString,
+    versionName: __expectString,
+    versionOptions: (_) => _json(__expectUnion(_)),
+    versionSizeBytes: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAnnotationStoreVersionCommandError
+ */
+const de_GetAnnotationStoreVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnnotationStoreVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5557,6 +6364,71 @@ const de_GetSequenceStoreCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetShareCommand
+ */
+export const de_GetShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    share: (_) => de_ShareDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetShareCommandError
+ */
+const de_GetShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetVariantImportJobCommand
  */
 export const de_GetVariantImportJobCommand = async (
@@ -5868,6 +6740,66 @@ const de_ListAnnotationStoresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAnnotationStoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAnnotationStoreVersionsCommand
+ */
+export const de_ListAnnotationStoreVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnnotationStoreVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAnnotationStoreVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    annotationStoreVersions: (_) => de_AnnotationStoreVersionItems(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnnotationStoreVersionsCommandError
+ */
+const de_ListAnnotationStoreVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnnotationStoreVersionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6726,6 +7658,72 @@ const de_ListSequenceStoresCommandError = async (
     case "RequestTimeoutException":
     case "com.amazonaws.omics#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListSharesCommand
+ */
+export const de_ListSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSharesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSharesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    shares: (_) => de_ShareDetailsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSharesCommandError
+ */
+const de_ListSharesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.omics#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.omics#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.omics#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -7665,6 +8663,72 @@ const de_UpdateAnnotationStoreCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAnnotationStoreVersionCommand
+ */
+export const de_UpdateAnnotationStoreVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnnotationStoreVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateAnnotationStoreVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    storeId: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAnnotationStoreVersionCommandError
+ */
+const de_UpdateAnnotationStoreVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnnotationStoreVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.omics#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.omics#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.omics#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.omics#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.omics#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateRunGroupCommand
  */
 export const de_UpdateRunGroupCommand = async (
@@ -8134,6 +9198,8 @@ const se_ActivateReadSetFilter = (input: ActivateReadSetFilter, context: __Serde
 
 // se_AnnotationImportItemSources omitted.
 
+// se_ArnList omitted.
+
 // se_CompleteReadSetUploadPartList omitted.
 
 // se_CompleteReadSetUploadPartListItem omitted.
@@ -8152,6 +9218,8 @@ const se_ExportReadSetFilter = (input: ExportReadSetFilter, context: __SerdeCont
 };
 
 // se_ExportReadSetList omitted.
+
+// se_Filter omitted.
 
 // se_FormatOptions omitted.
 
@@ -8184,6 +9252,8 @@ const se_ImportReferenceFilter = (input: ImportReferenceFilter, context: __Serde
 // se_ListAnnotationImportJobsFilter omitted.
 
 // se_ListAnnotationStoresFilter omitted.
+
+// se_ListAnnotationStoreVersionsFilter omitted.
 
 // se_ListVariantImportJobsFilter omitted.
 
@@ -8283,6 +9353,8 @@ const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeCont
 
 // se_StartReferenceImportJobSourceList omitted.
 
+// se_StatusList omitted.
+
 // se_StoreOptions omitted.
 
 // se_TagMap omitted.
@@ -8291,11 +9363,17 @@ const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeCont
 
 // se_TsvStoreOptions omitted.
 
+// se_TsvVersionOptions omitted.
+
 // se_VariantImportItemSource omitted.
 
 // se_VariantImportItemSources omitted.
 
 // se_VcfOptions omitted.
+
+// se_VersionList omitted.
+
+// se_VersionOptions omitted.
 
 // se_WorkflowParameter omitted.
 
@@ -8350,6 +9428,7 @@ const de_AnnotationImportJobItem = (output: any, context: __SerdeContext): Annot
     runLeftNormalization: __expectBoolean,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionName: __expectString,
   }) as any;
 };
 
@@ -8393,6 +9472,37 @@ const de_AnnotationStoreItems = (output: any, context: __SerdeContext): Annotati
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_AnnotationStoreItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AnnotationStoreVersionItem
+ */
+const de_AnnotationStoreVersionItem = (output: any, context: __SerdeContext): AnnotationStoreVersionItem => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    storeId: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    versionArn: __expectString,
+    versionName: __expectString,
+    versionSizeBytes: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AnnotationStoreVersionItems
+ */
+const de_AnnotationStoreVersionItems = (output: any, context: __SerdeContext): AnnotationStoreVersionItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnnotationStoreVersionItem(entry, context);
     });
   return retVal;
 };
@@ -8751,6 +9861,35 @@ const de_SequenceStoreDetailList = (output: any, context: __SerdeContext): Seque
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1ShareDetails
+ */
+const de_ShareDetails = (output: any, context: __SerdeContext): ShareDetails => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ownerId: __expectString,
+    principalSubscriber: __expectString,
+    resourceArn: __expectString,
+    shareId: __expectString,
+    shareName: __expectString,
+    status: __expectString,
+    statusMessage: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ShareDetailsList
+ */
+const de_ShareDetailsList = (output: any, context: __SerdeContext): ShareDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ShareDetails(entry, context);
+    });
+  return retVal;
+};
+
 // de_SourceFiles omitted.
 
 // de_SseConfig omitted.
@@ -8792,6 +9931,8 @@ const de_TaskListItem = (output: any, context: __SerdeContext): TaskListItem => 
 // de_TsvOptions omitted.
 
 // de_TsvStoreOptions omitted.
+
+// de_TsvVersionOptions omitted.
 
 // de_VariantImportItemDetail omitted.
 
@@ -8858,6 +9999,12 @@ const de_VariantStoreItems = (output: any, context: __SerdeContext): VariantStor
 };
 
 // de_VcfOptions omitted.
+
+// de_VersionDeleteError omitted.
+
+// de_VersionDeleteErrorList omitted.
+
+// de_VersionOptions omitted.
 
 /**
  * deserializeAws_restJson1WorkflowList

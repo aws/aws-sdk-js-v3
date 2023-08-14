@@ -13,9 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
+import { CreateAnnotationStoreVersionRequest, CreateAnnotationStoreVersionResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
+import {
+  de_CreateAnnotationStoreVersionCommand,
+  se_CreateAnnotationStoreVersionCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,50 +27,58 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetAnnotationStoreCommand}.
+ * The input for {@link CreateAnnotationStoreVersionCommand}.
  */
-export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreRequest {}
+export interface CreateAnnotationStoreVersionCommandInput extends CreateAnnotationStoreVersionRequest {}
 /**
  * @public
  *
- * The output of {@link GetAnnotationStoreCommand}.
+ * The output of {@link CreateAnnotationStoreVersionCommand}.
  */
-export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
+export interface CreateAnnotationStoreVersionCommandOutput
+  extends CreateAnnotationStoreVersionResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an annotation store.</p>
+ * <p>
+ * Creates a new version of an annotation store.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateAnnotationStoreVersionCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, CreateAnnotationStoreVersionCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetAnnotationStoreRequest
+ * const input = { // CreateAnnotationStoreVersionRequest
  *   name: "STRING_VALUE", // required
+ *   versionName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   versionOptions: { // VersionOptions Union: only one key present
+ *     tsvVersionOptions: { // TsvVersionOptions
+ *       annotationType: "STRING_VALUE",
+ *       formatToHeader: { // FormatToHeader
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       schema: [ // Schema
+ *         { // SchemaItem
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new GetAnnotationStoreCommand(input);
+ * const command = new CreateAnnotationStoreVersionCommand(input);
  * const response = await client.send(command);
- * // { // GetAnnotationStoreResponse
+ * // { // CreateAnnotationStoreVersionResponse
  * //   id: "STRING_VALUE", // required
- * //   reference: { // ReferenceItem Union: only one key present
- * //     referenceArn: "STRING_VALUE",
- * //   },
- * //   status: "STRING_VALUE", // required
- * //   storeArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   sseConfig: { // SseConfig
- * //     type: "STRING_VALUE", // required
- * //     keyArn: "STRING_VALUE",
- * //   },
- * //   creationTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
- * //   tags: { // TagMap // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   storeOptions: { // StoreOptions Union: only one key present
- * //     tsvStoreOptions: { // TsvStoreOptions
+ * //   versionName: "STRING_VALUE", // required
+ * //   storeId: "STRING_VALUE", // required
+ * //   versionOptions: { // VersionOptions Union: only one key present
+ * //     tsvVersionOptions: { // TsvVersionOptions
  * //       annotationType: "STRING_VALUE",
  * //       formatToHeader: { // FormatToHeader
  * //         "<keys>": "STRING_VALUE",
@@ -79,28 +90,33 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * //       ],
  * //     },
  * //   },
- * //   storeFormat: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE", // required
- * //   storeSizeBytes: Number("long"), // required
- * //   numVersions: Number("int"), // required
+ * //   name: "STRING_VALUE", // required
+ * //   status: "STRING_VALUE", // required
+ * //   creationTime: new Date("TIMESTAMP"), // required
  * // };
  *
  * ```
  *
- * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
- * @returns {@link GetAnnotationStoreCommandOutput}
- * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
- * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
+ * @param CreateAnnotationStoreVersionCommandInput - {@link CreateAnnotationStoreVersionCommandInput}
+ * @returns {@link CreateAnnotationStoreVersionCommandOutput}
+ * @see {@link CreateAnnotationStoreVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateAnnotationStoreVersionCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -112,9 +128,9 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
-export class GetAnnotationStoreCommand extends $Command<
-  GetAnnotationStoreCommandInput,
-  GetAnnotationStoreCommandOutput,
+export class CreateAnnotationStoreVersionCommand extends $Command<
+  CreateAnnotationStoreVersionCommandInput,
+  CreateAnnotationStoreVersionCommandOutput,
   OmicsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +148,7 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetAnnotationStoreCommandInput) {
+  constructor(readonly input: CreateAnnotationStoreVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +161,17 @@ export class GetAnnotationStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OmicsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput> {
+  ): Handler<CreateAnnotationStoreVersionCommandInput, CreateAnnotationStoreVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnnotationStoreCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateAnnotationStoreVersionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OmicsClient";
-    const commandName = "GetAnnotationStoreCommand";
+    const commandName = "CreateAnnotationStoreVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,15 +190,18 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnnotationStoreCommand(input, context);
+  private serialize(input: CreateAnnotationStoreVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateAnnotationStoreVersionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationStoreCommandOutput> {
-    return de_GetAnnotationStoreCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<CreateAnnotationStoreVersionCommandOutput> {
+    return de_CreateAnnotationStoreVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

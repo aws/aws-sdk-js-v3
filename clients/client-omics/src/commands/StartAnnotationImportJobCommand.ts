@@ -51,6 +51,7 @@ export interface StartAnnotationImportJobCommandOutput extends StartAnnotationIm
  *       source: "STRING_VALUE", // required
  *     },
  *   ],
+ *   versionName: "STRING_VALUE",
  *   formatOptions: { // FormatOptions Union: only one key present
  *     tsvOptions: { // TsvOptions
  *       readOptions: { // ReadOptions

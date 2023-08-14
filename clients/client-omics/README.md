@@ -214,6 +214,14 @@ AbortMultipartReadSetUpload
 </details>
 <details>
 <summary>
+AcceptShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/acceptsharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/acceptsharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/acceptsharecommandoutput.html)
+
+</details>
+<details>
+<summary>
 BatchDeleteReadSet
 </summary>
 
@@ -262,6 +270,14 @@ CreateAnnotationStore
 </details>
 <details>
 <summary>
+CreateAnnotationStoreVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/createannotationstoreversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createannotationstoreversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createannotationstoreversioncommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateMultipartReadSetUpload
 </summary>
 
@@ -294,6 +310,14 @@ CreateSequenceStore
 </details>
 <details>
 <summary>
+CreateShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/createsharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createsharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/createsharecommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateVariantStore
 </summary>
 
@@ -314,6 +338,14 @@ DeleteAnnotationStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/deleteannotationstorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/deleteannotationstorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/deleteannotationstorecommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeleteAnnotationStoreVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/deleteannotationstoreversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/deleteannotationstoreversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/deleteannotationstoreversionscommandoutput.html)
 
 </details>
 <details>
@@ -358,6 +390,14 @@ DeleteSequenceStore
 </details>
 <details>
 <summary>
+DeleteShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/deletesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/deletesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/deletesharecommandoutput.html)
+
+</details>
+<details>
+<summary>
 DeleteVariantStore
 </summary>
 
@@ -386,6 +426,14 @@ GetAnnotationStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/getannotationstorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/getannotationstorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/getannotationstorecommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetAnnotationStoreVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/getannotationstoreversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/getannotationstoreversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/getannotationstoreversioncommandoutput.html)
 
 </details>
 <details>
@@ -494,6 +542,14 @@ GetSequenceStore
 </details>
 <details>
 <summary>
+GetShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/getsharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/getsharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/getsharecommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetVariantImportJob
 </summary>
 
@@ -530,6 +586,14 @@ ListAnnotationStores
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listannotationstorescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listannotationstorescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listannotationstorescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAnnotationStoreVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listannotationstoreversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listannotationstoreversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listannotationstoreversionscommandoutput.html)
 
 </details>
 <details>
@@ -634,6 +698,14 @@ ListSequenceStores
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listsequencestorescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listsequencestorescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listsequencestorescommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListShares
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/listsharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listsharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/listsharescommandoutput.html)
 
 </details>
 <details>
@@ -746,6 +818,14 @@ UpdateAnnotationStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/updateannotationstorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/updateannotationstorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/updateannotationstorecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateAnnotationStoreVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/classes/updateannotationstoreversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/updateannotationstoreversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-omics/interfaces/updateannotationstoreversioncommandoutput.html)
 
 </details>
 <details>

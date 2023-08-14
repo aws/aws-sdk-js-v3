@@ -13,9 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
+import { DeleteAnnotationStoreVersionsRequest, DeleteAnnotationStoreVersionsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
+import {
+  de_DeleteAnnotationStoreVersionsCommand,
+  se_DeleteAnnotationStoreVersionsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,77 +27,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetAnnotationStoreCommand}.
+ * The input for {@link DeleteAnnotationStoreVersionsCommand}.
  */
-export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreRequest {}
+export interface DeleteAnnotationStoreVersionsCommandInput extends DeleteAnnotationStoreVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link GetAnnotationStoreCommand}.
+ * The output of {@link DeleteAnnotationStoreVersionsCommand}.
  */
-export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
+export interface DeleteAnnotationStoreVersionsCommandOutput
+  extends DeleteAnnotationStoreVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an annotation store.</p>
+ * <p>
+ * Deletes one or multiple versions of an annotation store.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, DeleteAnnotationStoreVersionsCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, DeleteAnnotationStoreVersionsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetAnnotationStoreRequest
+ * const input = { // DeleteAnnotationStoreVersionsRequest
  *   name: "STRING_VALUE", // required
+ *   versions: [ // VersionList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   force: true || false,
  * };
- * const command = new GetAnnotationStoreCommand(input);
+ * const command = new DeleteAnnotationStoreVersionsCommand(input);
  * const response = await client.send(command);
- * // { // GetAnnotationStoreResponse
- * //   id: "STRING_VALUE", // required
- * //   reference: { // ReferenceItem Union: only one key present
- * //     referenceArn: "STRING_VALUE",
- * //   },
- * //   status: "STRING_VALUE", // required
- * //   storeArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   sseConfig: { // SseConfig
- * //     type: "STRING_VALUE", // required
- * //     keyArn: "STRING_VALUE",
- * //   },
- * //   creationTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
- * //   tags: { // TagMap // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   storeOptions: { // StoreOptions Union: only one key present
- * //     tsvStoreOptions: { // TsvStoreOptions
- * //       annotationType: "STRING_VALUE",
- * //       formatToHeader: { // FormatToHeader
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //       schema: [ // Schema
- * //         { // SchemaItem
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       ],
+ * // { // DeleteAnnotationStoreVersionsResponse
+ * //   errors: [ // VersionDeleteErrorList
+ * //     { // VersionDeleteError
+ * //       versionName: "STRING_VALUE", // required
+ * //       message: "STRING_VALUE", // required
  * //     },
- * //   },
- * //   storeFormat: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE", // required
- * //   storeSizeBytes: Number("long"), // required
- * //   numVersions: Number("int"), // required
+ * //   ],
  * // };
  *
  * ```
  *
- * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
- * @returns {@link GetAnnotationStoreCommandOutput}
- * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
- * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
+ * @param DeleteAnnotationStoreVersionsCommandInput - {@link DeleteAnnotationStoreVersionsCommandInput}
+ * @returns {@link DeleteAnnotationStoreVersionsCommandOutput}
+ * @see {@link DeleteAnnotationStoreVersionsCommandInput} for command's `input` shape.
+ * @see {@link DeleteAnnotationStoreVersionsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
@@ -112,9 +98,9 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
-export class GetAnnotationStoreCommand extends $Command<
-  GetAnnotationStoreCommandInput,
-  GetAnnotationStoreCommandOutput,
+export class DeleteAnnotationStoreVersionsCommand extends $Command<
+  DeleteAnnotationStoreVersionsCommandInput,
+  DeleteAnnotationStoreVersionsCommandOutput,
   OmicsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +118,7 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetAnnotationStoreCommandInput) {
+  constructor(readonly input: DeleteAnnotationStoreVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +131,17 @@ export class GetAnnotationStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OmicsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput> {
+  ): Handler<DeleteAnnotationStoreVersionsCommandInput, DeleteAnnotationStoreVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnnotationStoreCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteAnnotationStoreVersionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OmicsClient";
-    const commandName = "GetAnnotationStoreCommand";
+    const commandName = "DeleteAnnotationStoreVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,15 +160,18 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnnotationStoreCommand(input, context);
+  private serialize(input: DeleteAnnotationStoreVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteAnnotationStoreVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationStoreCommandOutput> {
-    return de_GetAnnotationStoreCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteAnnotationStoreVersionsCommandOutput> {
+    return de_DeleteAnnotationStoreVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

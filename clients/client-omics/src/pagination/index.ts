@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAnnotationImportJobsPaginator";
+export * from "./ListAnnotationStoreVersionsPaginator";
 export * from "./ListAnnotationStoresPaginator";
 export * from "./ListMultipartReadSetUploadsPaginator";
 export * from "./ListReadSetActivationJobsPaginator";
@@ -15,6 +16,7 @@ export * from "./ListRunGroupsPaginator";
 export * from "./ListRunTasksPaginator";
 export * from "./ListRunsPaginator";
 export * from "./ListSequenceStoresPaginator";
+export * from "./ListSharesPaginator";
 export * from "./ListVariantImportJobsPaginator";
 export * from "./ListVariantStoresPaginator";
 export * from "./ListWorkflowsPaginator";

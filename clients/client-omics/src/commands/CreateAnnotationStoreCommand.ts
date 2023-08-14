@@ -52,6 +52,7 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   versionName: "STRING_VALUE",
  *   sseConfig: { // SseConfig
  *     type: "STRING_VALUE", // required
  *     keyArn: "STRING_VALUE",
@@ -94,6 +95,7 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * //   },
  * //   status: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
+ * //   versionName: "STRING_VALUE", // required
  * //   creationTime: new Date("TIMESTAMP"), // required
  * // };
  *

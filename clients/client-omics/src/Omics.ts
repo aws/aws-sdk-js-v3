@@ -7,6 +7,7 @@ import {
   AbortMultipartReadSetUploadCommandInput,
   AbortMultipartReadSetUploadCommandOutput,
 } from "./commands/AbortMultipartReadSetUploadCommand";
+import { AcceptShareCommand, AcceptShareCommandInput, AcceptShareCommandOutput } from "./commands/AcceptShareCommand";
 import {
   BatchDeleteReadSetCommand,
   BatchDeleteReadSetCommandInput,
@@ -34,6 +35,11 @@ import {
   CreateAnnotationStoreCommandOutput,
 } from "./commands/CreateAnnotationStoreCommand";
 import {
+  CreateAnnotationStoreVersionCommand,
+  CreateAnnotationStoreVersionCommandInput,
+  CreateAnnotationStoreVersionCommandOutput,
+} from "./commands/CreateAnnotationStoreVersionCommand";
+import {
   CreateMultipartReadSetUploadCommand,
   CreateMultipartReadSetUploadCommandInput,
   CreateMultipartReadSetUploadCommandOutput,
@@ -53,6 +59,7 @@ import {
   CreateSequenceStoreCommandInput,
   CreateSequenceStoreCommandOutput,
 } from "./commands/CreateSequenceStoreCommand";
+import { CreateShareCommand, CreateShareCommandInput, CreateShareCommandOutput } from "./commands/CreateShareCommand";
 import {
   CreateVariantStoreCommand,
   CreateVariantStoreCommandInput,
@@ -68,6 +75,11 @@ import {
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
 } from "./commands/DeleteAnnotationStoreCommand";
+import {
+  DeleteAnnotationStoreVersionsCommand,
+  DeleteAnnotationStoreVersionsCommandInput,
+  DeleteAnnotationStoreVersionsCommandOutput,
+} from "./commands/DeleteAnnotationStoreVersionsCommand";
 import {
   DeleteReferenceCommand,
   DeleteReferenceCommandInput,
@@ -89,6 +101,7 @@ import {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
 } from "./commands/DeleteSequenceStoreCommand";
+import { DeleteShareCommand, DeleteShareCommandInput, DeleteShareCommandOutput } from "./commands/DeleteShareCommand";
 import {
   DeleteVariantStoreCommand,
   DeleteVariantStoreCommandInput,
@@ -109,6 +122,11 @@ import {
   GetAnnotationStoreCommandInput,
   GetAnnotationStoreCommandOutput,
 } from "./commands/GetAnnotationStoreCommand";
+import {
+  GetAnnotationStoreVersionCommand,
+  GetAnnotationStoreVersionCommandInput,
+  GetAnnotationStoreVersionCommandOutput,
+} from "./commands/GetAnnotationStoreVersionCommand";
 import {
   GetReadSetActivationJobCommand,
   GetReadSetActivationJobCommandInput,
@@ -158,6 +176,7 @@ import {
   GetSequenceStoreCommandInput,
   GetSequenceStoreCommandOutput,
 } from "./commands/GetSequenceStoreCommand";
+import { GetShareCommand, GetShareCommandInput, GetShareCommandOutput } from "./commands/GetShareCommand";
 import {
   GetVariantImportJobCommand,
   GetVariantImportJobCommandInput,
@@ -179,6 +198,11 @@ import {
   ListAnnotationStoresCommandInput,
   ListAnnotationStoresCommandOutput,
 } from "./commands/ListAnnotationStoresCommand";
+import {
+  ListAnnotationStoreVersionsCommand,
+  ListAnnotationStoreVersionsCommandInput,
+  ListAnnotationStoreVersionsCommandOutput,
+} from "./commands/ListAnnotationStoreVersionsCommand";
 import {
   ListMultipartReadSetUploadsCommand,
   ListMultipartReadSetUploadsCommandInput,
@@ -240,6 +264,7 @@ import {
   ListSequenceStoresCommandInput,
   ListSequenceStoresCommandOutput,
 } from "./commands/ListSequenceStoresCommand";
+import { ListSharesCommand, ListSharesCommandInput, ListSharesCommandOutput } from "./commands/ListSharesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -303,6 +328,11 @@ import {
   UpdateAnnotationStoreCommandOutput,
 } from "./commands/UpdateAnnotationStoreCommand";
 import {
+  UpdateAnnotationStoreVersionCommand,
+  UpdateAnnotationStoreVersionCommandInput,
+  UpdateAnnotationStoreVersionCommandOutput,
+} from "./commands/UpdateAnnotationStoreVersionCommand";
+import {
   UpdateRunGroupCommand,
   UpdateRunGroupCommandInput,
   UpdateRunGroupCommandOutput,
@@ -326,28 +356,34 @@ import { OmicsClient, OmicsClientConfig } from "./OmicsClient";
 
 const commands = {
   AbortMultipartReadSetUploadCommand,
+  AcceptShareCommand,
   BatchDeleteReadSetCommand,
   CancelAnnotationImportJobCommand,
   CancelRunCommand,
   CancelVariantImportJobCommand,
   CompleteMultipartReadSetUploadCommand,
   CreateAnnotationStoreCommand,
+  CreateAnnotationStoreVersionCommand,
   CreateMultipartReadSetUploadCommand,
   CreateReferenceStoreCommand,
   CreateRunGroupCommand,
   CreateSequenceStoreCommand,
+  CreateShareCommand,
   CreateVariantStoreCommand,
   CreateWorkflowCommand,
   DeleteAnnotationStoreCommand,
+  DeleteAnnotationStoreVersionsCommand,
   DeleteReferenceCommand,
   DeleteReferenceStoreCommand,
   DeleteRunCommand,
   DeleteRunGroupCommand,
   DeleteSequenceStoreCommand,
+  DeleteShareCommand,
   DeleteVariantStoreCommand,
   DeleteWorkflowCommand,
   GetAnnotationImportJobCommand,
   GetAnnotationStoreCommand,
+  GetAnnotationStoreVersionCommand,
   GetReadSetCommand,
   GetReadSetActivationJobCommand,
   GetReadSetExportJobCommand,
@@ -361,11 +397,13 @@ const commands = {
   GetRunGroupCommand,
   GetRunTaskCommand,
   GetSequenceStoreCommand,
+  GetShareCommand,
   GetVariantImportJobCommand,
   GetVariantStoreCommand,
   GetWorkflowCommand,
   ListAnnotationImportJobsCommand,
   ListAnnotationStoresCommand,
+  ListAnnotationStoreVersionsCommand,
   ListMultipartReadSetUploadsCommand,
   ListReadSetActivationJobsCommand,
   ListReadSetExportJobsCommand,
@@ -379,6 +417,7 @@ const commands = {
   ListRunsCommand,
   ListRunTasksCommand,
   ListSequenceStoresCommand,
+  ListSharesCommand,
   ListTagsForResourceCommand,
   ListVariantImportJobsCommand,
   ListVariantStoresCommand,
@@ -393,6 +432,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAnnotationStoreCommand,
+  UpdateAnnotationStoreVersionCommand,
   UpdateRunGroupCommand,
   UpdateVariantStoreCommand,
   UpdateWorkflowCommand,
@@ -415,6 +455,17 @@ export interface Omics {
     args: AbortMultipartReadSetUploadCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AbortMultipartReadSetUploadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcceptShareCommand}
+   */
+  acceptShare(args: AcceptShareCommandInput, options?: __HttpHandlerOptions): Promise<AcceptShareCommandOutput>;
+  acceptShare(args: AcceptShareCommandInput, cb: (err: any, data?: AcceptShareCommandOutput) => void): void;
+  acceptShare(
+    args: AcceptShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptShareCommandOutput) => void
   ): void;
 
   /**
@@ -514,6 +565,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CreateAnnotationStoreVersionCommand}
+   */
+  createAnnotationStoreVersion(
+    args: CreateAnnotationStoreVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnnotationStoreVersionCommandOutput>;
+  createAnnotationStoreVersion(
+    args: CreateAnnotationStoreVersionCommandInput,
+    cb: (err: any, data?: CreateAnnotationStoreVersionCommandOutput) => void
+  ): void;
+  createAnnotationStoreVersion(
+    args: CreateAnnotationStoreVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnnotationStoreVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateMultipartReadSetUploadCommand}
    */
   createMultipartReadSetUpload(
@@ -579,6 +647,17 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CreateShareCommand}
+   */
+  createShare(args: CreateShareCommandInput, options?: __HttpHandlerOptions): Promise<CreateShareCommandOutput>;
+  createShare(args: CreateShareCommandInput, cb: (err: any, data?: CreateShareCommandOutput) => void): void;
+  createShare(
+    args: CreateShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVariantStoreCommand}
    */
   createVariantStore(
@@ -624,6 +703,23 @@ export interface Omics {
     args: DeleteAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAnnotationStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnnotationStoreVersionsCommand}
+   */
+  deleteAnnotationStoreVersions(
+    args: DeleteAnnotationStoreVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnnotationStoreVersionsCommandOutput>;
+  deleteAnnotationStoreVersions(
+    args: DeleteAnnotationStoreVersionsCommandInput,
+    cb: (err: any, data?: DeleteAnnotationStoreVersionsCommandOutput) => void
+  ): void;
+  deleteAnnotationStoreVersions(
+    args: DeleteAnnotationStoreVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnnotationStoreVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -700,6 +796,17 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link DeleteShareCommand}
+   */
+  deleteShare(args: DeleteShareCommandInput, options?: __HttpHandlerOptions): Promise<DeleteShareCommandOutput>;
+  deleteShare(args: DeleteShareCommandInput, cb: (err: any, data?: DeleteShareCommandOutput) => void): void;
+  deleteShare(
+    args: DeleteShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteVariantStoreCommand}
    */
   deleteVariantStore(
@@ -762,6 +869,23 @@ export interface Omics {
     args: GetAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAnnotationStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnnotationStoreVersionCommand}
+   */
+  getAnnotationStoreVersion(
+    args: GetAnnotationStoreVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnnotationStoreVersionCommandOutput>;
+  getAnnotationStoreVersion(
+    args: GetAnnotationStoreVersionCommandInput,
+    cb: (err: any, data?: GetAnnotationStoreVersionCommandOutput) => void
+  ): void;
+  getAnnotationStoreVersion(
+    args: GetAnnotationStoreVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnnotationStoreVersionCommandOutput) => void
   ): void;
 
   /**
@@ -956,6 +1080,17 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link GetShareCommand}
+   */
+  getShare(args: GetShareCommandInput, options?: __HttpHandlerOptions): Promise<GetShareCommandOutput>;
+  getShare(args: GetShareCommandInput, cb: (err: any, data?: GetShareCommandOutput) => void): void;
+  getShare(
+    args: GetShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetVariantImportJobCommand}
    */
   getVariantImportJob(
@@ -1029,6 +1164,23 @@ export interface Omics {
     args: ListAnnotationStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAnnotationStoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnnotationStoreVersionsCommand}
+   */
+  listAnnotationStoreVersions(
+    args: ListAnnotationStoreVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnnotationStoreVersionsCommandOutput>;
+  listAnnotationStoreVersions(
+    args: ListAnnotationStoreVersionsCommandInput,
+    cb: (err: any, data?: ListAnnotationStoreVersionsCommandOutput) => void
+  ): void;
+  listAnnotationStoreVersions(
+    args: ListAnnotationStoreVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnnotationStoreVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -1223,6 +1375,17 @@ export interface Omics {
     args: ListSequenceStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSequenceStoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSharesCommand}
+   */
+  listShares(args: ListSharesCommandInput, options?: __HttpHandlerOptions): Promise<ListSharesCommandOutput>;
+  listShares(args: ListSharesCommandInput, cb: (err: any, data?: ListSharesCommandOutput) => void): void;
+  listShares(
+    args: ListSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSharesCommandOutput) => void
   ): void;
 
   /**
@@ -1437,6 +1600,23 @@ export interface Omics {
     args: UpdateAnnotationStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAnnotationStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnnotationStoreVersionCommand}
+   */
+  updateAnnotationStoreVersion(
+    args: UpdateAnnotationStoreVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnnotationStoreVersionCommandOutput>;
+  updateAnnotationStoreVersion(
+    args: UpdateAnnotationStoreVersionCommandInput,
+    cb: (err: any, data?: UpdateAnnotationStoreVersionCommandOutput) => void
+  ): void;
+  updateAnnotationStoreVersion(
+    args: UpdateAnnotationStoreVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnnotationStoreVersionCommandOutput) => void
   ): void;
 
   /**

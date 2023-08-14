@@ -55,6 +55,7 @@ import {
   AbortMultipartReadSetUploadCommandInput,
   AbortMultipartReadSetUploadCommandOutput,
 } from "./commands/AbortMultipartReadSetUploadCommand";
+import { AcceptShareCommandInput, AcceptShareCommandOutput } from "./commands/AcceptShareCommand";
 import { BatchDeleteReadSetCommandInput, BatchDeleteReadSetCommandOutput } from "./commands/BatchDeleteReadSetCommand";
 import {
   CancelAnnotationImportJobCommandInput,
@@ -74,6 +75,10 @@ import {
   CreateAnnotationStoreCommandOutput,
 } from "./commands/CreateAnnotationStoreCommand";
 import {
+  CreateAnnotationStoreVersionCommandInput,
+  CreateAnnotationStoreVersionCommandOutput,
+} from "./commands/CreateAnnotationStoreVersionCommand";
+import {
   CreateMultipartReadSetUploadCommandInput,
   CreateMultipartReadSetUploadCommandOutput,
 } from "./commands/CreateMultipartReadSetUploadCommand";
@@ -86,12 +91,17 @@ import {
   CreateSequenceStoreCommandInput,
   CreateSequenceStoreCommandOutput,
 } from "./commands/CreateSequenceStoreCommand";
+import { CreateShareCommandInput, CreateShareCommandOutput } from "./commands/CreateShareCommand";
 import { CreateVariantStoreCommandInput, CreateVariantStoreCommandOutput } from "./commands/CreateVariantStoreCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import {
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
 } from "./commands/DeleteAnnotationStoreCommand";
+import {
+  DeleteAnnotationStoreVersionsCommandInput,
+  DeleteAnnotationStoreVersionsCommandOutput,
+} from "./commands/DeleteAnnotationStoreVersionsCommand";
 import { DeleteReferenceCommandInput, DeleteReferenceCommandOutput } from "./commands/DeleteReferenceCommand";
 import {
   DeleteReferenceStoreCommandInput,
@@ -103,6 +113,7 @@ import {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
 } from "./commands/DeleteSequenceStoreCommand";
+import { DeleteShareCommandInput, DeleteShareCommandOutput } from "./commands/DeleteShareCommand";
 import { DeleteVariantStoreCommandInput, DeleteVariantStoreCommandOutput } from "./commands/DeleteVariantStoreCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import {
@@ -110,6 +121,10 @@ import {
   GetAnnotationImportJobCommandOutput,
 } from "./commands/GetAnnotationImportJobCommand";
 import { GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput } from "./commands/GetAnnotationStoreCommand";
+import {
+  GetAnnotationStoreVersionCommandInput,
+  GetAnnotationStoreVersionCommandOutput,
+} from "./commands/GetAnnotationStoreVersionCommand";
 import {
   GetReadSetActivationJobCommandInput,
   GetReadSetActivationJobCommandOutput,
@@ -138,6 +153,7 @@ import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunComman
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
 import { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "./commands/GetSequenceStoreCommand";
+import { GetShareCommandInput, GetShareCommandOutput } from "./commands/GetShareCommand";
 import {
   GetVariantImportJobCommandInput,
   GetVariantImportJobCommandOutput,
@@ -152,6 +168,10 @@ import {
   ListAnnotationStoresCommandInput,
   ListAnnotationStoresCommandOutput,
 } from "./commands/ListAnnotationStoresCommand";
+import {
+  ListAnnotationStoreVersionsCommandInput,
+  ListAnnotationStoreVersionsCommandOutput,
+} from "./commands/ListAnnotationStoreVersionsCommand";
 import {
   ListMultipartReadSetUploadsCommandInput,
   ListMultipartReadSetUploadsCommandOutput,
@@ -186,6 +206,7 @@ import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "./command
 import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "./commands/ListRunTasksCommand";
 import { ListSequenceStoresCommandInput, ListSequenceStoresCommandOutput } from "./commands/ListSequenceStoresCommand";
+import { ListSharesCommandInput, ListSharesCommandOutput } from "./commands/ListSharesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -227,6 +248,10 @@ import {
   UpdateAnnotationStoreCommandInput,
   UpdateAnnotationStoreCommandOutput,
 } from "./commands/UpdateAnnotationStoreCommand";
+import {
+  UpdateAnnotationStoreVersionCommandInput,
+  UpdateAnnotationStoreVersionCommandOutput,
+} from "./commands/UpdateAnnotationStoreVersionCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
@@ -246,28 +271,34 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AbortMultipartReadSetUploadCommandInput
+  | AcceptShareCommandInput
   | BatchDeleteReadSetCommandInput
   | CancelAnnotationImportJobCommandInput
   | CancelRunCommandInput
   | CancelVariantImportJobCommandInput
   | CompleteMultipartReadSetUploadCommandInput
   | CreateAnnotationStoreCommandInput
+  | CreateAnnotationStoreVersionCommandInput
   | CreateMultipartReadSetUploadCommandInput
   | CreateReferenceStoreCommandInput
   | CreateRunGroupCommandInput
   | CreateSequenceStoreCommandInput
+  | CreateShareCommandInput
   | CreateVariantStoreCommandInput
   | CreateWorkflowCommandInput
   | DeleteAnnotationStoreCommandInput
+  | DeleteAnnotationStoreVersionsCommandInput
   | DeleteReferenceCommandInput
   | DeleteReferenceStoreCommandInput
   | DeleteRunCommandInput
   | DeleteRunGroupCommandInput
   | DeleteSequenceStoreCommandInput
+  | DeleteShareCommandInput
   | DeleteVariantStoreCommandInput
   | DeleteWorkflowCommandInput
   | GetAnnotationImportJobCommandInput
   | GetAnnotationStoreCommandInput
+  | GetAnnotationStoreVersionCommandInput
   | GetReadSetActivationJobCommandInput
   | GetReadSetCommandInput
   | GetReadSetExportJobCommandInput
@@ -281,10 +312,12 @@ export type ServiceInputTypes =
   | GetRunGroupCommandInput
   | GetRunTaskCommandInput
   | GetSequenceStoreCommandInput
+  | GetShareCommandInput
   | GetVariantImportJobCommandInput
   | GetVariantStoreCommandInput
   | GetWorkflowCommandInput
   | ListAnnotationImportJobsCommandInput
+  | ListAnnotationStoreVersionsCommandInput
   | ListAnnotationStoresCommandInput
   | ListMultipartReadSetUploadsCommandInput
   | ListReadSetActivationJobsCommandInput
@@ -299,6 +332,7 @@ export type ServiceInputTypes =
   | ListRunTasksCommandInput
   | ListRunsCommandInput
   | ListSequenceStoresCommandInput
+  | ListSharesCommandInput
   | ListTagsForResourceCommandInput
   | ListVariantImportJobsCommandInput
   | ListVariantStoresCommandInput
@@ -313,6 +347,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAnnotationStoreCommandInput
+  | UpdateAnnotationStoreVersionCommandInput
   | UpdateRunGroupCommandInput
   | UpdateVariantStoreCommandInput
   | UpdateWorkflowCommandInput
@@ -323,28 +358,34 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AbortMultipartReadSetUploadCommandOutput
+  | AcceptShareCommandOutput
   | BatchDeleteReadSetCommandOutput
   | CancelAnnotationImportJobCommandOutput
   | CancelRunCommandOutput
   | CancelVariantImportJobCommandOutput
   | CompleteMultipartReadSetUploadCommandOutput
   | CreateAnnotationStoreCommandOutput
+  | CreateAnnotationStoreVersionCommandOutput
   | CreateMultipartReadSetUploadCommandOutput
   | CreateReferenceStoreCommandOutput
   | CreateRunGroupCommandOutput
   | CreateSequenceStoreCommandOutput
+  | CreateShareCommandOutput
   | CreateVariantStoreCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteAnnotationStoreCommandOutput
+  | DeleteAnnotationStoreVersionsCommandOutput
   | DeleteReferenceCommandOutput
   | DeleteReferenceStoreCommandOutput
   | DeleteRunCommandOutput
   | DeleteRunGroupCommandOutput
   | DeleteSequenceStoreCommandOutput
+  | DeleteShareCommandOutput
   | DeleteVariantStoreCommandOutput
   | DeleteWorkflowCommandOutput
   | GetAnnotationImportJobCommandOutput
   | GetAnnotationStoreCommandOutput
+  | GetAnnotationStoreVersionCommandOutput
   | GetReadSetActivationJobCommandOutput
   | GetReadSetCommandOutput
   | GetReadSetExportJobCommandOutput
@@ -358,10 +399,12 @@ export type ServiceOutputTypes =
   | GetRunGroupCommandOutput
   | GetRunTaskCommandOutput
   | GetSequenceStoreCommandOutput
+  | GetShareCommandOutput
   | GetVariantImportJobCommandOutput
   | GetVariantStoreCommandOutput
   | GetWorkflowCommandOutput
   | ListAnnotationImportJobsCommandOutput
+  | ListAnnotationStoreVersionsCommandOutput
   | ListAnnotationStoresCommandOutput
   | ListMultipartReadSetUploadsCommandOutput
   | ListReadSetActivationJobsCommandOutput
@@ -376,6 +419,7 @@ export type ServiceOutputTypes =
   | ListRunTasksCommandOutput
   | ListRunsCommandOutput
   | ListSequenceStoresCommandOutput
+  | ListSharesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVariantImportJobsCommandOutput
   | ListVariantStoresCommandOutput
@@ -390,6 +434,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnnotationStoreCommandOutput
+  | UpdateAnnotationStoreVersionCommandOutput
   | UpdateRunGroupCommandOutput
   | UpdateVariantStoreCommandOutput
   | UpdateWorkflowCommandOutput

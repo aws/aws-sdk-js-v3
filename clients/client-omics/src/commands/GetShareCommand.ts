@@ -13,9 +13,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
+import { GetShareRequest, GetShareResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
+import { de_GetShareCommand, se_GetShareCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,83 +24,68 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetAnnotationStoreCommand}.
+ * The input for {@link GetShareCommand}.
  */
-export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreRequest {}
+export interface GetShareCommandInput extends GetShareRequest {}
 /**
  * @public
  *
- * The output of {@link GetAnnotationStoreCommand}.
+ * The output of {@link GetShareCommand}.
  */
-export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
+export interface GetShareCommandOutput extends GetShareResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an annotation store.</p>
+ * <p>
+ *       Retrieves the metadata for a share.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, GetShareCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, GetShareCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetAnnotationStoreRequest
- *   name: "STRING_VALUE", // required
+ * const input = { // GetShareRequest
+ *   shareId: "STRING_VALUE", // required
  * };
- * const command = new GetAnnotationStoreCommand(input);
+ * const command = new GetShareCommand(input);
  * const response = await client.send(command);
- * // { // GetAnnotationStoreResponse
- * //   id: "STRING_VALUE", // required
- * //   reference: { // ReferenceItem Union: only one key present
- * //     referenceArn: "STRING_VALUE",
+ * // { // GetShareResponse
+ * //   share: { // ShareDetails
+ * //     shareId: "STRING_VALUE",
+ * //     resourceArn: "STRING_VALUE",
+ * //     principalSubscriber: "STRING_VALUE",
+ * //     ownerId: "STRING_VALUE",
+ * //     status: "STRING_VALUE",
+ * //     statusMessage: "STRING_VALUE",
+ * //     shareName: "STRING_VALUE",
+ * //     creationTime: new Date("TIMESTAMP"),
+ * //     updateTime: new Date("TIMESTAMP"),
  * //   },
- * //   status: "STRING_VALUE", // required
- * //   storeArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   sseConfig: { // SseConfig
- * //     type: "STRING_VALUE", // required
- * //     keyArn: "STRING_VALUE",
- * //   },
- * //   creationTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
- * //   tags: { // TagMap // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   storeOptions: { // StoreOptions Union: only one key present
- * //     tsvStoreOptions: { // TsvStoreOptions
- * //       annotationType: "STRING_VALUE",
- * //       formatToHeader: { // FormatToHeader
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //       schema: [ // Schema
- * //         { // SchemaItem
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       ],
- * //     },
- * //   },
- * //   storeFormat: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE", // required
- * //   storeSizeBytes: Number("long"), // required
- * //   numVersions: Number("int"), // required
  * // };
  *
  * ```
  *
- * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
- * @returns {@link GetAnnotationStoreCommandOutput}
- * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
- * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
+ * @param GetShareCommandInput - {@link GetShareCommandInput}
+ * @returns {@link GetShareCommandOutput}
+ * @see {@link GetShareCommandInput} for command's `input` shape.
+ * @see {@link GetShareCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -112,11 +97,7 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
-export class GetAnnotationStoreCommand extends $Command<
-  GetAnnotationStoreCommandInput,
-  GetAnnotationStoreCommandOutput,
-  OmicsClientResolvedConfig
-> {
+export class GetShareCommand extends $Command<GetShareCommandInput, GetShareCommandOutput, OmicsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -132,7 +113,7 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetAnnotationStoreCommandInput) {
+  constructor(readonly input: GetShareCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +126,15 @@ export class GetAnnotationStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OmicsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput> {
+  ): Handler<GetShareCommandInput, GetShareCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnnotationStoreCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetShareCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OmicsClient";
-    const commandName = "GetAnnotationStoreCommand";
+    const commandName = "GetShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,15 +153,15 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnnotationStoreCommand(input, context);
+  private serialize(input: GetShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetShareCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationStoreCommandOutput> {
-    return de_GetAnnotationStoreCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetShareCommandOutput> {
+    return de_GetShareCommand(output, context);
   }
 
   // Start section: command_body_extra

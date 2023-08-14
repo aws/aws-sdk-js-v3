@@ -13,9 +13,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
+import { ListSharesRequest, ListSharesResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
+import { de_ListSharesCommand, se_ListSharesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,83 +24,81 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetAnnotationStoreCommand}.
+ * The input for {@link ListSharesCommand}.
  */
-export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreRequest {}
+export interface ListSharesCommandInput extends ListSharesRequest {}
 /**
  * @public
  *
- * The output of {@link GetAnnotationStoreCommand}.
+ * The output of {@link ListSharesCommand}.
  */
-export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
+export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an annotation store.</p>
+ * <p>
+ *       Lists all shares associated with an account.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListSharesCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, ListSharesCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetAnnotationStoreRequest
- *   name: "STRING_VALUE", // required
+ * const input = { // ListSharesRequest
+ *   resourceOwner: "STRING_VALUE", // required
+ *   filter: { // Filter
+ *     resourceArns: [ // ArnList
+ *       "STRING_VALUE",
+ *     ],
+ *     status: [ // StatusList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new GetAnnotationStoreCommand(input);
+ * const command = new ListSharesCommand(input);
  * const response = await client.send(command);
- * // { // GetAnnotationStoreResponse
- * //   id: "STRING_VALUE", // required
- * //   reference: { // ReferenceItem Union: only one key present
- * //     referenceArn: "STRING_VALUE",
- * //   },
- * //   status: "STRING_VALUE", // required
- * //   storeArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   sseConfig: { // SseConfig
- * //     type: "STRING_VALUE", // required
- * //     keyArn: "STRING_VALUE",
- * //   },
- * //   creationTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
- * //   tags: { // TagMap // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   storeOptions: { // StoreOptions Union: only one key present
- * //     tsvStoreOptions: { // TsvStoreOptions
- * //       annotationType: "STRING_VALUE",
- * //       formatToHeader: { // FormatToHeader
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //       schema: [ // Schema
- * //         { // SchemaItem
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       ],
+ * // { // ListSharesResponse
+ * //   shares: [ // ShareDetailsList // required
+ * //     { // ShareDetails
+ * //       shareId: "STRING_VALUE",
+ * //       resourceArn: "STRING_VALUE",
+ * //       principalSubscriber: "STRING_VALUE",
+ * //       ownerId: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       statusMessage: "STRING_VALUE",
+ * //       shareName: "STRING_VALUE",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       updateTime: new Date("TIMESTAMP"),
  * //     },
- * //   },
- * //   storeFormat: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE", // required
- * //   storeSizeBytes: Number("long"), // required
- * //   numVersions: Number("int"), // required
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
- * @returns {@link GetAnnotationStoreCommandOutput}
- * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
- * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
+ * @param ListSharesCommandInput - {@link ListSharesCommandInput}
+ * @returns {@link ListSharesCommandOutput}
+ * @see {@link ListSharesCommandInput} for command's `input` shape.
+ * @see {@link ListSharesCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The target resource was not found in the current Region.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request exceeds a service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -112,9 +110,9 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
-export class GetAnnotationStoreCommand extends $Command<
-  GetAnnotationStoreCommandInput,
-  GetAnnotationStoreCommandOutput,
+export class ListSharesCommand extends $Command<
+  ListSharesCommandInput,
+  ListSharesCommandOutput,
   OmicsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +130,7 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetAnnotationStoreCommandInput) {
+  constructor(readonly input: ListSharesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +143,15 @@ export class GetAnnotationStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OmicsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput> {
+  ): Handler<ListSharesCommandInput, ListSharesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnnotationStoreCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListSharesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OmicsClient";
-    const commandName = "GetAnnotationStoreCommand";
+    const commandName = "ListSharesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,15 +170,15 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnnotationStoreCommand(input, context);
+  private serialize(input: ListSharesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListSharesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationStoreCommandOutput> {
-    return de_GetAnnotationStoreCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSharesCommandOutput> {
+    return de_ListSharesCommand(output, context);
   }
 
   // Start section: command_body_extra

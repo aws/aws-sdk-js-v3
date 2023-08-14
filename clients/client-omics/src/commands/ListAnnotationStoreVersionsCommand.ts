@@ -13,9 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { GetAnnotationStoreRequest, GetAnnotationStoreResponse } from "../models/models_0";
+import { ListAnnotationStoreVersionsRequest, ListAnnotationStoreVersionsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetAnnotationStoreCommand, se_GetAnnotationStoreCommand } from "../protocols/Aws_restJson1";
+import {
+  de_ListAnnotationStoreVersionsCommand,
+  se_ListAnnotationStoreVersionsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -24,73 +27,64 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetAnnotationStoreCommand}.
+ * The input for {@link ListAnnotationStoreVersionsCommand}.
  */
-export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreRequest {}
+export interface ListAnnotationStoreVersionsCommandInput extends ListAnnotationStoreVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link GetAnnotationStoreCommand}.
+ * The output of {@link ListAnnotationStoreVersionsCommand}.
  */
-export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
+export interface ListAnnotationStoreVersionsCommandOutput
+  extends ListAnnotationStoreVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Gets information about an annotation store.</p>
+ * <p>
+ * Lists the versions of an annotation store.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, ListAnnotationStoreVersionsCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, ListAnnotationStoreVersionsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetAnnotationStoreRequest
+ * const input = { // ListAnnotationStoreVersionsRequest
  *   name: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: { // ListAnnotationStoreVersionsFilter
+ *     status: "STRING_VALUE",
+ *   },
  * };
- * const command = new GetAnnotationStoreCommand(input);
+ * const command = new ListAnnotationStoreVersionsCommand(input);
  * const response = await client.send(command);
- * // { // GetAnnotationStoreResponse
- * //   id: "STRING_VALUE", // required
- * //   reference: { // ReferenceItem Union: only one key present
- * //     referenceArn: "STRING_VALUE",
- * //   },
- * //   status: "STRING_VALUE", // required
- * //   storeArn: "STRING_VALUE", // required
- * //   name: "STRING_VALUE", // required
- * //   description: "STRING_VALUE", // required
- * //   sseConfig: { // SseConfig
- * //     type: "STRING_VALUE", // required
- * //     keyArn: "STRING_VALUE",
- * //   },
- * //   creationTime: new Date("TIMESTAMP"), // required
- * //   updateTime: new Date("TIMESTAMP"), // required
- * //   tags: { // TagMap // required
- * //     "<keys>": "STRING_VALUE",
- * //   },
- * //   storeOptions: { // StoreOptions Union: only one key present
- * //     tsvStoreOptions: { // TsvStoreOptions
- * //       annotationType: "STRING_VALUE",
- * //       formatToHeader: { // FormatToHeader
- * //         "<keys>": "STRING_VALUE",
- * //       },
- * //       schema: [ // Schema
- * //         { // SchemaItem
- * //           "<keys>": "STRING_VALUE",
- * //         },
- * //       ],
+ * // { // ListAnnotationStoreVersionsResponse
+ * //   annotationStoreVersions: [ // AnnotationStoreVersionItems
+ * //     { // AnnotationStoreVersionItem
+ * //       storeId: "STRING_VALUE", // required
+ * //       id: "STRING_VALUE", // required
+ * //       status: "STRING_VALUE", // required
+ * //       versionArn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       versionName: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
+ * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       statusMessage: "STRING_VALUE", // required
+ * //       versionSizeBytes: Number("long"), // required
  * //     },
- * //   },
- * //   storeFormat: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE", // required
- * //   storeSizeBytes: Number("long"), // required
- * //   numVersions: Number("int"), // required
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetAnnotationStoreCommandInput - {@link GetAnnotationStoreCommandInput}
- * @returns {@link GetAnnotationStoreCommandOutput}
- * @see {@link GetAnnotationStoreCommandInput} for command's `input` shape.
- * @see {@link GetAnnotationStoreCommandOutput} for command's `response` shape.
+ * @param ListAnnotationStoreVersionsCommandInput - {@link ListAnnotationStoreVersionsCommandInput}
+ * @returns {@link ListAnnotationStoreVersionsCommandOutput}
+ * @see {@link ListAnnotationStoreVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListAnnotationStoreVersionsCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -112,9 +106,9 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
  */
-export class GetAnnotationStoreCommand extends $Command<
-  GetAnnotationStoreCommandInput,
-  GetAnnotationStoreCommandOutput,
+export class ListAnnotationStoreVersionsCommand extends $Command<
+  ListAnnotationStoreVersionsCommandInput,
+  ListAnnotationStoreVersionsCommandOutput,
   OmicsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -132,7 +126,7 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetAnnotationStoreCommandInput) {
+  constructor(readonly input: ListAnnotationStoreVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -145,17 +139,17 @@ export class GetAnnotationStoreCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OmicsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAnnotationStoreCommandInput, GetAnnotationStoreCommandOutput> {
+  ): Handler<ListAnnotationStoreVersionsCommandInput, ListAnnotationStoreVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnnotationStoreCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAnnotationStoreVersionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OmicsClient";
-    const commandName = "GetAnnotationStoreCommand";
+    const commandName = "ListAnnotationStoreVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -174,15 +168,18 @@ export class GetAnnotationStoreCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetAnnotationStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnnotationStoreCommand(input, context);
+  private serialize(input: ListAnnotationStoreVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAnnotationStoreVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnnotationStoreCommandOutput> {
-    return de_GetAnnotationStoreCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListAnnotationStoreVersionsCommandOutput> {
+    return de_ListAnnotationStoreVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

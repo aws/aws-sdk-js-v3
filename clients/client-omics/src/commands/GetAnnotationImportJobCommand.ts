@@ -51,6 +51,7 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  * // { // GetAnnotationImportResponse
  * //   id: "STRING_VALUE", // required
  * //   destinationName: "STRING_VALUE", // required
+ * //   versionName: "STRING_VALUE", // required
  * //   roleArn: "STRING_VALUE", // required
  * //   status: "STRING_VALUE", // required
  * //   statusMessage: "STRING_VALUE", // required

@@ -61,6 +61,7 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * //     { // AnnotationImportJobItem
  * //       id: "STRING_VALUE", // required
  * //       destinationName: "STRING_VALUE", // required
+ * //       versionName: "STRING_VALUE", // required
  * //       roleArn: "STRING_VALUE", // required
  * //       status: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
