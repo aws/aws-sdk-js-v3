@@ -906,7 +906,7 @@ export class ThrottlingException extends __BaseException {
 export interface SftpConnectorConfig {
   /**
    * @public
-   * <p>The identifiers for the secrets (in Amazon Web Services Secrets Manager) that contain the SFTP user's private keys or passwords.</p>
+   * <p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.</p>
    */
   UserSecretId?: string;
 
@@ -5396,7 +5396,7 @@ export interface StartFileTransferRequest {
 
   /**
    * @public
-   * <p>One or more source paths for the Transfer Family server. Each string represents a source
+   * <p>One or more source paths for the Amazon S3 storage. Each string represents a source
    *       file path for one outbound file transfer. For example,
    *           <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i>
@@ -5404,7 +5404,7 @@ export interface StartFileTransferRequest {
    *          <note>
    *             <p>Replace <code>
    *                   <i>DOC-EXAMPLE-BUCKET</i>
-   *                </code>with one of your actual buckets.</p>
+   *                </code> with one of your actual buckets.</p>
    *          </note>
    */
   SendFilePaths?: string[];
