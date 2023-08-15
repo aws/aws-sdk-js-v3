@@ -1579,24 +1579,17 @@ export interface CreateSubnetCidrReservationRequest {
 
   /**
    * @public
-   * <p>The type of reservation.</p>
-   *          <p>The following are valid values:</p>
+   * <p>The type of reservation. The reservation type determines how the reserved IP addresses are
+   *             assigned to resources.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>prefix</code>: The Amazon EC2
-   *                     Prefix
-   *                     Delegation feature assigns the IP addresses to network interfaces that are
-   *                     associated with an instance. For information about Prefix
-   *                     Delegation,
-   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix Delegation
-   *                         for Amazon EC2 network interfaces</a> in the
-   *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                   <code>prefix</code> - Amazon Web Services assigns the reserved IP addresses to
+   *                     network interfaces.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>explicit</code>: You manually assign the IP addresses to resources that
-   *                     reside in your subnet. </p>
+   *                   <code>explicit</code> - You assign the reserved IP addresses to network interfaces.</p>
    *             </li>
    *          </ul>
    */
@@ -1604,9 +1597,7 @@ export interface CreateSubnetCidrReservationRequest {
 
   /**
    * @public
-   * <p>The
-   *             description
-   *             to assign to the subnet CIDR reservation.</p>
+   * <p>The description to assign to the subnet CIDR reservation.</p>
    */
   Description?: string;
 
@@ -1662,10 +1653,7 @@ export interface SubnetCidrReservation {
 
   /**
    * @public
-   * <p>The
-   *             description
-   *             assigned to the subnet CIDR
-   *             reservation.</p>
+   * <p>The description assigned to the subnet CIDR reservation.</p>
    */
   Description?: string;
 
@@ -2082,6 +2070,7 @@ export interface CreateTrafficMirrorSessionRequest {
    *          set this value to 100, then the first 100 bytes that meet the filter criteria are copied to
    *          the target.</p>
    *          <p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p>
+   *          <p>For sessions with Network Load Balancer (NLB) Traffic Mirror targets the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
    */
   PacketLength?: number;
 
@@ -8027,7 +8016,8 @@ export interface DeleteLaunchTemplateVersionsRequest {
 
   /**
    * @public
-   * <p>The version numbers of one or more launch template versions to delete.</p>
+   * <p>The version numbers of one or more launch template versions to delete. You can specify
+   *             up to 200 launch template version numbers.</p>
    */
   Versions: string[] | undefined;
 }

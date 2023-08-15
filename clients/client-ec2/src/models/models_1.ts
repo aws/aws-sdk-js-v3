@@ -3773,9 +3773,7 @@ export interface CreateFlowLogsRequest {
    *             field. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log
    *                 records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit Gateway Flow Log
    *                     records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
-   *          <p>Specify the fields using the <code>$\{field-id\}</code> format, separated by spaces. For
-   *             the CLI, surround this parameter value with single quotes on Linux or
-   *             double quotes on Windows.</p>
+   *          <p>Specify the fields using the <code>$\{field-id\}</code> format, separated by spaces.</p>
    */
   LogFormat?: string;
 

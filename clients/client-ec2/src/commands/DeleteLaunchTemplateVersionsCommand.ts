@@ -38,10 +38,15 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
 
 /**
  * @public
- * <p>Deletes one or more versions of a launch template. You cannot delete the default
- *             version of a launch template; you must first assign a different version as the default.
- *             If the default version is the only version for the launch template, you must delete the
- *             entire launch template using <a>DeleteLaunchTemplate</a>.</p>
+ * <p>Deletes one or more versions of a launch template.</p>
+ *          <p>You can't delete the default version of a launch template; you must first assign a
+ *             different version as the default. If the default version is the only version for the
+ *             launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p>
+ *          <p>You can delete up to 200 launch template versions in a single request. To delete more
+ *             than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which
+ *             deletes the launch template and all of its versions.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version">Delete a launch template version</a> in the <i>EC2 User
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
