@@ -117,6 +117,9 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  *       ],
  *       DataInputConfig: "STRING_VALUE",
  *       SupportedEndpointType: "RealTime" || "Serverless",
+ *       SupportedResponseMIMETypes: [ // RecommendationJobSupportedResponseMIMETypes
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     Endpoints: [ // Endpoints
  *       { // EndpointInfo

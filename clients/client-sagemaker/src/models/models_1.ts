@@ -4394,6 +4394,12 @@ export interface RecommendationJobContainerConfig {
    *          By specifying a value for this field, you can receive a longer list of benchmarks for the desired endpoint type.</p>
    */
   SupportedEndpointType?: RecommendationJobSupportedEndpointType | string;
+
+  /**
+   * @public
+   * <p>The supported MIME types for the output data.</p>
+   */
+  SupportedResponseMIMETypes?: string[];
 }
 
 /**
@@ -7994,6 +8000,10 @@ export interface CreateModelPackageInput {
    * @public
    * <p>A list of key value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
+   *          <p>If you supply <code>ModelPackageGroupName</code>, your model package belongs to the model group
+   * 	    you specify and uses the tags associated with the model group. In this case, you cannot
+   * 	    supply a <code>tag</code> argument.
+   * </p>
    */
   Tags?: Tag[];
 

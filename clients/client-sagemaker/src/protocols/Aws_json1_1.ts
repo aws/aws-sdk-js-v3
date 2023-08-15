@@ -21722,6 +21722,8 @@ const se_QueryLineageRequest = (input: QueryLineageRequest, context: __SerdeCont
 
 // se_RecommendationJobSupportedInstanceTypes omitted.
 
+// se_RecommendationJobSupportedResponseMIMETypes omitted.
+
 // se_RecommendationJobVpcConfig omitted.
 
 // se_RecommendationJobVpcSecurityGroupIds omitted.
@@ -27657,6 +27659,8 @@ const de_RecommendationJobInferenceBenchmark = (
 // de_RecommendationJobSupportedContentTypes omitted.
 
 // de_RecommendationJobSupportedInstanceTypes omitted.
+
+// de_RecommendationJobSupportedResponseMIMETypes omitted.
 
 // de_RecommendationJobVpcConfig omitted.
 
