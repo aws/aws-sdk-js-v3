@@ -4,13 +4,13 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 import {
   Action,
-  AuditContext,
   Blueprint,
   Column,
   ConnectionsList,
   ConnectionType,
   Crawler,
   CsvHeaderOption,
+  CsvSerdeOption,
   DatabaseIdentifier,
   DataFormat,
   DataQualityRuleResult,
@@ -35,6 +35,32 @@ import {
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A value could not be validated.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -2887,6 +2913,12 @@ export interface CsvClassifier {
    * <p>A list of custom datatypes including "BINARY", "BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP".</p>
    */
   CustomDatatypes?: string[];
+
+  /**
+   * @public
+   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
+   */
+  Serde?: CsvSerdeOption | string;
 }
 
 /**
@@ -7892,44 +7924,3 @@ export const PermissionType = {
  * @public
  */
 export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
-
-/**
- * @public
- */
-export interface GetUnfilteredPartitionMetadataRequest {
-  /**
-   * @public
-   * <p>The catalog ID where the partition resides.</p>
-   */
-  CatalogId: string | undefined;
-
-  /**
-   * @public
-   * <p>(Required) Specifies the name of a database that contains the partition.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>(Required) Specifies the name of a table that contains the partition.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * @public
-   * <p>(Required) A list of partition key values.</p>
-   */
-  PartitionValues: string[] | undefined;
-
-  /**
-   * @public
-   * <p>A structure containing Lake Formation audit context information.</p>
-   */
-  AuditContext?: AuditContext;
-
-  /**
-   * @public
-   * <p>(Required) A list of supported permission types. </p>
-   */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
-}

@@ -75,6 +75,7 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  *     CustomDatatypes: [ // CustomDatatypes
  *       "STRING_VALUE",
  *     ],
+ *     Serde: "OpenCSVSerDe" || "LazySimpleSerDe" || "None",
  *   },
  * };
  * const command = new UpdateClassifierCommand(input);

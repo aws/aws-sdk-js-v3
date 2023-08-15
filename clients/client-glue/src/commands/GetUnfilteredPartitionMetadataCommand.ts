@@ -14,8 +14,7 @@ import {
 } from "@smithy/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUnfilteredPartitionMetadataRequest } from "../models/models_1";
-import { GetUnfilteredPartitionMetadataResponse } from "../models/models_2";
+import { GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse } from "../models/models_2";
 import {
   de_GetUnfilteredPartitionMetadataCommand,
   se_GetUnfilteredPartitionMetadataCommand,

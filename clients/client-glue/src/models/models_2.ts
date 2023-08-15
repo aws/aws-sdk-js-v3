@@ -19,6 +19,7 @@ import {
   ConnectionsList,
   CrawlerTargets,
   CsvHeaderOption,
+  CsvSerdeOption,
   CustomCode,
   CustomEntityType,
   DatabaseInput,
@@ -129,6 +130,47 @@ import {
   TransformSortCriteria,
   UserDefinedFunctionInput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetUnfilteredPartitionMetadataRequest {
+  /**
+   * @public
+   * <p>The catalog ID where the partition resides.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * @public
+   * <p>(Required) Specifies the name of a database that contains the partition.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>(Required) Specifies the name of a table that contains the partition.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>(Required) A list of partition key values.</p>
+   */
+  PartitionValues: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A structure containing Lake Formation audit context information.</p>
+   */
+  AuditContext?: AuditContext;
+
+  /**
+   * @public
+   * <p>(Required) A list of supported permission types. </p>
+   */
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+}
 
 /**
  * @public
@@ -3818,6 +3860,12 @@ export interface UpdateCsvClassifierRequest {
    * <p>Specifies a list of supported custom datatypes.</p>
    */
   CustomDatatypes?: string[];
+
+  /**
+   * @public
+   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
+   */
+  Serde?: CsvSerdeOption | string;
 }
 
 /**

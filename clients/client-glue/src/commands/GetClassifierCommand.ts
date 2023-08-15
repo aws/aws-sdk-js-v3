@@ -91,6 +91,7 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * //       CustomDatatypes: [ // CustomDatatypes
  * //         "STRING_VALUE",
  * //       ],
+ * //       Serde: "OpenCSVSerDe" || "LazySimpleSerDe" || "None",
  * //     },
  * //   },
  * // };

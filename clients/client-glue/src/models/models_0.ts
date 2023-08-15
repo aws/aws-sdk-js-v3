@@ -8208,6 +8208,21 @@ export type CsvHeaderOption = (typeof CsvHeaderOption)[keyof typeof CsvHeaderOpt
 
 /**
  * @public
+ * @enum
+ */
+export const CsvSerdeOption = {
+  LazySimpleSerDe: "LazySimpleSerDe",
+  None: "None",
+  OpenCSVSerDe: "OpenCSVSerDe",
+} as const;
+
+/**
+ * @public
+ */
+export type CsvSerdeOption = (typeof CsvSerdeOption)[keyof typeof CsvSerdeOption];
+
+/**
+ * @public
  * <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
  */
 export interface CreateCsvClassifierRequest {
@@ -8264,6 +8279,12 @@ export interface CreateCsvClassifierRequest {
    * <p>Creates a list of supported custom datatypes.</p>
    */
   CustomDatatypes?: string[];
+
+  /**
+   * @public
+   * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
+   */
+  Serde?: CsvSerdeOption | string;
 }
 
 /**
@@ -9390,30 +9411,4 @@ export interface CreateDevEndpointResponse {
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   Arguments?: Record<string, string>;
-}
-
-/**
- * @public
- * <p>A value could not be validated.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.Message = opts.Message;
-  }
 }

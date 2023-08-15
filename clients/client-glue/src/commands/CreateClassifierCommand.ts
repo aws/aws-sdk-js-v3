@@ -75,6 +75,7 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  *     CustomDatatypes: [ // CustomDatatypes
  *       "STRING_VALUE",
  *     ],
+ *     Serde: "OpenCSVSerDe" || "LazySimpleSerDe" || "None",
  *   },
  * };
  * const command = new CreateClassifierCommand(input);

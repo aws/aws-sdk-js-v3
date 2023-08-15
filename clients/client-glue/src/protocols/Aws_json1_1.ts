@@ -657,7 +657,6 @@ import {
   TransformConfigParameter,
   Union,
   UpsertRedshiftTargetOptions,
-  ValidationException,
   Workflow,
   WorkflowGraph,
   WorkflowRun,
@@ -830,7 +829,6 @@ import {
   GetTagsRequest,
   GetTriggerRequest,
   GetTriggersRequest,
-  GetUnfilteredPartitionMetadataRequest,
   GluePolicy,
   GrokClassifier,
   IcebergInput,
@@ -868,6 +866,7 @@ import {
   TransformParameters,
   TransformSortCriteria,
   UserDefinedFunctionInput,
+  ValidationException,
   XMLClassifier,
 } from "../models/models_1";
 import {
@@ -892,6 +891,7 @@ import {
   DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
+  GetUnfilteredPartitionMetadataRequest,
   GetUnfilteredPartitionMetadataResponse,
   GetUnfilteredPartitionsMetadataRequest,
   GetUnfilteredPartitionsMetadataResponse,
@@ -18360,6 +18360,7 @@ const de_CsvClassifier = (output: any, context: __SerdeContext): CsvClassifier =
     LastUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     QuoteSymbol: __expectString,
+    Serde: __expectString,
     Version: __expectLong,
   }) as any;
 };
