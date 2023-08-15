@@ -151,6 +151,9 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Multiple instances of the same request have been made simultaneously.</p>
+ *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
  *

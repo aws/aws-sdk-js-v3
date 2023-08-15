@@ -67,11 +67,29 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
  *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the resource limit.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource that you want to tag couldn't be found.</p>
  *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
  * @throws {@link TooManyTagsException} (client fault)
  *  <p>Too many tags were added to the specified resource.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The user isn't authorized to request a resource.</p>
  *
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>

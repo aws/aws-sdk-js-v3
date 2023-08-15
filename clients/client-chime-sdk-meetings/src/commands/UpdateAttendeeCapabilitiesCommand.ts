@@ -111,8 +111,14 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * @throws {@link NotFoundException} (client fault)
  *  <p>One or more of the resources in the request does not exist in the system.</p>
  *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The service encountered an unexpected error.</p>
+ *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The number of customer requests exceeds the request rate limit.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The user isn't authorized to request a resource.</p>

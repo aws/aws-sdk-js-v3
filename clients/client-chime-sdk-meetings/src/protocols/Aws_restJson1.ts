@@ -697,9 +697,15 @@ const de_BatchUpdateAttendeeCapabilitiesExceptCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -821,6 +827,9 @@ const de_CreateMeetingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmeetings#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -888,6 +897,9 @@ const de_CreateMeetingWithAttendeesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmeetings#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -1268,9 +1280,30 @@ const de_ListTagsForResourceCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmeetings#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1445,12 +1478,30 @@ const de_TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.chimesdkmeetings#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1494,9 +1545,27 @@ const de_UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1553,9 +1622,15 @@ const de_UpdateAttendeeCapabilitiesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
