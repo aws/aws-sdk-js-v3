@@ -3,6 +3,16 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreatePerformanceAnalysisReportCommand,
+  CreatePerformanceAnalysisReportCommandInput,
+  CreatePerformanceAnalysisReportCommandOutput,
+} from "./commands/CreatePerformanceAnalysisReportCommand";
+import {
+  DeletePerformanceAnalysisReportCommand,
+  DeletePerformanceAnalysisReportCommandInput,
+  DeletePerformanceAnalysisReportCommandOutput,
+} from "./commands/DeletePerformanceAnalysisReportCommand";
+import {
   DescribeDimensionKeysCommand,
   DescribeDimensionKeysCommandInput,
   DescribeDimensionKeysCommandOutput,
@@ -12,6 +22,11 @@ import {
   GetDimensionKeyDetailsCommandInput,
   GetDimensionKeyDetailsCommandOutput,
 } from "./commands/GetDimensionKeyDetailsCommand";
+import {
+  GetPerformanceAnalysisReportCommand,
+  GetPerformanceAnalysisReportCommandInput,
+  GetPerformanceAnalysisReportCommandOutput,
+} from "./commands/GetPerformanceAnalysisReportCommand";
 import {
   GetResourceMetadataCommand,
   GetResourceMetadataCommandInput,
@@ -32,18 +47,75 @@ import {
   ListAvailableResourceMetricsCommandInput,
   ListAvailableResourceMetricsCommandOutput,
 } from "./commands/ListAvailableResourceMetricsCommand";
+import {
+  ListPerformanceAnalysisReportsCommand,
+  ListPerformanceAnalysisReportsCommandInput,
+  ListPerformanceAnalysisReportsCommandOutput,
+} from "./commands/ListPerformanceAnalysisReportsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { PIClient, PIClientConfig } from "./PIClient";
 
 const commands = {
+  CreatePerformanceAnalysisReportCommand,
+  DeletePerformanceAnalysisReportCommand,
   DescribeDimensionKeysCommand,
   GetDimensionKeyDetailsCommand,
+  GetPerformanceAnalysisReportCommand,
   GetResourceMetadataCommand,
   GetResourceMetricsCommand,
   ListAvailableResourceDimensionsCommand,
   ListAvailableResourceMetricsCommand,
+  ListPerformanceAnalysisReportsCommand,
+  ListTagsForResourceCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
 };
 
 export interface PI {
+  /**
+   * @see {@link CreatePerformanceAnalysisReportCommand}
+   */
+  createPerformanceAnalysisReport(
+    args: CreatePerformanceAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePerformanceAnalysisReportCommandOutput>;
+  createPerformanceAnalysisReport(
+    args: CreatePerformanceAnalysisReportCommandInput,
+    cb: (err: any, data?: CreatePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+  createPerformanceAnalysisReport(
+    args: CreatePerformanceAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePerformanceAnalysisReportCommand}
+   */
+  deletePerformanceAnalysisReport(
+    args: DeletePerformanceAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePerformanceAnalysisReportCommandOutput>;
+  deletePerformanceAnalysisReport(
+    args: DeletePerformanceAnalysisReportCommandInput,
+    cb: (err: any, data?: DeletePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+  deletePerformanceAnalysisReport(
+    args: DeletePerformanceAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePerformanceAnalysisReportCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DescribeDimensionKeysCommand}
    */
@@ -76,6 +148,23 @@ export interface PI {
     args: GetDimensionKeyDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPerformanceAnalysisReportCommand}
+   */
+  getPerformanceAnalysisReport(
+    args: GetPerformanceAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPerformanceAnalysisReportCommandOutput>;
+  getPerformanceAnalysisReport(
+    args: GetPerformanceAnalysisReportCommandInput,
+    cb: (err: any, data?: GetPerformanceAnalysisReportCommandOutput) => void
+  ): void;
+  getPerformanceAnalysisReport(
+    args: GetPerformanceAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPerformanceAnalysisReportCommandOutput) => void
   ): void;
 
   /**
@@ -144,6 +233,62 @@ export interface PI {
     args: ListAvailableResourceMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAvailableResourceMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPerformanceAnalysisReportsCommand}
+   */
+  listPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPerformanceAnalysisReportsCommandOutput>;
+  listPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    cb: (err: any, data?: ListPerformanceAnalysisReportsCommandOutput) => void
+  ): void;
+  listPerformanceAnalysisReports(
+    args: ListPerformanceAnalysisReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPerformanceAnalysisReportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 }
 

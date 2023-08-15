@@ -51,6 +51,14 @@ import {
 } from "@smithy/types";
 
 import {
+  CreatePerformanceAnalysisReportCommandInput,
+  CreatePerformanceAnalysisReportCommandOutput,
+} from "./commands/CreatePerformanceAnalysisReportCommand";
+import {
+  DeletePerformanceAnalysisReportCommandInput,
+  DeletePerformanceAnalysisReportCommandOutput,
+} from "./commands/DeletePerformanceAnalysisReportCommand";
+import {
   DescribeDimensionKeysCommandInput,
   DescribeDimensionKeysCommandOutput,
 } from "./commands/DescribeDimensionKeysCommand";
@@ -58,6 +66,10 @@ import {
   GetDimensionKeyDetailsCommandInput,
   GetDimensionKeyDetailsCommandOutput,
 } from "./commands/GetDimensionKeyDetailsCommand";
+import {
+  GetPerformanceAnalysisReportCommandInput,
+  GetPerformanceAnalysisReportCommandOutput,
+} from "./commands/GetPerformanceAnalysisReportCommand";
 import {
   GetResourceMetadataCommandInput,
   GetResourceMetadataCommandOutput,
@@ -72,6 +84,16 @@ import {
   ListAvailableResourceMetricsCommandOutput,
 } from "./commands/ListAvailableResourceMetricsCommand";
 import {
+  ListPerformanceAnalysisReportsCommandInput,
+  ListPerformanceAnalysisReportsCommandOutput,
+} from "./commands/ListPerformanceAnalysisReportsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -85,23 +107,37 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreatePerformanceAnalysisReportCommandInput
+  | DeletePerformanceAnalysisReportCommandInput
   | DescribeDimensionKeysCommandInput
   | GetDimensionKeyDetailsCommandInput
+  | GetPerformanceAnalysisReportCommandInput
   | GetResourceMetadataCommandInput
   | GetResourceMetricsCommandInput
   | ListAvailableResourceDimensionsCommandInput
-  | ListAvailableResourceMetricsCommandInput;
+  | ListAvailableResourceMetricsCommandInput
+  | ListPerformanceAnalysisReportsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreatePerformanceAnalysisReportCommandOutput
+  | DeletePerformanceAnalysisReportCommandOutput
   | DescribeDimensionKeysCommandOutput
   | GetDimensionKeyDetailsCommandOutput
+  | GetPerformanceAnalysisReportCommandOutput
   | GetResourceMetadataCommandOutput
   | GetResourceMetricsCommandOutput
   | ListAvailableResourceDimensionsCommandOutput
-  | ListAvailableResourceMetricsCommandOutput;
+  | ListAvailableResourceMetricsCommandOutput
+  | ListPerformanceAnalysisReportsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public

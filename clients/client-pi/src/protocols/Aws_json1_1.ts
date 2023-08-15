@@ -20,6 +20,14 @@ import {
 } from "@smithy/types";
 
 import {
+  CreatePerformanceAnalysisReportCommandInput,
+  CreatePerformanceAnalysisReportCommandOutput,
+} from "../commands/CreatePerformanceAnalysisReportCommand";
+import {
+  DeletePerformanceAnalysisReportCommandInput,
+  DeletePerformanceAnalysisReportCommandOutput,
+} from "../commands/DeletePerformanceAnalysisReportCommand";
+import {
   DescribeDimensionKeysCommandInput,
   DescribeDimensionKeysCommandOutput,
 } from "../commands/DescribeDimensionKeysCommand";
@@ -27,6 +35,10 @@ import {
   GetDimensionKeyDetailsCommandInput,
   GetDimensionKeyDetailsCommandOutput,
 } from "../commands/GetDimensionKeyDetailsCommand";
+import {
+  GetPerformanceAnalysisReportCommandInput,
+  GetPerformanceAnalysisReportCommandOutput,
+} from "../commands/GetPerformanceAnalysisReportCommand";
 import {
   GetResourceMetadataCommandInput,
   GetResourceMetadataCommandOutput,
@@ -41,24 +53,75 @@ import {
   ListAvailableResourceMetricsCommandOutput,
 } from "../commands/ListAvailableResourceMetricsCommand";
 import {
+  ListPerformanceAnalysisReportsCommandInput,
+  ListPerformanceAnalysisReportsCommandOutput,
+} from "../commands/ListPerformanceAnalysisReportsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  AnalysisReport,
+  AnalysisReportSummary,
+  CreatePerformanceAnalysisReportRequest,
+  Data,
   DataPoint,
+  DeletePerformanceAnalysisReportRequest,
   DescribeDimensionKeysRequest,
   DescribeDimensionKeysResponse,
   DimensionGroup,
   DimensionKeyDescription,
   GetDimensionKeyDetailsRequest,
+  GetPerformanceAnalysisReportRequest,
+  GetPerformanceAnalysisReportResponse,
   GetResourceMetadataRequest,
   GetResourceMetricsRequest,
   GetResourceMetricsResponse,
+  Insight,
   InternalServiceError,
   InvalidArgumentException,
   ListAvailableResourceDimensionsRequest,
   ListAvailableResourceMetricsRequest,
+  ListPerformanceAnalysisReportsRequest,
+  ListPerformanceAnalysisReportsResponse,
+  ListTagsForResourceRequest,
   MetricKeyDataPoints,
   MetricQuery,
   NotAuthorizedException,
+  PerformanceInsightsMetric,
+  Tag,
+  TagResourceRequest,
+  UntagResourceRequest,
 } from "../models/models_0";
 import { PIServiceException as __BaseException } from "../models/PIServiceException";
+
+/**
+ * serializeAws_json1_1CreatePerformanceAnalysisReportCommand
+ */
+export const se_CreatePerformanceAnalysisReportCommand = async (
+  input: CreatePerformanceAnalysisReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreatePerformanceAnalysisReport");
+  let body: any;
+  body = JSON.stringify(se_CreatePerformanceAnalysisReportRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeletePerformanceAnalysisReportCommand
+ */
+export const se_DeletePerformanceAnalysisReportCommand = async (
+  input: DeletePerformanceAnalysisReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeletePerformanceAnalysisReport");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_1DescribeDimensionKeysCommand
@@ -81,6 +144,19 @@ export const se_GetDimensionKeyDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDimensionKeyDetails");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetPerformanceAnalysisReportCommand
+ */
+export const se_GetPerformanceAnalysisReportCommand = async (
+  input: GetPerformanceAnalysisReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetPerformanceAnalysisReport");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -136,6 +212,162 @@ export const se_ListAvailableResourceMetricsCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListPerformanceAnalysisReportsCommand
+ */
+export const se_ListPerformanceAnalysisReportsCommand = async (
+  input: ListPerformanceAnalysisReportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListPerformanceAnalysisReports");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1CreatePerformanceAnalysisReportCommand
+ */
+export const de_CreatePerformanceAnalysisReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePerformanceAnalysisReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreatePerformanceAnalysisReportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreatePerformanceAnalysisReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreatePerformanceAnalysisReportCommandError
+ */
+const de_CreatePerformanceAnalysisReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePerformanceAnalysisReportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeletePerformanceAnalysisReportCommand
+ */
+export const de_DeletePerformanceAnalysisReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePerformanceAnalysisReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeletePerformanceAnalysisReportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeletePerformanceAnalysisReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePerformanceAnalysisReportCommandError
+ */
+const de_DeletePerformanceAnalysisReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePerformanceAnalysisReportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -217,6 +449,58 @@ const de_GetDimensionKeyDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDimensionKeyDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetPerformanceAnalysisReportCommand
+ */
+export const de_GetPerformanceAnalysisReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPerformanceAnalysisReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetPerformanceAnalysisReportCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetPerformanceAnalysisReportResponse(data, context);
+  const response: GetPerformanceAnalysisReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetPerformanceAnalysisReportCommandError
+ */
+const de_GetPerformanceAnalysisReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPerformanceAnalysisReportCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -451,6 +735,214 @@ const de_ListAvailableResourceMetricsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListPerformanceAnalysisReportsCommand
+ */
+export const de_ListPerformanceAnalysisReportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPerformanceAnalysisReportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListPerformanceAnalysisReportsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPerformanceAnalysisReportsResponse(data, context);
+  const response: ListPerformanceAnalysisReportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPerformanceAnalysisReportsCommandError
+ */
+const de_ListPerformanceAnalysisReportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPerformanceAnalysisReportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommandError
+ */
+const de_ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommandError
+ */
+const de_TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommandError
+ */
+const de_UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1InternalServiceErrorRes
  */
 const de_InternalServiceErrorRes = async (
@@ -501,6 +993,24 @@ const de_NotAuthorizedExceptionRes = async (
 // se_AdditionalMetricsList omitted.
 
 /**
+ * serializeAws_json1_1CreatePerformanceAnalysisReportRequest
+ */
+const se_CreatePerformanceAnalysisReportRequest = (
+  input: CreatePerformanceAnalysisReportRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    Identifier: [],
+    ServiceType: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    Tags: _json,
+  });
+};
+
+// se_DeletePerformanceAnalysisReportRequest omitted.
+
+/**
  * serializeAws_json1_1DescribeDimensionKeysRequest
  */
 const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, context: __SerdeContext): any => {
@@ -526,6 +1036,8 @@ const se_DescribeDimensionKeysRequest = (input: DescribeDimensionKeysRequest, co
 
 // se_GetDimensionKeyDetailsRequest omitted.
 
+// se_GetPerformanceAnalysisReportRequest omitted.
+
 // se_GetResourceMetadataRequest omitted.
 
 /**
@@ -549,6 +1061,10 @@ const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context:
 
 // se_ListAvailableResourceMetricsRequest omitted.
 
+// se_ListPerformanceAnalysisReportsRequest omitted.
+
+// se_ListTagsForResourceRequest omitted.
+
 // se_MetricQuery omitted.
 
 // se_MetricQueryFilterMap omitted.
@@ -561,6 +1077,16 @@ const se_GetResourceMetricsRequest = (input: GetResourceMetricsRequest, context:
 
 // se_RequestStringList omitted.
 
+// se_Tag omitted.
+
+// se_TagKeyList omitted.
+
+// se_TagList omitted.
+
+// se_TagResourceRequest omitted.
+
+// se_UntagResourceRequest omitted.
+
 /**
  * deserializeAws_json1_1AdditionalMetricsMap
  */
@@ -572,6 +1098,71 @@ const de_AdditionalMetricsMap = (output: any, context: __SerdeContext): Record<s
     acc[key] = __limitedParseDouble(value) as any;
     return acc;
   }, {});
+};
+
+/**
+ * deserializeAws_json1_1AnalysisReport
+ */
+const de_AnalysisReport = (output: any, context: __SerdeContext): AnalysisReport => {
+  return take(output, {
+    AnalysisReportId: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Identifier: __expectString,
+    Insights: (_: any) => de_InsightList(_, context),
+    ServiceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AnalysisReportSummary
+ */
+const de_AnalysisReportSummary = (output: any, context: __SerdeContext): AnalysisReportSummary => {
+  return take(output, {
+    AnalysisReportId: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AnalysisReportSummaryList
+ */
+const de_AnalysisReportSummaryList = (output: any, context: __SerdeContext): AnalysisReportSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnalysisReportSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_CreatePerformanceAnalysisReportResponse omitted.
+
+/**
+ * deserializeAws_json1_1Data
+ */
+const de_Data = (output: any, context: __SerdeContext): Data => {
+  return take(output, {
+    PerformanceInsightsMetric: (_: any) => de_PerformanceInsightsMetric(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DataList
+ */
+const de_DataList = (output: any, context: __SerdeContext): Data[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Data(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -596,6 +1187,8 @@ const de_DataPointsList = (output: any, context: __SerdeContext): DataPoint[] =>
   return retVal;
 };
 
+// de_DeletePerformanceAnalysisReportResponse omitted.
+
 /**
  * deserializeAws_json1_1DescribeDimensionKeysResponse
  */
@@ -608,6 +1201,8 @@ const de_DescribeDimensionKeysResponse = (output: any, context: __SerdeContext):
     PartitionKeys: _json,
   }) as any;
 };
+
+// de_DescriptiveMap omitted.
 
 // de_DimensionDetail omitted.
 
@@ -653,6 +1248,18 @@ const de_DimensionKeyDescriptionList = (output: any, context: __SerdeContext): D
 
 // de_GetDimensionKeyDetailsResponse omitted.
 
+/**
+ * deserializeAws_json1_1GetPerformanceAnalysisReportResponse
+ */
+const de_GetPerformanceAnalysisReportResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPerformanceAnalysisReportResponse => {
+  return take(output, {
+    AnalysisReport: (_: any) => de_AnalysisReport(_, context),
+  }) as any;
+};
+
 // de_GetResourceMetadataResponse omitted.
 
 /**
@@ -668,6 +1275,37 @@ const de_GetResourceMetricsResponse = (output: any, context: __SerdeContext): Ge
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1Insight
+ */
+const de_Insight = (output: any, context: __SerdeContext): Insight => {
+  return take(output, {
+    BaselineData: (_: any) => de_DataList(_, context),
+    Context: __expectString,
+    Description: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InsightData: (_: any) => de_DataList(_, context),
+    InsightId: __expectString,
+    InsightType: __expectString,
+    Recommendations: _json,
+    Severity: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SupportingInsights: (_: any) => de_InsightList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1InsightList
+ */
+const de_InsightList = (output: any, context: __SerdeContext): Insight[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Insight(entry, context);
+    });
+  return retVal;
+};
+
 // de_InternalServiceError omitted.
 
 // de_InvalidArgumentException omitted.
@@ -675,6 +1313,21 @@ const de_GetResourceMetricsResponse = (output: any, context: __SerdeContext): Ge
 // de_ListAvailableResourceDimensionsResponse omitted.
 
 // de_ListAvailableResourceMetricsResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListPerformanceAnalysisReportsResponse
+ */
+const de_ListPerformanceAnalysisReportsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListPerformanceAnalysisReportsResponse => {
+  return take(output, {
+    AnalysisReports: (_: any) => de_AnalysisReportSummaryList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_ListTagsForResourceResponse omitted.
 
 // de_MetricDimensionGroups omitted.
 
@@ -716,6 +1369,22 @@ const de_MetricValuesList = (output: any, context: __SerdeContext): number[] => 
 
 // de_NotAuthorizedException omitted.
 
+/**
+ * deserializeAws_json1_1PerformanceInsightsMetric
+ */
+const de_PerformanceInsightsMetric = (output: any, context: __SerdeContext): PerformanceInsightsMetric => {
+  return take(output, {
+    Dimensions: _json,
+    DisplayName: __expectString,
+    Metric: __expectString,
+    Value: __limitedParseDouble,
+  }) as any;
+};
+
+// de_Recommendation omitted.
+
+// de_RecommendationList omitted.
+
 // de_ResponsePartitionKey omitted.
 
 // de_ResponsePartitionKeyList omitted.
@@ -725,6 +1394,14 @@ const de_MetricValuesList = (output: any, context: __SerdeContext): number[] => 
 // de_ResponseResourceMetricKey omitted.
 
 // de_ResponseResourceMetricList omitted.
+
+// de_Tag omitted.
+
+// de_TagList omitted.
+
+// de_TagResourceResponse omitted.
+
+// de_UntagResourceResponse omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

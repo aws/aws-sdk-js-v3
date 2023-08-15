@@ -48,16 +48,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PIClient` and
-the commands you need, for example `DescribeDimensionKeysCommand`:
+the commands you need, for example `CreatePerformanceAnalysisReportCommand`:
 
 ```js
 // ES5 example
-const { PIClient, DescribeDimensionKeysCommand } = require("@aws-sdk/client-pi");
+const { PIClient, CreatePerformanceAnalysisReportCommand } = require("@aws-sdk/client-pi");
 ```
 
 ```ts
 // ES6+ example
-import { PIClient, DescribeDimensionKeysCommand } from "@aws-sdk/client-pi";
+import { PIClient, CreatePerformanceAnalysisReportCommand } from "@aws-sdk/client-pi";
 ```
 
 ### Usage
@@ -76,7 +76,7 @@ const client = new PIClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeDimensionKeysCommand(params);
+const command = new CreatePerformanceAnalysisReportCommand(params);
 ```
 
 #### Async/await
@@ -155,7 +155,7 @@ const client = new AWS.PI({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeDimensionKeys(params);
+  const data = await client.createPerformanceAnalysisReport(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -163,7 +163,7 @@ try {
 
 // Promises.
 client
-  .describeDimensionKeys(params)
+  .createPerformanceAnalysisReport(params)
   .then((data) => {
     // process data.
   })
@@ -172,7 +172,7 @@ client
   });
 
 // callbacks.
-client.describeDimensionKeys(params, (err, data) => {
+client.createPerformanceAnalysisReport(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -230,6 +230,22 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreatePerformanceAnalysisReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/createperformanceanalysisreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/createperformanceanalysisreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/createperformanceanalysisreportcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DeletePerformanceAnalysisReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/deleteperformanceanalysisreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/deleteperformanceanalysisreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/deleteperformanceanalysisreportcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeDimensionKeys
 </summary>
 
@@ -242,6 +258,14 @@ GetDimensionKeyDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/getdimensionkeydetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getdimensionkeydetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getdimensionkeydetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetPerformanceAnalysisReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/getperformanceanalysisreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getperformanceanalysisreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/getperformanceanalysisreportcommandoutput.html)
 
 </details>
 <details>
@@ -274,5 +298,37 @@ ListAvailableResourceMetrics
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/listavailableresourcemetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listavailableresourcemetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listavailableresourcemetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListPerformanceAnalysisReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/listperformanceanalysisreportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listperformanceanalysisreportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listperformanceanalysisreportscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pi/interfaces/untagresourcecommandoutput.html)
 
 </details>
