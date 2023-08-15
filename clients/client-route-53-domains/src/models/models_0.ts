@@ -211,6 +211,12 @@ export class DuplicateRequest extends __BaseException {
   readonly name: "DuplicateRequest" = "DuplicateRequest";
   readonly $fault: "client" = "client";
   /**
+   * @public
+   * <p>ID of the request operation.</p>
+   */
+  requestId?: string;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<DuplicateRequest, __BaseException>) {
@@ -220,6 +226,7 @@ export class DuplicateRequest extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DuplicateRequest.prototype);
+    this.requestId = opts.requestId;
   }
 }
 
@@ -558,7 +565,7 @@ export interface DomainTransferability {
    *             </dd>
    *             <dt>DOMAIN_IN_ANOTHER_ACCOUNT</dt>
    *             <dd>
-   *                <p> the domain exists in another Amazon Web Services account.</p>
+   *                <p> The domain exists in another Amazon Web Services account.</p>
    *             </dd>
    *             <dt>PREMIUM_DOMAIN</dt>
    *             <dd>
@@ -580,6 +587,12 @@ export interface CheckDomainTransferabilityResponse {
    * 			transferred to Route 53.</p>
    */
   Transferability?: DomainTransferability;
+
+  /**
+   * @public
+   * <p>Provides an explanation for when a domain can't be transferred.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -3900,6 +3913,16 @@ export interface ViewBillingResponse {
 /**
  * @internal
  */
+export const AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog = (
+  obj: AcceptDomainTransferFromAnotherAwsAccountRequest
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CheckDomainTransferabilityRequestFilterSensitiveLog = (obj: CheckDomainTransferabilityRequest): any => ({
   ...obj,
   ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
@@ -3918,6 +3941,18 @@ export const ExtraParamFilterSensitiveLog = (obj: ExtraParam): any => ({
  */
 export const ContactDetailFilterSensitiveLog = (obj: ContactDetail): any => ({
   ...obj,
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.OrganizationName && { OrganizationName: SENSITIVE_STRING }),
+  ...(obj.AddressLine1 && { AddressLine1: SENSITIVE_STRING }),
+  ...(obj.AddressLine2 && { AddressLine2: SENSITIVE_STRING }),
+  ...(obj.City && { City: SENSITIVE_STRING }),
+  ...(obj.State && { State: SENSITIVE_STRING }),
+  ...(obj.CountryCode && { CountryCode: SENSITIVE_STRING }),
+  ...(obj.ZipCode && { ZipCode: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+  ...(obj.Fax && { Fax: SENSITIVE_STRING }),
   ...(obj.ExtraParams && { ExtraParams: obj.ExtraParams.map((item) => ExtraParamFilterSensitiveLog(item)) }),
 });
 
@@ -3929,6 +3964,8 @@ export const GetDomainDetailResponseFilterSensitiveLog = (obj: GetDomainDetailRe
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+  ...(obj.AbuseContactEmail && { AbuseContactEmail: SENSITIVE_STRING }),
+  ...(obj.AbuseContactPhone && { AbuseContactPhone: SENSITIVE_STRING }),
 });
 
 /**
@@ -3939,6 +3976,16 @@ export const RegisterDomainRequestFilterSensitiveLog = (obj: RegisterDomainReque
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResendContactReachabilityEmailResponseFilterSensitiveLog = (
+  obj: ResendContactReachabilityEmailResponse
+): any => ({
+  ...obj,
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
 });
 
 /**
@@ -3958,6 +4005,16 @@ export const TransferDomainRequestFilterSensitiveLog = (obj: TransferDomainReque
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog = (
+  obj: TransferDomainToAnotherAwsAccountResponse
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
 });
 
 /**

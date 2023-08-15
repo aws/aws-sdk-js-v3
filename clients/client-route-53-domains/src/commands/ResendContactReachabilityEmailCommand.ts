@@ -13,7 +13,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
-import { ResendContactReachabilityEmailRequest, ResendContactReachabilityEmailResponse } from "../models/models_0";
+import {
+  ResendContactReachabilityEmailRequest,
+  ResendContactReachabilityEmailResponse,
+  ResendContactReachabilityEmailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_ResendContactReachabilityEmailCommand,
   se_ResendContactReachabilityEmailCommand,
@@ -135,7 +139,7 @@ export class ResendContactReachabilityEmailCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: ResendContactReachabilityEmailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

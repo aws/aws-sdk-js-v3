@@ -15,6 +15,7 @@ import {
 
 import {
   AcceptDomainTransferFromAnotherAwsAccountRequest,
+  AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
   AcceptDomainTransferFromAnotherAwsAccountResponse,
 } from "../models/models_0";
 import {
@@ -150,7 +151,7 @@ export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
