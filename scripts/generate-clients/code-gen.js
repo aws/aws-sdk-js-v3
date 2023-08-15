@@ -68,7 +68,8 @@ const generateProtocolTests = async () => {
 };
 
 const generateGenericClient = async () => {
-  await spawnProcess("./gradlew", [":smithy-aws-typescript-codegen:clean", ":generic-client-test-codegen:build"], {
+  const logLevelArgs = ['--loglevel', 'warn'];
+  await spawnProcess("./gradlew", [":smithy-aws-typescript-codegen:clean", ":generic-client-test-codegen:build", ...logLevelArgs], {
     cwd: CODE_GEN_ROOT,
   });
 };
