@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.392.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.391.0...v3.392.0) (2023-08-15)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Updated API documentation to include additional exceptions. ([964f281](https://github.com/aws/aws-sdk-js-v3/commit/964f2814253d9cb09be48d351b0cca070de087e9))
+* **client-ec2:** Documentation updates for Elastic Compute Cloud (EC2). ([cd827e7](https://github.com/aws/aws-sdk-js-v3/commit/cd827e78b43f73434cc5b52071b0eec966e8a262))
+* **client-glue:** AWS Glue Crawlers can now accept SerDe overrides from a custom csv classifier. The two SerDe options are LazySimpleSerDe and OpenCSVSerDe. In case, the user wants crawler to do the selection, "None" can be selected for this purpose. ([b0474f6](https://github.com/aws/aws-sdk-js-v3/commit/b0474f6785c45a8f19f2d5b5cd03e088830207de))
+* **client-pi:** AWS Performance Insights for Amazon RDS is launching Performance Analysis On Demand, a new feature that allows you to analyze database performance metrics and find out the performance issues. You can now use SDK to create, list, get, delete, and manage tags of performance analysis reports. ([a85e9d6](https://github.com/aws/aws-sdk-js-v3/commit/a85e9d6ed68a47bb0c9faf320bcccdfb83af04c4))
+* **client-route-53-domains:** Provide explanation if CheckDomainTransferability return false. Provide requestId if a request is already submitted.  Add sensitive protection for customer information ([0f396da](https://github.com/aws/aws-sdk-js-v3/commit/0f396da9f23c0b0ccd42c78392d09c011f59686e))
+* **client-sagemaker:** SageMaker Inference Recommender now provides SupportedResponseMIMETypes from DescribeInferenceRecommendationsJob response ([e2e362f](https://github.com/aws/aws-sdk-js-v3/commit/e2e362f9c9fb4738405474f7118dc67cbc7ac09b))
+* **clients:** update client endpoints as of 2023-08-15 ([7fb86af](https://github.com/aws/aws-sdk-js-v3/commit/7fb86af2d2a7d0217dacabdd93a8fe8203bf8ef3))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 

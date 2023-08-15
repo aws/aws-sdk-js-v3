@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.392.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.391.0...v3.392.0) (2023-08-15)
+
+
+### Features
+
+* **client-glue:** AWS Glue Crawlers can now accept SerDe overrides from a custom csv classifier. The two SerDe options are LazySimpleSerDe and OpenCSVSerDe. In case, the user wants crawler to do the selection, "None" can be selected for this purpose. ([b0474f6](https://github.com/aws/aws-sdk-js-v3/commit/b0474f6785c45a8f19f2d5b5cd03e088830207de))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

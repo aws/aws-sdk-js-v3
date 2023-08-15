@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.392.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.391.0...v3.392.0) (2023-08-15)
+
+
+### Features
+
+* **client-route-53-domains:** Provide explanation if CheckDomainTransferability return false. Provide requestId if a request is already submitted.  Add sensitive protection for customer information ([0f396da](https://github.com/aws/aws-sdk-js-v3/commit/0f396da9f23c0b0ccd42c78392d09c011f59686e))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53-domains

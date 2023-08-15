@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.392.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.391.0...v3.392.0) (2023-08-15)
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Updated API documentation to include additional exceptions. ([964f281](https://github.com/aws/aws-sdk-js-v3/commit/964f2814253d9cb09be48d351b0cca070de087e9))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-meetings
