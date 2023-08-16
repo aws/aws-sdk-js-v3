@@ -1394,8 +1394,13 @@ export interface DescribeAlarmsInput {
 
   /**
    * @public
-   * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
-   * 		only metric alarms are returned.</p>
+   * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you
+   * 			omit this parameter,
+   * 		only metric alarms are returned, even if composite alarms exist in the account.</p>
+   *          <p>For example, if you omit this parameter or specify <code>MetricAlarms</code>, the operation returns only a list of metric
+   * 		alarms. It does not return any composite alarms, even if composite alarms exist in the account.</p>
+   *          <p>If you specify <code>CompositeAlarms</code>, the operation returns only a list of composite
+   * 			alarms, and does not return any metric alarms.</p>
    */
   AlarmTypes?: (AlarmType | string)[];
 
@@ -2164,7 +2169,7 @@ export interface GetInsightRuleReportInput {
 
   /**
    * @public
-   * <p>Determines what statistic to use to rank the contributors. Valid values are SUM and MAXIMUM.</p>
+   * <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
    */
   OrderBy?: string;
 }
@@ -4216,10 +4221,70 @@ export interface PutMetricAlarmInput {
 
   /**
    * @public
-   * <p>The percentile statistic for the metric specified in <code>MetricName</code>. Specify a value
-   * 			between p0.0 and p100. When you call <code>PutMetricAlarm</code> and specify
+   * <p>The extended statistic for the metric specified in <code>MetricName</code>. When you
+   * 			call <code>PutMetricAlarm</code> and specify
    * 			a <code>MetricName</code>, you must
-   * 			specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
+   * 			specify either <code>Statistic</code> or <code>ExtendedStatistic</code> but not both.</p>
+   *          <p>If you specify <code>ExtendedStatistic</code>, the following are valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>p90</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tm90</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tc90</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ts90</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wm90</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IQM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PR(<i>n</i>:<i>m</i>)</code> where n and m are values
+   * 			of the metric</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TC(<i>X</i>%:<i>X</i>%)</code> where X is between
+   * 				10 and 90 inclusive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TM(<i>X</i>%:<i>X</i>%)</code> where X is between
+   * 				10 and 90 inclusive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TS(<i>X</i>%:<i>X</i>%)</code> where X is between
+   * 				10 and 90 inclusive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WM(<i>X</i>%:<i>X</i>%)</code> where X is between
+   * 				10 and 90 inclusive.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these extended statistics, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">CloudWatch statistics definitions</a>.</p>
    */
   ExtendedStatistic?: string;
 
@@ -4349,7 +4414,9 @@ export interface PutMetricAlarmInput {
 
   /**
    * @public
-   * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.</p>
+   * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
+   * 		To be able to associate tags with the alarm when you create the alarm, you must
+   * 		have the <code>cloudwatch:TagResource</code> permission.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    * 			permissions by granting a user
    * 			permission to access or change only resources with certain tag values.</p>
