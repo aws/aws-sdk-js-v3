@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.393.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.392.0...v3.393.0) (2023-08-16)
+
+
+### Features
+
+* **client-lex-models-v2:** This release updates the Custom Vocabulary Weight field to support a value of 0. ([327f2f2](https://github.com/aws/aws-sdk-js-v3/commit/327f2f2e9d222904c4337f525adb66872c53b22e))
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2
