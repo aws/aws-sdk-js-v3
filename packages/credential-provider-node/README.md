@@ -80,8 +80,8 @@ supported:
   code and `mfaCodeProvider` is not a valid function, the credential provider
   promise will be rejected.
 - `roleAssumer` - A function that assumes a role and returns a promise
-  fulfilled with credentials for the assumed role. If not specified, the SDK
-  will create an STS client and call its `assumeRole` method.
+  fulfilled with credentials for the assumed role. If not specified, no role
+  will be assumed, and an error will be thrown.
 - `roleArn` - ARN to assume. If not specified, the provider will use the value
   in the `AWS_ROLE_ARN` environment variable.
 - `webIdentityTokenFile` - File location of where the `OIDC` token is stored.
